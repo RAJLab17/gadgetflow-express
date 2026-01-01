@@ -58,7 +58,7 @@ const MagneticCableProduct = () => {
     <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Product Image */}
+          {/* Product Image & Color Selection */}
           <div className="relative">
             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-secondary/50 border border-border">
               <img
@@ -68,9 +68,31 @@ const MagneticCableProduct = () => {
               />
             </div>
             
-            {/* Color Badge */}
-            <div className="absolute top-4 left-4 bg-card/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-border">
-              <span className="text-sm font-medium text-foreground">{selectedColor.name}</span>
+            {/* Color Selection - Under Image */}
+            <div className="mt-4 p-4 bg-card rounded-xl border border-border">
+              <h3 className="text-sm font-semibold text-foreground mb-3 text-center">
+                Color: <span className="text-primary">{selectedColor.name}</span>
+              </h3>
+              <div className="flex justify-center gap-3">
+                {colorVariants.map((variant) => (
+                  <button
+                    key={variant.id}
+                    onClick={() => setSelectedColor(variant)}
+                    className={`relative w-14 h-14 rounded-xl ${variant.color} transition-all duration-300 hover:scale-110 ${
+                      selectedColor.id === variant.id
+                        ? "ring-2 ring-primary ring-offset-2 ring-offset-background scale-110"
+                        : ""
+                    }`}
+                    title={variant.name}
+                  >
+                    {selectedColor.id === variant.id && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Check className="h-5 w-5 text-white drop-shadow-lg" />
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -122,33 +144,6 @@ const MagneticCableProduct = () => {
                   <span className="text-sm text-foreground">{feature.text}</span>
                 </div>
               ))}
-            </div>
-
-            {/* Color Selection */}
-            <div className="mb-8">
-              <h3 className="text-sm font-semibold text-foreground mb-3">
-                Color: <span className="text-primary">{selectedColor.name}</span>
-              </h3>
-              <div className="flex gap-3">
-                {colorVariants.map((variant) => (
-                  <button
-                    key={variant.id}
-                    onClick={() => setSelectedColor(variant)}
-                    className={`relative w-12 h-12 rounded-xl ${variant.color} transition-all duration-300 hover:scale-110 ${
-                      selectedColor.id === variant.id
-                        ? "ring-2 ring-primary ring-offset-2 ring-offset-background scale-110"
-                        : ""
-                    }`}
-                    title={variant.name}
-                  >
-                    {selectedColor.id === variant.id && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Check className="h-5 w-5 text-white drop-shadow-lg" />
-                      </div>
-                    )}
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* Add to Cart */}
