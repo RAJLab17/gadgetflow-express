@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import ProductCard from "@/components/ProductCard";
 import earbudsImg from "@/assets/products/earbuds.jpg";
 import phoneCaseImg from "@/assets/products/phone-case.jpg";
 import powerBankImg from "@/assets/products/power-bank.jpg";
 import phoneMountImg from "@/assets/products/phone-mount.jpg";
-import cableImg from "@/assets/products/cable.jpg";
+import cableGalaxyImg from "@/assets/products/cable-galaxy.png";
 import screenProtectorImg from "@/assets/products/screen-protector.jpg";
 
 const products = [
@@ -44,12 +45,13 @@ const products = [
   },
   {
     id: 5,
-    name: "TurboCharge USB-C Cable",
-    price: 15,
-    originalPrice: 25,
-    image: cableImg,
+    name: "Magnetic Charging Cable",
+    price: 25,
+    originalPrice: 40,
+    image: cableGalaxyImg,
     rating: 5,
     category: "Cables",
+    link: "/product/magnetic-cable",
   },
   {
     id: 6,
@@ -79,7 +81,13 @@ const FeaturedProducts = () => {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+            product.link ? (
+              <Link key={product.id} to={product.link}>
+                <ProductCard {...product} />
+              </Link>
+            ) : (
+              <ProductCard key={product.id} {...product} />
+            )
           ))}
         </div>
       </div>
