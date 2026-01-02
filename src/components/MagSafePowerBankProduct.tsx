@@ -18,6 +18,11 @@ import blackImg1 from "@/assets/products/powerbank-black-1.png";
 import blackImg2 from "@/assets/products/powerbank-black-2.png";
 import blackImg3 from "@/assets/products/powerbank-black-3.png";
 
+// Silver images
+import silverImg1 from "@/assets/products/powerbank-silver-1.png";
+import silverImg2 from "@/assets/products/powerbank-silver-2.png";
+import silverImg3 from "@/assets/products/powerbank-silver-3.png";
+
 // All colors image
 import allColorsImg from "@/assets/products/powerbank-all-colors.png";
 
@@ -44,8 +49,14 @@ const colorVariants: ColorVariant[] = [
   {
     id: "black",
     name: "Midnight Black",
-    color: "bg-gray-900",
+    color: "bg-gray-900 border border-gray-600",
     images: [blackImg1, blackImg2, blackImg3, allColorsImg],
+  },
+  {
+    id: "silver",
+    name: "Space Silver",
+    color: "bg-gradient-to-br from-gray-300 to-gray-400",
+    images: [silverImg1, silverImg2, silverImg3, allColorsImg],
   },
 ];
 
@@ -90,32 +101,43 @@ const MagSafePowerBankProduct = () => {
           <div className="relative">
             {/* Main Image */}
             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-secondary/50 border border-border mb-4">
-              <img
-                src={selectedColor.images[selectedImageIndex]}
-                alt={`RAJTech MagSafe PowerBank Pro - ${selectedColor.name}`}
-                className="w-full h-full object-cover"
-              />
+              {selectedImageIndex === selectedColor.images.length - 1 ? (
+                <img
+                  src={selectedColor.images[selectedImageIndex]}
+                  alt={`RAJTech MagSafe PowerBank Pro - Alle Farben`}
+                  className="w-full h-full object-contain p-4 bg-secondary/80"
+                />
+              ) : (
+                <img
+                  src={selectedColor.images[selectedImageIndex]}
+                  alt={`RAJTech MagSafe PowerBank Pro - ${selectedColor.name}`}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
 
             {/* Thumbnail Gallery */}
             <div className="grid grid-cols-4 gap-2 mb-4">
-              {selectedColor.images.map((img, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImageIndex(index)}
-                  className={`aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                    selectedImageIndex === index
-                      ? "border-primary shadow-[0_0_15px_hsl(var(--primary)/0.4)]"
-                      : "border-border hover:border-primary/50"
-                  }`}
-                >
-                  <img
-                    src={img}
-                    alt={`Ansicht ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
+              {selectedColor.images.map((img, index) => {
+                const isAllColorsImage = index === selectedColor.images.length - 1;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImageIndex(index)}
+                    className={`aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                      selectedImageIndex === index
+                        ? "border-primary shadow-[0_0_15px_hsl(var(--primary)/0.4)]"
+                        : "border-border hover:border-primary/50"
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt={`Ansicht ${index + 1}`}
+                      className={`w-full h-full ${isAllColorsImage ? "object-contain p-1 bg-secondary/80" : "object-cover"}`}
+                    />
+                  </button>
+                );
+              })}
             </div>
 
             {/* Color Selection - Under Images */}
