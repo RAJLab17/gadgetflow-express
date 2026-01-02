@@ -2,14 +2,24 @@ import { Link } from "react-router-dom";
 import ProductCard from "@/components/ProductCard";
 import earbudsImg from "@/assets/products/earbuds.jpg";
 import phoneCaseImg from "@/assets/products/phone-case.jpg";
-import powerBankImg from "@/assets/products/power-bank.jpg";
 import phoneMountImg from "@/assets/products/phone-mount.jpg";
 import cableGalaxyImg from "@/assets/products/cable-galaxy.png";
 import screenProtectorImg from "@/assets/products/screen-protector.jpg";
+import powerbankOrangeImg from "@/assets/products/powerbank-orange-1.png";
 
 const products = [
   {
     id: 1,
+    name: "MagSafe PowerBank Pro",
+    price: 49,
+    originalPrice: 79,
+    image: powerbankOrangeImg,
+    rating: 5,
+    category: "Bestseller",
+    link: "/product/magsafe-powerbank",
+  },
+  {
+    id: 2,
     name: "ProSound Wireless Earbuds",
     price: 49,
     originalPrice: 79,
@@ -18,22 +28,13 @@ const products = [
     category: "Audio",
   },
   {
-    id: 2,
+    id: 3,
     name: "Ultra Slim Phone Case",
     price: 24,
     originalPrice: 35,
     image: phoneCaseImg,
     rating: 4,
     category: "Protection",
-  },
-  {
-    id: 3,
-    name: "PowerMax 20000mAh Bank",
-    price: 39,
-    originalPrice: 59,
-    image: powerBankImg,
-    rating: 5,
-    category: "Charging",
   },
   {
     id: 4,
