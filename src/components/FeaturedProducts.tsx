@@ -8,6 +8,7 @@ import screenProtectorImg from "@/assets/products/screen-protector.jpg";
 import powerbankOrangeImg from "@/assets/products/powerbank-orange-1.png";
 import charger3in1Img from "@/assets/products/charger-3in1-black-2.png";
 import foldableChargerImg from "@/assets/products/charger-foldable-stand.webp";
+import standChargerImg from "@/assets/products/charger-stand-white.png";
 
 const products = [
   {
@@ -39,6 +40,16 @@ const products = [
     rating: 5,
     category: "Portabel",
     link: "/product/foldable-charger",
+  },
+  {
+    id: 9,
+    name: "Stand 3-in-1 Wireless Charger",
+    price: 53.99,
+    originalPrice: 59.99,
+    image: standChargerImg,
+    rating: 5,
+    category: "3-in-1",
+    link: "/product/stand-charger-3in1",
   },
   {
     id: 2,
