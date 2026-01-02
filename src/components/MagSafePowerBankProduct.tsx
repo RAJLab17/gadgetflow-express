@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ShoppingCart, Zap, Battery, Shield, Magnet, Star, Check, Truck, RotateCcw } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+import { Zap, Battery, Shield, Magnet, Star, Check, Truck, RotateCcw } from "lucide-react";
+import PreorderBanner from "@/components/PreorderBanner";
+import PreorderForm from "@/components/PreorderForm";
 
 // Orange images
 import orangeImg1 from "@/assets/products/powerbank-orange-1.png";
@@ -70,23 +70,20 @@ const features = [
 const MagSafePowerBankProduct = () => {
   const [selectedColor, setSelectedColor] = useState(colorVariants[0]);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const { toast } = useToast();
+
+  const originalPrice = 49;
 
   const handleColorChange = (variant: ColorVariant) => {
     setSelectedColor(variant);
     setSelectedImageIndex(0);
   };
 
-  const handleAddToCart = () => {
-    toast({
-      title: "Zum Warenkorb hinzugefügt!",
-      description: `MagSafe PowerBank Pro - ${selectedColor.name}`,
-    });
-  };
-
   return (
     <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
+        {/* Preorder Banner */}
+        <PreorderBanner remainingSpots={92} />
+
         {/* Bestseller Badge */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full border border-primary/30">
@@ -199,12 +196,12 @@ const MagSafePowerBankProduct = () => {
               <span className="text-muted-foreground">(2.847 Bewertungen)</span>
             </div>
 
-            {/* Price */}
+            {/* Price - Show preorder discount */}
             <div className="flex items-baseline gap-3 mb-8">
-              <span className="text-4xl font-bold text-foreground">CHF 49</span>
-              <span className="text-xl text-muted-foreground line-through">CHF 79</span>
+              <span className="text-4xl font-bold text-foreground">CHF {(originalPrice * 0.9).toFixed(2)}</span>
+              <span className="text-xl text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
               <span className="bg-primary/20 text-primary px-2 py-1 rounded-md text-sm font-semibold">
-                -38%
+                -10% Vorbesteller
               </span>
             </div>
 
@@ -225,16 +222,16 @@ const MagSafePowerBankProduct = () => {
               ))}
             </div>
 
-            {/* Add to Cart */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button variant="hero" size="xl" className="flex-1" onClick={handleAddToCart}>
-                <ShoppingCart className="w-5 h-5 mr-2" />
-                In den Warenkorb
-              </Button>
-            </div>
+            {/* Preorder Form */}
+            <PreorderForm
+              productName="MagSafe PowerBank Pro"
+              productVariant={selectedColor.name}
+              originalPrice={originalPrice}
+              discountPercent={10}
+            />
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap gap-4 pt-6 border-t border-border">
+            <div className="flex flex-wrap gap-4 pt-6 mt-6 border-t border-border">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Truck className="w-4 h-4 text-primary" />
                 <span>Kostenloser Versand</span>
@@ -245,12 +242,11 @@ const MagSafePowerBankProduct = () => {
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Shield className="w-4 h-4 text-primary" />
-                <span>2 Jahre Garantie</span>
+                <span>2-4 Wochen Lieferzeit</span>
               </div>
             </div>
           </div>
         </div>
-
         {/* Product Description */}
         <div className="mt-16 max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-foreground mb-6 text-center">

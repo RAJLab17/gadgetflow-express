@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Star, Zap, Smartphone, Watch, Headphones, Plane, Shield, Package } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import PreorderBanner from "@/components/PreorderBanner";
+import PreorderForm from "@/components/PreorderForm";
 
 // Black images
 import blackImg1 from "@/assets/products/charger-3in1-black-1.png";
@@ -44,9 +45,14 @@ const WirelessCharger3in1Product = () => {
     setSelectedImageIndex(0);
   };
 
+  const originalPrice = 69;
+
   return (
     <section className="py-12 md:py-20">
       <div className="container mx-auto px-4">
+        {/* Preorder Banner */}
+        <PreorderBanner remainingSpots={97} />
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Image Gallery */}
           <div className="relative">
@@ -106,7 +112,7 @@ const WirelessCharger3in1Product = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full">
-                NEU
+                VORBESTELLUNG
               </span>
               <span className="px-3 py-1 bg-accent/20 text-accent-foreground text-xs font-semibold rounded-full">
                 Qi2.2 Zertifiziert
@@ -134,12 +140,12 @@ const WirelessCharger3in1Product = () => {
               <span className="text-sm text-muted-foreground">(89 Bewertungen)</span>
             </div>
 
-            {/* Price */}
+            {/* Price - Show original and savings */}
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-4xl font-bold text-primary">CHF 69.00</span>
-              <span className="text-xl text-muted-foreground line-through">CHF 99.00</span>
-              <span className="px-2 py-1 bg-red-500/20 text-red-400 text-sm font-semibold rounded">
-                -30%
+              <span className="text-4xl font-bold text-primary">CHF {(originalPrice * 0.9).toFixed(2)}</span>
+              <span className="text-xl text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
+              <span className="px-2 py-1 bg-primary/20 text-primary text-sm font-semibold rounded">
+                -10% Vorbesteller
               </span>
             </div>
 
@@ -169,16 +175,13 @@ const WirelessCharger3in1Product = () => {
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="xl" variant="glow" className="flex-1">
-                <Package className="w-5 h-5 mr-2" />
-                In den Warenkorb
-              </Button>
-              <Button size="xl" variant="outline" className="flex-1">
-                Jetzt kaufen
-              </Button>
-            </div>
+            {/* Preorder Form */}
+            <PreorderForm
+              productName="RAJTech 3-in-1 Wireless Charger"
+              productVariant={selectedColor.name}
+              originalPrice={originalPrice}
+              discountPercent={10}
+            />
 
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-border">
@@ -192,7 +195,7 @@ const WirelessCharger3in1Product = () => {
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Zap className="w-4 h-4 text-primary" />
-                <span>Schnelle Lieferung</span>
+                <span>2-4 Wochen Lieferzeit</span>
               </div>
             </div>
           </div>
