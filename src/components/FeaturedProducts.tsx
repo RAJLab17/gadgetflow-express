@@ -7,6 +7,7 @@ import cableGalaxyImg from "@/assets/products/cable-galaxy.png";
 import screenProtectorImg from "@/assets/products/screen-protector.jpg";
 import powerbankOrangeImg from "@/assets/products/powerbank-orange-1.png";
 import charger3in1Img from "@/assets/products/charger-3in1-black-2.png";
+import foldableChargerImg from "@/assets/products/charger-foldable-stand.webp";
 
 const products = [
   {
@@ -28,6 +29,16 @@ const products = [
     rating: 5,
     category: "NEU",
     link: "/product/wireless-charger-3in1",
+  },
+  {
+    id: 8,
+    name: "Foldable 3-in-1 Charger",
+    price: 49,
+    originalPrice: 59,
+    image: foldableChargerImg,
+    rating: 5,
+    category: "Portabel",
+    link: "/product/foldable-charger",
   },
   {
     id: 2,
