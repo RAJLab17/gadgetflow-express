@@ -8,7 +8,7 @@ import screenProtectorImg from "@/assets/products/screen-protector.jpg";
 import powerbankOrangeImg from "@/assets/products/powerbank-orange-1.png";
 import charger3in1Img from "@/assets/products/charger-3in1-black-2.png";
 import foldableChargerImg from "@/assets/products/charger-foldable-stand.webp";
-import standChargerImg from "@/assets/products/charger-stand-black.png";
+import standChargerImg from "@/assets/products/charger-stand-white.png";
 
 const products = [
   {
