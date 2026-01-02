@@ -6,6 +6,7 @@ import phoneMountImg from "@/assets/products/phone-mount.jpg";
 import cableGalaxyImg from "@/assets/products/cable-galaxy.png";
 import screenProtectorImg from "@/assets/products/screen-protector.jpg";
 import powerbankOrangeImg from "@/assets/products/powerbank-orange-1.png";
+import charger3in1Img from "@/assets/products/charger-3in1-black-2.png";
 
 const products = [
   {
@@ -17,6 +18,16 @@ const products = [
     rating: 5,
     category: "Bestseller",
     link: "/product/magsafe-powerbank",
+  },
+  {
+    id: 7,
+    name: "3-in-1 Wireless Charger",
+    price: 69,
+    originalPrice: 99,
+    image: charger3in1Img,
+    rating: 5,
+    category: "NEU",
+    link: "/product/wireless-charger-3in1",
   },
   {
     id: 2,

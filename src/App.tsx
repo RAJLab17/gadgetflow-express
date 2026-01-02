@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import ProductPage from "./pages/ProductPage";
 import PowerBankPage from "./pages/PowerBankPage";
+import WirelessChargerPage from "./pages/WirelessChargerPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
             <Route path="/product/magnetic-cable" element={<ProductPage />} />
             <Route path="/product/magsafe-powerbank" element={<PowerBankPage />} />
+            <Route path="/product/wireless-charger-3in1" element={<WirelessChargerPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
