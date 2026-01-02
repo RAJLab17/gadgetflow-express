@@ -10,6 +10,7 @@ import whiteImg from "@/assets/products/charger-stand-white.png";
 import blueImg from "@/assets/products/charger-stand-blue.png";
 import pinkImg from "@/assets/products/charger-stand-pink.png";
 import mintImg from "@/assets/products/charger-stand-mint.png";
+import blackImg from "@/assets/products/charger-stand-black.png";
 import techImg from "@/assets/products/charger-stand-tech.png";
 
 type ColorVariant = {
@@ -20,6 +21,12 @@ type ColorVariant = {
 };
 
 const colorVariants: ColorVariant[] = [
+  {
+    id: "black",
+    name: "Schwarz",
+    color: "#1A1A1A",
+    images: [blackImg, heroImg, techImg],
+  },
   {
     id: "white",
     name: "Pearl White",
