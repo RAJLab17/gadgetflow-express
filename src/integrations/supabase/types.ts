@@ -14,7 +14,78 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      preorders: {
+        Row: {
+          city: string
+          country: string
+          created_at: string
+          customer_email: string
+          customer_name: string
+          discount_percent: number
+          final_price: number
+          id: string
+          includes_free_cable: boolean
+          order_number: string
+          original_price: number
+          phone: string | null
+          postal_code: string
+          product_name: string
+          product_variant: string | null
+          production_started_at: string | null
+          quantity: number
+          shipped_at: string | null
+          status: string
+          street_address: string
+          updated_at: string
+        }
+        Insert: {
+          city: string
+          country?: string
+          created_at?: string
+          customer_email: string
+          customer_name: string
+          discount_percent?: number
+          final_price: number
+          id?: string
+          includes_free_cable?: boolean
+          order_number: string
+          original_price: number
+          phone?: string | null
+          postal_code: string
+          product_name: string
+          product_variant?: string | null
+          production_started_at?: string | null
+          quantity?: number
+          shipped_at?: string | null
+          status?: string
+          street_address: string
+          updated_at?: string
+        }
+        Update: {
+          city?: string
+          country?: string
+          created_at?: string
+          customer_email?: string
+          customer_name?: string
+          discount_percent?: number
+          final_price?: number
+          id?: string
+          includes_free_cable?: boolean
+          order_number?: string
+          original_price?: number
+          phone?: string | null
+          postal_code?: string
+          product_name?: string
+          product_variant?: string | null
+          production_started_at?: string | null
+          quantity?: number
+          shipped_at?: string | null
+          status?: string
+          street_address?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
