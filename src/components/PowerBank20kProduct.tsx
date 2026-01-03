@@ -25,12 +25,6 @@ const colorVariants: ColorVariant[] = [
     image: blackImg,
   },
   {
-    id: "white",
-    name: "Arctic White",
-    color: "bg-white border border-gray-300",
-    image: whiteImg,
-  },
-  {
     id: "sand",
     name: "Desert Sand",
     color: "bg-amber-200",
@@ -47,6 +41,12 @@ const colorVariants: ColorVariant[] = [
     name: "Ocean Blue",
     color: "bg-blue-900",
     image: blueImg,
+  },
+  {
+    id: "white",
+    name: "Arctic White",
+    color: "bg-white border border-gray-300",
+    image: whiteImg,
   },
 ];
 
