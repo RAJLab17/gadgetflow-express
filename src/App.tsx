@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import ProductPage from "./pages/ProductPage";
 import PowerBankPage from "./pages/PowerBankPage";
+import PowerBank20kPage from "./pages/PowerBank20kPage";
 import WirelessChargerPage from "./pages/WirelessChargerPage";
 import FoldableChargerPage from "./pages/FoldableChargerPage";
 import StandChargerPage from "./pages/StandChargerPage";
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
             <Route path="/product/magnetic-cable" element={<ProductPage />} />
             <Route path="/product/magsafe-powerbank" element={<PowerBankPage />} />
+            <Route path="/product/powerbank-ultra-20k" element={<PowerBank20kPage />} />
             <Route path="/product/wireless-charger-3in1" element={<WirelessChargerPage />} />
             <Route path="/product/foldable-charger" element={<FoldableChargerPage />} />
             <Route path="/product/stand-charger-3in1" element={<StandChargerPage />} />
