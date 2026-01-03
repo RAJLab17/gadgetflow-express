@@ -9,8 +9,19 @@ import powerbankOrangeImg from "@/assets/products/powerbank-orange-1.png";
 import charger3in1Img from "@/assets/products/charger-3in1-black-2.png";
 import foldableChargerImg from "@/assets/products/charger-foldable-stand.webp";
 import standChargerImg from "@/assets/products/charger-stand-hero.png";
+import powerbank20kBlackImg from "@/assets/products/powerbank-20k-black.png";
 
 const products = [
+  {
+    id: 10,
+    name: "PowerBank Ultra 20K",
+    price: 50.15,
+    originalPrice: 59,
+    image: powerbank20kBlackImg,
+    rating: 5,
+    category: "NEU",
+    link: "/product/powerbank-ultra-20k",
+  },
   {
     id: 1,
     name: "MagSafe PowerBank Pro",
