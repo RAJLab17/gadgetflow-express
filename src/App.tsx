@@ -11,6 +11,7 @@ import PowerBank20kPage from "./pages/PowerBank20kPage";
 import WirelessChargerPage from "./pages/WirelessChargerPage";
 import FoldableChargerPage from "./pages/FoldableChargerPage";
 import StandChargerPage from "./pages/StandChargerPage";
+import CarChargerPage from "./pages/CarChargerPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/product/wireless-charger-3in1" element={<WirelessChargerPage />} />
             <Route path="/product/foldable-charger" element={<FoldableChargerPage />} />
             <Route path="/product/stand-charger-3in1" element={<StandChargerPage />} />
+            <Route path="/product/car-charger-4in1" element={<CarChargerPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
