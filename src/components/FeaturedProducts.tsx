@@ -12,8 +12,19 @@ import standChargerImg from "@/assets/products/charger-stand-hero.png";
 import powerbank20kBlackImg from "@/assets/products/powerbank-20k-black.png";
 import carChargerImg from "@/assets/products/car-charger-3.png";
 import ganChargerImg from "@/assets/products/gan-charger-1.png";
+import usbChargerImg from "@/assets/products/usb-charger-devices.png";
 
 const products = [
+  {
+    id: 9,
+    name: "Stand 3-in-1 Wireless Charger",
+    price: 53.99,
+    originalPrice: 59.99,
+    image: standChargerImg,
+    rating: 5,
+    category: "3-in-1",
+    link: "/product/stand-charger-3in1",
+  },
   {
     id: 12,
     name: "GaN SuperCharger 100W",
@@ -23,6 +34,16 @@ const products = [
     rating: 5,
     category: "NEU",
     link: "/product/gan-supercharger-100w",
+  },
+  {
+    id: 13,
+    name: "USB-C Schnellladegerät 35W",
+    price: 25.49,
+    originalPrice: 29.99,
+    image: usbChargerImg,
+    rating: 5,
+    category: "NEU",
+    link: "/product/usb-charger-35w",
   },
   {
     id: 11,
@@ -73,16 +94,6 @@ const products = [
     rating: 5,
     category: "Portabel",
     link: "/product/foldable-charger",
-  },
-  {
-    id: 9,
-    name: "Stand 3-in-1 Wireless Charger",
-    price: 53.99,
-    originalPrice: 59.99,
-    image: standChargerImg,
-    rating: 5,
-    category: "3-in-1",
-    link: "/product/stand-charger-3in1",
   },
   {
     id: 2,
