@@ -37,9 +37,9 @@ const products = [
   },
   {
     id: 13,
-    name: "USB-C Schnellladegerät 35W",
-    price: 25.49,
-    originalPrice: 29.99,
+    name: "USB-C Schnellladegerät 65W",
+    price: 33.99,
+    originalPrice: 39.99,
     image: usbChargerImg,
     rating: 5,
     category: "NEU",

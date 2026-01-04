@@ -62,8 +62,8 @@ const UsbChargerProduct = () => {
               <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-3">
                 NEU
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold mb-3">
-                RAJTech USB-C Schnellladegerät 35W
+            <h1 className="text-3xl md:text-4xl font-bold mb-3">
+                RAJTech USB-C Schnellladegerät 65W
               </h1>
               <p className="text-muted-foreground text-lg">
                 Lädt dein Handy bis zu 3× schneller – damit du weniger Zeit mit Warten verbringst 
@@ -74,7 +74,7 @@ const UsbChargerProduct = () => {
             {/* Key USPs */}
             <div className="space-y-3">
               {[
-                { icon: Zap, text: "35W Schnellladung – 3× schneller als Standard-Ladegeräte" },
+                { icon: Zap, text: "65W Schnellladung – 3× schneller als Standard-Ladegeräte" },
                 { icon: Smartphone, text: "Dual-Port: USB-C + USB-A für 2 Geräte gleichzeitig" },
                 { icon: Shield, text: "Intelligenter Überhitzungs- und Überladeschutz" },
                 { icon: Laptop, text: "Kompatibel mit iPhone, Samsung, Xiaomi & mehr" },
@@ -90,8 +90,8 @@ const UsbChargerProduct = () => {
 
             {/* Preorder Form */}
             <PreorderForm
-              productName="RAJTech USB-C Schnellladegerät 35W"
-              originalPrice={29.99}
+              productName="RAJTech USB-C Schnellladegerät 65W"
+              originalPrice={39.99}
               discountPercent={15}
             />
           </div>
@@ -108,7 +108,7 @@ const UsbChargerProduct = () => {
               {
                 icon: Zap,
                 title: "Blitzschnelles Laden",
-                description: "35W Power Delivery lädt dein iPhone oder Android-Gerät in kürzester Zeit auf – ideal für unterwegs.",
+                description: "65W Power Delivery lädt dein iPhone oder Android-Gerät in kürzester Zeit auf – ideal für unterwegs.",
               },
               {
                 icon: Smartphone,
@@ -143,9 +143,9 @@ const UsbChargerProduct = () => {
           
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { label: "Gesamtleistung", value: "35W" },
-              { label: "USB-C Ausgang", value: "5V/3A, 9V/2.5A, 12V/2A (max. 25W)" },
-              { label: "USB-A Ausgang", value: "5V/2.4A, 9V/1.5A (max. 12W)" },
+              { label: "Gesamtleistung", value: "65W" },
+              { label: "USB-C Ausgang", value: "5V/3A, 9V/3A, 12V/3A, 20V/3.25A (max. 65W)" },
+              { label: "USB-A Ausgang", value: "5V/2.4A, 9V/2A (max. 18W)" },
               { label: "Eingangsspannung", value: "100-240V AC, 50/60Hz" },
               { label: "Abmessungen", value: "45 × 45 × 28mm" },
               { label: "Gewicht", value: "62g" },
