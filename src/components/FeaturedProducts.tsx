@@ -11,7 +11,7 @@ import foldableChargerImg from "@/assets/products/charger-foldable-stand.webp";
 import standChargerImg from "@/assets/products/charger-stand-hero.png";
 import powerbank20kBlackImg from "@/assets/products/powerbank-20k-black.png";
 import carChargerImg from "@/assets/products/car-charger-3.png";
-import ganChargerImg from "@/assets/products/gan-charger-black.png";
+import ganChargerImg from "@/assets/products/gan-charger-1.png";
 
 const products = [
   {
