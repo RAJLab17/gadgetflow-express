@@ -11,8 +11,19 @@ import foldableChargerImg from "@/assets/products/charger-foldable-stand.webp";
 import standChargerImg from "@/assets/products/charger-stand-hero.png";
 import powerbank20kBlackImg from "@/assets/products/powerbank-20k-black.png";
 import carChargerImg from "@/assets/products/car-charger-3.png";
+import ganChargerImg from "@/assets/products/gan-charger-black.png";
 
 const products = [
+  {
+    id: 12,
+    name: "GaN SuperCharger 100W",
+    price: 67.15,
+    originalPrice: 79,
+    image: ganChargerImg,
+    rating: 5,
+    category: "NEU",
+    link: "/product/gan-supercharger-100w",
+  },
   {
     id: 11,
     name: "Car Charger 4-in-1 Pro",
