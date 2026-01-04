@@ -7,10 +7,10 @@ const UsbChargerPage = () => {
   return (
     <>
       <Helmet>
-        <title>RAJTech USB-C Schnellladegerät 35W | 3× schneller laden</title>
+        <title>RAJTech USB-C Schnellladegerät 65W | 3× schneller laden</title>
         <meta 
           name="description" 
-          content="RAJTech USB-C Schnellladegerät mit 35W Power Delivery. Dual-Port (USB-C + USB-A), lädt 2 Geräte gleichzeitig. Jetzt vorbestellen und 15% sparen!" 
+          content="RAJTech USB-C Schnellladegerät mit 65W Power Delivery. Dual-Port (USB-C + USB-A), lädt 2 Geräte gleichzeitig. Jetzt vorbestellen und 15% sparen!" 
         />
       </Helmet>
       <div className="min-h-screen flex flex-col bg-background text-foreground">
