@@ -1,17 +1,19 @@
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [cartCount] = useState(0);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { name: "Products", href: "#products" },
-    { name: "Categories", href: "#categories" },
-    { name: "Deals", href: "#deals" },
-    { name: "About", href: "#about" },
+    { name: "Produkte", href: isHomePage ? "#products" : "/#products", isAnchor: true },
+    { name: "Kategorien", href: isHomePage ? "#categories" : "/#categories", isAnchor: true },
+    { name: "Über uns", href: "/about", isAnchor: false },
   ];
 
   return (
@@ -19,7 +21,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <img 
               src={logo} 
               alt="RAJ Tech" 
@@ -28,18 +30,28 @@ const Header = () => {
             <span className="text-xl md:text-2xl font-bold text-foreground hidden sm:block">
               RAJ<span className="text-primary">Tech</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
-              >
-                {link.name}
-              </a>
+              link.isAnchor ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -71,14 +83,25 @@ const Header = () => {
           <nav className="md:hidden py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2 px-2 rounded-lg hover:bg-secondary"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
-                </a>
+                link.isAnchor ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2 px-2 rounded-lg hover:bg-secondary"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium py-2 px-2 rounded-lg hover:bg-secondary"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                )
               ))}
             </div>
           </nav>
