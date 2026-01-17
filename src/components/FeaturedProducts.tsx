@@ -1,4 +1,7 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import ProductCard from "@/components/ProductCard";
 import earbudsImg from "@/assets/products/earbuds.jpg";
 import phoneCaseImg from "@/assets/products/phone-case.jpg";
@@ -142,32 +145,88 @@ const products = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
 const FeaturedProducts = () => {
   return (
-    <section id="products" className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-24 md:py-32 relative overflow-hidden">
+      {/* Background Accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
+      
+      <div className="container mx-auto px-4 relative">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured <span className="text-primary">Products</span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-widest mb-4">
+            Unsere Produkte
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Premium <span className="text-primary">Qualität</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Explore our best-selling smartphone accessories. Quality guaranteed.
+          <p className="text-muted-foreground max-w-xl mx-auto text-lg">
+            Entdecke unsere meistverkauften Smartphone-Accessoires. Qualität garantiert.
           </p>
-        </div>
+        </motion.div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
           {products.map((product) => (
-            product.link ? (
-              <Link key={product.id} to={product.link}>
+            <motion.div key={product.id} variants={itemVariants}>
+              {product.link ? (
+                <Link to={product.link} className="block">
+                  <ProductCard {...product} />
+                </Link>
+              ) : (
                 <ProductCard {...product} />
-              </Link>
-            ) : (
-              <ProductCard key={product.id} {...product} />
-            )
+              )}
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* View All Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-16"
+        >
+          <Button variant="outline" size="lg" className="group border-primary/30 hover:border-primary hover:bg-primary/5">
+            Alle Produkte anzeigen
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
