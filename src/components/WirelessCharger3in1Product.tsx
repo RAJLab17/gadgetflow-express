@@ -265,6 +265,22 @@ const WirelessCharger3in1Product = () => {
               </div>
             </div>
 
+            {/* Certification Badges */}
+            <div className="flex items-center justify-between gap-2 mt-4 flex-wrap">
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                Qi2.2
+              </span>
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                CE
+              </span>
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                RoHS
+              </span>
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                FCC
+              </span>
+            </div>
+
           </div>
         </div>
 
