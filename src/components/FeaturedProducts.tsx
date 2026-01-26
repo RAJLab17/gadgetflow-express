@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import charger3in1Img from "@/assets/products/charger-3in1-black-2.png";
+import charger3in1Img from "@/assets/products/charger-3in1-hero.png";
 
 const product = {
   id: 7,
