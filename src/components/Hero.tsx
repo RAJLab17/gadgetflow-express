@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 
@@ -152,55 +153,57 @@ const Hero = () => {
           </div>
 
           {/* Hero Product Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative order-1 lg:order-2"
-          >
-            <div className="relative">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-[80px] scale-75" />
-              
-              {/* Product Image */}
-              <motion.img
-                src={chargerHero}
-                alt="3-in-1 Wireless Charger"
-                className="relative w-full max-w-lg mx-auto drop-shadow-2xl"
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              
-              {/* Floating Badge */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="absolute top-10 right-0 px-4 py-2 bg-card border border-border rounded-2xl shadow-elegant"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-sm font-medium">Sofort lieferbar</span>
-                </div>
-              </motion.div>
-              
-              {/* Feature Badge */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-                className="absolute bottom-20 left-0 px-4 py-2 bg-primary text-primary-foreground rounded-2xl shadow-elegant"
-              >
-                <span className="text-sm font-semibold">Qi2.2 Zertifiziert</span>
-              </motion.div>
-            </div>
-          </motion.div>
+          <Link to="/product/wireless-charger-3in1" className="block order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative cursor-pointer"
+            >
+              <div className="relative">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-[80px] scale-75" />
+                
+                {/* Product Image */}
+                <motion.img
+                  src={chargerHero}
+                  alt="3-in-1 Wireless Charger"
+                  className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105"
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                
+                {/* Floating Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1, duration: 0.6 }}
+                  className="absolute top-10 right-0 px-4 py-2 bg-card border border-border rounded-2xl shadow-elegant"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-sm font-medium">Sofort lieferbar</span>
+                  </div>
+                </motion.div>
+                
+                {/* Feature Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.2, duration: 0.6 }}
+                  className="absolute bottom-20 left-0 px-4 py-2 bg-primary text-primary-foreground rounded-2xl shadow-elegant"
+                >
+                  <span className="text-sm font-semibold">Qi2.2 Zertifiziert</span>
+                </motion.div>
+              </div>
+            </motion.div>
+          </Link>
         </div>
 
         {/* Scroll Indicator */}
