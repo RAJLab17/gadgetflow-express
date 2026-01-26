@@ -249,20 +249,33 @@ const WirelessCharger3in1Product = () => {
               discountPercent={20}
             />
 
-            {/* Trust Badges - Icons only */}
-            <div className="flex items-center gap-6 mt-4 pt-4 border-t border-border">
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground" title="2 Jahre Garantie">
+            {/* Trust Badges */}
+            <div className="flex items-center justify-between mt-6 pt-4 border-t border-border">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Shield className="w-4 h-4 text-primary" />
                 <span>2J Garantie</span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground" title="Kostenloser Versand">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Package className="w-4 h-4 text-primary" />
                 <span>Gratis Versand</span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground" title="2-4 Wochen Lieferzeit">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Zap className="w-4 h-4 text-primary" />
-                <span>2-4 Wo.</span>
+                <span>2-4 Wochen</span>
               </div>
+            </div>
+
+            {/* Certification Badges */}
+            <div className="flex items-center gap-3 mt-4">
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                Qi2.2 Zertifiziert
+              </span>
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                MagSafe Kompatibel
+              </span>
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                Apple Watch
+              </span>
             </div>
           </div>
         </div>
