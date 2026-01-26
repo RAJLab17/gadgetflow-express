@@ -39,23 +39,36 @@ const product = {
 const FeaturedProducts = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(0);
-  const [nextDelay, setNextDelay] = useState(4000);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
 
-  // Auto-rotate images
+  // Auto-rotate images every 4 seconds
   useEffect(() => {
     const timeout = setTimeout(() => {
       setSelectedImage((prev) => (prev + 1) % product.images.length);
-      setNextDelay(4000); // Reset to normal delay after transition
-    }, nextDelay);
+    }, 4000);
 
     return () => clearTimeout(timeout);
-  }, [selectedImage, nextDelay]);
+  }, [selectedImage, autoPlayKey]);
 
-  // Manual selection - continue after 1 second
+  // Manual selection - reset timer
   const handleImageSelect = useCallback((index: number) => {
     setSelectedImage(index);
-    setNextDelay(1000); // Short delay before continuing
+    setAutoPlayKey((prev) => prev + 1);
   }, []);
+
+  // Swipe handlers
+  const handleDragEnd = useCallback((event: any, info: { offset: { x: number } }) => {
+    const threshold = 50;
+    if (info.offset.x < -threshold) {
+      // Swiped left - next image
+      const nextIndex = (selectedImage + 1) % product.images.length;
+      handleImageSelect(nextIndex);
+    } else if (info.offset.x > threshold) {
+      // Swiped right - previous image
+      const prevIndex = (selectedImage - 1 + product.images.length) % product.images.length;
+      handleImageSelect(prevIndex);
+    }
+  }, [selectedImage, handleImageSelect]);
   return (
     <section id="products" className="py-24 md:py-32 relative overflow-hidden">
       {/* Premium Background */}
@@ -102,9 +115,13 @@ const FeaturedProducts = () => {
             <div className="space-y-6">
               {/* Main Image */}
               <motion.div 
-                className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-card to-muted shadow-elegant-lg group"
+                className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-card to-muted shadow-elegant-lg group cursor-grab active:cursor-grabbing"
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.4 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.1}
+                onDragEnd={handleDragEnd}
               >
                 <AnimatePresence mode="wait">
                   <motion.img
