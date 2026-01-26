@@ -103,7 +103,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12"
+              className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6"
             >
               <Button 
                 variant="hero" 
@@ -131,7 +131,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0"
+              className="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0"
             >
               {[
                 { value: "25W", label: "Schnellladen" },
@@ -211,7 +211,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="flex justify-center mt-16 lg:mt-24"
+          className="flex justify-center mt-8 lg:mt-16 pb-4"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
