@@ -150,14 +150,14 @@ const FeaturedProducts = () => {
 
               </motion.div>
               {/* Thumbnail Gallery */}
-              <div className="flex gap-3 justify-center flex-wrap">
+              <div className="flex gap-2 justify-center overflow-x-auto pb-2">
                 {product.images.map((image, index) => (
                   <motion.button
                     key={index}
                     onClick={() => handleImageSelect(index)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`relative w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden transition-all duration-300 ${
+                    className={`relative flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl overflow-hidden transition-all duration-300 ${
                       selectedImage === index 
                         ? "ring-2 ring-primary shadow-elegant" 
                         : "ring-1 ring-border hover:ring-primary/50"
@@ -166,7 +166,7 @@ const FeaturedProducts = () => {
                     <img
                       src={image}
                       alt={`View ${index + 1}`}
-                      className="w-full h-full object-contain p-2"
+                      className="w-full h-full object-contain p-1"
                     />
                     {selectedImage === index && (
                       <motion.div
