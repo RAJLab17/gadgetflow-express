@@ -111,7 +111,7 @@ const Hero = () => {
                 className="w-full sm:w-auto text-base group shadow-elegant-lg"
                 onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Jetzt CHF 62.10
+                Jetzt CHF 99.66
                 <motion.span
                   className="ml-2"
                   animate={{ x: [0, 4, 0] }}
@@ -121,7 +121,7 @@ const Hero = () => {
                 </motion.span>
               </Button>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="line-through">CHF 69.00</span>
+                <span className="line-through">CHF 110.73</span>
                 <span className="px-2 py-1 bg-primary/10 text-primary rounded-full font-semibold">-10%</span>
               </div>
             </motion.div>
