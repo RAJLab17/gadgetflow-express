@@ -263,6 +263,22 @@ const PreorderForm = ({
         <p className="text-xs text-center text-muted-foreground">
           Lieferzeit: 2-4 Wochen • Individuelle Produktion • Sichere Bezahlung
         </p>
+
+        {/* Certification Badges */}
+        <div className="flex items-center justify-center gap-3 pt-2 flex-wrap">
+          <span className="px-3 py-1 bg-secondary text-xs font-medium rounded-full border border-border">
+            Qi2.2
+          </span>
+          <span className="px-3 py-1 bg-secondary text-xs font-medium rounded-full border border-border">
+            CE
+          </span>
+          <span className="px-3 py-1 bg-secondary text-xs font-medium rounded-full border border-border">
+            RoHS
+          </span>
+          <span className="px-3 py-1 bg-secondary text-xs font-medium rounded-full border border-border">
+            FCC
+          </span>
+        </div>
       </form>
     </div>
   );
