@@ -39,21 +39,22 @@ const product = {
 const FeaturedProducts = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(0);
-  const [autoPlayKey, setAutoPlayKey] = useState(0);
+  const [nextDelay, setNextDelay] = useState(4000);
 
-  // Auto-rotate images every 4 seconds
+  // Auto-rotate images
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timeout = setTimeout(() => {
       setSelectedImage((prev) => (prev + 1) % product.images.length);
-    }, 4000);
+      setNextDelay(4000); // Reset to normal delay after transition
+    }, nextDelay);
 
-    return () => clearInterval(interval);
-  }, [autoPlayKey]);
+    return () => clearTimeout(timeout);
+  }, [selectedImage, nextDelay]);
 
-  // Manual selection resets the timer but keeps auto-play running
+  // Manual selection - continue after 1 second
   const handleImageSelect = useCallback((index: number) => {
     setSelectedImage(index);
-    setAutoPlayKey((prev) => prev + 1); // Reset timer
+    setNextDelay(1000); // Short delay before continuing
   }, []);
   return (
     <section id="products" className="py-24 md:py-32 relative overflow-hidden">
