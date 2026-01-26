@@ -268,64 +268,59 @@ const FeaturedProducts = () => {
               </div>
 
               {/* Price & CTA */}
-              <div className="space-y-6 pt-6 border-t border-border">
-                <div className="flex items-baseline gap-4">
-                  <span className="text-4xl md:text-5xl font-bold text-primary">
+              <div className="space-y-3 pt-4 border-t border-border">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span className="text-4xl font-bold text-primary">
                     CHF {product.price.toFixed(2)}
                   </span>
-                  <span className="text-xl text-muted-foreground line-through">
+                  <span className="text-lg text-muted-foreground line-through">
                     CHF {product.originalPrice.toFixed(2)}
                   </span>
-                  <span className="px-3 py-1 bg-green-500/10 text-green-600 rounded-full text-sm font-semibold">
-                    Spare CHF {(product.originalPrice - product.price).toFixed(2)}
+                  <span className="px-2 py-0.5 bg-primary text-primary-foreground rounded-full text-xs font-bold">
+                    -20%
                   </span>
                 </div>
 
-                {/* Quick Buy Buttons */}
-                <div className="flex flex-col gap-3">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button 
+                    variant="hero" 
+                    size="xl" 
+                    className="w-full text-lg shadow-elegant-lg group"
+                    asChild
                   >
-                    <Button 
-                      variant="hero" 
-                      size="xl" 
-                      className="w-full text-lg shadow-elegant-lg group"
-                      asChild
-                    >
-                      <Link to={product.link}>
-                        Jetzt vorbestellen
-                        <motion.span
-                          className="ml-2"
-                          animate={{ x: [0, 4, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                          →
-                        </motion.span>
-                      </Link>
-                    </Button>
-                  </motion.div>
-                  <p className="text-center text-sm text-muted-foreground">
-                    ✓ Kostenloser Versand · ✓ 30 Tage Rückgabe · ✓ Sichere Zahlung
-                  </p>
+                    <Link to={product.link}>
+                      Jetzt vorbestellen
+                      <motion.span
+                        className="ml-2"
+                        animate={{ x: [0, 4, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                      >
+                        →
+                      </motion.span>
+                    </Link>
+                  </Button>
+                </motion.div>
+
+                <p className="text-center text-xs text-muted-foreground">
+                  Gratis Versand · 30 Tage Rückgabe · Sichere Zahlung
+                </p>
+
+                {/* Compatibility Badges - Inline */}
+                <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <Check className="w-3 h-3 text-primary" /> Apple
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Check className="w-3 h-3 text-primary" /> MagSafe
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Check className="w-3 h-3 text-primary" /> Qi2
+                  </span>
                 </div>
               </div>
-
-              {/* Trust Indicators */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="flex items-center justify-center gap-6 pt-6"
-              >
-                {["Apple", "MagSafe", "Qi2"].map((brand, index) => (
-                  <div key={brand} className="flex items-center gap-2 text-muted-foreground">
-                    <Check className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-medium">{brand} kompatibel</span>
-                  </div>
-                ))}
-              </motion.div>
             </div>
           </div>
         </motion.div>
