@@ -138,11 +138,13 @@ const FeaturedProducts = () => {
                         : "ring-1 ring-border hover:ring-primary/50"
                     }`}
                   >
-                    <img
-                      src={image}
-                      alt={`View ${index + 1}`}
-                      className="w-full h-full object-contain p-2"
-                    />
+                    <div className="w-full h-full bg-card">
+                      <img
+                        src={image}
+                        alt={`View ${index + 1}`}
+                        className="w-full h-full object-contain p-2"
+                      />
+                    </div>
                     {selectedImage === index && (
                       <motion.div
                         layoutId="activeThumb"
