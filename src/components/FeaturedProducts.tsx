@@ -150,14 +150,14 @@ const FeaturedProducts = () => {
 
               </motion.div>
               {/* Thumbnail Gallery */}
-              <div className="flex gap-3 justify-center">
+              <div className="flex gap-3 justify-center flex-wrap">
                 {product.images.map((image, index) => (
                   <motion.button
                     key={index}
                     onClick={() => handleImageSelect(index)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`relative w-20 h-20 rounded-2xl overflow-hidden transition-all duration-300 ${
+                    className={`relative w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden transition-all duration-300 ${
                       selectedImage === index 
                         ? "ring-2 ring-primary shadow-elegant" 
                         : "ring-1 ring-border hover:ring-primary/50"
@@ -176,6 +176,40 @@ const FeaturedProducts = () => {
                     )}
                   </motion.button>
                 ))}
+              </div>
+
+              {/* Color Selection - Moved under images */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-foreground">Farbe wählen</span>
+                  <span className="text-sm text-muted-foreground">{product.colors[selectedColor].name}</span>
+                </div>
+                <div className="flex gap-3 justify-center">
+                  {product.colors.map((color, index) => (
+                    <motion.button
+                      key={color.name}
+                      onClick={() => setSelectedColor(index)}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`relative w-12 h-12 rounded-full transition-all duration-300 ${
+                        selectedColor === index 
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-background" 
+                          : "ring-1 ring-border hover:ring-primary/50"
+                      }`}
+                      style={{ backgroundColor: color.value }}
+                    >
+                      {selectedColor === index && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="absolute inset-0 flex items-center justify-center"
+                        >
+                          <Check className="w-5 h-5 text-white drop-shadow-md" />
+                        </motion.div>
+                      )}
+                    </motion.button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -213,40 +247,6 @@ const FeaturedProducts = () => {
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   {product.description}
                 </p>
-              </div>
-
-              {/* Color Selection */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-foreground">Farbe wählen</span>
-                  <span className="text-sm text-muted-foreground">{product.colors[selectedColor].name}</span>
-                </div>
-                <div className="flex gap-3">
-                  {product.colors.map((color, index) => (
-                    <motion.button
-                      key={color.name}
-                      onClick={() => setSelectedColor(index)}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`relative w-12 h-12 rounded-full transition-all duration-300 ${
-                        selectedColor === index 
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-background" 
-                          : "ring-1 ring-border hover:ring-primary/50"
-                      }`}
-                      style={{ backgroundColor: color.value }}
-                    >
-                      {selectedColor === index && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="absolute inset-0 flex items-center justify-center"
-                        >
-                          <Check className="w-5 h-5 text-white drop-shadow-md" />
-                        </motion.div>
-                      )}
-                    </motion.button>
-                  ))}
-                </div>
               </div>
 
               {/* Features */}
