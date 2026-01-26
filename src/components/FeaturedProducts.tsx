@@ -20,11 +20,11 @@ const product = {
   link: "/product/wireless-charger-3in1",
   description: "Lade iPhone, Apple Watch und AirPods gleichzeitig mit bis zu 25W – elegant und kompakt.",
   colors: [
-    { name: "Schwarz", value: "#1a1a1a", overlay: "transparent" },
-    { name: "Rosé Gold", value: "#b76e5c", overlay: "rgba(183, 110, 92, 0.15)" },
-    { name: "Silber", value: "#c0c0c0", overlay: "rgba(192, 192, 192, 0.2)" },
-    { name: "Blau", value: "#6b8cae", overlay: "rgba(107, 140, 174, 0.15)" },
-    { name: "Anthrazit", value: "#3d3d3d", overlay: "rgba(61, 61, 61, 0.1)" },
+    { name: "Schwarz", value: "#1a1a1a" },
+    { name: "Rosé Gold", value: "#b76e5c" },
+    { name: "Silber", value: "#a8a8a8" },
+    { name: "Blau", value: "#6b8cae" },
+    { name: "Anthrazit", value: "#2d2d2d" },
   ],
   features: [
     { icon: Zap, label: "25W Schnellladen" },
@@ -89,7 +89,7 @@ const FeaturedProducts = () => {
               >
                 <AnimatePresence mode="wait">
                   <motion.img
-                    key={`${selectedImage}-${selectedColor}`}
+                    key={selectedImage}
                     src={product.images[selectedImage]}
                     alt={product.name}
                     initial={{ opacity: 0, scale: 1.05 }}
@@ -99,16 +99,6 @@ const FeaturedProducts = () => {
                     className="w-full h-full object-contain p-6"
                   />
                 </AnimatePresence>
-                
-                {/* Color Overlay Effect */}
-                <motion.div
-                  key={selectedColor}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 pointer-events-none mix-blend-multiply"
-                  style={{ backgroundColor: product.colors[selectedColor].overlay }}
-                />
                 
                 {/* Premium Badge */}
                 <motion.div
