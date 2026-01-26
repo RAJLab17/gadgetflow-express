@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Sparkles, Zap, Shield, Star } from "lucide-react";
@@ -39,7 +39,26 @@ const product = {
 const FeaturedProducts = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
+  // Auto-rotate images every 4 seconds
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setSelectedImage((prev) => (prev + 1) % product.images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  // Pause auto-rotation when user manually selects an image
+  const handleImageSelect = useCallback((index: number) => {
+    setSelectedImage(index);
+    setIsPaused(true);
+    // Resume after 10 seconds of inactivity
+    setTimeout(() => setIsPaused(false), 10000);
+  }, []);
   return (
     <section id="products" className="py-24 md:py-32 relative overflow-hidden">
       {/* Premium Background */}
@@ -121,7 +140,7 @@ const FeaturedProducts = () => {
                 {product.images.map((image, index) => (
                   <motion.button
                     key={index}
-                    onClick={() => setSelectedImage(index)}
+                    onClick={() => handleImageSelect(index)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`relative w-20 h-20 rounded-2xl overflow-hidden transition-all duration-300 ${
