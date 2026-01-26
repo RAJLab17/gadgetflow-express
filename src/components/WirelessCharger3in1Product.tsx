@@ -142,10 +142,10 @@ const WirelessCharger3in1Product = () => {
 
             {/* Price - Show original and savings */}
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-4xl font-bold text-primary">CHF {(originalPrice * 0.9).toFixed(2)}</span>
+              <span className="text-4xl font-bold text-primary">CHF {(originalPrice * 0.8).toFixed(2)}</span>
               <span className="text-xl text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
               <span className="px-2 py-1 bg-primary/20 text-primary text-sm font-semibold rounded">
-                -10% Vorbesteller
+                -20% Vorbesteller
               </span>
             </div>
 
@@ -180,7 +180,7 @@ const WirelessCharger3in1Product = () => {
               productName="RAJTech 3-in-1 Wireless Charger"
               productVariant={selectedColor.name}
               originalPrice={originalPrice}
-              discountPercent={10}
+              discountPercent={20}
             />
 
             {/* Trust Badges */}
