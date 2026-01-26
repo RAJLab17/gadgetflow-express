@@ -45,7 +45,7 @@ const WirelessCharger3in1Product = () => {
     setSelectedImageIndex(0);
   };
 
-  const originalPrice = 110.73;
+  const originalPrice = 124.58;
 
   return (
     <section className="py-12 md:py-20">
