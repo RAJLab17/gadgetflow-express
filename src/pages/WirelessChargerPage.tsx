@@ -7,10 +7,10 @@ const WirelessChargerPage = () => {
   return (
     <>
       <Helmet>
-        <title>3-in-1 Wireless Charger - RAJTech</title>
+        <title>RAJ NEXUS 3-in-1 Wireless Charger - RAJ</title>
         <meta
           name="description"
-          content="Qi2.2 zertifizierte 3-in-1 MagSafe Ladestation mit 25W Schnellladen. Faltbares Design für iPhone, Apple Watch und AirPods."
+          content="RAJ NEXUS - Qi2.2 zertifizierte 3-in-1 MagSafe Ladestation mit 25W Schnellladen. Faltbares Design für iPhone, Apple Watch und AirPods."
         />
       </Helmet>
 

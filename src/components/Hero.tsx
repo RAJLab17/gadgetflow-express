@@ -167,7 +167,7 @@ const Hero = () => {
                 {/* Product Image */}
                 <motion.img
                   src={chargerHero}
-                  alt="3-in-1 Wireless Charger"
+                  alt="RAJ NEXUS 3-in-1 Wireless Charger"
                   className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105"
                   animate={{
                     y: [0, -10, 0],
