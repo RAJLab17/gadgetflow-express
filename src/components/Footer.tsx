@@ -9,9 +9,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="about" className="bg-card border-t border-border relative overflow-hidden">
-      {/* Background Accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px]" />
+    <footer className="bg-card border-t border-border relative overflow-hidden">
+      {/* Subtle Background */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[150px]" />
       
       {/* Newsletter Section */}
       <div className="border-b border-border relative">
@@ -20,23 +20,23 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="max-w-2xl mx-auto text-center"
           >
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-              <Mail className="w-8 h-8 text-primary" />
+            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+              <Mail className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="text-3xl font-bold mb-3">Bleib auf dem Laufenden</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-3">Bleiben Sie informiert</h3>
             <p className="text-muted-foreground mb-8 text-lg">
-              Erhalte exklusive Angebote und Neuigkeiten zu unseren Produkten
+              Exklusive Updates und Angebote direkt in Ihr Postfach
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input
                 type="email"
-                placeholder="Deine E-Mail-Adresse"
-                className="flex-1 bg-secondary border-border focus:border-primary h-12"
+                placeholder="Ihre E-Mail-Adresse"
+                className="flex-1 bg-background border-border focus:border-primary h-12 rounded-xl"
               />
-              <Button variant="glow" size="lg" className="h-12">
+              <Button variant="hero" size="lg" className="h-12">
                 Abonnieren
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -56,18 +56,15 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-1"
           >
-            <Link to="/" className="flex items-center gap-2 mb-6 group">
+            <Link to="/" className="flex items-center gap-3 mb-6 group">
               <img 
                 src={logo} 
-                alt="RAJ Tech" 
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
+                alt="RAJTech" 
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" 
               />
-              <span className="text-2xl font-bold text-foreground">
-                RAJ<span className="text-primary">Tech</span>
-              </span>
             </Link>
             <p className="text-muted-foreground leading-relaxed">
-              Premium Smartphone-Zubehör für den modernen Nutzer. Qualitätsprodukte, schnelle Lieferung.
+              Premium Ladelösungen für anspruchsvolle Kunden. Schweizer Qualität.
             </p>
           </motion.div>
 
@@ -78,15 +75,14 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-semibold mb-6 text-foreground text-lg">Schnelllinks</h4>
+            <h4 className="font-semibold mb-6 text-foreground">Navigation</h4>
             <ul className="space-y-3">
-              {["Produkte", "Kategorien", "Angebote", "Neuheiten"].map((link) => (
+              {["Produkt", "Über uns"].map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 group"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
                     {link}
                   </a>
                 </li>
@@ -101,15 +97,14 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-semibold mb-6 text-foreground text-lg">Support</h4>
+            <h4 className="font-semibold mb-6 text-foreground">Support</h4>
             <ul className="space-y-3">
               {["FAQ", "Versand", "Rückgabe", "Kontakt"].map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 group"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
                     {link}
                   </a>
                 </li>
@@ -124,15 +119,14 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="font-semibold mb-6 text-foreground text-lg">Rechtliches</h4>
+            <h4 className="font-semibold mb-6 text-foreground">Rechtliches</h4>
             <ul className="space-y-3">
-              {["Datenschutz", "AGB", "Impressum", "Cookie-Richtlinie"].map((link) => (
+              {["Datenschutz", "AGB", "Impressum"].map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 group"
+                    className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300" />
                     {link}
                   </a>
                 </li>
@@ -153,7 +147,7 @@ const Footer = () => {
             © {currentYear} RAJTech. Alle Rechte vorbehalten.
           </p>
           <p className="text-muted-foreground text-sm">
-            Power. <span className="text-primary">Always There.</span>
+            Eleganz <span className="text-primary">trifft Kraft.</span>
           </p>
         </motion.div>
       </div>

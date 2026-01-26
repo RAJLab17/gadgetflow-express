@@ -1,19 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import BrandMission from "@/components/BrandMission";
 import FeaturedProducts from "@/components/FeaturedProducts";
-import Categories from "@/components/Categories";
 import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <>
       <Helmet>
-        <title>RAJTech - Premium Smartphone Accessories</title>
+        <title>RAJTech - Premium Wireless Charger</title>
         <meta
           name="description"
-          content="Discover premium smartphone accessories at RAJTech. Shop earbuds, cases, chargers, cables and more. Fast delivery, quality guaranteed."
+          content="RAJTech 3-in-1 Wireless Charger – Premium Ladestation für iPhone, Apple Watch und AirPods. Elegantes Design, Schweizer Qualität."
         />
       </Helmet>
 
@@ -22,8 +20,6 @@ const Index = () => {
         <main>
           <Hero />
           <FeaturedProducts />
-          <BrandMission />
-          <Categories />
         </main>
         <Footer />
       </div>
