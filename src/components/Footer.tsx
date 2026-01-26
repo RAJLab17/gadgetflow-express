@@ -66,8 +66,10 @@ const Footer = () => {
                 Power. Always There.
               </span>
             </Link>
-            <p className="text-muted-foreground leading-relaxed font-semibold">
-              Präzision in Form gegossen. Leistung, auf den Punkt gebracht. Konsequent bis ins Detail.
+            <p className="text-muted-foreground leading-relaxed">
+              Präzision in Form gegossen.<br />
+              Leistung, auf den Punkt gebracht.<br />
+              Konsequent bis ins Detail.
             </p>
           </motion.div>
 
