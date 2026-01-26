@@ -50,8 +50,8 @@ const PreorderBanner = ({ remainingSpots = 100 }: PreorderBannerProps) => {
                 <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <Gift className="w-4 h-4 text-primary" />
                 </div>
-                <span className="text-foreground font-medium">
-                  <span className="text-primary font-bold">Gratis Premium-Kabel</span> im Wert von CHF 19
+              <span className="text-foreground font-medium">
+                  <span className="text-primary font-bold">Gratis Premium-Kabel</span> im Wert von CHF 26.99
                 </span>
               </li>
               <li className="flex items-center gap-3">
