@@ -13,7 +13,7 @@ const product = {
   name: "3-in-1 Wireless Charger",
   price: 62.10,
   originalPrice: 69,
-  images: [charger3in1Hero, charger3in1Black1, charger3in1Black2],
+  images: [charger3in1ColorsMain, charger3in1Hero, charger3in1Black2],
   rating: 5,
   reviews: 89,
   category: "Premium Collection",
@@ -127,13 +127,11 @@ const FeaturedProducts = () => {
                         : "ring-1 ring-border hover:ring-primary/50"
                     }`}
                   >
-                    <div className="w-full h-full bg-card">
-                      <img
-                        src={image}
-                        alt={`View ${index + 1}`}
-                        className="w-full h-full object-contain p-2"
-                      />
-                    </div>
+                    <img
+                      src={image}
+                      alt={`View ${index + 1}`}
+                      className="w-full h-full object-contain p-2"
+                    />
                     {selectedImage === index && (
                       <motion.div
                         layoutId="activeThumb"
