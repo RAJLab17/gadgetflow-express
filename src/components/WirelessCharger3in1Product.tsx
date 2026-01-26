@@ -223,10 +223,8 @@ const WirelessCharger3in1Product = () => {
             {/* Description */}
             <div className="prose prose-invert mb-8">
               <p className="text-muted-foreground leading-relaxed">
-                Die ultimative All-in-One Ladelösung für Apple-Nutzer. Lade dein iPhone, Apple Watch 
-                und AirPods gleichzeitig mit bis zu 25W Schnellladen. Das innovative faltbare Design 
-                macht diese Ladestation zum perfekten Reisebegleiter – kompakt zusammengeklappt 
-                passt sie in jede Tasche.
+                Die 3-in-1 Ladestation für iPhone, Apple Watch und AirPods mit Qi2.2 und 25W Fast Charge.
+                Faltbar, kompakt und perfekt für unterwegs – entwickelt für alle, die Design und Performance erwarten.
               </p>
             </div>
 
