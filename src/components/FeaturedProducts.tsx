@@ -112,18 +112,7 @@ const FeaturedProducts = () => {
                   -10% Vorbesteller
                 </motion.div>
 
-                {/* Limited Stock Indicator */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
-                  className="absolute bottom-6 left-6 px-4 py-2 bg-background/90 backdrop-blur-sm rounded-full text-sm font-medium border border-border"
-                >
-                  ⚡ Nur noch 12 verfügbar
-                </motion.div>
               </motion.div>
-
               {/* Thumbnail Gallery */}
               <div className="flex gap-3 justify-center">
                 {product.images.map((image, index) => (
