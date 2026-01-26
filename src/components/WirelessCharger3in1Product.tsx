@@ -204,11 +204,19 @@ const WirelessCharger3in1Product = () => {
             </div>
 
             {/* Price - Show original and savings */}
-            <div className="flex items-baseline gap-3 mb-6">
+            <div className="flex flex-wrap items-baseline gap-3 mb-3">
               <span className="text-4xl font-bold text-primary">CHF {(originalPrice * 0.8).toFixed(2)}</span>
               <span className="text-xl text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
               <span className="px-2 py-1 bg-primary/20 text-primary text-sm font-semibold rounded">
                 -20% Vorbesteller
+              </span>
+            </div>
+            
+            {/* Free Cable Bonus */}
+            <div className="flex items-center gap-2 mb-6 px-3 py-2 bg-green-500/10 border border-green-500/20 rounded-lg">
+              <span className="text-green-500 font-bold">🎁</span>
+              <span className="text-sm font-medium text-green-600">
+                + Gratis Premium Kabel im Wert von CHF 29.99
               </span>
             </div>
 
