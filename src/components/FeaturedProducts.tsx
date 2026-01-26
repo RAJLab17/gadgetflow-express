@@ -70,7 +70,7 @@ const FeaturedProducts = () => {
     }
   }, [selectedImage, handleImageSelect]);
   return (
-    <section id="products" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="products" className="pt-8 md:pt-12 pb-24 md:pb-32 relative overflow-hidden">
       {/* Premium Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px] -translate-y-1/2 translate-x-1/4" />
