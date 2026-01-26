@@ -39,25 +39,21 @@ const product = {
 const FeaturedProducts = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
 
   // Auto-rotate images every 4 seconds
   useEffect(() => {
-    if (isPaused) return;
-    
     const interval = setInterval(() => {
       setSelectedImage((prev) => (prev + 1) % product.images.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [autoPlayKey]);
 
-  // Pause auto-rotation when user manually selects an image
+  // Manual selection resets the timer but keeps auto-play running
   const handleImageSelect = useCallback((index: number) => {
     setSelectedImage(index);
-    setIsPaused(true);
-    // Resume after 10 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 10000);
+    setAutoPlayKey((prev) => prev + 1); // Reset timer
   }, []);
   return (
     <section id="products" className="py-24 md:py-32 relative overflow-hidden">
