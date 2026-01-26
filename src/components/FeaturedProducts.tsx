@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { Check, Sparkles, Zap, Shield, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import charger3in1Hero from "@/assets/products/charger-3in1-hero.png";
-import charger3in1Angle from "@/assets/products/charger-3in1-angle.png";
-import charger3in1Colors from "@/assets/products/charger-3in1-colors.png";
+import charger3in1Black1 from "@/assets/products/charger-3in1-black-1.png";
+import charger3in1Black2 from "@/assets/products/charger-3in1-black-2.png";
 import charger3in1ColorsMain from "@/assets/products/charger-3in1-colors-main.png";
 
 const product = {
@@ -13,7 +13,7 @@ const product = {
   name: "3-in-1 Wireless Charger",
   price: 62.10,
   originalPrice: 69,
-  images: [charger3in1ColorsMain, charger3in1Hero, charger3in1Angle, charger3in1Colors],
+  images: [charger3in1ColorsMain, charger3in1Hero, charger3in1Black1, charger3in1Black2],
   rating: 5,
   reviews: 89,
   category: "Premium Collection",
@@ -141,7 +141,7 @@ const FeaturedProducts = () => {
                     <img
                       src={image}
                       alt={`View ${index + 1}`}
-                      className="w-full h-full object-contain bg-card p-2"
+                      className="w-full h-full object-contain p-2"
                     />
                     {selectedImage === index && (
                       <motion.div
