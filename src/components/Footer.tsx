@@ -3,7 +3,7 @@ import { Mail, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-new.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -59,8 +59,8 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <img 
                 src={logo} 
-                alt="RAJTech" 
-                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105" 
+                alt="RAJ" 
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
               />
             </Link>
             <p className="text-muted-foreground leading-relaxed">
@@ -144,7 +144,7 @@ const Footer = () => {
           className="border-t border-border mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <p className="text-muted-foreground text-sm">
-            © {currentYear} RAJTech. Alle Rechte vorbehalten.
+            © {currentYear} RAJ. Alle Rechte vorbehalten.
           </p>
           <p className="text-muted-foreground text-sm">
             Eleganz <span className="text-primary">trifft Kraft.</span>

@@ -8,10 +8,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>RAJTech - Premium Wireless Charger</title>
+        <title>RAJ - Premium Wireless Charger</title>
         <meta
           name="description"
-          content="RAJTech 3-in-1 Wireless Charger – Premium Ladestation für iPhone, Apple Watch und AirPods. Elegantes Design, Schweizer Qualität."
+          content="RAJ 3-in-1 Wireless Charger – Premium Ladestation für iPhone, Apple Watch und AirPods. Elegantes Design, Schweizer Qualität."
         />
       </Helmet>
 
