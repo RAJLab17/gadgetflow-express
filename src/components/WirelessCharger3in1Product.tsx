@@ -10,17 +10,13 @@ import charger3in1Action1 from "@/assets/products/charger-3in1-action1.png";
 import charger3in1Action2 from "@/assets/products/charger-3in1-action2.png";
 import charger3in1Angles from "@/assets/products/charger-3in1-angles.png";
 import charger3in1Specs from "@/assets/products/charger-3in1-specs.png";
-import charger3in1LifestyleHome from "@/assets/products/charger-3in1-lifestyle-home.png";
-import charger3in1LifestyleOffice from "@/assets/products/charger-3in1-lifestyle-office.png";
 
 const productImages = [
   charger3in1ColorsNew, 
   charger3in1Action1, 
   charger3in1Action2, 
   charger3in1Angles, 
-  charger3in1Specs, 
-  charger3in1LifestyleHome, 
-  charger3in1LifestyleOffice
+  charger3in1Specs
 ];
 
 type ColorVariant = {
