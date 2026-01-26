@@ -14,8 +14,8 @@ import charger3in1LifestyleOffice from "@/assets/products/charger-3in1-lifestyle
 const product = {
   id: 7,
   name: "3-in-1 Wireless Charger",
-  price: 62.10,
-  originalPrice: 69,
+  price: 99.66,
+  originalPrice: 124.58,
   images: [charger3in1ColorsNew, charger3in1Action1, charger3in1Action2, charger3in1Angles, charger3in1Specs, charger3in1LifestyleHome, charger3in1LifestyleOffice],
   rating: 5,
   reviews: 89,
@@ -145,7 +145,7 @@ const FeaturedProducts = () => {
                   className="absolute top-6 right-6 px-4 py-2 bg-primary text-primary-foreground rounded-full shadow-elegant font-semibold text-sm flex items-center gap-2"
                 >
                   <span className="animate-pulse">🔥</span>
-                  -10% Vorbesteller
+                  -20% Vorbesteller
                 </motion.div>
 
               </motion.div>
