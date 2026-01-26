@@ -60,7 +60,7 @@ const WirelessCharger3in1Product = () => {
             <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
               <img
                 src={selectedColor.images[selectedImageIndex]}
-                alt={`RAJTech 3-in-1 Wireless Charger - ${selectedColor.name}`}
+                alt={`RAJ NEXUS 3-in-1 Wireless Charger - ${selectedColor.name}`}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -120,11 +120,14 @@ const WirelessCharger3in1Product = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
-              RAJTech 3-in-1 <span className="text-primary">Wireless Charger</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-2">
+              <span className="text-primary">RAJ NEXUS</span>
             </h1>
+            <p className="text-xl font-semibold text-foreground mb-1">
+              3-in-1 Wireless Charger
+            </p>
             <p className="text-lg text-muted-foreground mb-4">
-              Faltbare MagSafe Ladestation mit 25W Schnellladen
+              Qi2.2 • 25W
             </p>
 
             {/* Rating */}
@@ -177,7 +180,7 @@ const WirelessCharger3in1Product = () => {
 
             {/* Preorder Form */}
             <PreorderForm
-              productName="RAJTech 3-in-1 Wireless Charger"
+              productName="RAJ NEXUS 3-in-1 Wireless Charger"
               productVariant={selectedColor.name}
               originalPrice={originalPrice}
               discountPercent={20}
@@ -244,7 +247,7 @@ const WirelessCharger3in1Product = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>1× RAJTech 3-in-1 Wireless Charger</span>
+                <span>1× RAJ NEXUS 3-in-1 Wireless Charger</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary" />

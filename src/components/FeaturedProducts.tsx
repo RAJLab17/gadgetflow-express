@@ -201,9 +201,15 @@ const FeaturedProducts = () => {
 
               {/* Title & Description */}
               <div>
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
-                  {product.name}
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 tracking-tight">
+                  <span className="text-primary">RAJ NEXUS</span>
                 </h3>
+                <p className="text-xl md:text-2xl font-semibold text-foreground mb-1">
+                  3-in-1 Wireless Charger
+                </p>
+                <p className="text-lg text-muted-foreground mb-4">
+                  Qi2.2 • 25W
+                </p>
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   {product.description}
                 </p>
