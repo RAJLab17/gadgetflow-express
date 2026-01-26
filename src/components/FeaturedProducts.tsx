@@ -3,10 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Sparkles, Zap, Shield, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import charger3in1Hero from "@/assets/products/charger-3in1-hero.png";
-import charger3in1Black1 from "@/assets/products/charger-3in1-black-1.png";
-import charger3in1Black2 from "@/assets/products/charger-3in1-black-2.png";
-import charger3in1ColorsMain from "@/assets/products/charger-3in1-colors-main.png";
+import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
+import charger3in1Action1 from "@/assets/products/charger-3in1-action1.png";
+import charger3in1Action2 from "@/assets/products/charger-3in1-action2.png";
 
 const product = {
   id: 7,
