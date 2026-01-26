@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-new.png";
 
 const navLinks = [
   { href: "#products", label: "Produkt" },
@@ -55,8 +55,8 @@ const Header = () => {
             >
               <img
                 src={logo}
-                alt="RAJTech Logo"
-                className="h-12 w-auto transition-all duration-300 drop-shadow-sm"
+                alt="RAJ Logo"
+                className="h-14 w-auto transition-all duration-300 drop-shadow-sm"
               />
             </motion.div>
           </Link>
