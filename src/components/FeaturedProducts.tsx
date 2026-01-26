@@ -112,7 +112,7 @@ const FeaturedProducts = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Product Gallery */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Main Image */}
               <motion.div 
                 className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-card to-muted shadow-elegant-lg group cursor-grab active:cursor-grabbing"
@@ -178,44 +178,7 @@ const FeaturedProducts = () => {
                 ))}
               </div>
 
-              {/* Color Selection - Moved under images */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-foreground">Farbe wählen</span>
-                  <span className="text-sm text-muted-foreground">{product.colors[selectedColor].name}</span>
-                </div>
-                <div className="flex gap-3 justify-center">
-                  {product.colors.map((color, index) => (
-                    <motion.button
-                      key={color.name}
-                      onClick={() => setSelectedColor(index)}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`relative w-12 h-12 rounded-full transition-all duration-300 ${
-                        selectedColor === index 
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-background" 
-                          : "ring-1 ring-border hover:ring-primary/50"
-                      }`}
-                      style={{ backgroundColor: color.value }}
-                    >
-                      {selectedColor === index && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="absolute inset-0 flex items-center justify-center"
-                        >
-                          <Check className="w-5 h-5 text-white drop-shadow-md" />
-                        </motion.div>
-                      )}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Product Info */}
-            <div className="space-y-8 lg:sticky lg:top-32">
-              {/* Category & Rating */}
+              {/* Category & Rating - Above colors */}
               <div className="flex items-center justify-between">
                 <span className="text-primary text-sm font-semibold uppercase tracking-[0.15em]">
                   {product.category}
@@ -232,6 +195,44 @@ const FeaturedProducts = () => {
                   <span className="text-sm text-muted-foreground">({product.reviews})</span>
                 </div>
               </div>
+
+              {/* Color Selection */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-foreground">Farbe wählen</span>
+                  <span className="text-sm text-muted-foreground">{product.colors[selectedColor].name}</span>
+                </div>
+                <div className="flex gap-3 justify-center">
+                  {product.colors.map((color, index) => (
+                    <motion.button
+                      key={color.name}
+                      onClick={() => setSelectedColor(index)}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`relative w-10 h-10 rounded-full transition-all duration-300 ${
+                        selectedColor === index 
+                          ? "ring-2 ring-primary ring-offset-2 ring-offset-background" 
+                          : "ring-1 ring-border hover:ring-primary/50"
+                      }`}
+                      style={{ backgroundColor: color.value }}
+                    >
+                      {selectedColor === index && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="absolute inset-0 flex items-center justify-center"
+                        >
+                          <Check className="w-4 h-4 text-white drop-shadow-md" />
+                        </motion.div>
+                      )}
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Product Info */}
+            <div className="space-y-5 lg:sticky lg:top-32">
 
               {/* Title & Description */}
               <div>
