@@ -56,15 +56,18 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-1"
           >
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
+            <Link to="/" className="flex items-center gap-3 mb-4 group">
               <img 
                 src={logo} 
                 alt="RAJ" 
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
               />
+              <span className="text-sm font-semibold text-foreground/80 tracking-wide">
+                Power. Always There.
+              </span>
             </Link>
-            <p className="text-muted-foreground leading-relaxed">
-              Premium Ladelösungen für anspruchsvolle Kunden. Schweizer Qualität.
+            <p className="text-muted-foreground leading-relaxed font-semibold">
+              Präzision in Form gegossen. Leistung, auf den Punkt gebracht. Konsequent bis ins Detail.
             </p>
           </motion.div>
 
@@ -146,8 +149,8 @@ const Footer = () => {
           <p className="text-muted-foreground text-sm">
             © {currentYear} RAJ. Alle Rechte vorbehalten.
           </p>
-          <p className="text-muted-foreground text-sm">
-            Eleganz <span className="text-primary">trifft Kraft.</span>
+          <p className="text-muted-foreground text-sm font-semibold">
+            Präzision in Form gegossen. <span className="text-primary">Leistung, auf den Punkt gebracht.</span>
           </p>
         </motion.div>
       </div>
