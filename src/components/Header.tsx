@@ -47,17 +47,20 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center gap-3 group">
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-              className="flex items-center"
+              className="flex items-center gap-3"
             >
               <img
                 src={logo}
                 alt="RAJ Logo"
                 className="h-14 w-auto transition-all duration-300 drop-shadow-sm"
               />
+              <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
+                Power. Always There.
+              </span>
             </motion.div>
           </Link>
 
