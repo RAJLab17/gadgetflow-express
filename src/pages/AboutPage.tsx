@@ -50,10 +50,10 @@ const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>Über uns - RAJTech | Power. Always There.</title>
+        <title>Über uns - RAJ | Power. Always There.</title>
         <meta
           name="description"
-          content="Erfahren Sie mehr über RAJTech - unsere Vision, Mission und Werte. Wir stehen für Energie mit Substanz – klar im Design, ehrlich in der Leistung."
+          content="Erfahren Sie mehr über RAJ - unsere Vision, Mission und Werte. Wir stehen für Energie mit Substanz – klar im Design, ehrlich in der Leistung."
         />
       </Helmet>
 
@@ -69,14 +69,14 @@ const AboutPage = () => {
             
             <div className="container mx-auto px-4 relative z-10">
               <div className="text-center">
-                <span className="inline-block px-6 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm tracking-widest uppercase mb-8">
-                  Über RAJTech
+              <span className="inline-block px-6 py-2 bg-primary/10 border border-primary/20 rounded-full text-primary font-semibold text-sm tracking-widest uppercase mb-8">
+                  Über RAJ
                 </span>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6">
                   Power. <span className="text-primary">Always There.</span>
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Wir sind RAJTech – Ihr Partner für zuverlässige Energielösungen im digitalen Alltag.
+                  Wir sind RAJ – Ihr Partner für zuverlässige Energielösungen im digitalen Alltag.
                 </p>
               </div>
             </div>
