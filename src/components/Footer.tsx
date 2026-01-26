@@ -15,7 +15,7 @@ const Footer = () => {
       
       {/* Newsletter Section */}
       <div className="border-b border-border relative">
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 py-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -23,11 +23,11 @@ const Footer = () => {
             transition={{ duration: 0.8 }}
             className="max-w-2xl mx-auto text-center"
           >
-            <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-              <Mail className="w-6 h-6 text-primary" />
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <Mail className="w-5 h-5 text-primary" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-3">Bleiben Sie informiert</h3>
-            <p className="text-muted-foreground mb-8 text-lg">
+            <h3 className="text-xl md:text-2xl font-bold mb-2">Bleiben Sie informiert</h3>
+            <p className="text-muted-foreground mb-5 text-base">
               Exklusive Updates und Angebote direkt in Ihr Postfach
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
