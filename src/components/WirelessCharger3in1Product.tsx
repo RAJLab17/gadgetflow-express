@@ -266,15 +266,18 @@ const WirelessCharger3in1Product = () => {
             </div>
 
             {/* Certification Badges */}
-            <div className="flex items-center gap-3 mt-4">
+            <div className="flex items-center gap-2 mt-4 flex-wrap">
               <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
-                Qi2.2 Zertifiziert
+                Qi2.2
               </span>
               <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
-                MagSafe Kompatibel
+                CE
               </span>
               <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
-                Apple Watch
+                RoHS
+              </span>
+              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+                FCC
               </span>
             </div>
           </div>
