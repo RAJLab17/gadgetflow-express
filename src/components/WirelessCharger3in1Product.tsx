@@ -203,43 +203,40 @@ const WirelessCharger3in1Product = () => {
               <span className="text-sm text-muted-foreground">(89 Bewertungen)</span>
             </div>
 
-            {/* Price - Show original and savings */}
-            <div className="flex flex-wrap items-baseline gap-3 mb-3">
-              <span className="text-4xl font-bold text-primary">CHF {(originalPrice * 0.8).toFixed(2)}</span>
-              <span className="text-xl text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
-              <span className="px-2 py-1 bg-primary/20 text-primary text-sm font-semibold rounded">
-                -20% Vorbesteller
-              </span>
+            {/* Price - Prominent */}
+            <div className="flex flex-wrap items-center gap-3 mb-2">
+              <span className="text-5xl font-bold text-primary">CHF {(originalPrice * 0.8).toFixed(2)}</span>
+              <div className="flex flex-col">
+                <span className="text-lg text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
+                <span className="px-2 py-0.5 bg-primary text-primary-foreground text-xs font-bold rounded-full">
+                  SPARE 20%
+                </span>
+              </div>
             </div>
             
-            {/* Free Cable Bonus */}
-            <div className="flex items-center gap-2 mb-6 px-3 py-2 bg-green-500/10 border border-green-500/20 rounded-lg">
-              <span className="text-green-500 font-bold">🎁</span>
-              <span className="text-sm font-medium text-green-600">
-                + Gratis Premium Kabel im Wert von CHF 26.99
+            {/* Free Cable Bonus - Compact */}
+            <div className="flex items-center gap-2 mb-4 text-green-500">
+              <span className="text-lg">🎁</span>
+              <span className="text-sm font-semibold">
+                + Gratis Kabel (Wert CHF 26.99)
               </span>
             </div>
 
-            {/* Description */}
-            <div className="prose prose-invert mb-8">
-              <p className="text-muted-foreground leading-relaxed">
-                Die 3-in-1 Ladestation für iPhone, Apple Watch und AirPods mit Qi2.2 und 25W Fast Charge.
-                Faltbar, kompakt und perfekt für unterwegs – entwickelt für alle, die Design und Performance erwarten.
-              </p>
-            </div>
+            {/* Description - Compact */}
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              Die 3-in-1 Ladestation für iPhone, Apple Watch und AirPods mit Qi2.2 und 25W Fast Charge.
+              Faltbar, kompakt und perfekt für unterwegs.
+            </p>
 
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+            {/* Features Grid - Compact */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30 border border-border/50"
+                  className="flex items-center gap-2 p-2 rounded-lg bg-secondary/30"
                 >
-                  <feature.icon className="w-5 h-5 text-primary mt-0.5" />
-                  <div>
-                    <p className="text-sm font-medium">{feature.title}</p>
-                    <p className="text-xs text-muted-foreground">{feature.description}</p>
-                  </div>
+                  <feature.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                  <p className="text-xs font-medium">{feature.title}</p>
                 </div>
               ))}
             </div>
@@ -252,19 +249,19 @@ const WirelessCharger3in1Product = () => {
               discountPercent={20}
             />
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-border">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            {/* Trust Badges - Icons only */}
+            <div className="flex items-center gap-6 mt-4 pt-4 border-t border-border">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground" title="2 Jahre Garantie">
                 <Shield className="w-4 h-4 text-primary" />
-                <span>2 Jahre Garantie</span>
+                <span>2J Garantie</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground" title="Kostenloser Versand">
                 <Package className="w-4 h-4 text-primary" />
-                <span>Kostenloser Versand</span>
+                <span>Gratis Versand</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground" title="2-4 Wochen Lieferzeit">
                 <Zap className="w-4 h-4 text-primary" />
-                <span>2-4 Wochen Lieferzeit</span>
+                <span>2-4 Wo.</span>
               </div>
             </div>
           </div>
