@@ -1,146 +1,165 @@
-import { motion } from "framer-motion";
-import { ShoppingCart, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
+const navLinks = [
+  { href: "#products", label: "Produkt" },
+  { href: "/about", label: "Über uns" },
+];
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [cartCount] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
 
-  const navLinks = [
-    { name: "Produkte", href: isHomePage ? "#products" : "/#products", isAnchor: true },
-    { name: "Kategorien", href: isHomePage ? "#categories" : "/#categories", isAnchor: true },
-    { name: "Über uns", href: "/about", isAnchor: false },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = (href: string) => {
+    if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsMenuOpen(false);
+  };
 
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-2xl border-b border-border/50"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-background/90 backdrop-blur-xl shadow-elegant border-b border-border/50"
+          : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <motion.img 
-              src={logo} 
-              alt="RAJ Tech" 
-              className="h-10 md:h-12 w-auto"
-              whileHover={{ scale: 1.05 }}
+          <Link to="/" className="flex items-center group">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
-            />
-            <span className="text-xl md:text-2xl font-bold text-foreground hidden sm:block">
-              RAJ<span className="text-primary">Tech</span>
-            </span>
+            >
+              <img
+                src={logo}
+                alt="RAJTech Logo"
+                className="h-10 w-auto transition-all duration-300"
+              />
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link, index) => (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                {link.isAnchor ? (
-                  <a
-                    href={link.href}
-                    className="relative px-5 py-2.5 text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium group"
-                  >
-                    {link.name}
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-6 transition-all duration-300" />
-                  </a>
-                ) : (
-                  <Link
-                    to={link.href}
-                    className="relative px-5 py-2.5 text-muted-foreground hover:text-foreground transition-colors duration-300 font-medium group"
-                  >
-                    {link.name}
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-6 transition-all duration-300" />
-                  </Link>
-                )}
-              </motion.div>
+          <nav className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
+              link.href.startsWith("#") ? (
+                <button
+                  key={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </button>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              )
             ))}
           </nav>
 
-          {/* Right Side */}
-          <div className="flex items-center gap-3">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.3 }}
-            >
-              <Button variant="outline" size="icon" className="relative border-border/50 hover:border-primary/50 hover:bg-primary/5">
-                <ShoppingCart className="h-5 w-5" />
-                {cartCount > 0 && (
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute -top-1.5 -right-1.5 bg-primary text-primary-foreground text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold"
-                  >
-                    {cartCount}
-                  </motion.span>
-                )}
-              </Button>
-            </motion.div>
-
-            {/* Mobile Menu Button */}
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
             <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              variant="hero"
+              size="default"
+              className="shadow-elegant"
+              onClick={() => handleNavClick("#products")}
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              Jetzt kaufen
             </Button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden py-6 border-t border-border/50"
-          >
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link, index) => (
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden overflow-hidden border-t border-border/50"
+            >
+              <div className="py-6 space-y-4">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    {link.href.startsWith("#") ? (
+                      <button
+                        onClick={() => handleNavClick(link.href)}
+                        className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </motion.div>
+                ))}
                 <motion.div
-                  key={link.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ delay: navLinks.length * 0.1 }}
+                  className="pt-4"
                 >
-                  {link.isAnchor ? (
-                    <a
-                      href={link.href}
-                      className="text-foreground hover:text-primary transition-colors duration-300 font-medium py-3 px-4 rounded-xl hover:bg-secondary block"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.name}
-                    </a>
-                  ) : (
-                    <Link
-                      to={link.href}
-                      className="text-foreground hover:text-primary transition-colors duration-300 font-medium py-3 px-4 rounded-xl hover:bg-secondary block"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.name}
-                    </Link>
-                  )}
+                  <Button
+                    variant="hero"
+                    className="w-full shadow-elegant"
+                    onClick={() => handleNavClick("#products")}
+                  >
+                    Jetzt kaufen
+                  </Button>
                 </motion.div>
-              ))}
-            </div>
-          </motion.nav>
-        )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

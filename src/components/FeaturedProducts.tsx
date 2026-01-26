@@ -1,177 +1,25 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import ProductCard from "@/components/ProductCard";
-import earbudsImg from "@/assets/products/earbuds.jpg";
-import phoneCaseImg from "@/assets/products/phone-case.jpg";
-import phoneMountImg from "@/assets/products/phone-mount.jpg";
-import cableGalaxyImg from "@/assets/products/cable-galaxy.png";
-import screenProtectorImg from "@/assets/products/screen-protector.jpg";
-import powerbankOrangeImg from "@/assets/products/powerbank-orange-1.png";
 import charger3in1Img from "@/assets/products/charger-3in1-black-2.png";
-import foldableChargerImg from "@/assets/products/charger-foldable-stand.webp";
-import standChargerImg from "@/assets/products/charger-stand-hero.png";
-import powerbank20kBlackImg from "@/assets/products/powerbank-20k-black.png";
-import carChargerImg from "@/assets/products/car-charger-3.png";
-import ganChargerImg from "@/assets/products/gan-charger-1.png";
-import usbChargerImg from "@/assets/products/usb-charger-devices.png";
 
-const products = [
-  {
-    id: 9,
-    name: "Stand 3-in-1 Wireless Charger",
-    price: 53.99,
-    originalPrice: 59.99,
-    image: standChargerImg,
-    rating: 5,
-    category: "3-in-1",
-    link: "/product/stand-charger-3in1",
-  },
-  {
-    id: 1,
-    name: "MagSafe PowerBank Pro",
-    price: 49,
-    originalPrice: 79,
-    image: powerbankOrangeImg,
-    rating: 5,
-    category: "Bestseller",
-    link: "/product/magsafe-powerbank",
-  },
-  {
-    id: 11,
-    name: "Car Charger 4-in-1 Pro",
-    price: 42.45,
-    originalPrice: 49.95,
-    image: carChargerImg,
-    rating: 5,
-    category: "NEU",
-    link: "/product/car-charger-4in1",
-  },
-  {
-    id: 10,
-    name: "PowerBank Ultra 20K",
-    price: 50.15,
-    originalPrice: 59,
-    image: powerbank20kBlackImg,
-    rating: 5,
-    category: "NEU",
-    link: "/product/powerbank-ultra-20k",
-  },
-  {
-    id: 7,
-    name: "3-in-1 Wireless Charger",
-    price: 69,
-    originalPrice: 99,
-    image: charger3in1Img,
-    rating: 5,
-    category: "NEU",
-    link: "/product/wireless-charger-3in1",
-  },
-  {
-    id: 13,
-    name: "USB-C Schnellladegerät 65W",
-    price: 33.99,
-    originalPrice: 39.99,
-    image: usbChargerImg,
-    rating: 5,
-    category: "NEU",
-    link: "/product/usb-charger-35w",
-  },
-  {
-    id: 12,
-    name: "GaN SuperCharger 100W",
-    price: 67.15,
-    originalPrice: 79,
-    image: ganChargerImg,
-    rating: 5,
-    category: "NEU",
-    link: "/product/gan-supercharger-100w",
-  },
-  {
-    id: 8,
-    name: "Foldable 3-in-1 Charger",
-    price: 49,
-    originalPrice: 59,
-    image: foldableChargerImg,
-    rating: 5,
-    category: "Portabel",
-    link: "/product/foldable-charger",
-  },
-  {
-    id: 5,
-    name: "Magnetic Charging Cable",
-    price: 25,
-    originalPrice: 40,
-    image: cableGalaxyImg,
-    rating: 5,
-    category: "Cables",
-    link: "/product/magnetic-cable",
-  },
-  {
-    id: 2,
-    name: "ProSound Wireless Earbuds",
-    price: 49,
-    originalPrice: 79,
-    image: earbudsImg,
-    rating: 5,
-    category: "Audio",
-  },
-  {
-    id: 3,
-    name: "Ultra Slim Phone Case",
-    price: 24,
-    originalPrice: 35,
-    image: phoneCaseImg,
-    rating: 4,
-    category: "Protection",
-  },
-  {
-    id: 4,
-    name: "MagGrip Car Mount",
-    price: 29,
-    image: phoneMountImg,
-    rating: 4,
-    category: "Mounts",
-  },
-  {
-    id: 6,
-    name: "ClearShield Screen Protector",
-    price: 12,
-    originalPrice: 19,
-    image: screenProtectorImg,
-    rating: 4,
-    category: "Protection",
-  },
-];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
+const product = {
+  id: 7,
+  name: "3-in-1 Wireless Charger",
+  price: 62.10,
+  originalPrice: 69,
+  image: charger3in1Img,
+  rating: 5,
+  category: "Premium Collection",
+  link: "/product/wireless-charger-3in1",
+  description: "Lade iPhone, Apple Watch und AirPods gleichzeitig mit bis zu 25W – elegant und kompakt.",
 };
 
 const FeaturedProducts = () => {
   return (
     <section id="products" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background Accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
+      {/* Subtle Background Elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
       
       <div className="container mx-auto px-4 relative">
         {/* Section Header */}
@@ -179,53 +27,129 @@ const FeaturedProducts = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
         >
-          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-            Unsere Produkte
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-[0.2em] mb-6">
+            Unser Flaggschiff
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Premium <span className="text-primary">Qualität</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+            Perfekte <span className="text-primary">Eleganz</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-            Entdecke unsere meistverkauften Smartphone-Accessoires. Qualität garantiert.
+            Entworfen für höchste Ansprüche. Qualität, die man sieht und fühlt.
           </p>
         </motion.div>
 
-        {/* Product Grid */}
+        {/* Featured Product Display */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
-          {products.map((product) => (
-            <motion.div key={product.id} variants={itemVariants}>
-              {product.link ? (
-                <Link to={product.link} className="block">
-                  <ProductCard {...product} />
-                </Link>
-              ) : (
-                <ProductCard {...product} />
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-16"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-5xl mx-auto"
         >
-          <Button variant="outline" size="lg" className="group border-primary/30 hover:border-primary hover:bg-primary/5">
-            Alle Produkte anzeigen
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <Link to={product.link} className="block group">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Product Image */}
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-secondary to-muted shadow-elegant-lg">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                
+                {/* Floating Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="absolute -top-4 -right-4 px-6 py-3 bg-primary text-primary-foreground rounded-2xl shadow-elegant font-semibold text-sm"
+                >
+                  -10% Vorbesteller
+                </motion.div>
+              </motion.div>
+
+              {/* Product Info */}
+              <div className="space-y-8">
+                <div>
+                  <span className="text-primary text-sm font-semibold uppercase tracking-[0.15em] mb-3 block">
+                    {product.category}
+                  </span>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight group-hover:text-primary transition-colors duration-300">
+                    {product.name}
+                  </h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    {product.description}
+                  </p>
+                </div>
+
+                {/* Rating */}
+                <div className="flex items-center gap-3">
+                  <div className="flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="w-5 h-5 text-primary fill-primary"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-muted-foreground text-sm">(89 Bewertungen)</span>
+                </div>
+
+                {/* Price */}
+                <div className="flex items-baseline gap-4">
+                  <span className="text-4xl md:text-5xl font-bold text-primary">
+                    CHF {product.price.toFixed(2)}
+                  </span>
+                  <span className="text-xl text-muted-foreground line-through">
+                    CHF {product.originalPrice.toFixed(2)}
+                  </span>
+                </div>
+
+                {/* CTA */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
+                >
+                  <span className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-2xl font-semibold text-lg shadow-elegant group-hover:shadow-elegant-lg transition-all duration-300">
+                    Jetzt vorbestellen
+                    <motion.span
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </span>
+                </motion.div>
+
+                {/* Features */}
+                <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+                  {[
+                    { label: "Qi2.2", sublabel: "Zertifiziert" },
+                    { label: "25W", sublabel: "Schnellladen" },
+                    { label: "3-in-1", sublabel: "All-in-One" },
+                  ].map((feature, index) => (
+                    <div key={index} className="text-center">
+                      <p className="text-2xl font-bold text-foreground">{feature.label}</p>
+                      <p className="text-sm text-muted-foreground">{feature.sublabel}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Link>
         </motion.div>
       </div>
     </section>
