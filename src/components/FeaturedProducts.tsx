@@ -13,7 +13,7 @@ const product = {
   name: "3-in-1 Wireless Charger",
   price: 62.10,
   originalPrice: 69,
-  images: [charger3in1ColorsMain, charger3in1Hero, charger3in1Black1, charger3in1Black2],
+  images: [charger3in1Hero, charger3in1Black1, charger3in1Black2],
   rating: 5,
   reviews: 89,
   category: "Premium Collection",
