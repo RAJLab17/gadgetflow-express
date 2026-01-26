@@ -1,19 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Star, Zap, Smartphone, Watch, Headphones, Plane, Shield, Package } from "lucide-react";
 import PreorderBanner from "@/components/PreorderBanner";
 import PreorderForm from "@/components/PreorderForm";
 
-// Product images - transparent backgrounds
-import chargerInUse from "@/assets/products/charger-3in1-inuse.png";
-import chargerHero from "@/assets/products/charger-3in1-hero.png";
-import chargerAngle from "@/assets/products/charger-3in1-angle.png";
-import chargerColors from "@/assets/products/charger-3in1-colors.png";
+// Product images - matching FeaturedProducts gallery
+import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
+import charger3in1Action1 from "@/assets/products/charger-3in1-action1.png";
+import charger3in1Action2 from "@/assets/products/charger-3in1-action2.png";
+import charger3in1Angles from "@/assets/products/charger-3in1-angles.png";
+import charger3in1Specs from "@/assets/products/charger-3in1-specs.png";
+import charger3in1LifestyleHome from "@/assets/products/charger-3in1-lifestyle-home.png";
+import charger3in1LifestyleOffice from "@/assets/products/charger-3in1-lifestyle-office.png";
+
+const productImages = [
+  charger3in1ColorsNew, 
+  charger3in1Action1, 
+  charger3in1Action2, 
+  charger3in1Angles, 
+  charger3in1Specs, 
+  charger3in1LifestyleHome, 
+  charger3in1LifestyleOffice
+];
 
 type ColorVariant = {
   id: string;
   name: string;
   color: string;
-  images: string[];
 };
 
 const colorVariants: ColorVariant[] = [
@@ -21,7 +34,6 @@ const colorVariants: ColorVariant[] = [
     id: "black",
     name: "Space Black",
     color: "bg-gray-900 border border-gray-600",
-    images: [chargerInUse, chargerAngle, chargerHero, chargerColors],
   },
 ];
 
@@ -37,12 +49,41 @@ const features = [
 const WirelessCharger3in1Product = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
 
   const selectedColor = colorVariants[selectedColorIndex];
+
+  // Auto-rotate images every 4 seconds (same as FeaturedProducts)
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSelectedImageIndex((prev) => (prev + 1) % productImages.length);
+    }, 4000);
+
+    return () => clearTimeout(timeout);
+  }, [selectedImageIndex, autoPlayKey]);
+
+  // Manual selection - reset timer
+  const handleImageSelect = useCallback((index: number) => {
+    setSelectedImageIndex(index);
+    setAutoPlayKey((prev) => prev + 1);
+  }, []);
+
+  // Swipe handlers for mobile
+  const handleDragEnd = useCallback((event: any, info: { offset: { x: number } }) => {
+    const threshold = 50;
+    if (info.offset.x < -threshold) {
+      const nextIndex = (selectedImageIndex + 1) % productImages.length;
+      handleImageSelect(nextIndex);
+    } else if (info.offset.x > threshold) {
+      const prevIndex = (selectedImageIndex - 1 + productImages.length) % productImages.length;
+      handleImageSelect(prevIndex);
+    }
+  }, [selectedImageIndex, handleImageSelect]);
 
   const handleColorChange = (index: number) => {
     setSelectedColorIndex(index);
     setSelectedImageIndex(0);
+    setAutoPlayKey((prev) => prev + 1);
   };
 
   const originalPrice = 124.58;
@@ -54,35 +95,58 @@ const WirelessCharger3in1Product = () => {
         <PreorderBanner remainingSpots={97} />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Image Gallery */}
-          <div className="relative">
-            {/* Main Image - transparent background */}
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-              <img
-                src={selectedColor.images[selectedImageIndex]}
-                alt={`RAJ NEXUS 3-in-1 Wireless Charger - ${selectedColor.name}`}
-                className="w-full h-full object-contain"
-              />
-            </div>
+          {/* Image Gallery - Same style as FeaturedProducts */}
+          <div className="space-y-6">
+            {/* Main Image with swipe support */}
+            <motion.div 
+              className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-card to-muted shadow-elegant-lg group cursor-grab active:cursor-grabbing"
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.4 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.1}
+              onDragEnd={handleDragEnd}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={selectedImageIndex}
+                  src={productImages[selectedImageIndex]}
+                  alt={`RAJ NEXUS 3-in-1 Wireless Charger - ${selectedColor.name}`}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full h-full object-contain p-6"
+                />
+              </AnimatePresence>
+            </motion.div>
 
             {/* Thumbnail Gallery */}
-            <div className="grid grid-cols-4 gap-2 mb-4">
-              {selectedColor.images.map((img, index) => (
-                <button
+            <div className="flex gap-3 justify-center flex-wrap">
+              {productImages.map((image, index) => (
+                <motion.button
                   key={index}
-                  onClick={() => setSelectedImageIndex(index)}
-                  className={`aspect-square rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                    selectedImageIndex === index
-                      ? "border-primary shadow-elegant"
-                      : "border-border/50 hover:border-primary/50"
+                  onClick={() => handleImageSelect(index)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`relative w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden transition-all duration-300 ${
+                    selectedImageIndex === index 
+                      ? "ring-2 ring-primary shadow-elegant" 
+                      : "ring-1 ring-border hover:ring-primary/50"
                   }`}
                 >
                   <img
-                    src={img}
+                    src={image}
                     alt={`Ansicht ${index + 1}`}
-                    className="w-full h-full object-contain p-1"
+                    className="w-full h-full object-contain p-2"
                   />
-                </button>
+                  {selectedImageIndex === index && (
+                    <motion.div
+                      layoutId="activeThumbProduct"
+                      className="absolute inset-0 bg-primary/10"
+                    />
+                  )}
+                </motion.button>
               ))}
             </div>
 
