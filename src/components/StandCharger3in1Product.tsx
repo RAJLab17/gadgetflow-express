@@ -282,7 +282,6 @@ const StandCharger3in1Product = () => {
                 {[
                   "1x RAJTech Stand 3-in-1 Wireless Charger",
                   "1x USB-C Ladekabel (1.2m)",
-                  "1x Benutzerhandbuch (DE/EN)",
                   "1x Premium Verpackung",
                   "GRATIS: 1x Magnetisches Ladekabel (bei Vorbestellung)",
                 ].map((item, index) => (

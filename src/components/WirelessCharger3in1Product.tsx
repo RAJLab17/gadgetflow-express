@@ -321,14 +321,6 @@ const WirelessCharger3in1Product = () => {
                 <div className="w-2 h-2 rounded-full bg-primary" />
                 <span>1× USB-C Ladekabel (1.5m)</span>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>1× Benutzerhandbuch (DE/EN)</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>1× Premium Reiseetui</span>
-              </li>
             </ul>
 
             <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">

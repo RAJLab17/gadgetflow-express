@@ -212,14 +212,6 @@ const FoldableWirelessChargerProduct = () => {
                 <div className="w-2 h-2 rounded-full bg-primary" />
                 <span>1× USB-C Ladekabel (1.2m)</span>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>1× Benutzerhandbuch (DE/EN)</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>1× Reisebeutel</span>
-              </li>
             </ul>
 
             <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
