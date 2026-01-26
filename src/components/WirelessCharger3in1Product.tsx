@@ -266,17 +266,17 @@ const WirelessCharger3in1Product = () => {
             </div>
 
             {/* Certification Badges */}
-            <div className="flex items-center justify-between gap-2 mt-4 flex-wrap">
-              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+            <div className="flex items-center gap-2 mt-4 flex-wrap">
+              <span className="px-2.5 py-1 bg-secondary text-xs font-semibold rounded-full border border-border">
                 Qi2.2
               </span>
-              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+              <span className="px-2.5 py-1 bg-secondary text-xs font-semibold rounded-full border border-border">
                 CE
               </span>
-              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+              <span className="px-2.5 py-1 bg-secondary text-xs font-semibold rounded-full border border-border">
                 RoHS
               </span>
-              <span className="px-3 py-1.5 bg-secondary text-xs font-semibold rounded-full border border-border">
+              <span className="px-2.5 py-1 bg-secondary text-xs font-semibold rounded-full border border-border">
                 FCC
               </span>
             </div>
@@ -306,7 +306,7 @@ const WirelessCharger3in1Product = () => {
               </li>
               <li className="flex justify-between border-b border-border/50 pb-2">
                 <span className="text-muted-foreground">AirPods Laden</span>
-                <span className="font-medium">5W Wireless</span>
+                <span className="font-medium">5W</span>
               </li>
               <li className="flex justify-between border-b border-border/50 pb-2">
                 <span className="text-muted-foreground">Abmessungen (gefaltet)</span>
