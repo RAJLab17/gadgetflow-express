@@ -6,14 +6,14 @@ import { Button } from "@/components/ui/button";
 import charger3in1Hero from "@/assets/products/charger-3in1-hero.png";
 import charger3in1Angle from "@/assets/products/charger-3in1-angle.png";
 import charger3in1Colors from "@/assets/products/charger-3in1-colors.png";
-import charger3in1InUse from "@/assets/products/charger-3in1-inuse.png";
+import charger3in1ColorsMain from "@/assets/products/charger-3in1-colors-main.png";
 
 const product = {
   id: 7,
   name: "3-in-1 Wireless Charger",
   price: 62.10,
   originalPrice: 69,
-  images: [charger3in1InUse, charger3in1Hero, charger3in1Angle, charger3in1Colors],
+  images: [charger3in1ColorsMain, charger3in1Hero, charger3in1Angle, charger3in1Colors],
   rating: 5,
   reviews: 89,
   category: "Premium Collection",
