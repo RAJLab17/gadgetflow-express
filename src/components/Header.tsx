@@ -51,11 +51,12 @@ const Header = () => {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
+              className="flex items-center"
             >
               <img
                 src={logo}
                 alt="RAJTech Logo"
-                className="h-10 w-auto transition-all duration-300"
+                className="h-12 w-auto transition-all duration-300 drop-shadow-sm"
               />
             </motion.div>
           </Link>
