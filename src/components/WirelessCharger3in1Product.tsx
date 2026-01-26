@@ -3,11 +3,11 @@ import { Star, Zap, Smartphone, Watch, Headphones, Plane, Shield, Package } from
 import PreorderBanner from "@/components/PreorderBanner";
 import PreorderForm from "@/components/PreorderForm";
 
-// Black images
-import blackImg1 from "@/assets/products/charger-3in1-black-1.png";
-import blackImg2 from "@/assets/products/charger-3in1-black-2.png";
-import blackImg3 from "@/assets/products/charger-3in1-black-3.png";
-import blackImg4 from "@/assets/products/charger-3in1-black-4.png";
+// Product images - transparent backgrounds
+import chargerInUse from "@/assets/products/charger-3in1-inuse.png";
+import chargerHero from "@/assets/products/charger-3in1-hero.png";
+import chargerAngle from "@/assets/products/charger-3in1-angle.png";
+import chargerColors from "@/assets/products/charger-3in1-colors.png";
 
 type ColorVariant = {
   id: string;
@@ -21,7 +21,7 @@ const colorVariants: ColorVariant[] = [
     id: "black",
     name: "Space Black",
     color: "bg-gray-900 border border-gray-600",
-    images: [blackImg1, blackImg2, blackImg3, blackImg4],
+    images: [chargerInUse, chargerAngle, chargerHero, chargerColors],
   },
 ];
 
@@ -56,12 +56,12 @@ const WirelessCharger3in1Product = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Image Gallery */}
           <div className="relative">
-            {/* Main Image */}
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-secondary/50 border border-border mb-4">
+            {/* Main Image - transparent background */}
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
               <img
                 src={selectedColor.images[selectedImageIndex]}
                 alt={`RAJTech 3-in-1 Wireless Charger - ${selectedColor.name}`}
-                className="w-full h-full object-contain p-4"
+                className="w-full h-full object-contain"
               />
             </div>
 
@@ -71,16 +71,16 @@ const WirelessCharger3in1Product = () => {
                 <button
                   key={index}
                   onClick={() => setSelectedImageIndex(index)}
-                  className={`aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                  className={`aspect-square rounded-xl overflow-hidden border-2 transition-all duration-300 ${
                     selectedImageIndex === index
-                      ? "border-primary shadow-[0_0_15px_hsl(var(--primary)/0.4)]"
-                      : "border-border hover:border-primary/50"
+                      ? "border-primary shadow-elegant"
+                      : "border-border/50 hover:border-primary/50"
                   }`}
                 >
                   <img
                     src={img}
                     alt={`Ansicht ${index + 1}`}
-                    className="w-full h-full object-contain p-1 bg-secondary/50"
+                    className="w-full h-full object-contain p-1"
                   />
                 </button>
               ))}
