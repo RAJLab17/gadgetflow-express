@@ -1,4 +1,4 @@
-import { Gift, Clock, Sparkles, Users } from "lucide-react";
+import { Clock, Sparkles, Users, Percent } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface PreorderBannerProps {
@@ -40,18 +40,10 @@ const PreorderBanner = ({ remainingSpots = 100 }: PreorderBannerProps) => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <Gift className="w-4 h-4 text-primary" />
+                  <Percent className="w-4 h-4 text-primary" />
                 </div>
                 <span className="text-foreground font-medium">
-                  <span className="text-primary font-bold">10% Rabatt</span> auf den Einführungspreis
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <Gift className="w-4 h-4 text-primary" />
-                </div>
-              <span className="text-foreground font-medium">
-                  <span className="text-primary font-bold">Gratis Premium-Kabel</span> im Wert von CHF 26.99
+                  <span className="text-primary font-bold">Exklusiver Rabatt</span> auf den Einführungspreis
                 </span>
               </li>
               <li className="flex items-center gap-3">

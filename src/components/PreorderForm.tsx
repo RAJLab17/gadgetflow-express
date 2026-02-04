@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Loader2, ShoppingBag, Check, Gift, Sparkles } from "lucide-react";
+import { Loader2, ShoppingBag, Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -74,7 +74,7 @@ const PreorderForm = ({
           original_price: originalPrice,
           discount_percent: discountPercent,
           final_price: finalPrice,
-          includes_free_cable: true,
+          includes_free_cable: false,
         })
         .select("order_number")
         .single();
@@ -114,16 +114,12 @@ const PreorderForm = ({
         <p className="text-muted-foreground mb-4">
           Deine Bestellnummer: <span className="text-primary font-bold">{orderNumber}</span>
         </p>
-        <div className="p-4 bg-secondary/50 rounded-xl mb-6">
+        <div className="p-4 bg-secondary/50 rounded-xl">
           <p className="text-sm text-foreground">
             <Sparkles className="inline w-4 h-4 text-primary mr-1" />
             Deine persönliche Produktion startet in Kürze! Wir benachrichtigen dich per E-Mail, 
             sobald dein Produkt auf dem Weg zu dir ist.
           </p>
-        </div>
-        <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
-          <Gift className="w-4 h-4 text-primary" />
-          <span>Dein Gratis-Premium-Kabel ist inklusive!</span>
         </div>
       </div>
     );
@@ -142,15 +138,9 @@ const PreorderForm = ({
           <span className="text-muted-foreground">{productName}</span>
           <span className="text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
         </div>
-        <div className="flex justify-between items-center mb-2">
+        <div className="flex justify-between items-center">
           <span className="text-primary font-medium">-{discountPercent}% Vorbestellerrabatt</span>
           <span className="text-primary">-CHF {(originalPrice - finalPrice).toFixed(2)}</span>
-        </div>
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-primary font-medium flex items-center gap-1">
-            <Gift className="w-4 h-4" /> Gratis Premium-Kabel
-          </span>
-          <span className="text-primary">CHF 0.00</span>
         </div>
         <div className="border-t border-border pt-2 mt-2">
           <div className="flex justify-between items-center">
