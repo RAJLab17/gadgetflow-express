@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import PaymentIcons from "@/components/PaymentIcons";
 
 const formSchema = z.object({
   customerName: z.string().min(2, "Name muss mindestens 2 Zeichen haben"),
@@ -265,54 +266,17 @@ const PreorderForm = ({
         </p>
 
         {/* Payment Methods */}
-        <div className="flex flex-col items-center gap-3 pt-4 border-t border-border">
-          <p className="text-xs text-muted-foreground">Sichere Zahlungsmethoden</p>
-          <div className="flex items-center gap-2 flex-wrap justify-center">
-            {/* Mastercard */}
-            <div className="bg-muted/50 border border-border rounded px-2 py-1.5">
-              <svg viewBox="0 0 38 24" className="h-5 w-auto" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="15" cy="12" r="7" fill="#EB001B"/>
-                <circle cx="23" cy="12" r="7" fill="#F79E1B"/>
-                <path d="M19 17.5a7 7 0 0 1 0-11 7 7 0 0 0 0 11z" fill="#FF5F00"/>
-              </svg>
-            </div>
-            {/* Visa */}
-            <div className="bg-muted/50 border border-border rounded px-2 py-1.5">
-              <svg viewBox="0 0 38 24" className="h-5 w-auto" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.5 8L13 16h-2l2.5-8h2zm6.5 5.5c0-1.5-2-1.7-2-2.5 0-.3.3-.5.8-.5.7 0 1.4.3 1.8.5l.4-1.5c-.5-.2-1.2-.5-2.2-.5-2 0-3.3 1-3.3 2.5 0 1.7 2.5 1.8 2.5 2.7 0 .4-.4.6-1 .6-.8 0-1.7-.4-2.1-.6l-.4 1.5c.5.3 1.4.5 2.4.5 2.2 0 3.5-1 3.5-2.6zM28 16l-1.5-8h-1.8c-.5 0-.9.3-1 .7L21 16h2.2l.4-1.2h2.7l.3 1.2H28zm-2.5-3l1.1-3.2.6 3.2h-1.7zM11 8l-3.2 8H5.5L3.8 9.8c-.1-.4-.2-.5-.5-.7C2.8 8.9 2 8.6 1.5 8.4l.1-.4h3.3c.5 0 .9.3 1 .9l.8 4.3L9 8h2z" fill="#1434CB"/>
-              </svg>
-            </div>
-            {/* Apple Pay */}
-            <div className="bg-muted/50 border border-border rounded px-2 py-1.5">
-              <svg viewBox="0 0 38 24" className="h-5 w-auto" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.5 8.5c-.4.5-1 .9-1.6.8-.1-.6.2-1.3.5-1.7.4-.5 1-.8 1.5-.9.1.7-.1 1.3-.4 1.8zm.4.9c-.9 0-1.7.5-2.1.5-.5 0-1.2-.5-2-.5-1 0-2 .6-2.5 1.5-1.1 1.9-.3 4.7.8 6.2.5.8 1.1 1.6 2 1.6.8 0 1.1-.5 2-.5 1 0 1.2.5 2 .5s1.4-.8 1.9-1.5c.6-.9.8-1.7.8-1.7s-1.6-.6-1.6-2.4c0-1.5 1.2-2.2 1.3-2.3-.7-1.1-1.8-1.2-2.2-1.2l-.4-.2z" fill="currentColor"/>
-                <path d="M17.5 7.5c2.2 0 3.8 1.5 3.8 3.8 0 2.3-1.6 3.8-3.9 3.8h-2.5v4h-1.8V7.5h4.4zm-2.6 6.1h2.1c1.5 0 2.4-1 2.4-2.4 0-1.4-.9-2.4-2.4-2.4h-2.1v4.8zm6.6 2.2c0-1.5 1.1-2.4 3.2-2.5l2.3-.1v-.7c0-1-.6-1.5-1.7-1.5-1 0-1.6.5-1.7 1.2h-1.7c.1-1.5 1.4-2.6 3.5-2.6s3.3 1.1 3.3 2.9v6.1h-1.7v-1.5c-.5 1-1.5 1.6-2.7 1.6-1.7 0-2.8-1-2.8-2.5v-.4zm5.5-.7v-.7l-2.1.1c-1 .1-1.6.5-1.6 1.2s.6 1.2 1.5 1.2c1.2 0 2.2-.8 2.2-1.8zm3.1 5.7v-1.4c.1 0 .4.1.6.1.9 0 1.4-.4 1.7-1.4l.2-.5-3.2-8.9h1.9l2.2 7.2 2.2-7.2h1.9l-3.3 9.4c-.8 2.2-1.6 2.9-3.5 2.9-.2 0-.5 0-.7-.2z" fill="currentColor"/>
-              </svg>
-            </div>
-            {/* Google Pay */}
-            <div className="bg-muted/50 border border-border rounded px-2 py-1.5">
-              <svg viewBox="0 0 38 24" className="h-5 w-auto" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.5 12.2l-.1-.8h-4.2v1.5h2.4c-.1.6-.4 1.1-.8 1.4v1.2h1.3c.8-.7 1.4-1.9 1.4-3.3z" fill="#4285F4"/>
-                <path d="M14.2 16c1.1 0 2-.4 2.7-1l-1.3-1c-.4.3-.9.4-1.4.4-1.1 0-2-.7-2.3-1.7h-1.4v1c.7 1.4 2 2.3 3.7 2.3z" fill="#34A853"/>
-                <path d="M12.9 12.7c-.1-.2-.1-.5-.1-.7s0-.5.1-.7v-1h-1.4c-.3.5-.4 1.1-.4 1.7s.1 1.2.4 1.7l1.4-1z" fill="#FBBC05"/>
-                <path d="M14.2 9.3c.6 0 1.1.2 1.5.6l1.1-1.1c-.7-.7-1.6-1-2.6-1-1.7 0-3 .9-3.7 2.3l1.4 1c.3-1 1.2-1.8 2.3-1.8z" fill="#EA4335"/>
-                <path d="M24 10.8h-1.5v4.3H24v-4.3zm3.3 1.4c-.4 0-.8.2-1 .5l-.1-.4h-1.3v4.3h1.5v-2.1c0-.8.4-1.1.8-1.1.2 0 .3 0 .5.1l.2-1.4c-.2 0-.4-.1-.6 0v.1zm2.2-.1c-.8 0-1.3.4-1.6.9v-.8h-1.5v4.3h1.5v-2.3c0-.7.3-1 .8-1 .5 0 .7.3.7.9v2.4H31v-2.6c0-1.2-.6-1.8-1.5-1.8z" fill="currentColor"/>
-              </svg>
-            </div>
-            {/* TWINT */}
-            <div className="bg-muted/50 border border-border rounded px-2 py-1.5">
-              <span className="font-bold text-xs tracking-tight text-foreground">TWINT</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-4 text-xs text-muted-foreground mt-1">
+        <div className="pt-4 border-t border-border">
+          <PaymentIcons size="sm" />
+          <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground mt-3">
             <span className="flex items-center gap-1">
-              <svg className="w-3.5 h-3.5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-3.5 h-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               SSL-Verschlüsselt
             </span>
             <span className="flex items-center gap-1">
-              <svg className="w-3.5 h-3.5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-3.5 h-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               Sichere Zahlung
