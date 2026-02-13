@@ -146,24 +146,10 @@ const WirelessCharger3in1Product = () => {
               ))}
             </div>
 
-            {/* Color Selection - Under Images */}
-            <div className="flex items-center gap-3">
+            {/* Color: Space Black */}
+            <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">Farbe:</span>
-              <div className="flex gap-2">
-                {colorVariants.map((variant, index) => (
-                  <button
-                    key={variant.id}
-                    onClick={() => handleColorChange(index)}
-                    className={`w-8 h-8 rounded-full ${variant.color} transition-all duration-300 ${
-                      selectedColorIndex === index
-                        ? "ring-2 ring-primary ring-offset-2 ring-offset-background scale-110"
-                        : "hover:scale-105"
-                    }`}
-                    title={variant.name}
-                  />
-                ))}
-              </div>
-              <span className="text-sm font-medium ml-2">{selectedColor.name}</span>
+              <span className="text-sm font-medium">Space Black</span>
             </div>
           </div>
 
