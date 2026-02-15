@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Check, Sparkles, Zap, Shield, Star } from "lucide-react";
+import { Sparkles, Zap, Shield, Star, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
 import charger3in1Action1 from "@/assets/products/charger-3in1-action1.png";
@@ -22,13 +22,6 @@ const product = {
   category: "Premium Collection",
   link: "/product/wireless-charger-3in1",
   description: "Lade iPhone, Apple Watch und AirPods gleichzeitig mit bis zu 25W – elegant und kompakt.",
-  colors: [
-    { name: "Schwarz", value: "#1a1a1a" },
-    { name: "Rosé Gold", value: "#b76e5c" },
-    { name: "Silber", value: "#a8a8a8" },
-    { name: "Blau", value: "#6b8cae" },
-    { name: "Anthrazit", value: "#2d2d2d" },
-  ],
   features: [
     { icon: Zap, label: "25W Schnellladen" },
     { icon: Shield, label: "2 Jahre Garantie" },
@@ -38,7 +31,7 @@ const product = {
 
 const FeaturedProducts = () => {
   const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedColor, setSelectedColor] = useState(0);
+  
   const [autoPlayKey, setAutoPlayKey] = useState(0);
 
   // Auto-rotate images every 4 seconds
@@ -196,38 +189,10 @@ const FeaturedProducts = () => {
                 </div>
               </div>
 
-              {/* Color Selection */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-foreground">Farbe wählen</span>
-                  <span className="text-sm text-muted-foreground">{product.colors[selectedColor].name}</span>
-                </div>
-                <div className="flex gap-3 justify-center">
-                  {product.colors.map((color, index) => (
-                    <motion.button
-                      key={color.name}
-                      onClick={() => setSelectedColor(index)}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`relative w-10 h-10 rounded-full transition-all duration-300 ${
-                        selectedColor === index 
-                          ? "ring-2 ring-primary ring-offset-2 ring-offset-background" 
-                          : "ring-1 ring-border hover:ring-primary/50"
-                      }`}
-                      style={{ backgroundColor: color.value }}
-                    >
-                      {selectedColor === index && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="absolute inset-0 flex items-center justify-center"
-                        >
-                          <Check className="w-4 h-4 text-white drop-shadow-md" />
-                        </motion.div>
-                      )}
-                    </motion.button>
-                  ))}
-                </div>
+              {/* Color: Space Black */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">Farbe:</span>
+                <span className="text-sm font-medium">Space Black</span>
               </div>
             </div>
 
