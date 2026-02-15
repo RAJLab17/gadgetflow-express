@@ -248,7 +248,7 @@ const PreorderForm = ({
           ) : (
             <>
               <Sparkles className="w-5 h-5 mr-2" />
-              Jetzt für CHF {finalPrice.toFixed(2)} vorbestellen
+              Jetzt für CHF {Number.isInteger(finalPrice) ? `${finalPrice}.–` : finalPrice.toFixed(2)} vorbestellen
             </>
           )}
         </Button>
