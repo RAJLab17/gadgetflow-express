@@ -15,7 +15,7 @@ const product = {
   id: 7,
   name: "3-in-1 Wireless Charger",
   price: 99.00,
-  originalPrice: 123.75,
+  originalPrice: 129,
   images: [charger3in1ColorsNew, charger3in1Action1, charger3in1Action2, charger3in1Angles, charger3in1Specs, charger3in1LifestyleHome, charger3in1LifestyleOffice],
   rating: 5,
   reviews: 89,
@@ -138,7 +138,7 @@ const FeaturedProducts = () => {
                   className="absolute top-6 right-6 px-4 py-2 bg-primary text-primary-foreground rounded-full shadow-elegant font-semibold text-sm flex items-center gap-2"
                 >
                   <span className="animate-pulse">🔥</span>
-                  -20% Vorbesteller
+                  -23% Vorbesteller
                 </motion.div>
 
               </motion.div>
@@ -242,7 +242,7 @@ const FeaturedProducts = () => {
                     CHF {product.originalPrice.toFixed(2)}
                   </span>
                   <span className="px-2 py-0.5 bg-primary text-primary-foreground rounded-full text-xs font-bold">
-                    -20%
+                    -23%
                   </span>
                 </div>
 

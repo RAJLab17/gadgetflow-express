@@ -82,7 +82,7 @@ const WirelessCharger3in1Product = () => {
     setAutoPlayKey((prev) => prev + 1);
   };
 
-  const originalPrice = 123.75;
+  const originalPrice = 129;
 
   return (
     <section className="py-12 md:py-20">
@@ -195,7 +195,7 @@ const WirelessCharger3in1Product = () => {
               <div className="flex flex-col">
                 <span className="text-lg text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
                 <span className="px-2 py-0.5 bg-primary text-primary-foreground text-xs font-bold rounded-full">
-                  SPARE 20%
+                  SPARE 23%
                 </span>
               </div>
             </div>
@@ -232,7 +232,7 @@ const WirelessCharger3in1Product = () => {
               productName="RAJ NEXUS 3-in-1 Wireless Charger"
               productVariant={selectedColor.name}
               originalPrice={originalPrice}
-              discountPercent={20}
+              discountPercent={23}
             />
 
             {/* Trust Badges */}
