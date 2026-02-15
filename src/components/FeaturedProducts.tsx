@@ -236,10 +236,10 @@ const FeaturedProducts = () => {
               <div className="space-y-3 pt-4 border-t border-border">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <span className="text-4xl font-bold text-primary">
-                    CHF {product.price.toFixed(2)}
+                    CHF {Number.isInteger(product.price) ? `${product.price}.–` : product.price.toFixed(2)}
                   </span>
                   <span className="text-lg text-muted-foreground line-through">
-                    CHF {product.originalPrice.toFixed(2)}
+                    CHF {Number.isInteger(product.originalPrice) ? `${product.originalPrice}.–` : product.originalPrice.toFixed(2)}
                   </span>
                   <span className="px-2 py-0.5 bg-primary text-primary-foreground rounded-full text-xs font-bold">
                     -23%
