@@ -82,7 +82,7 @@ const WirelessCharger3in1Product = () => {
     setAutoPlayKey((prev) => prev + 1);
   };
 
-  const originalPrice = 124.58;
+  const originalPrice = 123.75;
 
   return (
     <section className="py-12 md:py-20">
