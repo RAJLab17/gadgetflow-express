@@ -121,8 +121,8 @@ const Hero = () => {
                 </motion.span>
               </Button>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="line-through">CHF 124.58</span>
-                <span className="px-2 py-1 bg-primary/10 text-primary rounded-full font-semibold">-20%</span>
+                <span className="line-through">CHF 129.–</span>
+                <span className="px-2 py-1 bg-primary/10 text-primary rounded-full font-semibold">-23%</span>
               </div>
             </motion.div>
 
