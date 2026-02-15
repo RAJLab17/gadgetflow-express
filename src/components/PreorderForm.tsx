@@ -138,16 +138,16 @@ const PreorderForm = ({
       <div className="p-4 bg-secondary/50 rounded-xl mb-6">
         <div className="flex justify-between items-center mb-2">
           <span className="text-muted-foreground">{productName}</span>
-          <span className="text-muted-foreground line-through">CHF {originalPrice.toFixed(2)}</span>
+          <span className="text-muted-foreground line-through">CHF {Number.isInteger(originalPrice) ? `${originalPrice}.–` : originalPrice.toFixed(2)}</span>
         </div>
         <div className="flex justify-between items-center">
           <span className="text-primary font-medium">-{discountPercent}% Vorbestellerrabatt</span>
-          <span className="text-primary">-CHF {(originalPrice - finalPrice).toFixed(2)}</span>
+          <span className="text-primary">-CHF {Number.isInteger(originalPrice - finalPrice) ? `${originalPrice - finalPrice}.–` : (originalPrice - finalPrice).toFixed(2)}</span>
         </div>
         <div className="border-t border-border pt-2 mt-2">
           <div className="flex justify-between items-center">
             <span className="font-bold text-foreground">Gesamtpreis</span>
-            <span className="text-2xl font-bold text-primary">CHF {finalPrice.toFixed(2)}</span>
+            <span className="text-2xl font-bold text-primary">CHF {Number.isInteger(finalPrice) ? `${finalPrice}.–` : finalPrice.toFixed(2)}</span>
           </div>
         </div>
       </div>
