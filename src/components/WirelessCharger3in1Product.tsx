@@ -225,6 +225,7 @@ const WirelessCharger3in1Product = () => {
               productVariant={selectedColor.name}
               originalPrice={originalPrice}
               discountPercent={23}
+              fixedFinalPrice={99}
             />
 
             {/* Trust Badges */}

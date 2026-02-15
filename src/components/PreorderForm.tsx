@@ -26,6 +26,7 @@ interface PreorderFormProps {
   productVariant?: string;
   originalPrice: number;
   discountPercent?: number;
+  fixedFinalPrice?: number;
   onSuccess?: () => void;
 }
 
@@ -34,6 +35,7 @@ const PreorderForm = ({
   productVariant,
   originalPrice,
   discountPercent = 10,
+  fixedFinalPrice,
   onSuccess,
 }: PreorderFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,7 +43,7 @@ const PreorderForm = ({
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
   const { toast } = useToast();
 
-  const finalPrice = originalPrice * (1 - discountPercent / 100);
+  const finalPrice = fixedFinalPrice ?? originalPrice * (1 - discountPercent / 100);
 
   const {
     register,
