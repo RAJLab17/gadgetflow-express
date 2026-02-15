@@ -111,7 +111,7 @@ const Hero = () => {
                 className="w-full sm:w-auto text-base group shadow-elegant-lg"
                 onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Jetzt CHF 99.66
+                Jetzt CHF 99.–
                 <motion.span
                   className="ml-2"
                   animate={{ x: [0, 4, 0] }}
