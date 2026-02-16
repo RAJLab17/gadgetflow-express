@@ -43,7 +43,7 @@ const PreorderBanner = ({ remainingSpots = 100 }: PreorderBannerProps) => {
                   <Percent className="w-4 h-4 text-primary" />
                 </div>
                 <span className="text-foreground font-medium">
-                  <span className="text-primary font-bold">Exklusiver Rabatt</span> auf den Einführungspreis
+                  <span className="text-primary font-bold">Exklusiver Rabatt</span> für die erste Serie
                 </span>
               </li>
               <li className="flex items-center gap-3">
