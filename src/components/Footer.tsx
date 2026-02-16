@@ -69,8 +69,7 @@ const Footer = () => {
             </Link>
             <p className="text-muted-foreground leading-relaxed">
               Präzision in Form gegossen.<br />
-              Leistung, auf den Punkt gebracht.<br />
-              Konsequent bis ins Detail.
+              Leistung, auf den Punkt gebracht.
             </p>
           </motion.div>
 
