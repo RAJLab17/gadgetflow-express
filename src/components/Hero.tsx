@@ -94,8 +94,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-10 font-light leading-relaxed"
             >
-              Die ultimative 3-in-1 Ladestation für iPhone, Apple Watch und AirPods. 
-              Zeitloses Design trifft modernste Technologie.
+              Die ultimative 3-in-1 Ladestation für iPhone, Apple Watch und AirPods. Zeitloses Design trifft modernste Technologie.
             </motion.p>
 
             {/* CTA Buttons */}
