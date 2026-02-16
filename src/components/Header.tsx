@@ -8,6 +8,7 @@ import logo from "@/assets/logo-new.png";
 const navLinks = [
   { href: "#products", label: "Produkt" },
   { href: "/about", label: "Über uns" },
+  { href: "/support", label: "Support" },
 ];
 
 const Header = () => {
