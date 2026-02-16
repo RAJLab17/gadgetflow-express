@@ -187,8 +187,8 @@ const Hero = () => {
                   className="absolute top-10 right-0 px-4 py-2 bg-card border border-border rounded-2xl shadow-elegant"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-sm font-medium">Sofort lieferbar</span>
+                    <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                    <span className="text-sm font-medium">Early Access · Erste Produktionscharge</span>
                   </div>
                 </motion.div>
                 
