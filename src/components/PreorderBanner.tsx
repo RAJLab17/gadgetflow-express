@@ -25,7 +25,7 @@ const PreorderBanner = ({ remainingSpots = 100 }: PreorderBannerProps) => {
           <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/30 rounded-full border border-primary/40">
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-bold text-primary uppercase tracking-wider">
-              Exklusive Vorbestellung
+              Erste Serie · Limitiert
             </span>
           </div>
         </div>
@@ -34,7 +34,7 @@ const PreorderBanner = ({ remainingSpots = 100 }: PreorderBannerProps) => {
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Die ersten <span className="text-primary text-glow">100 Kunden</span> erhalten:
+              Die ersten <span className="text-primary text-glow">100 Exemplare.</span>
             </h3>
             
             <ul className="space-y-3">
@@ -80,7 +80,7 @@ const PreorderBanner = ({ remainingSpots = 100 }: PreorderBannerProps) => {
 
         {/* Bottom note */}
         <p className="text-sm text-muted-foreground mt-4 text-center md:text-left">
-          ⚡ Jede Bestellung wird individuell für dich produziert – Premium-Qualität, made for you.
+          ⚡ Jede Bestellung wird individuell für dich produziert.
         </p>
       </div>
     </div>
