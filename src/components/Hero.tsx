@@ -58,7 +58,7 @@ const Hero = () => {
             >
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-foreground tracking-wide">
-                Premium Qualität · Schnelle Lieferung
+                Premium Qualität · Zeitloses Design
               </span>
             </motion.div>
 
