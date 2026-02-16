@@ -76,7 +76,7 @@ const PowerBank20kProduct = () => {
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full border border-primary/30">
             <Zap className="w-4 h-4 fill-primary" />
-            <span className="text-sm font-semibold">NEU – Jetzt Vorbestellen</span>
+            <span className="text-sm font-semibold">NEU – Jetzt sichern</span>
             <Zap className="w-4 h-4 fill-primary" />
           </div>
         </div>

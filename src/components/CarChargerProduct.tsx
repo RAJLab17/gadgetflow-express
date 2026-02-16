@@ -142,7 +142,7 @@ const CarChargerProduct = () => {
                 onClick={() => setShowPreorderForm(true)}
               >
                 <Sparkles className="w-5 h-5 mr-2" />
-                Jetzt vorbestellen
+                Jetzt sichern
               </Button>
 
               {showPreorderForm && (

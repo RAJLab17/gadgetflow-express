@@ -10,7 +10,7 @@ const PowerBank20kPage = () => {
         <title>PowerBank Ultra 20K mit Fast-Charging PD3.0 | RAJTech</title>
         <meta
           name="description"
-          content="20.000mAh PowerBank mit Fast-Charging PD3.0 bis 22.5W und 4 integrierten Kabeln. Nie wieder Kabelsalat – jetzt vorbestellen mit 15% Rabatt."
+          content="20.000mAh PowerBank mit Fast-Charging PD3.0 bis 22.5W und 4 integrierten Kabeln. Nie wieder Kabelsalat – jetzt sichern mit 15% Rabatt."
         />
       </Helmet>
       <div className="min-h-screen bg-background">

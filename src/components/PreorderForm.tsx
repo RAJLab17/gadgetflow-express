@@ -131,7 +131,7 @@ const PreorderForm = ({
     <div className="p-6 md:p-8 bg-card rounded-2xl border border-border">
       <div className="flex items-center gap-2 mb-6">
         <ShoppingBag className="w-5 h-5 text-primary" />
-        <h3 className="text-xl font-bold text-foreground">Jetzt Vorbestellen</h3>
+        <h3 className="text-xl font-bold text-foreground">Jetzt sichern</h3>
       </div>
 
       {/* Price Summary */}

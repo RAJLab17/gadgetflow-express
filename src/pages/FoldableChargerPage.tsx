@@ -10,7 +10,7 @@ const FoldableChargerPage = () => {
         <title>RAJTech Foldable 3-in-1 Wireless Charger | MagSafe Ladestation</title>
         <meta 
           name="description" 
-          content="Ultra-kompakte faltbare MagSafe Ladestation für iPhone, Apple Watch & AirPods. 15W Schnellladen, eloxiertes Aluminium, perfekt für unterwegs. Jetzt vorbestellen!" 
+          content="Ultra-kompakte faltbare MagSafe Ladestation für iPhone, Apple Watch & AirPods. 15W Schnellladen, eloxiertes Aluminium, perfekt für unterwegs. Jetzt sichern!" 
         />
         <meta name="keywords" content="MagSafe, Wireless Charger, Foldable, 3-in-1, iPhone Ladestation, Apple Watch Charger, AirPods, RAJTech" />
       </Helmet>
