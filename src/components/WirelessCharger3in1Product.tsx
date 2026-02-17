@@ -175,9 +175,9 @@ const WirelessCharger3in1Product = () => {
               <h3 className="text-lg font-bold text-foreground mb-3">
                 Erste Serie · Limitierte Verfügbarkeit
               </h3>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border border-border">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border border-border">
                 <span className="text-sm text-muted-foreground">Noch</span>
-                <span className="text-2xl font-bold text-primary">97</span>
+                <span className="text-4xl font-bold text-primary">100</span>
                 <span className="text-sm text-muted-foreground">
                   von 100 Exemplaren verfügbar
                 </span>
