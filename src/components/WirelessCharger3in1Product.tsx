@@ -92,32 +92,6 @@ const WirelessCharger3in1Product = () => {
               Jetzt sichern
             </Link>
 
-            {/* Feature Bar */}
-            <div className="mt-8 p-5 bg-card rounded-2xl border border-border">
-              <div className="grid grid-cols-3 gap-3 text-center mb-4">
-                <div className="flex flex-col items-center gap-1.5">
-                  <Zap className="w-5 h-5 text-primary" />
-                  <span className="text-xs md:text-sm font-medium text-foreground">
-                    25W Schnellladen
-                  </span>
-                </div>
-                <div className="flex flex-col items-center gap-1.5">
-                  <Layers className="w-5 h-5 text-primary" />
-                  <span className="text-xs md:text-sm font-medium text-foreground">
-                    3-in-1
-                  </span>
-                </div>
-                <div className="flex flex-col items-center gap-1.5">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-xs md:text-sm font-medium text-foreground">
-                    2 Jahre Garantie
-                  </span>
-                </div>
-              </div>
-              <p className="text-center text-muted-foreground text-xs md:text-sm border-t border-border pt-3">
-                Entwickelt für Menschen, die sich auf ihre Energie verlassen müssen.
-              </p>
-            </div>
           </div>
 
           {/* Right: Image Gallery */}
@@ -166,6 +140,17 @@ const WirelessCharger3in1Product = () => {
                   />
                 </motion.button>
               ))}
+            </div>
+
+            {/* Feature highlights */}
+            <div className="flex items-center justify-center gap-6 pt-2 text-sm text-muted-foreground">
+              <span className="font-medium">25W Schnellladen</span>
+              <span className="text-border">|</span>
+              <span className="font-semibold text-primary">Qi2</span>
+              <span className="text-border">|</span>
+              <span className="font-medium">3-in-1</span>
+              <span className="text-border">|</span>
+              <span className="font-medium">2 Jahre Garantie</span>
             </div>
           </div>
         </div>
