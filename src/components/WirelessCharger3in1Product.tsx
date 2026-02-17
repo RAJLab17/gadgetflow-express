@@ -8,37 +8,19 @@ import PreorderForm from "@/components/PreorderForm";
 import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
 import charger3in1Action1 from "@/assets/products/charger-3in1-action1.png";
 import charger3in1Action2 from "@/assets/products/charger-3in1-action2.png";
-import charger3in1Angle from "@/assets/products/charger-3in1-angle.png";
 import charger3in1Angles from "@/assets/products/charger-3in1-angles.png";
-import charger3in1Black1 from "@/assets/products/charger-3in1-black-1.png";
-import charger3in1Black2 from "@/assets/products/charger-3in1-black-2.png";
-import charger3in1Black3 from "@/assets/products/charger-3in1-black-3.png";
-import charger3in1Black4 from "@/assets/products/charger-3in1-black-4.png";
-import charger3in1ColorsMain from "@/assets/products/charger-3in1-colors-main.png";
-import charger3in1Colors from "@/assets/products/charger-3in1-colors.png";
-import charger3in1Hero from "@/assets/products/charger-3in1-hero.png";
-import charger3in1Inuse from "@/assets/products/charger-3in1-inuse.png";
+import charger3in1Specs from "@/assets/products/charger-3in1-specs.png";
 import charger3in1LifestyleHome from "@/assets/products/charger-3in1-lifestyle-home.png";
 import charger3in1LifestyleOffice from "@/assets/products/charger-3in1-lifestyle-office.png";
-import charger3in1Specs from "@/assets/products/charger-3in1-specs.png";
 
 const productImages = [
   charger3in1ColorsNew,
   charger3in1Action1,
   charger3in1Action2,
-  charger3in1Angle,
   charger3in1Angles,
-  charger3in1Black1,
-  charger3in1Black2,
-  charger3in1Black3,
-  charger3in1Black4,
-  charger3in1ColorsMain,
-  charger3in1Colors,
-  charger3in1Hero,
-  charger3in1Inuse,
+  charger3in1Specs,
   charger3in1LifestyleHome,
   charger3in1LifestyleOffice,
-  charger3in1Specs,
 ];
 
 const WirelessCharger3in1Product = () => {
