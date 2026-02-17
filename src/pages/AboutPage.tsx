@@ -38,7 +38,7 @@ const AboutPage = () => {
     {
       icon: Users,
       title: "Vertrauen",
-      description: <><span className="font-semibold text-foreground block mb-1">Verlässlichkeit im Alltag.</span>Ihr Vertrauen ist unser Antrieb – wir hören zu und liefern.</>,
+      description: <><span className="font-semibold text-foreground block mb-1">Verlässlichkeit im Alltag.</span>Ihr Vertrauen ist unser Antrieb –<br />wir hören zu und liefern.</>,
     },
     {
       icon: Eye,
