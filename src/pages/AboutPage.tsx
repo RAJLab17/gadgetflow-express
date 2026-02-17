@@ -203,14 +203,14 @@ const AboutPage = () => {
                   Entdecken Sie unsere Produkte
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Erleben Sie Energie mit Substanz – durchdachtes Design trifft auf zuverlässige Leistung.
+                  Durchdachtes Design trifft auf zuverlässige Leistung.
                 </p>
                 <Link
                   to="/#products"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300"
                 >
                   <Zap className="w-5 h-5" />
-                  Produkte entdecken
+                  Produkte ansehen
                 </Link>
               </div>
             </div>
