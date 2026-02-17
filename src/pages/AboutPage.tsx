@@ -43,7 +43,7 @@ const AboutPage = () => {
     {
       icon: Eye,
       title: "Transparenz",
-      description: "Ehrliche Kommunikation und faire Preise ohne versteckte Kosten.",
+      description: <><span className="font-semibold text-foreground block mb-1">Klare Entscheidungen. Klare Preise.</span>Ohne versteckte Bedingungen. Ohne leere Versprechen.</>,
     },
   ];
 
