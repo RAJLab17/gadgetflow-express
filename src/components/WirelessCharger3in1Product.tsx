@@ -91,6 +91,33 @@ const WirelessCharger3in1Product = () => {
               <Zap className="w-5 h-5" />
               Jetzt sichern
             </Link>
+
+            {/* Feature Bar */}
+            <div className="mt-8 p-5 bg-card rounded-2xl border border-border">
+              <div className="grid grid-cols-3 gap-3 text-center mb-4">
+                <div className="flex flex-col items-center gap-1.5">
+                  <Zap className="w-5 h-5 text-primary" />
+                  <span className="text-xs md:text-sm font-medium text-foreground">
+                    25W Schnellladen
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-1.5">
+                  <Layers className="w-5 h-5 text-primary" />
+                  <span className="text-xs md:text-sm font-medium text-foreground">
+                    3-in-1
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-1.5">
+                  <Shield className="w-5 h-5 text-primary" />
+                  <span className="text-xs md:text-sm font-medium text-foreground">
+                    2 Jahre Garantie
+                  </span>
+                </div>
+              </div>
+              <p className="text-center text-muted-foreground text-xs md:text-sm border-t border-border pt-3">
+                Entwickelt für Menschen, die sich auf ihre Energie verlassen müssen.
+              </p>
+            </div>
           </div>
 
           {/* Right: Image Gallery */}
@@ -143,32 +170,6 @@ const WirelessCharger3in1Product = () => {
           </div>
         </div>
 
-        {/* ===== FEATURE BAR ===== */}
-        <div className="mt-12 p-6 md:p-8 bg-card rounded-2xl border border-border">
-          <div className="grid grid-cols-3 gap-4 text-center mb-6">
-            <div className="flex flex-col items-center gap-2">
-              <Zap className="w-6 h-6 text-primary" />
-              <span className="text-sm md:text-base font-medium text-foreground">
-                25W Schnellladen
-              </span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Layers className="w-6 h-6 text-primary" />
-              <span className="text-sm md:text-base font-medium text-foreground">
-                3-in-1
-              </span>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <Shield className="w-6 h-6 text-primary" />
-              <span className="text-sm md:text-base font-medium text-foreground">
-                2 Jahre Garantie
-              </span>
-            </div>
-          </div>
-          <p className="text-center text-muted-foreground text-sm md:text-base border-t border-border pt-4">
-            Entwickelt für Menschen, die sich auf ihre Energie verlassen müssen.
-          </p>
-        </div>
 
         {/* ===== DETAILS + ORDER SECTION ===== */}
         <div id="order" className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
