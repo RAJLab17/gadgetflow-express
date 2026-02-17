@@ -99,8 +99,8 @@ const AboutPage = () => {
                           Vision
                         </h2>
                       </div>
-                      <p className="text-2xl md:text-3xl font-light text-foreground leading-relaxed">
-                        Power, die einfach da ist, wenn du sie brauchst.
+                      <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                        <span className="text-foreground font-medium">Power,</span> die einfach da ist, wenn du sie brauchst.
                       </p>
                     </div>
                   </div>
