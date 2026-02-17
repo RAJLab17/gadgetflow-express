@@ -28,7 +28,7 @@ const AboutPage = () => {
     {
       icon: Target,
       title: "Fokus",
-      description: "Wir konzentrieren uns auf das Wesentliche – Qualität statt Quantität.",
+      description: <><span className="font-semibold text-foreground">Reduktion auf das Wesentliche.</span> Wir entwickeln keine Funktionen, sondern Lösungen, die bleiben.</>,
     },
     {
       icon: Award,
