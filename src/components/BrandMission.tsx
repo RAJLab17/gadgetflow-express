@@ -48,8 +48,8 @@ const BrandMission = () => {
               <h3 className="text-sm font-semibold text-primary uppercase tracking-widest mb-4">
                 Vision
               </h3>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground leading-relaxed">
-                Power, die einfach da ist, wenn du sie brauchst.
+              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                <span className="text-foreground font-medium">Power,</span> die einfach da ist, wenn du sie brauchst.
               </p>
             </div>
           </div>
