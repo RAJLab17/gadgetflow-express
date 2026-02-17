@@ -33,7 +33,7 @@ const AboutPage = () => {
     {
       icon: Award,
       title: "Qualität",
-      description: "Premium-Materialien und strenge Qualitätskontrollen für jedes Produkt.",
+      description: <><span className="font-semibold text-foreground block mb-1">Anspruch ohne Kompromisse.</span>Jedes Detail folgt einem klaren Qualitätsverständnis – sichtbar und spürbar.</>,
     },
     {
       icon: Users,
