@@ -37,8 +37,8 @@ const AboutPage = () => {
     },
     {
       icon: Users,
-      title: "Kundenorientierung",
-      description: "Ihr Vertrauen ist unser Antrieb – wir hören zu und liefern.",
+      title: "Vertrauen",
+      description: <><span className="font-semibold text-foreground block mb-1">Verlässlichkeit im Alltag.</span>Ihr Vertrauen ist unser Antrieb – wir hören zu und liefern.</>,
     },
     {
       icon: Eye,
