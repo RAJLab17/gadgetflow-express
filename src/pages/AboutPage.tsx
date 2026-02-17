@@ -206,7 +206,7 @@ const AboutPage = () => {
                   Durchdachtes Design trifft auf zuverlässige Leistung.
                 </p>
                 <Link
-                  to="/product/wireless-charger-3in1"
+                  to="/product/wireless-charger-3in1#product"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300"
                 >
                   <Zap className="w-5 h-5" />

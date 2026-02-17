@@ -1,9 +1,20 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import WirelessCharger3in1Product from "@/components/WirelessCharger3in1Product";
 import Footer from "@/components/Footer";
 
 const WirelessChargerPage = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [hash]);
   return (
     <>
       <Helmet>
@@ -17,7 +28,9 @@ const WirelessChargerPage = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <main className="pt-20">
-          <WirelessCharger3in1Product />
+          <div id="product">
+            <WirelessCharger3in1Product />
+          </div>
         </main>
         <Footer />
       </div>
