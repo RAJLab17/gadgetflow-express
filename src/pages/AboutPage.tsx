@@ -76,7 +76,7 @@ const AboutPage = () => {
                   Power. <span className="text-primary">Always There.</span>
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Wir sind RAJ – Ihr Partner für zuverlässige Energielösungen im digitalen Alltag.
+                  RAJ steht für präzise Energielösungen für Menschen, die sich auf Qualität verlassen – jeden Tag.
                 </p>
               </div>
             </div>
