@@ -157,7 +157,7 @@ const WirelessCharger3in1Product = () => {
 
 
         {/* ===== DETAILS + ORDER SECTION ===== */}
-        <div id="order" className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div id="order" className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 scroll-mt-24">
           {/* Left Column: Availability + Specs */}
           <div className="space-y-6">
             {/* Availability */}
