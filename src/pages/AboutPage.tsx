@@ -28,7 +28,7 @@ const AboutPage = () => {
     {
       icon: Target,
       title: "Fokus",
-      description: <><span className="font-semibold text-foreground">Reduktion auf das Wesentliche.</span> Wir entwickeln keine Funktionen, sondern Lösungen, die bleiben.</>,
+      description: <><span className="font-semibold text-foreground block mb-1">Reduktion auf das Wesentliche.</span>Wir entwickeln keine Funktionen, sondern Lösungen, die bleiben.</>,
     },
     {
       icon: Award,
