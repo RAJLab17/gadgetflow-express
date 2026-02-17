@@ -60,7 +60,7 @@ const WirelessCharger3in1Product = () => {
           {/* Left: Product Info */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
             <h1 className="text-5xl md:text-6xl font-bold mb-2 text-foreground">
-              RAJ NEXUS
+              RAJ <span className="text-primary">NEXUS</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-6">
               3-in-1 Wireless Charger
@@ -72,7 +72,7 @@ const WirelessCharger3in1Product = () => {
               </p>
             </div>
 
-            <p className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <p className="text-4xl md:text-5xl font-bold text-primary mb-6">
               CHF 99.–
             </p>
 
