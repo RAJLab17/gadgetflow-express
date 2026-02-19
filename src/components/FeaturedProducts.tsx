@@ -227,7 +227,7 @@ const FeaturedProducts = () => {
                   <span className="text-lg text-muted-foreground line-through">
                     CHF {Number.isInteger(product.originalPrice) ? `${product.originalPrice}.–` : product.originalPrice.toFixed(2)}
                   </span>
-                  <span className="px-2 py-0.5 bg-primary text-primary-foreground rounded-full text-xs font-bold">
+                  <span className="px-3 py-1 bg-primary text-primary-foreground rounded-full text-sm font-bold">
                     -23%
                   </span>
                 </div>
