@@ -257,7 +257,7 @@ const PreorderForm = ({
           Mit deiner Bestellung akzeptierst du unsere{" "}
           <a href="/agb" className="underline hover:text-muted-foreground transition-colors">AGB</a>{" "}
           und{" "}
-          <a href="#" className="underline hover:text-muted-foreground transition-colors">Datenschutzerkl&auml;rung</a>.
+          <a href="/datenschutz" className="underline hover:text-muted-foreground transition-colors">Datenschutzerkl&auml;rung</a>.
         </p>
 
         <p className="text-xs text-center text-muted-foreground">
