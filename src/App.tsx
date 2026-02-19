@@ -16,6 +16,7 @@ import GanChargerPage from "./pages/GanChargerPage";
 import UsbChargerPage from "./pages/UsbChargerPage";
 import AboutPage from "./pages/AboutPage";
 import AGBPage from "./pages/AGBPage";
+import DatenschutzPage from "./pages/DatenschutzPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/product/usb-charger-35w" element={<UsbChargerPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/agb" element={<AGBPage />} />
+            <Route path="/datenschutz" element={<DatenschutzPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

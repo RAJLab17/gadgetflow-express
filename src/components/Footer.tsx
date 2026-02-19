@@ -127,7 +127,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-6 text-foreground">Rechtliches</h4>
             <ul className="space-y-3">
               {[
-                { label: "Datenschutz", href: "#" },
+                { label: "Datenschutz", href: "/datenschutz" },
                 { label: "AGB", href: "/agb" },
                 { label: "Impressum", href: "#" },
               ].map((link) => (
