@@ -69,6 +69,9 @@ const WirelessCharger3in1Product = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-6">
               3-in-1 Wireless Charger
             </p>
+            <p className="text-base text-muted-foreground mb-6 italic">
+              Qi neu definiert.
+            </p>
 
             <div className="border-t border-border pt-4 mb-6">
               <p className="text-base text-muted-foreground">
