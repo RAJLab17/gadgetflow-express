@@ -126,14 +126,18 @@ const Footer = () => {
           >
             <h4 className="font-semibold mb-6 text-foreground">Rechtliches</h4>
             <ul className="space-y-3">
-              {["Datenschutz", "AGB", "Impressum"].map((link) => (
-                <li key={link}>
-                  <a
-                    href="#"
+              {[
+                { label: "Datenschutz", href: "#" },
+                { label: "AGB", href: "/agb" },
+                { label: "Impressum", href: "#" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {link}
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
