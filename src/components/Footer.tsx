@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo-new.png";
-import PaymentIcons from "@/components/PaymentIcons";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -152,11 +152,7 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="border-t border-border mt-12 pt-8"
         >
-          <div className="flex flex-col items-center gap-4 mb-6">
-            <PaymentIcons />
-          </div>
-          
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 border-t border-border/50">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
               © {currentYear} RAJ. Alle Rechte vorbehalten.
             </p>
