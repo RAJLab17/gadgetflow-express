@@ -183,7 +183,7 @@ const AboutPage = () => {
                     <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                       <value.icon className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-xl font-semibold text-primary mb-3">
                       {value.title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
