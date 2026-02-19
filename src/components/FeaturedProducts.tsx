@@ -243,7 +243,7 @@ const FeaturedProducts = () => {
                     asChild
                   >
                     <Link to={product.link}>
-                      Jetzt sichern
+                      Jetzt vorbestellen
                       <motion.span
                         className="ml-2"
                         animate={{ x: [0, 4, 0] }}
