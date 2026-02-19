@@ -256,7 +256,7 @@ const FeaturedProducts = () => {
                 </motion.div>
 
                 <p className="text-center text-xs text-muted-foreground">
-                  Gratis Versand · 30 Tage Rückgabe · Sichere Zahlung
+                  Swiss Brand · Gratis Versand · 30 Tage Rückgabe
                 </p>
 
                 {/* Compatibility Badges - Inline */}
