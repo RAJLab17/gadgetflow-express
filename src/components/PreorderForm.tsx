@@ -141,7 +141,7 @@ const PreorderForm = ({
           <span className="text-muted-foreground line-through">CHF {Number.isInteger(originalPrice) ? `${originalPrice}.–` : originalPrice.toFixed(2)}</span>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-primary font-medium">-{discountPercent}% Vorbestellerrabatt</span>
+          <span className="text-primary font-semibold text-lg">-{discountPercent}% Vorbestellerrabatt</span>
           <span className="text-primary">-CHF {Number.isInteger(originalPrice - finalPrice) ? `${originalPrice - finalPrice}.–` : (originalPrice - finalPrice).toFixed(2)}</span>
         </div>
         <div className="border-t border-border pt-2 mt-2">
