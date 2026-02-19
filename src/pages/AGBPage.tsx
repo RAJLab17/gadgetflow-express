@@ -14,7 +14,7 @@ const sections = [
     title: "2. Angebot und Vertragsschluss",
     content: [
       "Die Pr\u00e4sentation der Produkte auf unserer Website stellt kein rechtlich bindendes Angebot dar, sondern eine unverbindliche Aufforderung zur Abgabe einer Bestellung.",
-      `Durch Anklicken des Bestellbuttons (z.\u00a0B. \u201eJetzt sichern\u201c, \u201eJetzt kaufen\u201c oder \u201eBestellung abschliessen\u201c) gibt der Kunde ein verbindliches Angebot zum Abschluss eines Kaufvertrages ab. Der Vertrag kommt zustande, sobald RAJ die Bestellung per E\u2011Mail best\u00e4tigt oder die Ware versendet.`,
+      `Durch Anklicken des Bestellbuttons (z.\u00a0B. \u201eJetzt sichern\u201c, \u201eJetzt vorbestellen\u201c, \u201eJetzt kaufen\u201c oder \u201eBestellung abschliessen\u201c) gibt der Kunde ein verbindliches Angebot zum Abschluss eines Kaufvertrages ab. Der Vertrag kommt zustande, sobald RAJ die Bestellung per E\u2011Mail best\u00e4tigt oder die Ware versendet.`,
     ],
   },
   {
