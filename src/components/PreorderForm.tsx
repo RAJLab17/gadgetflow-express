@@ -253,8 +253,15 @@ const PreorderForm = ({
           )}
         </Button>
 
-        <p className="text-xs text-center text-muted-foreground mb-4">
-          Lieferzeit: 2-4 Wochen • Individuelle Produktion • Sichere Bezahlung
+        <p className="text-[11px] text-center text-muted-foreground/70">
+          Mit deiner Bestellung akzeptierst du unsere{" "}
+          <a href="/agb" className="underline hover:text-muted-foreground transition-colors">AGB</a>{" "}
+          und{" "}
+          <a href="#" className="underline hover:text-muted-foreground transition-colors">Datenschutzerkl&auml;rung</a>.
+        </p>
+
+        <p className="text-xs text-center text-muted-foreground">
+          Lieferzeit: 2-4 Wochen &bull; Individuelle Produktion &bull; Sichere Bezahlung
         </p>
 
         {/* Payment Methods */}
