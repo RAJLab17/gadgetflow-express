@@ -88,7 +88,7 @@ const FeaturedProducts = () => {
             Unser Flaggschiff
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-            Qi neu <span className="text-primary">definiert.</span>
+            Perfekte Eleganz. <span className="text-primary">Qi2 neu definiert.</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-lg">
             Entworfen für höchste Ansprüche. Qualität, die man sieht und fühlt.
