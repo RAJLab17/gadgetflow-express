@@ -207,9 +207,6 @@ const FeaturedProducts = () => {
                 <p className="text-xl md:text-2xl font-semibold text-foreground mb-1">
                   3-in-1 Wireless Charger
                 </p>
-                <p className="text-lg text-muted-foreground mb-4">
-                  Qi2.2 • 25W
-                </p>
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   {product.description}
                 </p>
