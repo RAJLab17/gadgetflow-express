@@ -171,22 +171,11 @@ const FeaturedProducts = () => {
                 ))}
               </div>
 
-              {/* Category & Rating - Above colors */}
-              <div className="flex items-center justify-between">
+              {/* Category */}
+              <div>
                 <span className="text-primary text-sm font-semibold uppercase tracking-[0.15em]">
                   {product.category}
                 </span>
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 text-primary fill-primary"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-sm text-muted-foreground">({product.reviews})</span>
-                </div>
               </div>
 
               {/* Color: Space Black */}
