@@ -129,7 +129,7 @@ const Footer = () => {
               {[
                 { label: "Datenschutz", href: "/datenschutz" },
                 { label: "AGB", href: "/agb" },
-                { label: "Impressum", href: "#" },
+                { label: "Impressum", href: "/impressum" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
