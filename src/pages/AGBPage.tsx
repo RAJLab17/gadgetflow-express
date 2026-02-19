@@ -14,7 +14,7 @@ const sections = [
     title: "2. Angebot und Vertragsschluss",
     content: [
       "Die Pr\u00e4sentation der Produkte auf unserer Website stellt kein rechtlich bindendes Angebot dar, sondern eine unverbindliche Aufforderung zur Abgabe einer Bestellung.",
-      `Durch Anklicken des Bestellbuttons (z.\u00a0B. \u201eJetzt sichern\u201c, \u201eJetzt kaufen\u201c oder \u201eBestellung abschlie\u00dfen\u201c) gibt der Kunde ein verbindliches Angebot zum Abschluss eines Kaufvertrages ab. Der Vertrag kommt zustande, sobald RAJ die Bestellung per E\u2011Mail best\u00e4tigt oder die Ware versendet.`,
+      `Durch Anklicken des Bestellbuttons (z.\u00a0B. \u201eJetzt sichern\u201c, \u201eJetzt kaufen\u201c oder \u201eBestellung abschliessen\u201c) gibt der Kunde ein verbindliches Angebot zum Abschluss eines Kaufvertrages ab. Der Vertrag kommt zustande, sobald RAJ die Bestellung per E\u2011Mail best\u00e4tigt oder die Ware versendet.`,
     ],
   },
   {
@@ -35,7 +35,7 @@ const sections = [
   {
     title: "5. Lieferung und Versand",
     content: [
-      "Die Lieferung erfolgt ausschlie\u00dflich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdr\u00fccklich anders angegeben.",
+      "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdr\u00fccklich anders angegeben.",
       "Die Lieferzeit richtet sich nach den Angaben auf der jeweiligen Produktseite. Teillieferungen sind zul\u00e4ssig, sofern sie f\u00fcr den Kunden zumutbar sind.",
     ],
   },
@@ -59,13 +59,13 @@ const sections = [
     content: [
       "Es gelten die gesetzlichen Gew\u00e4hrleistungsbestimmungen des schweizerischen Rechts.",
       "Sofern auf der Produktseite angegeben, gew\u00e4hrt RAJ zus\u00e4tzlich eine freiwillige Garantie von zwei Jahren ab Lieferdatum. Die Garantie deckt Material\u2011 und Herstellungsfehler ab.",
-      "Von der Garantie ausgeschlossen sind insbesondere Sch\u00e4den, die durch unsachgem\u00e4\u00dfe Nutzung, normale Abnutzung, \u00e4u\u00dfere Einwirkungen oder eigenm\u00e4chtige Reparaturen entstehen.",
+      "Von der Garantie ausgeschlossen sind insbesondere Sch\u00e4den, die durch unsachgem\u00e4sse Nutzung, normale Abnutzung, \u00e4ussere Einwirkungen oder eigenm\u00e4chtige Reparaturen entstehen.",
     ],
   },
   {
     title: "9. Haftung",
     content: [
-      "RAJ haftet ausschlie\u00dflich f\u00fcr Sch\u00e4den, die durch vors\u00e4tzliches oder grob fahrl\u00e4ssiges Verhalten verursacht wurden.",
+      "RAJ haftet ausschliesslich f\u00fcr Sch\u00e4den, die durch vors\u00e4tzliches oder grob fahrl\u00e4ssiges Verhalten verursacht wurden.",
       "Eine Haftung f\u00fcr indirekte Sch\u00e4den, Folgesch\u00e4den oder entgangenen Gewinn ist \u2013 soweit gesetzlich zul\u00e4ssig \u2013 ausgeschlossen.",
       "Zwingende gesetzliche Haftungsbestimmungen bleiben unber\u00fchrt.",
     ],
@@ -80,19 +80,19 @@ const sections = [
   {
     title: "11. Datenschutz",
     content: [
-      "Die Verarbeitung personenbezogener Daten erfolgt gem\u00e4\u00df unserer Datenschutzerkl\u00e4rung, welche integraler Bestandteil dieser AGB ist.",
+      "Die Verarbeitung personenbezogener Daten erfolgt gem\u00e4ss unserer Datenschutzerkl\u00e4rung, welche integraler Bestandteil dieser AGB ist.",
     ],
   },
   {
     title: "12. \u00c4nderungen der AGB",
     content: [
-      "RAJ beh\u00e4lt sich das Recht vor, diese AGB jederzeit anzupassen. Ma\u00dfgeblich ist die jeweils zum Zeitpunkt der Bestellung g\u00fcltige Fassung.",
+      "RAJ beh\u00e4lt sich das Recht vor, diese AGB jederzeit anzupassen. Massgeblich ist die jeweils zum Zeitpunkt der Bestellung g\u00fcltige Fassung.",
     ],
   },
   {
     title: "13. Anwendbares Recht und Gerichtsstand",
     content: [
-      "Es gilt ausschlie\u00dflich schweizerisches Recht unter Ausschluss des UN\u2011Kaufrechts (CISG).",
+      "Es gilt ausschliesslich schweizerisches Recht unter Ausschluss des UN\u2011Kaufrechts (CISG).",
       "Gerichtsstand ist \u2013 soweit gesetzlich zul\u00e4ssig \u2013 der Sitz der RAJ AG.",
     ],
   },
