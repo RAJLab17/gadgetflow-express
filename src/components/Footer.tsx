@@ -1,13 +1,52 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Loader2, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo-new.png";
 
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    setIsSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("newsletter-signup", {
+        body: { email: email.trim() },
+      });
+
+      if (error) throw error;
+
+      setIsSuccess(true);
+      setEmail("");
+      toast({
+        title: "Erfolgreich angemeldet!",
+        description: "Du erhältst bald unsere neuesten Updates.",
+      });
+
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (err) {
+      console.error("Newsletter error:", err);
+      toast({
+        title: "Fehler",
+        description: "Bitte versuche es erneut.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <footer className="bg-card border-t border-border relative overflow-hidden">
@@ -31,17 +70,31 @@ const Footer = () => {
             <p className="text-muted-foreground mb-5 text-base">
               Exklusive Updates und Angebote direkt in Ihr Postfach
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <Input
                 type="email"
                 placeholder="Ihre E-Mail-Adresse"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="flex-1 bg-background border-border focus:border-primary h-12 rounded-xl"
               />
-              <Button variant="hero" size="lg" className="h-12">
-                Abonnieren
-                <ArrowRight className="w-4 h-4 ml-2" />
+              <Button variant="hero" size="lg" className="h-12" type="submit" disabled={isSubmitting || isSuccess}>
+                {isSubmitting ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : isSuccess ? (
+                  <>
+                    <Check className="w-4 h-4 mr-2" />
+                    Angemeldet
+                  </>
+                ) : (
+                  <>
+                    Abonnieren
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </>
+                )}
               </Button>
-            </div>
+            </form>
           </motion.div>
         </div>
       </div>
