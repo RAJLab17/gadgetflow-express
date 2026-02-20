@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Loader2, Check } from "lucide-react";
+import { Mail, Loader2, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -27,8 +27,8 @@ const Footer = () => {
       if (error) throw error;
       setIsSuccess(true);
       setEmail("");
-      toast({ title: data?.message || "Erfolgreich angemeldet! 🎉" });
-      setTimeout(() => setIsSuccess(false), 4000);
+      toast({ title: "Erfolgreich angemeldet ✓", description: "Vielen Dank für Ihr Interesse an RAJ." });
+      setTimeout(() => setIsSuccess(false), 6000);
     } catch (err) {
       console.error("Newsletter error:", err);
       toast({ title: "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.", variant: "destructive" });
@@ -43,56 +43,70 @@ const Footer = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[150px]" />
       
       {/* Newsletter Section */}
-      <div className="border-b border-border/50 relative">
-        <div className="container mx-auto px-4 py-14 md:py-20">
+      <div className="border-b border-border relative">
+        <div className="container mx-auto px-4 py-10">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-xl mx-auto text-center"
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl mx-auto text-center"
           >
-            <p className="text-xs tracking-[0.3em] uppercase text-primary/70 mb-4 font-medium">
-              Newsletter
-            </p>
-            <h3 className="text-2xl md:text-3xl font-light tracking-tight mb-3 text-foreground">
-              Bleiben Sie <span className="italic">informiert</span>
-            </h3>
-            <p className="text-muted-foreground mb-8 text-sm leading-relaxed max-w-sm mx-auto">
-              Exklusive Updates, neue Produkte und Angebote – direkt in Ihr Postfach.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="relative max-w-md mx-auto">
-              <div className="flex border border-border/80 rounded-full overflow-hidden bg-background/60 backdrop-blur-sm transition-all focus-within:border-primary/40 focus-within:shadow-[0_0_0_3px_hsl(var(--primary)/0.08)]">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Ihre E-Mail-Adresse"
-                  className="flex-1 px-6 py-3.5 bg-transparent text-foreground text-sm placeholder:text-muted-foreground/60 focus:outline-none"
-                  disabled={isLoading}
-                  required
-                />
-                <button
-                  type="submit"
-                  disabled={isLoading || isSuccess}
-                  className="px-6 py-3.5 bg-primary text-primary-foreground text-sm font-medium rounded-full m-1 hover:opacity-90 transition-all disabled:opacity-60 flex items-center gap-2 whitespace-nowrap"
+            {isSuccess ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="py-6"
+              >
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.15, type: "spring", stiffness: 200, damping: 15 }}
+                  className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5"
                 >
-                  {isLoading ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : isSuccess ? (
-                    <>
-                      <Check className="w-4 h-4" />
-                      <span>Angemeldet</span>
-                    </>
-                  ) : (
-                    "Anmelden"
-                  )}
-                </button>
-              </div>
-              <p className="text-[11px] text-muted-foreground/50 mt-4 tracking-wide">
-                Kein Spam. Jederzeit abmeldbar.
-              </p>
-            </form>
+                  <Check className="w-6 h-6 text-primary" />
+                </motion.div>
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 text-foreground">
+                  Willkommen bei RAJ
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto">
+                  Sie erhalten ab sofort exklusive Updates und Angebote direkt in Ihr Postfach.
+                </p>
+              </motion.div>
+            ) : (
+              <>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <Mail className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Bleiben Sie informiert</h3>
+                <p className="text-muted-foreground mb-5 text-base">
+                  Exklusive Updates und Angebote direkt in Ihr Postfach
+                </p>
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Ihre E-Mail-Adresse"
+                    className="flex-1 px-4 py-3 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                    disabled={isLoading}
+                    required
+                  />
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-all disabled:opacity-60 flex items-center justify-center gap-2 min-w-[140px]"
+                  >
+                    {isLoading ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      "Anmelden"
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
           </motion.div>
         </div>
       </div>
