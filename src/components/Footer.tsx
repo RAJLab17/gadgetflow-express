@@ -1,59 +1,17 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Loader2, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo-new.png";
-
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const { toast } = useToast();
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-
-    setIsSubmitting(true);
-    try {
-      const { data, error } = await supabase.functions.invoke("newsletter-signup", {
-        body: { email: email.trim() },
-      });
-
-      if (error) throw error;
-
-      setIsSuccess(true);
-      setEmail("");
-      toast({
-        title: "Erfolgreich angemeldet!",
-        description: "Du erhältst bald unsere neuesten Updates.",
-      });
-
-      setTimeout(() => setIsSuccess(false), 5000);
-    } catch (err) {
-      console.error("Newsletter error:", err);
-      toast({
-        title: "Fehler",
-        description: "Bitte versuche es erneut.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <footer className="bg-card border-t border-border relative overflow-hidden">
       {/* Subtle Background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[150px]" />
       
-      {/* Newsletter Section */}
+      {/* Newsletter Section - Brevo Embedded Form */}
       <div className="border-b border-border relative">
         <div className="container mx-auto px-4 py-10">
           <motion.div
@@ -70,31 +28,18 @@ const Footer = () => {
             <p className="text-muted-foreground mb-5 text-base">
               Exklusive Updates und Angebote direkt in Ihr Postfach
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                placeholder="Ihre E-Mail-Adresse"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-1 bg-background border-border focus:border-primary h-12 rounded-xl"
+            <div className="brevo-form-wrapper">
+              <iframe
+                width="100%"
+                height="250"
+                src="https://65bf1ff3.sibforms.com/serve/MUIFAMg9358tzHLrqDMFaCwquDtkU5tRXGyOSz9PFPgJTzrS2rjXENy0RbZDNtrHBR8FodMggHp_P4iizJ1DLdqJt8jxk8v1PiouG6GRTtcuDHlyRbniqzn_E9mT8MLUMMmPTEku7s73pkLuLC8sSYkit1NIBJOCFfpSJBVIvFxZ8VsUpIZr9Y7ijdcHNR-FEUJABQh1NFHhcbPm5Q=="
+                frameBorder="0"
+                scrolling="no"
+                allowFullScreen
+                className="mx-auto rounded-xl"
+                style={{ maxWidth: "540px", border: "none" }}
               />
-              <Button variant="hero" size="lg" className="h-12" type="submit" disabled={isSubmitting || isSuccess}>
-                {isSubmitting ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : isSuccess ? (
-                  <>
-                    <Check className="w-4 h-4 mr-2" />
-                    Angemeldet
-                  </>
-                ) : (
-                  <>
-                    Abonnieren
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </>
-                )}
-              </Button>
-            </form>
+            </div>
           </motion.div>
         </div>
       </div>
