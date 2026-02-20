@@ -71,7 +71,7 @@ const Footer = () => {
                   Willkommen bei RAJ
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto">
-                  Sie erhalten ab sofort exklusive Updates und Angebote direkt in Ihr Postfach.
+                  Updates zu Produkten und Neuigkeiten von RAJ – direkt in Ihr Postfach.
                 </p>
               </motion.div>
             ) : (
