@@ -1,1 +1,4 @@
 project_id = "ftyyjxrrmxlssghrrlzg"
+
+[functions.brevo-subscribe]
+verify_jwt = false
