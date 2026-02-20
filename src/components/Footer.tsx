@@ -1,17 +1,48 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { Mail, Loader2, Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo-new.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !email.includes("@")) {
+      toast({ title: "Bitte geben Sie eine gültige E-Mail-Adresse ein.", variant: "destructive" });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("brevo-subscribe", {
+        body: { email: email.trim() },
+      });
+      if (error) throw error;
+      setIsSuccess(true);
+      setEmail("");
+      toast({ title: data?.message || "Erfolgreich angemeldet! 🎉" });
+      setTimeout(() => setIsSuccess(false), 4000);
+    } catch (err) {
+      console.error("Newsletter error:", err);
+      toast({ title: "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.", variant: "destructive" });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <footer className="bg-card border-t border-border relative overflow-hidden">
       {/* Subtle Background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[150px]" />
       
-      {/* Newsletter Section - Brevo Embedded Form */}
+      {/* Newsletter Section */}
       <div className="border-b border-border relative">
         <div className="container mx-auto px-4 py-10">
           <motion.div
@@ -28,18 +59,33 @@ const Footer = () => {
             <p className="text-muted-foreground mb-5 text-base">
               Exklusive Updates und Angebote direkt in Ihr Postfach
             </p>
-            <div className="brevo-form-wrapper">
-              <iframe
-                width="100%"
-                height="450"
-                src="https://65bf1ff3.sibforms.com/serve/MUIFAMg9358tzHLrqDMFaCwquDtkU5tRXGyOSz9PFPgJTzrS2rjXENy0RbZDNtrHBR8FodMggHp_P4iizJ1DLdqJt8jxk8v1PiouG6GRTtcuDHlyRbniqzn_E9mT8MLUMMmPTEku7s73pkLuLC8sSYkit1NIBJOCFfpSJBVIvFxZ8VsUpIZr9Y7ijdcHNR-FEUJABQh1NFHhcbPm5Q=="
-                frameBorder="0"
-                scrolling="auto"
-                allowFullScreen
-                className="mx-auto rounded-xl"
-                style={{ maxWidth: "540px", border: "none" }}
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Ihre E-Mail-Adresse"
+                className="flex-1 px-4 py-3 rounded-lg bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                disabled={isLoading}
+                required
               />
-            </div>
+              <button
+                type="submit"
+                disabled={isLoading || isSuccess}
+                className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-all disabled:opacity-60 flex items-center justify-center gap-2 min-w-[140px]"
+              >
+                {isLoading ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : isSuccess ? (
+                  <>
+                    <Check className="w-4 h-4" />
+                    Angemeldet
+                  </>
+                ) : (
+                  "Anmelden"
+                )}
+              </button>
+            </form>
           </motion.div>
         </div>
       </div>
