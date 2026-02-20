@@ -22,13 +22,25 @@ serve(async (req) => {
 
     const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY');
     if (!BREVO_API_KEY) {
+      console.error('BREVO_API_KEY secret is missing!');
       return new Response(
         JSON.stringify({ error: 'Server-Konfigurationsfehler' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    // Add contact to Brevo
+    const cleanEmail = email.trim().toLowerCase();
+    console.log('Subscribing email:', cleanEmail);
+
+    // Add contact to Brevo with default list
+    const brevoBody = {
+      email: cleanEmail,
+      updateEnabled: true,
+      listIds: [2], // Default contacts list
+    };
+
+    console.log('Sending to Brevo:', JSON.stringify(brevoBody));
+
     const response = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
@@ -36,15 +48,13 @@ serve(async (req) => {
         'content-type': 'application/json',
         'api-key': BREVO_API_KEY,
       },
-      body: JSON.stringify({
-        email: email.trim().toLowerCase(),
-        updateEnabled: true,
-      }),
+      body: JSON.stringify(brevoBody),
     });
 
     const responseText = await response.text();
+    console.log('Brevo response:', response.status, responseText);
 
-    if (response.ok || response.status === 204) {
+    if (response.ok || response.status === 201 || response.status === 204) {
       return new Response(
         JSON.stringify({ success: true }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -66,7 +76,7 @@ serve(async (req) => {
 
     console.error('Brevo API error:', response.status, responseText);
     return new Response(
-      JSON.stringify({ error: 'Anmeldung fehlgeschlagen' }),
+      JSON.stringify({ error: 'Anmeldung fehlgeschlagen', details: responseText }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   } catch (error) {
