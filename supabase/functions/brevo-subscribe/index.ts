@@ -36,7 +36,7 @@ serve(async (req) => {
     const brevoBody = {
       email: cleanEmail,
       updateEnabled: true,
-      listIds: [2], // Default contacts list
+      listIds: [3], // RAJ Newsletter #3
     };
 
     console.log('Sending to Brevo:', JSON.stringify(brevoBody));
