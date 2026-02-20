@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo-new.png";
 
@@ -13,18 +14,33 @@ const Footer = () => {
       {/* Newsletter Section - Brevo Embedded Form */}
       <div className="border-b border-border relative">
         <div className="container mx-auto px-4 py-10">
-          <div className="max-w-2xl mx-auto">
-            <iframe
-              width="100%"
-              height="450"
-              src="https://65bf1ff3.sibforms.com/serve/MUIFAMg9358tzHLrqDMFaCwquDtkU5tRXGyOSz9PFPgJTzrS2rjXENy0RbZDNtrHBR8FodMggHp_P4iizJ1DLdqJt8jxk8v1PiouG6GRTtcuDHlyRbniqzn_E9mT8MLUMMmPTEku7s73pkLuLC8sSYkit1NIBJOCFfpSJBVIvFxZ8VsUpIZr9Y7ijdcHNR-FEUJABQh1NFHhcbPm5Q=="
-              frameBorder="0"
-              scrolling="auto"
-              allowFullScreen
-              className="mx-auto rounded-xl"
-              style={{ maxWidth: "600px", border: "none", display: "block", margin: "0 auto" }}
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl mx-auto text-center"
+          >
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <Mail className="w-5 h-5 text-primary" />
+            </div>
+            <h3 className="text-xl md:text-2xl font-bold mb-2">Bleiben Sie informiert</h3>
+            <p className="text-muted-foreground mb-5 text-base">
+              Exklusive Updates und Angebote direkt in Ihr Postfach
+            </p>
+            <div className="brevo-form-wrapper">
+              <iframe
+                width="100%"
+                height="450"
+                src="https://65bf1ff3.sibforms.com/serve/MUIFAMg9358tzHLrqDMFaCwquDtkU5tRXGyOSz9PFPgJTzrS2rjXENy0RbZDNtrHBR8FodMggHp_P4iizJ1DLdqJt8jxk8v1PiouG6GRTtcuDHlyRbniqzn_E9mT8MLUMMmPTEku7s73pkLuLC8sSYkit1NIBJOCFfpSJBVIvFxZ8VsUpIZr9Y7ijdcHNR-FEUJABQh1NFHhcbPm5Q=="
+                frameBorder="0"
+                scrolling="auto"
+                allowFullScreen
+                className="mx-auto rounded-xl"
+                style={{ maxWidth: "540px", border: "none" }}
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
 
