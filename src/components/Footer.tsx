@@ -68,10 +68,10 @@ const Footer = () => {
                   <Check className="w-6 h-6 text-primary" />
                 </motion.div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2 text-foreground">
-                  Willkommen bei RAJ
+                  Bitte bestätigen Sie Ihre E-Mail
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto">
-                  Updates zu Produkten und Neuigkeiten von RAJ – direkt in Ihr Postfach.
+                  Wir haben Ihnen eine E-Mail gesendet. Bitte klicken Sie auf den Bestätigungslink, um Ihre Anmeldung abzuschliessen.
                 </p>
               </motion.div>
             ) : (
