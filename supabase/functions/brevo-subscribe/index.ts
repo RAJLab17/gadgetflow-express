@@ -30,29 +30,34 @@ serve(async (req) => {
     }
 
     const cleanEmail = email.trim().toLowerCase();
-    console.log('Subscribing email:', cleanEmail);
+    console.log('DOI signup for:', cleanEmail);
 
-    // Add contact to Brevo with default list
-    const brevoBody = {
+    // Use Brevo's native Double-Opt-In endpoint
+    const doiBody = {
       email: cleanEmail,
-      updateEnabled: true,
-      listIds: [3], // RAJ Newsletter #3
+      includeListIds: [3], // RAJ Newsletter #3
+      templateId: 1, // Brevo DOI confirmation template ID
+      redirectionUrl: 'https://raj.ch/confirmed',
+      attributes: {
+        SOURCE: 'website',
+        LANG: 'de',
+      },
     };
 
-    console.log('Sending to Brevo:', JSON.stringify(brevoBody));
+    console.log('Sending DOI request to Brevo:', JSON.stringify(doiBody));
 
-    const response = await fetch('https://api.brevo.com/v3/contacts', {
+    const response = await fetch('https://api.brevo.com/v3/contacts/doubleOptinConfirmation', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json',
         'api-key': BREVO_API_KEY,
       },
-      body: JSON.stringify(brevoBody),
+      body: JSON.stringify(doiBody),
     });
 
     const responseText = await response.text();
-    console.log('Brevo response:', response.status, responseText);
+    console.log('Brevo DOI response:', response.status, responseText);
 
     if (response.ok || response.status === 201 || response.status === 204) {
       return new Response(
@@ -61,7 +66,7 @@ serve(async (req) => {
       );
     }
 
-    // Brevo returns 400 if contact already exists with duplicate_parameter
+    // Contact already confirmed
     if (response.status === 400) {
       try {
         const errData = JSON.parse(responseText);
@@ -74,7 +79,7 @@ serve(async (req) => {
       } catch { /* ignore parse error */ }
     }
 
-    console.error('Brevo API error:', response.status, responseText);
+    console.error('Brevo DOI API error:', response.status, responseText);
     return new Response(
       JSON.stringify({ error: 'Anmeldung fehlgeschlagen', details: responseText }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
