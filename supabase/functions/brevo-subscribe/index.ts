@@ -30,35 +30,32 @@ serve(async (req) => {
     }
 
     const cleanEmail = email.trim().toLowerCase();
-    console.log('DOI signup for:', cleanEmail);
+    console.log('Creating/updating contact for DOI:', cleanEmail);
 
-    // Use Brevo's native Double-Opt-In endpoint
-    const doiBody = {
+    // Create or update contact in Brevo and assign to List 4 (RAJ – Signups DOI)
+    // Brevo automation on List 4 handles the DOI confirmation email
+    const brevoBody = {
       email: cleanEmail,
-      includeListIds: [3], // RAJ Newsletter #3
-      templateId: 1, // Brevo DOI confirmation template ID
-      redirectionUrl: 'https://raj.ch/confirmed',
-      attributes: {
-        SOURCE: 'website',
-        LANG: 'de',
-      },
+      listIds: [4],
+      updateEnabled: true,
     };
 
-    console.log('Sending DOI request to Brevo:', JSON.stringify(doiBody));
+    console.log('Sending to Brevo /v3/contacts:', JSON.stringify(brevoBody));
 
-    const response = await fetch('https://api.brevo.com/v3/contacts/doubleOptinConfirmation', {
+    const response = await fetch('https://api.brevo.com/v3/contacts', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json',
         'api-key': BREVO_API_KEY,
       },
-      body: JSON.stringify(doiBody),
+      body: JSON.stringify(brevoBody),
     });
 
     const responseText = await response.text();
-    console.log('Brevo DOI response:', response.status, responseText);
+    console.log('Brevo response:', response.status, responseText);
 
+    // 201 = created, 204 = updated existing contact
     if (response.ok || response.status === 201 || response.status === 204) {
       return new Response(
         JSON.stringify({ success: true }),
@@ -66,7 +63,7 @@ serve(async (req) => {
       );
     }
 
-    // Contact already confirmed
+    // Contact already exists with duplicate_parameter
     if (response.status === 400) {
       try {
         const errData = JSON.parse(responseText);
@@ -79,7 +76,7 @@ serve(async (req) => {
       } catch { /* ignore parse error */ }
     }
 
-    console.error('Brevo DOI API error:', response.status, responseText);
+    console.error('Brevo API error:', response.status, responseText);
     return new Response(
       JSON.stringify({ error: 'Anmeldung fehlgeschlagen', details: responseText }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
