@@ -77,7 +77,7 @@ const ConfirmedPage = () => {
             className="mb-6"
           >
             <Link to="/">
-              <img src={logo} alt="RAJ" className="h-8 w-auto mx-auto hover:opacity-80 transition-opacity" />
+              <img src={logo} alt="RAJ" className="h-10 w-auto mx-auto hover:opacity-80 transition-opacity" />
             </Link>
           </motion.div>
 
