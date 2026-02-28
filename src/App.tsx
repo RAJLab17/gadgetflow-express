@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { useCartSync } from "@/hooks/useCartSync";
 import Index from "./pages/Index";
 import ProductPage from "./pages/ProductPage";
 import PowerBankPage from "./pages/PowerBankPage";
@@ -23,6 +24,11 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const AppContent = () => {
+  useCartSync();
+  return null;
+};
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -30,6 +36,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AppContent />
           <Routes>
           <Route path="/" element={<Index />} />
             <Route path="/product/magnetic-cable" element={<ProductPage />} />
