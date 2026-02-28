@@ -92,6 +92,28 @@ const PreorderForm = ({
         title: "Vorbestellung erfolgreich!",
         description: `Deine Bestellnummer: ${insertedData.order_number}`,
       });
+
+      // Process order async (email + Shopify) - don't block UI
+      supabase.functions.invoke('process-preorder', {
+        body: {
+          orderNumber: insertedData.order_number,
+          customerName: data.customerName,
+          customerEmail: data.customerEmail,
+          phone: data.phone || null,
+          streetAddress: data.streetAddress,
+          postalCode: data.postalCode,
+          city: data.city,
+          productName,
+          productVariant: productVariant || null,
+          originalPrice,
+          discountPercent,
+          finalPrice,
+        },
+      }).then(res => {
+        console.log('Preorder processing result:', res.data);
+      }).catch(err => {
+        console.error('Preorder processing failed:', err);
+      });
     } catch (error) {
       console.error("Preorder error:", error);
       toast({
