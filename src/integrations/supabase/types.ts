@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      abandoned_carts: {
+        Row: {
+          converted: boolean
+          created_at: string
+          customer_email: string
+          final_price: number
+          id: string
+          original_price: number
+          product_name: string
+          product_variant: string | null
+          shopify_draft_order_id: string | null
+        }
+        Insert: {
+          converted?: boolean
+          created_at?: string
+          customer_email: string
+          final_price: number
+          id?: string
+          original_price: number
+          product_name: string
+          product_variant?: string | null
+          shopify_draft_order_id?: string | null
+        }
+        Update: {
+          converted?: boolean
+          created_at?: string
+          customer_email?: string
+          final_price?: number
+          id?: string
+          original_price?: number
+          product_name?: string
+          product_variant?: string | null
+          shopify_draft_order_id?: string | null
+        }
+        Relationships: []
+      }
       preorders: {
         Row: {
           city: string

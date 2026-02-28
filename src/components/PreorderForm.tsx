@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -41,9 +41,29 @@ const PreorderForm = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
+  const abandonedTracked = useRef(false);
   const { toast } = useToast();
 
   const finalPrice = fixedFinalPrice ?? originalPrice * (1 - discountPercent / 100);
+
+  const trackAbandonedCart = useCallback((email: string) => {
+    if (abandonedTracked.current || !email || !email.includes('@') || !email.includes('.')) return;
+    abandonedTracked.current = true;
+    supabase.functions.invoke('track-abandoned-cart', {
+      body: {
+        action: 'track',
+        email: email.trim().toLowerCase(),
+        productName,
+        productVariant: productVariant || null,
+        originalPrice,
+        finalPrice,
+      },
+    }).then(res => {
+      console.log('Abandoned cart tracked:', res.data);
+    }).catch(err => {
+      console.error('Abandoned cart tracking failed:', err);
+    });
+  }, [productName, productVariant, originalPrice, finalPrice]);
 
   const {
     register,
@@ -92,6 +112,11 @@ const PreorderForm = ({
         title: "Vorbestellung erfolgreich!",
         description: `Deine Bestellnummer: ${insertedData.order_number}`,
       });
+
+      // Convert abandoned cart (delete Shopify abandoned draft order)
+      supabase.functions.invoke('track-abandoned-cart', {
+        body: { action: 'convert', email: data.customerEmail, productName },
+      }).catch(err => console.error('Abandoned cart convert failed:', err));
 
       // Process order async (email + Shopify) - don't block UI
       supabase.functions.invoke('process-preorder', {
@@ -196,6 +221,7 @@ const PreorderForm = ({
               type="email"
               placeholder="max@beispiel.ch"
               {...register("customerEmail")}
+              onBlur={(e) => trackAbandonedCart(e.target.value)}
               className={errors.customerEmail ? "border-destructive" : ""}
             />
             {errors.customerEmail && (
