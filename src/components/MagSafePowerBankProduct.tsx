@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Zap, Battery, Shield, Magnet, Star, Check, Truck, RotateCcw } from "lucide-react";
 import PreorderBanner from "@/components/PreorderBanner";
-import PreorderForm from "@/components/PreorderForm";
+import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Orange images
 import orangeImg1 from "@/assets/products/powerbank-orange-1.png";
@@ -222,12 +222,11 @@ const MagSafePowerBankProduct = () => {
               ))}
             </div>
 
-            {/* Preorder Form */}
-            <PreorderForm
-              productName="MagSafe PowerBank Pro"
-              productVariant={selectedColor.name}
-              originalPrice={originalPrice}
-              discountPercent={10}
+            {/* Buy Button */}
+            <ShopifyBuyButton
+              price={`CHF ${(originalPrice * 0.9).toFixed(2)}`}
+              originalPrice={`CHF ${originalPrice.toFixed(2)}`}
+              discountLabel="-10%"
             />
 
             {/* Trust Badges */}

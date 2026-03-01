@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Zap, Shield, Smartphone, Clock, ChevronRight, Check, Laptop } from "lucide-react";
 import PreorderBanner from "./PreorderBanner";
-import PreorderForm from "./PreorderForm";
+import ShopifyBuyButton from "./ShopifyBuyButton";
 
 import usbChargerDevices from "@/assets/products/usb-charger-devices.png";
 import usbChargerWhite1 from "@/assets/products/usb-charger-white-1.png";
@@ -88,11 +88,11 @@ const UsbChargerProduct = () => {
               ))}
             </div>
 
-            {/* Preorder Form */}
-            <PreorderForm
-              productName="RAJTech USB-C Schnellladegerät 65W"
-              originalPrice={39.99}
-              discountPercent={15}
+            {/* Buy Button */}
+            <ShopifyBuyButton
+              price="CHF 33.99"
+              originalPrice="CHF 39.99"
+              discountLabel="-15%"
             />
           </div>
         </div>

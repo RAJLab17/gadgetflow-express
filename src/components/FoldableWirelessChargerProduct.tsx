@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Star, Zap, Smartphone, Watch, Headphones, Plane, Shield, Package, Battery, Layers } from "lucide-react";
 import PreorderBanner from "@/components/PreorderBanner";
-import PreorderForm from "@/components/PreorderForm";
+import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Foldable charger images
 import techImg from "@/assets/products/charger-foldable-tech.webp";
@@ -137,12 +137,11 @@ const FoldableWirelessChargerProduct = () => {
               ))}
             </div>
 
-            {/* Preorder Form */}
-            <PreorderForm
-              productName="RAJTech Foldable 3-in-1 Charger"
-              productVariant="Space Black"
-              originalPrice={originalPrice}
-              discountPercent={10}
+            {/* Buy Button */}
+            <ShopifyBuyButton
+              price={`CHF ${(originalPrice * 0.9).toFixed(2)}`}
+              originalPrice={`CHF ${originalPrice.toFixed(2)}`}
+              discountLabel="-10% Vorbesteller"
             />
 
             {/* Trust Badges */}

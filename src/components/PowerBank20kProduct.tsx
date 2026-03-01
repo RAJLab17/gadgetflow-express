@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Zap, Battery, Shield, Cable, Star, Check, Truck, RotateCcw, Smartphone, Timer } from "lucide-react";
 import PreorderBanner from "@/components/PreorderBanner";
-import PreorderForm from "@/components/PreorderForm";
+import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Import images
 import blackImg from "@/assets/products/powerbank-20k-black.png";
@@ -194,12 +194,11 @@ const PowerBank20kProduct = () => {
               ))}
             </div>
 
-            {/* Preorder Form */}
-            <PreorderForm
-              productName="PowerBank Ultra 20K"
-              productVariant={selectedColor.name}
-              originalPrice={originalPrice}
-              discountPercent={15}
+            {/* Buy Button */}
+            <ShopifyBuyButton
+              price={`CHF ${(originalPrice * 0.85).toFixed(2)}`}
+              originalPrice={`CHF ${originalPrice.toFixed(2)}`}
+              discountLabel="-15% Vorbesteller"
             />
 
             {/* Trust Badges */}

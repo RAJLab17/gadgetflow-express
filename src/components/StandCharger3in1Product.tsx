@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Star, Zap, Shield, Battery, Watch, Headphones, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import PreorderBanner from "@/components/PreorderBanner";
-import PreorderForm from "@/components/PreorderForm";
+import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Import product images
 import heroImg from "@/assets/products/charger-stand-hero.png";
@@ -234,12 +234,11 @@ const StandCharger3in1Product = () => {
                 ))}
               </div>
 
-              {/* Preorder Form */}
-              <PreorderForm
-                productName="RAJTech Stand 3-in-1 Wireless Charger"
-                productVariant={selectedVariant.name}
-                originalPrice={59.99}
-                discountPercent={10}
+              {/* Buy Button */}
+              <ShopifyBuyButton
+                price="€53,99"
+                originalPrice="€59,99"
+                discountLabel="-10%"
               />
             </div>
           </div>

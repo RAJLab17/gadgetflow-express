@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Check, Zap, Cable, Monitor, Car, Sparkles } from "lucide-react";
+import { Check, Zap, Cable, Monitor, Car } from "lucide-react";
 import PreorderBanner from "@/components/PreorderBanner";
-import PreorderForm from "@/components/PreorderForm";
+import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 import img1 from "@/assets/products/car-charger-1.png";
 import img2 from "@/assets/products/car-charger-2.png";
@@ -13,7 +12,6 @@ const images = [img3, img1, img2, img4]; // img3 (Automatic Retraction) als Haup
 
 const CarChargerProduct = () => {
   const [selectedImage, setSelectedImage] = useState(0);
-  const [showPreorderForm, setShowPreorderForm] = useState(false);
 
   const features = [
     {
@@ -135,24 +133,11 @@ const CarChargerProduct = () => {
                 ))}
               </div>
 
-              <Button
-                size="xl"
-                variant="glow"
-                className="w-full"
-                onClick={() => setShowPreorderForm(true)}
-              >
-                <Sparkles className="w-5 h-5 mr-2" />
-                Jetzt sichern
-              </Button>
-
-              {showPreorderForm && (
-                <PreorderForm
-                  productName="RAJTech Car Charger 4-in-1 Pro"
-                  originalPrice={49.95}
-                  discountPercent={15}
-                  onSuccess={() => setShowPreorderForm(false)}
-                />
-              )}
+              <ShopifyBuyButton
+                price="CHF 42.45"
+                originalPrice="CHF 49.95"
+                discountLabel="-15%"
+              />
             </div>
           </div>
         </div>
