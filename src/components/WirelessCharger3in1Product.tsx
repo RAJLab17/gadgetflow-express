@@ -1,11 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Shield, Package, Layers, CheckCircle, ShoppingCart, Loader2 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { toast } from "sonner";
-import { useCartStore } from "@/stores/cartStore";
-import { storefrontApiRequest, PRODUCTS_QUERY, ShopifyProduct } from "@/lib/shopify";
-import PreorderForm from "@/components/PreorderForm";
+import { Zap, Shield, Package, Layers, CheckCircle } from "lucide-react";
+import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Product images
 import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
@@ -29,25 +25,6 @@ const productImages = [
 const WirelessCharger3in1Product = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
-  const [shopifyProduct, setShopifyProduct] = useState<ShopifyProduct | null>(null);
-  const addItem = useCartStore(state => state.addItem);
-  const isLoading = useCartStore(state => state.isLoading);
-
-  // Fetch matching Shopify product
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const data = await storefrontApiRequest(PRODUCTS_QUERY, { first: 10, query: "3-in-1" });
-        const products = data?.data?.products?.edges;
-        if (products?.length > 0) {
-          setShopifyProduct(products[0]);
-        }
-      } catch (err) {
-        console.error("Failed to fetch Shopify product:", err);
-      }
-    };
-    fetchProduct();
-  }, []);
 
   // Auto-rotate images every 4 seconds
   useEffect(() => {
@@ -105,40 +82,15 @@ const WirelessCharger3in1Product = () => {
               CHF 99.–
             </p>
 
-            {shopifyProduct ? (
-              <button
-                onClick={async () => {
-                  const variant = shopifyProduct.node.variants.edges[0]?.node;
-                  if (!variant) return;
-                  await addItem({
-                    product: shopifyProduct,
-                    variantId: variant.id,
-                    variantTitle: variant.title,
-                    price: variant.price,
-                    quantity: 1,
-                    selectedOptions: variant.selectedOptions || [],
-                  });
-                  toast.success("In den Warenkorb gelegt!");
-                }}
-                disabled={isLoading}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300 w-fit disabled:opacity-50"
-              >
-                {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <ShoppingCart className="w-5 h-5" />}
-                In den Warenkorb
-              </button>
-            ) : (
-              <Link
-                to="#order"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#order")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300 w-fit"
-              >
-                <Zap className="w-5 h-5" />
-                Jetzt sichern
-              </Link>
-            )}
+            <a
+              href="https://kcvjif-10.myshopify.com/products/raj-3-in-1-wireless-charger"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300 w-fit"
+            >
+              <Zap className="w-5 h-5" />
+              Jetzt kaufen
+            </a>
 
           </div>
 
@@ -274,14 +226,13 @@ const WirelessCharger3in1Product = () => {
             </div>
           </div>
 
-          {/* Right Column: Preorder Form (unchanged) */}
+          {/* Right Column: Buy Button */}
           <div>
-            <PreorderForm
-              productName="RAJ NEXUS 3-in-1 Wireless Charger"
-              productVariant="Space Black"
-              originalPrice={originalPrice}
-              discountPercent={23}
-              fixedFinalPrice={99}
+            <ShopifyBuyButton
+              shopifyHandle="raj-3-in-1-wireless-charger"
+              price="CHF 99.–"
+              originalPrice="CHF 129.–"
+              discountLabel="-23% Einführungspreis"
             />
           </div>
         </div>

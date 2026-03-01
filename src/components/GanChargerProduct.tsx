@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Check, Zap, Laptop, Smartphone, Shield, Cpu, Timer, Plug } from "lucide-react";
 import PreorderBanner from "./PreorderBanner";
-import PreorderForm from "./PreorderForm";
+import ShopifyBuyButton from "./ShopifyBuyButton";
 
 // Import product images
 import ganChargerAction from "@/assets/products/gan-charger-1.png";
@@ -223,23 +223,21 @@ const GanChargerProduct = () => {
           </div>
         </div>
 
-        {/* Preorder Form Section */}
+        {/* Buy Button Section */}
         <div className="mt-20">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Jetzt <span className="text-primary">vorbestellen</span> und sparen
+              Jetzt <span className="text-primary">kaufen</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Sichere dir den GaN SuperCharger 100W zum exklusiven Einführungspreis. 
-              Lade Laptop, Smartphone und mehr mit einem einzigen Gerät – zukunftssicher und ultra-kompakt.
+              Sichere dir den GaN SuperCharger 100W – lade Laptop, Smartphone und mehr mit einem einzigen Gerät.
             </p>
           </div>
           
-          <PreorderForm
-            productName="RAJTech GaN SuperCharger 100W"
-            productVariant={selectedColor.name}
-            originalPrice={79}
-            discountPercent={15}
+          <ShopifyBuyButton
+            price="CHF 67.15"
+            originalPrice="CHF 79.–"
+            discountLabel="-15%"
           />
         </div>
       </div>
