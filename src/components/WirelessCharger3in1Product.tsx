@@ -185,7 +185,7 @@ const WirelessCharger3in1Product = () => {
                   ["Max. Ladeleistung", "25W"],
                   ["Max. Ladeleistung (Smart Watch)", "3 Watt"],
                   ["Artikel-Material", "Aluminium"],
-                  ["Abmessungen", "105 x 130 x 139 mm"],
+                  ["Abmessungen", "83 x 83 x 32 mm"],
                   ["Lieferumfang", "USB-C PD"],
                 ].map(([label, value], i) => (
                   <li
