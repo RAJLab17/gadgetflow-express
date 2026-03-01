@@ -198,6 +198,16 @@ const WirelessCharger3in1Product = () => {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Right Column: Buy Button + Lieferumfang */}
+          <div className="space-y-6">
+            <ShopifyBuyButton
+              shopifyHandle="raj-3-in-1-wireless-charger"
+              price="CHF 99.–"
+              originalPrice="CHF 129.–"
+              discountLabel="-23% Einführungspreis"
+            />
 
             {/* Lieferumfang */}
             <div className="p-6 bg-card rounded-2xl border border-border">
@@ -224,16 +234,6 @@ const WirelessCharger3in1Product = () => {
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Right Column: Buy Button */}
-          <div>
-            <ShopifyBuyButton
-              shopifyHandle="raj-3-in-1-wireless-charger"
-              price="CHF 99.–"
-              originalPrice="CHF 129.–"
-              discountLabel="-23% Einführungspreis"
-            />
           </div>
         </div>
       </div>
