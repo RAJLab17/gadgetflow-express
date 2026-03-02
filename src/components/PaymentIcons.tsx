@@ -13,8 +13,29 @@ const PaymentIcons = ({ size = "md", showLabels = true }: PaymentIconsProps) => 
 
   const paymentMethods = [
     { name: "Mastercard", logo: mastercardLogo },
+    { 
+      name: "Visa", 
+      isText: true,
+      textContent: (
+        <span className="font-bold text-sm tracking-tight" style={{ color: '#1A1F71' }}>VISA</span>
+      )
+    },
     { name: "Apple Pay", logo: applePayLogo, invert: true },
     { name: "Google Pay", logo: googlePayLogo },
+    { 
+      name: "American Express", 
+      isText: true,
+      textContent: (
+        <span className="font-bold text-[10px] leading-tight text-center" style={{ color: '#006FCF' }}>AMEX</span>
+      )
+    },
+    { 
+      name: "Klarna", 
+      isText: true,
+      textContent: (
+        <span className="font-extrabold text-xs tracking-tight" style={{ color: '#FFB3C7', WebkitTextStroke: '0.5px #E5A0B3' }}>Klarna.</span>
+      )
+    },
     { 
       name: "TWINT", 
       isText: true,
