@@ -1,50 +1,36 @@
 import mastercardLogo from "@/assets/payment/mastercard.png";
+import visaLogo from "@/assets/payment/visa.png";
 import googlePayLogo from "@/assets/payment/google-pay.png";
 import applePayLogo from "@/assets/payment/apple-pay.png";
+import amexLogo from "@/assets/payment/amex.png";
+import klarnaLogo from "@/assets/payment/klarna.png";
 
 interface PaymentIconsProps {
   size?: "sm" | "md";
   showLabels?: boolean;
 }
 
+const TwintLogo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 100 30" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="30" rx="4" fill="#000000" />
+    <text x="50" y="20" textAnchor="middle" fill="#ffffff" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="16" letterSpacing="1">
+      TWINT
+    </text>
+  </svg>
+);
+
 const PaymentIcons = ({ size = "md", showLabels = true }: PaymentIconsProps) => {
   const iconHeight = size === "sm" ? "h-5" : "h-6";
   const containerPadding = size === "sm" ? "px-2 py-1.5" : "px-3 py-2";
 
   const paymentMethods = [
+    { name: "Visa", logo: visaLogo },
     { name: "Mastercard", logo: mastercardLogo },
-    { 
-      name: "Visa", 
-      isText: true,
-      textContent: (
-        <span className="font-bold text-sm tracking-tight" style={{ color: '#1A1F71' }}>VISA</span>
-      )
-    },
+    { name: "American Express", logo: amexLogo },
     { name: "Apple Pay", logo: applePayLogo, invert: true },
     { name: "Google Pay", logo: googlePayLogo },
-    { 
-      name: "American Express", 
-      isText: true,
-      textContent: (
-        <span className="font-bold text-[10px] leading-tight text-center" style={{ color: '#006FCF' }}>AMEX</span>
-      )
-    },
-    { 
-      name: "Klarna", 
-      isText: true,
-      textContent: (
-        <span className="font-extrabold text-xs tracking-tight" style={{ color: '#FFB3C7', WebkitTextStroke: '0.5px #E5A0B3' }}>Klarna.</span>
-      )
-    },
-    { 
-      name: "TWINT", 
-      isText: true,
-      textContent: (
-        <span className="font-black text-sm tracking-tight" style={{ color: '#000000' }}>
-          TWINT
-        </span>
-      )
-    },
+    { name: "Klarna", logo: klarnaLogo },
+    { name: "TWINT", isCustom: true },
   ];
 
   return (
@@ -60,8 +46,8 @@ const PaymentIcons = ({ size = "md", showLabels = true }: PaymentIconsProps) => 
             key={method.name}
             className={`bg-white border border-border rounded-lg ${containerPadding} flex items-center justify-center hover:border-primary/50 transition-colors min-w-[60px]`}
           >
-            {method.isText ? (
-              method.textContent
+            {method.isCustom ? (
+              <TwintLogo className={`${iconHeight} w-auto`} />
             ) : (
               <img
                 src={method.logo}
