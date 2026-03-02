@@ -203,7 +203,7 @@ const WirelessCharger3in1Product = () => {
           {/* Right Column: Buy Button + Lieferumfang */}
           <div className="space-y-6">
             <ShopifyBuyButton
-              shopifyHandle="raj-3-in-1-wireless-charger"
+              variantId="gid://shopify/ProductVariant/57169031823685"
               price="CHF 99.–"
               originalPrice="CHF 129.–"
               discountLabel="-23% Einführungspreis"

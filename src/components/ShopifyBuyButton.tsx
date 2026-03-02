@@ -1,10 +1,12 @@
-import { ExternalLink, ShoppingBag } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, ShoppingBag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PaymentIcons from "@/components/PaymentIcons";
-
-const SHOPIFY_STORE_DOMAIN = "kcvjif-10.myshopify.com";
+import { createShopifyCart } from "@/lib/shopify";
+import type { CartItem } from "@/lib/shopify";
 
 interface ShopifyBuyButtonProps {
+  variantId?: string;
   shopifyHandle?: string;
   price: string;
   originalPrice?: string;
@@ -12,14 +14,36 @@ interface ShopifyBuyButtonProps {
 }
 
 const ShopifyBuyButton = ({
-  shopifyHandle,
+  variantId,
   price,
   originalPrice,
   discountLabel,
 }: ShopifyBuyButtonProps) => {
-  const productUrl = shopifyHandle
-    ? `https://${SHOPIFY_STORE_DOMAIN}/products/${shopifyHandle}`
-    : null;
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleBuyNow = async () => {
+    if (!variantId) return;
+    setIsLoading(true);
+    try {
+      const dummyItem: CartItem = {
+        lineId: null,
+        product: { node: { id: '', title: '', description: '', handle: '', priceRange: { minVariantPrice: { amount: '0', currencyCode: 'CHF' } }, images: { edges: [] }, variants: { edges: [] }, options: [] } },
+        variantId,
+        variantTitle: '',
+        price: { amount: '0', currencyCode: 'CHF' },
+        quantity: 1,
+        selectedOptions: [],
+      };
+      const result = await createShopifyCart(dummyItem);
+      if (result?.checkoutUrl) {
+        window.open(result.checkoutUrl, '_blank');
+      }
+    } catch (error) {
+      console.error('Checkout failed:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="p-6 md:p-8 bg-card rounded-2xl border border-border space-y-5">
@@ -37,16 +61,23 @@ const ShopifyBuyButton = ({
       </div>
 
       {/* Buy Button */}
-      {productUrl ? (
+      {variantId ? (
         <Button
           size="xl"
           variant="glow"
           className="w-full"
-          onClick={() => window.open(productUrl, "_blank")}
+          onClick={handleBuyNow}
+          disabled={isLoading}
         >
-          <ShoppingBag className="w-5 h-5 mr-2" />
-          Jetzt kaufen
-          <ExternalLink className="w-4 h-4 ml-2" />
+          {isLoading ? (
+            <Loader2 className="w-5 h-5 animate-spin" />
+          ) : (
+            <>
+              <ShoppingBag className="w-5 h-5 mr-2" />
+              Jetzt kaufen
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </>
+          )}
         </Button>
       ) : (
         <Button size="xl" variant="glow" className="w-full" disabled>
