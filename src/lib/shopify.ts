@@ -247,27 +247,44 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
 
 export { CART_QUERY };
 
-// Inventory query for a specific variant
-const VARIANT_INVENTORY_QUERY = `
-  query GetVariantInventory($id: ID!) {
-    node(id: $id) {
-      ... on ProductVariant {
-        id
-        quantityAvailable
-        availableForSale
+// Fetch product variant + inventory in one call via handle
+const PRODUCT_BY_HANDLE_QUERY = `
+  query GetProductByHandle($handle: String!) {
+    productByHandle(handle: $handle) {
+      id
+      title
+      variants(first: 1) {
+        edges {
+          node {
+            id
+            quantityAvailable
+            availableForSale
+          }
+        }
       }
     }
   }
 `;
 
-export async function fetchVariantInventory(variantId: string): Promise<number> {
+export interface ProductVariantInfo {
+  variantId: string;
+  quantityAvailable: number;
+  availableForSale: boolean;
+}
+
+export async function fetchProductVariantInfo(handle: string): Promise<ProductVariantInfo | null> {
   try {
-    const data = await storefrontApiRequest(VARIANT_INVENTORY_QUERY, { id: variantId });
-    console.log('Shopify inventory response:', JSON.stringify(data?.data?.node));
-    const qty = data?.data?.node?.quantityAvailable;
-    return typeof qty === 'number' ? qty : 100; // Fallback to 100 if not exposed
+    const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
+    const variant = data?.data?.productByHandle?.variants?.edges?.[0]?.node;
+    console.log('Shopify product response:', JSON.stringify(data?.data?.productByHandle));
+    if (!variant) return null;
+    return {
+      variantId: variant.id,
+      quantityAvailable: typeof variant.quantityAvailable === 'number' ? variant.quantityAvailable : 100,
+      availableForSale: variant.availableForSale ?? true,
+    };
   } catch (error) {
-    console.error('Failed to fetch inventory:', error);
-    return 100; // Fallback
+    console.error('Failed to fetch product variant info:', error);
+    return null;
   }
 }
