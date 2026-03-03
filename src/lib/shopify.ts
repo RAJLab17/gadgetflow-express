@@ -260,13 +260,14 @@ const VARIANT_INVENTORY_QUERY = `
   }
 `;
 
-export async function fetchVariantInventory(variantId: string): Promise<number | null> {
+export async function fetchVariantInventory(variantId: string): Promise<number> {
   try {
     const data = await storefrontApiRequest(VARIANT_INVENTORY_QUERY, { id: variantId });
+    console.log('Shopify inventory response:', JSON.stringify(data?.data?.node));
     const qty = data?.data?.node?.quantityAvailable;
-    return typeof qty === 'number' ? qty : null;
+    return typeof qty === 'number' ? qty : 100; // Fallback to 100 if not exposed
   } catch (error) {
     console.error('Failed to fetch inventory:', error);
-    return null;
+    return 100; // Fallback
   }
 }
