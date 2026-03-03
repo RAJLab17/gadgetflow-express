@@ -20,6 +20,7 @@ import AGBPage from "./pages/AGBPage";
 import DatenschutzPage from "./pages/DatenschutzPage";
 import ImpressumPage from "./pages/ImpressumPage";
 import FAQPage from "./pages/FAQPage";
+import VersandPage from "./pages/VersandPage";
 import ConfirmedPage from "./pages/ConfirmedPage";
 import NotFound from "./pages/NotFound";
 
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/datenschutz" element={<DatenschutzPage />} />
             <Route path="/impressum" element={<ImpressumPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/versand" element={<VersandPage />} />
             <Route path="/confirmed" element={<ConfirmedPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
