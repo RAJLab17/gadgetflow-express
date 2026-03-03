@@ -84,7 +84,15 @@ const sections: Section[] = [
     title: "6. Cookies und Tracking‑Technologien",
     content: [
       `Wir setzen Cookies und ähnliche Technologien ein, um die Funktionalität unserer Website sicherzustellen und – sofern du zugestimmt hast – das Nutzerverhalten zu analysieren.`,
-      `Cookies können jederzeit über die Einstellungen deines Browsers eingeschränkt oder gelöscht werden. Bestimmte Funktionen der Website können dadurch jedoch eingeschränkt sein.`,
+      `6.1 Google Analytics 4`,
+      `Wir nutzen Google Analytics 4 (Google LLC, USA) zur Analyse des Nutzerverhaltens auf unserer Website. Google Analytics erfasst u.\u202Fa. Seitenaufrufe, Verweildauer und Herkunft der Besucher. Die Daten werden anonymisiert verarbeitet. Weitere Informationen: policies.google.com/privacy`,
+      `6.2 Microsoft Clarity`,
+      `Wir verwenden Microsoft Clarity (Microsoft Corporation, USA) zur Analyse von Nutzerinteraktionen, inkl. Heatmaps und Session‑Recordings. Weitere Informationen: privacy.microsoft.com`,
+      `6.3 Meta Pixel (Facebook & Instagram)`,
+      `Wir setzen den Meta Pixel (Meta Platforms Ireland Ltd.) ein, um die Wirksamkeit unserer Werbeanzeigen auf Facebook und Instagram zu messen und Zielgruppen zu erstellen. Weitere Informationen: facebook.com/privacy`,
+      `6.4 TikTok Pixel`,
+      `Wir nutzen den TikTok Pixel (TikTok Technology Ltd., Irland) zur Messung der Wirksamkeit unserer TikTok‑Werbekampagnen. Weitere Informationen: tiktok.com/legal/privacy-policy`,
+      `Cookies können jederzeit über die Einstellungen deines Browsers eingeschränkt oder gelöscht werden.`,
     ],
   },
   {
@@ -92,6 +100,7 @@ const sections: Section[] = [
     content: [
       `Sofern du dich für unseren Newsletter anmeldest, verwenden wir deine E‑Mail‑Adresse ausschliesslich für den Versand von Informationen zu unseren Produkten und Angeboten.`,
       `Du kannst den Newsletter jederzeit über den Abmeldelink in jeder E‑Mail oder durch eine Nachricht an uns abbestellen.`,
+      `Für den Versand von Newsletter und Marketing‑E‑Mails nutzen wir Brevo (Sendinblue SA, 55 rue d'Amsterdam, Paris, Frankreich). Deine E‑Mail‑Adresse wird ausschliesslich für den Versand verwendet und nicht an Dritte weitergegeben. Weitere Informationen: brevo.com/legal/privacypolicy`,
     ],
   },
   {
