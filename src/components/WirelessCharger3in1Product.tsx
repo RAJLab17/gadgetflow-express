@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Shield, Package, Layers, CheckCircle } from "lucide-react";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
-import { fetchVariantInventory } from "@/lib/shopify";
+import { fetchProductVariantInfo } from "@/lib/shopify";
 
 // Product images
 import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
@@ -23,16 +23,21 @@ const productImages = [
   charger3in1LifestyleOffice,
 ];
 
+const NEXUS_HANDLE = "raj-3-in-1-wireless-charger";
+
 const WirelessCharger3in1Product = () => {
-  const NEXUS_VARIANT_ID = "gid://shopify/ProductVariant/57169031823685";
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [inventory, setInventory] = useState<number>(100);
+  const [variantId, setVariantId] = useState<string>("gid://shopify/ProductVariant/57169031823685");
 
-  // Fetch real inventory from Shopify
+  // Fetch variant ID + inventory dynamically from Shopify
   useEffect(() => {
-    fetchVariantInventory(NEXUS_VARIANT_ID).then(qty => {
-      if (qty !== null) setInventory(qty);
+    fetchProductVariantInfo(NEXUS_HANDLE).then(info => {
+      if (info) {
+        setVariantId(info.variantId);
+        setInventory(info.quantityAvailable);
+      }
     });
   }, []);
 
@@ -213,7 +218,7 @@ const WirelessCharger3in1Product = () => {
           {/* Right Column: Buy Button + Lieferumfang */}
           <div className="space-y-6">
             <ShopifyBuyButton
-              variantId="gid://shopify/ProductVariant/57169031823685"
+              variantId={variantId}
               price="CHF 99.–"
               originalPrice="CHF 129.–"
               discountLabel="-23% Einführungspreis"
