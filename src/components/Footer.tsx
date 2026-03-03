@@ -174,7 +174,7 @@ const Footer = () => {
                   FAQ
                 </Link>
               </li>
-              {["Versand", "Rückgabe", "Kontakt", "Manuals & Downloads"].map((link) => (
+              {["Versand & Rückgabe", "Kontakt", "Manuals & Downloads"].map((link) => (
                 <li key={link}>
                   <a
                     href="#"
