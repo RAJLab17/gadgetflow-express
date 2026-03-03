@@ -49,7 +49,7 @@ const Header = () => {
   const startSupportClose = () => {
     supportCloseTimer.current = setTimeout(() => {
       setIsSupportOpen(false);
-    }, 1500);
+    }, 500);
   };
 
   const cancelSupportClose = () => {
