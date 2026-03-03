@@ -8,8 +8,7 @@ import logo from "@/assets/logo-new.png";
 
 const supportLinks = [
   { label: "FAQ", href: "/faq" },
-  { label: "Versand", href: "#" },
-  { label: "Rückgabe", href: "#" },
+  { label: "Versand & Rückgabe", href: "#" },
   { label: "Kontakt", href: "#" },
   { label: "Manuals & Downloads", href: "#" },
 ];
