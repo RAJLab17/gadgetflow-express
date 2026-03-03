@@ -169,7 +169,12 @@ const Footer = () => {
           >
             <h4 className="font-semibold mb-6 text-foreground">Support</h4>
             <ul className="space-y-3">
-              {["FAQ", "Versand", "Rückgabe", "Kontakt", "Manuals & Downloads"].map((link) => (
+              <li>
+                <Link to="/faq" className="text-muted-foreground hover:text-primary transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              {["Versand", "Rückgabe", "Kontakt", "Manuals & Downloads"].map((link) => (
                 <li key={link}>
                   <a
                     href="#"
