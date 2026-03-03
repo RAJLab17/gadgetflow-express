@@ -30,6 +30,7 @@ const sections = [
     content: [
       "Alle Preise verstehen sich in Schweizer Franken (CHF) inklusive der gesetzlichen Mehrwertsteuer, sofern anwendbar.",
       "Die verf\u00fcgbaren Zahlungsmethoden werden im Bestellprozess angezeigt. Die Belastung des gew\u00e4hlten Zahlungsmittels erfolgt unmittelbar bei Abschluss der Bestellung, auch bei Vorbestellungen.",
+      "Akzeptierte Zahlungsmethoden sind: Kreditkarte (Visa, Mastercard, American Express), TWINT, Apple Pay, Google Pay sowie Klarna.",
     ],
   },
   {
@@ -37,6 +38,7 @@ const sections = [
     content: [
       "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdr\u00fccklich anders angegeben.",
       "Die Lieferzeit richtet sich nach den Angaben auf der jeweiligen Produktseite. Teillieferungen sind zul\u00e4ssig, sofern sie f\u00fcr den Kunden zumutbar sind.",
+      "Der Versand ist ab einem Bestellwert von CHF 65.00 kostenlos. Bei Bestellungen unter CHF 65.00 wird eine Versandpauschale von CHF 4.90 berechnet.",
     ],
   },
   {
@@ -52,6 +54,7 @@ const sections = [
       "Voraussetzung f\u00fcr die R\u00fcckgabe ist, dass sich die Ware in unbenutztem, unbesch\u00e4digtem Zustand und \u2013 sofern m\u00f6glich \u2013 in der Originalverpackung befindet.",
       "Vom R\u00fccktrittsrecht ausgeschlossen sind individuell angefertigte oder personalisierte Produkte, sofern diese entsprechend gekennzeichnet sind.",
       "Die R\u00fcckerstattung erfolgt nach Pr\u00fcfung der zur\u00fcckgesendeten Ware \u00fcber das urspr\u00fcnglich verwendete Zahlungsmittel.",
+      "Die R\u00fccksendkosten tr\u00e4gt der Kunde, sofern nicht anders vereinbart.",
     ],
   },
   {
