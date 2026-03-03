@@ -174,7 +174,12 @@ const Footer = () => {
                   FAQ
                 </Link>
               </li>
-              {["Versand & Rückgabe", "Kontakt", "Manuals & Downloads"].map((link) => (
+              <li>
+                <Link to="/versand" className="text-muted-foreground hover:text-primary transition-colors">
+                  Versand & Rückgabe
+                </Link>
+              </li>
+              {["Kontakt", "Manuals & Downloads"].map((link) => (
                 <li key={link}>
                   <a
                     href="#"
