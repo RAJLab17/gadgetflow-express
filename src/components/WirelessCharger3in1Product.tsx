@@ -27,7 +27,7 @@ const WirelessCharger3in1Product = () => {
   const NEXUS_VARIANT_ID = "gid://shopify/ProductVariant/57169031823685";
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
-  const [inventory, setInventory] = useState<number | null>(null);
+  const [inventory, setInventory] = useState<number>(100);
 
   // Fetch real inventory from Shopify
   useEffect(() => {
@@ -84,7 +84,7 @@ const WirelessCharger3in1Product = () => {
 
             <div className="border-t border-border pt-4 mb-6">
               <p className="text-base text-muted-foreground">
-                Erste Serie · {inventory !== null ? `Die ersten ${inventory} Exemplare` : 'Limitierte Verfügbarkeit'}
+                Erste Serie · Die ersten {inventory} Exemplare
               </p>
             </div>
 
@@ -176,16 +176,10 @@ const WirelessCharger3in1Product = () => {
                 Erste Serie · Limitierte Verfügbarkeit
               </h3>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border border-border">
-                {inventory !== null ? (
-                  <>
-                    <span className="text-4xl font-bold text-primary">{inventory}</span>
-                    <span className="text-sm text-muted-foreground">
-                      Exemplaren verfügbar
-                    </span>
-                  </>
-                ) : (
-                  <span className="text-sm text-muted-foreground">Verfügbarkeit wird geladen…</span>
-                )}
+                <span className="text-4xl font-bold text-primary">{inventory}</span>
+                <span className="text-sm text-muted-foreground">
+                  Exemplaren verfügbar
+                </span>
               </div>
             </div>
 
