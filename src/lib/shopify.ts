@@ -246,3 +246,27 @@ export async function removeLineFromShopifyCart(cartId: string, lineId: string):
 }
 
 export { CART_QUERY };
+
+// Inventory query for a specific variant
+const VARIANT_INVENTORY_QUERY = `
+  query GetVariantInventory($id: ID!) {
+    node(id: $id) {
+      ... on ProductVariant {
+        id
+        quantityAvailable
+        availableForSale
+      }
+    }
+  }
+`;
+
+export async function fetchVariantInventory(variantId: string): Promise<number | null> {
+  try {
+    const data = await storefrontApiRequest(VARIANT_INVENTORY_QUERY, { id: variantId });
+    const qty = data?.data?.node?.quantityAvailable;
+    return typeof qty === 'number' ? qty : null;
+  } catch (error) {
+    console.error('Failed to fetch inventory:', error);
+    return null;
+  }
+}
