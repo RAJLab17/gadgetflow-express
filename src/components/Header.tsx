@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,15 +6,20 @@ import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
 import logo from "@/assets/logo-new.png";
 
-const navLinks = [
-  { href: "#products", label: "Produkt" },
-  { href: "/about", label: "Über uns" },
-  { href: "/support", label: "Support" },
+const supportLinks = [
+  { label: "FAQ", href: "/faq" },
+  { label: "Versand", href: "#" },
+  { label: "Rückgabe", href: "#" },
+  { label: "Kontakt", href: "#" },
+  { label: "Manuals & Downloads", href: "#" },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
+  const [isMobileSupportOpen, setIsMobileSupportOpen] = useState(false);
+  const supportCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,6 +30,12 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (supportCloseTimer.current) clearTimeout(supportCloseTimer.current);
+    };
+  }, []);
+
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
@@ -33,6 +44,28 @@ const Header = () => {
       }
     }
     setIsMenuOpen(false);
+  };
+
+  const startSupportClose = () => {
+    supportCloseTimer.current = setTimeout(() => {
+      setIsSupportOpen(false);
+    }, 1500);
+  };
+
+  const cancelSupportClose = () => {
+    if (supportCloseTimer.current) {
+      clearTimeout(supportCloseTimer.current);
+      supportCloseTimer.current = null;
+    }
+  };
+
+  const handleSupportEnter = () => {
+    cancelSupportClose();
+    setIsSupportOpen(true);
+  };
+
+  const handleSupportLeave = () => {
+    startSupportClose();
   };
 
   return (
@@ -68,27 +101,61 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-10">
-            {navLinks.map((link) => (
-              link.href.startsWith("#") ? (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </button>
-              ) : (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </Link>
-              )
-            ))}
+            {/* Produkt */}
+            <button
+              onClick={() => handleNavClick("#products")}
+              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+            >
+              Produkt
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </button>
+
+            {/* Über uns */}
+            <Link
+              to="/about"
+              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+            >
+              Über uns
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </Link>
+
+            {/* Support Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleSupportEnter}
+              onMouseLeave={handleSupportLeave}
+            >
+              <button
+                onClick={() => setIsSupportOpen((prev) => !prev)}
+                className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+              >
+                Support
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+              </button>
+
+              <AnimatePresence>
+                {isSupportOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-card/95 backdrop-blur-xl border border-border/60 rounded-xl shadow-elegant-lg py-2 overflow-hidden"
+                  >
+                    {supportLinks.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.href}
+                        onClick={() => setIsSupportOpen(false)}
+                        className="block px-5 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-primary/5 transition-colors duration-200"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </nav>
 
           {/* Desktop CTA */}
@@ -127,35 +194,75 @@ const Header = () => {
               className="md:hidden overflow-hidden border-t border-border/50"
             >
               <div className="py-6 space-y-4">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    {link.href.startsWith("#") ? (
-                      <button
-                        onClick={() => handleNavClick(link.href)}
-                        className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
-                      >
-                        {link.label}
-                      </button>
-                    ) : (
-                      <Link
-                        to={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="block py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
-                  </motion.div>
-                ))}
+                {/* Produkt */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
+                  transition={{ delay: 0 }}
+                >
+                  <button
+                    onClick={() => handleNavClick("#products")}
+                    className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
+                  >
+                    Produkt
+                  </button>
+                </motion.div>
+
+                {/* Über uns */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <Link
+                    to="/about"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
+                  >
+                    Über uns
+                  </Link>
+                </motion.div>
+
+                {/* Support with sub-links */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <button
+                    onClick={() => setIsMobileSupportOpen((prev) => !prev)}
+                    className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
+                  >
+                    Support
+                  </button>
+                  <AnimatePresence>
+                    {isMobileSupportOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden pl-4 border-l border-border/40"
+                      >
+                        {supportLinks.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={item.href}
+                            onClick={() => { setIsMenuOpen(false); setIsMobileSupportOpen(false); }}
+                            className="block py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 }}
                   className="pt-4"
                 >
                   <Button
