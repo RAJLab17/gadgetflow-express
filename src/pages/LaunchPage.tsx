@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck } from "lucide-react";
 import { Helmet } from "react-helmet-async";
