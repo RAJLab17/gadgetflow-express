@@ -19,6 +19,14 @@ const LaunchPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % nexusImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
