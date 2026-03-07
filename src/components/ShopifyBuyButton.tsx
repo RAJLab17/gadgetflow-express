@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ShoppingBag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PaymentIcons from "@/components/PaymentIcons";
+import WaitlistForm from "@/components/WaitlistForm";
 import { createShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 
@@ -11,6 +12,7 @@ interface ShopifyBuyButtonProps {
   price: string;
   originalPrice?: string;
   discountLabel?: string;
+  soldOut?: boolean;
 }
 
 const ShopifyBuyButton = ({
@@ -18,6 +20,7 @@ const ShopifyBuyButton = ({
   price,
   originalPrice,
   discountLabel,
+  soldOut = false,
 }: ShopifyBuyButtonProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,6 +47,11 @@ const ShopifyBuyButton = ({
       setIsLoading(false);
     }
   };
+
+  // Show waitlist form when sold out
+  if (soldOut) {
+    return <WaitlistForm />;
+  }
 
   return (
     <div className="p-6 md:p-8 bg-card rounded-2xl border border-border space-y-5">
