@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Shield, Package, Layers, CheckCircle } from "lucide-react";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
+import WaitlistForm from "@/components/WaitlistForm";
 import { fetchProductVariantInfo } from "@/lib/shopify";
 
 // Product images
