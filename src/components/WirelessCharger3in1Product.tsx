@@ -29,6 +29,7 @@ const WirelessCharger3in1Product = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [inventory, setInventory] = useState<number>(100);
+  const [availableForSale, setAvailableForSale] = useState<boolean>(true);
   const [variantId, setVariantId] = useState<string>("gid://shopify/ProductVariant/57169031823685");
 
   // Fetch variant ID + inventory dynamically from Shopify
@@ -37,6 +38,7 @@ const WirelessCharger3in1Product = () => {
       if (info) {
         setVariantId(info.variantId);
         setInventory(info.quantityAvailable);
+        setAvailableForSale(info.availableForSale);
       }
     });
   }, []);
@@ -91,21 +93,37 @@ const WirelessCharger3in1Product = () => {
               <p className="text-base text-muted-foreground">
                 Erste Serie · Die ersten {inventory} Exemplare
               </p>
+              {inventory > 0 && inventory <= 10 && (
+                <p className="text-sm font-semibold text-destructive mt-2 animate-pulse">
+                  ⚠️ Nur noch {inventory} Stück verfügbar!
+                </p>
+              )}
             </div>
 
             <p className="text-4xl md:text-5xl font-bold text-primary mb-6">
               CHF 99.–
             </p>
 
-            <a
-              href="https://kcvjif-10.myshopify.com/products/raj-3-in-1-wireless-charger"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300 w-fit"
-            >
-              <Zap className="w-5 h-5" />
-              Jetzt kaufen
-            </a>
+            {availableForSale && inventory > 0 ? (
+              <a
+                href="https://kcvjif-10.myshopify.com/products/raj-3-in-1-wireless-charger"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300 w-fit"
+              >
+                <Zap className="w-5 h-5" />
+                Jetzt kaufen
+              </a>
+            ) : (
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 px-8 py-4 bg-muted text-muted-foreground rounded-full font-semibold cursor-not-allowed w-fit">
+                  Ausverkauft
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Dieses Produkt ist aktuell nicht verfügbar. Schreib uns eine Nachricht, um benachrichtigt zu werden, sobald es wieder auf Lager ist.
+                </p>
+              </div>
+            )}
 
           </div>
 
