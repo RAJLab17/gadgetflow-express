@@ -38,6 +38,7 @@ const WirelessCharger3in1Product = () => {
       if (info) {
         setVariantId(info.variantId);
         setInventory(info.quantityAvailable);
+        setAvailableForSale(info.availableForSale);
       }
     });
   }, []);
