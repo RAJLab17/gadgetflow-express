@@ -32,6 +32,12 @@ const AppContent = () => {
   return null;
 };
 
+// ?mode=shop → Shop anzeigen, sonst Launch Page
+const HomePage = () => {
+  const [searchParams] = useSearchParams();
+  return searchParams.get("mode") === "shop" ? <Index /> : <LaunchPage />;
+};
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
