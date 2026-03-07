@@ -240,6 +240,7 @@ const WirelessCharger3in1Product = () => {
               price="CHF 99.–"
               originalPrice="CHF 129.–"
               discountLabel="-23% Einführungspreis"
+              soldOut={!availableForSale || inventory <= 0}
             />
 
             {/* Lieferumfang */}
