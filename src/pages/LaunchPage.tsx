@@ -193,7 +193,7 @@ const LaunchPage = () => {
             </div>
           </section>
 
-          {/* Product Teaser */}
+          {/* Product Teaser – RAJ NEXUS only */}
           <section className="container mx-auto px-4 pb-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -203,46 +203,47 @@ const LaunchPage = () => {
               className="text-center text-2xl md:text-3xl font-bold text-foreground mb-3"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
             >
-              Ein Vorgeschmack
+              Unser erstes Produkt
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center text-muted-foreground mb-12 max-w-lg mx-auto"
+              className="text-center text-muted-foreground mb-12 max-w-lg mx-auto italic"
             >
-              Entdecke einen Teil unserer kommenden Kollektion
+              Perfekte Eleganz. Qi2 neu definiert.
             </motion.p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-              {products.map((product, index) => (
-                <motion.div
-                  key={product.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 * index }}
-                  className="group bg-card rounded-2xl border border-border p-4 md:p-6 text-center hover:shadow-elegant-lg transition-all duration-300"
-                >
-                  <div className="relative mb-4">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full aspect-square object-contain relative transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                  <span className="inline-block text-[10px] uppercase tracking-widest font-semibold text-primary bg-primary/10 px-2.5 py-1 rounded-full mb-2">
-                    {product.tag}
-                  </span>
-                  <h3 className="text-sm font-semibold text-foreground">
-                    {product.name}
-                  </h3>
-                </motion.div>
-              ))}
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="max-w-md mx-auto"
+            >
+              <div className="group bg-card rounded-2xl border border-border p-6 md:p-8 text-center hover:shadow-elegant-lg transition-all duration-300">
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <motion.img
+                    src={chargerHero}
+                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                    className="w-full aspect-square object-contain relative transition-transform duration-300 group-hover:scale-105"
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </div>
+                <span className="inline-block text-[10px] uppercase tracking-widest font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
+                  Coming Soon
+                </span>
+                <h3 className="text-xl font-bold text-foreground mb-1">
+                  RAJ <span className="text-primary">NEXUS</span>
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  3-in-1 Wireless Charger · Qi2.2 · 25W
+                </p>
+              </div>
+            </motion.div>
           </section>
 
           {/* Trust Section */}
