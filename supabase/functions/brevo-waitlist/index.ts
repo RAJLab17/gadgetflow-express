@@ -32,42 +32,8 @@ serve(async (req) => {
     const cleanEmail = email.trim().toLowerCase();
     console.log('Adding to RAJ Runde 2 waitlist:', cleanEmail);
 
-    // First, try to find or create the "RAJ Runde 2" list
-    // We'll use list ID 5 - if it doesn't exist, we create it
-    let listId = 5;
-
-    // Check if list exists
-    const listCheck = await fetch(`https://api.brevo.com/v3/contacts/lists/${listId}`, {
-      headers: {
-        'accept': 'application/json',
-        'api-key': BREVO_API_KEY,
-      },
-    });
-
-    if (!listCheck.ok) {
-      // Create the list
-      console.log('Creating "RAJ Runde 2" list...');
-      const createListRes = await fetch('https://api.brevo.com/v3/contacts/lists', {
-        method: 'POST',
-        headers: {
-          'accept': 'application/json',
-          'content-type': 'application/json',
-          'api-key': BREVO_API_KEY,
-        },
-        body: JSON.stringify({
-          name: 'RAJ Runde 2',
-          folderId: 1,
-        }),
-      });
-
-      if (createListRes.ok) {
-        const listData = await createListRes.json();
-        listId = listData.id;
-        console.log('Created list with ID:', listId);
-      } else {
-        console.error('Failed to create list:', await createListRes.text());
-      }
-    }
+    // Use the existing "RAJ - Runde 2" list (ID 8) in Brevo
+    const listId = 8;
 
     // Add contact to the waitlist
     const brevoBody = {
