@@ -15,6 +15,7 @@ const nexusImages = [chargerHero, chargerColors, chargerAction, chargerAngles];
 
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
+  const [currentImage, setCurrentImage] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
