@@ -22,6 +22,7 @@ import ImpressumPage from "./pages/ImpressumPage";
 import FAQPage from "./pages/FAQPage";
 import VersandPage from "./pages/VersandPage";
 import ConfirmedPage from "./pages/ConfirmedPage";
+import LaunchPage from "./pages/LaunchPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
