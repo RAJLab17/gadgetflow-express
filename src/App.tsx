@@ -47,9 +47,8 @@ const App = () => (
         <BrowserRouter>
           <AppContent />
           <Routes>
-          {/* TEMPORARY: Launch page as homepage. Switch back to <Index /> when shop is ready */}
-          <Route path="/" element={<LaunchPage />} />
-          <Route path="/shop" element={<Index />} />
+          {/* Homepage: ?mode=shop zeigt Shop, sonst Launch Page */}
+          <Route path="/" element={<HomePage />} />
             <Route path="/product/magnetic-cable" element={<ProductPage />} />
             <Route path="/product/magsafe-powerbank" element={<PowerBankPage />} />
             <Route path="/product/powerbank-ultra-20k" element={<PowerBank20kPage />} />
