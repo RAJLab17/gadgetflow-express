@@ -25,7 +25,6 @@ const LaunchPage = () => {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
