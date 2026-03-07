@@ -22,6 +22,7 @@ import ImpressumPage from "./pages/ImpressumPage";
 import FAQPage from "./pages/FAQPage";
 import VersandPage from "./pages/VersandPage";
 import ConfirmedPage from "./pages/ConfirmedPage";
+import LaunchPage from "./pages/LaunchPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/versand" element={<VersandPage />} />
             <Route path="/confirmed" element={<ConfirmedPage />} />
+            <Route path="/launch" element={<LaunchPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
