@@ -1,17 +1,30 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
+import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
+import chargerAction from "@/assets/products/charger-3in1-action1.png";
+import chargerAngles from "@/assets/products/charger-3in1-angles.png";
+
+const nexusImages = [chargerHero, chargerColors, chargerAction, chargerAngles];
 
 
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
+  const [currentImage, setCurrentImage] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % nexusImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -223,15 +236,20 @@ const LaunchPage = () => {
               className="max-w-md mx-auto"
             >
               <div className="group bg-card rounded-2xl border border-border p-6 md:p-8 text-center hover:shadow-elegant-lg transition-all duration-300">
-                <div className="relative mb-6">
+                <div className="relative mb-6 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <motion.img
-                    src={chargerHero}
-                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                    className="w-full aspect-square object-contain relative transition-transform duration-300 group-hover:scale-105"
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentImage}
+                      src={nexusImages[currentImage]}
+                      alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                      className="w-full aspect-square object-contain relative"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.05 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                    />
+                  </AnimatePresence>
                 </div>
                 <span className="inline-block text-[10px] uppercase tracking-widest font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
                   Coming Soon
