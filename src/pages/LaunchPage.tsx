@@ -7,28 +7,6 @@ import { toast } from "sonner";
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 
-const products = [
-  {
-    name: "NEXUS 3-in-1 Charger",
-    image: chargerHero,
-    tag: "Bestseller",
-  },
-  {
-    name: "MagSafe Powerbank",
-    image: powerbank,
-    tag: "Kompakt",
-  },
-  {
-    name: "Stand Charger 3-in-1",
-    image: standCharger,
-    tag: "Elegant",
-  },
-  {
-    name: "Car Charger 4-in-1",
-    image: carCharger,
-    tag: "Unterwegs",
-  },
-];
 
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
