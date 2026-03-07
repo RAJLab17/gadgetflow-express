@@ -229,15 +229,20 @@ const LaunchPage = () => {
               className="max-w-md mx-auto"
             >
               <div className="group bg-card rounded-2xl border border-border p-6 md:p-8 text-center hover:shadow-elegant-lg transition-all duration-300">
-                <div className="relative mb-6">
+                <div className="relative mb-6 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <motion.img
-                    src={chargerHero}
-                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                    className="w-full aspect-square object-contain relative transition-transform duration-300 group-hover:scale-105"
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentImage}
+                      src={nexusImages[currentImage]}
+                      alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                      className="w-full aspect-square object-contain relative"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.05 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                    />
+                  </AnimatePresence>
                 </div>
                 <span className="inline-block text-[10px] uppercase tracking-widest font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
                   Coming Soon
