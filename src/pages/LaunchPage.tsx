@@ -6,9 +6,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
-import powerbank from "@/assets/products/powerbank-black-1.png";
-import standCharger from "@/assets/products/charger-stand-hero.png";
-import carCharger from "@/assets/products/car-charger-1.png";
 
 const products = [
   {
