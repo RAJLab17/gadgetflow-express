@@ -116,14 +116,7 @@ const WirelessCharger3in1Product = () => {
                 Jetzt kaufen
               </a>
             ) : (
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-8 py-4 bg-muted text-muted-foreground rounded-full font-semibold cursor-not-allowed w-fit">
-                  Ausverkauft
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Dieses Produkt ist aktuell nicht verfügbar. Schreib uns eine Nachricht, um benachrichtigt zu werden, sobald es wieder auf Lager ist.
-                </p>
-              </div>
+              <WaitlistForm />
             )}
 
           </div>
