@@ -8,9 +8,8 @@ import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
 import chargerAction from "@/assets/products/charger-3in1-action1.png";
-import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 
-const nexusImages = [chargerHero, chargerColors, chargerAction, chargerAngles];
+const nexusImages = [chargerHero, chargerColors, chargerAction];
 
 
 const LaunchPage = () => {
