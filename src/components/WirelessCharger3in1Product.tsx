@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Shield, Package, Layers, CheckCircle } from "lucide-react";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
+import WaitlistForm from "@/components/WaitlistForm";
 import { fetchProductVariantInfo } from "@/lib/shopify";
 
 // Product images
@@ -115,14 +116,7 @@ const WirelessCharger3in1Product = () => {
                 Jetzt kaufen
               </a>
             ) : (
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-8 py-4 bg-muted text-muted-foreground rounded-full font-semibold cursor-not-allowed w-fit">
-                  Ausverkauft
-                </div>
-                <p className="text-sm text-muted-foreground">
-                  Dieses Produkt ist aktuell nicht verfügbar. Schreib uns eine Nachricht, um benachrichtigt zu werden, sobald es wieder auf Lager ist.
-                </p>
-              </div>
+              <WaitlistForm />
             )}
 
           </div>
@@ -240,6 +234,7 @@ const WirelessCharger3in1Product = () => {
               price="CHF 99.–"
               originalPrice="CHF 129.–"
               discountLabel="-23% Einführungspreis"
+              soldOut={!availableForSale || inventory <= 0}
             />
 
             {/* Lieferumfang */}
