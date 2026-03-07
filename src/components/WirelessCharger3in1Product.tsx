@@ -29,6 +29,7 @@ const WirelessCharger3in1Product = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [inventory, setInventory] = useState<number>(100);
+  const [availableForSale, setAvailableForSale] = useState<boolean>(true);
   const [variantId, setVariantId] = useState<string>("gid://shopify/ProductVariant/57169031823685");
 
   // Fetch variant ID + inventory dynamically from Shopify
