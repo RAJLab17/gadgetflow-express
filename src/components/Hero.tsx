@@ -198,7 +198,7 @@ const Hero = () => {
                   transition={{ delay: 1.2, duration: 0.6 }}
                   className="absolute bottom-20 left-0 px-4 py-2 bg-primary text-primary-foreground rounded-2xl shadow-elegant"
                 >
-                  <span className="text-sm font-semibold">Qi2.2 Zertifiziert</span>
+                  <span className="text-sm font-semibold"><span className="text-sm font-semibold">Qi2 Zertifiziert</span></span>
                 </motion.div>
               </div>
             </motion.div>
