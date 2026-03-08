@@ -170,7 +170,7 @@ const DatenschutzPage = () => {
               Datenschutzerkl&auml;rung
             </h1>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">RAJ AG</p>
+              <p className="font-semibold text-foreground">RAJ GmbH</p>
               <p>Gaswerkstrasse 9a</p>
               <p>E‑Mail: info@raj.ch</p>
               <p>UID: [UID‑Nummer]</p>

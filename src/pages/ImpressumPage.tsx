@@ -88,7 +88,7 @@ const ImpressumPage = () => {
               <h2 className="text-lg font-bold text-foreground mb-3">Urheberrechte</h2>
               <div className="space-y-3 text-muted-foreground text-[15px] leading-relaxed">
                 <p>
-                  Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschließlich der RAJ AG oder den speziell genannten Rechteinhabern.
+                  Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschließlich der RAJ GmbH oder den speziell genannten Rechteinhabern.
                 </p>
                 <p>
                   Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen.
