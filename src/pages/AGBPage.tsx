@@ -44,7 +44,7 @@ const sections = [
   {
     title: "6. Eigentumsvorbehalt",
     content: [
-      "Die gelieferte Ware bleibt bis zur vollst\u00e4ndigen Bezahlung Eigentum der RAJ AG.",
+      "Die gelieferte Ware bleibt bis zur vollst\u00e4ndigen Bezahlung Eigentum der RAJ GmbH.",
     ],
   },
   {
