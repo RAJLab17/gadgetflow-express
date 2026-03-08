@@ -257,7 +257,7 @@ const LaunchPage = () => {
                   RAJ <span className="text-primary">NEXUS</span>
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  3-in-1 Wireless Charger · Qi2.2 · 25W
+                  3-in-1 Wireless Charger · Qi2 · 25W
                 </p>
               </div>
             </motion.div>

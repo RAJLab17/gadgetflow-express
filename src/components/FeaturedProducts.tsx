@@ -24,7 +24,7 @@ const product = {
   description: "Lade iPhone, Apple Watch und AirPods gleichzeitig mit bis zu 25W – elegant und kompakt.",
   features: [
     { icon: Zap, label: "25W Schnellladen" },
-    { icon: Sparkles, label: "Qi2.2 Zertifiziert" },
+    { icon: Sparkles, label: "{ icon: Sparkles, label: "Qi2 Zertifiziert" }," },
     { icon: Shield, label: "2 Jahre Garantie" },
   ],
 };
