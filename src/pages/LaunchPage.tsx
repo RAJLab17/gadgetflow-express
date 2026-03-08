@@ -162,11 +162,10 @@ const LaunchPage = () => {
                       <Check className="w-7 h-7 text-primary" />
                     </motion.div>
                     <h3 className="text-xl font-semibold text-foreground">
-                      Bitte bestätige deine E-Mail
+                      Danke für deine Anmeldung
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Wir haben dir eine E-Mail gesendet. Klick auf den
-                      Bestätigungslink, um dabei zu sein.
+                      Du bist auf der Liste und bekommst News direkt per E-Mail.
                     </p>
                   </motion.div>
                 ) : (
