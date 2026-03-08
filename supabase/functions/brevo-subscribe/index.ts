@@ -32,11 +32,11 @@ serve(async (req) => {
     const cleanEmail = email.trim().toLowerCase();
     console.log('Creating/updating contact for DOI:', cleanEmail);
 
-    // Create or update contact in Brevo and assign to List 4 (RAJ – Signups DOI)
-    // Brevo automation on List 4 handles the DOI confirmation email
+    // Create or update contact in Brevo and assign to List 9 (RAJ - Waitlist)
+    // Brevo automation on List 9 handles the DOI confirmation email
     const brevoBody = {
       email: cleanEmail,
-      listIds: [4],
+      listIds: [9],
       updateEnabled: true,
     };
 
