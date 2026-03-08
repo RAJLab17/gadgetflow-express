@@ -39,7 +39,7 @@ const ImpressumPage = () => {
             <section>
               <h2 className="text-lg font-bold text-foreground mb-3">Unternehmensangaben</h2>
               <div className="space-y-1 text-muted-foreground text-[15px] leading-relaxed">
-                <p>Rechtsform: Aktiengesellschaft (AG)</p>
+                <p>Rechtsform: Gesellschaft mit beschränkter Haftung (GmbH)</p>
                 <p>Firmensitz: Schweiz</p>
                 <p>UID-Nummer: [UID-Nummer]</p>
               </div>
