@@ -6,7 +6,7 @@ const sections = [
   {
     title: "1. Geltungsbereich",
     content: [
-      `Diese Allgemeinen Gesch\u00e4ftsbedingungen (AGB) gelten f\u00fcr alle Bestellungen und Lieferungen von Produkten der RAJ AG (nachfolgend \u201eRAJ\u201c, \u201ewir\u201c oder \u201euns\u201c) \u00fcber den Online\u2011Shop auf unserer Website.`,
+      `Diese Allgemeinen Gesch\u00e4ftsbedingungen (AGB) gelten f\u00fcr alle Bestellungen und Lieferungen von Produkten der RAJ GmbH (nachfolgend \u201eRAJ\u201c, \u201ewir\u201c oder \u201euns\u201c) \u00fcber den Online\u2011Shop auf unserer Website.`,
       `Abweichende Bedingungen von Kundinnen und Kunden (nachfolgend \u201eKunde\u201c) finden keine Anwendung, sofern sie nicht ausdr\u00fccklich und schriftlich von RAJ best\u00e4tigt wurden.`,
     ],
   },
@@ -44,7 +44,7 @@ const sections = [
   {
     title: "6. Eigentumsvorbehalt",
     content: [
-      "Die gelieferte Ware bleibt bis zur vollst\u00e4ndigen Bezahlung Eigentum der RAJ AG.",
+      "Die gelieferte Ware bleibt bis zur vollst\u00e4ndigen Bezahlung Eigentum der RAJ GmbH.",
     ],
   },
   {
@@ -96,7 +96,7 @@ const sections = [
     title: "13. Anwendbares Recht und Gerichtsstand",
     content: [
       "Es gilt ausschliesslich schweizerisches Recht unter Ausschluss des UN\u2011Kaufrechts (CISG).",
-      "Gerichtsstand ist \u2013 soweit gesetzlich zul\u00e4ssig \u2013 der Sitz der RAJ AG.",
+      "Gerichtsstand ist \u2013 soweit gesetzlich zul\u00e4ssig \u2013 der Sitz der RAJ GmbH.",
     ],
   },
   {
@@ -112,7 +112,7 @@ const AGBPage = () => {
     <>
       <Helmet>
         <title>AGB – RAJ</title>
-        <meta name="description" content="Allgemeine Gesch\u00e4ftsbedingungen der RAJ AG." />
+        <meta name="description" content="Allgemeine Gesch\u00e4ftsbedingungen der RAJ GmbH." />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
@@ -123,7 +123,7 @@ const AGBPage = () => {
               Allgemeine Gesch&auml;ftsbedingungen (AGB)
             </h1>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">RAJ AG</p>
+              <p className="font-semibold text-foreground">RAJ GmbH</p>
               <p>Gaswerkstrasse 9a</p>
               <p>E-Mail: info@raj.ch</p>
               <p>UID: [UID-Nummer]</p>

@@ -68,10 +68,10 @@ const Footer = () => {
                   <Check className="w-6 h-6 text-primary" />
                 </motion.div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2 text-foreground">
-                  Bitte bestätigen Sie Ihre E-Mail
+                  Danke für Ihre Anmeldung
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto">
-                  Wir haben Ihnen eine E-Mail gesendet. Bitte klicken Sie auf den Bestätigungslink, um Ihre Anmeldung abzuschliessen.
+                  Sie sind auf der Liste und erhalten News direkt per E-Mail.
                 </p>
               </motion.div>
             ) : (

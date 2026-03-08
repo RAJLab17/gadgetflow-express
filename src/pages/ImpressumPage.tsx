@@ -7,7 +7,7 @@ const ImpressumPage = () => {
     <>
       <Helmet>
         <title>Impressum – RAJ</title>
-        <meta name="description" content="Impressum der RAJ AG – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise." />
+        <meta name="description" content="Impressum der RAJ GmbH – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise." />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
@@ -18,7 +18,7 @@ const ImpressumPage = () => {
               Impressum
             </h1>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">RAJ AG</p>
+              <p className="font-semibold text-foreground">RAJ GmbH</p>
               <p>Gaswerkstrasse 9a</p>
               <p>8570 Weinfelden</p>
               <p>Schweiz</p>
@@ -39,7 +39,7 @@ const ImpressumPage = () => {
             <section>
               <h2 className="text-lg font-bold text-foreground mb-3">Unternehmensangaben</h2>
               <div className="space-y-1 text-muted-foreground text-[15px] leading-relaxed">
-                <p>Rechtsform: Aktiengesellschaft (AG)</p>
+                <p>Rechtsform: Gesellschaft mit beschränkter Haftung (GmbH)</p>
                 <p>Firmensitz: Schweiz</p>
                 <p>UID-Nummer: [UID-Nummer]</p>
               </div>
@@ -67,10 +67,10 @@ const ImpressumPage = () => {
               <h2 className="text-lg font-bold text-foreground mb-3">Haftungsausschluss</h2>
               <div className="space-y-3 text-muted-foreground text-[15px] leading-relaxed">
                 <p>
-                  Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernimmt die RAJ AG jedoch keine Gewähr.
+                  Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernimmt die RAJ GmbH jedoch keine Gewähr.
                 </p>
                 <p>
-                  Haftungsansprüche gegen die RAJ AG wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen, soweit gesetzlich zulässig.
+                  Haftungsansprüche gegen die RAJ GmbH wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen, soweit gesetzlich zulässig.
                 </p>
               </div>
             </section>
@@ -88,7 +88,7 @@ const ImpressumPage = () => {
               <h2 className="text-lg font-bold text-foreground mb-3">Urheberrechte</h2>
               <div className="space-y-3 text-muted-foreground text-[15px] leading-relaxed">
                 <p>
-                  Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschließlich der RAJ AG oder den speziell genannten Rechteinhabern.
+                  Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschließlich der RAJ GmbH oder den speziell genannten Rechteinhabern.
                 </p>
                 <p>
                   Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen.
