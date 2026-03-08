@@ -135,7 +135,9 @@ const LaunchPage = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-12 font-light leading-relaxed"
               >
-                Die ersten 100 Stück gehen bald raus. Trag dich ein und sichere dir deinen Platz.
+                Die ersten 100 Stück gehen bald raus.
+                <br />
+                Trag dich ein und sichere dir deinen Platz.
               </motion.p>
 
               {/* Email Form */}
