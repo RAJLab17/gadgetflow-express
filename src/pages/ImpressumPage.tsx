@@ -7,7 +7,7 @@ const ImpressumPage = () => {
     <>
       <Helmet>
         <title>Impressum – RAJ</title>
-        <meta name="description" content="Impressum der RAJ AG – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise." />
+        <meta name="description" content="Impressum der RAJ GmbH – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise." />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
