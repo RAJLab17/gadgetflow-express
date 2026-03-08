@@ -96,7 +96,7 @@ const sections = [
     title: "13. Anwendbares Recht und Gerichtsstand",
     content: [
       "Es gilt ausschliesslich schweizerisches Recht unter Ausschluss des UN\u2011Kaufrechts (CISG).",
-      "Gerichtsstand ist \u2013 soweit gesetzlich zul\u00e4ssig \u2013 der Sitz der RAJ AG.",
+      "Gerichtsstand ist \u2013 soweit gesetzlich zul\u00e4ssig \u2013 der Sitz der RAJ GmbH.",
     ],
   },
   {
