@@ -83,17 +83,8 @@ const LaunchPage = () => {
         />
 
         <div className="relative z-10">
-          {/* Header */}
-          <header className="flex items-center justify-center py-8">
-            <motion.img
-              src={logo}
-              alt="RAJ"
-              className="h-14 w-auto"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            />
-          </header>
+          {/* Header spacer */}
+          <div className="py-4" />
 
           {/* Hero Section */}
           <section className="container mx-auto px-4 pt-8 pb-16 md:pt-16 md:pb-24">
