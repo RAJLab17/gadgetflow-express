@@ -1,9 +1,20 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
+
+// Sanitize string to prevent HTML injection in email templates
+function sanitizeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
 
 interface PreorderData {
   orderNumber: string;
@@ -29,6 +40,41 @@ serve(async (req) => {
     const data: PreorderData = await req.json();
     console.log('Processing preorder:', data.orderNumber);
 
+    // Validate orderNumber exists in the database before proceeding
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    const { data: orderRecord, error: orderError } = await supabase
+      .from('preorders')
+      .select('order_number, customer_email, customer_name, product_name, product_variant, original_price, discount_percent, final_price, street_address, postal_code, city, phone')
+      .eq('order_number', data.orderNumber)
+      .single();
+
+    if (orderError || !orderRecord) {
+      console.error('Order not found:', data.orderNumber, orderError);
+      return new Response(
+        JSON.stringify({ error: 'Order not found' }),
+        { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Use server-side data from DB instead of client-provided data
+    const safeData = {
+      orderNumber: orderRecord.order_number,
+      customerName: sanitizeHtml(orderRecord.customer_name),
+      customerEmail: orderRecord.customer_email,
+      phone: orderRecord.phone || '',
+      streetAddress: sanitizeHtml(orderRecord.street_address),
+      postalCode: sanitizeHtml(orderRecord.postal_code),
+      city: sanitizeHtml(orderRecord.city),
+      productName: sanitizeHtml(orderRecord.product_name),
+      productVariant: orderRecord.product_variant ? sanitizeHtml(orderRecord.product_variant) : '',
+      originalPrice: Number(orderRecord.original_price),
+      discountPercent: Number(orderRecord.discount_percent),
+      finalPrice: Number(orderRecord.final_price),
+    };
+
     const results = {
       email: { success: false, error: '' },
       shopify: { success: false, draftOrderId: '', error: '' },
@@ -48,21 +94,21 @@ serve(async (req) => {
           },
           body: JSON.stringify({
             sender: { name: 'RAJ', email: 'info@raj.ch' },
-            to: [{ email: data.customerEmail, name: data.customerName }],
-            subject: `Bestellbestätigung – ${data.orderNumber}`,
+            to: [{ email: safeData.customerEmail, name: safeData.customerName }],
+            subject: `Bestellbestätigung – ${safeData.orderNumber}`,
             htmlContent: `
               <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
                 <h2 style="color: #b8860b;">Vielen Dank für deine Vorbestellung!</h2>
-                <p>Hallo ${data.customerName},</p>
+                <p>Hallo ${safeData.customerName},</p>
                 <p>Wir haben deine Vorbestellung erhalten und freuen uns, dass du dabei bist!</p>
                 <div style="background: #f9f6f1; padding: 20px; border-radius: 12px; margin: 20px 0;">
-                  <p style="margin: 0 0 8px;"><strong>Bestellnummer:</strong> ${data.orderNumber}</p>
-                  <p style="margin: 0 0 8px;"><strong>Produkt:</strong> ${data.productName}${data.productVariant ? ` – ${data.productVariant}` : ''}</p>
-                  <p style="margin: 0 0 8px;"><strong>Preis:</strong> <span style="text-decoration: line-through;">CHF ${data.originalPrice.toFixed(2)}</span> → <strong style="color: #b8860b;">CHF ${data.finalPrice.toFixed(2)}</strong> (-${data.discountPercent}%)</p>
+                  <p style="margin: 0 0 8px;"><strong>Bestellnummer:</strong> ${safeData.orderNumber}</p>
+                  <p style="margin: 0 0 8px;"><strong>Produkt:</strong> ${safeData.productName}${safeData.productVariant ? ` – ${safeData.productVariant}` : ''}</p>
+                  <p style="margin: 0 0 8px;"><strong>Preis:</strong> <span style="text-decoration: line-through;">CHF ${safeData.originalPrice.toFixed(2)}</span> → <strong style="color: #b8860b;">CHF ${safeData.finalPrice.toFixed(2)}</strong> (-${safeData.discountPercent}%)</p>
                 </div>
                 <div style="background: #f9f6f1; padding: 20px; border-radius: 12px; margin: 20px 0;">
                   <p style="margin: 0 0 4px;"><strong>Lieferadresse:</strong></p>
-                  <p style="margin: 0;">${data.customerName}<br>${data.streetAddress}<br>${data.postalCode} ${data.city}</p>
+                  <p style="margin: 0;">${safeData.customerName}<br>${safeData.streetAddress}<br>${safeData.postalCode} ${safeData.city}</p>
                 </div>
                 <p><strong>Nächste Schritte:</strong></p>
                 <ul>
@@ -88,17 +134,17 @@ serve(async (req) => {
           body: JSON.stringify({
             sender: { name: 'RAJ Shop', email: 'info@raj.ch' },
             to: [{ email: 'info@raj.ch', name: 'RAJ Team' }],
-            subject: `🛒 Neue Vorbestellung ${data.orderNumber}`,
+            subject: `🛒 Neue Vorbestellung ${safeData.orderNumber}`,
             htmlContent: `
               <div style="font-family: Arial, sans-serif; padding: 20px;">
                 <h2>Neue Vorbestellung eingegangen!</h2>
                 <table style="border-collapse: collapse; width: 100%;">
-                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Bestellnr.</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${data.orderNumber}</td></tr>
-                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Kunde</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${data.customerName} (${data.customerEmail})</td></tr>
-                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Telefon</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${data.phone || '–'}</td></tr>
-                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Produkt</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${data.productName}${data.productVariant ? ` – ${data.productVariant}` : ''}</td></tr>
-                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Preis</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">CHF ${data.finalPrice.toFixed(2)} (statt ${data.originalPrice.toFixed(2)}, -${data.discountPercent}%)</td></tr>
-                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Adresse</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${data.streetAddress}, ${data.postalCode} ${data.city}</td></tr>
+                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Bestellnr.</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${safeData.orderNumber}</td></tr>
+                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Kunde</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${safeData.customerName} (${safeData.customerEmail})</td></tr>
+                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Telefon</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${safeData.phone || '–'}</td></tr>
+                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Produkt</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${safeData.productName}${safeData.productVariant ? ` – ${safeData.productVariant}` : ''}</td></tr>
+                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Preis</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">CHF ${safeData.finalPrice.toFixed(2)} (statt ${safeData.originalPrice.toFixed(2)}, -${safeData.discountPercent}%)</td></tr>
+                  <tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Adresse</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">${safeData.streetAddress}, ${safeData.postalCode} ${safeData.city}</td></tr>
                 </table>
               </div>
             `,
@@ -132,26 +178,26 @@ serve(async (req) => {
               draft_order: {
                 line_items: [
                   {
-                    title: data.productName + (data.productVariant ? ` – ${data.productVariant}` : ''),
-                    price: data.finalPrice.toFixed(2),
+                    title: safeData.productName + (safeData.productVariant ? ` – ${safeData.productVariant}` : ''),
+                    price: safeData.finalPrice.toFixed(2),
                     quantity: 1,
                   },
                 ],
                 customer: {
-                  first_name: data.customerName.split(' ')[0],
-                  last_name: data.customerName.split(' ').slice(1).join(' ') || '',
-                  email: data.customerEmail,
+                  first_name: safeData.customerName.split(' ')[0],
+                  last_name: safeData.customerName.split(' ').slice(1).join(' ') || '',
+                  email: safeData.customerEmail,
                 },
                 shipping_address: {
-                  first_name: data.customerName.split(' ')[0],
-                  last_name: data.customerName.split(' ').slice(1).join(' ') || '',
-                  address1: data.streetAddress,
-                  city: data.city,
-                  zip: data.postalCode,
+                  first_name: safeData.customerName.split(' ')[0],
+                  last_name: safeData.customerName.split(' ').slice(1).join(' ') || '',
+                  address1: safeData.streetAddress,
+                  city: safeData.city,
+                  zip: safeData.postalCode,
                   country: 'CH',
-                  phone: data.phone || '',
+                  phone: safeData.phone || '',
                 },
-                note: `Vorbestellung ${data.orderNumber} | Originalpreis: CHF ${data.originalPrice.toFixed(2)} | Rabatt: -${data.discountPercent}%`,
+                note: `Vorbestellung ${safeData.orderNumber} | Originalpreis: CHF ${safeData.originalPrice.toFixed(2)} | Rabatt: -${safeData.discountPercent}%`,
                 tags: 'vorbestellung, lovable',
               },
             }),
@@ -179,7 +225,7 @@ serve(async (req) => {
   } catch (error) {
     console.error('Process preorder error:', error);
     return new Response(
-      JSON.stringify({ error: 'Fehler bei der Verarbeitung', details: error instanceof Error ? error.message : 'Unknown' }),
+      JSON.stringify({ error: 'Fehler bei der Verarbeitung' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
