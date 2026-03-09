@@ -37,9 +37,14 @@ const Header = () => {
 
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // If we're not on the homepage, navigate there first with the hash
+      if (window.location.pathname !== "/") {
+        window.location.href = "/" + href;
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
     setIsMenuOpen(false);
