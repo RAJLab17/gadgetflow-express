@@ -83,17 +83,8 @@ const LaunchPage = () => {
         />
 
         <div className="relative z-10">
-          {/* Header */}
-          <header className="py-4 px-4">
-            <div className="container mx-auto flex items-center justify-between">
-              <img src={logo} alt="RAJ" className="h-7 w-auto" />
-              <nav className="flex items-center gap-4 sm:gap-6">
-                <a href="/impressum" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Impressum</a>
-                <a href="/datenschutz" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Datenschutz</a>
-                <a href="/agb" className="text-xs text-muted-foreground hover:text-foreground transition-colors">AGB</a>
-              </nav>
-            </div>
-          </header>
+          {/* Header spacer */}
+          <div className="py-4" />
 
           {/* Hero Section */}
           <section className="container mx-auto px-4 pt-8 pb-16 md:pt-16 md:pb-24">
@@ -305,6 +296,11 @@ const LaunchPage = () => {
                 <a href="https://www.facebook.com/share/1B5TZ9Xn5b/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
                 </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <a href="/impressum" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Impressum</a>
+                <a href="/datenschutz" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Datenschutz</a>
+                <a href="/agb" className="text-xs text-muted-foreground hover:text-foreground transition-colors">AGB</a>
               </div>
               <p className="text-xs text-muted-foreground">
                 © {new Date().getFullYear()} RAJ GmbH · Alle Rechte vorbehalten.
