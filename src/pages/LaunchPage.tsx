@@ -83,8 +83,17 @@ const LaunchPage = () => {
         />
 
         <div className="relative z-10">
-          {/* Header spacer */}
-          <div className="py-4" />
+          {/* Header */}
+          <header className="py-4 px-4">
+            <div className="container mx-auto flex items-center justify-between">
+              <img src={logo} alt="RAJ" className="h-7 w-auto" />
+              <nav className="flex items-center gap-4 sm:gap-6">
+                <a href="/impressum" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Impressum</a>
+                <a href="/datenschutz" className="text-xs text-muted-foreground hover:text-foreground transition-colors">Datenschutz</a>
+                <a href="/agb" className="text-xs text-muted-foreground hover:text-foreground transition-colors">AGB</a>
+              </nav>
+            </div>
+          </header>
 
           {/* Hero Section */}
           <section className="container mx-auto px-4 pt-8 pb-16 md:pt-16 md:pb-24">
