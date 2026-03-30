@@ -303,7 +303,7 @@ const LaunchPage = () => {
                 <a href="/agb" className="text-xs text-muted-foreground hover:text-foreground transition-colors">AGB</a>
               </div>
               <p className="text-xs text-muted-foreground">
-                © {new Date().getFullYear()} RAJ GmbH · Alle Rechte vorbehalten.
+                © {new Date().getFullYear()} RAJ · Alle Rechte vorbehalten.
               </p>
             </div>
           </footer>
