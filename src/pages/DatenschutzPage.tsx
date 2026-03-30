@@ -11,7 +11,7 @@ const sections: Section[] = [
   {
     title: "1. Allgemeine Hinweise",
     content: [
-      `Der Schutz deiner personenbezogenen Daten ist der RAJ GmbH (nachfolgend „RAJ", „wir" oder „uns") ein wichtiges Anliegen. Diese Datenschutzerklärung informiert darüber, wie wir personenbezogene Daten im Zusammenhang mit dem Besuch unserer Website und der Nutzung unseres Online‑Shops bearbeiten.`,
+      `Der Schutz deiner personenbezogenen Daten ist RAJ (nachfolgend „wir" oder „uns") ein wichtiges Anliegen. Diese Datenschutzerklärung informiert darüber, wie wir personenbezogene Daten im Zusammenhang mit dem Besuch unserer Website und der Nutzung unseres Online‑Shops bearbeiten.`,
       `Wir bearbeiten personenbezogene Daten im Einklang mit dem schweizerischen Datenschutzgesetz (DSG) sowie – soweit anwendbar – der Datenschutz‑Grundverordnung der Europäischen Union (DSGVO).`,
     ],
   },
