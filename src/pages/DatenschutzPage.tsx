@@ -11,7 +11,7 @@ const sections: Section[] = [
   {
     title: "1. Allgemeine Hinweise",
     content: [
-      `Der Schutz deiner personenbezogenen Daten ist der RAJ GmbH (nachfolgend „RAJ", „wir" oder „uns") ein wichtiges Anliegen. Diese Datenschutzerklärung informiert darüber, wie wir personenbezogene Daten im Zusammenhang mit dem Besuch unserer Website und der Nutzung unseres Online‑Shops bearbeiten.`,
+      `Der Schutz deiner personenbezogenen Daten ist RAJ (nachfolgend „wir" oder „uns") ein wichtiges Anliegen. Diese Datenschutzerklärung informiert darüber, wie wir personenbezogene Daten im Zusammenhang mit dem Besuch unserer Website und der Nutzung unseres Online‑Shops bearbeiten.`,
       `Wir bearbeiten personenbezogene Daten im Einklang mit dem schweizerischen Datenschutzgesetz (DSG) sowie – soweit anwendbar – der Datenschutz‑Grundverordnung der Europäischen Union (DSGVO).`,
     ],
   },
@@ -19,7 +19,7 @@ const sections: Section[] = [
     title: "2. Verantwortliche Stelle",
     content: [
       `Verantwortlich für die Datenbearbeitung im Sinne des Datenschutzrechts ist:`,
-      `RAJ GmbH\nGaswerkstrasse 9a\nE‑Mail: info@raj.ch`,
+      `RAJ\nGaswerkstrasse 9a\nE‑Mail: info@raj.ch`,
     ],
   },
   {
@@ -159,7 +159,7 @@ const DatenschutzPage = () => {
     <>
       <Helmet>
         <title>Datenschutzerklärung – RAJ</title>
-        <meta name="description" content="Datenschutzerklärung der RAJ GmbH. Informationen zur Erhebung und Bearbeitung personenbezogener Daten." />
+        <meta name="description" content="Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten." />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
@@ -170,10 +170,9 @@ const DatenschutzPage = () => {
               Datenschutzerkl&auml;rung
             </h1>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">RAJ GmbH</p>
+              <p className="font-semibold text-foreground">RAJ</p>
               <p>Gaswerkstrasse 9a</p>
               <p>E‑Mail: info@raj.ch</p>
-              <p>UID: [UID‑Nummer]</p>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               Stand: 19.02.2026
