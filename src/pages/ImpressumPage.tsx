@@ -50,14 +50,7 @@ const ImpressumPage = () => {
               </p>
             </section>
 
-            {/* Handelsregister */}
-            <section>
-              <h2 className="text-lg font-bold text-foreground mb-3">Handelsregister</h2>
-              <div className="space-y-1 text-muted-foreground text-[15px] leading-relaxed">
-                <p>Eingetragen im Handelsregister des Kantons [Kanton einsetzen]</p>
-                <p>Handelsregisternummer: [Nummer einsetzen]</p>
-              </div>
-            </section>
+
 
             {/* Haftungsausschluss */}
             <section>
