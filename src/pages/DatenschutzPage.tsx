@@ -19,7 +19,7 @@ const sections: Section[] = [
     title: "2. Verantwortliche Stelle",
     content: [
       `Verantwortlich für die Datenbearbeitung im Sinne des Datenschutzrechts ist:`,
-      `RAJ GmbH\nGaswerkstrasse 9a\nE‑Mail: info@raj.ch`,
+      `RAJ\nGaswerkstrasse 9a\nE‑Mail: info@raj.ch`,
     ],
   },
   {
