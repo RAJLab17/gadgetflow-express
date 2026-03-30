@@ -112,7 +112,7 @@ const AGBPage = () => {
     <>
       <Helmet>
         <title>AGB – RAJ</title>
-        <meta name="description" content="Allgemeine Gesch\u00e4ftsbedingungen der RAJ GmbH." />
+        <meta name="description" content="Allgemeine Geschäftsbedingungen von RAJ." />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
