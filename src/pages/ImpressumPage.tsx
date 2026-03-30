@@ -64,7 +64,7 @@ const ImpressumPage = () => {
               <h2 className="text-lg font-bold text-foreground mb-3">Haftungsausschluss</h2>
               <div className="space-y-3 text-muted-foreground text-[15px] leading-relaxed">
                 <p>
-                  Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernimmt die RAJ GmbH jedoch keine Gewähr.
+                  Die Inhalte dieser Website werden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernimmt RAJ jedoch keine Gewähr.
                 </p>
                 <p>
                   Haftungsansprüche gegen die RAJ GmbH wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen, soweit gesetzlich zulässig.
