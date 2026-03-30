@@ -31,7 +31,6 @@ const ImpressumPage = () => {
               <h2 className="text-lg font-bold text-foreground mb-3">Kontakt</h2>
               <div className="space-y-1 text-muted-foreground text-[15px] leading-relaxed">
                 <p>E-Mail: info@raj.ch</p>
-                <p>Telefon: [Telefonnummer]</p>
               </div>
             </section>
 
