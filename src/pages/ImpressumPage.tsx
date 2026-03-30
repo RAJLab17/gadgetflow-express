@@ -18,7 +18,7 @@ const ImpressumPage = () => {
               Impressum
             </h1>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">RAJ GmbH</p>
+              <p className="font-semibold text-foreground">RAJ</p>
               <p>Gaswerkstrasse 9a</p>
               <p>8570 Weinfelden</p>
               <p>Schweiz</p>
@@ -31,7 +31,6 @@ const ImpressumPage = () => {
               <h2 className="text-lg font-bold text-foreground mb-3">Kontakt</h2>
               <div className="space-y-1 text-muted-foreground text-[15px] leading-relaxed">
                 <p>E-Mail: info@raj.ch</p>
-                <p>Telefon: [Telefonnummer]</p>
               </div>
             </section>
 
@@ -39,9 +38,7 @@ const ImpressumPage = () => {
             <section>
               <h2 className="text-lg font-bold text-foreground mb-3">Unternehmensangaben</h2>
               <div className="space-y-1 text-muted-foreground text-[15px] leading-relaxed">
-                <p>Rechtsform: Gesellschaft mit beschränkter Haftung (GmbH)</p>
                 <p>Firmensitz: Schweiz</p>
-                <p>UID-Nummer: [UID-Nummer]</p>
               </div>
             </section>
 
@@ -53,24 +50,17 @@ const ImpressumPage = () => {
               </p>
             </section>
 
-            {/* Handelsregister */}
-            <section>
-              <h2 className="text-lg font-bold text-foreground mb-3">Handelsregister</h2>
-              <div className="space-y-1 text-muted-foreground text-[15px] leading-relaxed">
-                <p>Eingetragen im Handelsregister des Kantons [Kanton einsetzen]</p>
-                <p>Handelsregisternummer: [Nummer einsetzen]</p>
-              </div>
-            </section>
+
 
             {/* Haftungsausschluss */}
             <section>
               <h2 className="text-lg font-bold text-foreground mb-3">Haftungsausschluss</h2>
               <div className="space-y-3 text-muted-foreground text-[15px] leading-relaxed">
                 <p>
-                  Die Inhalte dieser Website werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernimmt die RAJ GmbH jedoch keine Gewähr.
+                  Die Inhalte dieser Website werden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernimmt RAJ jedoch keine Gewähr.
                 </p>
                 <p>
-                  Haftungsansprüche gegen die RAJ GmbH wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen, soweit gesetzlich zulässig.
+                  Haftungsansprüche gegen RAJ wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen, soweit gesetzlich zulässig.
                 </p>
               </div>
             </section>
@@ -88,7 +78,7 @@ const ImpressumPage = () => {
               <h2 className="text-lg font-bold text-foreground mb-3">Urheberrechte</h2>
               <div className="space-y-3 text-muted-foreground text-[15px] leading-relaxed">
                 <p>
-                  Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschließlich der RAJ GmbH oder den speziell genannten Rechteinhabern.
+                  Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschliesslich RAJ oder den speziell genannten Rechteinhabern.
                 </p>
                 <p>
                   Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen.
