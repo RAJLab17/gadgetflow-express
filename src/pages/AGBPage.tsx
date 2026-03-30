@@ -6,7 +6,7 @@ const sections = [
   {
     title: "1. Geltungsbereich",
     content: [
-      `Diese Allgemeinen Gesch\u00e4ftsbedingungen (AGB) gelten f\u00fcr alle Bestellungen und Lieferungen von Produkten der RAJ GmbH (nachfolgend \u201eRAJ\u201c, \u201ewir\u201c oder \u201euns\u201c) \u00fcber den Online\u2011Shop auf unserer Website.`,
+      `Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Bestellungen und Lieferungen von Produkten von RAJ (nachfolgend „wir" oder „uns") über den Online‑Shop auf unserer Website.`,
       `Abweichende Bedingungen von Kundinnen und Kunden (nachfolgend \u201eKunde\u201c) finden keine Anwendung, sofern sie nicht ausdr\u00fccklich und schriftlich von RAJ best\u00e4tigt wurden.`,
     ],
   },
