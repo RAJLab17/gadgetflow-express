@@ -6,7 +6,7 @@ const sections = [
   {
     title: "1. Geltungsbereich",
     content: [
-      `Diese Allgemeinen Gesch\u00e4ftsbedingungen (AGB) gelten f\u00fcr alle Bestellungen und Lieferungen von Produkten der RAJ GmbH (nachfolgend \u201eRAJ\u201c, \u201ewir\u201c oder \u201euns\u201c) \u00fcber den Online\u2011Shop auf unserer Website.`,
+      `Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Bestellungen und Lieferungen von Produkten von RAJ (nachfolgend „wir" oder „uns") über den Online‑Shop auf unserer Website.`,
       `Abweichende Bedingungen von Kundinnen und Kunden (nachfolgend \u201eKunde\u201c) finden keine Anwendung, sofern sie nicht ausdr\u00fccklich und schriftlich von RAJ best\u00e4tigt wurden.`,
     ],
   },
@@ -38,13 +38,13 @@ const sections = [
     content: [
       "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdr\u00fccklich anders angegeben.",
       "Die Lieferzeit richtet sich nach den Angaben auf der jeweiligen Produktseite. Teillieferungen sind zul\u00e4ssig, sofern sie f\u00fcr den Kunden zumutbar sind.",
-      "Der Versand ist ab einem Bestellwert von CHF 65.00 kostenlos. Bei Bestellungen unter CHF 65.00 wird eine Versandpauschale von CHF 4.90 berechnet.",
+      "Der Versand ist ab einem Bestellwert von CHF 50.00 kostenlos. Bei Bestellungen unter CHF 50.00 wird eine Versandpauschale von CHF 4.90 berechnet.",
     ],
   },
   {
     title: "6. Eigentumsvorbehalt",
     content: [
-      "Die gelieferte Ware bleibt bis zur vollst\u00e4ndigen Bezahlung Eigentum der RAJ GmbH.",
+      "Die gelieferte Ware bleibt bis zur vollständigen Bezahlung Eigentum von RAJ.",
     ],
   },
   {
@@ -96,7 +96,7 @@ const sections = [
     title: "13. Anwendbares Recht und Gerichtsstand",
     content: [
       "Es gilt ausschliesslich schweizerisches Recht unter Ausschluss des UN\u2011Kaufrechts (CISG).",
-      "Gerichtsstand ist \u2013 soweit gesetzlich zul\u00e4ssig \u2013 der Sitz der RAJ GmbH.",
+      "Gerichtsstand ist – soweit gesetzlich zulässig – der Sitz von RAJ.",
     ],
   },
   {
@@ -112,7 +112,7 @@ const AGBPage = () => {
     <>
       <Helmet>
         <title>AGB – RAJ</title>
-        <meta name="description" content="Allgemeine Gesch\u00e4ftsbedingungen der RAJ GmbH." />
+        <meta name="description" content="Allgemeine Geschäftsbedingungen von RAJ." />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
@@ -123,10 +123,9 @@ const AGBPage = () => {
               Allgemeine Gesch&auml;ftsbedingungen (AGB)
             </h1>
             <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">RAJ GmbH</p>
+              <p className="font-semibold text-foreground">RAJ</p>
               <p>Gaswerkstrasse 9a</p>
               <p>E-Mail: info@raj.ch</p>
-              <p>UID: [UID-Nummer]</p>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               Stand: 19.02.2026
