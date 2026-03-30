@@ -38,7 +38,7 @@ const sections = [
     content: [
       "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdr\u00fccklich anders angegeben.",
       "Die Lieferzeit richtet sich nach den Angaben auf der jeweiligen Produktseite. Teillieferungen sind zul\u00e4ssig, sofern sie f\u00fcr den Kunden zumutbar sind.",
-      "Der Versand ist ab einem Bestellwert von CHF 65.00 kostenlos. Bei Bestellungen unter CHF 65.00 wird eine Versandpauschale von CHF 4.90 berechnet.",
+      "Der Versand ist ab einem Bestellwert von CHF 50.00 kostenlos. Bei Bestellungen unter CHF 50.00 wird eine Versandpauschale von CHF 4.90 berechnet.",
     ],
   },
   {
