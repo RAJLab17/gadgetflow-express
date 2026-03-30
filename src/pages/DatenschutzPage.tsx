@@ -159,7 +159,7 @@ const DatenschutzPage = () => {
     <>
       <Helmet>
         <title>Datenschutzerklärung – RAJ</title>
-        <meta name="description" content="Datenschutzerklärung der RAJ GmbH. Informationen zur Erhebung und Bearbeitung personenbezogener Daten." />
+        <meta name="description" content="Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten." />
       </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
