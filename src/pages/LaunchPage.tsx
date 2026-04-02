@@ -337,7 +337,7 @@ const LaunchPage = () => {
                 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                Sichere dir deinen Early Access
+                Jetzt Early Access sichern.
               </motion.h2>
 
               {isSubmitted2 ? (
