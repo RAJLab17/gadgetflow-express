@@ -305,9 +305,9 @@ const LaunchPage = () => {
           <section className="container mx-auto px-4 pb-20">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { icon: Zap, title: "25W · Qi2 zertifiziert", desc: "Schnellladetechnologie" },
-                { icon: Shield, title: "2 Jahre Garantie · CH Support", desc: "Schweizer Qualitätsversprechen" },
-                { icon: Truck, title: "Gratis Lieferung Schweiz", desc: "Kostenloser Versand" },
+                { icon: Zap, title: "25W · Qi2 zertifiziert" },
+                { icon: Shield, title: "2 Jahre Garantie · CH Support" },
+                { icon: Truck, title: "Gratis Lieferung Schweiz" },
               ].map((item, i) => (
                 <motion.div
                   key={item.title}
@@ -320,8 +320,7 @@ const LaunchPage = () => {
                   <div className="w-12 h-12 rounded-xl bg-[#9b6b3f]/10 flex items-center justify-center mb-3">
                     <item.icon className="w-5 h-5 text-[#9b6b3f]" />
                   </div>
-                  <h3 className="font-semibold text-[#2c2c2c] text-sm mb-1">{item.title}</h3>
-                  <p className="text-xs text-[#888888]">{item.desc}</p>
+                  <h3 className="font-semibold text-[#2c2c2c] text-sm">{item.title}</h3>
                 </motion.div>
               ))}
             </div>
