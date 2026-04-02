@@ -22,6 +22,25 @@ const LaunchPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
+  const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
+  const spotsLeft = TOTAL_SPOTS - spotsTaken;
+
+  // Fetch signup count from database
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const { count, error } = await supabase
+          .from("launch_signups")
+          .select("*", { count: "exact", head: true });
+        if (!error && count !== null) {
+          setSpotsTaken(Math.max(DEFAULT_TAKEN, DEFAULT_TAKEN + count));
+        }
+      } catch (e) {
+        console.error("Failed to fetch signup count:", e);
+      }
+    };
+    fetchCount();
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
