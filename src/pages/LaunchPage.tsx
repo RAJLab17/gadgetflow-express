@@ -173,14 +173,14 @@ const LaunchPage = () => {
               >
                 <p className="text-sm text-[#2c2c2c] text-center mb-3">
                   Nur {TOTAL_SPOTS} Early Access Plätze — noch{" "}
-                  <span className="font-bold text-[#9b6b3f]">{SPOTS_LEFT}</span>{" "}
+                  <span className="font-bold text-[#9b6b3f]">{spotsLeft}</span>{" "}
                   verfügbar.
                 </p>
                 <div className="w-full h-1.5 bg-[#9b6b3f]/10 rounded-full overflow-hidden">
                   <motion.div
                     className="h-full bg-[#9b6b3f] rounded-full"
                     initial={{ width: 0 }}
-                    animate={{ width: `${(SPOTS_TAKEN / TOTAL_SPOTS) * 100}%` }}
+                    animate={{ width: `${(spotsTaken / TOTAL_SPOTS) * 100}%` }}
                     transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
                   />
                 </div>
