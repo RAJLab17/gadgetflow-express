@@ -304,7 +304,7 @@ const LaunchPage = () => {
           <section className="container mx-auto px-4 pb-20">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
-                { icon: Zap, title: "15W MagSafe · Qi2 zertifiziert", desc: "Schnellladetechnologie" },
+                { icon: Zap, title: "25W · Qi2 zertifiziert", desc: "Schnellladetechnologie" },
                 { icon: Shield, title: "2 Jahre Garantie · CH Support", desc: "Schweizer Qualitätsversprechen" },
                 { icon: Truck, title: "Gratis Lieferung Schweiz", desc: "Kostenloser Versand" },
               ].map((item, i) => (
