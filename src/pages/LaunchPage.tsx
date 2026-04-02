@@ -280,10 +280,9 @@ const LaunchPage = () => {
                       src={nexusImages[currentImage]}
                       alt="RAJ NEXUS 3-in-1 Wireless Charger"
                       className="w-full aspect-square object-contain relative"
-                      style={{ transform: "scale(1.8)" }}
-                      initial={{ opacity: 0, scale: 1.75 }}
-                      animate={{ opacity: 1, scale: 1.8 }}
-                      exit={{ opacity: 0, scale: 1.85 }}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.05 }}
                       transition={{ duration: 0.6, ease: "easeInOut" }}
                     />
                   </AnimatePresence>
