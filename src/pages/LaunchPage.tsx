@@ -89,6 +89,7 @@ const LaunchPage = () => {
       if (error) throw error;
       if (data?.success) {
         setIsSubmitted2(true);
+        setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }
