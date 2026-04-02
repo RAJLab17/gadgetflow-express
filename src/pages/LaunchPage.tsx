@@ -117,7 +117,7 @@ const LaunchPage = () => {
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight text-primary mb-8"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                Swiss Design.
+                Swiss Brand.
               </motion.h1>
 
               <motion.p
