@@ -12,8 +12,7 @@ import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 const nexusImages = [chargerHero, chargerColors, chargerAngles];
 
 const TOTAL_SPOTS = 100;
-const SPOTS_TAKEN = 27;
-const SPOTS_LEFT = TOTAL_SPOTS - SPOTS_TAKEN;
+const DEFAULT_TAKEN = 27;
 
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +22,25 @@ const LaunchPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
+  const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
+  const spotsLeft = TOTAL_SPOTS - spotsTaken;
+
+  // Fetch signup count from database
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const { count, error } = await supabase
+          .from("launch_signups")
+          .select("*", { count: "exact", head: true });
+        if (!error && count !== null) {
+          setSpotsTaken(Math.max(DEFAULT_TAKEN, DEFAULT_TAKEN + count));
+        }
+      } catch (e) {
+        console.error("Failed to fetch signup count:", e);
+      }
+    };
+    fetchCount();
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -45,6 +63,7 @@ const LaunchPage = () => {
       if (error) throw error;
       if (data?.success) {
         setIsSubmitted(true);
+        setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }
@@ -70,6 +89,7 @@ const LaunchPage = () => {
       if (error) throw error;
       if (data?.success) {
         setIsSubmitted2(true);
+        setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }
@@ -155,14 +175,14 @@ const LaunchPage = () => {
               >
                 <p className="text-sm text-[#2c2c2c] text-center mb-3">
                   Nur {TOTAL_SPOTS} Early Access Plätze — noch{" "}
-                  <span className="font-bold text-[#9b6b3f]">{SPOTS_LEFT}</span>{" "}
+                  <span className="font-bold text-[#9b6b3f]">{spotsLeft}</span>{" "}
                   verfügbar.
                 </p>
                 <div className="w-full h-1.5 bg-[#9b6b3f]/10 rounded-full overflow-hidden">
                   <motion.div
                     className="h-full bg-[#9b6b3f] rounded-full"
                     initial={{ width: 0 }}
-                    animate={{ width: `${(SPOTS_TAKEN / TOTAL_SPOTS) * 100}%` }}
+                    animate={{ width: `${(spotsTaken / TOTAL_SPOTS) * 100}%` }}
                     transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
                   />
                 </div>

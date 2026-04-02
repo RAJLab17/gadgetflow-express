@@ -57,6 +57,24 @@ serve(async (req) => {
 
     // 201 = created, 204 = updated existing contact
     if (response.ok || response.status === 201 || response.status === 204) {
+      // Track signup in launch_signups table for the live counter
+      try {
+        const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+        const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+        await fetch(`${supabaseUrl}/rest/v1/launch_signups`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Prefer': 'resolution=ignore-duplicates',
+          },
+          body: JSON.stringify({ email: cleanEmail }),
+        });
+      } catch (dbErr) {
+        console.error('Failed to track signup in DB:', dbErr);
+      }
+
       return new Response(
         JSON.stringify({ success: true }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
