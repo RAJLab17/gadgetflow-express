@@ -252,7 +252,7 @@ const LaunchPage = () => {
                     </p>
 
                     <p className="text-xs text-[#888888] text-center">
-                      Du bekommst: Launch-Datum + CHF 99 statt CHF 119. Nur per E-Mail.
+                      Sei einer der Ersten beim Launch des ersten Schweizer Wireless Charger Brands.
                     </p>
                   </form>
                 )}
