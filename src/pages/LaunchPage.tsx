@@ -142,7 +142,7 @@ const LaunchPage = () => {
               >
                 <span className="w-2 h-2 bg-[#9b6b3f] rounded-full animate-pulse" />
                 <span className="text-sm font-medium text-[#2c2c2c] tracking-wide">
-                  🇨🇭 Erster Schweizer Wireless Charger Brand
+                  🇨🇭 Eine neue Schweizer Brand entsteht.
                 </span>
               </motion.div>
 
