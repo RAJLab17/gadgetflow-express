@@ -4,6 +4,7 @@ import { Mail, Loader2, Check, Zap, Shield, Truck } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import LikeBadge from "@/components/LikeBadge";
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
