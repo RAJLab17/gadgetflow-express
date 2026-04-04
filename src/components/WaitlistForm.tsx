@@ -64,14 +64,17 @@ const WaitlistForm = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-3">
-        <Input
-          type="email"
-          placeholder="deine@email.ch"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="bg-secondary/50 border-border"
-        />
+        <div className="relative">
+          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+          <Input
+            type="email"
+            placeholder="Deine Email-Adresse"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="pl-10 bg-white border-gray-200 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/20"
+          />
+        </div>
         <Button
           type="submit"
           variant="glow"
