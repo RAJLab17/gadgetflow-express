@@ -140,6 +140,27 @@ export type Database = {
         }
         Relationships: []
       }
+      product_likes: {
+        Row: {
+          created_at: string
+          fingerprint: string
+          id: string
+          product_id: string
+        }
+        Insert: {
+          created_at?: string
+          fingerprint: string
+          id?: string
+          product_id: string
+        }
+        Update: {
+          created_at?: string
+          fingerprint?: string
+          id?: string
+          product_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

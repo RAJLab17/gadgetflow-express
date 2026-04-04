@@ -4,6 +4,7 @@ import { Mail, Loader2, Check, Zap, Shield, Truck } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import LikeBadge from "@/components/LikeBadge";
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
@@ -265,6 +266,10 @@ const LaunchPage = () => {
 
           {/* ===== 5. Product Teaser – LARGER, no gap ===== */}
           <section className="container mx-auto px-4 pb-20">
+            {/* Like Badge */}
+            <div className="flex justify-center mb-6">
+              <LikeBadge productId="nexus-3in1" />
+            </div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
