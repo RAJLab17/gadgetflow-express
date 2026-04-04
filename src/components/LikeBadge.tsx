@@ -64,13 +64,13 @@ const LikeBadge = ({ productId }: LikeBadgeProps) => {
       >
         <Heart
           className="w-5 h-5 transition-colors"
-          fill={liked ? "#9b6b3f" : "none"}
-          stroke={liked ? "#9b6b3f" : "#9b6b3f"}
+          fill={liked ? "#e74c3c" : "none"}
+          stroke={liked ? "#e74c3c" : "#e74c3c"}
           strokeWidth={2}
         />
       </motion.div>
       <span className="text-sm font-medium text-[#2c2c2c]">
-        ❤️ {count} lieben es bereits
+        {count} lieben es bereits
       </span>
     </motion.button>
   );
