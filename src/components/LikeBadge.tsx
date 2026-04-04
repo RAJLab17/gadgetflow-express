@@ -70,7 +70,7 @@ const LikeBadge = ({ productId }: LikeBadgeProps) => {
         />
       </motion.div>
       <span className="text-sm font-medium text-[#2c2c2c]">
-        {count} interessiert
+        ❤️ {count} lieben es bereits
       </span>
     </motion.button>
   );
