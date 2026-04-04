@@ -219,15 +219,18 @@ const LaunchPage = () => {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="deine@email.ch"
-                        required
-                        disabled={isSubmitting}
-                        className="flex-1 px-4 py-3.5 rounded-xl bg-white/60 border border-[#9b6b3f]/20 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/50 transition-all"
-                      />
+                      <div className="relative flex-1">
+                        <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="Deine Email-Adresse"
+                          required
+                          disabled={isSubmitting}
+                          className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-gray-200 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/20 transition-all"
+                        />
+                      </div>
                       <button
                         type="submit"
                         disabled={isSubmitting}
