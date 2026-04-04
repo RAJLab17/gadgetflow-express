@@ -13,7 +13,7 @@ import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 const nexusImages = [chargerHero, chargerColors, chargerAngles];
 
 const TOTAL_SPOTS = 300;
-const DEFAULT_TAKEN = 27;
+const DEFAULT_TAKEN = 228;
 
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
