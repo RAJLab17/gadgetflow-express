@@ -188,6 +188,9 @@ const LaunchPage = () => {
                     transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
                   />
                 </div>
+                <p className="text-xs text-[#9b6b3f] text-center mt-2">
+                  🇨🇭 81 Schweizer haben sich bereits eingetragen.
+                </p>
               </motion.div>
 
               {/* Email Form */}
@@ -248,6 +251,10 @@ const LaunchPage = () => {
                         )}
                       </button>
                     </div>
+
+                    <p className="text-xs text-[#888888] text-center">
+                      Unverbindlich · Kein Kauf · Kein Spam
+                    </p>
 
                     {/* 2. Price below CTA */}
                     <p className="text-sm text-center">
