@@ -256,7 +256,7 @@ const LaunchPage = () => {
                     </p>
 
                     <p className="text-xs text-[#888888] text-center">
-                      Sei einer der Ersten beim Launch des ersten Schweizer Wireless Charger Brands.
+                      Trag dich ein — wir informieren dich 48h vor allen anderen wenn der RAJ NEXUS kaufbar ist.
                     </p>
                   </form>
                 )}
