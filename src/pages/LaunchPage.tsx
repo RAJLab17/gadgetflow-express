@@ -252,6 +252,10 @@ const LaunchPage = () => {
                       </button>
                     </div>
 
+                    <p className="text-xs text-[#888888] text-center">
+                      Unverbindlich · Kein Kauf · Kein Spam
+                    </p>
+
                     {/* 2. Price below CTA */}
                     <p className="text-sm text-center">
                       <span className="text-[#9b6b3f] font-medium">CHF 99 Early Access</span>
