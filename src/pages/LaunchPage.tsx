@@ -410,7 +410,7 @@ const LaunchPage = () => {
                       ) : (
                         <>
                           <Mail className="w-4 h-4" />
-                          Vor allen anderen kaufen
+                          Gratis Platz sichern
                         </>
                       )}
                     </button>
