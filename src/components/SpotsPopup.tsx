@@ -16,7 +16,7 @@ const SpotsPopup = ({ spotsLeft }: SpotsPopupProps) => {
     const showTimer = setTimeout(() => {
       setVisible(true);
       sessionStorage.setItem("spots_popup_shown", "1");
-    }, 20000);
+    }, 6000);
 
     return () => clearTimeout(showTimer);
   }, []);
