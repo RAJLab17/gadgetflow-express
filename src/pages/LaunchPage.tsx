@@ -35,7 +35,7 @@ const LaunchPage = () => {
           .from("launch_signups")
           .select("*", { count: "exact", head: true });
         if (!error && count !== null) {
-          setSpotsTaken(DEFAULT_TAKEN + count);
+          setSpotsTaken(DEFAULT_TAKEN);
         }
       } catch (e) {
         console.error("Failed to fetch signup count:", e);
