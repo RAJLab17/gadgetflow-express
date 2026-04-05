@@ -14,7 +14,7 @@ import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 const nexusImages = [chargerHero, chargerColors, chargerAngles];
 
 const TOTAL_SPOTS = 100;
-const DEFAULT_TAKEN = 81;
+const DEFAULT_TAKEN = 75;
 
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
@@ -35,7 +35,7 @@ const LaunchPage = () => {
           .from("launch_signups")
           .select("*", { count: "exact", head: true });
         if (!error && count !== null) {
-          setSpotsTaken(DEFAULT_TAKEN);
+          setSpotsTaken(DEFAULT_TAKEN + count);
         }
       } catch (e) {
         console.error("Failed to fetch signup count:", e);
