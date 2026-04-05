@@ -259,9 +259,6 @@ const LaunchPage = () => {
                     <p className="text-xs text-[#888888] text-center">
                       Trag dich ein — wir informieren dich 48h vor allen anderen wenn der RAJ NEXUS kaufbar ist.
                     </p>
-                    <p className="text-xs text-[#888888] text-center">
-                      Unverbindlich — kein Kauf, kein Spam.
-                    </p>
                   </form>
                 )}
               </motion.div>
