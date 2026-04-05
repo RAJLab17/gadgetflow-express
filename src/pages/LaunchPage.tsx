@@ -452,6 +452,7 @@ const LaunchPage = () => {
             </div>
           </footer>
         </div>
+        <SpotsPopup spotsLeft={spotsLeft} />
       </div>
     </>
   );
