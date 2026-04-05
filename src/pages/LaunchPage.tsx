@@ -254,11 +254,6 @@ const LaunchPage = () => {
                     </p>
 
                     {/* 2. Price below CTA */}
-                    <p className="text-sm text-center">
-                      <span className="text-[#9b6b3f] font-medium">CHF 99 Early Access</span>
-                      <span className="text-[#888888] mx-1.5">·</span>
-                      <span className="text-[#888888]">Nach Launch <span className="line-through">CHF 119</span></span>
-                    </p>
 
                     <p className="text-xs text-[#888888] text-center">
                       Trag dich ein — wir informieren dich 48h vor allen anderen wenn der RAJ NEXUS kaufbar ist.
