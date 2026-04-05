@@ -266,10 +266,6 @@ const LaunchPage = () => {
 
           {/* ===== 5. Product Teaser – LARGER, no gap ===== */}
           <section className="container mx-auto px-4 pb-20">
-            {/* Like Badge */}
-            <div className="flex justify-center mb-6">
-              <LikeBadge productId="nexus-3in1" />
-            </div>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
