@@ -329,7 +329,7 @@ const LaunchPage = () => {
                 className="group bg-[#f0ede6] rounded-2xl border border-[#9b6b3f]/10 p-6 md:p-8 text-center transition-all duration-300"
                 style={{ boxShadow: "0 8px 20px rgba(155, 107, 63, 0.10)" }}
               >
-                <div className="relative mb-6 overflow-hidden">
+                <div className="relative mb-6 overflow-hidden rounded-xl cursor-grab active:cursor-grabbing">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#9b6b3f]/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <AnimatePresence mode="wait">
                     <motion.img
@@ -341,9 +341,41 @@ const LaunchPage = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.05 }}
                       transition={{ duration: 0.6, ease: "easeInOut" }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.1}
+                      onDragEnd={handleSwipe}
                     />
                   </AnimatePresence>
+
+                  {/* Arrow buttons */}
+                  <button
+                    onClick={() => handleImageNav((currentImage - 1 + nexusImages.length) % nexusImages.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 border border-[#9b6b3f]/20 flex items-center justify-center hover:bg-white transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4 text-[#2c2c2c]" />
+                  </button>
+                  <button
+                    onClick={() => handleImageNav((currentImage + 1) % nexusImages.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 border border-[#9b6b3f]/20 flex items-center justify-center hover:bg-white transition-colors"
+                  >
+                    <ChevronRight className="w-4 h-4 text-[#2c2c2c]" />
+                  </button>
                 </div>
+
+                {/* Dot indicators */}
+                <div className="flex justify-center gap-2 mb-4">
+                  {nexusImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleImageNav(i)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        i === currentImage ? "bg-[#9b6b3f] w-6" : "bg-[#9b6b3f]/25 hover:bg-[#9b6b3f]/50"
+                      }`}
+                    />
+                  ))}
+                </div>
+
                 <span className="inline-block text-[10px] uppercase tracking-widest font-semibold text-[#9b6b3f] bg-[#9b6b3f]/10 px-3 py-1 rounded-full mb-3">
                   Coming Soon
                 </span>
