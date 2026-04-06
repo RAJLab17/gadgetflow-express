@@ -149,8 +149,13 @@ const LaunchPage = () => {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 border border-[#9b6b3f]/20 mb-8"
               >
                 <span className="w-2 h-2 bg-[#9b6b3f] rounded-full animate-pulse" />
-                <span className="text-sm font-medium text-[#2c2c2c] tracking-wide">
-                  🇨🇭 Eine neue Schweizer Brand entsteht.
+                <span className="text-sm font-medium text-[#2c2c2c] tracking-wide flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 shrink-0">
+                    <rect width="32" height="32" rx="4" fill="#D52B1E"/>
+                    <rect x="13" y="6" width="6" height="20" rx="1" fill="#fff"/>
+                    <rect x="6" y="13" width="20" height="6" rx="1" fill="#fff"/>
+                  </svg>
+                  Eine neue Schweizer Brand entsteht.
                 </span>
               </motion.div>
 
