@@ -10,7 +10,7 @@ import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
 import chargerAngles from "@/assets/products/charger-3in1-angles.png";
-import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.webp";
+import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 
 const nexusImages = [chargerHero, chargerSpecs, chargerColors, chargerAngles];
 
