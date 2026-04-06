@@ -361,6 +361,103 @@ const LaunchPage = () => {
             </div>
           </section>
 
+          {/* ===== ÜBER UNS SECTION ===== */}
+          <section className="container mx-auto px-4 pb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <span className="inline-block px-5 py-2 bg-[#9b6b3f]/10 border border-[#9b6b3f]/20 rounded-full text-[#9b6b3f] font-semibold text-xs tracking-widest uppercase mb-6">
+                Über RAJ
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-2" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+                Energie mit <span className="text-[#9b6b3f]">Substanz</span>
+              </h2>
+            </motion.div>
+
+            {/* Vision & Mission */}
+            <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6 mb-10">
+              {[
+                { label: "Vision", icon: Eye, text: <>
+                  <span className="font-medium text-[#2c2c2c]">Power,</span> die einfach da ist, wenn du sie brauchst.
+                </> },
+                { label: "Mission", icon: Target, text: <>
+                  Wir stehen für Energie mit Substanz –{" "}
+                  <span className="font-medium text-[#2c2c2c]">klar im Design, ehrlich in der Leistung.</span>
+                </> },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="p-6 rounded-2xl bg-white/60 border border-[#9b6b3f]/10"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-[#9b6b3f]/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-[#9b6b3f]" />
+                    </div>
+                    <span className="text-xs font-semibold text-[#9b6b3f] uppercase tracking-widest">{item.label}</span>
+                  </div>
+                  <p className="text-[#888888] leading-relaxed">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Mission Points Grid */}
+            <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {[
+                { icon: Zap, text: "RAJ steht für Energieprodukte mit klarem Fokus auf Funktion und Beständigkeit." },
+                { icon: Sparkles, text: "Jedes Detail ist bewusst gestaltet und auf das Wesentliche reduziert." },
+                { icon: Shield, text: "Design, Leistung und Service greifen ineinander und geben Sicherheit." },
+                { icon: Heart, text: "So entsteht Energie mit Substanz: verlässlich im Alltag, stark im Moment, dauerhaft im Vertrauen." },
+              ].map((point, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="group flex items-start gap-3 p-5 rounded-2xl bg-white/60 border border-[#9b6b3f]/10 hover:border-[#9b6b3f]/25 transition-all duration-300"
+                >
+                  <div className="flex-shrink-0 w-10 h-10 bg-[#9b6b3f]/10 rounded-xl flex items-center justify-center group-hover:bg-[#9b6b3f]/15 transition-colors">
+                    <point.icon className="w-5 h-5 text-[#9b6b3f]" />
+                  </div>
+                  <p className="text-sm text-[#888888] group-hover:text-[#2c2c2c] transition-colors leading-relaxed">{point.text}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Values Grid */}
+            <div className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { icon: Target, title: "Fokus", desc: "Reduktion auf das Wesentliche." },
+                { icon: Award, title: "Qualität", desc: "Anspruch ohne Kompromisse." },
+                { icon: Users, title: "Vertrauen", desc: "Verlässlichkeit im Alltag." },
+                { icon: Eye, title: "Transparenz", desc: "Klare Entscheidungen. Klare Preise." },
+              ].map((value, i) => (
+                <motion.div
+                  key={value.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="text-center p-5 rounded-2xl bg-white/60 border border-[#9b6b3f]/10"
+                >
+                  <div className="w-10 h-10 bg-[#9b6b3f]/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <value.icon className="w-5 h-5 text-[#9b6b3f]" />
+                  </div>
+                  <h3 className="text-sm font-semibold text-[#9b6b3f] mb-1">{value.title}</h3>
+                  <p className="text-xs text-[#888888] leading-relaxed">{value.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
           {/* ===== 6. Second CTA Section ===== */}
           <section className="bg-[#9b6b3f] py-16 md:py-20">
             <div className="container mx-auto px-4 max-w-lg text-center">
