@@ -66,6 +66,9 @@ const LaunchPage = () => {
       if (data?.success) {
         setIsSubmitted(true);
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Lead');
+        }
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }
