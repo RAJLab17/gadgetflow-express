@@ -21,6 +21,7 @@ const LaunchPage = () => {
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting2, setIsSubmitting2] = useState(false);
