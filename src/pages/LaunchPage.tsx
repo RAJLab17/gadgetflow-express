@@ -10,8 +10,9 @@ import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
 import chargerAngles from "@/assets/products/charger-3in1-angles.png";
+import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.webp";
 
-const nexusImages = [chargerHero, chargerColors, chargerAngles];
+const nexusImages = [chargerHero, chargerSpecs, chargerColors, chargerAngles];
 
 const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 83;
