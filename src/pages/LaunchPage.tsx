@@ -348,19 +348,6 @@ const LaunchPage = () => {
                     />
                   </AnimatePresence>
 
-                  {/* Arrow buttons */}
-                  <button
-                    onClick={() => handleImageNav((currentImage - 1 + nexusImages.length) % nexusImages.length)}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 border border-[#9b6b3f]/20 flex items-center justify-center hover:bg-white transition-colors"
-                  >
-                    <ChevronLeft className="w-4 h-4 text-[#2c2c2c]" />
-                  </button>
-                  <button
-                    onClick={() => handleImageNav((currentImage + 1) % nexusImages.length)}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 border border-[#9b6b3f]/20 flex items-center justify-center hover:bg-white transition-colors"
-                  >
-                    <ChevronRight className="w-4 h-4 text-[#2c2c2c]" />
-                  </button>
                 </div>
 
                 {/* Dot indicators */}
