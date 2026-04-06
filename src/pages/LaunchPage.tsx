@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users } from "lucide-react";
+import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -10,8 +10,9 @@ import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
 import chargerAngles from "@/assets/products/charger-3in1-angles.png";
+import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.webp";
 
-const nexusImages = [chargerHero, chargerColors, chargerAngles];
+const nexusImages = [chargerHero, chargerSpecs, chargerColors, chargerAngles];
 
 const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 83;
@@ -20,6 +21,7 @@ const LaunchPage = () => {
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting2, setIsSubmitting2] = useState(false);
@@ -45,11 +47,21 @@ const LaunchPage = () => {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setCurrentImage((prev) => (prev + 1) % nexusImages.length);
     }, 4000);
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
+  }, [currentImage, autoPlayKey]);
+
+  const handleImageNav = useCallback((index: number) => {
+    setCurrentImage(index);
+    setAutoPlayKey((prev) => prev + 1);
   }, []);
+
+  const handleSwipe = useCallback((_: any, info: { offset: { x: number } }) => {
+    if (info.offset.x < -50) handleImageNav((currentImage + 1) % nexusImages.length);
+    else if (info.offset.x > 50) handleImageNav((currentImage - 1 + nexusImages.length) % nexusImages.length);
+  }, [currentImage, handleImageNav]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -317,7 +329,7 @@ const LaunchPage = () => {
                 className="group bg-[#f0ede6] rounded-2xl border border-[#9b6b3f]/10 p-6 md:p-8 text-center transition-all duration-300"
                 style={{ boxShadow: "0 8px 20px rgba(155, 107, 63, 0.10)" }}
               >
-                <div className="relative mb-6 overflow-hidden">
+                <div className="relative mb-6 overflow-hidden rounded-xl cursor-grab active:cursor-grabbing">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#9b6b3f]/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <AnimatePresence mode="wait">
                     <motion.img
@@ -329,9 +341,41 @@ const LaunchPage = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.05 }}
                       transition={{ duration: 0.6, ease: "easeInOut" }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.1}
+                      onDragEnd={handleSwipe}
                     />
                   </AnimatePresence>
+
+                  {/* Arrow buttons */}
+                  <button
+                    onClick={() => handleImageNav((currentImage - 1 + nexusImages.length) % nexusImages.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 border border-[#9b6b3f]/20 flex items-center justify-center hover:bg-white transition-colors"
+                  >
+                    <ChevronLeft className="w-4 h-4 text-[#2c2c2c]" />
+                  </button>
+                  <button
+                    onClick={() => handleImageNav((currentImage + 1) % nexusImages.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 border border-[#9b6b3f]/20 flex items-center justify-center hover:bg-white transition-colors"
+                  >
+                    <ChevronRight className="w-4 h-4 text-[#2c2c2c]" />
+                  </button>
                 </div>
+
+                {/* Dot indicators */}
+                <div className="flex justify-center gap-2 mb-4">
+                  {nexusImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleImageNav(i)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        i === currentImage ? "bg-[#9b6b3f] w-6" : "bg-[#9b6b3f]/25 hover:bg-[#9b6b3f]/50"
+                      }`}
+                    />
+                  ))}
+                </div>
+
                 <span className="inline-block text-[10px] uppercase tracking-widest font-semibold text-[#9b6b3f] bg-[#9b6b3f]/10 px-3 py-1 rounded-full mb-3">
                   Coming Soon
                 </span>
