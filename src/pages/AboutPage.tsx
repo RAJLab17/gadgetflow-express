@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FeaturedProducts from "@/components/FeaturedProducts";
 import { Zap, Shield, Heart, Sparkles, Target, Eye, Award, Users } from "lucide-react";
 
 const AboutPage = () => {
@@ -62,9 +61,6 @@ const AboutPage = () => {
         <Header />
         
         <main className="pt-20">
-          {/* Product Showcase */}
-          <FeaturedProducts />
-
           {/* Hero Section */}
           <section className="relative py-24 md:py-32 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
