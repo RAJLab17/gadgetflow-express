@@ -61,9 +61,6 @@ const AboutPage = () => {
         <Header />
         
         <main className="pt-20">
-          {/* Product Showcase */}
-          <FeaturedProducts />
-
           {/* Hero Section */}
           <section className="relative py-24 md:py-32 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
