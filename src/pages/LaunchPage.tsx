@@ -171,6 +171,20 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
+              {/* Product Image above the fold */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.25 }}
+                className="mb-6"
+              >
+                <img
+                  src={chargerHero}
+                  alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, Apple Watch und AirPods"
+                  className="w-full max-w-xs sm:max-w-sm mx-auto drop-shadow-xl"
+                />
+              </motion.div>
+
               {/* 1. New Headline */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
@@ -188,7 +202,7 @@ const LaunchPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg sm:text-xl md:text-2xl font-light text-[#2c2c2c] mb-8"
               >
-                Der 3-in-1 Wireless Charger für iPhone, Watch & AirPods
+                3 Geräte. 1 Ladegerät. Kein Kabelsalat mehr.
               </motion.p>
 
               {/* 3. Scarcity Text */}
@@ -217,10 +231,29 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.55 }}
-                className="text-sm text-[#9b6b3f] font-medium text-center mb-8"
+                className="text-sm text-[#9b6b3f] font-medium text-center mb-4"
               >
-                Early Access: CHF 99 — regulär CHF 119 ab Launch
+                Early Access: CHF 99 — regulär CHF 129 ab Launch
               </motion.p>
+
+              {/* Benefit Bullets */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.58 }}
+                className="max-w-sm mx-auto mb-6 space-y-2"
+              >
+                {[
+                  "Early Access: CHF 99 (spare CHF 30)",
+                  "48h Vorsprung vor Launch",
+                  "Limitiert auf 100 Stück",
+                ].map((text) => (
+                  <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
+                    <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
+                    <span>{text}</span>
+                  </div>
+                ))}
+              </motion.div>
 
               {/* Email Form */}
               <motion.div
@@ -252,8 +285,8 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <div className="relative flex-1">
+                    <div className="flex flex-col gap-3">
+                      <div className="relative">
                         <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
                         <input
                           type="email"
@@ -268,15 +301,12 @@ const LaunchPage = () => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="px-8 py-3.5 rounded-xl bg-[#9b6b3f] text-white font-semibold hover:bg-[#9b6b3f]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2 min-w-[160px]"
+                        className="w-full py-3.5 rounded-xl bg-[#9b6b3f] text-white font-bold hover:bg-[#9b6b3f]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2 text-sm sm:text-base"
                       >
                         {isSubmitting ? (
                           <Loader2 className="w-5 h-5 animate-spin" />
                         ) : (
-                          <>
-                            <Mail className="w-4 h-4" />
-                             Gratis Platz sichern
-                          </>
+                          "JETZT PLATZ SICHERN – CHF 30 SPAREN"
                         )}
                       </button>
                     </div>
