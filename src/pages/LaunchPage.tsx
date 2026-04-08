@@ -171,13 +171,16 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
-              {/* Product Image above the fold */}
+              {/* Product Name + Image above the fold */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.25 }}
                 className="mb-6"
               >
+                <h2 className="text-xl sm:text-2xl font-bold text-[#2c2c2c] mb-4" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+                  RAJ <span className="text-[#9b6b3f]">NEXUS</span>
+                </h2>
                 <img
                   src={chargerHero}
                   alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, Apple Watch und AirPods"
