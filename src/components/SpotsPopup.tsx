@@ -48,9 +48,15 @@ const SpotsPopup = ({ spotsLeft }: SpotsPopupProps) => {
           >
             <X className="w-3.5 h-3.5" />
           </button>
-          <p className="text-sm text-[#2c2c2c] pr-4">
-            Noch <span className="font-bold text-[#9b6b3f]">{spotsLeft}</span> Plätze verfügbar.
-          </p>
+          <div className="flex items-center gap-2.5 pr-4">
+            <span className="relative flex h-3 w-3 flex-shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
+            </span>
+            <p className="text-base font-bold text-[#2c2c2c]">
+              Noch <span className="text-lg font-extrabold text-[#9b6b3f]">{spotsLeft}</span> Plätze verfügbar.
+            </p>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
