@@ -231,10 +231,29 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.55 }}
-                className="text-sm text-[#9b6b3f] font-medium text-center mb-8"
+                className="text-sm text-[#9b6b3f] font-medium text-center mb-4"
               >
-                Early Access: CHF 99 — regulär CHF 119 ab Launch
+                Early Access: CHF 99 — regulär CHF 129 ab Launch
               </motion.p>
+
+              {/* Benefit Bullets */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.58 }}
+                className="max-w-sm mx-auto mb-6 space-y-2"
+              >
+                {[
+                  "Early Access: CHF 99 (spare CHF 30)",
+                  "48h Vorsprung vor Launch",
+                  "Limitiert auf 100 Stück",
+                ].map((text) => (
+                  <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
+                    <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
+                    <span>{text}</span>
+                  </div>
+                ))}
+              </motion.div>
 
               {/* Email Form */}
               <motion.div
