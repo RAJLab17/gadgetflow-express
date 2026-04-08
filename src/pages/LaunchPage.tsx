@@ -171,6 +171,20 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
+              {/* Product Image above the fold */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.25 }}
+                className="mb-6"
+              >
+                <img
+                  src={chargerHero}
+                  alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, Apple Watch und AirPods"
+                  className="w-full max-w-xs sm:max-w-sm mx-auto drop-shadow-xl"
+                />
+              </motion.div>
+
               {/* 1. New Headline */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
@@ -188,7 +202,7 @@ const LaunchPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg sm:text-xl md:text-2xl font-light text-[#2c2c2c] mb-8"
               >
-                Der 3-in-1 Wireless Charger für iPhone, Watch & AirPods
+                3 Geräte. 1 Ladegerät. Kein Kabelsalat mehr.
               </motion.p>
 
               {/* 3. Scarcity Text */}
