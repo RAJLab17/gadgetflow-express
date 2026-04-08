@@ -230,15 +230,6 @@ const LaunchPage = () => {
                 </div>
               </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="text-sm text-[#9b6b3f] font-medium text-center mb-4"
-              >
-                Early Access: CHF 99 — regulär CHF 129 ab Launch
-              </motion.p>
-
               {/* Benefit Bullets */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
