@@ -288,7 +288,7 @@ const LaunchPage = () => {
                     {/* 2. Price below CTA */}
 
                     <p className="text-xs text-[#888888] text-center">
-                      Trag dich ein — wir informieren dich 48h vor allen anderen wenn der RAJ NEXUS kaufbar ist.
+                      48h Vorsprung vor allen anderen.
                     </p>
                   </form>
                 )}
