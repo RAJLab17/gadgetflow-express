@@ -297,7 +297,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== VIDEO SECTION ===== */}
-          <section className="py-16 md:py-24">
+          <section className="py-8 md:py-12">
             <div className="container mx-auto px-4 flex justify-center">
               <video
                 className="w-full max-w-4xl rounded-lg"
