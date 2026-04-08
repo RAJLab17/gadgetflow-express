@@ -216,9 +216,9 @@ const LaunchPage = () => {
                 className="max-w-sm mx-auto mb-4"
               >
                 <p className="text-sm text-[#2c2c2c] text-center mb-3">
-                  Nur {TOTAL_SPOTS} Early Access Plätze — noch{" "}
+                  Noch{" "}
                   <span className="font-bold text-[#9b6b3f]">{spotsLeft}</span>{" "}
-                  verfügbar.
+                  Plätze verfügbar.
                 </p>
                 <div className="w-full h-1.5 bg-[#9b6b3f]/10 rounded-full overflow-hidden">
                   <motion.div
