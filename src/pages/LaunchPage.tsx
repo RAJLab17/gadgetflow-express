@@ -510,6 +510,41 @@ const LaunchPage = () => {
             </div>
           </section>
 
+          {/* FAQ Section */}
+          <section className="py-16 md:py-20 bg-[#f5f2ec]">
+            <div className="container mx-auto px-4 max-w-2xl">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-10 tracking-tight">
+                Häufige Fragen
+              </h2>
+              <div className="space-y-0">
+                {[
+                  { q: "Was passiert nach der Anmeldung?", a: "Du erhältst eine Bestätigung per Email. Keine Zahlung, keine Verpflichtung." },
+                  { q: "Was bringt mir die Early Access Anmeldung?", a: "CHF 30 Rabatt beim Launch + limitierte Founder Edition mit Seriennummer + lebenslanger Vorverkaufs-Zugang bei allen zukünftigen RAJ Produkten." },
+                  { q: "Ist das der Shop?", a: "Nein, das ist die Pre-Launch Seite. Der offizielle Shop öffnet im Mai 2026." },
+                  { q: "Muss ich kaufen?", a: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot – du entscheidest dann." },
+                  { q: "Warum RAJ?", a: "RAJ ist eine neue Schweizer Brand. Wir bauen Premium Tech-Accessoires mit klarem Design und kompromissloser Qualität." },
+                  { q: "Wann wird geliefert?", a: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung." },
+                  { q: "Ist der Versand kostenlos?", a: "Ja, kostenloser Versand in der ganzen Schweiz." },
+                  { q: "Kann ich zurückgeben?", a: "Ja, 14 Tage Rückgaberecht nach Erhalt." },
+                ].map((item, i) => (
+                  <details key={i} className="group border-b border-[#9b6b3f]/10">
+                    <summary className="flex items-center justify-between py-5 cursor-pointer list-none text-left">
+                      <span className="text-[15px] md:text-base font-medium text-[#2c2c2c] pr-6 group-hover:text-[#9b6b3f] transition-colors">
+                        {item.q}
+                      </span>
+                      <svg className="w-4 h-4 shrink-0 text-[#888888] transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <div className="pb-5 pr-10">
+                      <p className="text-[#666666] text-sm leading-relaxed">{item.a}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* ===== 6. Second CTA Section ===== */}
           <section className="bg-[#9b6b3f] py-16 md:py-20">
             <div className="container mx-auto px-4 max-w-lg text-center">
@@ -576,41 +611,6 @@ const LaunchPage = () => {
             </div>
           </section>
 
-          {/* Footer */}
-          {/* FAQ Section */}
-          <section className="py-16 md:py-20 bg-[#f5f2ec]">
-            <div className="container mx-auto px-4 max-w-2xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-10 tracking-tight">
-                Häufige Fragen
-              </h2>
-              <div className="space-y-0">
-                {[
-                  { q: "Was passiert nach der Anmeldung?", a: "Du erhältst eine Bestätigung per Email. Keine Zahlung, keine Verpflichtung." },
-                  { q: "Was bringt mir die Early Access Anmeldung?", a: "CHF 30 Rabatt beim Launch + limitierte Founder Edition mit Seriennummer + lebenslanger Vorverkaufs-Zugang bei allen zukünftigen RAJ Produkten." },
-                  { q: "Ist das der Shop?", a: "Nein, das ist die Pre-Launch Seite. Der offizielle Shop öffnet im Mai 2026." },
-                  { q: "Muss ich kaufen?", a: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot – du entscheidest dann." },
-                  { q: "Warum RAJ?", a: "RAJ ist eine neue Schweizer Brand. Wir bauen Premium Tech-Accessoires mit klarem Design und kompromissloser Qualität." },
-                  { q: "Wann wird geliefert?", a: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung." },
-                  { q: "Ist der Versand kostenlos?", a: "Ja, kostenloser Versand in der ganzen Schweiz." },
-                  { q: "Kann ich zurückgeben?", a: "Ja, 14 Tage Rückgaberecht nach Erhalt." },
-                ].map((item, i) => (
-                  <details key={i} className="group border-b border-[#9b6b3f]/10">
-                    <summary className="flex items-center justify-between py-5 cursor-pointer list-none text-left">
-                      <span className="text-[15px] md:text-base font-medium text-[#2c2c2c] pr-6 group-hover:text-[#9b6b3f] transition-colors">
-                        {item.q}
-                      </span>
-                      <svg className="w-4 h-4 shrink-0 text-[#888888] transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </summary>
-                    <div className="pb-5 pr-10">
-                      <p className="text-[#666666] text-sm leading-relaxed">{item.a}</p>
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </section>
 
           <footer className="border-t border-[#9b6b3f]/10 py-8 bg-[#f0ede6]">
             <div className="container mx-auto px-4 flex flex-col items-center gap-4 text-center">
