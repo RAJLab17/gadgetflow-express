@@ -247,8 +247,8 @@ const LaunchPage = () => {
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight mb-3"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                <span className="text-[#2c2c2c]">Early Access</span>{" "}
-                <span className="text-[#9b6b3f]">– Limitierte Plätze</span>
+                <span className="text-[#2c2c2c]">Power.</span>{" "}
+                <span className="text-[#9b6b3f]">Always There.</span>
               </motion.h1>
 
               <motion.p
