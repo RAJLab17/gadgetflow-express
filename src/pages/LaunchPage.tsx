@@ -567,10 +567,7 @@ const LaunchPage = () => {
                       {isSubmitting2 ? (
                         <Loader2 className="w-5 h-5 animate-spin" />
                       ) : (
-                        <>
-                          <Mail className="w-4 h-4" />
-                          Gratis Platz sichern
-                        </>
+                          "FOUNDER MEMBER WERDEN"
                       )}
                     </button>
                   </div>
