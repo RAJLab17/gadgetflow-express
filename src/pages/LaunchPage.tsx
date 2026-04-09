@@ -14,6 +14,54 @@ import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 
 const nexusImages = [chargerHero, chargerSpecs, chargerColors, chargerAngles];
 
+const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
+
+const CountdownTimer = () => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const tick = () => {
+      const diff = Math.max(0, LAUNCH_DATE - Date.now());
+      setTimeLeft({
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff % 86400000) / 3600000),
+        minutes: Math.floor((diff % 3600000) / 60000),
+        seconds: Math.floor((diff % 60000) / 1000),
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const units = [
+    { value: timeLeft.days, label: "Tage" },
+    { value: timeLeft.hours, label: "Std" },
+    { value: timeLeft.minutes, label: "Min" },
+    { value: timeLeft.seconds, label: "Sek" },
+  ];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.35 }}
+      className="flex justify-center gap-3 mb-6"
+    >
+      {units.map((u) => (
+        <div key={u.label} className="flex flex-col items-center">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2c2c2c] tabular-nums leading-none">
+            {String(u.value).padStart(2, "0")}
+          </span>
+          <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#9b6b3f] font-semibold mt-1">
+            {u.label}
+          </span>
+        </div>
+      ))}
+    </motion.div>
+  );
+};
+
 const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 83;
 
@@ -196,9 +244,12 @@ const LaunchPage = () => {
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight mb-3"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                <span className="text-[#2c2c2c]">Power.</span>{" "}
-                <span className="text-[#9b6b3f]">Always There.</span>
+                <span className="text-[#2c2c2c]">Early Access</span>{" "}
+                <span className="text-[#9b6b3f]">– Limitierte Plätze</span>
               </motion.h1>
+
+              {/* Countdown Timer */}
+              <CountdownTimer />
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -218,7 +269,7 @@ const LaunchPage = () => {
                 {[
                   "CHF 30 sparen: CHF 99 statt CHF 129",
                   "Founder Edition mit einzigartiger Seriennummer",
-                  "Launch: Mai 2026",
+                  "Lebenslanger Vorverkaufs-Zugang (erste 100 Käufer)",
                   "3 Jahre Premium Garantie",
                 ].map((text) => (
                   <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
