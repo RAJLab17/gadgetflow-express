@@ -284,8 +284,8 @@ const LaunchPage = () => {
                       </button>
                     </div>
 
-                    <p className="text-xs text-[#888888] text-center">
-                      Unverbindlich · Kein Kauf · Kein Spam
+                    <p className="text-xs text-[#888888] text-center flex items-center justify-center gap-1.5">
+                      Unverbindlich · Sichere Zahlung · Kostenloser Versand <span className="inline-block w-4 h-3 rounded-[2px] overflow-hidden align-middle"><svg viewBox="0 0 32 24" className="w-full h-full"><rect width="32" height="24" fill="#D52B1E"/><rect x="11" y="7" width="10" height="10" fill="#fff"/><rect x="14" y="4" width="4" height="16" fill="#fff"/></svg></span>
                     </p>
                   </form>
                 )}
