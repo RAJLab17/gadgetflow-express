@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import LikeBadge from "@/components/LikeBadge";
-import SpotsPopup from "@/components/SpotsPopup";
+
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
@@ -208,39 +208,18 @@ const LaunchPage = () => {
                 3 Geräte. 1 Ladegerät. Kein Kabelsalat mehr.
               </motion.p>
 
-              {/* 3. Scarcity Text */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.45 }}
-                className="max-w-sm mx-auto mb-4"
-              >
-                <p className="text-sm text-[#2c2c2c] text-center mb-3">
-                  Noch{" "}
-                  <span className="font-bold text-[#9b6b3f]">{spotsLeft}</span>{" "}
-                  Plätze verfügbar.
-                </p>
-                <div className="w-full h-1.5 bg-[#9b6b3f]/10 rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full bg-[#9b6b3f] rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${(spotsTaken / TOTAL_SPOTS) * 100}%` }}
-                    transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
-                  />
-                </div>
-              </motion.div>
-
               {/* Benefit Bullets */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.58 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
                 className="max-w-sm mx-auto mb-6 space-y-2"
               >
                 {[
-                  "Early Access: CHF 99 (spare CHF 30)",
-                  "48h Vorsprung vor Launch",
-                  "Limitiert auf 100 Stück",
+                  "Founder Member Preis: CHF 99 (regulär CHF 129)",
+                  "Einzigartige Founder Seriennummer",
+                  "Vorverkaufsrecht bei allen neuen Produkten",
+                  "Direkter Input zu neuen Produkten",
                 ].map((text) => (
                   <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
                     <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
@@ -300,7 +279,7 @@ const LaunchPage = () => {
                         {isSubmitting ? (
                           <Loader2 className="w-5 h-5 animate-spin" />
                         ) : (
-                          "JETZT PLATZ SICHERN – CHF 30 SPAREN"
+                          "FOUNDER MEMBER WERDEN"
                         )}
                       </button>
                     </div>
@@ -630,7 +609,7 @@ const LaunchPage = () => {
           </footer>
         </div>
       </div>
-      <SpotsPopup spotsLeft={spotsLeft} />
+      
     </>
   );
 };
