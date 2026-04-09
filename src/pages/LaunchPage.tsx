@@ -571,7 +571,8 @@ const LaunchPage = () => {
               <div className="space-y-0">
                 {[
                   { q: "Was passiert nach der Anmeldung?", a: "Du erhältst eine Bestätigung per Email. Keine Zahlung, keine Verpflichtung." },
-                  { q: "Was bringt mir die Early Access Anmeldung?", a: "CHF 30 Rabatt beim Launch + limitierte Founder Edition mit Seriennummer + lebenslanger Vorverkaufs-Zugang bei allen zukünftigen RAJ Produkten." },
+                  { q: "Was bringt mir die Early Access Anmeldung?", a: "Du sicherst dir deinen Platz beim Launch im Mai. Die ersten 100 Käufer erhalten: CHF 30 Rabatt + Founder Edition mit Seriennummer + lebenslang 24h früher einkaufen bei allen neuen RAJ Produkten." },
+                  { q: "Wer bekommt den lebenslangen Vorverkaufs-Zugang?", a: "Nur die ersten 100 Käufer im Mai. Sie können bei allen zukünftigen Produkten 24 Stunden vor dem offiziellen Verkaufsstart einkaufen. Danach müssen Kunden einen Status erreichen." },
                   { q: "Ist das der Shop?", a: "Nein, das ist die Pre-Launch Seite. Der offizielle Shop öffnet im Mai 2026." },
                   { q: "Muss ich kaufen?", a: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot – du entscheidest dann." },
                   { q: "Warum RAJ?", a: "RAJ ist eine neue Schweizer Brand. Wir bauen Premium Tech-Accessoires mit klarem Design und kompromissloser Qualität." },
