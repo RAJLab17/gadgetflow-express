@@ -284,14 +284,8 @@ const LaunchPage = () => {
                       </button>
                     </div>
 
-                    <p className="text-xs text-[#888888] text-center flex items-center justify-center gap-1.5">
-                      Unverbindlich · Sichere Zahlung · Kostenloser Versand
-                      <span className="inline-flex items-center justify-center w-[18px] h-[13px] rounded-[2px] overflow-hidden shadow-sm border border-black/10 flex-shrink-0">
-                        <svg viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                          <rect width="32" height="24" fill="#D52B1E"/>
-                          <path d="M13 5h6v6h6v2h-6v6h-6v-6H7v-2h6V5z" fill="#fff"/>
-                        </svg>
-                      </span>
+                    <p className="text-xs text-[#888888] text-center">
+                      Unverbindlich · Sichere Zahlung · Kostenloser Versand 🇨🇭
                     </p>
                   </form>
                 )}
