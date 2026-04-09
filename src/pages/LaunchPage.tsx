@@ -570,18 +570,18 @@ const LaunchPage = () => {
               </h2>
               <div className="space-y-0">
                 {[
-                  { q: "Was passiert nach der Anmeldung?", a: "Du erhältst eine Bestätigung per Email. Keine Zahlung, keine Verpflichtung." },
+                  { q: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", a: "Ja. Alle iPhones mit MagSafe (iPhone 12 und neuer), Apple Watch, AirPods Pro & AirPods (3. Gen+). Funktioniert auch mit MagSafe Cases." },
                   { q: "Was bringt mir die Early Access Anmeldung?", a: "Du sicherst dir deinen Platz beim Launch im Mai. Die ersten 100 Käufer erhalten: CHF 30 Rabatt + Founder Edition mit Seriennummer + lebenslang 24h früher einkaufen bei allen neuen RAJ Produkten." },
-                  { q: "Wer bekommt den lebenslangen Vorverkaufs-Zugang?", a: "Nur die ersten 100 Käufer im Mai. Sie können bei allen zukünftigen Produkten 24 Stunden vor dem offiziellen Verkaufsstart einkaufen. Dieser Vorteil ist exklusiv für Founder Members." },
+                  { q: "Was passiert nach der Anmeldung?", a: "Du erhältst eine Bestätigung per Email. Keine Zahlung, keine Verpflichtung." },
+                  { q: "Was unterscheidet RAJ NEXUS von anderen Chargern?", a: "Qi2.2 Technologie - der neueste Standard (seit Juli 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Swiss Design, Premium-Materialien, 3 Jahre Garantie." },
+                  { q: "Ist das Laden sicher? Was ist mit Überhitzung?", a: "Ja. WPC-zertifiziert mit integrierten Sicherheitsmechanismen: Überhitzungsschutz, Überladeschutz, Fremdkörpererkennung. Qi2.2 ist effizienter und erzeugt weniger Hitze als ältere Standards." },
                   { q: "Ist das der Shop?", a: "Nein, das ist die Pre-Launch Seite. Der offizielle Shop öffnet im Mai 2026." },
-                  { q: "Muss ich kaufen?", a: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot – du entscheidest dann." },
+                  { q: "Muss ich kaufen?", a: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot - du entscheidest dann." },
                   { q: "Warum RAJ?", a: "RAJ ist eine neue Schweizer Brand. Wir bauen Premium Tech-Accessoires mit klarem Design und kompromissloser Qualität." },
+                  { q: "Wer bekommt den lebenslangen Vorverkaufs-Zugang?", a: "Nur die ersten 100 Käufer im Mai. Sie können bei allen zukünftigen Produkten 24 Stunden vor dem offiziellen Verkaufsstart einkaufen." },
                   { q: "Wann wird geliefert?", a: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung." },
                   { q: "Ist der Versand kostenlos?", a: "Ja, kostenloser Versand in der ganzen Schweiz." },
                   { q: "Kann ich zurückgeben?", a: "Ja, 14 Tage Rückgaberecht nach Erhalt." },
-                  { q: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", a: "Ja. Alle iPhones mit MagSafe (iPhone 12 und neuer), Apple Watch, AirPods Pro & AirPods (3. Gen+). Funktioniert auch mit MagSafe Cases." },
-                  { q: "Was unterscheidet RAJ NEXUS von anderen Chargern?", a: "Qi2.2 Technologie - der neueste Standard (seit Oktober 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Swiss Design, Premium-Materialien, 3 Jahre Garantie." },
-                  { q: "Ist das Laden sicher? Was ist mit Überhitzung?", a: "Ja. WPC-zertifiziert mit integrierten Sicherheitsmechanismen: Überhitzungsschutz, Überladeschutz, Fremdkörpererkennung. Qi2.2 ist effizienter und erzeugt weniger Hitze als ältere Standards." },
                 ].map((item, i) => (
                   <details key={i} className="group border-b border-[#9b6b3f]/10">
                     <summary className="flex items-center justify-between py-5 cursor-pointer list-none text-left">
