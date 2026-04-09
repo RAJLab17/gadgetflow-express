@@ -579,6 +579,9 @@ const LaunchPage = () => {
                   { q: "Wann wird geliefert?", a: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung." },
                   { q: "Ist der Versand kostenlos?", a: "Ja, kostenloser Versand in der ganzen Schweiz." },
                   { q: "Kann ich zurückgeben?", a: "Ja, 14 Tage Rückgaberecht nach Erhalt." },
+                  { q: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", a: "Ja. Alle iPhones mit MagSafe (iPhone 12 und neuer), Apple Watch, AirPods Pro & AirPods (3. Gen+). Funktioniert auch mit MagSafe Cases." },
+                  { q: "Was unterscheidet RAJ NEXUS von anderen Chargern?", a: "Qi2.2 Technologie - der neueste Standard (seit Oktober 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Swiss Design, Premium-Materialien, 3 Jahre Garantie." },
+                  { q: "Ist das Laden sicher? Was ist mit Überhitzung?", a: "Ja. WPC-zertifiziert mit integrierten Sicherheitsmechanismen: Überhitzungsschutz, Überladeschutz, Fremdkörpererkennung. Qi2.2 ist effizienter und erzeugt weniger Hitze als ältere Standards." },
                 ].map((item, i) => (
                   <details key={i} className="group border-b border-[#9b6b3f]/10">
                     <summary className="flex items-center justify-between py-5 cursor-pointer list-none text-left">
