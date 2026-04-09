@@ -279,7 +279,7 @@ const LaunchPage = () => {
                         {isSubmitting ? (
                           <Loader2 className="w-5 h-5 animate-spin" />
                         ) : (
-                          "FOUNDER MEMBER WERDEN"
+                          "EARLY ACCESS SICHERN"
                         )}
                       </button>
                     </div>
@@ -567,7 +567,7 @@ const LaunchPage = () => {
                       {isSubmitting2 ? (
                         <Loader2 className="w-5 h-5 animate-spin" />
                       ) : (
-                          "FOUNDER MEMBER WERDEN"
+                          "EARLY ACCESS SICHERN"
                       )}
                     </button>
                   </div>
