@@ -216,10 +216,10 @@ const LaunchPage = () => {
                 className="max-w-sm mx-auto mb-6 space-y-2"
               >
                 {[
-                  "Founder Member Preis: CHF 99 (regulär CHF 129)",
-                  "Einzigartige Founder Seriennummer",
-                  "Vorverkaufsrecht bei allen neuen Produkten",
-                  "Direkter Input zu neuen Produkten",
+                  "CHF 30 sparen: CHF 99 statt CHF 129",
+                  "Founder Edition mit einzigartiger Seriennummer",
+                  "Launch: Mai 2026",
+                  "3 Jahre Premium Garantie",
                 ].map((text) => (
                   <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
                     <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
@@ -393,7 +393,7 @@ const LaunchPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
                 { icon: Zap, title: "25W · Qi2 zertifiziert" },
-                { icon: Shield, title: "2 Jahre Garantie · CH Support" },
+                { icon: Shield, title: "3 Jahre Premium Garantie · CH Support" },
                 { icon: Truck, title: "Gratis Lieferung Schweiz" },
               ].map((item, i) => (
                 <motion.div
