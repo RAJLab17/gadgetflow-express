@@ -219,6 +219,9 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
+              {/* Countdown Timer */}
+              <CountdownTimer />
+
               {/* Product Name + Image above the fold */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -248,8 +251,6 @@ const LaunchPage = () => {
                 <span className="text-[#9b6b3f]">– Limitierte Plätze</span>
               </motion.h1>
 
-              {/* Countdown Timer */}
-              <CountdownTimer />
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
