@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, ChevronLeft, ChevronRight, Eye as EyeIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -75,7 +75,23 @@ const LaunchPage = () => {
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
+  const [visitorCount, setVisitorCount] = useState(657);
   const spotsLeft = TOTAL_SPOTS - spotsTaken;
+
+  // Increment and fetch visitor count
+  useEffect(() => {
+    const incrementVisitor = async () => {
+      try {
+        const { data, error } = await supabase.rpc("increment_visitor_count");
+        if (!error && data) {
+          setVisitorCount(data);
+        }
+      } catch (e) {
+        console.error("Failed to increment visitor count:", e);
+      }
+    };
+    incrementVisitor();
+  }, []);
 
   // Fetch signup count from database
   useEffect(() => {
@@ -260,7 +276,20 @@ const LaunchPage = () => {
                 3 Geräte. 1 Ladegerät. Kein Kabelsalat mehr.
               </motion.p>
 
-              {/* Benefit Bullets */}
+              {/* Visitor Counter */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="flex items-center justify-center gap-2 mb-6"
+              >
+                <Eye className="w-4 h-4 text-[#9b6b3f]" />
+                <span className="text-sm font-medium text-[#2c2c2c]">
+                  <span className="font-bold text-[#9b6b3f]">{visitorCount.toLocaleString("de-CH")}</span> Personen haben RAJ NEXUS bereits entdeckt
+                </span>
+              </motion.div>
+
+
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
