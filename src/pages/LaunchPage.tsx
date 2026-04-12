@@ -75,28 +75,31 @@ const LaunchPage = () => {
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
-  const [visitorCount, setVisitorCount] = useState(659);
+  const [visitorCount, setVisitorCount] = useState(666);
 
-  // Increment only for new visitors (localStorage flag), otherwise just fetch
+  // Unique visitor tracking via cookie-based UUID
   useEffect(() => {
     const handleVisitor = async () => {
       try {
-        const hasVisited = localStorage.getItem("raj_visitor_counted");
-        if (!hasVisited) {
-          const { data, error } = await supabase.rpc("increment_visitor_count");
-          if (!error && data) {
-            setVisitorCount(data);
-            localStorage.setItem("raj_visitor_counted", "1");
-          }
-        } else {
-          const { data, error } = await supabase
-            .from("visitor_counter")
-            .select("count")
-            .eq("id", 1)
-            .single();
-          if (!error && data) {
-            setVisitorCount(data.count);
-          }
+        // Get or create a persistent UUID cookie
+        const cookieName = "raj_visitor_id";
+        let visitorId = document.cookie
+          .split("; ")
+          .find((c) => c.startsWith(cookieName + "="))
+          ?.split("=")[1];
+
+        if (!visitorId) {
+          visitorId = crypto.randomUUID();
+          // Set cookie for 2 years
+          const expires = new Date(Date.now() + 2 * 365 * 24 * 60 * 60 * 1000).toUTCString();
+          document.cookie = `${cookieName}=${visitorId}; expires=${expires}; path=/; SameSite=Lax`;
+        }
+
+        const { data, error } = await supabase.rpc("register_unique_visitor", {
+          p_visitor_id: visitorId,
+        });
+        if (!error && data !== null) {
+          setVisitorCount(data);
         }
       } catch (e) {
         console.error("Failed to handle visitor count:", e);
