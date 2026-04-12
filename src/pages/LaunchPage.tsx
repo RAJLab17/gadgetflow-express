@@ -358,18 +358,9 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
-                    {/* Progress Bar */}
-                    <div className="space-y-1.5 mb-1">
-                      <div className="w-full h-1.5 rounded-full bg-[#9b6b3f]/10 overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-[#9b6b3f] transition-all duration-700"
-                          style={{ width: `${Math.min((spotsTaken / TOTAL_SPOTS) * 100, 100)}%` }}
-                        />
-                      </div>
-                      <p className="text-xs text-muted-foreground text-center">
-                        {spotsTaken} von {TOTAL_SPOTS} Plätzen vergeben
-                      </p>
-                    </div>
+                    <p className="text-xs text-muted-foreground text-center mb-1">
+                      Die ersten 100 Besteller zahlen CHF 99.– statt CHF 129.–
+                    </p>
 
                     <div className="flex flex-col gap-3">
                       <div className="relative">
