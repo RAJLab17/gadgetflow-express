@@ -464,7 +464,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== 4. Trust Bar ===== */}
-          <section className="container mx-auto px-4 pb-20">
+          <section className="container mx-auto px-4 pb-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -488,7 +488,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== WARUM RAJ ===== */}
-          <section className="container mx-auto px-4 py-20">
+          <section className="container mx-auto px-4 py-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -506,7 +506,7 @@ const LaunchPage = () => {
           </section>
 
           {/* FAQ Section */}
-          <section className="py-16 md:py-20 bg-[#f5f2ec]">
+          <section className="py-10 md:py-12 bg-[#f5f2ec]">
             <div className="container mx-auto px-4 max-w-2xl">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-10 tracking-tight">
                 Häufige Fragen
