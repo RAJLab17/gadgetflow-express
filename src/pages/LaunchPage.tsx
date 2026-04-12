@@ -248,6 +248,18 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
+              {/* Visitor Count Line */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.28 }}
+                className="flex items-center justify-center gap-2 mb-2"
+              >
+                <span className="text-sm font-medium text-[#2c2c2c]">
+                  🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{visitorCount}+</span> Personen angesehen
+                </span>
+              </motion.div>
+
               {/* Scarcity Line */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
