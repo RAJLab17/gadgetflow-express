@@ -506,7 +506,7 @@ const LaunchPage = () => {
           </section>
 
           {/* FAQ Section */}
-          <section className="py-16 md:py-20 bg-[#f5f2ec]">
+          <section className="py-10 md:py-12 bg-[#f5f2ec]">
             <div className="container mx-auto px-4 max-w-2xl">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-10 tracking-tight">
                 Häufige Fragen
