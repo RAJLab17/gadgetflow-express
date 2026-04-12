@@ -161,6 +161,21 @@ export type Database = {
         }
         Relationships: []
       }
+      visitor_counter: {
+        Row: {
+          count: number
+          id: number
+        }
+        Insert: {
+          count?: number
+          id?: number
+        }
+        Update: {
+          count?: number
+          id?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
