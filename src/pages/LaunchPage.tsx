@@ -437,7 +437,7 @@ const LaunchPage = () => {
                     </div>
 
                     <p className="text-xs text-[#888888] text-center">
-                      Exklusiver Zugang. Keine Werbung.
+                      Exklusiver Zugang. Nur das, was zählt.
                     </p>
                   </form>
                 )}
