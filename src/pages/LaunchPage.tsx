@@ -128,22 +128,16 @@ const LaunchPage = () => {
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [visitorCount, setVisitorCount] = useState(666);
 
-  // Unique visitor tracking via cookie-based UUID
+  // Unique visitor tracking via localStorage-based UUID
   useEffect(() => {
     const handleVisitor = async () => {
       try {
-        // Get or create a persistent UUID cookie
-        const cookieName = "raj_visitor_id";
-        let visitorId = document.cookie
-          .split("; ")
-          .find((c) => c.startsWith(cookieName + "="))
-          ?.split("=")[1];
+        const storageKey = "raj_visitor_id";
+        let visitorId = localStorage.getItem(storageKey);
 
         if (!visitorId) {
           visitorId = crypto.randomUUID();
-          // Set cookie for 2 years
-          const expires = new Date(Date.now() + 2 * 365 * 24 * 60 * 60 * 1000).toUTCString();
-          document.cookie = `${cookieName}=${visitorId}; expires=${expires}; path=/; SameSite=Lax`;
+          localStorage.setItem(storageKey, visitorId);
         }
 
         const { data, error } = await supabase.rpc("register_unique_visitor", {
