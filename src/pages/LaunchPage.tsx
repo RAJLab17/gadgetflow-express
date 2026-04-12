@@ -398,75 +398,67 @@ const LaunchPage = () => {
 
 
 
-          {/* ===== 5. Product Teaser – LARGER, no gap ===== */}
-          <section className="container mx-auto px-4 pb-20">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-3"
-              style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
-            >
-              Das Produkt
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center text-[#888888] mb-12 max-w-lg mx-auto italic"
-            >
-              Qi2.2 · 25W · 3-in-1 für iPhone, AirPods & Apple Watch
-            </motion.p>
+          {/* ===== 5. Product Teaser – Edge-to-edge ===== */}
+          <section className="pb-20">
+            <div className="container mx-auto px-4">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-3"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+              >
+                RAJ <span className="text-[#9b6b3f]">NEXUS</span>
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-center text-[#888888] mb-8 max-w-lg mx-auto italic"
+              >
+                Ein Ladegerät für alles. Ohne Kompromisse.
+              </motion.p>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="max-w-2xl mx-auto"
+              className="w-full"
             >
-              <div
-                className="group bg-[#f0ede6] rounded-2xl border border-[#9b6b3f]/10 p-6 md:p-8 text-center transition-all duration-300"
-                style={{ boxShadow: "0 8px 20px rgba(155, 107, 63, 0.10)" }}
-              >
-                <div className="relative mb-6 overflow-hidden rounded-xl cursor-grab active:cursor-grabbing">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#9b6b3f]/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={currentImage}
-                      src={nexusImages[currentImage]}
-                      alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                      className="w-full aspect-square object-contain relative"
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 1.05 }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                      drag="x"
-                      dragConstraints={{ left: 0, right: 0 }}
-                      dragElastic={0.1}
-                      onDragEnd={handleSwipe}
-                    />
-                  </AnimatePresence>
+              <div className="relative overflow-hidden cursor-grab active:cursor-grabbing">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImage}
+                    src={nexusImages[currentImage]}
+                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                    className="w-full aspect-square object-contain"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.1}
+                    onDragEnd={handleSwipe}
+                  />
+                </AnimatePresence>
+              </div>
 
-                </div>
-
-                {/* Dot indicators */}
-                <div className="flex justify-center gap-2 mb-4">
-                  {nexusImages.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => handleImageNav(i)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        i === currentImage ? "bg-[#9b6b3f] w-6" : "bg-[#9b6b3f]/25 hover:bg-[#9b6b3f]/50"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-
-
+              {/* Dot indicators */}
+              <div className="flex justify-center gap-2 mt-4 mb-4">
+                {nexusImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleImageNav(i)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      i === currentImage ? "bg-[#9b6b3f] w-6" : "bg-[#9b6b3f]/25 hover:bg-[#9b6b3f]/50"
+                    }`}
+                  />
+                ))}
               </div>
             </motion.div>
           </section>
