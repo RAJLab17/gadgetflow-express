@@ -333,7 +333,8 @@ const LaunchPage = () => {
                 {[
                   "Founder Edition mit persönlicher Seriennummer",
                   "Lebenslanger Vorverkaufs-Zugang",
-                  "3 Jahre Premium Garantie · CH Support",
+                   "3 Jahre Premium Garantie · CH Support",
+                   "24h exklusiver Vorverkauf vor allen anderen",
                 ].map((text) => (
                   <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
                     <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
