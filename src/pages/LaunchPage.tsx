@@ -474,39 +474,13 @@ const LaunchPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full"
+              className="w-full flex justify-center"
             >
-              <div className="relative overflow-hidden cursor-grab active:cursor-grabbing">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={currentImage}
-                    src={nexusImages[currentImage]}
-                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                    className="w-full aspect-square object-contain"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.1}
-                    onDragEnd={handleSwipe}
-                  />
-                </AnimatePresence>
-              </div>
-
-              {/* Dot indicators */}
-              <div className="flex justify-center gap-2 mt-4 mb-4">
-                {nexusImages.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleImageNav(i)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      i === currentImage ? "bg-[#9b6b3f] w-6" : "bg-[#9b6b3f]/25 hover:bg-[#9b6b3f]/50"
-                    }`}
-                  />
-                ))}
-              </div>
+              <img
+                src={chargerSpecs}
+                alt="RAJ NEXUS 3-in-1 Wireless Charger – Qi2.2 Certified, 25W, 3-in-1"
+                className="w-full max-h-[500px] object-contain"
+              />
             </motion.div>
           </section>
 
