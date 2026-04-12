@@ -529,22 +529,12 @@ const LaunchPage = () => {
                   />
                 ))}
               </div>
-            </motion.div>
-          </section>
 
-          {/* ===== 4. Trust Bar ===== */}
-          <section className="pt-4 pb-6 md:pt-6 md:pb-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-xl mx-auto px-4"
-            >
-              <div className="flex items-center justify-center">
+              {/* Trust Bar – inline under carousel */}
+              <div className="flex items-center justify-center mt-6 mb-2">
                 {[
                   { icon: () => (
-                    <svg viewBox="0 0 16 16" className="w-4 h-4 flex-shrink-0">
+                    <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 flex-shrink-0">
                       <rect x="1" y="2" width="14" height="12" rx="1" fill="#D52B1E"/>
                       <rect x="6.5" y="4" width="3" height="8" fill="#fff"/>
                       <rect x="4" y="6.5" width="8" height="3" fill="#fff"/>
@@ -554,12 +544,12 @@ const LaunchPage = () => {
                   { icon: Truck, text: "Kostenloser Versand" },
                 ].map((item, i, arr) => (
                   <React.Fragment key={item.text}>
-                    <div className="flex items-center gap-2.5 px-4 sm:px-6">
-                      <item.icon className="w-4 h-4 text-[#9b6b3f]" />
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">{item.text}</span>
+                    <div className="flex items-center gap-2 px-3 sm:px-5">
+                      <item.icon className="w-3.5 h-3.5 text-[#9b6b3f]/70" />
+                      <span className="text-[11px] text-muted-foreground/80 whitespace-nowrap">{item.text}</span>
                     </div>
                     {i < arr.length - 1 && (
-                      <div className="w-px h-4 bg-border/60 flex-shrink-0" />
+                      <div className="w-px h-3 bg-border/40 flex-shrink-0" />
                     )}
                   </React.Fragment>
                 ))}
