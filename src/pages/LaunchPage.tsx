@@ -287,7 +287,7 @@ const LaunchPage = () => {
               {/* Scarcity Line — no animation, immediately visible */}
               <div className="flex items-center justify-center gap-2 mb-6">
                 <span className="text-sm font-medium text-[#2c2c2c]">
-                  ⚡ Die ersten <span className="font-bold text-[#9b6b3f]">100</span> Besteller erhalten die Founder Edition.
+                  ⚡ Founder Edition – limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück.
                 </span>
               </div>
 
