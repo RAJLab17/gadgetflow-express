@@ -464,7 +464,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== 4. Trust Bar ===== */}
-          <section className="container mx-auto px-4 pb-20">
+          <section className="container mx-auto px-4 pb-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
