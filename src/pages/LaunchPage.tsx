@@ -283,23 +283,6 @@ const LaunchPage = () => {
           {/* ===== 1. HERO SECTION ===== */}
           <section className="container mx-auto px-4 pt-8 pb-6 md:pt-16 md:pb-10">
             <div className="max-w-3xl mx-auto text-center">
-              {/* Badges */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex items-center justify-center gap-2 mb-6"
-              >
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 border border-[#9b6b3f]/15 text-xs font-medium text-[#2c2c2c]">
-                  🇨🇭 Swiss Brand
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 border border-[#9b6b3f]/15 text-xs font-medium text-[#2c2c2c]">
-                  Launch: 6. Mai 2026
-                </span>
-              </motion.div>
-
-              {/* Visitor Count Line with delayed fade-in + count-up */}
-              <VisitorCountLine visitorCount={visitorCount} />
 
               {/* Scarcity Line — no animation, immediately visible */}
               <div className="flex items-center justify-center gap-2 mb-6">
