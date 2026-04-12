@@ -12,7 +12,7 @@ import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
 import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 
-const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
+// chargerSpecs is used as a static hero image below
 
 const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
 
