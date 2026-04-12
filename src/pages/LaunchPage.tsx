@@ -538,7 +538,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== WARUM RAJ ===== */}
-          <section className="container mx-auto px-4 pt-10 pb-8 md:pt-14 md:pb-10">
+          <section className="container mx-auto px-4 pt-4 pb-8 md:pt-6 md:pb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
