@@ -9,9 +9,6 @@ import LikeBadge from "@/components/LikeBadge";
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
-import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
-
-// chargerSpecs is used as a static hero image below
 
 const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
 
