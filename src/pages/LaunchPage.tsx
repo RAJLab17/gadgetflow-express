@@ -102,6 +102,7 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
   );
 };
 
+const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 0;
 
 const LaunchPage = () => {
