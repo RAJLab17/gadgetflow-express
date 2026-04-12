@@ -463,29 +463,28 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          {/* ===== 4. Trust Section – Updated Labels ===== */}
+          {/* ===== 4. Trust Bar ===== */}
           <section className="container mx-auto px-4 pb-20">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-              {[
-                { icon: Zap, title: "25W · Qi2 zertifiziert" },
-                { icon: Shield, title: "3 Jahre Premium Garantie · CH Support" },
-                { icon: Truck, title: "Gratis Lieferung Schweiz" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/60 border border-[#9b6b3f]/10"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#9b6b3f]/10 flex items-center justify-center mb-3">
-                    <item.icon className="w-5 h-5 text-[#9b6b3f]" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="border border-border bg-secondary/50 py-6 px-4"
+            >
+              <div className="grid grid-cols-3 divide-x divide-border max-w-2xl mx-auto">
+                {[
+                  { icon: Zap, text: "25W · Qi2 zertifiziert" },
+                  { icon: Shield, text: "3 Jahre Garantie · CH Support" },
+                  { icon: Truck, text: "Gratis Lieferung Schweiz" },
+                ].map((item) => (
+                  <div key={item.text} className="flex flex-col items-center text-center px-3">
+                    <item.icon className="w-4 h-4 text-[#9b6b3f] mb-2" />
+                    <span className="text-xs font-medium text-muted-foreground leading-tight">{item.text}</span>
                   </div>
-                  <h3 className="font-semibold text-[#2c2c2c] text-sm">{item.title}</h3>
-                </motion.div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </motion.div>
           </section>
 
           {/* ===== ÜBER UNS SECTION ===== */}
