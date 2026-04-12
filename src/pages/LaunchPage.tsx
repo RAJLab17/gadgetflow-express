@@ -474,7 +474,7 @@ const LaunchPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full"
+              className="w-full max-w-3xl mx-auto"
             >
               <div className="relative overflow-hidden cursor-grab active:cursor-grabbing flex justify-center">
                 <AnimatePresence mode="wait">
