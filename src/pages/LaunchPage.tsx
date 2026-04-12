@@ -421,7 +421,7 @@ const LaunchPage = () => {
               className="text-center text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-3"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
             >
-              Unser erstes Produkt
+              Das Produkt
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -430,7 +430,7 @@ const LaunchPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-center text-[#888888] mb-12 max-w-lg mx-auto italic"
             >
-              Perfekte Eleganz. Qi2 neu definiert.
+              Qi2.2 · 25W · 3-in-1 für iPhone, AirPods & Apple Watch
             </motion.p>
 
             <motion.div
