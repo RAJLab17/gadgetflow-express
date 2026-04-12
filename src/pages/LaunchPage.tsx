@@ -238,6 +238,19 @@ const LaunchPage = () => {
               {/* Countdown Timer */}
               <CountdownTimer />
 
+              {/* Visitor Counter */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+                className="flex items-center justify-center gap-2 mb-6"
+              >
+                <Eye className="w-4 h-4 text-[#9b6b3f]" />
+                <span className="text-sm font-medium text-[#2c2c2c]">
+                  <span className="font-bold text-[#9b6b3f]">{visitorCount.toLocaleString("de-CH")}</span> Personen haben RAJ NEXUS bereits entdeckt
+                </span>
+              </motion.div>
+
               {/* Product Name + Image above the fold */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -276,18 +289,6 @@ const LaunchPage = () => {
                 3 Geräte. 1 Ladegerät. Kein Kabelsalat mehr.
               </motion.p>
 
-              {/* Visitor Counter */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="flex items-center justify-center gap-2 mb-6"
-              >
-                <Eye className="w-4 h-4 text-[#9b6b3f]" />
-                <span className="text-sm font-medium text-[#2c2c2c]">
-                  <span className="font-bold text-[#9b6b3f]">{visitorCount.toLocaleString("de-CH")}</span> Personen haben RAJ NEXUS bereits entdeckt
-                </span>
-              </motion.div>
 
 
               <motion.div
