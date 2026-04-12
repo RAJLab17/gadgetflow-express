@@ -119,8 +119,6 @@ const DEFAULT_TAKEN = 0;
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
-  const [currentImage, setCurrentImage] = useState(0);
-  const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting2, setIsSubmitting2] = useState(false);
@@ -169,23 +167,6 @@ const LaunchPage = () => {
     };
     fetchCount();
   }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentImage((prev) => (prev + 1) % nexusImages.length);
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, [currentImage, autoPlayKey]);
-
-  const handleImageNav = useCallback((index: number) => {
-    setCurrentImage(index);
-    setAutoPlayKey((prev) => prev + 1);
-  }, []);
-
-  const handleSwipe = useCallback((_: any, info: { offset: { x: number } }) => {
-    if (info.offset.x < -50) handleImageNav((currentImage + 1) % nexusImages.length);
-    else if (info.offset.x > 50) handleImageNav((currentImage - 1 + nexusImages.length) % nexusImages.length);
-  }, [currentImage, handleImageNav]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
