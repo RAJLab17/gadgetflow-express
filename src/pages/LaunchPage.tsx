@@ -404,9 +404,6 @@ const LaunchPage = () => {
                         <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                           Founder Edition
                         </h4>
-                        <p className="text-xs text-white/50">
-                          Limitiert auf 100 Stück.
-                        </p>
                       </div>
                     </div>
 
