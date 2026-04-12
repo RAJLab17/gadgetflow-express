@@ -396,20 +396,7 @@ const LaunchPage = () => {
             </div>
           </section>
 
-          {/* ===== VIDEO SECTION ===== */}
-          <section className="py-8 md:py-12">
-            <div className="container mx-auto px-4 flex justify-center">
-              <video
-                className="w-full max-w-4xl rounded-lg"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src="/videos/brand-video.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </section>
+
 
           {/* ===== 5. Product Teaser – LARGER, no gap ===== */}
           <section className="container mx-auto px-4 pb-20">
@@ -421,7 +408,7 @@ const LaunchPage = () => {
               className="text-center text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-3"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
             >
-              Unser erstes Produkt
+              Das Produkt
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -430,7 +417,7 @@ const LaunchPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-center text-[#888888] mb-12 max-w-lg mx-auto italic"
             >
-              Perfekte Eleganz. Qi2 neu definiert.
+              Qi2.2 · 25W · 3-in-1 für iPhone, AirPods & Apple Watch
             </motion.p>
 
             <motion.div
