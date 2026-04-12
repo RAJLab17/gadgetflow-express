@@ -476,17 +476,20 @@ const LaunchPage = () => {
               transition={{ duration: 0.8 }}
               className="w-full max-w-3xl mx-auto"
             >
-              <div className="relative overflow-hidden cursor-grab active:cursor-grabbing flex justify-center">
-                <AnimatePresence mode="wait">
+              <div
+                className="relative overflow-hidden cursor-grab active:cursor-grabbing"
+                style={{ height: "clamp(280px, 50vw, 500px)" }}
+              >
+                <AnimatePresence initial={false}>
                   <motion.img
                     key={currentImage}
                     src={nexusImages[currentImage]}
                     alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                    className="w-full max-h-[500px] object-contain"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="absolute inset-0 w-full h-full object-contain"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={0.1}
