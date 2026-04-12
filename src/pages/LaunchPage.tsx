@@ -295,6 +295,18 @@ const LaunchPage = () => {
                 3 Geräte. 1 Ladegerät. Kein Kabelsalat mehr.
               </motion.p>
 
+              {/* Price Line */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="flex items-center justify-center gap-3 mb-8"
+              >
+                <span className="text-base line-through text-muted-foreground">CHF 129.–</span>
+                <span className="text-2xl font-bold text-[#9b6b3f]">CHF 99.–</span>
+                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#9b6b3f]/10 text-[#9b6b3f]">Early Access</span>
+              </motion.div>
+
 
 
               <motion.div
