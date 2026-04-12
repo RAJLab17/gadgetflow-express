@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, ChevronLeft, ChevronRight, Eye as EyeIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
