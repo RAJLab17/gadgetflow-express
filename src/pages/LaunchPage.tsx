@@ -248,11 +248,16 @@ const LaunchPage = () => {
   return (
     <>
       <Helmet>
-        <title>RAJ – Coming Soon | Premium Ladezubehör aus der Schweiz</title>
+        <title>RAJ NEXUS — 3-in-1 Qi2 Wireless Charger | Swiss Brand</title>
         <meta
           name="description"
-          content="RAJ lanciert bald: Premium Ladezubehör mit Schweizer Design. Trag dich ein und erfahre als Erstes, wann wir live gehen."
+          content="iPhone, AirPods & Apple Watch gleichzeitig laden. Qi2.2 zertifiziert, 25W. CHF 99 Early Access. Gratis Lieferung Schweiz."
         />
+        <meta property="og:title" content="RAJ NEXUS — 3-in-1 Qi2 Wireless Charger" />
+        <meta property="og:description" content="iPhone, AirPods & Apple Watch gleichzeitig laden. CHF 99 Early Access. Swiss Brand." />
+        <meta property="og:site_name" content="RAJ" />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content="https://raj.ch" />
       </Helmet>
 
       <div className="min-h-screen bg-[#f0ede6] relative overflow-hidden">
