@@ -75,28 +75,31 @@ const LaunchPage = () => {
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
-  const [visitorCount, setVisitorCount] = useState(659);
+  const [visitorCount, setVisitorCount] = useState(666);
 
-  // Increment only for new visitors (localStorage flag), otherwise just fetch
+  // Unique visitor tracking via cookie-based UUID
   useEffect(() => {
     const handleVisitor = async () => {
       try {
-        const hasVisited = localStorage.getItem("raj_visitor_counted");
-        if (!hasVisited) {
-          const { data, error } = await supabase.rpc("increment_visitor_count");
-          if (!error && data) {
-            setVisitorCount(data);
-            localStorage.setItem("raj_visitor_counted", "1");
-          }
-        } else {
-          const { data, error } = await supabase
-            .from("visitor_counter")
-            .select("count")
-            .eq("id", 1)
-            .single();
-          if (!error && data) {
-            setVisitorCount(data.count);
-          }
+        // Get or create a persistent UUID cookie
+        const cookieName = "raj_visitor_id";
+        let visitorId = document.cookie
+          .split("; ")
+          .find((c) => c.startsWith(cookieName + "="))
+          ?.split("=")[1];
+
+        if (!visitorId) {
+          visitorId = crypto.randomUUID();
+          // Set cookie for 2 years
+          const expires = new Date(Date.now() + 2 * 365 * 24 * 60 * 60 * 1000).toUTCString();
+          document.cookie = `${cookieName}=${visitorId}; expires=${expires}; path=/; SameSite=Lax`;
+        }
+
+        const { data, error } = await supabase.rpc("register_unique_visitor", {
+          p_visitor_id: visitorId,
+        });
+        if (!error && data !== null) {
+          setVisitorCount(data);
         }
       } catch (e) {
         console.error("Failed to handle visitor count:", e);
@@ -242,6 +245,18 @@ const LaunchPage = () => {
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 border border-[#9b6b3f]/15 text-xs font-medium text-[#2c2c2c]">
                   Launch: 6. Mai 2026
+                </span>
+              </motion.div>
+
+              {/* Visitor Count Line */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.28 }}
+                className="flex items-center justify-center gap-2 mb-2"
+              >
+                <span className="text-sm font-medium text-[#2c2c2c]">
+                  🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{visitorCount}+</span> Personen angesehen
                 </span>
               </motion.div>
 

@@ -161,6 +161,36 @@ export type Database = {
         }
         Relationships: []
       }
+      unique_visitors: {
+        Row: {
+          id: string
+          visited_at: string
+        }
+        Insert: {
+          id: string
+          visited_at?: string
+        }
+        Update: {
+          id?: string
+          visited_at?: string
+        }
+        Relationships: []
+      }
+      visitor_count: {
+        Row: {
+          count: number
+          id: number
+        }
+        Insert: {
+          count?: number
+          id?: number
+        }
+        Update: {
+          count?: number
+          id?: number
+        }
+        Relationships: []
+      }
       visitor_counter: {
         Row: {
           count: number
@@ -182,6 +212,10 @@ export type Database = {
     }
     Functions: {
       increment_visitor_count: { Args: never; Returns: number }
+      register_unique_visitor: {
+        Args: { p_visitor_id: string }
+        Returns: number
+      }
     }
     Enums: {
       [_ in never]: never
