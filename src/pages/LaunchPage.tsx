@@ -316,10 +316,9 @@ const LaunchPage = () => {
                 className="max-w-sm mx-auto mb-6 space-y-2"
               >
                 {[
-                  "Early Access: CHF 99 — danach CHF 129",
-                  "Founder Edition mit einzigartiger Seriennummer",
-                  "Lebenslanger Vorverkaufs-Zugang (erste 100 Käufer)",
-                  "3 Jahre Premium Garantie",
+                  "Founder Edition mit persönlicher Seriennummer",
+                  "Lebenslanger Vorverkaufs-Zugang",
+                  "3 Jahre Premium Garantie · CH Support",
                 ].map((text) => (
                   <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
                     <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
