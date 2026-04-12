@@ -245,16 +245,15 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
-              {/* Visitor Counter */}
+              {/* Scarcity Line */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex items-center justify-center gap-2 mb-6"
               >
-                <Eye className="w-4 h-4 text-[#9b6b3f]" />
                 <span className="text-sm font-medium text-[#2c2c2c]">
-                  <span className="font-bold text-[#9b6b3f]">{visitorCount.toLocaleString("de-CH")}</span> Personen haben RAJ NEXUS bereits entdeckt
+                  ⚡ Sichere dir einen der ersten <span className="font-bold text-[#9b6b3f]">100</span> Plätze.
                 </span>
               </motion.div>
 
