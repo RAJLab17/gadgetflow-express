@@ -62,6 +62,46 @@ const CountdownTimer = () => {
   );
 };
 
+const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
+  const [displayCount, setDisplayCount] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // 0.8s delay before showing
+    const delayTimer = setTimeout(() => {
+      setVisible(true);
+    }, 800);
+    return () => clearTimeout(delayTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!visible || visitorCount <= 0) return;
+    const duration = 1500; // 1.5s count-up
+    const startTime = performance.now();
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out: 1 - (1 - t)^3
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplayCount(Math.round(eased * visitorCount));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [visible, visitorCount]);
+
+  return (
+    <div
+      className="flex items-center justify-center gap-2 mb-2 transition-opacity duration-500 ease-in-out"
+      style={{ opacity: visible ? 1 : 0 }}
+    >
+      <span className="text-sm font-medium text-[#2c2c2c]">
+        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}</span> Personen angesehen
+      </span>
+    </div>
+  );
+};
+
 const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 0;
 
@@ -248,29 +288,15 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
-              {/* Visitor Count Line */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.28 }}
-                className="flex items-center justify-center gap-2 mb-2"
-              >
-                <span className="text-sm font-medium text-[#2c2c2c]">
-                  🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{visitorCount}</span> Personen angesehen
-                </span>
-              </motion.div>
+              {/* Visitor Count Line with delayed fade-in + count-up */}
+              <VisitorCountLine visitorCount={visitorCount} />
 
-              {/* Scarcity Line */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex items-center justify-center gap-2 mb-6"
-              >
+              {/* Scarcity Line — no animation, immediately visible */}
+              <div className="flex items-center justify-center gap-2 mb-6">
                 <span className="text-sm font-medium text-[#2c2c2c]">
                   ⚡ Die ersten <span className="font-bold text-[#9b6b3f]">100</span> Besteller erhalten die Founder Edition.
                 </span>
-              </motion.div>
+              </div>
 
               {/* Product Name + Image above the fold */}
               <motion.div
