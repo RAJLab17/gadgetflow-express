@@ -533,7 +533,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== 4. Trust Bar ===== */}
-          <section className="py-12 md:py-16">
+          <section className="pt-4 pb-6 md:pt-6 md:pb-8">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -568,7 +568,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== WARUM RAJ ===== */}
-          <section className="container mx-auto px-4 py-8">
+          <section className="container mx-auto px-4 pt-10 pb-8 md:pt-14 md:pb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
