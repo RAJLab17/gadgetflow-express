@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, ChevronLeft, ChevronRight, Eye as EyeIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,8 +8,7 @@ import LikeBadge from "@/components/LikeBadge";
 
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
-import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
-import chargerAngles from "@/assets/products/charger-3in1-angles.png";
+import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 
 // chargerSpecs is used as a static hero image below
