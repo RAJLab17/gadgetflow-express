@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,7 +8,11 @@ import LikeBadge from "@/components/LikeBadge";
 
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
+import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
+import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
+
+const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
 
 const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
 
@@ -115,6 +119,8 @@ const DEFAULT_TAKEN = 0;
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
+  const [currentImage, setCurrentImage] = useState(0);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting2, setIsSubmitting2] = useState(false);
@@ -163,6 +169,23 @@ const LaunchPage = () => {
     };
     fetchCount();
   }, []);
+  // Auto-rotate carousel
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentImage((prev) => (prev + 1) % nexusImages.length);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [currentImage, autoPlayKey]);
+
+  const handleImageNav = useCallback((index: number) => {
+    setCurrentImage(index);
+    setAutoPlayKey((prev) => prev + 1);
+  }, []);
+
+  const handleSwipe = useCallback((_: any, info: { offset: { x: number } }) => {
+    if (info.offset.x < -50) handleImageNav((currentImage + 1) % nexusImages.length);
+    else if (info.offset.x > 50) handleImageNav((currentImage - 1 + nexusImages.length) % nexusImages.length);
+  }, [currentImage, handleImageNav]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -451,13 +474,39 @@ const LaunchPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-full flex justify-center"
+              className="w-full"
             >
-              <img
-                src={chargerSpecs}
-                alt="RAJ NEXUS 3-in-1 Wireless Charger – Qi2.2 Certified, 25W, 3-in-1"
-                className="w-full max-h-[500px] object-contain"
-              />
+              <div className="relative overflow-hidden cursor-grab active:cursor-grabbing flex justify-center">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentImage}
+                    src={nexusImages[currentImage]}
+                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                    className="w-full max-h-[500px] object-contain"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.05 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.1}
+                    onDragEnd={handleSwipe}
+                  />
+                </AnimatePresence>
+              </div>
+
+              {/* Dot indicators */}
+              <div className="flex justify-center gap-2 mt-4 mb-4">
+                {nexusImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleImageNav(i)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      i === currentImage ? "bg-[#9b6b3f] w-6" : "bg-[#9b6b3f]/25 hover:bg-[#9b6b3f]/50"
+                    }`}
+                  />
+                ))}
+              </div>
             </motion.div>
           </section>
 
