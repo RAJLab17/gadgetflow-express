@@ -65,30 +65,41 @@ const CountdownTimer = () => {
 const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
   const [displayCount, setDisplayCount] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [initialAnimDone, setInitialAnimDone] = useState(false);
 
   useEffect(() => {
-    // 0.8s delay before showing
     const delayTimer = setTimeout(() => {
       setVisible(true);
     }, 800);
     return () => clearTimeout(delayTimer);
   }, []);
 
+  // Count-up animation only on first appearance
   useEffect(() => {
-    if (!visible || visitorCount <= 0) return;
-    const duration = 1500; // 1.5s count-up
+    if (!visible || visitorCount <= 0 || initialAnimDone) return;
+    const duration = 1500;
     const startTime = performance.now();
 
     const step = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out: 1 - (1 - t)^3
       const eased = 1 - Math.pow(1 - progress, 3);
       setDisplayCount(Math.round(eased * visitorCount));
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setInitialAnimDone(true);
+      }
     };
     requestAnimationFrame(step);
-  }, [visible, visitorCount]);
+  }, [visible, visitorCount, initialAnimDone]);
+
+  // After initial animation, update count instantly
+  useEffect(() => {
+    if (initialAnimDone && visitorCount > 0) {
+      setDisplayCount(visitorCount);
+    }
+  }, [visitorCount, initialAnimDone]);
 
   return (
     <div
