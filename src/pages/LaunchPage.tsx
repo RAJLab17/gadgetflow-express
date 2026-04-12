@@ -62,7 +62,46 @@ const CountdownTimer = () => {
   );
 };
 
-const TOTAL_SPOTS = 100;
+const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
+  const [displayCount, setDisplayCount] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // 0.8s delay before showing
+    const delayTimer = setTimeout(() => {
+      setVisible(true);
+    }, 800);
+    return () => clearTimeout(delayTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!visible || visitorCount <= 0) return;
+    const duration = 1500; // 1.5s count-up
+    const startTime = performance.now();
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out: 1 - (1 - t)^3
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplayCount(Math.round(eased * visitorCount));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [visible, visitorCount]);
+
+  return (
+    <div
+      className="flex items-center justify-center gap-2 mb-2 transition-opacity duration-500 ease-in-out"
+      style={{ opacity: visible ? 1 : 0 }}
+    >
+      <span className="text-sm font-medium text-[#2c2c2c]">
+        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}</span> Personen angesehen
+      </span>
+    </div>
+  );
+};
+
 const DEFAULT_TAKEN = 0;
 
 const LaunchPage = () => {
