@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,7 +8,11 @@ import LikeBadge from "@/components/LikeBadge";
 
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
+import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
+import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
+
+const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
 
 const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
 
@@ -115,6 +119,8 @@ const DEFAULT_TAKEN = 0;
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
+  const [currentImage, setCurrentImage] = useState(0);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting2, setIsSubmitting2] = useState(false);
