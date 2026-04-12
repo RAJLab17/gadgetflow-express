@@ -454,7 +454,7 @@ const LaunchPage = () => {
                     </div>
 
                     <p className="text-xs text-[#888888] text-center">
-                      Unverbindlich · Sichere Zahlung · Kostenloser Versand 🇨🇭
+                      Exklusiver Zugang. Keine Werbung.
                     </p>
                   </form>
                 )}
