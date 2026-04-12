@@ -75,22 +75,34 @@ const LaunchPage = () => {
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
-  const [visitorCount, setVisitorCount] = useState(657);
-  const spotsLeft = TOTAL_SPOTS - spotsTaken;
+  const [visitorCount, setVisitorCount] = useState(659);
 
-  // Increment and fetch visitor count
+  // Increment only for new visitors (localStorage flag), otherwise just fetch
   useEffect(() => {
-    const incrementVisitor = async () => {
+    const handleVisitor = async () => {
       try {
-        const { data, error } = await supabase.rpc("increment_visitor_count");
-        if (!error && data) {
-          setVisitorCount(data);
+        const hasVisited = localStorage.getItem("raj_visitor_counted");
+        if (!hasVisited) {
+          const { data, error } = await supabase.rpc("increment_visitor_count");
+          if (!error && data) {
+            setVisitorCount(data);
+            localStorage.setItem("raj_visitor_counted", "1");
+          }
+        } else {
+          const { data, error } = await supabase
+            .from("visitor_counter")
+            .select("count")
+            .eq("id", 1)
+            .single();
+          if (!error && data) {
+            setVisitorCount(data.count);
+          }
         }
       } catch (e) {
-        console.error("Failed to increment visitor count:", e);
+        console.error("Failed to handle visitor count:", e);
       }
     };
-    incrementVisitor();
+    handleVisitor();
   }, []);
 
   // Fetch signup count from database
