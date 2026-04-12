@@ -253,7 +253,7 @@ const LaunchPage = () => {
                 className="flex items-center justify-center gap-2 mb-6"
               >
                 <span className="text-sm font-medium text-[#2c2c2c]">
-                  ⚡ Sichere dir einen der ersten <span className="font-bold text-[#9b6b3f]">100</span> Plätze.
+                  ⚡ Die ersten <span className="font-bold text-[#9b6b3f]">100</span> Besteller erhalten die Founder Edition.
                 </span>
               </motion.div>
 
@@ -358,18 +358,9 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
-                    {/* Progress Bar */}
-                    <div className="space-y-1.5 mb-1">
-                      <div className="w-full h-1.5 rounded-full bg-[#9b6b3f]/10 overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-[#9b6b3f] transition-all duration-700"
-                          style={{ width: `${Math.min((spotsTaken / TOTAL_SPOTS) * 100, 100)}%` }}
-                        />
-                      </div>
-                      <p className="text-xs text-muted-foreground text-center">
-                        {spotsTaken} von {TOTAL_SPOTS} Plätzen vergeben
-                      </p>
-                    </div>
+                    <p className="text-xs text-muted-foreground text-center mb-1">
+                      Die ersten 100 Besteller zahlen CHF 99.– statt CHF 129.–
+                    </p>
 
                     <div className="flex flex-col gap-3">
                       <div className="relative">
