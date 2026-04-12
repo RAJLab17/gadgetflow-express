@@ -424,10 +424,6 @@ const LaunchPage = () => {
                         <p className="text-xs text-white/50">
                           Nur 100 Stück weltweit
                         </p>
-                        <div className="flex items-center justify-center gap-3 pt-1">
-                          <span className="text-sm text-white/40 line-through">CHF 129.–</span>
-                          <span className="text-2xl sm:text-3xl font-extrabold text-[#9b6b3f]">CHF 99.–</span>
-                        </div>
                       </div>
                     </div>
 
