@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users } from "lucide-react";
 import { Helmet } from "react-helmet-async";
@@ -533,24 +533,35 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== 4. Trust Bar ===== */}
-          <section className="container mx-auto px-4 pb-8">
+          <section className="py-12 md:py-16">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="border border-border bg-secondary/50 py-6 px-4"
+              transition={{ duration: 0.8 }}
+              className="max-w-xl mx-auto px-4"
             >
-              <div className="grid grid-cols-3 divide-x divide-border max-w-2xl mx-auto">
+              <div className="flex items-center justify-center">
                 {[
-                  { icon: Zap, text: "25W · Qi2 zertifiziert" },
-                  { icon: Shield, text: "3 Jahre Garantie · CH Support" },
-                  { icon: Truck, text: "Gratis Lieferung Schweiz" },
-                ].map((item) => (
-                  <div key={item.text} className="flex flex-col items-center text-center px-3">
-                    <item.icon className="w-4 h-4 text-[#9b6b3f] mb-2" />
-                    <span className="text-xs font-medium text-muted-foreground leading-tight">{item.text}</span>
-                  </div>
+                  { icon: () => (
+                    <svg viewBox="0 0 16 16" className="w-4 h-4 flex-shrink-0">
+                      <rect x="1" y="2" width="14" height="12" rx="1" fill="#D52B1E"/>
+                      <rect x="6.5" y="4" width="3" height="8" fill="#fff"/>
+                      <rect x="4" y="6.5" width="8" height="3" fill="#fff"/>
+                    </svg>
+                  ), text: "Swiss Brand" },
+                  { icon: Shield, text: "3 Jahre Garantie" },
+                  { icon: Truck, text: "Kostenloser Versand" },
+                ].map((item, i, arr) => (
+                  <React.Fragment key={item.text}>
+                    <div className="flex items-center gap-2.5 px-4 sm:px-6">
+                      <item.icon className="w-4 h-4 text-[#9b6b3f]" />
+                      <span className="text-xs text-muted-foreground whitespace-nowrap">{item.text}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <div className="w-px h-4 bg-border/60 flex-shrink-0" />
+                    )}
+                  </React.Fragment>
                 ))}
               </div>
             </motion.div>
