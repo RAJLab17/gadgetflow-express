@@ -396,20 +396,7 @@ const LaunchPage = () => {
             </div>
           </section>
 
-          {/* ===== VIDEO SECTION ===== */}
-          <section className="py-8 md:py-12">
-            <div className="container mx-auto px-4 flex justify-center">
-              <video
-                className="w-full max-w-4xl rounded-lg"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src="/videos/brand-video.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </section>
+
 
           {/* ===== 5. Product Teaser – LARGER, no gap ===== */}
           <section className="container mx-auto px-4 pb-20">
