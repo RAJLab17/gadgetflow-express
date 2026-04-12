@@ -268,7 +268,7 @@ const LaunchPage = () => {
                 className="max-w-sm mx-auto mb-6 space-y-2"
               >
                 {[
-                  "CHF 30 sparen: CHF 99 statt CHF 129",
+                  "Early Access: CHF 99 — danach CHF 129",
                   "Founder Edition mit einzigartiger Seriennummer",
                   "Lebenslanger Vorverkaufs-Zugang (erste 100 Käufer)",
                   "3 Jahre Premium Garantie",
