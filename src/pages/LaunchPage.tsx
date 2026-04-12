@@ -408,10 +408,28 @@ const LaunchPage = () => {
                     </p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-3">
-                    <p className="text-xs text-muted-foreground text-center mb-1">
-                      Die ersten 100 Besteller zahlen CHF 99.– statt CHF 129.–
-                    </p>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Founder Edition Banner */}
+                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2c2c2c] via-[#1a1a1a] to-[#2c2c2c] p-5 text-center border border-[#9b6b3f]/30 shadow-lg">
+                      {/* Subtle shimmer overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9b6b3f]/5 to-transparent animate-shimmer" />
+                      
+                      <div className="relative z-10 space-y-2">
+                        <p className="text-[10px] uppercase tracking-[0.3em] text-[#9b6b3f]/70 font-medium">
+                          Streng limitiert
+                        </p>
+                        <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                          Founder Edition
+                        </h4>
+                        <p className="text-xs text-white/50">
+                          Nur 100 Stück weltweit
+                        </p>
+                        <div className="flex items-center justify-center gap-3 pt-1">
+                          <span className="text-sm text-white/40 line-through">CHF 129.–</span>
+                          <span className="text-2xl sm:text-3xl font-extrabold text-[#9b6b3f]">CHF 99.–</span>
+                        </div>
+                      </div>
+                    </div>
 
                     <div className="flex flex-col gap-3">
                       <div className="relative">
