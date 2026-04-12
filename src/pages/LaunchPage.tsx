@@ -12,7 +12,7 @@ import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
 import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 
-const nexusImages = [chargerHero, chargerSpecs, chargerColors, chargerAngles];
+const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
 
 const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
 
@@ -465,15 +465,8 @@ const LaunchPage = () => {
                   ))}
                 </div>
 
-                <span className="inline-block text-[10px] uppercase tracking-widest font-semibold text-[#9b6b3f] bg-[#9b6b3f]/10 px-3 py-1 rounded-full mb-3">
-                  Coming Soon
-                </span>
-                <h3 className="text-xl font-bold text-[#2c2c2c] mb-1">
-                  RAJ <span className="text-[#9b6b3f]">NEXUS</span>
-                </h3>
-                <p className="text-sm text-[#888888]">
-                  3-in-1 Wireless Charger · Qi2 · 25W
-                </p>
+
+
               </div>
             </motion.div>
           </section>
