@@ -248,29 +248,15 @@ const LaunchPage = () => {
                 </span>
               </motion.div>
 
-              {/* Visitor Count Line */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.28 }}
-                className="flex items-center justify-center gap-2 mb-2"
-              >
-                <span className="text-sm font-medium text-[#2c2c2c]">
-                  🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{visitorCount}</span> Personen angesehen
-                </span>
-              </motion.div>
+              {/* Visitor Count Line with delayed fade-in + count-up */}
+              <VisitorCountLine visitorCount={visitorCount} />
 
-              {/* Scarcity Line */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex items-center justify-center gap-2 mb-6"
-              >
+              {/* Scarcity Line — no animation, immediately visible */}
+              <div className="flex items-center justify-center gap-2 mb-6">
                 <span className="text-sm font-medium text-[#2c2c2c]">
                   ⚡ Die ersten <span className="font-bold text-[#9b6b3f]">100</span> Besteller erhalten die Founder Edition.
                 </span>
-              </motion.div>
+              </div>
 
               {/* Product Name + Image above the fold */}
               <motion.div
