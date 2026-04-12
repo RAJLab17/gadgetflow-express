@@ -351,7 +351,7 @@ const LaunchPage = () => {
               >
                 {[
                   "Founder Edition mit persönlicher Seriennummer",
-                  "Lebenslanger Vorverkaufs-Zugang",
+                  "Lebenslanger Early Access zu neuen Produkten",
                    "3 Jahre Premium Garantie · CH Support",
                    "24h exklusiver Vorverkauf vor allen anderen",
                 ].map((text) => (
