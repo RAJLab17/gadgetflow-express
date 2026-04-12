@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, ChevronLeft, ChevronRight, Eye as EyeIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -75,7 +75,23 @@ const LaunchPage = () => {
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
+  const [visitorCount, setVisitorCount] = useState(657);
   const spotsLeft = TOTAL_SPOTS - spotsTaken;
+
+  // Increment and fetch visitor count
+  useEffect(() => {
+    const incrementVisitor = async () => {
+      try {
+        const { data, error } = await supabase.rpc("increment_visitor_count");
+        if (!error && data) {
+          setVisitorCount(data);
+        }
+      } catch (e) {
+        console.error("Failed to increment visitor count:", e);
+      }
+    };
+    incrementVisitor();
+  }, []);
 
   // Fetch signup count from database
   useEffect(() => {
