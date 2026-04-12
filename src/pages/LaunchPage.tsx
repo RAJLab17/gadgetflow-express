@@ -256,7 +256,7 @@ const LaunchPage = () => {
                 className="flex items-center justify-center gap-2 mb-2"
               >
                 <span className="text-sm font-medium text-[#2c2c2c]">
-                  🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{visitorCount}+</span> Personen angesehen
+                  🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{visitorCount}</span> Personen angesehen
                 </span>
               </motion.div>
 
