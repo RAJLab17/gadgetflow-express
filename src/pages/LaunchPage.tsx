@@ -422,7 +422,7 @@ const LaunchPage = () => {
                           Founder Edition
                         </h4>
                         <p className="text-xs text-white/50">
-                          Nur 100 Stück weltweit
+                          Limitiert auf 100 Stück.
                         </p>
                       </div>
                     </div>
