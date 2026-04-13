@@ -146,6 +146,7 @@ const LaunchPage = () => {
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [showSignupToast, setShowSignupToast] = useState(false);
+  const [visitorCount, setVisitorCount] = useState(0);
 
   // Visitor tracking (keep RPC call but don't display count)
   useEffect(() => {
