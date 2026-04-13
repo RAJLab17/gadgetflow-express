@@ -312,7 +312,7 @@ const LaunchPage = () => {
               </div>
 
               {/* Visitor count line */}
-              <VisitorCountLine visitorCount={visitorCount} />
+              <VisitorCountLine visitorCount={visitorCount} isNewVisitor={isNewVisitor} />
 
               {/* Product Name + Image above the fold */}
               <motion.div
