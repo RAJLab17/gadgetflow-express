@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users } from "lucide-react";
+import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, Bell, Gift } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -377,6 +377,34 @@ const LaunchPage = () => {
                 ))}
               </motion.div>
 
+              {/* So funktioniert's — 3 Steps */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+                className="max-w-lg mx-auto mb-8"
+              >
+                <p className="text-xs uppercase tracking-[0.2em] text-[#888888] font-medium text-center mb-4">So funktioniert's</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                  {[
+                    { icon: Mail, step: "1", title: "E-Mail eintragen", desc: "Unverbindlich und kostenlos. Kein Abo, keine Verpflichtung." },
+                    { icon: Bell, step: "2", title: "Launch-Info erhalten", desc: "Du wirst 24h vor allen anderen informiert, sobald RAJ NEXUS verfügbar ist." },
+                    { icon: Gift, step: "3", title: "Zum Early-Access-Preis bestellen", desc: "CHF 99 statt CHF 129. Nur für Waitlist-Mitglieder." },
+                  ].map((item) => (
+                    <div key={item.step} className="flex sm:flex-col items-start sm:items-center gap-3 sm:gap-2 text-left sm:text-center">
+                      <div className="flex items-center gap-2 shrink-0">
+                        <span className="text-xs font-bold text-[#9b6b3f]">{item.step}</span>
+                        <item.icon className="w-4 h-4 text-[#9b6b3f]" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-[#2c2c2c]">{item.title}</p>
+                        <p className="text-xs text-[#888888] leading-relaxed mt-0.5">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
               {/* Email Form */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -448,8 +476,12 @@ const LaunchPage = () => {
                       </button>
                     </div>
 
-                    <p className="text-xs text-[#888888] text-center">
-                      Exklusiver Zugang. Nur das, was zählt.
+                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-1">
+                      <span>🔒 Keine Zahlungsdaten nötig</span>
+                      <span>·</span>
+                      <span>📧 Jederzeit abmeldbar</span>
+                      <span>·</span>
+                      <span>🇨🇭 Schweizer Unternehmen</span>
                     </p>
                   </form>
                 )}
