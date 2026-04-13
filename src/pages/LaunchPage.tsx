@@ -445,6 +445,16 @@ const LaunchPage = () => {
                     </p>
                   </form>
                 )}
+
+                {/* Waitlist counter */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className="text-sm font-medium text-[#9b6b3f] text-center mt-5"
+                >
+                  Bereits {spotsTaken} Personen auf der Waitlist 🇨🇭
+                </motion.p>
               </motion.div>
             </div>
           </section>
