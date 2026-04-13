@@ -407,7 +407,7 @@ const LaunchPage = () => {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <p className="text-sm font-semibold text-[#2c2c2c] text-center mb-1">
-                      🔥 Bereits <span className="text-lg font-extrabold text-[#9b6b3f]">{spotsTaken}</span> Personen auf der Waitlist
+                      🔥 Die ersten <span className="text-lg font-extrabold text-[#9b6b3f]">{spotsTaken}</span> haben sich bereits ihren Platz gesichert.
                     </p>
 
                     <div className="flex flex-col gap-3">
