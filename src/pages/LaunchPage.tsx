@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, Bell, Gift } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 
 import logo from "@/assets/logo-new.png";
@@ -62,69 +63,45 @@ const CountdownTimer = () => {
   );
 };
 
-const VisitorCountLine = ({ visitorCount, isNewVisitor }: { visitorCount: number; isNewVisitor: boolean }) => {
-  const [displayCount, setDisplayCount] = useState(0);
+const fireConfetti = () => {
+  const colors = ["#9b6b3f", "#f0ede6"];
+  const end = Date.now() + 3000;
+  const frame = () => {
+    confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0, y: 0.7 }, colors });
+    confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1, y: 0.7 }, colors });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  };
+  frame();
+};
+
+const SignupToast = () => {
   const [visible, setVisible] = useState(false);
-  const [initialAnimDone, setInitialAnimDone] = useState(false);
-  const [plusOneDone, setPlusOneDone] = useState(false);
+  const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    const delayTimer = setTimeout(() => {
-      setVisible(true);
-    }, 800);
-    return () => clearTimeout(delayTimer);
+    const showTimer = setTimeout(() => setVisible(true), 100);
+    const fadeTimer = setTimeout(() => setFading(true), 5000);
+    const hideTimer = setTimeout(() => setVisible(false), 5500);
+    return () => { clearTimeout(showTimer); clearTimeout(fadeTimer); clearTimeout(hideTimer); };
   }, []);
 
-  // Count-up animation; +1 tick only for new visitors
-  useEffect(() => {
-    if (!visible || visitorCount <= 0 || initialAnimDone) return;
-    const target = isNewVisitor ? Math.max(visitorCount - 1, 0) : visitorCount;
-    const duration = 1500;
-    const startTime = performance.now();
-
-    const step = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplayCount(Math.round(eased * target));
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        setDisplayCount(target);
-        setInitialAnimDone(true);
-        if (isNewVisitor) {
-          // After a short pause, tick +1
-          setTimeout(() => {
-            setDisplayCount(visitorCount);
-            setPlusOneDone(true);
-          }, 600);
-        } else {
-          setPlusOneDone(true);
-        }
-      }
-    };
-    requestAnimationFrame(step);
-  }, [visible, visitorCount, initialAnimDone, isNewVisitor]);
-
-  // After all animations, keep in sync
-  useEffect(() => {
-    if (plusOneDone && visitorCount > 0) {
-      setDisplayCount(visitorCount);
-    }
-  }, [visitorCount, plusOneDone]);
+  if (!visible) return null;
 
   return (
     <div
-      className="flex items-center justify-center gap-2 mb-6 transition-opacity duration-500 ease-in-out"
-      style={{ opacity: visible ? 1 : 0 }}
+      className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${fading ? "opacity-0 -translate-x-4" : "opacity-100 translate-x-0"}`}
+      style={{
+        background: "#f0ede6",
+        borderLeft: "3px solid #9b6b3f",
+        borderRadius: "8px",
+        padding: "12px 16px",
+        fontSize: "14px",
+        color: "#3d2b1a",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+        maxWidth: "320px",
+      }}
     >
-      <span className="text-sm font-medium text-[#2c2c2c]">
-        🔥 Bereits von{" "}
-        <span className={`font-bold text-[#9b6b3f] inline-block transition-transform duration-300 ${initialAnimDone && !plusOneDone ? 'scale-110' : 'scale-100'}`}>
-          {displayCount}
-        </span>{" "}
-        Personen entdeckt
-      </span>
+      🇨🇭 Jemand hat sich gerade eingetragen.
     </div>
   );
 };
@@ -142,30 +119,21 @@ const LaunchPage = () => {
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
-  const [visitorCount, setVisitorCount] = useState(666);
-  const [isNewVisitor, setIsNewVisitor] = useState(false);
+  const [showSignupToast, setShowSignupToast] = useState(false);
 
-  // Unique visitor tracking via localStorage-based UUID
+  // Visitor tracking (keep RPC call but don't display count)
   useEffect(() => {
     const handleVisitor = async () => {
       try {
         const storageKey = "raj_visitor_id";
-        const isNew = !localStorage.getItem(storageKey);
         let visitorId: string;
-        if (isNew) {
+        if (!localStorage.getItem(storageKey)) {
           visitorId = crypto.randomUUID();
           localStorage.setItem(storageKey, visitorId);
-          setIsNewVisitor(true);
         } else {
           visitorId = localStorage.getItem(storageKey)!;
         }
-
-        const { data, error } = await supabase.rpc("register_unique_visitor", {
-          p_visitor_id: visitorId,
-        });
-        if (!error && data !== null) {
-          setVisitorCount(data);
-        }
+        await supabase.rpc("register_unique_visitor", { p_visitor_id: visitorId });
       } catch (e) {
         console.error("Failed to handle visitor count:", e);
       }
@@ -222,6 +190,8 @@ const LaunchPage = () => {
       if (data?.success) {
         setIsSubmitted(true);
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+        fireConfetti();
+        setTimeout(() => setShowSignupToast(true), 3000);
         if (typeof window !== 'undefined' && (window as any).fbq) {
           (window as any).fbq('track', 'Lead');
         }
@@ -251,6 +221,8 @@ const LaunchPage = () => {
       if (data?.success) {
         setIsSubmitted2(true);
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+        fireConfetti();
+        setTimeout(() => setShowSignupToast(true), 3000);
         if (typeof window !== 'undefined' && (window as any).fbq) {
           (window as any).fbq('track', 'Lead');
         }
@@ -311,8 +283,6 @@ const LaunchPage = () => {
                 </span>
               </div>
 
-              {/* Visitor count line */}
-              <VisitorCountLine visitorCount={visitorCount} isNewVisitor={isNewVisitor} />
 
               {/* Product Name + Image above the fold */}
               <motion.div
@@ -424,21 +394,14 @@ const LaunchPage = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-8 bg-white/60 rounded-2xl border border-[#9b6b3f]/20 text-center space-y-4"
+                    transition={{ duration: 0.6 }}
+                    className="p-8 bg-white/60 rounded-2xl border border-[#9b6b3f]/20 text-center space-y-3"
                   >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                      className="w-14 h-14 mx-auto rounded-full bg-[#9b6b3f]/15 flex items-center justify-center"
-                    >
-                      <Check className="w-7 h-7 text-[#9b6b3f]" />
-                    </motion.div>
-                    <h3 className="text-xl font-semibold text-[#2c2c2c]">
-                      Danke für deine Anmeldung
+                    <h3 className="text-2xl font-bold text-[#9b6b3f]">
+                      Du bist dabei.
                     </h3>
-                    <p className="text-sm text-[#888888]">
-                      Du bist auf der Liste und bekommst News direkt per E-Mail.
+                    <p className="text-sm text-[#9b6b3f]">
+                      Wir melden uns als Erstes bei dir — versprochen.
                     </p>
                   </motion.div>
                 ) : (
@@ -727,7 +690,7 @@ const LaunchPage = () => {
           </footer>
         </div>
       </div>
-      
+      {showSignupToast && <SignupToast />}
     </>
   );
 };
