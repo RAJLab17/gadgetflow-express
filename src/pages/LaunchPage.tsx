@@ -406,8 +406,8 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <p className="text-sm font-semibold text-[#9b6b3f] text-center mb-1">
-                      🔥 Bereits <span className="text-lg font-extrabold">{spotsTaken}</span> Personen auf der Waitlist
+                    <p className="text-sm font-semibold text-[#2c2c2c] text-center mb-1">
+                      🔥 Bereits <span className="text-lg font-extrabold text-[#9b6b3f]">{spotsTaken}</span> Personen auf der Waitlist
                     </p>
 
                     <div className="flex flex-col gap-3">
