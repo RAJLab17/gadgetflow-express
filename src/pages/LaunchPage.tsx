@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, Bell, Gift } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 
 import logo from "@/assets/logo-new.png";
@@ -62,69 +63,45 @@ const CountdownTimer = () => {
   );
 };
 
-const VisitorCountLine = ({ visitorCount, isNewVisitor }: { visitorCount: number; isNewVisitor: boolean }) => {
-  const [displayCount, setDisplayCount] = useState(0);
+const fireConfetti = () => {
+  const colors = ["#9b6b3f", "#f0ede6"];
+  const end = Date.now() + 3000;
+  const frame = () => {
+    confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0, y: 0.7 }, colors });
+    confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1, y: 0.7 }, colors });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  };
+  frame();
+};
+
+const SignupToast = () => {
   const [visible, setVisible] = useState(false);
-  const [initialAnimDone, setInitialAnimDone] = useState(false);
-  const [plusOneDone, setPlusOneDone] = useState(false);
+  const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    const delayTimer = setTimeout(() => {
-      setVisible(true);
-    }, 800);
-    return () => clearTimeout(delayTimer);
+    const showTimer = setTimeout(() => setVisible(true), 100);
+    const fadeTimer = setTimeout(() => setFading(true), 5000);
+    const hideTimer = setTimeout(() => setVisible(false), 5500);
+    return () => { clearTimeout(showTimer); clearTimeout(fadeTimer); clearTimeout(hideTimer); };
   }, []);
 
-  // Count-up animation; +1 tick only for new visitors
-  useEffect(() => {
-    if (!visible || visitorCount <= 0 || initialAnimDone) return;
-    const target = isNewVisitor ? Math.max(visitorCount - 1, 0) : visitorCount;
-    const duration = 1500;
-    const startTime = performance.now();
-
-    const step = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplayCount(Math.round(eased * target));
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        setDisplayCount(target);
-        setInitialAnimDone(true);
-        if (isNewVisitor) {
-          // After a short pause, tick +1
-          setTimeout(() => {
-            setDisplayCount(visitorCount);
-            setPlusOneDone(true);
-          }, 600);
-        } else {
-          setPlusOneDone(true);
-        }
-      }
-    };
-    requestAnimationFrame(step);
-  }, [visible, visitorCount, initialAnimDone, isNewVisitor]);
-
-  // After all animations, keep in sync
-  useEffect(() => {
-    if (plusOneDone && visitorCount > 0) {
-      setDisplayCount(visitorCount);
-    }
-  }, [visitorCount, plusOneDone]);
+  if (!visible) return null;
 
   return (
     <div
-      className="flex items-center justify-center gap-2 mb-6 transition-opacity duration-500 ease-in-out"
-      style={{ opacity: visible ? 1 : 0 }}
+      className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${fading ? "opacity-0 -translate-x-4" : "opacity-100 translate-x-0"}`}
+      style={{
+        background: "#f0ede6",
+        borderLeft: "3px solid #9b6b3f",
+        borderRadius: "8px",
+        padding: "12px 16px",
+        fontSize: "14px",
+        color: "#3d2b1a",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+        maxWidth: "320px",
+      }}
     >
-      <span className="text-sm font-medium text-[#2c2c2c]">
-        🔥 Bereits von{" "}
-        <span className={`font-bold text-[#9b6b3f] inline-block transition-transform duration-300 ${initialAnimDone && !plusOneDone ? 'scale-110' : 'scale-100'}`}>
-          {displayCount}
-        </span>{" "}
-        Personen entdeckt
-      </span>
+      🇨🇭 Jemand hat sich gerade eingetragen.
     </div>
   );
 };
