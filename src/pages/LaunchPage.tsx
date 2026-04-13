@@ -75,10 +75,10 @@ const VisitorCountLine = ({ visitorCount, isNewVisitor }: { visitorCount: number
     return () => clearTimeout(delayTimer);
   }, []);
 
-  // Count-up to (visitorCount - 1), then pause, then +1
+  // Count-up animation; +1 tick only for new visitors
   useEffect(() => {
     if (!visible || visitorCount <= 0 || initialAnimDone) return;
-    const target = Math.max(visitorCount - 1, 0);
+    const target = isNewVisitor ? Math.max(visitorCount - 1, 0) : visitorCount;
     const duration = 1500;
     const startTime = performance.now();
 
@@ -92,15 +92,19 @@ const VisitorCountLine = ({ visitorCount, isNewVisitor }: { visitorCount: number
       } else {
         setDisplayCount(target);
         setInitialAnimDone(true);
-        // After a short pause, tick +1
-        setTimeout(() => {
-          setDisplayCount(visitorCount);
+        if (isNewVisitor) {
+          // After a short pause, tick +1
+          setTimeout(() => {
+            setDisplayCount(visitorCount);
+            setPlusOneDone(true);
+          }, 600);
+        } else {
           setPlusOneDone(true);
-        }, 600);
+        }
       }
     };
     requestAnimationFrame(step);
-  }, [visible, visitorCount, initialAnimDone]);
+  }, [visible, visitorCount, initialAnimDone, isNewVisitor]);
 
   // After all animations, keep in sync
   useEffect(() => {
