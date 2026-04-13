@@ -66,6 +66,7 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
   const [displayCount, setDisplayCount] = useState(0);
   const [visible, setVisible] = useState(false);
   const [initialAnimDone, setInitialAnimDone] = useState(false);
+  const [plusOneDone, setPlusOneDone] = useState(false);
 
   useEffect(() => {
     const delayTimer = setTimeout(() => {
@@ -74,9 +75,10 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
     return () => clearTimeout(delayTimer);
   }, []);
 
-  // Count-up animation only on first appearance
+  // Count-up to (visitorCount - 1), then pause, then +1
   useEffect(() => {
     if (!visible || visitorCount <= 0 || initialAnimDone) return;
+    const target = Math.max(visitorCount - 1, 0);
     const duration = 1500;
     const startTime = performance.now();
 
@@ -84,22 +86,28 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplayCount(Math.round(eased * visitorCount));
+      setDisplayCount(Math.round(eased * target));
       if (progress < 1) {
         requestAnimationFrame(step);
       } else {
+        setDisplayCount(target);
         setInitialAnimDone(true);
+        // After a short pause, tick +1
+        setTimeout(() => {
+          setDisplayCount(visitorCount);
+          setPlusOneDone(true);
+        }, 600);
       }
     };
     requestAnimationFrame(step);
   }, [visible, visitorCount, initialAnimDone]);
 
-  // After initial animation, update count instantly
+  // After all animations, keep in sync
   useEffect(() => {
-    if (initialAnimDone && visitorCount > 0) {
+    if (plusOneDone && visitorCount > 0) {
       setDisplayCount(visitorCount);
     }
-  }, [visitorCount, initialAnimDone]);
+  }, [visitorCount, plusOneDone]);
 
   return (
     <div
@@ -107,7 +115,11 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
       style={{ opacity: visible ? 1 : 0 }}
     >
       <span className="text-sm font-medium text-[#2c2c2c]">
-        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}</span> Personen entdeckt
+        🔥 Bereits von{" "}
+        <span className={`font-bold text-[#9b6b3f] inline-block transition-transform duration-300 ${initialAnimDone && !plusOneDone ? 'scale-110' : 'scale-100'}`}>
+          {displayCount}
+        </span>{" "}
+        Personen entdeckt
       </span>
     </div>
   );
