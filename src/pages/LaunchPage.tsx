@@ -435,20 +435,9 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    {/* Founder Edition Banner */}
-                    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2c2c2c] via-[#1a1a1a] to-[#2c2c2c] p-5 text-center border border-[#9b6b3f]/30 shadow-lg">
-                      {/* Subtle shimmer overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#9b6b3f]/5 to-transparent animate-shimmer" />
-                      
-                      <div className="relative z-10 space-y-2">
-                        <p className="text-[10px] uppercase tracking-[0.3em] text-[#9b6b3f]/70 font-medium">
-                          Streng limitiert
-                        </p>
-                        <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                          Founder Edition
-                        </h4>
-                      </div>
-                    </div>
+                    <p className="text-xs font-medium text-[#9b6b3f] text-center tracking-wide">
+                      Founder Edition · Limitiert auf 100 Stück
+                    </p>
 
                     <div className="flex flex-col gap-3">
                       <div className="relative">
