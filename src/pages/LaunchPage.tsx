@@ -143,6 +143,7 @@ const LaunchPage = () => {
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [visitorCount, setVisitorCount] = useState(666);
+  const [isNewVisitor, setIsNewVisitor] = useState(false);
 
   // Unique visitor tracking via localStorage-based UUID
   useEffect(() => {
