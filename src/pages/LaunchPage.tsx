@@ -148,7 +148,7 @@ const LaunchPage = () => {
   const [showSignupToast, setShowSignupToast] = useState(false);
   const [visitorCount, setVisitorCount] = useState(0);
 
-  // Visitor tracking (keep RPC call but don't display count)
+  // Visitor tracking + fetch visitor count
   useEffect(() => {
     const handleVisitor = async () => {
       try {
@@ -160,7 +160,10 @@ const LaunchPage = () => {
         } else {
           visitorId = localStorage.getItem(storageKey)!;
         }
-        await supabase.rpc("register_unique_visitor", { p_visitor_id: visitorId });
+        const count = await supabase.rpc("register_unique_visitor", { p_visitor_id: visitorId });
+        if (count.data !== null) {
+          setVisitorCount(count.data);
+        }
       } catch (e) {
         console.error("Failed to handle visitor count:", e);
       }
