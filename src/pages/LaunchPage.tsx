@@ -277,11 +277,23 @@ const LaunchPage = () => {
             <div className="max-w-3xl mx-auto text-center">
 
               {/* Scarcity Line — no animation, immediately visible */}
-              <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="flex items-center justify-center gap-2 mb-1">
                 <span className="text-sm font-medium text-[#2c2c2c]">
                   Founder Edition – limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück.
                 </span>
               </div>
+
+              {/* Visitor discovery line with count-up */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex items-center justify-center gap-1 mb-2"
+              >
+                <span className="text-sm font-medium text-[#2c2c2c]">
+                  🔥 Bereits von <CountUpNumber target={visitorCount} /> Personen entdeckt
+                </span>
+              </motion.div>
 
 
               {/* Product Name + Image above the fold */}
@@ -406,9 +418,6 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <p className="text-sm font-semibold text-[#2c2c2c] text-center mb-1">
-                      🔥 Die ersten <span className="text-lg font-extrabold text-[#9b6b3f]">{spotsTaken}</span> haben sich bereits ihren Platz gesichert.
-                    </p>
 
                     <div className="flex flex-col gap-3">
                       <div className="relative">
