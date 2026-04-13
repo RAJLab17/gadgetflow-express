@@ -106,6 +106,32 @@ const SignupToast = () => {
   );
 };
 
+const CountUpNumber = ({ target }: { target: number }) => {
+  const [current, setCurrent] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const startTimer = setTimeout(() => setStarted(true), 100);
+    return () => clearTimeout(startTimer);
+  }, []);
+
+  useEffect(() => {
+    if (!started || target <= 0) return;
+    const duration = 1500;
+    const startTime = Date.now();
+    const step = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCurrent(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [started, target]);
+
+  return <span className="font-bold text-[#9b6b3f]">{current}</span>;
+};
+
 const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 0;
 
@@ -120,8 +146,9 @@ const LaunchPage = () => {
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [showSignupToast, setShowSignupToast] = useState(false);
+  const [visitorCount, setVisitorCount] = useState(0);
 
-  // Visitor tracking (keep RPC call but don't display count)
+  // Visitor tracking + fetch visitor count
   useEffect(() => {
     const handleVisitor = async () => {
       try {
@@ -133,7 +160,10 @@ const LaunchPage = () => {
         } else {
           visitorId = localStorage.getItem(storageKey)!;
         }
-        await supabase.rpc("register_unique_visitor", { p_visitor_id: visitorId });
+        const count = await supabase.rpc("register_unique_visitor", { p_visitor_id: visitorId });
+        if (count.data !== null) {
+          setVisitorCount(count.data);
+        }
       } catch (e) {
         console.error("Failed to handle visitor count:", e);
       }
@@ -277,11 +307,23 @@ const LaunchPage = () => {
             <div className="max-w-3xl mx-auto text-center">
 
               {/* Scarcity Line — no animation, immediately visible */}
-              <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="flex items-center justify-center gap-2 mb-1">
                 <span className="text-sm font-medium text-[#2c2c2c]">
                   Founder Edition – limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück.
                 </span>
               </div>
+
+              {/* Visitor discovery line with count-up */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex items-center justify-center gap-1 mb-2"
+              >
+                <span className="text-sm font-medium text-[#2c2c2c]">
+                  🔥 Bereits von <CountUpNumber target={visitorCount} /> Personen entdeckt
+                </span>
+              </motion.div>
 
 
               {/* Product Name + Image above the fold */}
@@ -406,9 +448,6 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <p className="text-sm font-semibold text-[#2c2c2c] text-center mb-1">
-                      🔥 Die ersten <span className="text-lg font-extrabold text-[#9b6b3f]">{spotsTaken}</span> haben sich bereits ihren Platz gesichert.
-                    </p>
 
                     <div className="flex flex-col gap-3">
                       <div className="relative">
