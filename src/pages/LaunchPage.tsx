@@ -119,8 +119,7 @@ const LaunchPage = () => {
   const [isSubmitting2, setIsSubmitting2] = useState(false);
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
-  const [visitorCount, setVisitorCount] = useState(666);
-  const [isNewVisitor, setIsNewVisitor] = useState(false);
+  const [showSignupToast, setShowSignupToast] = useState(false);
 
   // Unique visitor tracking via localStorage-based UUID
   useEffect(() => {
@@ -199,6 +198,8 @@ const LaunchPage = () => {
       if (data?.success) {
         setIsSubmitted(true);
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+        fireConfetti();
+        setTimeout(() => setShowSignupToast(true), 3000);
         if (typeof window !== 'undefined' && (window as any).fbq) {
           (window as any).fbq('track', 'Lead');
         }
@@ -288,8 +289,6 @@ const LaunchPage = () => {
                 </span>
               </div>
 
-              {/* Visitor count line */}
-              <VisitorCountLine visitorCount={visitorCount} isNewVisitor={isNewVisitor} />
 
               {/* Product Name + Image above the fold */}
               <motion.div
@@ -401,21 +400,14 @@ const LaunchPage = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-8 bg-white/60 rounded-2xl border border-[#9b6b3f]/20 text-center space-y-4"
+                    transition={{ duration: 0.6 }}
+                    className="p-8 bg-white/60 rounded-2xl border border-[#9b6b3f]/20 text-center space-y-3"
                   >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                      className="w-14 h-14 mx-auto rounded-full bg-[#9b6b3f]/15 flex items-center justify-center"
-                    >
-                      <Check className="w-7 h-7 text-[#9b6b3f]" />
-                    </motion.div>
-                    <h3 className="text-xl font-semibold text-[#2c2c2c]">
-                      Danke für deine Anmeldung
+                    <h3 className="text-2xl font-bold text-[#9b6b3f]">
+                      Du bist dabei.
                     </h3>
-                    <p className="text-sm text-[#888888]">
-                      Du bist auf der Liste und bekommst News direkt per E-Mail.
+                    <p className="text-sm text-[#9b6b3f]">
+                      Wir melden uns als Erstes bei dir — versprochen.
                     </p>
                   </motion.div>
                 ) : (
