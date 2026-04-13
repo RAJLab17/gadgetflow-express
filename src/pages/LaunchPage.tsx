@@ -406,9 +406,14 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <p className="text-xs font-medium text-[#9b6b3f] text-center tracking-wide">
-                      Founder Edition · Limitiert auf 100 Stück
-                    </p>
+                    <div className="text-center mb-1">
+                      <p className="text-sm font-semibold text-[#9b6b3f]">
+                        🔥 Bereits <span className="text-lg font-extrabold">{spotsTaken}</span> Personen auf der Waitlist
+                      </p>
+                      <p className="text-xs text-[#9b6b3f]/70 mt-0.5">
+                        Founder Edition · Limitiert auf 100 Stück
+                      </p>
+                    </div>
 
                     <div className="flex flex-col gap-3">
                       <div className="relative">
@@ -446,15 +451,6 @@ const LaunchPage = () => {
                   </form>
                 )}
 
-                {/* Waitlist counter */}
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                  className="text-sm font-medium text-[#9b6b3f] text-center mt-5"
-                >
-                  Bereits {spotsTaken} Personen auf der Waitlist 🇨🇭
-                </motion.p>
               </motion.div>
             </div>
           </section>
