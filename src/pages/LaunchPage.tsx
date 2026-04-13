@@ -103,7 +103,7 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
 
   return (
     <div
-      className="flex items-center justify-center gap-2 mb-2 transition-opacity duration-500 ease-in-out"
+      className="flex items-center justify-center gap-2 mb-6 transition-opacity duration-500 ease-in-out"
       style={{ opacity: visible ? 1 : 0 }}
     >
       <span className="text-sm font-medium text-[#2c2c2c]">
