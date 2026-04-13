@@ -485,7 +485,7 @@ const LaunchPage = () => {
             >
               <div
                 className="relative overflow-hidden cursor-grab active:cursor-grabbing"
-                style={{ height: "clamp(180px, 32vw, 320px)" }}
+                style={{ height: "clamp(280px, 50vw, 500px)" }}
               >
                 <AnimatePresence initial={false}>
                   <motion.img
