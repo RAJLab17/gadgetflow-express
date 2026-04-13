@@ -285,11 +285,14 @@ const LaunchPage = () => {
             <div className="max-w-3xl mx-auto text-center">
 
               {/* Scarcity Line — no animation, immediately visible */}
-              <div className="flex items-center justify-center gap-2 mb-6">
+              <div className="flex items-center justify-center gap-2 mb-2">
                 <span className="text-sm font-medium text-[#2c2c2c]">
                   Founder Edition – limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück.
                 </span>
               </div>
+
+              {/* Visitor count line */}
+              <VisitorCountLine />
 
               {/* Product Name + Image above the fold */}
               <motion.div
