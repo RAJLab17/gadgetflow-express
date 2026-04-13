@@ -62,7 +62,7 @@ const CountdownTimer = () => {
   );
 };
 
-const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
+const VisitorCountLine = ({ visitorCount, isNewVisitor }: { visitorCount: number; isNewVisitor: boolean }) => {
   const [displayCount, setDisplayCount] = useState(0);
   const [visible, setVisible] = useState(false);
   const [initialAnimDone, setInitialAnimDone] = useState(false);
