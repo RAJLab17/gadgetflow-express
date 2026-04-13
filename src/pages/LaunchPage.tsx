@@ -441,7 +441,7 @@ const LaunchPage = () => {
                       <span>·</span>
                       <span>📧 Jederzeit abmeldbar</span>
                       <span>·</span>
-                      <span>🇨🇭 Schweizer Unternehmen</span>
+                      <span className="inline-flex items-center gap-1"><svg className="w-3.5 h-3.5 inline-block" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="2" fill="#E31E24"/><rect x="6.5" y="4" width="3" height="8" fill="#fff"/><rect x="4" y="6.5" width="8" height="3" fill="#fff"/></svg> Schweizer Unternehmen</span>
                     </p>
                   </form>
                 )}
