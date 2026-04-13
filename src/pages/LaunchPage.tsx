@@ -221,6 +221,8 @@ const LaunchPage = () => {
       if (data?.success) {
         setIsSubmitted2(true);
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+        fireConfetti();
+        setTimeout(() => setShowSignupToast(true), 3000);
         if (typeof window !== 'undefined' && (window as any).fbq) {
           (window as any).fbq('track', 'Lead');
         }
@@ -688,7 +690,7 @@ const LaunchPage = () => {
           </footer>
         </div>
       </div>
-      
+      {showSignupToast && <SignupToast />}
     </>
   );
 };
