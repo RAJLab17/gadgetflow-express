@@ -62,7 +62,7 @@ const CountdownTimer = () => {
   );
 };
 
-const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
+const VisitorCountLine = ({ visitorCount, isNewVisitor }: { visitorCount: number; isNewVisitor: boolean }) => {
   const [displayCount, setDisplayCount] = useState(0);
   const [visible, setVisible] = useState(false);
   const [initialAnimDone, setInitialAnimDone] = useState(false);
@@ -75,10 +75,10 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
     return () => clearTimeout(delayTimer);
   }, []);
 
-  // Count-up to (visitorCount - 1), then pause, then +1
+  // Count-up animation; +1 tick only for new visitors
   useEffect(() => {
     if (!visible || visitorCount <= 0 || initialAnimDone) return;
-    const target = Math.max(visitorCount - 1, 0);
+    const target = isNewVisitor ? Math.max(visitorCount - 1, 0) : visitorCount;
     const duration = 1500;
     const startTime = performance.now();
 
@@ -92,15 +92,19 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
       } else {
         setDisplayCount(target);
         setInitialAnimDone(true);
-        // After a short pause, tick +1
-        setTimeout(() => {
-          setDisplayCount(visitorCount);
+        if (isNewVisitor) {
+          // After a short pause, tick +1
+          setTimeout(() => {
+            setDisplayCount(visitorCount);
+            setPlusOneDone(true);
+          }, 600);
+        } else {
           setPlusOneDone(true);
-        }, 600);
+        }
       }
     };
     requestAnimationFrame(step);
-  }, [visible, visitorCount, initialAnimDone]);
+  }, [visible, visitorCount, initialAnimDone, isNewVisitor]);
 
   // After all animations, keep in sync
   useEffect(() => {
@@ -139,17 +143,21 @@ const LaunchPage = () => {
   const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [visitorCount, setVisitorCount] = useState(666);
+  const [isNewVisitor, setIsNewVisitor] = useState(false);
 
   // Unique visitor tracking via localStorage-based UUID
   useEffect(() => {
     const handleVisitor = async () => {
       try {
         const storageKey = "raj_visitor_id";
-        let visitorId = localStorage.getItem(storageKey);
-
-        if (!visitorId) {
+        const isNew = !localStorage.getItem(storageKey);
+        let visitorId: string;
+        if (isNew) {
           visitorId = crypto.randomUUID();
           localStorage.setItem(storageKey, visitorId);
+          setIsNewVisitor(true);
+        } else {
+          visitorId = localStorage.getItem(storageKey)!;
         }
 
         const { data, error } = await supabase.rpc("register_unique_visitor", {
@@ -304,7 +312,7 @@ const LaunchPage = () => {
               </div>
 
               {/* Visitor count line */}
-              <VisitorCountLine visitorCount={visitorCount} />
+              <VisitorCountLine visitorCount={visitorCount} isNewVisitor={isNewVisitor} />
 
               {/* Product Name + Image above the fold */}
               <motion.div
