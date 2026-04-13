@@ -107,7 +107,7 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
       style={{ opacity: visible ? 1 : 0 }}
     >
       <span className="text-sm font-medium text-[#2c2c2c]">
-        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}+</span> Personen entdeckt
+        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}</span> Personen entdeckt
       </span>
     </div>
   );
