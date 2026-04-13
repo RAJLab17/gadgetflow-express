@@ -107,7 +107,7 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
       style={{ opacity: visible ? 1 : 0 }}
     >
       <span className="text-sm font-medium text-[#2c2c2c]">
-        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}</span> Personen angesehen
+        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}+</span> Personen entdeckt
       </span>
     </div>
   );
@@ -292,7 +292,7 @@ const LaunchPage = () => {
               </div>
 
               {/* Visitor count line */}
-              <VisitorCountLine />
+              <VisitorCountLine visitorCount={visitorCount} />
 
               {/* Product Name + Image above the fold */}
               <motion.div
