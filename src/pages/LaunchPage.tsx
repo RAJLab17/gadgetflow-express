@@ -103,11 +103,11 @@ const VisitorCountLine = ({ visitorCount }: { visitorCount: number }) => {
 
   return (
     <div
-      className="flex items-center justify-center gap-2 mb-2 transition-opacity duration-500 ease-in-out"
+      className="flex items-center justify-center gap-2 mb-6 transition-opacity duration-500 ease-in-out"
       style={{ opacity: visible ? 1 : 0 }}
     >
       <span className="text-sm font-medium text-[#2c2c2c]">
-        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}</span> Personen angesehen
+        🔥 Bereits von <span className="font-bold text-[#9b6b3f]">{displayCount}+</span> Personen entdeckt
       </span>
     </div>
   );
@@ -285,11 +285,14 @@ const LaunchPage = () => {
             <div className="max-w-3xl mx-auto text-center">
 
               {/* Scarcity Line — no animation, immediately visible */}
-              <div className="flex items-center justify-center gap-2 mb-6">
+              <div className="flex items-center justify-center gap-2 mb-2">
                 <span className="text-sm font-medium text-[#2c2c2c]">
                   Founder Edition – limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück.
                 </span>
               </div>
+
+              {/* Visitor count line */}
+              <VisitorCountLine visitorCount={visitorCount} />
 
               {/* Product Name + Image above the fold */}
               <motion.div
