@@ -121,27 +121,19 @@ const LaunchPage = () => {
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [showSignupToast, setShowSignupToast] = useState(false);
 
-  // Unique visitor tracking via localStorage-based UUID
+  // Visitor tracking (keep RPC call but don't display count)
   useEffect(() => {
     const handleVisitor = async () => {
       try {
         const storageKey = "raj_visitor_id";
-        const isNew = !localStorage.getItem(storageKey);
         let visitorId: string;
-        if (isNew) {
+        if (!localStorage.getItem(storageKey)) {
           visitorId = crypto.randomUUID();
           localStorage.setItem(storageKey, visitorId);
-          setIsNewVisitor(true);
         } else {
           visitorId = localStorage.getItem(storageKey)!;
         }
-
-        const { data, error } = await supabase.rpc("register_unique_visitor", {
-          p_visitor_id: visitorId,
-        });
-        if (!error && data !== null) {
-          setVisitorCount(data);
-        }
+        await supabase.rpc("register_unique_visitor", { p_visitor_id: visitorId });
       } catch (e) {
         console.error("Failed to handle visitor count:", e);
       }
