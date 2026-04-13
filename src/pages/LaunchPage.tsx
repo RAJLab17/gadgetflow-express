@@ -150,11 +150,14 @@ const LaunchPage = () => {
     const handleVisitor = async () => {
       try {
         const storageKey = "raj_visitor_id";
-        let visitorId = localStorage.getItem(storageKey);
-
-        if (!visitorId) {
+        const isNew = !localStorage.getItem(storageKey);
+        let visitorId: string;
+        if (isNew) {
           visitorId = crypto.randomUUID();
           localStorage.setItem(storageKey, visitorId);
+          setIsNewVisitor(true);
+        } else {
+          visitorId = localStorage.getItem(storageKey)!;
         }
 
         const { data, error } = await supabase.rpc("register_unique_visitor", {
