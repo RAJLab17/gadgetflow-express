@@ -734,6 +734,7 @@ const LaunchPage = () => {
       </div>
       {showSignupToast && <SignupToast />}
       <ExitIntentPopup />
+      <BearMascot />
 
       {/* Sticky mobile CTA */}
       {!isSubmitted && (
