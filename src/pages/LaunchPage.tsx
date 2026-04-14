@@ -462,12 +462,12 @@ const LaunchPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-sm mx-auto"
+              className="max-w-lg mx-auto flex flex-col items-center"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
                 Benefits für die ersten 100.
               </h2>
-              <div className="space-y-3 text-center">
+              <div className="space-y-3 inline-block text-left mx-auto">
               {[
                 "💰 CHF 30 sparen — CHF 99 statt CHF 129.",
                 "🏆 Founder Edition mit persönlicher Seriennummer.",
