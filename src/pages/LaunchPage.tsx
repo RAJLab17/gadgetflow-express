@@ -450,8 +450,12 @@ const LaunchPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-sm mx-auto space-y-3"
+              className="max-w-sm mx-auto"
             >
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+                Nur für die ersten 100.
+              </h2>
+              <div className="space-y-3">
               {[
                 "Founder Edition mit persönlicher Seriennummer",
                 "Lebenslanger Early Access zu neuen Produkten",
