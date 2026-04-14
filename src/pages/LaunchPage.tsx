@@ -346,16 +346,6 @@ const LaunchPage = () => {
                 {t("launch.scarcity")} <span className="font-bold text-[#9b6b3f]">100</span> {t("launch.pieces")}
               </p>
 
-              {/* 2. Visitor counter */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                className="text-sm text-[#2c2c2c] mb-4"
-              >
-                🔥 {t("launch.discovered")} <CountUpNumber target={visitorCount} /> {t("launch.discoveredSuffix")}
-              </motion.p>
-
               {/* Countdown Timer */}
               <div className="mb-10">
                 <CountdownTimer />
