@@ -71,7 +71,7 @@ const translations: Translations = {
   "faq.title": { de: "Häufige Fragen", fr: "Questions fréquentes" },
   "faq.q1": { de: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", fr: "Le RAJ NEXUS est-il compatible avec mon appareil?" },
   "faq.a1": { de: "Ja. Alle iPhones mit MagSafe (iPhone 12 und neuer), Apple Watch, AirPods Pro & AirPods (3. Gen+). Funktioniert auch mit MagSafe Cases.", fr: "Oui. Tous les iPhones avec MagSafe (iPhone 12 et plus récent), Apple Watch, AirPods Pro & AirPods (3e gén+). Fonctionne aussi avec les coques MagSafe." },
-  "faq.q2": { de: "Muss ich kaufen?", fr: "Dois-je acheter?" },
+  "faq.q2": { de: "Muss ich mich zum Kauf verpflichten?", fr: "Dois-je m'engager à acheter?" },
   "faq.a2": { de: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot - du entscheidest dann.", fr: "Non. L'inscription est sans engagement. En mai, tu recevras l'offre — tu décideras à ce moment-là." },
   "faq.q3": { de: "Was unterscheidet RAJ NEXUS von anderen Chargern?", fr: "Qu'est-ce qui différencie le RAJ NEXUS des autres chargeurs?" },
   "faq.a3": { de: "Qi2.2 Technologie - der neueste Standard (seit Juli 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Schweizer Qualitätsanspruch, Premium-Materialien, 3 Jahre Garantie.", fr: "Technologie Qi2.2 — le standard le plus récent (depuis juillet 2025), certifié par le Wireless Power Consortium (WPC). Charge rapide 25W, énergie plus efficace, alignement plus précis. En plus: qualité suisse, matériaux premium, 3 ans de garantie." },
