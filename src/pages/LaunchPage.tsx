@@ -373,13 +373,8 @@ const LaunchPage = () => {
                 Nicht zertifizierte Produkte können deine Geräte beschädigen.
               </motion.p>
 
-              {/* Divider */}
-              <motion.div
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="w-16 h-px bg-[#9b6b3f]/40 mx-auto mb-8"
-              />
+
+
 
               {/* 7. Certification */}
               <motion.p
