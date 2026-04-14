@@ -100,30 +100,27 @@ const BearMascot = () => {
 
               {/* Lightning bolt on chest */}
               <path d="M24 43 L27 43 L25.5 46 L28.5 46 L24 52 L25.5 48 L23 48 Z" fill="#9b6b3f" />
+
+              {/* Right arm/paw pointing down-right toward sticky button */}
+              <path d="M40 46 Q46 50 44 56 L42 55 Q43 51 38 48 Z" fill="#d4b896" stroke="#9b6b3f" strokeWidth="1" />
+              {/* Paw pad */}
+              <ellipse cx="43" cy="55.5" rx="2.5" ry="2" fill="#c4a67a" />
             </svg>
           </motion.div>
 
-          {/* Paw prints toward sticky button center */}
+          {/* Animated pointing indicator */}
           <AnimatePresence>
             {showSecondBubble && (
-              <div className="absolute bottom-[2px] left-[52px] flex flex-col">
-                {[0, 1, 2].map((i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.45 - i * 0.08 }}
-                    transition={{ delay: 0.4 + i * 0.25 }}
-                    style={{ marginLeft: `${i * 12}px`, marginTop: `${i * 3}px` }}
-                  >
-                    <svg width="8" height="10" viewBox="0 0 12 14" fill="none">
-                      <ellipse cx="6" cy="9.5" rx="3.2" ry="3" fill="#c4a67a" />
-                      <circle cx="3" cy="4.5" r="1.6" fill="#c4a67a" />
-                      <circle cx="6" cy="3.2" r="1.6" fill="#c4a67a" />
-                      <circle cx="9" cy="4.5" r="1.6" fill="#c4a67a" />
-                    </svg>
-                  </motion.div>
-                ))}
-              </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, y: [0, 3, 0] }}
+                transition={{ delay: 0.5, y: { repeat: Infinity, duration: 1.2, ease: "easeInOut" } }}
+                className="absolute bottom-[-8px] right-[-6px]"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M7 2 L11 8 L9 8 L9 12 L5 12 L5 8 L3 8 Z" fill="#9b6b3f" opacity="0.6" />
+                </svg>
+              </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
