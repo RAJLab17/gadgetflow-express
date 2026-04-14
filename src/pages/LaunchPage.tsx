@@ -350,20 +350,44 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight mb-3"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[0.95] tracking-tight text-[#2c2c2c] mb-3"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                <span className="text-[#2c2c2c]">Power.</span>{" "}
-                <span className="text-[#9b6b3f]">Always There.</span>
+                Du hast ein iPhone für CHF 1'200.
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg sm:text-xl md:text-2xl font-light text-[#2c2c2c] mb-8"
+                className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-3"
               >
-                3 Geräte. 1 Ladegerät. Kein Kabelsalat mehr.
+                Weisst du ob dein Ladegerät zertifiziert ist?
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.45 }}
+                className="text-sm sm:text-base text-[#888888] max-w-md mx-auto mb-5 leading-relaxed"
+              >
+                Nicht zertifizierte Produkte können deine Geräte beschädigen — und die Garantie erlischt.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="w-16 h-px bg-[#9b6b3f]/40 mx-auto mb-5"
+              />
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.55 }}
+                className="text-lg sm:text-xl font-bold text-[#9b6b3f] mb-8"
+              >
+                RAJ NEXUS ist Qi2.2 zertifiziert. Offiziell. Immer.
               </motion.p>
 
               {/* Price Line */}
