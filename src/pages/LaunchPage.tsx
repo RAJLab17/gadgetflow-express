@@ -402,10 +402,8 @@ const LaunchPage = () => {
                 {t("launch.reinforcer")}
               </motion.p>
 
-              {/* Divider */}
-              <div className="flex justify-center mb-8">
-                <div className="w-10 h-px bg-[#9b6b3f]/40" />
-              </div>
+
+
 
               {/* 8 & 9. Email form */}
               <motion.div
