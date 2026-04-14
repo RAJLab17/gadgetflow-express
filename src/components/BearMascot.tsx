@@ -65,11 +65,7 @@ const BearMascot = () => {
           </motion.div>
 
           {/* Bear */}
-          <motion.div
-            animate={{ y: [0, -4, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="cursor-pointer"
-          >
+          <div className="cursor-pointer">
             <svg width="52" height="56" viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Ears */}
               <circle cx="12" cy="12" r="8" fill="#d4b896" stroke="#9b6b3f" strokeWidth="1.5" />
@@ -101,7 +97,7 @@ const BearMascot = () => {
               {/* Lightning bolt on chest */}
               <path d="M24 43 L27 43 L25.5 46 L28.5 46 L24 52 L25.5 48 L23 48 Z" fill="#9b6b3f" />
             </svg>
-          </motion.div>
+          </div>
 
           {/* Animated arrow pointing down, centered under bear */}
           <AnimatePresence>
@@ -110,7 +106,7 @@ const BearMascot = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7, y: [0, 4, 0] }}
                 transition={{ delay: 0.5, y: { repeat: Infinity, duration: 1.2, ease: "easeInOut" } }}
-                className="flex justify-center mt-0.5"
+                className="flex mt-0.5 ml-1"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M7 12 L3 6 L5 6 L5 2 L9 2 L9 6 L11 6 Z" fill="#9b6b3f" />
