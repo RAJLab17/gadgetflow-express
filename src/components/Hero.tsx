@@ -69,21 +69,21 @@ const Hero = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight text-foreground" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                Eleganz
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] tracking-tight text-foreground" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+                Du hast ein iPhone für CHF 1'200.
               </h1>
-            </motion.div>
+              </motion.div>
             </div>
-            
-            <div className="overflow-hidden mb-8">
+
+            <div className="overflow-hidden mb-4">
               <motion.div
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                <span className="text-primary">trifft Leistung.</span>
-              </h1>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-foreground" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+                Weisst du ob dein Ladegerät zertifiziert ist?
+              </h2>
               </motion.div>
             </div>
 
@@ -91,10 +91,28 @@ const Hero = () => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-10 font-light leading-relaxed"
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-6 font-light leading-relaxed"
             >
-              Die ultimative 3-in-1 Ladestation für iPhone, Apple Watch & AirPods. Zeitloses Design trifft modernste Technologie.
+              Nicht zertifizierte Produkte können deine Geräte beschädigen — und die Garantie erlischt.
+            </motion.p>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="w-16 h-px bg-primary/40 mb-6 mx-auto lg:mx-0"
+            />
+
+            {/* Certification Statement */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-lg md:text-xl font-bold text-primary max-w-lg mx-auto lg:mx-0 mb-10 leading-relaxed"
+            >
+              RAJ NEXUS ist Qi2.2 zertifiziert. Offiziell. Immer.
             </motion.p>
 
             {/* CTA Buttons */}
