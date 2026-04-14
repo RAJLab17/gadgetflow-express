@@ -334,6 +334,15 @@ const LaunchPage = () => {
               >
                 FR
               </button>
+              <span className="text-[#2c2c2c]/30">|</span>
+              <button
+                onClick={() => setLang("it")}
+                className={`px-1.5 py-0.5 rounded transition-colors ${
+                  lang === "it" ? "text-[#2c2c2c] font-bold" : "text-[#2c2c2c]/50 hover:text-[#2c2c2c]"
+                }`}
+              >
+                IT
+              </button>
             </div>
           </div>
 
