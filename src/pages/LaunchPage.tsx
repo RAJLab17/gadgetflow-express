@@ -601,7 +601,7 @@ const LaunchPage = () => {
               </h2>
               <div className="w-12 h-px bg-[#9b6b3f]/40 mx-auto mb-6" />
               <p className="text-[#555] leading-relaxed text-base md:text-lg">
-                RAJ wurde in der Schweiz gegründet. Von jemandem der genug hatte von Kabelsalat und mittelmässigen Produkten. Wir bauen nicht für den Markt. Wir bauen was wir selbst vermisst haben.
+                RAJ wurde in der Schweiz gegründet. Von jemandem der genug hatte von Kabelsalat, mittelmässigen und nicht zertifizierten Produkten. Wir bauen nicht für den Markt. Wir bauen was wir selbst vermisst haben.
               </p>
             </motion.div>
           </section>
