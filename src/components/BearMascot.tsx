@@ -3,11 +3,19 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const BearMascot = () => {
   const [visible, setVisible] = useState(false);
+  const [showSecondBubble, setShowSecondBubble] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 5000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (visible) {
+      const timer = setTimeout(() => setShowSecondBubble(true), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [visible]);
 
   if (typeof window !== "undefined" && window.innerWidth >= 768) return null;
 
