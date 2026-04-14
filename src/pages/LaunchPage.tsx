@@ -351,10 +351,15 @@ const LaunchPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="text-sm text-[#2c2c2c] mb-10"
+                className="text-sm text-[#2c2c2c] mb-4"
               >
                 🔥 {t("launch.discovered")} <CountUpNumber target={visitorCount} /> {t("launch.discoveredSuffix")}
               </motion.p>
+
+              {/* Countdown Timer */}
+              <div className="mb-10">
+                <CountdownTimer />
+              </div>
 
               {/* 3. Product image */}
               <motion.img
