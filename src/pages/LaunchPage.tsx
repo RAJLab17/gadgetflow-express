@@ -467,6 +467,7 @@ const LaunchPage = () => {
                   <span>{text}</span>
                 </div>
               ))}
+              </div>
             </motion.div>
           </section>
 
