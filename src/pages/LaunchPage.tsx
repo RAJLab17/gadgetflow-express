@@ -409,6 +409,7 @@ const LaunchPage = () => {
                     <div className="relative">
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
                       <input
+                        id="signup-email"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -764,7 +765,10 @@ const LaunchPage = () => {
       {/* Sticky mobile CTA */}
       {!isSubmitted && (
         <button
-          onClick={() => document.getElementById("signup-form")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+          onClick={() => {
+            document.getElementById("signup-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+            setTimeout(() => document.getElementById("signup-email")?.focus(), 600);
+          }}
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden py-3.5 px-4 bg-[#9b6b3f] text-white text-sm font-semibold tracking-wide text-center shadow-[0_-4px_20px_rgba(0,0,0,0.15)]"
         >
           Early Access sichern · Founder Edition
