@@ -92,6 +92,15 @@ const Header = () => {
       >
         FR
       </button>
+      <span className="text-muted-foreground/40">|</span>
+      <button
+        onClick={() => setLang("it")}
+        className={`px-1.5 py-0.5 rounded transition-colors ${
+          lang === "it" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        IT
+      </button>
     </div>
   );
 
