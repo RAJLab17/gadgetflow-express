@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 import logo from "@/assets/logo-new.png";
@@ -20,6 +21,7 @@ const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
 const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
 
 const CountdownTimer = () => {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -38,10 +40,10 @@ const CountdownTimer = () => {
   }, []);
 
   const units = [
-    { value: timeLeft.days, label: "Tage" },
-    { value: timeLeft.hours, label: "Std" },
-    { value: timeLeft.minutes, label: "Min" },
-    { value: timeLeft.seconds, label: "Sek" },
+    { value: timeLeft.days, label: t("countdown.days") },
+    { value: timeLeft.hours, label: t("countdown.hours") },
+    { value: timeLeft.minutes, label: t("countdown.minutes") },
+    { value: timeLeft.seconds, label: t("countdown.seconds") },
   ];
 
   return (
@@ -77,6 +79,7 @@ const fireConfetti = () => {
 };
 
 const SignupToast = () => {
+  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
   const [fading, setFading] = useState(false);
 
@@ -103,7 +106,7 @@ const SignupToast = () => {
         maxWidth: "320px",
       }}
     >
-      🇨🇭 Jemand hat sich gerade eingetragen.
+      {t("toast.signup")}
     </div>
   );
 };
@@ -138,6 +141,7 @@ const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 47;
 
 const LaunchPage = () => {
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
@@ -210,7 +214,7 @@ const LaunchPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
-      toast.error("Bitte gib eine gültige E-Mail-Adresse ein.");
+      toast.error(t("error.invalidEmail"));
       return;
     }
     setIsSubmitting(true);
@@ -232,7 +236,7 @@ const LaunchPage = () => {
       }
     } catch (error) {
       console.error("Launch signup failed:", error);
-      toast.error("Anmeldung fehlgeschlagen. Bitte versuche es erneut.");
+      toast.error(t("error.failed"));
     } finally {
       setIsSubmitting(false);
     }
@@ -241,7 +245,7 @@ const LaunchPage = () => {
   const handleSubmit2 = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email2 || !email2.includes("@")) {
-      toast.error("Bitte gib eine gültige E-Mail-Adresse ein.");
+      toast.error(t("error.invalidEmail"));
       return;
     }
     setIsSubmitting2(true);
@@ -263,11 +267,19 @@ const LaunchPage = () => {
       }
     } catch (error) {
       console.error("Launch signup failed:", error);
-      toast.error("Anmeldung fehlgeschlagen. Bitte versuche es erneut.");
+      toast.error(t("error.failed"));
     } finally {
       setIsSubmitting2(false);
     }
   };
+
+  const faqItems = [
+    { q: t("faq.q1"), a: t("faq.a1") },
+    { q: t("faq.q2"), a: t("faq.a2") },
+    { q: t("faq.q3"), a: t("faq.a3") },
+    { q: t("faq.q4"), a: t("faq.a4") },
+    { q: t("faq.q5"), a: t("faq.a5") },
+  ];
 
   return (
     <>
@@ -310,7 +322,7 @@ const LaunchPage = () => {
 
               {/* 1. Scarcity */}
               <p className="text-sm font-medium text-[#2c2c2c] mb-1">
-                Founder Edition — limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück
+                {t("launch.scarcity")} <span className="font-bold text-[#9b6b3f]">100</span> {t("launch.pieces")}
               </p>
 
               {/* 2. Visitor counter */}
@@ -320,7 +332,7 @@ const LaunchPage = () => {
                 transition={{ duration: 0.6, delay: 0.8 }}
                 className="text-sm text-[#2c2c2c] mb-10"
               >
-                🔥 Bereits von <CountUpNumber target={visitorCount} /> Personen entdeckt
+                🔥 {t("launch.discovered")} <CountUpNumber target={visitorCount} /> {t("launch.discoveredSuffix")}
               </motion.p>
 
               {/* 3. Product image */}
@@ -341,7 +353,7 @@ const LaunchPage = () => {
                 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#2c2c2c] mb-4"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                Du hast ein iPhone für
+                {t("launch.headline1")}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
@@ -360,7 +372,7 @@ const LaunchPage = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-4 whitespace-nowrap"
               >
-                Weisst du ob dein Ladegerät zertifiziert ist?
+                {t("launch.subheadline")}
               </motion.p>
 
               {/* 6. Warning text */}
@@ -370,7 +382,7 @@ const LaunchPage = () => {
                 transition={{ duration: 0.8, delay: 0.45 }}
                 className="text-sm sm:text-base text-[#888888] max-w-md mx-auto mb-8 leading-relaxed whitespace-nowrap"
               >
-                Nicht zertifizierte Produkte können deine Geräte beschädigen.
+                {t("launch.warning")}
               </motion.p>
 
 
@@ -383,7 +395,7 @@ const LaunchPage = () => {
                 transition={{ duration: 0.8, delay: 0.55 }}
                 className="text-lg sm:text-xl font-bold text-[#9b6b3f] mb-12"
               >
-                RAJ NEXUS. Qi2.2 zertifiziert. Offiziell.
+                {t("launch.certification")}
               </motion.p>
 
               {/* 8 & 9. Email form */}
@@ -401,14 +413,14 @@ const LaunchPage = () => {
                     transition={{ duration: 0.6 }}
                     className="p-8 bg-white/60 rounded-2xl border border-[#9b6b3f]/20 text-center space-y-3"
                   >
-                    <h3 className="text-2xl font-bold text-[#9b6b3f]">Du bist dabei.</h3>
-                    <p className="text-sm text-[#9b6b3f]">Wir melden uns als Erstes bei dir — versprochen.</p>
+                    <h3 className="text-2xl font-bold text-[#9b6b3f]">{t("launch.submitted.title")}</h3>
+                    <p className="text-sm text-[#9b6b3f]">{t("launch.submitted.sub")}</p>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div className="flex items-center justify-center gap-1.5 text-sm text-[#9b6b3f] font-semibold mb-1">
                       <Users className="w-4 h-4" />
-                      <span>Nur <span className="text-lg font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> Plätze übrig!</span>
+                      <span>{t("launch.only")} <span className="text-lg font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
                     </div>
                     <div className="relative">
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
@@ -417,7 +429,7 @@ const LaunchPage = () => {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Deine Email-Adresse"
+                        placeholder={t("launch.emailPlaceholder")}
                         required
                         disabled={isSubmitting}
                         className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-gray-200 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/30 focus:shadow-[0_0_15px_rgba(155,107,63,0.2)] transition-all duration-300"
@@ -428,12 +440,12 @@ const LaunchPage = () => {
                       disabled={isSubmitting}
                       className="w-full py-3.5 rounded-xl bg-[#9b6b3f] text-white font-bold hover:bg-[#9b6b3f]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2"
                     >
-                      {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : "Early Access sichern"}
+                      {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : t("launch.cta")}
                     </button>
                     <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-1 mt-2">
-                      <span>🔒 Keine Zahlungsdaten nötig</span>
+                      <span>{t("launch.noPayment")}</span>
                       <span>·</span>
-                      <span>📧 Jederzeit abmeldbar</span>
+                      <span>{t("launch.unsubscribe")}</span>
                     </p>
                   </form>
                 )}
@@ -454,7 +466,7 @@ const LaunchPage = () => {
                 className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                1 Ladegerät. 3 Geräte. Nur 1 Kabel.
+                {t("tagline.1")}
               </p>
               
             </motion.div>
@@ -470,13 +482,13 @@ const LaunchPage = () => {
               className="max-w-lg mx-auto flex flex-col items-center"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                Benefits für die ersten 100.
+                {t("benefits.title")}
               </h2>
               <div className="space-y-4 inline-grid text-left mx-auto">
                 {[
-                  { icon: "💰", text: "CHF 30 sparen — CHF 99 statt CHF 129." },
-                  { icon: "🏆", text: "Founder Edition mit persönlicher Seriennummer." },
-                  { icon: "⚡", text: "Lebenslanger Early Access zu neuen RAJ Produkten." },
+                  { icon: "💰", text: t("benefits.1") },
+                  { icon: "🏆", text: t("benefits.2") },
+                  { icon: "⚡", text: t("benefits.3") },
                 ].map((item) => (
                   <div key={item.text} className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-x-3 text-sm text-[#2c2c2c]">
                     <span className="leading-none pt-0.5">{item.icon}</span>
@@ -500,7 +512,7 @@ const LaunchPage = () => {
                 className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                Präzision. Beständigkeit. Charakter.
+                {t("tagline.2")}
               </p>
             </motion.div>
           </section>
@@ -525,7 +537,7 @@ const LaunchPage = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-center text-[#888888] mb-8 max-w-lg mx-auto italic"
               >
-                Ein Ladegerät für alles. Ohne Kompromisse.
+                {t("product.subtitle")}
               </motion.p>
             </div>
 
@@ -580,9 +592,9 @@ const LaunchPage = () => {
                       <rect x="6.5" y="4" width="3" height="8" fill="#fff"/>
                       <rect x="4" y="6.5" width="8" height="3" fill="#fff"/>
                     </svg>
-                  ), text: "Swiss Brand" },
-                  { icon: Shield, text: "3 Jahre Garantie" },
-                  { icon: Truck, text: "Kostenloser Versand" },
+                  ), text: t("trust.swissBrand") },
+                  { icon: Shield, text: t("trust.warranty") },
+                  { icon: Truck, text: t("trust.freeShipping") },
                 ].map((item, i, arr) => (
                   <React.Fragment key={item.text}>
                     <div className="flex items-center gap-2 px-3 sm:px-5">
@@ -611,7 +623,7 @@ const LaunchPage = () => {
                 className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                Schweizer Brand. Weltweit zertifiziert. Für immer.
+                {t("tagline.3")}
               </p>
             </motion.div>
           </section>
@@ -625,11 +637,11 @@ const LaunchPage = () => {
               className="max-w-xl mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                Warum <span className="text-[#9b6b3f]">RAJ</span>?
+                {t("why.title")} <span className="text-[#9b6b3f]">RAJ</span>?
               </h2>
               
               <p className="text-[#555] leading-relaxed text-base md:text-lg">
-                RAJ wurde in der Schweiz gegründet. Von jemandem der genug hatte von Kabelsalat, mittelmässigen und nicht zertifizierten Produkten. Wir bauen nicht für den Markt. Wir bauen was wir selbst vermisst haben.
+                {t("why.text")}
               </p>
             </motion.div>
           </section>
@@ -638,16 +650,10 @@ const LaunchPage = () => {
           <section className="py-12 md:py-28 bg-[#f5f2ec]">
             <div className="container mx-auto px-4 max-w-2xl">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-10 tracking-tight">
-                Häufige Fragen
+                {t("faq.title")}
               </h2>
               <div className="space-y-0">
-                {[
-                  { q: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", a: "Ja. Alle iPhones mit MagSafe (iPhone 12 und neuer), Apple Watch, AirPods Pro & AirPods (3. Gen+). Funktioniert auch mit MagSafe Cases." },
-                  { q: "Muss ich kaufen?", a: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot - du entscheidest dann." },
-                  { q: "Was unterscheidet RAJ NEXUS von anderen Chargern?", a: "Qi2.2 Technologie - der neueste Standard (seit Juli 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Schweizer Qualitätsanspruch, Premium-Materialien, 3 Jahre Garantie." },
-                  { q: "Ist das Laden sicher? Was ist mit Überhitzung?", a: "Ja. WPC-zertifiziert mit integrierten Sicherheitsmechanismen: Überhitzungsschutz, Überladeschutz, Fremdkörpererkennung. Qi2.2 ist effizienter und erzeugt weniger Hitze als ältere Standards." },
-                  { q: "Wann wird geliefert?", a: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung." },
-                ].map((item, i) => (
+                {faqItems.map((item, i) => (
                   <details key={i} className="group border-b border-[#9b6b3f]/10">
                     <summary className="flex items-center justify-between py-5 cursor-pointer list-none text-left">
                       <span className="text-[15px] md:text-base font-medium text-[#2c2c2c] pr-6 group-hover:text-[#9b6b3f] transition-colors">
@@ -677,7 +683,7 @@ const LaunchPage = () => {
                 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                Dein Platz wartet.
+                {t("cta2.title")}
               </motion.h2>
 
               {isSubmitted2 ? (
@@ -690,7 +696,7 @@ const LaunchPage = () => {
                     <Check className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-white">
-                    Du bist dabei!
+                    {t("cta2.submitted")}
                   </h3>
                 </motion.div>
               ) : (
@@ -709,7 +715,7 @@ const LaunchPage = () => {
                         type="email"
                         value={email2}
                         onChange={(e) => setEmail2(e.target.value)}
-                        placeholder="Deine Email-Adresse"
+                        placeholder={t("launch.emailPlaceholder")}
                         required
                         disabled={isSubmitting2}
                         className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-transparent border border-white/40 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:border-white/60 focus:ring-white/20 transition-all"
@@ -723,7 +729,7 @@ const LaunchPage = () => {
                       {isSubmitting2 ? (
                         <Loader2 className="w-5 h-5 animate-spin" />
                       ) : (
-                          "EARLY ACCESS SICHERN"
+                          t("cta2.button")
                       )}
                     </button>
                   </div>
@@ -756,7 +762,7 @@ const LaunchPage = () => {
                 <a href="/agb" className="text-xs text-[#888888] hover:text-[#2c2c2c] transition-colors">AGB</a>
               </div>
               <p className="text-xs text-[#888888]">
-                © {new Date().getFullYear()} RAJ · Alle Rechte vorbehalten.
+                © {new Date().getFullYear()} RAJ · {t("footer.rights")}
               </p>
             </div>
           </footer>
@@ -775,7 +781,7 @@ const LaunchPage = () => {
           }}
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden py-3.5 px-4 bg-[#9b6b3f] text-white text-sm font-semibold tracking-wide text-center shadow-[0_-4px_20px_rgba(0,0,0,0.15)]"
         >
-          Early Access sichern · Founder Edition
+          {t("sticky.cta")}
         </button>
       )}
     </>
