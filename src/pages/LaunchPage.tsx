@@ -419,6 +419,10 @@ const LaunchPage = () => {
                         className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-gray-200 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/30 focus:shadow-[0_0_15px_rgba(155,107,63,0.2)] transition-all duration-300"
                       />
                     </div>
+                    <div className="flex items-center justify-center gap-1.5 text-sm text-[#9b6b3f] font-semibold">
+                      <Users className="w-4 h-4" />
+                      <span>{Math.max(0, TOTAL_SPOTS - spotsTaken)} / {TOTAL_SPOTS} Plätze verfügbar</span>
+                    </div>
                     <button
                       type="submit"
                       disabled={isSubmitting}
