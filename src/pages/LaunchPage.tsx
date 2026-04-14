@@ -428,6 +428,7 @@ const LaunchPage = () => {
 
               {/* Email Form */}
               <motion.div
+                id="signup-form"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -733,6 +734,16 @@ const LaunchPage = () => {
       </div>
       {showSignupToast && <SignupToast />}
       <ExitIntentPopup />
+
+      {/* Sticky mobile CTA */}
+      {!isSubmitted && (
+        <button
+          onClick={() => document.getElementById("signup-form")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+          className="fixed bottom-0 left-0 right-0 z-50 md:hidden py-3.5 px-4 bg-[#9b6b3f] text-white text-sm font-semibold tracking-wide text-center shadow-[0_-4px_20px_rgba(0,0,0,0.15)]"
+        >
+          Early Access sichern · Founder Edition
+        </button>
+      )}
     </>
   );
 };
