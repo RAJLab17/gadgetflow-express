@@ -305,159 +305,90 @@ const LaunchPage = () => {
           <div className="py-4" />
 
           {/* ===== 1. HERO SECTION ===== */}
-          <section className="container mx-auto px-4 pt-8 pb-6 md:pt-16 md:pb-10">
-            <div className="max-w-3xl mx-auto text-center">
+          <section className="container mx-auto px-4 pt-8 pb-16 md:pt-16 md:pb-24">
+            <div className="max-w-2xl mx-auto text-center">
 
-              {/* Scarcity Line — no animation, immediately visible */}
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <span className="text-sm font-medium text-[#2c2c2c]">
-                  Founder Edition – limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück.
-                </span>
-              </div>
+              {/* 1. Scarcity */}
+              <p className="text-sm font-medium text-[#2c2c2c] mb-1">
+                Founder Edition — limitiert auf <span className="font-bold text-[#9b6b3f]">100</span> Stück
+              </p>
 
-              {/* Visitor discovery line with count-up */}
-              <motion.div
+              {/* 2. Visitor counter */}
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="flex items-center justify-center gap-1 mb-2"
+                className="text-sm text-[#2c2c2c] mb-10"
               >
-                <span className="text-sm font-medium text-[#2c2c2c]">
-                  🔥 Bereits von <CountUpNumber target={visitorCount} /> Personen entdeckt
-                </span>
-              </motion.div>
+                🔥 Bereits von <CountUpNumber target={visitorCount} /> Personen entdeckt
+              </motion.p>
 
-
-              {/* Product Name + Image above the fold */}
-              <motion.div
+              {/* 3. Product image */}
+              <motion.img
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.25 }}
-                className="mb-6"
-              >
-                <h2 className="text-xl sm:text-2xl font-bold text-[#2c2c2c] mb-4" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                  RAJ <span className="text-[#9b6b3f]">NEXUS</span>
-                </h2>
-                <img
-                  src={chargerHero}
-                  alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, Apple Watch und AirPods"
-                  className="w-full max-w-xs sm:max-w-sm mx-auto drop-shadow-xl"
-                />
-              </motion.div>
+                transition={{ duration: 0.8, delay: 0.2 }}
+                src={chargerHero}
+                alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                className="w-full max-w-xs sm:max-w-sm mx-auto drop-shadow-xl mb-12"
+              />
 
-              {/* 1. New Headline */}
+              {/* 4. Headline */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[0.95] tracking-tight text-[#2c2c2c] mb-3"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#2c2c2c] mb-4"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
                 Du hast ein iPhone für CHF 1'200.
               </motion.h1>
 
+              {/* 5. Subheadline */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-3"
+                className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-4"
               >
                 Weisst du ob dein Ladegerät zertifiziert ist?
               </motion.p>
 
+              {/* 6. Warning text */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.45 }}
-                className="text-sm sm:text-base text-[#888888] max-w-md mx-auto mb-5 leading-relaxed"
+                className="text-sm sm:text-base text-[#888888] max-w-md mx-auto mb-8 leading-relaxed"
               >
-                Nicht zertifizierte Produkte können deine Geräte beschädigen — und die Garantie erlischt.
+                Nicht zertifizierte Produkte können deine Geräte beschädigen.
               </motion.p>
 
+              {/* Divider */}
               <motion.div
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="w-16 h-px bg-[#9b6b3f]/40 mx-auto mb-5"
+                className="w-16 h-px bg-[#9b6b3f]/40 mx-auto mb-8"
               />
 
+              {/* 7. Certification */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.55 }}
-                className="text-lg sm:text-xl font-bold text-[#9b6b3f] mb-8"
+                className="text-lg sm:text-xl font-bold text-[#9b6b3f] mb-12"
               >
-                RAJ NEXUS ist Qi2.2 zertifiziert. Offiziell. Immer.
+                RAJ NEXUS. Qi2.2 zertifiziert. Offiziell.
               </motion.p>
 
-              {/* Price Line */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="flex items-center justify-center gap-3 mb-8"
-              >
-                <span className="text-base line-through text-muted-foreground">CHF 129.–</span>
-                <span className="text-2xl font-bold text-[#9b6b3f]">CHF 99.–</span>
-                <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#9b6b3f]/10 text-[#9b6b3f]">Early Access</span>
-              </motion.div>
-
-
-
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="max-w-sm mx-auto mb-6 space-y-2"
-              >
-                {[
-                  "Founder Edition mit persönlicher Seriennummer",
-                  "Lebenslanger Early Access zu neuen Produkten",
-                   "3 Jahre Premium Garantie · CH Support",
-                   "24h exklusiver Vorverkauf vor allen anderen",
-                ].map((text) => (
-                  <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
-                    <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
-                    <span>{text}</span>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* So funktioniert's — 3 Steps */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="max-w-lg mx-auto mb-8"
-              >
-                <p className="text-xs uppercase tracking-[0.2em] text-[#888888] font-medium text-center mb-4">So funktioniert's</p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-                  {[
-                    { icon: Mail, step: "1", title: "E-Mail eintragen", desc: <>Unverbindlich und kostenlos. Kein Abo, keine Verpflichtung.</> },
-                    { icon: Bell, step: "2", title: "Launch-Info erhalten", desc: <>Du wirst 24h vor allen anderen informiert. Launch: <span className="font-semibold text-[#9b6b3f]">6. Mai 2026</span>.</> },
-                    { icon: Gift, step: "3", title: "Zum Early-Access-Preis bestellen", desc: <>CHF 99 statt CHF 129. Nur für Waitlist-Mitglieder.</> },
-                  ].map((item) => (
-                    <div key={item.step} className="flex sm:flex-col items-start sm:items-center gap-3 sm:gap-2 text-left sm:text-center">
-                      <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-xs font-bold text-[#9b6b3f]">{item.step}</span>
-                        <item.icon className="w-4 h-4 text-[#9b6b3f]" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold text-[#2c2c2c]">{item.title}</p>
-                        <p className="text-xs text-[#888888] leading-relaxed mt-0.5">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Email Form */}
+              {/* 8 & 9. Email form */}
               <motion.div
                 id="signup-form"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="max-w-md mx-auto"
+                className="max-w-sm mx-auto"
               >
                 {isSubmitted ? (
                   <motion.div
@@ -466,52 +397,37 @@ const LaunchPage = () => {
                     transition={{ duration: 0.6 }}
                     className="p-8 bg-white/60 rounded-2xl border border-[#9b6b3f]/20 text-center space-y-3"
                   >
-                    <h3 className="text-2xl font-bold text-[#9b6b3f]">
-                      Du bist dabei.
-                    </h3>
-                    <p className="text-sm text-[#9b6b3f]">
-                      Wir melden uns als Erstes bei dir — versprochen.
-                    </p>
+                    <h3 className="text-2xl font-bold text-[#9b6b3f]">Du bist dabei.</h3>
+                    <p className="text-sm text-[#9b6b3f]">Wir melden uns als Erstes bei dir — versprochen.</p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-
-                    <div className="flex flex-col gap-3">
-                      <div className="relative">
-                        <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
-                        <input
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="Deine Email-Adresse"
-                          required
-                          disabled={isSubmitting}
-                          className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-gray-200 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/20 transition-all"
-                        />
-                      </div>
-                      <button
-                        type="submit"
+                  <form onSubmit={handleSubmit} className="space-y-3">
+                    <div className="relative">
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Deine Email-Adresse"
+                        required
                         disabled={isSubmitting}
-                        className="w-full py-3.5 rounded-xl bg-[#9b6b3f] text-white font-bold hover:bg-[#9b6b3f]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2 text-sm sm:text-base"
-                      >
-                        {isSubmitting ? (
-                          <Loader2 className="w-5 h-5 animate-spin" />
-                        ) : (
-                          "EARLY ACCESS SICHERN"
-                        )}
-                      </button>
+                        className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-gray-200 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/20 transition-all"
+                      />
                     </div>
-
-                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-1">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 rounded-xl bg-[#9b6b3f] text-white font-bold hover:bg-[#9b6b3f]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : "Early Access sichern"}
+                    </button>
+                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-1 mt-2">
                       <span>🔒 Keine Zahlungsdaten nötig</span>
                       <span>·</span>
                       <span>📧 Jederzeit abmeldbar</span>
-                      <span>·</span>
-                      <span className="inline-flex items-center gap-1"><svg className="w-3.5 h-3.5 inline-block" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="2" fill="#E31E24"/><rect x="6.5" y="4" width="3" height="8" fill="#fff"/><rect x="4" y="6.5" width="8" height="3" fill="#fff"/></svg> Schweizer Unternehmen</span>
                     </p>
                   </form>
                 )}
-
               </motion.div>
             </div>
           </section>
