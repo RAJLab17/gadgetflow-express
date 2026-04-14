@@ -408,7 +408,7 @@ const LaunchPage = () => {
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div className="flex items-center justify-center gap-1.5 text-sm text-[#9b6b3f] font-semibold mb-1">
                       <Users className="w-4 h-4" />
-                      <span>Nur {Math.max(0, TOTAL_SPOTS - spotsTaken)} Plätze übrig!</span>
+                      <span>Nur <span className="text-lg font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> Plätze übrig!</span>
                     </div>
                     <div className="relative">
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
