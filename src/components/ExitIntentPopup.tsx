@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import confetti from "canvas-confetti";
 
 const COOKIE_KEY = "raj_exit_popup_shown";
-const MOBILE_TIMEOUT = 45000;
+const MOBILE_TIMEOUT = 30000;
 
 const ExitIntentPopup = () => {
   const [show, setShow] = useState(false);
