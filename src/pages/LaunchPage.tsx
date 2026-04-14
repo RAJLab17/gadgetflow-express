@@ -416,7 +416,7 @@ const LaunchPage = () => {
                         placeholder="Deine Email-Adresse"
                         required
                         disabled={isSubmitting}
-                        className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-gray-200 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/20 transition-all"
+                        className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-gray-200 text-[#2c2c2c] placeholder:text-[#888888] focus:outline-none focus:ring-2 focus:border-[#9b6b3f] focus:ring-[#9b6b3f]/30 focus:shadow-[0_0_15px_rgba(155,107,63,0.2)] transition-all duration-300"
                       />
                     </div>
                     <button
