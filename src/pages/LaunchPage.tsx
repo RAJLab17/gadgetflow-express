@@ -305,7 +305,7 @@ const LaunchPage = () => {
           <div className="py-4" />
 
           {/* ===== 1. HERO SECTION ===== */}
-          <section className="container mx-auto px-4 pt-8 pb-16 md:pt-16 md:pb-24">
+          <section className="container mx-auto px-4 pt-4 pb-16 md:pt-8 md:pb-24">
             <div className="max-w-2xl mx-auto text-center">
 
               {/* 1. Scarcity */}
