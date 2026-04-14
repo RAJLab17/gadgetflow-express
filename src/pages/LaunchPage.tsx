@@ -527,30 +527,6 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          {/* ===== ZERTIFIZIERUNG STATEMENT ===== */}
-          <section className="container mx-auto px-4 py-16 md:py-24">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-2xl mx-auto text-center"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c] mb-4" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                Du hast ein iPhone für CHF 1'200.
-              </h2>
-              <p className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-4">
-                Weisst du ob dein Ladegerät zertifiziert ist?
-              </p>
-              <p className="text-base md:text-lg text-[#888888] leading-relaxed mb-8">
-                Nicht zertifizierte Produkte können deine Geräte beschädigen — und die Garantie erlischt.
-              </p>
-              <div className="w-16 h-px bg-[#9b6b3f]/40 mx-auto mb-8" />
-              <p className="text-lg md:text-xl font-bold text-[#9b6b3f]">
-                RAJ NEXUS ist Qi2.2 zertifiziert. Offiziell. Immer.
-              </p>
-            </motion.div>
-          </section>
 
 
           <section className="container mx-auto px-4 py-16 md:py-24">
