@@ -47,7 +47,7 @@ const translations: Translations = {
   "countdown.seconds": { de: "Sek", fr: "Sec", it: "Sec" },
 
   // Taglines
-  "tagline.1": { de: "1 Ladegerät. 3 Geräte. Nur 1 Kabel.", fr: "1 chargeur. 3 appareils. 1 seul câble.", it: "1 caricatore. 3 dispositivi. Solo 1 cavo." },
+  "tagline.1": { de: "Power. Always There.", fr: "Power. Always There.", it: "Power. Always There." },
   "tagline.2": { de: "Präzision. Beständigkeit. Charakter.", fr: "Précision. Constance. Caractère.", it: "Precisione. Costanza. Carattere." },
   "tagline.3": { de: "Schweizer Brand. Weltweit zertifiziert. Für immer.", fr: "Marque suisse. Certifiée mondialement. Pour toujours.", it: "Brand svizzero. Certificato a livello mondiale. Per sempre." },
 
