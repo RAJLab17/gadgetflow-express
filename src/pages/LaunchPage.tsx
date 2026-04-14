@@ -495,7 +495,7 @@ const LaunchPage = () => {
 
 
           {/* ===== 5. Product Teaser – Edge-to-edge ===== */}
-          <section className="pb-20">
+          <section className="pt-12 pb-20 md:pt-20">
             <div className="container mx-auto px-4">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
