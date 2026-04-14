@@ -436,7 +436,19 @@ const LaunchPage = () => {
             </div>
           </section>
 
-
+          {/* ===== TAGLINE ===== */}
+          <section className="py-16 md:py-24">
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-5xl font-extrabold text-center text-foreground tracking-tight"
+              style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+            >
+              1 Ladegerät. 3 Geräte. Nur 1 Kabel.
+            </motion.p>
+          </section>
 
           {/* ===== BENEFITS ===== */}
           <section className="container mx-auto px-4 py-20 md:py-28">
