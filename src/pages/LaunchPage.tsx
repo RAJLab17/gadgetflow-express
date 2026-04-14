@@ -592,7 +592,23 @@ const LaunchPage = () => {
             </motion.div>
            </section>
 
-
+          {/* ===== TAGLINE 3 ===== */}
+          <section className="py-10">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="max-w-md mx-auto flex flex-col items-center gap-4"
+            >
+              <p
+                className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+              >
+                Schweizer Brand. Weltweit zertifiziert. Für immer.
+              </p>
+            </motion.div>
+          </section>
 
           <section className="container mx-auto px-4 py-20 md:py-28">
             <motion.div
