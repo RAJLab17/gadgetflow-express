@@ -356,27 +356,27 @@ const LaunchPage = () => {
               </p>
 
               {/* Countdown Timer */}
-              <div className="mb-10">
+              <div style={{ marginBottom: '32px' }}>
                 <CountdownTimer />
               </div>
 
-              {/* 3. Product image */}
+              {/* 3. Product image — 48px to headline */}
               <motion.img
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 src={chargerHero}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                className="w-full max-w-xs sm:max-w-sm mx-auto mb-20"
-                style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
+                className="w-full max-w-xs sm:max-w-sm mx-auto"
+                style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))', marginBottom: '48px' }}
               />
 
-              {/* 4. Headline */}
+              {/* 4. Headline — 16px to devices */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="mb-10"
+                style={{ marginBottom: '16px' }}
               >
                 <h1
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c]"
@@ -392,38 +392,45 @@ const LaunchPage = () => {
                 </p>
               </motion.div>
 
+              {/* 5a. Devices — 8px to action */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="mb-4 text-center"
+                className="text-center"
+                style={{ marginBottom: '8px' }}
               >
                 <p className="text-base sm:text-lg font-semibold text-[#2c2c2c] tracking-widest uppercase" style={{ letterSpacing: '4px' }}>
                   {t("launch.newSubline.devices")}
                 </p>
               </motion.div>
 
+              {/* 5b. Action — 32px to gold line */}
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.45 }}
-                className="text-sm sm:text-base italic text-[#999] mb-12"
+                className="text-sm sm:text-base italic text-[#999]"
+                style={{ marginBottom: '32px' }}
               >
                 {t("launch.newSubline.action")}
               </motion.p>
 
-              {/* 6. Reinforcer in gold */}
+              {/* Gold line — 32px to reinforcer */}
+              <div className="flex justify-center" style={{ marginBottom: '32px' }}>
+                <div className="h-px bg-[#9b6b3f]/40" style={{ width: '40px' }} />
+              </div>
+
+              {/* 6. Reinforcer — 40px to spots counter */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-sm sm:text-base font-bold text-[#9b6b3f] mb-14 whitespace-nowrap"
+                className="text-sm sm:text-base font-bold text-[#9b6b3f] whitespace-nowrap"
+                style={{ marginBottom: '40px' }}
               >
                 {t("launch.reinforcer")}
               </motion.p>
-
-
-
 
               {/* 8 & 9. Email form */}
               <motion.div
@@ -445,7 +452,7 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
-                    <div className="flex items-center justify-center gap-1.5 text-sm text-[#9b6b3f] font-semibold mb-1">
+                    <div className="flex items-center justify-center gap-1.5 text-sm text-[#9b6b3f] font-semibold" style={{ marginBottom: '16px' }}>
                       <Users className="w-4 h-4" />
                       <span>{t("launch.only")} <span className="text-lg font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
                     </div>
