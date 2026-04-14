@@ -588,19 +588,20 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== WARUM RAJ ===== */}
-          <section className="container mx-auto px-4 pt-4 pb-8 md:pt-6 md:pb-10">
+          <section className="container mx-auto px-4 py-16 md:py-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-2xl mx-auto text-center"
+              className="max-w-xl mx-auto text-center"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
                 Warum <span className="text-[#9b6b3f]">RAJ</span>?
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Wir bauen keine Produkte für den Markt — wir bauen Produkte, die wir selbst vermisst haben. Klares Design, ehrliche Leistung, Schweizer Anspruch.
+              <div className="w-12 h-px bg-[#9b6b3f]/40 mx-auto mb-6" />
+              <p className="text-[#555] leading-relaxed text-base md:text-lg">
+                RAJ wurde in der Schweiz gegründet. Von jemandem der genug hatte von Kabelsalat und mittelmässigen Produkten. Wir bauen nicht für den Markt. Wir bauen was wir selbst vermisst haben.
               </p>
             </motion.div>
           </section>
