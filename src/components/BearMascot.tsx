@@ -30,19 +30,37 @@ const BearMascot = () => {
           className="fixed bottom-16 left-3 z-[60] md:hidden"
           onClick={() => setVisible(false)}
         >
-          {/* Speech bubble */}
+          {/* Second speech bubble */}
+          <AnimatePresence>
+            {showSecondBubble && (
+              <motion.div
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="relative mb-1 ml-2"
+              >
+                <div className="bg-[#f5f0e8] rounded-xl px-3 py-1.5 shadow-md border border-[#c4a67a] max-w-[140px]">
+                  <p className="text-xs font-bold text-[#2b2725] leading-tight">
+                    Dein Platz wartet.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* First speech bubble */}
           <motion.div
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="relative mb-1.5 ml-2"
           >
-            <div className="bg-white rounded-xl px-3 py-1.5 shadow-md border border-[#e8e0d4] max-w-[140px]">
+            <div className="bg-[#f5f0e8] rounded-xl px-3 py-1.5 shadow-md border border-[#c4a67a] max-w-[140px]">
               <p className="text-xs font-bold text-[#2b2725] leading-tight">
                 Hey. Bleib kurz.
               </p>
               {/* Arrow pointing down-right toward sticky button */}
-              <div className="absolute -bottom-1.5 left-4 w-3 h-3 bg-white border-b border-r border-[#e8e0d4] rotate-45" />
+              <div className="absolute -bottom-1.5 left-4 w-3 h-3 bg-[#f5f0e8] border-b border-r border-[#c4a67a] rotate-45" />
             </div>
           </motion.div>
 
