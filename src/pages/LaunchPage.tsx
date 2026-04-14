@@ -622,7 +622,7 @@ const LaunchPage = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
                 Warum <span className="text-[#9b6b3f]">RAJ</span>?
               </h2>
-              <div className="w-12 h-px bg-[#9b6b3f]/40 mx-auto mb-6" />
+              
               <p className="text-[#555] leading-relaxed text-base md:text-lg">
                 RAJ wurde in der Schweiz gegründet. Von jemandem der genug hatte von Kabelsalat, mittelmässigen und nicht zertifizierten Produkten. Wir bauen nicht für den Markt. Wir bauen was wir selbst vermisst haben.
               </p>
