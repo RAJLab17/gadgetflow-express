@@ -376,7 +376,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="mb-3"
+                className="mb-10"
               >
                 <h1
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c]"
@@ -385,7 +385,7 @@ const LaunchPage = () => {
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#9b6b3f]"
+                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
@@ -396,22 +396,29 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="mb-6 text-center"
+                className="mb-4 text-center"
               >
-                <p className="text-lg sm:text-xl font-semibold text-[#2c2c2c] tracking-widest uppercase mb-1" style={{ letterSpacing: '3px' }}>
+                <p className="text-base sm:text-lg font-semibold text-[#2c2c2c] tracking-widest uppercase" style={{ letterSpacing: '4px' }}>
                   {t("launch.newSubline.devices")}
                 </p>
-                <p className="text-sm sm:text-base italic text-[#888888]">
-                  {t("launch.newSubline.action")}
-                </p>
               </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.45 }}
+                className="text-sm sm:text-base italic text-[#999] mb-12"
+              >
+                {t("launch.newSubline.action")}
+              </motion.p>
 
               {/* 6. Reinforcer in gold */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-sm sm:text-base font-bold text-[#9b6b3f] mb-8"
+                className="text-xs sm:text-sm font-bold text-[#9b6b3f] tracking-wider uppercase mb-14"
+                style={{ letterSpacing: '2px' }}
               >
                 {t("launch.reinforcer")}
               </motion.p>
