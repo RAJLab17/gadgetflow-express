@@ -375,52 +375,30 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#2c2c2c] mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#2c2c2c] mb-3"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                {t("launch.headline1")}
+                {t("launch.newHeadline")}
               </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.35 }}
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#9b6b3f] mb-4"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
-              >
-                CHF 1'200.
-              </motion.p>
 
-              {/* 5. Subheadline */}
+              {/* 5. Subline italic */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-4 whitespace-nowrap"
+                className="text-base sm:text-lg italic text-[#888888] mb-6"
               >
-                {t("launch.subheadline")}
+                {t("launch.newSubline")}
               </motion.p>
 
-              {/* 6. Warning text */}
+              {/* 6. Reinforcer in gold */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.45 }}
-                className="text-sm sm:text-base text-[#888888] max-w-md mx-auto mb-8 leading-relaxed whitespace-nowrap"
-              >
-                {t("launch.warning")}
-              </motion.p>
-
-
-
-
-              {/* 7. Certification */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.55 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-sm sm:text-base font-bold text-[#9b6b3f] mb-12"
               >
-                {t("launch.certification")}
+                {t("launch.reinforcer")}
               </motion.p>
 
               {/* 8 & 9. Email form */}
