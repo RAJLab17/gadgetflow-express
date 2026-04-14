@@ -106,7 +106,7 @@ const BearMascot = () => {
           {/* Paw prints toward sticky button center */}
           <AnimatePresence>
             {showSecondBubble && (
-              <div className="absolute bottom-[-6px] left-[52px] flex flex-col">
+              <div className="absolute bottom-[2px] left-[52px] flex flex-col">
                 {[0, 1, 2].map((i) => (
                   <motion.div
                     key={i}
