@@ -130,7 +130,7 @@ const ExitIntentPopup = () => {
           <div className="space-y-5">
             <div className="space-y-2">
               <h2 className="text-xl md:text-2xl font-extrabold text-foreground leading-tight">
-                Dein Early-Access-Preis verschwindet.
+                Sei dabei. Von Anfang an.
               </h2>
               <p className="text-sm md:text-base text-muted-foreground">
                 CHF 99 statt CHF 129 — nur für Waitlist-Mitglieder.
