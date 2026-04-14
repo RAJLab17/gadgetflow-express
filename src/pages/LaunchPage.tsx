@@ -18,7 +18,7 @@ import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 
 const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
 
-const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
+const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 
 const CountdownTimer = () => {
   const { t } = useLanguage();
