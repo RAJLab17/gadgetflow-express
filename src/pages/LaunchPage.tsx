@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
@@ -731,6 +732,7 @@ const LaunchPage = () => {
         </div>
       </div>
       {showSignupToast && <SignupToast />}
+      <ExitIntentPopup />
     </>
   );
 };
