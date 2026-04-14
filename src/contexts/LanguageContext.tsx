@@ -24,6 +24,9 @@ const translations: Translations = {
   "launch.subheadline": { de: "Weisst du ob dein Ladegerät zertifiziert ist?", fr: "Sais-tu si ton chargeur est certifié?", it: "Sai se il tuo caricatore è certificato?" },
   "launch.warning": { de: "Nicht zertifizierte Produkte können deine Geräte beschädigen.", fr: "Les produits non certifiés peuvent endommager tes appareils.", it: "I prodotti non certificati possono danneggiare i tuoi dispositivi." },
   "launch.certification": { de: "Die meisten kabellosen Ladegeräte auf dem Markt sind nicht Qi2.2 zertifiziert. RAJ NEXUS schon.", fr: "La plupart des chargeurs sans fil sur le marché ne sont pas certifiés Qi2.2. RAJ NEXUS, si.", it: "La maggior parte dei caricatori wireless sul mercato non è certificata Qi2.2. RAJ NEXUS sì." },
+  "launch.newHeadline": { de: "Ein Ladegerät. Drei Geräte. Ein Kabel.", fr: "Un chargeur. Trois appareils. Un câble.", it: "Un caricatore. Tre dispositivi. Un cavo." },
+  "launch.newSubline": { de: "iPhone. AirPods. Apple Watch — alles gleichzeitig laden.", fr: "iPhone. AirPods. Apple Watch — tout charger en même temps.", it: "iPhone. AirPods. Apple Watch — caricare tutto contemporaneamente." },
+  "launch.reinforcer": { de: "Qi2.2 zertifiziert. 25W Schnellladen. Swiss Brand.", fr: "Certifié Qi2.2. Charge rapide 25W. Swiss Brand.", it: "Certificato Qi2.2. Ricarica rapida 25W. Swiss Brand." },
 
   // Launch Page – Form
   "launch.spotsLeft": { de: "Plätze übrig!", fr: "places restantes!", it: "posti rimasti!" },
