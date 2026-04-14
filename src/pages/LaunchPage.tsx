@@ -351,6 +351,7 @@ const LaunchPage = () => {
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
                 CHF 1'200.
+              </motion.p>
 
               {/* 5. Subheadline */}
               <motion.p
