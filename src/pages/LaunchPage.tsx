@@ -382,15 +382,19 @@ const LaunchPage = () => {
                 {t("launch.newHeadline")}
               </motion.h1>
 
-              {/* 5. Subline italic */}
-              <motion.p
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-base sm:text-lg italic text-[#888888] mb-6"
+                className="mb-6 text-center"
               >
-                {t("launch.newSubline")}
-              </motion.p>
+                <p className="text-lg sm:text-xl font-semibold text-[#2c2c2c] tracking-widest uppercase mb-1" style={{ letterSpacing: '3px' }}>
+                  {t("launch.newSubline.devices")}
+                </p>
+                <p className="text-sm sm:text-base italic text-[#888888]">
+                  {t("launch.newSubline.action")}
+                </p>
+              </motion.div>
 
               {/* 6. Reinforcer in gold */}
               <motion.p
