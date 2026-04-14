@@ -18,7 +18,7 @@ import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
 
 const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
 
-const LAUNCH_DATE = new Date("2026-05-06T00:00:00+02:00").getTime();
+const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 
 const CountdownTimer = () => {
   const { t } = useLanguage();
@@ -351,10 +351,15 @@ const LaunchPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="text-sm text-[#2c2c2c] mb-10"
+                className="text-sm text-[#2c2c2c] mb-4"
               >
                 🔥 {t("launch.discovered")} <CountUpNumber target={visitorCount} /> {t("launch.discoveredSuffix")}
               </motion.p>
+
+              {/* Countdown Timer */}
+              <div className="mb-10">
+                <CountdownTimer />
+              </div>
 
               {/* 3. Product image */}
               <motion.img
