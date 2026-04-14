@@ -481,6 +481,24 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
+          {/* ===== TAGLINE 2 ===== */}
+          <section className="py-10">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="max-w-md mx-auto flex flex-col items-center gap-4"
+            >
+              <p
+                className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+              >
+                Präzision. Beständigkeit. Charakter.
+              </p>
+            </motion.div>
+          </section>
+
           {/* ===== 5. Product Teaser – Edge-to-edge ===== */}
           <section className="pt-20 pb-24 md:pt-28 md:pb-32">
             <div className="container mx-auto px-4">
