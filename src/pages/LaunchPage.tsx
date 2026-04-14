@@ -367,7 +367,8 @@ const LaunchPage = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 src={chargerHero}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                className="w-full max-w-xs sm:max-w-sm mx-auto drop-shadow-xl mb-12"
+                className="w-full max-w-xs sm:max-w-sm mx-auto mb-20"
+                style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
               />
 
               {/* 4. Headline */}
@@ -375,8 +376,8 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#2c2c2c] mb-3"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c] mb-3"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
               >
                 {t("launch.newHeadline")}
               </motion.h1>
@@ -396,10 +397,15 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-sm sm:text-base font-bold text-[#9b6b3f] mb-12"
+                className="text-sm sm:text-base font-bold text-[#9b6b3f] mb-8"
               >
                 {t("launch.reinforcer")}
               </motion.p>
+
+              {/* Divider */}
+              <div className="flex justify-center mb-8">
+                <div className="w-10 h-px bg-[#9b6b3f]/40" />
+              </div>
 
               {/* 8 & 9. Email form */}
               <motion.div
