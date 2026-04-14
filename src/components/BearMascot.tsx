@@ -27,7 +27,7 @@ const BearMascot = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 40, scale: 0.6 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="fixed bottom-16 left-3 z-[60] md:hidden"
+          className="fixed bottom-14 right-3 z-[60] md:hidden"
           onClick={() => setVisible(false)}
         >
           {/* Second speech bubble */}

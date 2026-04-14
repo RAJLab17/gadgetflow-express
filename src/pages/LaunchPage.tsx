@@ -305,7 +305,7 @@ const LaunchPage = () => {
           <div className="py-4" />
 
           {/* ===== 1. HERO SECTION ===== */}
-          <section className="container mx-auto px-4 pt-2 pb-20 md:pt-4 md:pb-28">
+          <section className="container mx-auto px-4 pt-2 pb-10 md:pt-4 md:pb-28">
             <div className="max-w-2xl mx-auto text-center">
 
               {/* 1. Scarcity */}
@@ -437,7 +437,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== TAGLINE ===== */}
-          <section className="py-10">
+          <section className="py-6 md:py-10">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -456,7 +456,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== BENEFITS ===== */}
-          <section className="container mx-auto px-4 py-20 md:py-28">
+          <section className="container mx-auto px-4 py-10 md:py-28">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -482,7 +482,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== TAGLINE 2 ===== */}
-          <section className="py-10">
+          <section className="py-6 md:py-10">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -500,7 +500,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== 5. Product Teaser – Edge-to-edge ===== */}
-          <section className="pt-20 pb-24 md:pt-28 md:pb-32">
+          <section className="pt-10 pb-12 md:pt-28 md:pb-32">
             <div className="container mx-auto px-4">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -593,7 +593,7 @@ const LaunchPage = () => {
            </section>
 
           {/* ===== TAGLINE 3 ===== */}
-          <section className="py-10">
+          <section className="py-6 md:py-10">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -610,7 +610,7 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          <section className="container mx-auto px-4 py-20 md:py-28">
+          <section className="container mx-auto px-4 py-10 md:py-28">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -629,7 +629,7 @@ const LaunchPage = () => {
           </section>
 
           {/* FAQ Section */}
-          <section className="py-20 md:py-28 bg-[#f5f2ec]">
+          <section className="py-12 md:py-28 bg-[#f5f2ec]">
             <div className="container mx-auto px-4 max-w-2xl">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-10 tracking-tight">
                 Häufige Fragen
@@ -661,7 +661,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== 6. Second CTA Section ===== */}
-          <section className="bg-[#9b6b3f] py-20 md:py-28">
+          <section className="bg-[#9b6b3f] py-12 md:py-28">
             <div className="container mx-auto px-4 max-w-lg text-center">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
