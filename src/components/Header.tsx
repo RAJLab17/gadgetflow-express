@@ -4,14 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
+import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo-new.png";
-
-const supportLinks = [
-  { label: "FAQ", href: "/faq" },
-  { label: "Versand & Rückgabe", href: "/versand" },
-  { label: "Kontakt", href: "#" },
-  { label: "Manuals & Downloads", href: "#" },
-];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,6 +14,14 @@ const Header = () => {
   const [isMobileSupportOpen, setIsMobileSupportOpen] = useState(false);
   const supportCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
+
+  const supportLinks = [
+    { label: t("header.faq"), href: "/faq" },
+    { label: t("header.shipping"), href: "/versand" },
+    { label: t("header.contact"), href: "#" },
+    { label: t("header.manuals"), href: "#" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +39,6 @@ const Header = () => {
 
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
-      // If we're not on the homepage, navigate there first with the hash
       if (window.location.pathname !== "/") {
         window.location.href = "/" + href;
       } else {
@@ -72,6 +73,28 @@ const Header = () => {
     startSupportClose();
   };
 
+  const LanguageToggle = () => (
+    <div className="flex items-center gap-1 text-xs font-medium">
+      <button
+        onClick={() => setLang("de")}
+        className={`px-1.5 py-0.5 rounded transition-colors ${
+          lang === "de" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        DE
+      </button>
+      <span className="text-muted-foreground/40">|</span>
+      <button
+        onClick={() => setLang("fr")}
+        className={`px-1.5 py-0.5 rounded transition-colors ${
+          lang === "fr" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
+        }`}
+      >
+        FR
+      </button>
+    </div>
+  );
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -105,25 +128,22 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-10">
-            {/* Produkt */}
             <button
               onClick={() => handleNavClick("#products")}
               className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
-              Produkt
+              {t("header.product")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </button>
 
-            {/* Über uns */}
             <Link
               to="/about"
               className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
-              Über uns
+              {t("header.about")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
 
-            {/* Support Dropdown */}
             <div
               className="relative"
               onMouseEnter={handleSupportEnter}
@@ -133,7 +153,7 @@ const Header = () => {
                 onClick={() => setIsSupportOpen((prev) => !prev)}
                 className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
               >
-                Support
+                {t("header.support")}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
 
@@ -160,6 +180,8 @@ const Header = () => {
                 )}
               </AnimatePresence>
             </div>
+
+            <LanguageToggle />
           </nav>
 
           {/* Desktop CTA */}
@@ -171,12 +193,13 @@ const Header = () => {
               className="shadow-elegant"
               onClick={() => handleNavClick("#products")}
             >
-              Jetzt kaufen
+              {t("header.buy")}
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
+            <LanguageToggle />
             <CartDrawer />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -198,7 +221,6 @@ const Header = () => {
               className="md:hidden overflow-hidden border-t border-border/50"
             >
               <div className="py-6 space-y-4">
-                {/* Produkt */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -208,11 +230,10 @@ const Header = () => {
                     onClick={() => handleNavClick("#products")}
                     className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
                   >
-                    Produkt
+                    {t("header.product")}
                   </button>
                 </motion.div>
 
-                {/* Über uns */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -223,11 +244,10 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="block py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
                   >
-                    Über uns
+                    {t("header.about")}
                   </Link>
                 </motion.div>
 
-                {/* Support with sub-links */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -237,7 +257,7 @@ const Header = () => {
                     onClick={() => setIsMobileSupportOpen((prev) => !prev)}
                     className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
                   >
-                    Support
+                    {t("header.support")}
                   </button>
                   <AnimatePresence>
                     {isMobileSupportOpen && (
@@ -274,7 +294,7 @@ const Header = () => {
                     className="w-full shadow-elegant"
                     onClick={() => handleNavClick("#products")}
                   >
-                    Jetzt kaufen
+                    {t("header.buy")}
                   </Button>
                 </motion.div>
               </div>
