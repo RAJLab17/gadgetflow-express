@@ -445,14 +445,13 @@ const LaunchPage = () => {
               transition={{ duration: 0.8 }}
               className="max-w-md mx-auto flex flex-col items-center gap-4"
             >
-              <div className="w-16 h-px bg-[#9b6b3f]/30" />
               <p
                 className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
                 1 Ladegerät. 3 Geräte. Nur 1 Kabel.
               </p>
-              <div className="w-16 h-px bg-[#9b6b3f]/30" />
+              
             </motion.div>
           </section>
 
