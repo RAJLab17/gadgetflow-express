@@ -1,110 +1,111 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 
-export type Language = "de" | "fr";
+export type Language = "de" | "fr" | "it";
 
 type Translations = Record<string, Record<Language, string>>;
 
 const translations: Translations = {
   // Header
-  "header.product": { de: "Produkt", fr: "Produit" },
-  "header.about": { de: "Über uns", fr: "À propos" },
-  "header.support": { de: "Support", fr: "Support" },
-  "header.buy": { de: "Jetzt kaufen", fr: "Acheter" },
-  "header.faq": { de: "FAQ", fr: "FAQ" },
-  "header.shipping": { de: "Versand & Rückgabe", fr: "Livraison & Retour" },
-  "header.contact": { de: "Kontakt", fr: "Contact" },
-  "header.manuals": { de: "Manuals & Downloads", fr: "Manuels & Téléchargements" },
+  "header.product": { de: "Produkt", fr: "Produit", it: "Prodotto" },
+  "header.about": { de: "Über uns", fr: "À propos", it: "Chi siamo" },
+  "header.support": { de: "Support", fr: "Support", it: "Supporto" },
+  "header.buy": { de: "Jetzt kaufen", fr: "Acheter", it: "Acquista ora" },
+  "header.faq": { de: "FAQ", fr: "FAQ", it: "FAQ" },
+  "header.shipping": { de: "Versand & Rückgabe", fr: "Livraison & Retour", it: "Spedizione & Reso" },
+  "header.contact": { de: "Kontakt", fr: "Contact", it: "Contatto" },
+  "header.manuals": { de: "Manuals & Downloads", fr: "Manuels & Téléchargements", it: "Manuali & Download" },
 
   // Launch Page – Hero
-  "launch.scarcity": { de: "Founder Edition — limitiert auf", fr: "Founder Edition — limitée à" },
-  "launch.pieces": { de: "Stück", fr: "pièces" },
-  "launch.discovered": { de: "Bereits von", fr: "Déjà découvert par" },
-  "launch.discoveredSuffix": { de: "Personen entdeckt", fr: "personnes" },
-  "launch.headline1": { de: "Du hast ein iPhone für", fr: "Tu as un iPhone à" },
-  "launch.subheadline": { de: "Weisst du ob dein Ladegerät zertifiziert ist?", fr: "Sais-tu si ton chargeur est certifié?" },
-  "launch.warning": { de: "Nicht zertifizierte Produkte können deine Geräte beschädigen.", fr: "Les produits non certifiés peuvent endommager tes appareils." },
-  "launch.certification": { de: "RAJ NEXUS. Qi2.2 zertifiziert. Offiziell.", fr: "RAJ NEXUS. Certifié Qi2.2. Officiel." },
+  "launch.scarcity": { de: "Founder Edition — limitiert auf", fr: "Founder Edition — limitée à", it: "Founder Edition — limitata a" },
+  "launch.pieces": { de: "Stück", fr: "pièces", it: "pezzi" },
+  "launch.discovered": { de: "Bereits von", fr: "Déjà découvert par", it: "Già scoperto da" },
+  "launch.discoveredSuffix": { de: "Personen entdeckt", fr: "personnes", it: "persone" },
+  "launch.headline1": { de: "Du hast ein iPhone für", fr: "Tu as un iPhone à", it: "Hai un iPhone da" },
+  "launch.subheadline": { de: "Weisst du ob dein Ladegerät zertifiziert ist?", fr: "Sais-tu si ton chargeur est certifié?", it: "Sai se il tuo caricatore è certificato?" },
+  "launch.warning": { de: "Nicht zertifizierte Produkte können deine Geräte beschädigen.", fr: "Les produits non certifiés peuvent endommager tes appareils.", it: "I prodotti non certificati possono danneggiare i tuoi dispositivi." },
+  "launch.certification": { de: "RAJ NEXUS. Qi2.2 zertifiziert. Offiziell.", fr: "RAJ NEXUS. Certifié Qi2.2. Officiel.", it: "RAJ NEXUS. Certificato Qi2.2. Ufficiale." },
 
   // Launch Page – Form
-  "launch.spotsLeft": { de: "Plätze übrig!", fr: "places restantes!" },
-  "launch.only": { de: "Nur", fr: "Seulement" },
-  "launch.emailPlaceholder": { de: "Deine Email-Adresse", fr: "Ton adresse e-mail" },
-  "launch.cta": { de: "Early Access sichern", fr: "Réserver l'Early Access" },
-  "launch.noPayment": { de: "🔒 Keine Zahlungsdaten nötig", fr: "🔒 Aucune donnée de paiement requise" },
-  "launch.unsubscribe": { de: "📧 Jederzeit abmeldbar", fr: "📧 Désabonnement à tout moment" },
-  "launch.submitted.title": { de: "Du bist dabei.", fr: "Tu es inscrit·e." },
-  "launch.submitted.sub": { de: "Wir melden uns als Erstes bei dir — versprochen.", fr: "On te contacte en premier — promis." },
+  "launch.spotsLeft": { de: "Plätze übrig!", fr: "places restantes!", it: "posti rimasti!" },
+  "launch.only": { de: "Nur", fr: "Seulement", it: "Solo" },
+  "launch.emailPlaceholder": { de: "Deine Email-Adresse", fr: "Ton adresse e-mail", it: "Il tuo indirizzo e-mail" },
+  "launch.cta": { de: "Early Access sichern", fr: "Réserver l'Early Access", it: "Assicurati l'Early Access" },
+  "launch.noPayment": { de: "🔒 Keine Zahlungsdaten nötig", fr: "🔒 Aucune donnée de paiement requise", it: "🔒 Nessun dato di pagamento richiesto" },
+  "launch.unsubscribe": { de: "📧 Jederzeit abmeldbar", fr: "📧 Désabonnement à tout moment", it: "📧 Cancellazione in qualsiasi momento" },
+  "launch.submitted.title": { de: "Du bist dabei.", fr: "Tu es inscrit·e.", it: "Sei dei nostri." },
+  "launch.submitted.sub": { de: "Wir melden uns als Erstes bei dir — versprochen.", fr: "On te contacte en premier — promis.", it: "Ti contatteremo per primo — promesso." },
 
   // Countdown
-  "countdown.days": { de: "Tage", fr: "Jours" },
-  "countdown.hours": { de: "Std", fr: "Hrs" },
-  "countdown.minutes": { de: "Min", fr: "Min" },
-  "countdown.seconds": { de: "Sek", fr: "Sec" },
+  "countdown.days": { de: "Tage", fr: "Jours", it: "Giorni" },
+  "countdown.hours": { de: "Std", fr: "Hrs", it: "Ore" },
+  "countdown.minutes": { de: "Min", fr: "Min", it: "Min" },
+  "countdown.seconds": { de: "Sek", fr: "Sec", it: "Sec" },
 
   // Taglines
-  "tagline.1": { de: "1 Ladegerät. 3 Geräte. Nur 1 Kabel.", fr: "1 chargeur. 3 appareils. 1 seul câble." },
-  "tagline.2": { de: "Präzision. Beständigkeit. Charakter.", fr: "Précision. Constance. Caractère." },
-  "tagline.3": { de: "Schweizer Brand. Weltweit zertifiziert. Für immer.", fr: "Marque suisse. Certifiée mondialement. Pour toujours." },
+  "tagline.1": { de: "1 Ladegerät. 3 Geräte. Nur 1 Kabel.", fr: "1 chargeur. 3 appareils. 1 seul câble.", it: "1 caricatore. 3 dispositivi. Solo 1 cavo." },
+  "tagline.2": { de: "Präzision. Beständigkeit. Charakter.", fr: "Précision. Constance. Caractère.", it: "Precisione. Costanza. Carattere." },
+  "tagline.3": { de: "Schweizer Brand. Weltweit zertifiziert. Für immer.", fr: "Marque suisse. Certifiée mondialement. Pour toujours.", it: "Brand svizzero. Certificato a livello mondiale. Per sempre." },
 
   // Benefits
-  "benefits.title": { de: "Benefits für die ersten 100.", fr: "Avantages pour les 100 premiers." },
-  "benefits.1": { de: "CHF 30 sparen — CHF 99 statt CHF 129.", fr: "Économise CHF 30 — CHF 99 au lieu de CHF 129." },
-  "benefits.2": { de: "Founder Edition mit persönlicher Seriennummer.", fr: "Founder Edition avec numéro de série personnel." },
-  "benefits.3": { de: "Lebenslanger Early Access zu neuen RAJ Produkten.", fr: "Early Access à vie pour les nouveaux produits RAJ." },
+  "benefits.title": { de: "Benefits für die ersten 100.", fr: "Avantages pour les 100 premiers.", it: "Vantaggi per i primi 100." },
+  "benefits.1": { de: "CHF 30 sparen — CHF 99 statt CHF 129.", fr: "Économise CHF 30 — CHF 99 au lieu de CHF 129.", it: "Risparmia CHF 30 — CHF 99 invece di CHF 129." },
+  "benefits.2": { de: "Founder Edition mit persönlicher Seriennummer.", fr: "Founder Edition avec numéro de série personnel.", it: "Founder Edition con numero di serie personale." },
+  "benefits.3": { de: "Lebenslanger Early Access zu neuen RAJ Produkten.", fr: "Early Access à vie pour les nouveaux produits RAJ.", it: "Early Access a vita per i nuovi prodotti RAJ." },
 
   // Product Teaser
-  "product.subtitle": { de: "Ein Ladegerät für alles. Ohne Kompromisse.", fr: "Un chargeur pour tout. Sans compromis." },
+  "product.subtitle": { de: "Ein Ladegerät für alles. Ohne Kompromisse.", fr: "Un chargeur pour tout. Sans compromis.", it: "Un caricatore per tutto. Senza compromessi." },
 
   // Trust Bar
-  "trust.swissBrand": { de: "Swiss Brand", fr: "Marque Suisse" },
-  "trust.warranty": { de: "3 Jahre Garantie", fr: "3 ans de garantie" },
-  "trust.freeShipping": { de: "Kostenloser Versand", fr: "Livraison gratuite" },
+  "trust.swissBrand": { de: "Swiss Brand", fr: "Marque Suisse", it: "Brand Svizzero" },
+  "trust.warranty": { de: "3 Jahre Garantie", fr: "3 ans de garantie", it: "3 anni di garanzia" },
+  "trust.freeShipping": { de: "Kostenloser Versand", fr: "Livraison gratuite", it: "Spedizione gratuita" },
 
   // Why RAJ
-  "why.title": { de: "Warum", fr: "Pourquoi" },
+  "why.title": { de: "Warum", fr: "Pourquoi", it: "Perché" },
   "why.text": {
     de: "RAJ wurde in der Schweiz gegründet. Von jemandem der genug hatte von Kabelsalat, mittelmässigen und nicht zertifizierten Produkten. Wir bauen nicht für den Markt. Wir bauen was wir selbst vermisst haben.",
     fr: "RAJ a été fondée en Suisse. Par quelqu'un qui en avait assez des câbles emmêlés, des produits médiocres et non certifiés. Nous ne construisons pas pour le marché. Nous construisons ce qui nous a toujours manqué.",
+    it: "RAJ è stata fondata in Svizzera. Da qualcuno che ne aveva abbastanza di cavi aggrovigliati, prodotti mediocri e non certificati. Non costruiamo per il mercato. Costruiamo ciò che ci è sempre mancato.",
   },
 
   // FAQ
-  "faq.title": { de: "Häufige Fragen", fr: "Questions fréquentes" },
-  "faq.q1": { de: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", fr: "Le RAJ NEXUS est-il compatible avec mon appareil?" },
-  "faq.a1": { de: "Ja. Alle iPhones mit MagSafe (iPhone 12 und neuer), Apple Watch, AirPods Pro & AirPods (3. Gen+). Funktioniert auch mit MagSafe Cases.", fr: "Oui. Tous les iPhones avec MagSafe (iPhone 12 et plus récent), Apple Watch, AirPods Pro & AirPods (3e gén+). Fonctionne aussi avec les coques MagSafe." },
-  "faq.q2": { de: "Muss ich mich zum Kauf verpflichten?", fr: "Dois-je m'engager à acheter?" },
-  "faq.a2": { de: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot - du entscheidest dann.", fr: "Non. L'inscription est sans engagement. En mai, tu recevras l'offre — tu décideras à ce moment-là." },
-  "faq.q3": { de: "Was unterscheidet RAJ NEXUS von anderen Chargern?", fr: "Qu'est-ce qui différencie le RAJ NEXUS des autres chargeurs?" },
-  "faq.a3": { de: "Qi2.2 Technologie - der neueste Standard (seit Juli 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Schweizer Qualitätsanspruch, Premium-Materialien, 3 Jahre Garantie.", fr: "Technologie Qi2.2 — le standard le plus récent (depuis juillet 2025), certifié par le Wireless Power Consortium (WPC). Charge rapide 25W, énergie plus efficace, alignement plus précis. En plus: qualité suisse, matériaux premium, 3 ans de garantie." },
-  "faq.q4": { de: "Ist das Laden sicher? Was ist mit Überhitzung?", fr: "La charge est-elle sûre? Qu'en est-il de la surchauffe?" },
-  "faq.a4": { de: "Ja. WPC-zertifiziert mit integrierten Sicherheitsmechanismen: Überhitzungsschutz, Überladeschutz, Fremdkörpererkennung. Qi2.2 ist effizienter und erzeugt weniger Hitze als ältere Standards.", fr: "Oui. Certifié WPC avec des mécanismes de sécurité intégrés: protection contre la surchauffe, la surcharge et la détection de corps étrangers. Le Qi2.2 est plus efficace et génère moins de chaleur que les anciens standards." },
-  "faq.q5": { de: "Wann kann ich meinen RAJ NEXUS erwarten?", fr: "Quand puis-je recevoir mon RAJ NEXUS?" },
-  "faq.a5": { de: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung.", fr: "Mai 2026. Les membres Early Access ont la priorité pour la livraison." },
+  "faq.title": { de: "Häufige Fragen", fr: "Questions fréquentes", it: "Domande frequenti" },
+  "faq.q1": { de: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", fr: "Le RAJ NEXUS est-il compatible avec mon appareil?", it: "Il RAJ NEXUS è compatibile con il mio dispositivo?" },
+  "faq.a1": { de: "Ja. Alle iPhones mit MagSafe (iPhone 12 und neuer), Apple Watch, AirPods Pro & AirPods (3. Gen+). Funktioniert auch mit MagSafe Cases.", fr: "Oui. Tous les iPhones avec MagSafe (iPhone 12 et plus récent), Apple Watch, AirPods Pro & AirPods (3e gén+). Fonctionne aussi avec les coques MagSafe.", it: "Sì. Tutti gli iPhone con MagSafe (iPhone 12 e successivi), Apple Watch, AirPods Pro e AirPods (3a gen+). Funziona anche con le custodie MagSafe." },
+  "faq.q2": { de: "Muss ich mich zum Kauf verpflichten?", fr: "Dois-je m'engager à acheter?", it: "Devo impegnarmi all'acquisto?" },
+  "faq.a2": { de: "Nein. Die Anmeldung ist unverbindlich. Im Mai erhältst du das Kaufangebot - du entscheidest dann.", fr: "Non. L'inscription est sans engagement. En mai, tu recevras l'offre — tu décideras à ce moment-là.", it: "No. L'iscrizione è senza impegno. A maggio riceverai l'offerta — deciderai tu." },
+  "faq.q3": { de: "Was unterscheidet RAJ NEXUS von anderen Chargern?", fr: "Qu'est-ce qui différencie le RAJ NEXUS des autres chargeurs?", it: "Cosa distingue il RAJ NEXUS dagli altri caricatori?" },
+  "faq.a3": { de: "Qi2.2 Technologie - der neueste Standard (seit Juli 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Schweizer Qualitätsanspruch, Premium-Materialien, 3 Jahre Garantie.", fr: "Technologie Qi2.2 — le standard le plus récent (depuis juillet 2025), certifié par le Wireless Power Consortium (WPC). Charge rapide 25W, énergie plus efficace, alignement plus précis. En plus: qualité suisse, matériaux premium, 3 ans de garantie.", it: "Tecnologia Qi2.2 — lo standard più recente (da luglio 2025), certificato dal Wireless Power Consortium (WPC). Ricarica rapida 25W, energia più efficiente, allineamento più preciso. In più: qualità svizzera, materiali premium, 3 anni di garanzia." },
+  "faq.q4": { de: "Ist das Laden sicher? Was ist mit Überhitzung?", fr: "La charge est-elle sûre? Qu'en est-il de la surchauffe?", it: "La ricarica è sicura? E il surriscaldamento?" },
+  "faq.a4": { de: "Ja. WPC-zertifiziert mit integrierten Sicherheitsmechanismen: Überhitzungsschutz, Überladeschutz, Fremdkörpererkennung. Qi2.2 ist effizienter und erzeugt weniger Hitze als ältere Standards.", fr: "Oui. Certifié WPC avec des mécanismes de sécurité intégrés: protection contre la surchauffe, la surcharge et la détection de corps étrangers. Le Qi2.2 est plus efficace et génère moins de chaleur que les anciens standards.", it: "Sì. Certificato WPC con meccanismi di sicurezza integrati: protezione dal surriscaldamento, dalla sovraccarica e rilevamento di corpi estranei. Il Qi2.2 è più efficiente e genera meno calore rispetto agli standard precedenti." },
+  "faq.q5": { de: "Wann kann ich meinen RAJ NEXUS erwarten?", fr: "Quand puis-je recevoir mon RAJ NEXUS?", it: "Quando posso aspettarmi il mio RAJ NEXUS?" },
+  "faq.a5": { de: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung.", fr: "Mai 2026. Les membres Early Access ont la priorité pour la livraison.", it: "Maggio 2026. I membri Early Access hanno la priorità nella consegna." },
 
   // Second CTA
-  "cta2.title": { de: "Dein Platz wartet.", fr: "Ta place t'attend." },
-  "cta2.submitted": { de: "Du bist dabei!", fr: "Tu es inscrit·e!" },
-  "cta2.button": { de: "EARLY ACCESS SICHERN", fr: "RÉSERVER L'EARLY ACCESS" },
+  "cta2.title": { de: "Dein Platz wartet.", fr: "Ta place t'attend.", it: "Il tuo posto ti aspetta." },
+  "cta2.submitted": { de: "Du bist dabei!", fr: "Tu es inscrit·e!", it: "Sei dei nostri!" },
+  "cta2.button": { de: "EARLY ACCESS SICHERN", fr: "RÉSERVER L'EARLY ACCESS", it: "ASSICURATI L'EARLY ACCESS" },
 
   // Footer
-  "footer.rights": { de: "Alle Rechte vorbehalten.", fr: "Tous droits réservés." },
+  "footer.rights": { de: "Alle Rechte vorbehalten.", fr: "Tous droits réservés.", it: "Tutti i diritti riservati." },
 
   // Sticky CTA
-  "sticky.cta": { de: "Early Access sichern · Founder Edition", fr: "Réserver l'Early Access · Founder Edition" },
+  "sticky.cta": { de: "Early Access sichern · Founder Edition", fr: "Réserver l'Early Access · Founder Edition", it: "Assicurati l'Early Access · Founder Edition" },
 
   // Toast
-  "toast.signup": { de: "🇨🇭 Jemand hat sich gerade eingetragen.", fr: "🇨🇭 Quelqu'un vient de s'inscrire." },
+  "toast.signup": { de: "🇨🇭 Jemand hat sich gerade eingetragen.", fr: "🇨🇭 Quelqu'un vient de s'inscrire.", it: "🇨🇭 Qualcuno si è appena iscritto." },
 
   // Errors
-  "error.invalidEmail": { de: "Bitte gib eine gültige E-Mail-Adresse ein.", fr: "Merci d'entrer une adresse e-mail valide." },
-  "error.failed": { de: "Anmeldung fehlgeschlagen. Bitte versuche es erneut.", fr: "L'inscription a échoué. Merci de réessayer." },
+  "error.invalidEmail": { de: "Bitte gib eine gültige E-Mail-Adresse ein.", fr: "Merci d'entrer une adresse e-mail valide.", it: "Inserisci un indirizzo e-mail valido." },
+  "error.failed": { de: "Anmeldung fehlgeschlagen. Bitte versuche es erneut.", fr: "L'inscription a échoué. Merci de réessayer.", it: "Iscrizione fallita. Riprova." },
 
   // Exit Intent Popup
-  "exit.title": { de: "Sei dabei. Von Anfang an.", fr: "Sois là. Dès le début." },
-  "exit.subtitle": { de: "CHF 99 statt CHF 129 — nur für Waitlist-Mitglieder.", fr: "CHF 99 au lieu de CHF 129 — uniquement pour les membres Waitlist." },
-  "exit.button": { de: "MEINEN PLATZ SICHERN", fr: "RÉSERVER MA PLACE" },
-  "exit.disclaimer": { de: "Kein Spam. Keine Zahlungsdaten. Jederzeit abmeldbar.", fr: "Pas de spam. Pas de paiement. Désabonnement à tout moment." },
-  "exit.submitted.title": { de: "Du bist dabei.", fr: "Tu es inscrit·e." },
-  "exit.submitted.sub": { de: "Wir melden uns als Erstes bei dir — versprochen.", fr: "On te contacte en premier — promis." },
+  "exit.title": { de: "Sei dabei. Von Anfang an.", fr: "Sois là. Dès le début.", it: "Sii presente. Fin dall'inizio." },
+  "exit.subtitle": { de: "CHF 99 statt CHF 129 — nur für Waitlist-Mitglieder.", fr: "CHF 99 au lieu de CHF 129 — uniquement pour les membres Waitlist.", it: "CHF 99 invece di CHF 129 — solo per i membri della Waitlist." },
+  "exit.button": { de: "MEINEN PLATZ SICHERN", fr: "RÉSERVER MA PLACE", it: "ASSICURARMI IL MIO POSTO" },
+  "exit.disclaimer": { de: "Kein Spam. Keine Zahlungsdaten. Jederzeit abmeldbar.", fr: "Pas de spam. Pas de paiement. Désabonnement à tout moment.", it: "Niente spam. Nessun dato di pagamento. Cancellazione in qualsiasi momento." },
+  "exit.submitted.title": { de: "Du bist dabei.", fr: "Tu es inscrit·e.", it: "Sei dei nostri." },
+  "exit.submitted.sub": { de: "Wir melden uns als Erstes bei dir — versprochen.", fr: "On te contacte en premier — promis.", it: "Ti contatteremo per primo — promesso." },
 };
 
 interface LanguageContextType {
@@ -125,11 +126,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [lang, setLangState] = useState<Language>(() => {
     // 1. Check localStorage
     const stored = localStorage.getItem("raj_lang");
-    if (stored === "de" || stored === "fr") return stored;
+    if (stored === "de" || stored === "fr" || stored === "it") return stored;
 
     // 2. Auto-detect from browser — only FR if explicitly French, else DE (prio DE)
     const browserLang = navigator.language?.toLowerCase() || "";
     if (browserLang.startsWith("fr")) return "fr";
+    if (browserLang.startsWith("it")) return "it";
 
     // 3. Default: DE
     return "de";
