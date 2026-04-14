@@ -77,7 +77,7 @@ const translations: Translations = {
   "faq.a3": { de: "Qi2.2 Technologie - der neueste Standard (seit Juli 2025), zertifiziert durch das Wireless Power Consortium (WPC). 25W Schnellladen, effizientere Energie, präzisere Ausrichtung. Dazu: Schweizer Qualitätsanspruch, Premium-Materialien, 3 Jahre Garantie.", fr: "Technologie Qi2.2 — le standard le plus récent (depuis juillet 2025), certifié par le Wireless Power Consortium (WPC). Charge rapide 25W, énergie plus efficace, alignement plus précis. En plus: qualité suisse, matériaux premium, 3 ans de garantie." },
   "faq.q4": { de: "Ist das Laden sicher? Was ist mit Überhitzung?", fr: "La charge est-elle sûre? Qu'en est-il de la surchauffe?" },
   "faq.a4": { de: "Ja. WPC-zertifiziert mit integrierten Sicherheitsmechanismen: Überhitzungsschutz, Überladeschutz, Fremdkörpererkennung. Qi2.2 ist effizienter und erzeugt weniger Hitze als ältere Standards.", fr: "Oui. Certifié WPC avec des mécanismes de sécurité intégrés: protection contre la surchauffe, la surcharge et la détection de corps étrangers. Le Qi2.2 est plus efficace et génère moins de chaleur que les anciens standards." },
-  "faq.q5": { de: "Wann wird geliefert?", fr: "Quand sera-t-il livré?" },
+  "faq.q5": { de: "Wann kann ich meinen RAJ NEXUS erwarten?", fr: "Quand puis-je recevoir mon RAJ NEXUS?" },
   "faq.a5": { de: "Mai 2026. Early Access Mitglieder haben Priorität bei der Auslieferung.", fr: "Mai 2026. Les membres Early Access ont la priorité pour la livraison." },
 
   // Second CTA
