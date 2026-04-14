@@ -461,8 +461,7 @@ const LaunchPage = () => {
                 "🏆 Founder Edition mit persönlicher Seriennummer — einzigartig.",
                 "⚡ Lebenslanger Early Access zu allen neuen RAJ Produkten.",
               ].map((text) => (
-                <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
-                  <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
+                <div key={text} className="flex items-start gap-2.5 text-sm text-[#2c2c2c]">
                   <span>{text}</span>
                 </div>
               ))}
