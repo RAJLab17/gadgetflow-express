@@ -66,7 +66,6 @@ const BearMascot = () => {
 
           {/* Bear */}
           <div className="cursor-pointer">
-          >
             <svg width="52" height="56" viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Ears */}
               <circle cx="12" cy="12" r="8" fill="#d4b896" stroke="#9b6b3f" strokeWidth="1.5" />
