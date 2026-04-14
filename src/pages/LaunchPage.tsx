@@ -135,7 +135,7 @@ const CountUpNumber = ({ target }: { target: number }) => {
 };
 
 const TOTAL_SPOTS = 100;
-const DEFAULT_TAKEN = 63;
+const DEFAULT_TAKEN = 47;
 
 const LaunchPage = () => {
   const [email, setEmail] = useState("");
