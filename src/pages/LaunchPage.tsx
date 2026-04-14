@@ -437,7 +437,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== TAGLINE ===== */}
-          <section className="py-16 md:py-24">
+          <section className="py-8 md:py-12">
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
