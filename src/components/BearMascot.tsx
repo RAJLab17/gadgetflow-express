@@ -100,25 +100,20 @@ const BearMascot = () => {
 
               {/* Lightning bolt on chest */}
               <path d="M24 43 L27 43 L25.5 46 L28.5 46 L24 52 L25.5 48 L23 48 Z" fill="#9b6b3f" />
-
-              {/* Right arm/paw pointing down-right toward sticky button */}
-              <path d="M40 46 Q46 50 44 56 L42 55 Q43 51 38 48 Z" fill="#d4b896" stroke="#9b6b3f" strokeWidth="1" />
-              {/* Paw pad */}
-              <ellipse cx="43" cy="55.5" rx="2.5" ry="2" fill="#c4a67a" />
             </svg>
           </motion.div>
 
-          {/* Animated pointing indicator */}
+          {/* Animated arrow pointing down, centered under bear */}
           <AnimatePresence>
             {showSecondBubble && (
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1, y: [0, 3, 0] }}
+                animate={{ opacity: 0.7, y: [0, 4, 0] }}
                 transition={{ delay: 0.5, y: { repeat: Infinity, duration: 1.2, ease: "easeInOut" } }}
-                className="absolute bottom-[-8px] right-[-6px]"
+                className="flex justify-center mt-0.5"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 2 L11 8 L9 8 L9 12 L5 12 L5 8 L3 8 Z" fill="#9b6b3f" opacity="0.6" />
+                  <path d="M7 2 L11 8 L9 8 L9 12 L5 12 L5 8 L3 8 Z" fill="#9b6b3f" />
                 </svg>
               </motion.div>
             )}
