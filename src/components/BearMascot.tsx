@@ -98,7 +98,7 @@ const BearMascot = () => {
               {/* Lightning bolt on chest */}
               <path d="M24 43 L27 43 L25.5 46 L28.5 46 L24 52 L25.5 48 L23 48 Z" fill="#9b6b3f" />
             </svg>
-          </motion.div>
+          </div>
 
           {/* Animated arrow pointing down, centered under bear */}
           <AnimatePresence>
