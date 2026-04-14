@@ -23,7 +23,7 @@ const translations: Translations = {
   "launch.headline1": { de: "Du hast ein iPhone für", fr: "Tu as un iPhone à", it: "Hai un iPhone da" },
   "launch.subheadline": { de: "Weisst du ob dein Ladegerät zertifiziert ist?", fr: "Sais-tu si ton chargeur est certifié?", it: "Sai se il tuo caricatore è certificato?" },
   "launch.warning": { de: "Nicht zertifizierte Produkte können deine Geräte beschädigen.", fr: "Les produits non certifiés peuvent endommager tes appareils.", it: "I prodotti non certificati possono danneggiare i tuoi dispositivi." },
-  "launch.certification": { de: "98% der gefälschten Ladegeräte sind ein Sicherheitsrisiko. RAJ NEXUS ist Qi2.2 zertifiziert. Offiziell.", fr: "98% des chargeurs contrefaits sont un risque de sécurité. RAJ NEXUS est certifié Qi2.2. Officiel.", it: "Il 98% dei caricatori contraffatti è un rischio per la sicurezza. RAJ NEXUS è certificato Qi2.2. Ufficiale." },
+  "launch.certification": { de: "Die meisten kabellosen Ladegeräte auf dem Markt sind nicht Qi2.2 zertifiziert. RAJ NEXUS schon.", fr: "La plupart des chargeurs sans fil sur le marché ne sont pas certifiés Qi2.2. RAJ NEXUS, si.", it: "La maggior parte dei caricatori wireless sul mercato non è certificata Qi2.2. RAJ NEXUS sì." },
 
   // Launch Page – Form
   "launch.spotsLeft": { de: "Plätze übrig!", fr: "places restantes!", it: "posti rimasti!" },
