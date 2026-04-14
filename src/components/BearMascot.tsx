@@ -65,10 +65,7 @@ const BearMascot = () => {
           </motion.div>
 
           {/* Bear */}
-          <motion.div
-            animate={{ y: [0, -4, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="cursor-pointer"
+          <div className="cursor-pointer">
           >
             <svg width="52" height="56" viewBox="0 0 52 56" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Ears */}
