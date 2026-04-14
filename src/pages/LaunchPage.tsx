@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import BearMascot from "@/components/BearMascot";
 
 import logo from "@/assets/logo-new.png";
 import chargerHero from "@/assets/products/charger-3in1-inuse.png";
@@ -734,6 +735,7 @@ const LaunchPage = () => {
       </div>
       {showSignupToast && <SignupToast />}
       <ExitIntentPopup />
+      <BearMascot />
 
       {/* Sticky mobile CTA */}
       {!isSubmitted && (
