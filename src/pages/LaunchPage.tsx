@@ -341,8 +341,16 @@ const LaunchPage = () => {
                 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#2c2c2c] mb-4"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
-                Du hast ein iPhone für CHF 1'200.
+                Du hast ein iPhone für
               </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.35 }}
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[#9b6b3f] mb-4"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+              >
+                CHF 1'200.
 
               {/* 5. Subheadline */}
               <motion.p
