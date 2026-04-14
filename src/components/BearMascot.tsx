@@ -64,7 +64,33 @@ const BearMascot = () => {
             </div>
           </motion.div>
 
-          {/* Bear */}
+          {/* Paw prints trail toward sticky button */}
+          <AnimatePresence>
+            {showSecondBubble && (
+              <div className="flex flex-col items-start ml-6 -mb-1">
+                {[0, 1, 2, 3].map((i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 0.6, scale: 1 }}
+                    transition={{ delay: 0.3 + i * 0.25 }}
+                    className="mb-0.5"
+                    style={{ marginLeft: `${i * 6}px` }}
+                  >
+                    <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      {/* Main pad */}
+                      <ellipse cx="6" cy="9.5" rx="3.2" ry="3" fill="#c4a67a" />
+                      {/* Toes */}
+                      <circle cx="3" cy="4.5" r="1.6" fill="#c4a67a" />
+                      <circle cx="6" cy="3.2" r="1.6" fill="#c4a67a" />
+                      <circle cx="9" cy="4.5" r="1.6" fill="#c4a67a" />
+                    </svg>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </AnimatePresence>
+
           <motion.div
             animate={{ y: [0, -4, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
