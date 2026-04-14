@@ -106,7 +106,7 @@ const BearMascot = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7, y: [0, 4, 0] }}
                 transition={{ delay: 0.5, y: { repeat: Infinity, duration: 1.2, ease: "easeInOut" } }}
-                className="flex mt-0.5 ml-1"
+                className="flex mt-0.5 ml-4"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M7 12 L3 6 L5 6 L5 2 L9 2 L9 6 L11 6 Z" fill="#9b6b3f" />
