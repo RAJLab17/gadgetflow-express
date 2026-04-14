@@ -457,9 +457,9 @@ const LaunchPage = () => {
               </h2>
               <div className="space-y-3">
               {[
-                "Founder Edition mit persönlicher Seriennummer",
-                "Lebenslanger Early Access zu neuen Produkten",
-                "24h exklusiver Vorverkauf vor allen anderen",
+                "💰 CHF 30 sparen — CHF 99 statt CHF 129. Nur für Founder.",
+                "🏆 Founder Edition mit persönlicher Seriennummer — einzigartig.",
+                "⚡ Lebenslanger Early Access zu allen neuen RAJ Produkten.",
               ].map((text) => (
                 <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
                   <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
