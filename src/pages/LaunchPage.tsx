@@ -416,10 +416,8 @@ const LaunchPage = () => {
                 {t("launch.newSubline.action")}
               </motion.p>
 
-              {/* Gold line — 32px to reinforcer */}
-              <div className="flex justify-center" style={{ marginBottom: '32px' }}>
-                <div className="h-px bg-[#9b6b3f]/40" style={{ width: '40px' }} />
-              </div>
+
+
 
               {/* 6. Reinforcer — 40px to spots counter */}
               <motion.p
