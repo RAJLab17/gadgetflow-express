@@ -12,7 +12,7 @@ const BearMascot = () => {
 
   useEffect(() => {
     if (visible) {
-      const timer = setTimeout(() => setShowSecondBubble(true), 1500);
+      const timer = setTimeout(() => setShowSecondBubble(true), 2000);
       return () => clearTimeout(timer);
     }
   }, [visible]);
