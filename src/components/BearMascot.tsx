@@ -113,7 +113,7 @@ const BearMascot = () => {
                 className="flex justify-center mt-0.5"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 2 L11 8 L9 8 L9 12 L5 12 L5 8 L3 8 Z" fill="#9b6b3f" />
+                  <path d="M7 12 L3 6 L5 6 L5 2 L9 2 L9 6 L11 6 Z" fill="#9b6b3f" />
                 </svg>
               </motion.div>
             )}
