@@ -358,7 +358,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-4"
+                className="text-xl sm:text-2xl font-semibold text-[#2c2c2c] mb-4 whitespace-nowrap"
               >
                 Weisst du ob dein Ladegerät zertifiziert ist?
               </motion.p>
@@ -368,7 +368,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.45 }}
-                className="text-sm sm:text-base text-[#888888] max-w-md mx-auto mb-8 leading-relaxed"
+                className="text-sm sm:text-base text-[#888888] max-w-md mx-auto mb-8 leading-relaxed whitespace-nowrap"
               >
                 Nicht zertifizierte Produkte können deine Geräte beschädigen.
               </motion.p>
