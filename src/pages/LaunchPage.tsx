@@ -417,8 +417,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-xs sm:text-sm font-bold text-[#9b6b3f] tracking-wider uppercase mb-14"
-                style={{ letterSpacing: '2px' }}
+                className="text-sm sm:text-base font-bold text-[#9b6b3f] mb-14 whitespace-nowrap"
               >
                 {t("launch.reinforcer")}
               </motion.p>
