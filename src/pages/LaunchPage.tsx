@@ -313,8 +313,29 @@ const LaunchPage = () => {
         />
 
         <div className="relative z-10">
-          {/* Header spacer */}
-          <div className="py-4" />
+          {/* Mini Header with Language Toggle */}
+          <div className="py-4 px-4 flex items-center justify-between">
+            <img src={logo} alt="RAJ" className="h-10 w-auto" />
+            <div className="flex items-center gap-1 text-xs font-medium">
+              <button
+                onClick={() => setLang("de")}
+                className={`px-1.5 py-0.5 rounded transition-colors ${
+                  lang === "de" ? "text-[#2c2c2c] font-bold" : "text-[#2c2c2c]/50 hover:text-[#2c2c2c]"
+                }`}
+              >
+                DE
+              </button>
+              <span className="text-[#2c2c2c]/30">|</span>
+              <button
+                onClick={() => setLang("fr")}
+                className={`px-1.5 py-0.5 rounded transition-colors ${
+                  lang === "fr" ? "text-[#2c2c2c] font-bold" : "text-[#2c2c2c]/50 hover:text-[#2c2c2c]"
+                }`}
+              >
+                FR
+              </button>
+            </div>
+          </div>
 
           {/* ===== 1. HERO SECTION ===== */}
           <section className="container mx-auto px-4 pt-2 pb-10 md:pt-4 md:pb-28">
