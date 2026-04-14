@@ -467,16 +467,17 @@ const LaunchPage = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
                 Benefits für die ersten 100.
               </h2>
-              <div className="space-y-3 inline-block text-left mx-auto">
-              {[
-                "💰 CHF 30 sparen — CHF 99 statt CHF 129.",
-                "🏆 Founder Edition mit persönlicher Seriennummer.",
-                "⚡ Lebenslanger Early Access zu neuen RAJ Produkten.",
-              ].map((text) => (
-                <div key={text} className="text-sm text-[#2c2c2c]">
-                  <span>{text}</span>
-                </div>
-              ))}
+              <div className="space-y-4 inline-grid text-left mx-auto">
+                {[
+                  { icon: "💰", text: "CHF 30 sparen — CHF 99 statt CHF 129." },
+                  { icon: "🏆", text: "Founder Edition mit persönlicher Seriennummer." },
+                  { icon: "⚡", text: "Lebenslanger Early Access zu neuen RAJ Produkten." },
+                ].map((item) => (
+                  <div key={item.text} className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-x-3 text-sm text-[#2c2c2c]">
+                    <span className="leading-none pt-0.5">{item.icon}</span>
+                    <span>{item.text}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </section>
