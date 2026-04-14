@@ -443,6 +443,29 @@ const LaunchPage = () => {
 
 
 
+          {/* ===== BENEFITS ===== */}
+          <section className="container mx-auto px-4 py-12 md:py-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-sm mx-auto space-y-3"
+            >
+              {[
+                "Founder Edition mit persönlicher Seriennummer",
+                "Lebenslanger Early Access zu neuen Produkten",
+                "3 Jahre Premium Garantie · CH Support",
+                "24h exklusiver Vorverkauf vor allen anderen",
+              ].map((text) => (
+                <div key={text} className="flex items-center gap-2.5 text-sm text-[#2c2c2c]">
+                  <Check className="w-4 h-4 text-[#9b6b3f] shrink-0" />
+                  <span>{text}</span>
+                </div>
+              ))}
+            </motion.div>
+          </section>
+
           {/* ===== 5. Product Teaser – Edge-to-edge ===== */}
           <section className="pt-12 pb-20 md:pt-20">
             <div className="container mx-auto px-4">
