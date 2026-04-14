@@ -49,7 +49,7 @@ const translations: Translations = {
   // Taglines
   "tagline.1": { de: "Power. Always There.", fr: "Power. Always There.", it: "Power. Always There." },
   "tagline.2": { de: "Präzision. Beständigkeit. Charakter.", fr: "Précision. Constance. Caractère.", it: "Precisione. Costanza. Carattere." },
-  "tagline.3": { de: "Schweizer Brand. Weltweit zertifiziert. Für immer.", fr: "Marque suisse. Certifiée mondialement. Pour toujours.", it: "Brand svizzero. Certificato a livello mondiale. Per sempre." },
+  "tagline.3": { de: "Schweizer Brand. Weltweit zertifiziert.", fr: "Marque suisse. Certifiée mondialement.", it: "Brand svizzero. Certificato a livello mondiale." },
 
   // Benefits
   "benefits.title": { de: "Benefits für die ersten 100.", fr: "Avantages pour les 100 premiers.", it: "Vantaggi per i primi 100." },
