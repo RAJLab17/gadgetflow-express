@@ -141,7 +141,7 @@ const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 47;
 
 const LaunchPage = () => {
-  const { t } = useLanguage();
+  const { t, lang, setLang } = useLanguage();
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
