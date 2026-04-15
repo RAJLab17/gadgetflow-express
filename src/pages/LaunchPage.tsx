@@ -156,6 +156,13 @@ const LaunchPage = () => {
   const [showSignupToast, setShowSignupToast] = useState(false);
   const [visitorCount, setVisitorCount] = useState(0);
 
+  // Track ViewContent on mount
+  useEffect(() => {
+    trackMetaEvent("ViewContent", {
+      customData: { content_name: "RAJ NEXUS Launch Page", content_category: "Landing Page" },
+    });
+  }, []);
+
   // Visitor tracking + fetch visitor count
   useEffect(() => {
     const handleVisitor = async () => {
