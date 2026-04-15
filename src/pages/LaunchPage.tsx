@@ -516,7 +516,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-sm sm:text-base font-bold text-foreground max-w-md mx-auto"
+                className="text-sm sm:text-base font-bold text-foreground max-w-md mx-auto text-center"
                 style={{ marginTop: '16px' }}
               >
                 {t("launch.conviction2.bold")}
