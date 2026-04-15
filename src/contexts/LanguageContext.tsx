@@ -22,7 +22,7 @@ const translations: Translations = {
   "launch.discoveredSuffix": { de: "Personen entdeckt", fr: "personnes", it: "persone" },
   "launch.provocation": { de: "Du hast über CHF 1'000 für dein Smartphone bezahlt. Und lädst es mit dem erstbesten Ladegerät?", fr: "Tu as payé plus de CHF 1'000 pour ton smartphone. Et tu le charges avec le premier chargeur venu?", it: "Hai pagato più di CHF 1'000 per il tuo smartphone. E lo carichi con il primo caricatore che trovi?" },
   "launch.provocation2": { de: "Die meisten tun es. Ohne es zu hinterfragen.", fr: "La plupart le font. Sans se poser de questions.", it: "La maggior parte lo fa. Senza farsi domande." },
-  "launch.headline1": { de: "Du hast ein iPhone für", fr: "Tu as un iPhone à", it: "Hai un iPhone da" },
+  "launch.headline1": { de: "Du hast ein Smartphone für", fr: "Tu as un Smartphone à", it: "Hai uno Smartphone da" },
   "launch.subheadline": { de: "Weisst du ob dein Ladegerät zertifiziert ist?", fr: "Sais-tu si ton chargeur est certifié?", it: "Sai se il tuo caricatore è certificato?" },
   "launch.warning": { de: "Nicht zertifizierte Produkte können deine Geräte beschädigen.", fr: "Les produits non certifiés peuvent endommager tes appareils.", it: "I prodotti non certificati possono danneggiare i tuoi dispositivi." },
   "launch.certification": { de: "Die meisten kabellosen Ladegeräte auf dem Markt sind nicht Qi2.2 zertifiziert. RAJ NEXUS schon.", fr: "La plupart des chargeurs sans fil sur le marché ne sont pas certifiés Qi2.2. RAJ NEXUS, si.", it: "La maggior parte dei caricatori wireless sul mercato non è certificata Qi2.2. RAJ NEXUS sì." },
