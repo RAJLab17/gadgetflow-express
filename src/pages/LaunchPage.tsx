@@ -412,7 +412,7 @@ const LaunchPage = () => {
                   transition={{ duration: 0.6, delay: 0.7 }}
                   className="absolute bottom-8 left-0 px-3 py-1.5 bg-[#9b6b3f] text-white rounded-2xl shadow-md"
                 >
-                  <span className="text-xs font-semibold">Qi2 Zertifiziert</span>
+                  <span className="text-xs font-semibold">Qi2.2 Zertifiziert</span>
                 </motion.div>
               </div>
 
