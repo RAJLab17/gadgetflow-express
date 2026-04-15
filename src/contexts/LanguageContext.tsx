@@ -75,9 +75,9 @@ const translations: Translations = {
   // Why RAJ
   "why.title": { de: "Warum", fr: "Pourquoi", it: "Perché" },
   "why.text": {
-    de: "RAJ wurde in der Schweiz gegründet. Von jemandem der genug hatte von Kabelsalat, mittelmässigen und nicht zertifizierten Produkten. Wir bauen nicht für den Markt. Wir bauen was wir selbst vermisst haben.",
-    fr: "RAJ a été fondée en Suisse. Par quelqu'un qui en avait assez des câbles emmêlés, des produits médiocres et non certifiés. Nous ne construisons pas pour le marché. Nous construisons ce qui nous a toujours manqué.",
-    it: "RAJ è stata fondata in Svizzera. Da qualcuno che ne aveva abbastanza di cavi aggrovigliati, prodotti mediocri e non certificati. Non costruiamo per il mercato. Costruiamo ciò che ci è sempre mancato.",
+    de: "Wir haben selbst gesucht. Ein Ladegerät das Design, Leistung und Qualität verbindet — zu einem fairen Preis. Wir haben es nicht gefunden. Also haben wir es gebaut. In der Schweiz. Für Menschen die keine Kompromisse machen — und wissen was sie wollen.",
+    fr: "Nous avons cherché nous-mêmes. Un chargeur qui allie design, performance et qualité — à un prix juste. Nous ne l'avons pas trouvé. Alors nous l'avons construit. En Suisse. Pour ceux qui ne font aucun compromis — et savent ce qu'ils veulent.",
+    it: "Abbiamo cercato noi stessi. Un caricatore che unisce design, prestazioni e qualità — a un prezzo giusto. Non l'abbiamo trovato. Quindi l'abbiamo costruito. In Svizzera. Per chi non scende a compromessi — e sa cosa vuole.",
   },
 
   // FAQ
