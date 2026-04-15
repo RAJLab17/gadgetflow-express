@@ -680,23 +680,6 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          <section className="container mx-auto px-4 py-10 md:py-28">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-xl mx-auto text-center"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                {t("why.title")} <span className="text-[#9b6b3f]">RAJ</span>?
-              </h2>
-              
-              <p className="text-[#555] leading-relaxed text-base md:text-lg">
-                {t("why.text")}
-              </p>
-            </motion.div>
-          </section>
 
           {/* FAQ Section */}
           <section className="py-12 md:py-28 bg-[#f5f2ec]">
