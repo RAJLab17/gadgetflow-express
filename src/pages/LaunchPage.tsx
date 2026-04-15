@@ -350,15 +350,27 @@ const LaunchPage = () => {
           <section className="container mx-auto px-4 pt-2 pb-10 md:pt-4 md:pb-28">
             <div className="max-w-2xl mx-auto text-center">
 
-              {/* 1. Scarcity */}
-              <p className="text-sm font-medium text-[#2c2c2c] mb-1">
-                {t("launch.scarcity")} <span className="font-bold text-[#9b6b3f]">100</span> {t("launch.pieces")}
-              </p>
+              {/* 1. Provocation */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-sm text-[#888888]"
+                style={{ marginBottom: '8px' }}
+              >
+                {t("launch.provocation")}
+              </motion.p>
 
-              {/* Countdown Timer */}
-              <div style={{ marginBottom: '32px' }}>
-                <CountdownTimer />
-              </div>
+              {/* 2. Provocation follow-up */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="text-sm italic text-[#888888]"
+                style={{ marginBottom: '32px' }}
+              >
+                {t("launch.provocation2")}
+              </motion.p>
 
               {/* 3. Product image — 48px to headline */}
               <motion.img
@@ -382,17 +394,11 @@ const LaunchPage = () => {
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
-                  {t("launch.newHeadline.top")}
+                  {t("launch.newHeadline.combined")}
                 </h1>
-                <p
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
-                  style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
-                >
-                  {t("launch.newHeadline.bottom")}
-                </p>
               </motion.div>
 
-              {/* 5a. Devices — 8px to action */}
+              {/* 5. Emoji devices */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -400,34 +406,31 @@ const LaunchPage = () => {
                 className="text-center"
                 style={{ marginBottom: '8px' }}
               >
-                <p className="text-base sm:text-lg font-semibold text-[#2c2c2c] tracking-widest uppercase" style={{ letterSpacing: '4px' }}>
+                <p className="text-base sm:text-lg font-semibold text-[#9b6b3f] tracking-widest" style={{ letterSpacing: '4px' }}>
                   {t("launch.newSubline.devices")}
                 </p>
               </motion.div>
 
-              {/* 5b. Action — 32px to gold line */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.45 }}
-                className="text-sm sm:text-base italic text-[#999]"
-                style={{ marginBottom: '32px' }}
-              >
-                {t("launch.newSubline.action")}
-              </motion.p>
-
-
-
-
-              {/* 6. Reinforcer — 40px to spots counter */}
+              {/* 6. Reinforcer */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-sm sm:text-base font-bold text-[#9b6b3f] whitespace-nowrap"
-                style={{ marginBottom: '40px' }}
+                transition={{ duration: 0.8, delay: 0.45 }}
+                className="text-sm sm:text-base font-bold text-[#9b6b3f]"
+                style={{ marginBottom: '32px' }}
               >
                 {t("launch.reinforcer")}
+              </motion.p>
+
+              {/* 7. Conviction text */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="text-sm sm:text-base italic text-[#888888] max-w-md mx-auto"
+                style={{ marginBottom: '40px' }}
+              >
+                {t("launch.conviction")}
               </motion.p>
 
               {/* 8 & 9. Email form */}
@@ -531,7 +534,24 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          {/* ===== TAGLINE 2 ===== */}
+          {/* ===== WARUM RAJ? (moved after benefits) ===== */}
+          <section className="container mx-auto px-4 py-10 md:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-xl mx-auto text-center"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+                {t("why.title")} <span className="text-[#9b6b3f]">RAJ</span>?
+              </h2>
+              
+              <p className="text-[#555] leading-relaxed text-base md:text-lg">
+                {t("why.text")}
+              </p>
+            </motion.div>
+          </section>
           <section className="py-6 md:py-10">
             <motion.div
               initial={{ opacity: 0 }}
@@ -660,23 +680,6 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          <section className="container mx-auto px-4 py-10 md:py-28">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-xl mx-auto text-center"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                {t("why.title")} <span className="text-[#9b6b3f]">RAJ</span>?
-              </h2>
-              
-              <p className="text-[#555] leading-relaxed text-base md:text-lg">
-                {t("why.text")}
-              </p>
-            </motion.div>
-          </section>
 
           {/* FAQ Section */}
           <section className="py-12 md:py-28 bg-[#f5f2ec]">
