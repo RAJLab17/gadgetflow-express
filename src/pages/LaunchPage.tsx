@@ -512,6 +512,15 @@ const LaunchPage = () => {
               >
                 {t("launch.conviction")}
               </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="text-sm sm:text-base italic text-[#888888] max-w-md mx-auto"
+                style={{ marginTop: '12px' }}
+              >
+                {t("launch.conviction2")}
+              </motion.p>
             </div>
           </section>
 
