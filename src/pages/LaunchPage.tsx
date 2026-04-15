@@ -405,6 +405,15 @@ const LaunchPage = () => {
                     <span className="text-xs font-medium text-[#2b2725]">Early Access</span>
                   </div>
                 </motion.div>
+                {/* Qi2.2 Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  className="absolute bottom-8 left-0 px-3 py-1.5 bg-[#9b6b3f] text-white rounded-2xl shadow-md"
+                >
+                  <span className="text-xs font-semibold">Qi2.2 Zertifiziert</span>
+                </motion.div>
               </div>
 
               {/* 4. Headline */}
