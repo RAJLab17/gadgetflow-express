@@ -382,16 +382,39 @@ const LaunchPage = () => {
                 {t("launch.provocation2")}
               </motion.p>
 
-              {/* 3. Product image */}
-              <motion.img
-                initial={{ opacity: 0, scale: 0.97, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                src={chargerHero}
-                alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                className="w-full max-w-[240px] sm:max-w-xs mx-auto"
-                style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))', marginBottom: '32px' }}
-              />
+              {/* 3. Product image with badges */}
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto" style={{ marginBottom: '32px' }}>
+                <motion.img
+                  initial={{ opacity: 0, scale: 0.97, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  src={chargerHero}
+                  alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                  className="w-full mx-auto"
+                  style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
+                />
+                {/* Early Access Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="absolute top-4 right-0 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full shadow-md"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[#9b6b3f] rounded-full animate-pulse" />
+                    <span className="text-xs font-medium text-[#2b2725]">Early Access</span>
+                  </div>
+                </motion.div>
+                {/* Qi2 Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  className="absolute bottom-8 left-0 px-3 py-1.5 bg-[#9b6b3f] text-white rounded-2xl shadow-md"
+                >
+                  <span className="text-xs font-semibold">Qi2 Zertifiziert</span>
+                </motion.div>
+              </div>
 
               {/* 4. Headline */}
               <motion.div
