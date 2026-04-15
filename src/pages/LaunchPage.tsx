@@ -526,18 +526,9 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
                 className="text-sm sm:text-base md:text-lg italic text-[#888888] max-w-lg mx-auto leading-relaxed"
-                style={{ marginTop: '20px', marginBottom: '4px' }}
+                style={{ marginTop: '20px', marginBottom: '16px' }}
               >
                 {t("launch.conviction2.sub")}
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                className="text-sm sm:text-base md:text-lg italic text-[#888888] max-w-lg mx-auto leading-relaxed"
-                style={{ marginBottom: '16px' }}
-              >
-                {t("launch.conviction2.join")}
               </motion.p>
             </div>
           </section>
