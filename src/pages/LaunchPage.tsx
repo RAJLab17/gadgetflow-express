@@ -393,7 +393,7 @@ const LaunchPage = () => {
                 style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))', marginBottom: '48px' }}
               />
 
-              {/* 4. Headline — 16px to devices */}
+              {/* 4. Headline */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -404,8 +404,14 @@ const LaunchPage = () => {
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
-                  {t("launch.newHeadline.combined")}
+                  {t("launch.newHeadline.top")}
                 </h1>
+                <p
+                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
+                  style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
+                >
+                  {t("launch.newHeadline.bottom")}
+                </p>
               </motion.div>
 
               {/* 5. Device icons */}
