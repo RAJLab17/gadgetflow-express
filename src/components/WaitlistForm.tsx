@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 const WaitlistForm = () => {
   const [email, setEmail] = useState("");
@@ -27,9 +28,7 @@ const WaitlistForm = () => {
 
       if (data?.success) {
         setIsSubmitted(true);
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead');
-        }
+        trackMetaEvent("Lead", { email: email.trim() });
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }

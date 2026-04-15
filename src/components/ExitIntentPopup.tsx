@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 const COOKIE_KEY = "raj_exit_popup_shown";
 const MOBILE_TIMEOUT = 30000;
@@ -74,9 +75,7 @@ const ExitIntentPopup = () => {
       if (error) throw error;
       if (data?.success) {
         setIsSubmitted(true);
-        if (typeof window !== "undefined" && (window as any).fbq) {
-          (window as any).fbq("track", "Lead");
-        }
+        trackMetaEvent("Lead", { email: email.trim() });
         confetti({
           particleCount: 80,
           spread: 60,

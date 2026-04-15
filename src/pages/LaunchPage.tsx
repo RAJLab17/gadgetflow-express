@@ -8,6 +8,7 @@ import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 
 import logo from "@/assets/logo-new.png";
@@ -155,6 +156,13 @@ const LaunchPage = () => {
   const [showSignupToast, setShowSignupToast] = useState(false);
   const [visitorCount, setVisitorCount] = useState(0);
 
+  // Track ViewContent on mount
+  useEffect(() => {
+    trackMetaEvent("ViewContent", {
+      customData: { content_name: "RAJ NEXUS Launch Page", content_category: "Landing Page" },
+    });
+  }, []);
+
   // Visitor tracking + fetch visitor count
   useEffect(() => {
     const handleVisitor = async () => {
@@ -229,9 +237,7 @@ const LaunchPage = () => {
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
         fireConfetti();
         setTimeout(() => setShowSignupToast(true), 3000);
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead');
-        }
+        trackMetaEvent("Lead", { email: email.trim() });
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }
@@ -260,9 +266,7 @@ const LaunchPage = () => {
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
         fireConfetti();
         setTimeout(() => setShowSignupToast(true), 3000);
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead');
-        }
+        trackMetaEvent("Lead", { email: email2.trim() });
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }

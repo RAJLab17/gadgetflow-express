@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.track-abandoned-cart]
 verify_jwt = false
+
+[functions.meta-capi]
+verify_jwt = false
