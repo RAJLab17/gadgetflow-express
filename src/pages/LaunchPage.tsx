@@ -356,7 +356,7 @@ const LaunchPage = () => {
               </p>
 
               {/* Countdown Timer */}
-              <div style={{ marginBottom: '32px' }}>
+              <div style={{ marginBottom: '20px' }}>
                 <CountdownTimer />
               </div>
 
@@ -366,7 +366,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="text-sm text-[#888888]"
-                style={{ marginBottom: '8px' }}
+                style={{ marginBottom: '6px' }}
               >
                 {t("launch.provocation")}
               </motion.p>
@@ -377,20 +377,20 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-sm italic text-[#888888]"
-                style={{ marginBottom: '32px' }}
+                style={{ marginBottom: '24px' }}
               >
                 {t("launch.provocation2")}
               </motion.p>
 
-              {/* 3. Product image — 48px to headline */}
+              {/* 3. Product image */}
               <motion.img
                 initial={{ opacity: 0, scale: 0.97, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 src={chargerHero}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                className="w-full max-w-xs sm:max-w-sm mx-auto"
-                style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))', marginBottom: '48px' }}
+                className="w-full max-w-[240px] sm:max-w-xs mx-auto"
+                style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))', marginBottom: '32px' }}
               />
 
               {/* 4. Headline */}
@@ -398,7 +398,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ marginBottom: '16px' }}
+                style={{ marginBottom: '12px' }}
               >
                 <h1
                   className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c]"
@@ -420,7 +420,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex items-center justify-center gap-6"
-                style={{ marginBottom: '4px', marginTop: '24px' }}
+                style={{ marginBottom: '4px', marginTop: '20px' }}
               >
                 <div className="flex flex-col items-center gap-1.5">
                   <Smartphone className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
@@ -428,7 +428,7 @@ const LaunchPage = () => {
                 </div>
                 <span className="text-[#9b6b3f]/30 text-lg">·</span>
                 <div className="flex flex-col items-center gap-1.5">
-                  <span className="text-xl">🎧</span>
+                  <Headphones className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
                   <span className="text-[10px] text-[#888888] font-medium">AirPods</span>
                 </div>
                 <span className="text-[#9b6b3f]/30 text-lg">·</span>
@@ -444,7 +444,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.45 }}
                 className="text-sm sm:text-base font-bold text-[#9b6b3f]"
-                style={{ marginBottom: '32px' }}
+                style={{ marginBottom: '24px' }}
               >
                 {t("launch.reinforcer")}
               </motion.p>
