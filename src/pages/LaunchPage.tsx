@@ -473,8 +473,8 @@ const LaunchPage = () => {
                       <Users className="w-4 h-4" />
                       <span>{t("launch.only")} <span className="text-lg font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
                     </div>
-                    <div className="relative">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50" />
+                    <div className="relative cursor-text" onClick={() => document.getElementById("signup-email")?.focus()}>
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50 pointer-events-none" />
                       <input
                         id="signup-email"
                         type="email"
