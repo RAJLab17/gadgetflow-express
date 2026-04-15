@@ -449,23 +449,12 @@ const LaunchPage = () => {
                 {t("launch.reinforcer")}
               </motion.p>
 
-              {/* 7. Conviction text */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="text-sm sm:text-base italic text-[#888888] max-w-md mx-auto"
-                style={{ marginBottom: '40px' }}
-              >
-                {t("launch.conviction")}
-              </motion.p>
-
-              {/* 8 & 9. Email form */}
+              {/* 7. Email form */}
               <motion.div
                 id="signup-form"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 className="max-w-sm mx-auto"
               >
                 {isSubmitted ? (
@@ -512,6 +501,17 @@ const LaunchPage = () => {
                   </form>
                 )}
               </motion.div>
+
+              {/* 8. Conviction text (after form) */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="text-sm sm:text-base italic text-[#888888] max-w-md mx-auto"
+                style={{ marginTop: '40px' }}
+              >
+                {t("launch.conviction")}
+              </motion.p>
             </div>
           </section>
 
