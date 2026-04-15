@@ -8,6 +8,7 @@ import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 
 import logo from "@/assets/logo-new.png";
