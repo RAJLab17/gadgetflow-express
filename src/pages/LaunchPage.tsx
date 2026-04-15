@@ -516,10 +516,19 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-sm sm:text-base italic text-[#888888] max-w-md mx-auto"
-                style={{ marginTop: '12px' }}
+                className="text-sm sm:text-base font-bold text-foreground max-w-md mx-auto"
+                style={{ marginTop: '16px' }}
               >
-                {t("launch.conviction2")}
+                {t("launch.conviction2.bold")}
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+                className="text-sm sm:text-base italic text-[#888888] max-w-md mx-auto"
+                style={{ marginTop: '6px' }}
+              >
+                {t("launch.conviction2.sub")}
               </motion.p>
             </div>
           </section>
