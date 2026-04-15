@@ -517,7 +517,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="text-sm sm:text-base font-bold text-foreground max-w-md mx-auto text-center"
-                style={{ marginTop: '16px' }}
+                style={{ marginTop: '10px' }}
               >
                 {t("launch.conviction2.bold")}
               </motion.p>
@@ -526,7 +526,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
                 className="text-sm sm:text-base italic text-[#888888] max-w-md mx-auto"
-                style={{ marginTop: '6px' }}
+                style={{ marginTop: '10px' }}
               >
                 {t("launch.conviction2.sub")}
               </motion.p>
