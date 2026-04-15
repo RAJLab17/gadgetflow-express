@@ -237,9 +237,7 @@ const LaunchPage = () => {
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
         fireConfetti();
         setTimeout(() => setShowSignupToast(true), 3000);
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead');
-        }
+        trackMetaEvent("Lead", { email: email.trim() });
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }
@@ -268,9 +266,7 @@ const LaunchPage = () => {
         setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
         fireConfetti();
         setTimeout(() => setShowSignupToast(true), 3000);
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead');
-        }
+        trackMetaEvent("Lead", { email: email2.trim() });
       } else {
         throw new Error(data?.error || "Unbekannter Fehler");
       }
