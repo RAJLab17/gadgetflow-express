@@ -15,8 +15,9 @@ import chargerHero from "@/assets/products/charger-3in1-inuse.png";
 import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
 import chargerAngles from "@/assets/products/charger-3in1-angles.png";
 import chargerSpecs from "@/assets/products/charger-3in1-specs-hero.png";
+import chargerFastCharge from "@/assets/products/charger-3in1-fast-charge.png";
 
-const nexusImages = [chargerSpecs, chargerColors, chargerAngles];
+const nexusImages = [chargerFastCharge, chargerColors, chargerAngles];
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 
