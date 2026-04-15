@@ -350,7 +350,17 @@ const LaunchPage = () => {
           <section className="container mx-auto px-4 pt-2 pb-10 md:pt-4 md:pb-28">
             <div className="max-w-2xl mx-auto text-center">
 
-              {/* 1. Provocation */}
+              {/* 1. Scarcity */}
+              <p className="text-sm font-medium text-[#2c2c2c] mb-1">
+                {t("launch.scarcity")} <span className="font-bold text-[#9b6b3f]">100</span> {t("launch.pieces")}
+              </p>
+
+              {/* Countdown Timer */}
+              <div style={{ marginBottom: '32px' }}>
+                <CountdownTimer />
+              </div>
+
+              {/* Provocation */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -361,7 +371,7 @@ const LaunchPage = () => {
                 {t("launch.provocation")}
               </motion.p>
 
-              {/* 2. Provocation follow-up */}
+              {/* Provocation follow-up */}
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
