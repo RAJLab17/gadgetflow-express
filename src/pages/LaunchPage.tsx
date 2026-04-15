@@ -420,7 +420,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex items-center justify-center gap-6"
-                style={{ marginBottom: '4px' }}
+                style={{ marginBottom: '4px', marginTop: '16px' }}
               >
                 <div className="flex flex-col items-center gap-1.5">
                   <Smartphone className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
