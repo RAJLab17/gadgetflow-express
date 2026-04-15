@@ -384,9 +384,9 @@ const LaunchPage = () => {
 
               {/* 3. Product image — 48px to headline */}
               <motion.img
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                initial={{ opacity: 0, scale: 0.97, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                 src={chargerHero}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger"
                 className="w-full max-w-xs sm:max-w-sm mx-auto"
