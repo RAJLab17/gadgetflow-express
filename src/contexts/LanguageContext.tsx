@@ -35,8 +35,7 @@ const translations: Translations = {
   "launch.reinforcer": { de: "Qi2.2 zertifiziert. Swiss Brand.", fr: "Certifié Qi2.2. Swiss Brand.", it: "Certificato Qi2.2. Swiss Brand." },
   "launch.conviction": { de: "Es gibt tausende Ladegeräte. Wir haben nicht noch eines gebaut. Wir haben das Richtige gebaut.", fr: "Il existe des milliers de chargeurs. Nous n'en avons pas construit un de plus. Nous avons construit le bon.", it: "Esistono migliaia di caricatori. Non ne abbiamo costruito un altro. Abbiamo costruito quello giusto." },
   "launch.conviction2.bold": { de: "Premium Materialien. Echte Leistung. Fairer Preis.", fr: "Matériaux premium. Vraie performance. Prix juste.", it: "Materiali premium. Prestazioni reali. Prezzo giusto." },
-  "launch.conviction2.sub": { de: "Das Ladegerät das wir selbst gesucht — und nicht gefunden haben.", fr: "Le chargeur que nous avons cherché — et jamais trouvé.", it: "Il caricatore che abbiamo cercato — e mai trovato." },
-  "launch.conviction2.join": { de: "Sei von Anfang an mit uns dabei.", fr: "Sois avec nous dès le début.", it: "Sii con noi fin dall'inizio." },
+  "launch.conviction2.sub": { de: "Das Ladegerät das wir selbst gesucht — und nicht gefunden haben. Sei von Anfang an mit uns dabei.", fr: "Le chargeur que nous avons cherché — et jamais trouvé. Sois avec nous dès le début.", it: "Il caricatore che abbiamo cercato — e mai trovato. Sii con noi fin dall'inizio." },
 
   // Launch Page – Form
   "launch.spotsLeft": { de: "Plätze übrig!", fr: "places restantes!", it: "posti rimasti!" },
