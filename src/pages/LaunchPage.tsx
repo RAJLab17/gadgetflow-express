@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, Bell, Gift } from "lucide-react";
+import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, Bell, Gift, Smartphone, Headphones, Watch } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -408,29 +408,29 @@ const LaunchPage = () => {
                 </h1>
               </motion.div>
 
-              {/* 5. Emoji devices */}
+              {/* 5. Device icons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-center"
+                className="flex items-center justify-center gap-6"
                 style={{ marginBottom: '4px' }}
               >
-                <p className="text-xl sm:text-2xl tracking-widest" style={{ letterSpacing: '8px' }}>
-                  {t("launch.newSubline.devices")}
-                </p>
+                <div className="flex flex-col items-center gap-1.5">
+                  <Smartphone className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
+                  <span className="text-[10px] text-[#888888] font-medium">iPhone</span>
+                </div>
+                <span className="text-[#9b6b3f]/30 text-lg">·</span>
+                <div className="flex flex-col items-center gap-1.5">
+                  <Headphones className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
+                  <span className="text-[10px] text-[#888888] font-medium">AirPods</span>
+                </div>
+                <span className="text-[#9b6b3f]/30 text-lg">·</span>
+                <div className="flex flex-col items-center gap-1.5">
+                  <Watch className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
+                  <span className="text-[10px] text-[#888888] font-medium">Apple Watch</span>
+                </div>
               </motion.div>
-
-              {/* 5b. Device names */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.45 }}
-                className="text-xs sm:text-sm font-semibold text-[#9b6b3f] tracking-widest uppercase"
-                style={{ letterSpacing: '3px', marginBottom: '8px' }}
-              >
-                {t("launch.newSubline.deviceNames")}
-              </motion.p>
 
               {/* 6. Reinforcer */}
               <motion.p
