@@ -414,12 +414,23 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-center"
-                style={{ marginBottom: '8px' }}
+                style={{ marginBottom: '4px' }}
               >
-                <p className="text-base sm:text-lg font-semibold text-[#9b6b3f] tracking-widest" style={{ letterSpacing: '4px' }}>
+                <p className="text-xl sm:text-2xl tracking-widest" style={{ letterSpacing: '8px' }}>
                   {t("launch.newSubline.devices")}
                 </p>
               </motion.div>
+
+              {/* 5b. Device names */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.45 }}
+                className="text-xs sm:text-sm font-semibold text-[#9b6b3f] tracking-widest uppercase"
+                style={{ letterSpacing: '3px', marginBottom: '8px' }}
+              >
+                {t("launch.newSubline.deviceNames")}
+              </motion.p>
 
               {/* 6. Reinforcer */}
               <motion.p
