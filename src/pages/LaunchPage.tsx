@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
@@ -859,7 +859,7 @@ const LaunchPage = () => {
         </div>
       </div>
       {showSignupToast && <SignupToast />}
-      <ExitIntentPopup />
+      
       
 
     </>
