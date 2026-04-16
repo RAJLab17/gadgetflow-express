@@ -370,10 +370,12 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-xl sm:text-2xl font-extrabold leading-tight text-[#9b6b3f]"
+                className="text-xl sm:text-2xl font-extrabold leading-tight"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '24px' }}
               >
-                {t("launch.provocation")}
+                <span className="text-[#2c2c2c]">{t("launch.provocation.prefix")} </span>
+                <span className="text-[#9b6b3f]">{t("launch.provocation.highlight")} </span>
+                <span className="text-[#2c2c2c]">{t("launch.provocation.suffix")}</span>
               </motion.p>
 
               {/* 3. Product image with badges */}
