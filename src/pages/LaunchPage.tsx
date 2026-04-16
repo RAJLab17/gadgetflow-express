@@ -352,8 +352,8 @@ const LaunchPage = () => {
           </div>
 
           {/* ===== 1. HERO SECTION ===== */}
-          <section className="container mx-auto px-4 pt-0 pb-4 md:pt-0 md:pb-28">
-            <div className="max-w-2xl mx-auto text-center">
+          <section className="container mx-auto px-4 pt-0 pb-4 md:pt-0 md:pb-28 md:min-h-0 min-h-[calc(100svh-72px)] flex items-center">
+            <div className="max-w-2xl mx-auto text-center w-full">
 
               {/* 1. Scarcity */}
               <p className="text-xs sm:text-sm font-medium text-[#2c2c2c] mb-1">
