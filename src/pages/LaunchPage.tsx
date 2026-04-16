@@ -370,7 +370,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-lg sm:text-xl font-extrabold leading-tight text-[#2c2c2c]"
+                className="text-xl sm:text-2xl font-extrabold leading-tight text-[#9b6b3f]"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '24px' }}
               >
                 {t("launch.provocation")}
