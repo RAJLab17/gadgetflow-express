@@ -490,8 +490,6 @@ const LaunchPage = () => {
                       <span>{t("launch.noPayment")}</span>
                       <span>·</span>
                       <span>{t("launch.unsubscribe")}</span>
-                      <span>·</span>
-                      <span>{t("launch.infoOnly")}</span>
                     </p>
                     <motion.p
                       animate={{ y: [0, 4, 0] }}
