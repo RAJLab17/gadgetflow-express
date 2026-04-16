@@ -414,7 +414,7 @@ const LaunchPage = () => {
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
+                  className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
