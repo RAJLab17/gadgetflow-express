@@ -476,9 +476,9 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
-                    <div className="flex items-center justify-center gap-1.5 text-sm text-[#9b6b3f] font-semibold" style={{ marginBottom: '16px' }}>
-                      <Users className="w-4 h-4" />
-                      <span>{t("launch.only")} <span className="text-lg font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
+                    <div className="flex items-center justify-center gap-1 text-xs text-[#9b6b3f] font-semibold" style={{ marginBottom: '12px' }}>
+                      <Users className="w-3.5 h-3.5" />
+                      <span>{t("launch.only")} <span className="text-base font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
                     </div>
                     <div className="relative cursor-text" onClick={() => document.getElementById("signup-email")?.focus()}>
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]/50 pointer-events-none" />
