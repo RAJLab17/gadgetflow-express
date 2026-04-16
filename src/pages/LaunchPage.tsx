@@ -408,13 +408,13 @@ const LaunchPage = () => {
                 style={{ marginBottom: '12px' }}
               >
                 <h1
-                  className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight text-[#2c2c2c]"
+                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
+                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
