@@ -475,7 +475,7 @@ const LaunchPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl bg-[#9b6b3f] text-white font-bold text-base hover:bg-[#8a5d36] transition-all disabled:opacity-60 flex items-center justify-center gap-2 shadow-[0_8px_24px_-6px_rgba(155,107,63,0.55)] hover:shadow-[0_10px_28px_-6px_rgba(155,107,63,0.7)] hover:-translate-y-0.5 active:translate-y-0 ring-1 ring-[#9b6b3f]/40 animate-[pulse_2.4s_ease-in-out_infinite]"
+                      className="w-full py-4 rounded-xl bg-[#9b6b3f] text-white font-bold text-base hover:bg-[#8a5d36] transition-all disabled:opacity-60 flex items-center justify-center gap-2 shadow-[0_4px_14px_-4px_rgba(155,107,63,0.35)] hover:-translate-y-0.5 active:translate-y-0"
                     >
                       {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <>{t("launch.cta")} <span aria-hidden>→</span></>}
                     </button>
