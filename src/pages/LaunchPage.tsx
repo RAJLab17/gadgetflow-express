@@ -370,7 +370,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-2xl sm:text-3xl font-extrabold leading-tight"
+                className="text-xl sm:text-2xl font-extrabold leading-tight"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '24px' }}
               >
                 <span className="text-[#2c2c2c]">{t("launch.provocation.prefix")} </span>
