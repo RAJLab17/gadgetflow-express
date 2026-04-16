@@ -374,7 +374,7 @@ const LaunchPage = () => {
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '24px' }}
               >
                 <span className="text-[#2c2c2c]">{t("launch.provocation.prefix")} </span>
-                <span className="text-[#9b6b3f]">{t("launch.provocation.highlight")} </span>
+                <span className="text-[#2c2c2c]">{t("launch.provocation.highlight")} </span>
                 <span className="text-[#2c2c2c]">{t("launch.provocation.suffix")}</span>
               </motion.p>
 
