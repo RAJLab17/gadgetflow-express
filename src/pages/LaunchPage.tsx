@@ -488,8 +488,10 @@ const LaunchPage = () => {
                     >
                       {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : t("launch.cta")}
                     </button>
-                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-1 mt-2">
+                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-2 mt-2">
                       <span>{t("launch.noPayment")}</span>
+                      <span>·</span>
+                      <span>{t("launch.unsubscribe")}</span>
                     </p>
                   </form>
                 )}
