@@ -862,18 +862,6 @@ const LaunchPage = () => {
       <ExitIntentPopup />
       
 
-      {/* Sticky mobile CTA */}
-      {!isSubmitted && (
-        <button
-          onClick={() => {
-            document.getElementById("signup-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
-            setTimeout(() => document.getElementById("signup-email")?.focus(), 600);
-          }}
-          className="fixed bottom-0 left-0 right-0 z-50 md:hidden py-3.5 px-4 bg-[#9b6b3f] text-white text-sm font-semibold tracking-wide text-center shadow-[0_-4px_20px_rgba(0,0,0,0.15)]"
-        >
-          {t("sticky.cta")}
-        </button>
-      )}
     </>
   );
 };
