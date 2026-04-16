@@ -389,18 +389,6 @@ const LaunchPage = () => {
                   className="w-full mx-auto"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
                 />
-                {/* Early Access Badge */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="absolute top-4 right-0 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full shadow-md"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#9b6b3f] rounded-full animate-pulse" />
-                    <span className="text-xs font-medium text-[#2b2725]">Early Access</span>
-                  </div>
-                </motion.div>
                 {/* Qi2.2 Badge */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -420,13 +408,13 @@ const LaunchPage = () => {
                 style={{ marginBottom: '12px' }}
               >
                 <h1
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#2c2c2c]"
+                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
+                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
