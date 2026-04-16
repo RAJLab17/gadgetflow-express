@@ -492,6 +492,8 @@ const LaunchPage = () => {
                       <span>{t("launch.noPayment")}</span>
                       <span>·</span>
                       <span>{t("launch.unsubscribe")}</span>
+                      <span>·</span>
+                      <span>{t("launch.infoOnly")}</span>
                     </p>
                   </form>
                 )}
