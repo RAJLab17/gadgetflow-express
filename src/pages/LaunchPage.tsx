@@ -371,20 +371,9 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="text-sm text-[#888888]"
-                style={{ marginBottom: '6px' }}
-              >
-                {t("launch.provocation")}
-              </motion.p>
-
-              {/* Provocation follow-up */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-sm italic text-[#888888]"
                 style={{ marginBottom: '24px' }}
               >
-                {t("launch.provocation2")}
+                {t("launch.provocation")}
               </motion.p>
 
               {/* 3. Product image with badges */}
