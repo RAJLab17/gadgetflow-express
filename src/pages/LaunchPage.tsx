@@ -457,7 +457,7 @@ const LaunchPage = () => {
                         <Users className="w-3.5 h-3.5" />
                         <span>{t("launch.only")} <span className="text-base font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
                       </div>
-                      <div className="w-full h-1.5 bg-[#9b6b3f]/15 rounded-full overflow-hidden">
+                      <div className="w-full h-1 bg-[#9b6b3f]/12 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${Math.min(100, (spotsTaken / TOTAL_SPOTS) * 100)}%` }}
