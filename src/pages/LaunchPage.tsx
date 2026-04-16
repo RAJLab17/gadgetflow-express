@@ -537,6 +537,31 @@ const LaunchPage = () => {
               >
                 {t("launch.conviction2.sub")}
               </motion.p>
+
+              {/* Device icons */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+                className="flex items-center justify-center gap-6"
+                style={{ marginTop: '24px' }}
+              >
+                <div className="flex flex-col items-center gap-1.5">
+                  <Smartphone className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
+                  <span className="text-[10px] text-[#888888] font-medium">Smartphone</span>
+                </div>
+                <span className="text-[#9b6b3f]/30 text-lg">·</span>
+                <div className="flex flex-col items-center gap-1.5">
+                  <Headphones className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
+                  <span className="text-[10px] text-[#888888] font-medium">AirPods</span>
+                </div>
+                <span className="text-[#9b6b3f]/30 text-lg">·</span>
+                <div className="flex flex-col items-center gap-1.5">
+                  <Watch className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
+                  <span className="text-[10px] text-[#888888] font-medium">Apple Watch</span>
+                </div>
+              </motion.div>
             </div>
           </section>
 
