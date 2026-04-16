@@ -504,7 +504,7 @@ const LaunchPage = () => {
                   className="mt-6 pt-5 border-t border-[#9b6b3f]/15"
                 >
                   <h3
-                    className="text-sm md:text-base font-bold text-[#2c2c2c] text-center mb-3"
+                    className="text-base md:text-lg font-extrabold text-[#2c2c2c] text-center mb-3 tracking-tight"
                     style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
                   >
                     {t("benefits.title")}
