@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import chargerHero from "@/assets/products/charger-3in1-inuse.png";
+import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
 
 const Hero = () => {
   return (
