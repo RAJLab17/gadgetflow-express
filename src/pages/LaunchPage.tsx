@@ -449,7 +449,7 @@ const LaunchPage = () => {
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="h-px w-6 bg-[#9b6b3f]/30" />
                         <span className="text-[10px] uppercase tracking-[0.22em] text-[#9b6b3f]/80 font-semibold">
-                          Founder Edition · Limitiert
+                          RAJ NEXUS Launch
                         </span>
                         <span className="h-px w-6 bg-[#9b6b3f]/30" />
                       </div>
