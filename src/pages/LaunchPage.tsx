@@ -356,12 +356,12 @@ const LaunchPage = () => {
             <div className="max-w-2xl mx-auto text-center w-full">
 
               {/* 1. Scarcity */}
-              <p className="text-xs sm:text-sm font-medium text-[#2c2c2c] mb-1">
+              <p className="text-xs sm:text-sm font-medium text-[#2c2c2c] mb-2">
                 {t("launch.scarcity")} <span className="font-bold text-[#9b6b3f]">100</span> {t("launch.pieces")}
               </p>
 
               {/* Countdown Timer */}
-              <div style={{ marginBottom: '8px' }}>
+              <div style={{ marginBottom: '18px' }}>
                 <CountdownTimer />
               </div>
 
@@ -379,7 +379,7 @@ const LaunchPage = () => {
               </motion.p>
 
               {/* 3. Product image with badges */}
-              <div className="relative w-full max-w-[230px] sm:max-w-[300px] mx-auto" style={{ marginBottom: '12px' }}>
+              <div className="relative w-full max-w-[230px] sm:max-w-[300px] mx-auto" style={{ marginBottom: '20px' }}>
                 <motion.img
                   initial={{ opacity: 0, scale: 0.97, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -405,7 +405,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ marginBottom: '14px' }}
+                style={{ marginBottom: '20px' }}
               >
                 <h1
                   className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
