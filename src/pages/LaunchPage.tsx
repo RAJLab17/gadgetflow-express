@@ -370,7 +370,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-xl sm:text-2xl font-extrabold leading-tight"
+                className="text-2xl sm:text-3xl font-extrabold leading-tight"
                 style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '24px' }}
               >
                 <span className="text-[#2c2c2c]">{t("launch.provocation.prefix")} </span>
@@ -408,13 +408,13 @@ const LaunchPage = () => {
                 style={{ marginBottom: '12px' }}
               >
                 <h1
-                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
+                  className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
+                  className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
