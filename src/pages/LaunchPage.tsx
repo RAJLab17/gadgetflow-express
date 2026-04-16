@@ -356,8 +356,8 @@ const LaunchPage = () => {
             <div className="max-w-2xl mx-auto text-center w-full">
 
               {/* 1. Scarcity */}
-              <p className="text-xs sm:text-sm font-medium text-[#2c2c2c] mb-2">
-                {t("launch.scarcity")} <span className="font-bold text-[#9b6b3f]">100</span> {t("launch.pieces")}
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-[#9b6b3f] mb-2">
+                RAJ NEXUS Launch
               </p>
 
               {/* Countdown Timer */}
@@ -449,7 +449,7 @@ const LaunchPage = () => {
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="h-px w-6 bg-[#9b6b3f]/30" />
                         <span className="text-[10px] uppercase tracking-[0.22em] text-[#9b6b3f]/80 font-semibold">
-                          RAJ NEXUS Launch
+                          Founder Edition · Limitiert
                         </span>
                         <span className="h-px w-6 bg-[#9b6b3f]/30" />
                       </div>
