@@ -45,6 +45,7 @@ const translations: Translations = {
   "launch.cta": { de: "Early Access sichern", fr: "Réserver l'Early Access", it: "Assicurati l'Early Access" },
   "launch.noPayment": { de: "🔒 Keine Zahlungsdaten nötig", fr: "🔒 Aucune donnée de paiement requise", it: "🔒 Nessun dato di pagamento richiesto" },
   "launch.unsubscribe": { de: "✅ Kein Spam", fr: "✅ Pas de spam", it: "✅ Niente spam" },
+  "launch.infoOnly": { de: "📨 Nur Info E-Mails", fr: "📨 Uniquement e-mails d'info", it: "📨 Solo e-mail informative" },
   "launch.submitted.title": { de: "Du bist dabei.", fr: "Tu es inscrit·e.", it: "Sei dei nostri." },
   "launch.submitted.sub": { de: "Wir melden uns als Erstes bei dir — versprochen.", fr: "On te contacte en premier — promis.", it: "Ti contatteremo per primo — promesso." },
 
