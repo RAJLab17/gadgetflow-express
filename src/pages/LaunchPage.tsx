@@ -11,11 +11,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
 
-import logo from "@/assets/logo-new.png";
-import chargerHero from "@/assets/products/charger-3in1-inuse.png";
-import chargerColors from "@/assets/products/charger-3in1-colors-new.png";
-import chargerAngles from "@/assets/products/charger-3in1-angles.png";
-
+import logo from "@/assets/logo-new.webp";
+import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
+import chargerColors from "@/assets/products/charger-3in1-colors-new.webp";
+import chargerAngles from "@/assets/products/charger-3in1-angles.webp";
+import chargerFastCharge from "@/assets/products/charger-3in1-fast-charge.webp";
 import chargerFastCharge from "@/assets/products/charger-3in1-fast-charge.png";
 
 const nexusImages = [chargerFastCharge, chargerColors, chargerAngles];
