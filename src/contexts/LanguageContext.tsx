@@ -40,7 +40,7 @@ const translations: Translations = {
 
   // Launch Page – Form
   "launch.spotsLeft": { de: "von 100 verfügbar!", fr: "sur 100 disponibles!", it: "su 100 disponibili!" },
-  "launch.only": { de: "👤 Nur noch", fr: "👤 Plus que", it: "👤 Solo ancora" },
+  "launch.only": { de: "Nur noch", fr: "Plus que", it: "Solo ancora" },
   "launch.emailPlaceholder": { de: "E-Mail Adresse", fr: "Adresse e-mail", it: "Indirizzo e-mail" },
   "launch.cta": { de: "Early Access sichern", fr: "Réserver l'Early Access", it: "Assicurati l'Early Access" },
   "launch.noPayment": { de: "🔒 Keine Zahlungsdaten nötig", fr: "🔒 Aucune donnée de paiement requise", it: "🔒 Nessun dato di pagamento richiesto" },
