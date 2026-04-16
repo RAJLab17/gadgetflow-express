@@ -53,11 +53,11 @@ const CountdownTimer = () => {
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.35 }}
-      className="flex justify-center gap-3 mb-6"
+      className="flex justify-center gap-3 mb-3 md:mb-6"
     >
       {units.map((u) => (
         <div key={u.label} className="flex flex-col items-center">
-          <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2c2c2c] tabular-nums leading-none">
+          <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2c2c2c] tabular-nums leading-none tracking-tight">
             {String(u.value).padStart(2, "0")}
           </span>
           <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#9b6b3f] font-semibold mt-1">
@@ -319,7 +319,7 @@ const LaunchPage = () => {
 
         <div className="relative z-10">
           {/* Mini Header with Language Toggle */}
-          <div className="py-4 px-4 flex items-center justify-between">
+          <div className="py-2 md:py-4 px-4 flex items-center justify-between">
             <img src={logo} alt="RAJ" className="h-10 w-auto" />
             <div className="flex items-center gap-1 text-xs font-medium">
               <button
@@ -352,7 +352,7 @@ const LaunchPage = () => {
           </div>
 
           {/* ===== 1. HERO SECTION ===== */}
-          <section className="container mx-auto px-4 pt-0 pb-10 md:pt-0 md:pb-28">
+          <section className="container mx-auto px-4 pt-0 pb-6 md:pt-0 md:pb-28">
             <div className="max-w-2xl mx-auto text-center">
 
               {/* 1. Scarcity */}
@@ -361,7 +361,7 @@ const LaunchPage = () => {
               </p>
 
               {/* Countdown Timer */}
-              <div style={{ marginBottom: '20px' }}>
+              <div style={{ marginBottom: '12px' }}>
                 <CountdownTimer />
               </div>
 
@@ -370,8 +370,8 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-xl sm:text-2xl font-extrabold leading-tight"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '24px' }}
+                className="text-lg sm:text-2xl font-extrabold leading-tight"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '16px' }}
               >
                 <span className="text-[#2c2c2c]">{t("launch.provocation.prefix")} </span>
                 <span className="text-[#2c2c2c]">{t("launch.provocation.highlight")} </span>
@@ -379,7 +379,7 @@ const LaunchPage = () => {
               </motion.p>
 
               {/* 3. Product image with badges */}
-              <div className="relative w-full max-w-[280px] sm:max-w-[320px] mx-auto" style={{ marginBottom: '32px' }}>
+              <div className="relative w-full max-w-[240px] sm:max-w-[320px] mx-auto" style={{ marginBottom: '20px' }}>
                 <motion.img
                   initial={{ opacity: 0, scale: 0.97, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -405,16 +405,16 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ marginBottom: '12px' }}
+                style={{ marginBottom: '6px' }}
               >
                 <h1
-                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
+                  className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
+                  className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-0.5"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
@@ -428,7 +428,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.45 }}
                 className="text-sm sm:text-base font-bold text-[#9b6b3f]"
-                style={{ marginBottom: '24px' }}
+                style={{ marginBottom: '16px' }}
               >
                 {t("launch.reinforcer")}
               </motion.p>
@@ -440,7 +440,7 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="max-w-sm mx-auto"
-                style={{ minHeight: '180px' }}
+                style={{ minHeight: '160px' }}
               >
                 {isSubmitted ? (
                   <motion.div
