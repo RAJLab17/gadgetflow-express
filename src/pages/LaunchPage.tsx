@@ -581,19 +581,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== TAGLINE ===== */}
-          <section className="py-6 md:py-10">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-md mx-auto flex flex-col items-center gap-4"
-            >
-              <p
-                className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
-              >
-                {t("tagline.1")}
+          <section className="py-10 md:py-28">
               </p>
               
             </motion.div>
