@@ -42,7 +42,7 @@ const translations: Translations = {
   "launch.spotsLeft": { de: "von 100 verfügbar!", fr: "sur 100 disponibles!", it: "su 100 disponibili!" },
   "launch.only": { de: "Nur noch", fr: "Plus que", it: "Solo ancora" },
   "launch.emailPlaceholder": { de: "E-Mail Adresse", fr: "Adresse e-mail", it: "Indirizzo e-mail" },
-  "launch.cta": { de: "Early Access sichern", fr: "Réserver l'Early Access", it: "Assicurati l'Early Access" },
+  "launch.cta": { de: "Platz sichern", fr: "Réserver ma place", it: "Assicurati il posto" },
   "launch.noPayment": { de: "🔒 Keine Zahlungsdaten nötig", fr: "🔒 Aucune donnée de paiement requise", it: "🔒 Nessun dato di pagamento richiesto" },
   "launch.unsubscribe": { de: "✅ Kein Spam", fr: "✅ Pas de spam", it: "✅ Niente spam" },
   "launch.infoOnly": { de: "📨 Nur Info E-Mails", fr: "📨 Uniquement e-mails d'info", it: "📨 Solo e-mail informative" },
@@ -98,13 +98,13 @@ const translations: Translations = {
   // Second CTA
   "cta2.title": { de: "Dein Platz wartet.", fr: "Ta place t'attend.", it: "Il tuo posto ti aspetta." },
   "cta2.submitted": { de: "Du bist dabei!", fr: "Tu es inscrit·e!", it: "Sei dei nostri!" },
-  "cta2.button": { de: "EARLY ACCESS SICHERN", fr: "RÉSERVER L'EARLY ACCESS", it: "ASSICURATI L'EARLY ACCESS" },
+  "cta2.button": { de: "PLATZ SICHERN", fr: "RÉSERVER MA PLACE", it: "ASSICURATI IL POSTO" },
 
   // Footer
   "footer.rights": { de: "Alle Rechte vorbehalten.", fr: "Tous droits réservés.", it: "Tutti i diritti riservati." },
 
   // Sticky CTA
-  "sticky.cta": { de: "Early Access sichern · Founder Edition", fr: "Réserver l'Early Access · Founder Edition", it: "Assicurati l'Early Access · Founder Edition" },
+  "sticky.cta": { de: "Platz sichern · Founder Edition", fr: "Réserver ma place · Founder Edition", it: "Assicurati il posto · Founder Edition" },
 
   // Toast
   "toast.signup": { de: "🇨🇭 Jemand hat sich gerade eingetragen.", fr: "🇨🇭 Quelqu'un vient de s'inscrire.", it: "🇨🇭 Qualcuno si è appena iscritto." },
