@@ -379,7 +379,7 @@ const LaunchPage = () => {
               </motion.p>
 
               {/* 3. Product image with badges */}
-              <div className="relative w-full max-w-[240px] sm:max-w-[320px] mx-auto" style={{ marginBottom: '20px' }}>
+              <div className="relative w-full max-w-[200px] sm:max-w-[300px] mx-auto" style={{ marginBottom: '14px' }}>
                 <motion.img
                   initial={{ opacity: 0, scale: 0.97, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -394,9 +394,9 @@ const LaunchPage = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 }}
-                  className="absolute bottom-8 left-0 px-3 py-1.5 bg-[#9b6b3f] text-white rounded-2xl shadow-md"
+                  className="absolute bottom-6 left-0 px-2.5 py-1 bg-[#9b6b3f] text-white rounded-2xl shadow-md"
                 >
-                  <span className="text-xs font-semibold">Qi2.2 Zertifiziert</span>
+                  <span className="text-[11px] font-semibold">Qi2.2 Zertifiziert</span>
                 </motion.div>
               </div>
 
@@ -405,16 +405,16 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ marginBottom: '6px' }}
+                style={{ marginBottom: '14px' }}
               >
                 <h1
-                  className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
+                  className="text-lg sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-0.5"
+                  className="text-lg sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-0.5"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
