@@ -446,6 +446,13 @@ const LaunchPage = () => {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div style={{ marginBottom: '12px' }}>
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <span className="h-px w-6 bg-[#9b6b3f]/30" />
+                        <span className="text-[10px] uppercase tracking-[0.22em] text-[#9b6b3f]/80 font-semibold">
+                          Founder Edition · Limitiert
+                        </span>
+                        <span className="h-px w-6 bg-[#9b6b3f]/30" />
+                      </div>
                       <div className="flex items-center justify-center gap-1.5 text-xs text-[#9b6b3f] font-semibold mb-1.5">
                         <Users className="w-3.5 h-3.5" />
                         <span>{t("launch.only")} <span className="text-base font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
