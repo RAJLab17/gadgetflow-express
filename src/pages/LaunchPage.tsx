@@ -581,7 +581,7 @@ const LaunchPage = () => {
           </section>
 
           {/* ===== TAGLINE ===== */}
-          <section className="py-6 md:py-10">
+          <section className="py-10 md:py-28">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -595,7 +595,6 @@ const LaunchPage = () => {
               >
                 {t("tagline.1")}
               </p>
-              
             </motion.div>
           </section>
 
