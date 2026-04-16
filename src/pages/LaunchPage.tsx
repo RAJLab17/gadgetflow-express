@@ -446,7 +446,8 @@ const LaunchPage = () => {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
                     <div style={{ marginBottom: '12px' }}>
-                      <div className="flex items-center justify-center gap-1 text-xs text-[#9b6b3f] font-semibold mb-1.5">
+                      <div className="flex items-center justify-center gap-1.5 text-xs text-[#9b6b3f] font-semibold mb-1.5">
+                        <Users className="w-3.5 h-3.5" />
                         <span>{t("launch.only")} <span className="text-base font-extrabold">{Math.max(0, TOTAL_SPOTS - spotsTaken)}</span> {t("launch.spotsLeft")}</span>
                       </div>
                       <div className="w-full h-1.5 bg-[#9b6b3f]/15 rounded-full overflow-hidden">
