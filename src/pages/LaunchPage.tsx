@@ -495,6 +495,33 @@ const LaunchPage = () => {
                     </p>
                   </form>
                 )}
+
+                {/* Benefits – directly below form, visible above the fold */}
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                  className="mt-6 pt-5 border-t border-[#9b6b3f]/15"
+                >
+                  <h3
+                    className="text-sm md:text-base font-bold text-[#2c2c2c] text-center mb-3"
+                    style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+                  >
+                    {t("benefits.title")}
+                  </h3>
+                  <div className="space-y-2 inline-grid text-left mx-auto">
+                    {[
+                      { icon: "💰", text: t("benefits.1") },
+                      { icon: "🏆", text: t("benefits.2") },
+                      { icon: "⚡", text: t("benefits.3") },
+                    ].map((item) => (
+                      <div key={item.text} className="grid grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-x-2.5 text-xs md:text-sm text-[#2c2c2c]">
+                        <span className="leading-none pt-0.5">{item.icon}</span>
+                        <span>{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
               </motion.div>
 
               {/* 8. Conviction text (after form) */}
@@ -572,34 +599,7 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          {/* ===== BENEFITS ===== */}
-          <section className="container mx-auto px-4 py-10 md:py-28">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-lg mx-auto flex flex-col items-center"
-            >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                {t("benefits.title")}
-              </h2>
-              <div className="space-y-4 inline-grid text-left mx-auto">
-                {[
-                  { icon: "💰", text: t("benefits.1") },
-                  { icon: "🏆", text: t("benefits.2") },
-                  { icon: "⚡", text: t("benefits.3") },
-                ].map((item) => (
-                  <div key={item.text} className="grid grid-cols-[1.5rem_minmax(0,1fr)] items-start gap-x-3 text-sm text-[#2c2c2c]">
-                    <span className="leading-none pt-0.5">{item.icon}</span>
-                    <span>{item.text}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </section>
-
-          {/* ===== WARUM RAJ? (moved after benefits) ===== */}
+          {/* ===== WARUM RAJ? ===== */}
           <section className="container mx-auto px-4 py-10 md:py-28">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
