@@ -365,13 +365,13 @@ const LaunchPage = () => {
                 <CountdownTimer />
               </div>
 
-              {/* Provocation */}
+              {/* Provocation – hidden on mobile to give form more focus */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-base sm:text-2xl font-extrabold leading-tight"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '10px' }}
+                className="hidden sm:block text-base sm:text-2xl font-extrabold leading-tight"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '14px' }}
               >
                 <span className="text-[#2c2c2c]">{t("launch.provocation.prefix")} </span>
                 <span className="text-[#2c2c2c]">{t("launch.provocation.highlight")} </span>
@@ -379,7 +379,7 @@ const LaunchPage = () => {
               </motion.p>
 
               {/* 3. Product image with badges */}
-              <div className="relative w-full max-w-[170px] sm:max-w-[300px] mx-auto" style={{ marginBottom: '8px' }}>
+              <div className="relative w-full max-w-[230px] sm:max-w-[300px] mx-auto" style={{ marginBottom: '12px' }}>
                 <motion.img
                   initial={{ opacity: 0, scale: 0.97, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -405,16 +405,16 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ marginBottom: '10px' }}
+                style={{ marginBottom: '14px' }}
               >
                 <h1
-                  className="text-lg sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
+                  className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.top")}
                 </h1>
                 <p
-                  className="text-lg sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-0.5"
+                  className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#9b6b3f] mt-1"
                   style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px' }}
                 >
                   {t("launch.newHeadline.bottom")}
