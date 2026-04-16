@@ -352,16 +352,16 @@ const LaunchPage = () => {
           </div>
 
           {/* ===== 1. HERO SECTION ===== */}
-          <section className="container mx-auto px-4 pt-0 pb-6 md:pt-0 md:pb-28">
+          <section className="container mx-auto px-4 pt-0 pb-4 md:pt-0 md:pb-28">
             <div className="max-w-2xl mx-auto text-center">
 
               {/* 1. Scarcity */}
-              <p className="text-sm font-medium text-[#2c2c2c] mb-1">
+              <p className="text-xs sm:text-sm font-medium text-[#2c2c2c] mb-1">
                 {t("launch.scarcity")} <span className="font-bold text-[#9b6b3f]">100</span> {t("launch.pieces")}
               </p>
 
               {/* Countdown Timer */}
-              <div style={{ marginBottom: '12px' }}>
+              <div style={{ marginBottom: '8px' }}>
                 <CountdownTimer />
               </div>
 
@@ -370,8 +370,8 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="text-lg sm:text-2xl font-extrabold leading-tight"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '16px' }}
+                className="text-base sm:text-2xl font-extrabold leading-tight"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: '0.5px', marginBottom: '10px' }}
               >
                 <span className="text-[#2c2c2c]">{t("launch.provocation.prefix")} </span>
                 <span className="text-[#2c2c2c]">{t("launch.provocation.highlight")} </span>
@@ -379,7 +379,7 @@ const LaunchPage = () => {
               </motion.p>
 
               {/* 3. Product image with badges */}
-              <div className="relative w-full max-w-[200px] sm:max-w-[300px] mx-auto" style={{ marginBottom: '14px' }}>
+              <div className="relative w-full max-w-[170px] sm:max-w-[300px] mx-auto" style={{ marginBottom: '8px' }}>
                 <motion.img
                   initial={{ opacity: 0, scale: 0.97, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -405,7 +405,7 @@ const LaunchPage = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                style={{ marginBottom: '14px' }}
+                style={{ marginBottom: '10px' }}
               >
                 <h1
                   className="text-lg sm:text-3xl md:text-4xl font-extrabold leading-tight text-[#2c2c2c]"
