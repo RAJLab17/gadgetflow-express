@@ -34,7 +34,7 @@ const translations: Translations = {
   "launch.newSubline.deviceNames": { de: "Smartphone · AirPods · Apple Watch", fr: "Smartphone · AirPods · Apple Watch", it: "Smartphone · AirPods · Apple Watch" },
   "launch.newSubline.action": { de: "Alles gleichzeitig laden.", fr: "Tout charger en même temps.", it: "Caricare tutto contemporaneamente." },
   "launch.reinforcer": { de: "Swiss Brand.", fr: "Swiss Brand.", it: "Swiss Brand." },
-  "launch.conviction": { de: "Das bessere Ladegerät.", fr: "Le meilleur chargeur.", it: "Il caricatore migliore." },
+  "launch.conviction": { de: "Mehr als ein Ladegerät.", fr: "Plus qu'un chargeur.", it: "Più di un caricatore." },
   "launch.conviction2.bold": { de: "Premium Materialien. Echte Leistung. Fairer Preis.", fr: "Matériaux premium. Vraie performance. Prix juste.", it: "Materiali premium. Prestazioni reali. Prezzo giusto." },
   "launch.conviction2.sub": { de: "Präzise. Zuverlässig. Durchdacht.", fr: "Précis. Fiable. Réfléchi.", it: "Preciso. Affidabile. Pensato." },
 
