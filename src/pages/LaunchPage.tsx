@@ -493,6 +493,14 @@ const LaunchPage = () => {
                       <span>·</span>
                       <span>{t("launch.infoOnly")}</span>
                     </p>
+                    <motion.p
+                      animate={{ y: [0, 4, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                      className="md:hidden text-[11px] text-[#9b6b3f] font-semibold text-center mt-3 flex items-center justify-center gap-1.5"
+                    >
+                      <span>3 exklusive Vorteile sichern</span>
+                      <span aria-hidden>↓</span>
+                    </motion.p>
                   </form>
                 )}
 
