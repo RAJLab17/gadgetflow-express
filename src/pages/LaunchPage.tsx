@@ -524,6 +524,17 @@ const LaunchPage = () => {
                 </motion.div>
               </motion.div>
 
+              {/* Tagline directly after benefits */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.85 }}
+                className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", marginTop: '56px' }}
+              >
+                {t("tagline.1")}
+              </motion.p>
+
               {/* 8. Conviction text (after form) */}
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
