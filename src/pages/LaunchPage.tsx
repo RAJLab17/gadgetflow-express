@@ -422,16 +422,7 @@ const LaunchPage = () => {
               </motion.div>
 
 
-              {/* 6. Reinforcer */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.45 }}
-                className="text-sm sm:text-base font-bold text-[#9b6b3f]"
-                style={{ marginBottom: '16px' }}
-              >
-                {t("launch.reinforcer")}
-              </motion.p>
+              {/* 6. Reinforcer removed */}
 
               {/* 7. Email form */}
               <motion.div
