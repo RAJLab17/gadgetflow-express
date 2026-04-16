@@ -421,29 +421,6 @@ const LaunchPage = () => {
                 </p>
               </motion.div>
 
-              {/* 5. Device icons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex items-center justify-center gap-6"
-                style={{ marginBottom: '4px', marginTop: '28px' }}
-              >
-                <div className="flex flex-col items-center gap-1.5">
-                  <Smartphone className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
-                  <span className="text-[10px] text-[#888888] font-medium">Smartphone</span>
-                </div>
-                <span className="text-[#9b6b3f]/30 text-lg">·</span>
-                <div className="flex flex-col items-center gap-1.5">
-                  <Headphones className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
-                  <span className="text-[10px] text-[#888888] font-medium">AirPods</span>
-                </div>
-                <span className="text-[#9b6b3f]/30 text-lg">·</span>
-                <div className="flex flex-col items-center gap-1.5">
-                  <Watch className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
-                  <span className="text-[10px] text-[#888888] font-medium">Apple Watch</span>
-                </div>
-              </motion.div>
 
               {/* 6. Reinforcer */}
               <motion.p
