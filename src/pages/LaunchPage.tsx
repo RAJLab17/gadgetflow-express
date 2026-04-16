@@ -319,7 +319,7 @@ const LaunchPage = () => {
 
         <div className="relative z-10">
           {/* Mini Header with Language Toggle */}
-          <div className="py-2 md:py-4 px-4 flex items-center justify-between">
+          <div className="py-1 md:py-4 px-4 flex items-center justify-between">
             <img src={logo} alt="RAJ" className="h-10 w-auto" />
             <div className="flex items-center gap-1 text-xs font-medium">
               <button
@@ -352,7 +352,7 @@ const LaunchPage = () => {
           </div>
 
           {/* ===== 1. HERO SECTION ===== */}
-          <section className="container mx-auto px-4 pt-1 pb-4 md:pt-0 md:pb-28 md:min-h-0 md:flex md:items-center">
+          <section className="container mx-auto px-4 pt-0 pb-4 md:pt-0 md:pb-28 md:min-h-0 md:flex md:items-center">
             <div className="max-w-2xl mx-auto text-center w-full">
 
               {/* 1. Scarcity */}
