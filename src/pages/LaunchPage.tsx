@@ -859,7 +859,7 @@ const LaunchPage = () => {
         </div>
       </div>
       {showSignupToast && <SignupToast />}
-      <ExitIntentPopup />
+      
       
 
     </>
