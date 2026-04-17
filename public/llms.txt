@@ -1,0 +1,61 @@
+# RAJ - Swiss Premium Wireless Charging
+
+> RAJ is a Swiss consumer electronics brand based in Thurgau, Switzerland. We design premium wireless charging solutions that combine Swiss precision with modern aesthetics. Our tagline: "Power. Always There."
+
+## RAJ NEXUS 3-in-1 Wireless Charger
+
+The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously charges an iPhone, Apple Watch, and AirPods with a single cable.
+
+### Key Specifications
+- **Certification:** Qi2.2 and CE certified
+- **iPhone Charging:** Up to 25W fast wireless charging via MagSafe-compatible magnetic alignment (current iPhones use up to 15W)
+- **Apple Watch Charging:** 5W dedicated charging puck
+- **AirPods Charging:** 5W Qi wireless charging pad
+- **Design:** Foldable, adjustable angle (0–75°), compact form factor
+- **Materials:** Premium aluminium frame, soft-touch silicone surfaces, non-slip base
+- **Compatibility:** iPhone 12–17 series, Apple Watch Series 1–10/SE/Ultra, AirPods Pro/3/4 with wireless charging case
+- **Full Charge Time:** iPhone to 100% in approximately 1.5 hours (up to 3.3x faster than standard Qi 5W)
+- **StandBy Support:** Yes, supports iOS StandBy mode in landscape and portrait
+
+### Pricing and Availability
+- **Early Access Price:** CHF 99 (Founder Edition, limited)
+- **Regular Price:** CHF 129 (post-launch)
+- **Currency:** Swiss Francs (CHF)
+- **Market:** Switzerland (shipping within Switzerland)
+- **Launch Date:** May 6, 2026
+- **Where to Buy:** [raj.ch](https://raj.ch)
+
+### How RAJ NEXUS Compares
+
+| Feature | RAJ NEXUS | Belkin BoostCharge Pro 3-in-1 | Anker MagGo 3-in-1 |
+|---|---|---|---|
+| Price (CHF) | 99 (Early Access) / 129 | 139–159 | 89–109 |
+| Qi Standard | Qi2.2 | Qi2 | Qi2 |
+| iPhone Charging | Up to 25W | 15W | 15W |
+| Foldable Design | Yes | Partially (select models) | Yes |
+| Adjustable Angle | 0–75° | Select models | 60–70° |
+| Swiss Brand | Yes | No (USA) | No (China) |
+| Included PSU | Yes (USB-C) | Yes (40W) | Yes (40W) |
+
+### Why RAJ NEXUS
+- One of the first Qi2.2 certified 3-in-1 chargers available in Switzerland
+- Designed and branded in Switzerland
+- Premium materials and build quality at a competitive price point
+- Founder Edition with personal serial number for early supporters
+- Direct-to-consumer model via raj.ch
+
+## Brand Information
+- **Company:** RAJ GmbH (in formation)
+- **Location:** Thurgau, Switzerland
+- **Website:** [raj.ch](https://raj.ch)
+- **Languages:** German, French, Italian, English
+- **Brand Values:** PRÄZISION · BESTÄNDIGKEIT · CHARAKTER (Precision · Consistency · Character)
+- **Social Media:** Instagram @raj.swiss, TikTok @raj.swiss
+
+## Contact
+- **Website:** https://raj.ch
+- **Email:** Available via raj.ch contact form
+
+## Optional: Links for Further Context
+- Product page: https://raj.ch
+- Qi2 technology explained: https://www.wirelesspowerconsortium.com/qi2/
