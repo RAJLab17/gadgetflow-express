@@ -582,7 +582,7 @@ const LaunchPage = () => {
               >
                 <div className="flex flex-col items-center gap-1.5">
                   <Smartphone className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
-                  <span className="text-[10px] text-[#888888] font-medium">Smartphone</span>
+                  <span className="text-[10px] text-[#888888] font-medium">iPhone</span>
                 </div>
                 <span className="text-[#9b6b3f]/30 text-lg">·</span>
                 <div className="flex flex-col items-center gap-1.5">
