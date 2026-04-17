@@ -491,14 +491,25 @@ const LaunchPage = () => {
                       <span>·</span>
                       <span>{t("launch.unsubscribe")}</span>
                     </p>
-                    <motion.p
-                      animate={{ y: [0, 4, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      className="md:hidden text-[11px] text-[#9b6b3f] font-semibold text-center mt-3 flex items-center justify-center gap-1.5"
+                    <motion.button
+                      type="button"
+                      onClick={() => {
+                        const el = document.getElementById("launch-benefits");
+                        el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }}
+                      animate={{ y: [0, 6, 0] }}
+                      transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+                      className="md:hidden mx-auto mt-4 flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#9b6b3f]/10 border border-[#9b6b3f]/30 text-[12px] text-[#9b6b3f] font-bold tracking-wide shadow-[0_2px_10px_-2px_rgba(155,107,63,0.25)]"
                     >
                       <span>3 exklusive Vorteile sichern</span>
-                      <span aria-hidden>↓</span>
-                    </motion.p>
+                      <motion.span
+                        aria-hidden
+                        animate={{ y: [0, 3, 0] }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        ↓
+                      </motion.span>
+                    </motion.button>
                   </form>
                 )}
 
