@@ -140,7 +140,7 @@ const CountUpNumber = ({ target }: { target: number }) => {
 };
 
 const TOTAL_SPOTS = 100;
-const DEFAULT_TAKEN = 71;
+const DEFAULT_TAKEN = 81;
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
@@ -364,10 +364,7 @@ const LaunchPage = () => {
                 <span className="h-px w-8 sm:w-10 bg-[#9b6b3f]/40" />
               </div>
 
-              {/* Countdown Timer */}
-              <div style={{ marginBottom: '18px' }}>
-                <CountdownTimer />
-              </div>
+              {/* Countdown Timer removed */}
 
               {/* Provocation – hidden on mobile to give form more focus */}
               <motion.p
