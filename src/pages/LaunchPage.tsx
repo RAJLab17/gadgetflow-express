@@ -524,11 +524,6 @@ const LaunchPage = () => {
                     >
                       {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <>{t("launch.cta")} <span aria-hidden>→</span></>}
                     </button>
-                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-2 mt-2">
-                      <span>{t("launch.noPayment")}</span>
-                      <span>·</span>
-                      <span>{t("launch.unsubscribe")}</span>
-                    </p>
                     <motion.button
                       type="button"
                       onClick={() => {
@@ -537,7 +532,7 @@ const LaunchPage = () => {
                       }}
                       animate={{ y: [0, 6, 0] }}
                       transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-                      className="md:hidden mx-auto mt-4 flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#9b6b3f]/10 border border-[#9b6b3f]/30 text-[12px] text-[#9b6b3f] font-bold tracking-wide shadow-[0_2px_10px_-2px_rgba(155,107,63,0.25)]"
+                      className="md:hidden mx-auto mt-3 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#9b6b3f]/10 border border-[#9b6b3f]/30 text-[13px] text-[#9b6b3f] font-bold tracking-wide shadow-[0_2px_10px_-2px_rgba(155,107,63,0.25)]"
                     >
                       <motion.span
                         aria-hidden
@@ -555,6 +550,11 @@ const LaunchPage = () => {
                         ↓
                       </motion.span>
                     </motion.button>
+                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-2 mt-2">
+                      <span>{t("launch.noPayment")}</span>
+                      <span>·</span>
+                      <span>{t("launch.unsubscribe")}</span>
+                    </p>
                   </form>
                 )}
 
