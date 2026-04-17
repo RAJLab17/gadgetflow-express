@@ -487,6 +487,30 @@ const LaunchPage = () => {
                         tabIndex={-1}
                       />
                     </div>
+                    {/* Trust Stack – 3 Benefits ÜBER Spots-Counter, untereinander */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                      className="flex flex-col gap-2 mb-4"
+                    >
+                      {[
+                        { icon: "💰", label: t("benefits.1") },
+                        { icon: "🏆", label: t("benefits.2") },
+                        { icon: "⚡", label: t("benefits.3") },
+                      ].map((item) => (
+                        <div
+                          key={item.label}
+                          className="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-white/70 border border-[#9b6b3f]/15"
+                        >
+                          <span className="text-base leading-none flex-shrink-0" aria-hidden>{item.icon}</span>
+                          <span className="text-[12px] sm:text-[13px] leading-snug font-semibold text-[#2c2c2c] text-left">
+                            {item.label}
+                          </span>
+                        </div>
+                      ))}
+                    </motion.div>
+
                     <div style={{ marginBottom: '12px' }}>
                       <div className="flex items-center justify-center gap-1.5 text-xs text-[#9b6b3f] font-semibold mb-1.5">
                         <Users className="w-3.5 h-3.5" />
