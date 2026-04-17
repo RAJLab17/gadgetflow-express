@@ -521,67 +521,37 @@ const LaunchPage = () => {
                     >
                       {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <>{t("launch.cta")} <span aria-hidden>→</span></>}
                     </button>
-                    <motion.button
-                      type="button"
-                      onClick={() => {
-                        const el = document.getElementById("launch-benefits");
-                        el?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }}
-                      animate={{ y: [0, 6, 0] }}
-                      transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-                      className="md:hidden mx-auto mt-3 flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#9b6b3f]/10 border border-[#9b6b3f]/30 text-[13px] text-[#9b6b3f] font-bold tracking-wide shadow-[0_2px_10px_-2px_rgba(155,107,63,0.25)]"
+                    {/* Trust Row – 3 Benefits direkt unter CTA, sofort sichtbar */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                      className="grid grid-cols-3 gap-1.5 sm:gap-2 mt-3"
                     >
-                      <motion.span
-                        aria-hidden
-                        animate={{ y: [0, 3, 0] }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        ↓
-                      </motion.span>
-                      <span>3 exklusive Vorteile sichern</span>
-                      <motion.span
-                        aria-hidden
-                        animate={{ y: [0, 3, 0] }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        ↓
-                      </motion.span>
-                    </motion.button>
-                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-2 mt-2">
+                      {[
+                        { icon: "💰", label: t("benefits.1") },
+                        { icon: "🏆", label: t("benefits.2") },
+                        { icon: "⚡", label: t("benefits.3") },
+                      ].map((item) => (
+                        <div
+                          key={item.label}
+                          className="flex flex-col items-center justify-start text-center gap-1 px-1.5 py-2 rounded-lg bg-white/70 border border-[#9b6b3f]/15"
+                        >
+                          <span className="text-base sm:text-lg leading-none" aria-hidden>{item.icon}</span>
+                          <span className="text-[10px] sm:text-[11px] leading-tight font-semibold text-[#2c2c2c]">
+                            {item.label}
+                          </span>
+                        </div>
+                      ))}
+                    </motion.div>
+
+                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-2 mt-3">
                       <span>{t("launch.noPayment")}</span>
                       <span>·</span>
                       <span>{t("launch.unsubscribe")}</span>
                     </p>
                   </form>
                 )}
-
-                {/* Benefits – directly below form, visible above the fold */}
-                <motion.div
-                  id="launch-benefits"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="mt-6 pt-5 border-t border-[#9b6b3f]/15 scroll-mt-20"
-                >
-                  <h3
-                    className="text-base md:text-lg font-extrabold text-[#2c2c2c] text-center mb-3 tracking-tight"
-                    style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
-                  >
-                    {t("benefits.title")}
-                  </h3>
-                  <div className="space-y-2 inline-grid text-left mx-auto">
-                    {[
-                      { icon: "💰", text: t("benefits.1") },
-                      { icon: "🏆", text: t("benefits.2") },
-                      { icon: "⚡", text: t("benefits.3") },
-                    ].map((item) => (
-                      <div key={item.text} className="grid grid-cols-[1.25rem_minmax(0,1fr)] items-start gap-x-2.5 text-xs md:text-sm text-[#2c2c2c]">
-                        <span className="leading-none pt-0.5">{item.icon}</span>
-                        <span>{item.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
               </motion.div>
 
               {/* Tagline directly after benefits */}
