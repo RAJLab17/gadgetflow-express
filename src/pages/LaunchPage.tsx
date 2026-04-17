@@ -480,9 +480,9 @@ const LaunchPage = () => {
                       className="flex flex-col gap-2 mb-4"
                     >
                       {[
-                        { icon: "💰", label: t("benefits.1") },
-                        { icon: "🏆", label: t("benefits.2") },
                         { icon: "⚡", label: t("benefits.3") },
+                        { icon: "🏆", label: t("benefits.2") },
+                        { icon: "💰", label: t("benefits.1") },
                       ].map((item) => (
                         <div
                           key={item.label}
