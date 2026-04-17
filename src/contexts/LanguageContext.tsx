@@ -39,7 +39,7 @@ const translations: Translations = {
   "launch.conviction2.sub": { de: "Präzise. Zuverlässig. Durchdacht.", fr: "Précis. Fiable. Réfléchi.", it: "Preciso. Affidabile. Pensato." },
 
   // Launch Page – Form
-  "launch.spotsLeft": { de: "verfügbar!", fr: "disponibles!", it: "disponibili!" },
+  "launch.spotsLeft": { de: "Plätze verfügbar!", fr: "places disponibles!", it: "posti disponibili!" },
   "launch.only": { de: "Nur noch", fr: "Plus que", it: "Solo ancora" },
   "launch.emailPlaceholder": { de: "E-Mail Adresse", fr: "Adresse e-mail", it: "Indirizzo e-mail" },
   "launch.cta": { de: "Platz sichern", fr: "Réserver ma place", it: "Assicurati il posto" },
