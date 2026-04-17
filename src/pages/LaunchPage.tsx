@@ -553,15 +553,6 @@ const LaunchPage = () => {
 
               {/* 8. Conviction text (after form) */}
               <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-sm sm:text-base md:text-lg italic text-[#888888] max-w-lg mx-auto leading-relaxed"
-                style={{ marginTop: '56px' }}
-              >
-                {t("launch.conviction")}
-              </motion.p>
-              <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
