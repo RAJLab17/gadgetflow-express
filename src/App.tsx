@@ -25,6 +25,7 @@ import VersandPage from "./pages/VersandPage";
 import ConfirmedPage from "./pages/ConfirmedPage";
 import LaunchPage from "./pages/LaunchPage";
 import VergleichPage from "./pages/VergleichPage";
+import Qi2ErklaertPage from "./pages/Qi2ErklaertPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -70,6 +71,7 @@ const App = () => (
             <Route path="/confirmed" element={<ConfirmedPage />} />
             <Route path="/launch" element={<LaunchPage />} />
             <Route path="/vergleich" element={<VergleichPage />} />
+            <Route path="/qi2-erklaert" element={<Qi2ErklaertPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
