@@ -460,6 +460,29 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
+                    {/* Honeypot fields — hidden from real users, bots fill them */}
+                    <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: 0, opacity: 0, overflow: "hidden", pointerEvents: "none" }}>
+                      <label htmlFor="hp-website-1">Leave this field empty</label>
+                      <input
+                        id="hp-website-1"
+                        type="text"
+                        name="website"
+                        value={hpWebsite}
+                        onChange={(e) => setHpWebsite(e.target.value)}
+                        autoComplete="off"
+                        tabIndex={-1}
+                      />
+                      <label htmlFor="hp-company-1">Leave this field empty</label>
+                      <input
+                        id="hp-company-1"
+                        type="text"
+                        name="company"
+                        value={hpCompany}
+                        onChange={(e) => setHpCompany(e.target.value)}
+                        autoComplete="off"
+                        tabIndex={-1}
+                      />
+                    </div>
                     <div style={{ marginBottom: '12px' }}>
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="h-px w-6 bg-[#9b6b3f]/30" />
