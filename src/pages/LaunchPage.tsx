@@ -892,9 +892,34 @@ const LaunchPage = () => {
         </div>
       </div>
       {showSignupToast && <SignupToast />}
-      
-      
 
+      {/* Sticky mobile CTA */}
+      <button
+        onClick={() => {
+          const forms = Array.from(document.querySelectorAll<HTMLElement>('#signup-form, form'));
+          if (forms.length === 0) return;
+          const viewportCenter = window.scrollY + window.innerHeight / 2;
+          let nearest = forms[0];
+          let minDist = Infinity;
+          forms.forEach((f) => {
+            const top = f.getBoundingClientRect().top + window.scrollY;
+            const dist = Math.abs(top - viewportCenter);
+            if (dist < minDist) { minDist = dist; nearest = f; }
+          });
+          nearest.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          const input = nearest.querySelector<HTMLInputElement>('input[type="email"]');
+          if (input) setTimeout(() => input.focus({ preventScroll: true }), 600);
+        }}
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 h-14 px-4 font-semibold text-base tracking-wide active:scale-[0.99] transition-transform"
+        style={{
+          backgroundColor: '#9b6b3f',
+          color: '#f0ede6',
+          boxShadow: '0 -8px 24px -8px rgba(0,0,0,0.18)',
+        }}
+        aria-label="Jetzt sichern"
+      >
+        Jetzt sichern – CHF 99
+      </button>
     </>
   );
 };
