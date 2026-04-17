@@ -31,7 +31,7 @@ const translations: Translations = {
   "launch.newHeadline.top": { de: "Ein Ladegerät. Ein Kabel.", fr: "Un chargeur. Un câble.", it: "Un caricatore. Un cavo." },
   "launch.newHeadline.bottom": { de: "Drei Geräte.", fr: "Trois appareils.", it: "Tre dispositivi." },
   "launch.newSubline.devices": { de: "📱 · 🎧 · ⌚", fr: "📱 · 🎧 · ⌚", it: "📱 · 🎧 · ⌚" },
-  "launch.newSubline.deviceNames": { de: "Smartphone · AirPods · Apple Watch", fr: "Smartphone · AirPods · Apple Watch", it: "Smartphone · AirPods · Apple Watch" },
+  "launch.newSubline.deviceNames": { de: "iPhone · AirPods · Apple Watch", fr: "iPhone · AirPods · Apple Watch", it: "iPhone · AirPods · Apple Watch" },
   "launch.newSubline.action": { de: "Alles gleichzeitig laden.", fr: "Tout charger en même temps.", it: "Caricare tutto contemporaneamente." },
   "launch.reinforcer": { de: "Swiss Brand.", fr: "Swiss Brand.", it: "Swiss Brand." },
   "launch.conviction": { de: "Mehr als ein Ladegerät.", fr: "Plus qu'un chargeur.", it: "Più di un caricatore." },
