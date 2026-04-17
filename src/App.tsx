@@ -24,6 +24,7 @@ import FAQPage from "./pages/FAQPage";
 import VersandPage from "./pages/VersandPage";
 import ConfirmedPage from "./pages/ConfirmedPage";
 import LaunchPage from "./pages/LaunchPage";
+import VergleichPage from "./pages/VergleichPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -68,6 +69,7 @@ const App = () => (
             <Route path="/versand" element={<VersandPage />} />
             <Route path="/confirmed" element={<ConfirmedPage />} />
             <Route path="/launch" element={<LaunchPage />} />
+            <Route path="/vergleich" element={<VergleichPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
