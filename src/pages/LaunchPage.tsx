@@ -550,6 +550,11 @@ const LaunchPage = () => {
                         ↓
                       </motion.span>
                     </motion.button>
+                    <p className="text-xs text-[#888888] text-center flex flex-wrap items-center justify-center gap-2 mt-2">
+                      <span>{t("launch.noPayment")}</span>
+                      <span>·</span>
+                      <span>{t("launch.unsubscribe")}</span>
+                    </p>
                   </form>
                 )}
 
