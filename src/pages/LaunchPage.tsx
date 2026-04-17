@@ -146,6 +146,11 @@ const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
+  // Honeypot fields (must stay empty — bots will fill them)
+  const [hpWebsite, setHpWebsite] = useState("");
+  const [hpCompany, setHpCompany] = useState("");
+  const [hpWebsite2, setHpWebsite2] = useState("");
+  const [hpCompany2, setHpCompany2] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
