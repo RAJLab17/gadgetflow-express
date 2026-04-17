@@ -231,6 +231,11 @@ const LaunchPage = () => {
       toast.error(t("error.invalidEmail"));
       return;
     }
+    // Honeypot: bot detected — fake success, don't submit
+    if (hpWebsite || hpCompany) {
+      setIsSubmitted(true);
+      return;
+    }
     setIsSubmitting(true);
     try {
       const { data, error } = await supabase.functions.invoke("brevo-subscribe", {
