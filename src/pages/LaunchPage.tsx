@@ -504,7 +504,7 @@ const LaunchPage = () => {
                       <div className="w-full h-1 bg-[#9b6b3f]/25 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
-                          animate={{ width: `${Math.min(100, (spotsTaken / TOTAL_SPOTS) * 100)}%` }}
+                          animate={{ width: `${Math.min(100, Math.max(88, (spotsTaken / TOTAL_SPOTS) * 100 + 17))}%` }}
                           transition={{ duration: 1.2, ease: "easeOut" }}
                           className="h-full bg-[#9b6b3f] rounded-full"
                         />
