@@ -364,10 +364,7 @@ const LaunchPage = () => {
                 <span className="h-px w-8 sm:w-10 bg-[#9b6b3f]/40" />
               </div>
 
-              {/* Countdown Timer */}
-              <div style={{ marginBottom: '18px' }}>
-                <CountdownTimer />
-              </div>
+              {/* Countdown Timer removed */}
 
               {/* Provocation – hidden on mobile to give form more focus */}
               <motion.p
