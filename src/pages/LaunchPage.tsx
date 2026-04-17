@@ -146,6 +146,11 @@ const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
   const [email, setEmail] = useState("");
   const [email2, setEmail2] = useState("");
+  // Honeypot fields (must stay empty — bots will fill them)
+  const [hpWebsite, setHpWebsite] = useState("");
+  const [hpCompany, setHpCompany] = useState("");
+  const [hpWebsite2, setHpWebsite2] = useState("");
+  const [hpCompany2, setHpCompany2] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -226,6 +231,11 @@ const LaunchPage = () => {
       toast.error(t("error.invalidEmail"));
       return;
     }
+    // Honeypot: bot detected — fake success, don't submit
+    if (hpWebsite || hpCompany) {
+      setIsSubmitted(true);
+      return;
+    }
     setIsSubmitting(true);
     try {
       const { data, error } = await supabase.functions.invoke("brevo-subscribe", {
@@ -253,6 +263,11 @@ const LaunchPage = () => {
     e.preventDefault();
     if (!email2 || !email2.includes("@")) {
       toast.error(t("error.invalidEmail"));
+      return;
+    }
+    // Honeypot: bot detected — fake success, don't submit
+    if (hpWebsite2 || hpCompany2) {
+      setIsSubmitted2(true);
       return;
     }
     setIsSubmitting2(true);
@@ -445,6 +460,29 @@ const LaunchPage = () => {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-3">
+                    {/* Honeypot fields — hidden from real users, bots fill them */}
+                    <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: 0, opacity: 0, overflow: "hidden", pointerEvents: "none" }}>
+                      <label htmlFor="hp-website-1">Leave this field empty</label>
+                      <input
+                        id="hp-website-1"
+                        type="text"
+                        name="website"
+                        value={hpWebsite}
+                        onChange={(e) => setHpWebsite(e.target.value)}
+                        autoComplete="off"
+                        tabIndex={-1}
+                      />
+                      <label htmlFor="hp-company-1">Leave this field empty</label>
+                      <input
+                        id="hp-company-1"
+                        type="text"
+                        name="company"
+                        value={hpCompany}
+                        onChange={(e) => setHpCompany(e.target.value)}
+                        autoComplete="off"
+                        tabIndex={-1}
+                      />
+                    </div>
                     <div style={{ marginBottom: '12px' }}>
                       <div className="flex items-center justify-center gap-2 mb-2">
                         <span className="h-px w-6 bg-[#9b6b3f]/30" />
@@ -826,6 +864,29 @@ const LaunchPage = () => {
                   onSubmit={handleSubmit2}
                   className="space-y-3"
                 >
+                  {/* Honeypot fields — hidden from real users, bots fill them */}
+                  <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: 0, opacity: 0, overflow: "hidden", pointerEvents: "none" }}>
+                    <label htmlFor="hp-website-2">Leave this field empty</label>
+                    <input
+                      id="hp-website-2"
+                      type="text"
+                      name="website"
+                      value={hpWebsite2}
+                      onChange={(e) => setHpWebsite2(e.target.value)}
+                      autoComplete="off"
+                      tabIndex={-1}
+                    />
+                    <label htmlFor="hp-company-2">Leave this field empty</label>
+                    <input
+                      id="hp-company-2"
+                      type="text"
+                      name="company"
+                      value={hpCompany2}
+                      onChange={(e) => setHpCompany2(e.target.value)}
+                      autoComplete="off"
+                      tabIndex={-1}
+                    />
+                  </div>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <div className="relative flex-1">
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
