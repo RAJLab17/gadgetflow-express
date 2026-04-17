@@ -515,10 +515,11 @@ const LaunchPage = () => {
 
                 {/* Benefits – directly below form, visible above the fold */}
                 <motion.div
+                  id="launch-benefits"
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 }}
-                  className="mt-6 pt-5 border-t border-[#9b6b3f]/15"
+                  className="mt-6 pt-5 border-t border-[#9b6b3f]/15 scroll-mt-20"
                 >
                   <h3
                     className="text-base md:text-lg font-extrabold text-[#2c2c2c] text-center mb-3 tracking-tight"
