@@ -7,6 +7,22 @@ import Footer from "@/components/Footer";
 
 const faqData = [
   {
+    question: "Was ist der RAJ NEXUS?",
+    answer: "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und wird in der Schweiz designed.",
+  },
+  {
+    question: "Was kostet der RAJ NEXUS in der Schweiz?",
+    answer: "Der RAJ NEXUS kostet CHF 99 im Early Access (Founder Edition) und CHF 129 nach dem Launch. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.",
+  },
+  {
+    question: "Was ist der Unterschied zwischen Qi2 und Qi2.2?",
+    answer: "Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Beide laden iPhones mit bis zu 15W (Qi2.2 unterstützt bis 25W), aber Qi2.2 ist zukunftssicherer und ermöglicht perspektivisch höhere Ladeleistungen.",
+  },
+  {
+    question: "Wie schnell lädt der RAJ NEXUS mein iPhone?",
+    answer: "Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 3,3x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.",
+  },
+  {
     question: "Was ist Qi2 und was unterscheidet es von normalem Wireless Charging?",
     answer: "Qi2 ist der aktuelle Premium-Standard für kabelloses Laden. Dank Magnetausrichtung und bis zu 25 Watt Ladeleistung ist Qi2 schneller, präziser und effizienter als der ältere Qi-Standard.",
   },
@@ -25,10 +41,6 @@ const faqData = [
   {
     question: "Funktioniert der RAJ NEXUS mit einer Schutzhülle?",
     answer: "Ja — für das beste Ladeerlebnis empfehlen wir eine Qi2-kompatible Schutzhülle. Schlanke, nicht-metallische Hüllen funktionieren ebenfalls. Metallhüllen oder Hüllen mit Kreditkarten können die Ladefunktion beeinträchtigen.",
-  },
-  {
-    question: "Wie schnell lädt der RAJ NEXUS?",
-    answer: "Mit Qi2-Geräten bis zu 15 Watt, mit älteren Qi-Geräten bis zu 10 Watt — für eine zuverlässige und schnelle Ladung.",
   },
   {
     question: "Kann ich mehrere Geräte gleichzeitig laden?",
