@@ -370,10 +370,14 @@ const LaunchPage = () => {
           <section className="container mx-auto px-4 pt-0 pb-4 md:pt-0 md:pb-28 md:min-h-0 md:flex md:items-center">
             <div className="max-w-2xl mx-auto text-center w-full">
 
-              {/* 1. Scarcity */}
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-[#9b6b3f] mb-2">
-                RAJ NEXUS Launch
-              </p>
+              {/* 1. Founder Edition Badge */}
+              <div className="flex items-center justify-center gap-2.5 mb-2">
+                <span className="h-px w-8 sm:w-10 bg-[#9b6b3f]/40" />
+                <p className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.28em] text-[#9b6b3f] px-3 py-1 bg-[#9b6b3f]/10 rounded-sm">
+                  Founder Edition · Limitiert
+                </p>
+                <span className="h-px w-8 sm:w-10 bg-[#9b6b3f]/40" />
+              </div>
 
               {/* Countdown Timer */}
               <div style={{ marginBottom: '18px' }}>
