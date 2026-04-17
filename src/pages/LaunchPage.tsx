@@ -501,6 +501,13 @@ const LaunchPage = () => {
                       transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
                       className="md:hidden mx-auto mt-4 flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-[#9b6b3f]/10 border border-[#9b6b3f]/30 text-[12px] text-[#9b6b3f] font-bold tracking-wide shadow-[0_2px_10px_-2px_rgba(155,107,63,0.25)]"
                     >
+                      <motion.span
+                        aria-hidden
+                        animate={{ y: [0, 3, 0] }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        ↓
+                      </motion.span>
                       <span>3 exklusive Vorteile sichern</span>
                       <motion.span
                         aria-hidden
