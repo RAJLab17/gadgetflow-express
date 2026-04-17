@@ -191,22 +191,7 @@ const LaunchPage = () => {
     handleVisitor();
   }, []);
 
-  // Fetch signup count from database
-  useEffect(() => {
-    const fetchCount = async () => {
-      try {
-        const { count, error } = await supabase
-          .from("launch_signups")
-          .select("*", { count: "exact", head: true });
-        if (!error && count !== null) {
-          setSpotsTaken(DEFAULT_TAKEN + count);
-        }
-      } catch (e) {
-        console.error("Failed to fetch signup count:", e);
-      }
-    };
-    fetchCount();
-  }, []);
+  // Spots-Counter ist fix auf 29 verfügbar (DEFAULT_TAKEN = 71). Live-Signups werden bewusst nicht addiert, um die Anzeige stabil zu halten.
   // Auto-rotate carousel
   useEffect(() => {
     const timer = setTimeout(() => {
