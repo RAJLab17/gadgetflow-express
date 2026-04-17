@@ -864,6 +864,29 @@ const LaunchPage = () => {
                   onSubmit={handleSubmit2}
                   className="space-y-3"
                 >
+                  {/* Honeypot fields — hidden from real users, bots fill them */}
+                  <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: 0, opacity: 0, overflow: "hidden", pointerEvents: "none" }}>
+                    <label htmlFor="hp-website-2">Leave this field empty</label>
+                    <input
+                      id="hp-website-2"
+                      type="text"
+                      name="website"
+                      value={hpWebsite2}
+                      onChange={(e) => setHpWebsite2(e.target.value)}
+                      autoComplete="off"
+                      tabIndex={-1}
+                    />
+                    <label htmlFor="hp-company-2">Leave this field empty</label>
+                    <input
+                      id="hp-company-2"
+                      type="text"
+                      name="company"
+                      value={hpCompany2}
+                      onChange={(e) => setHpCompany2(e.target.value)}
+                      autoComplete="off"
+                      tabIndex={-1}
+                    />
+                  </div>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <div className="relative flex-1">
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
