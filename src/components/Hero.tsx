@@ -154,9 +154,9 @@ const Hero = () => {
           {/* Hero Product Image */}
           <Link to="/product/wireless-charger-3in1" className="block order-1 lg:order-2">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 40 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="relative cursor-pointer"
             >
               <div className="relative">
@@ -164,9 +164,12 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-[80px] scale-75" />
                 
                 {/* Product Image */}
-                <motion.img
+              <motion.img
                   src={chargerHero}
                   alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105"
                   animate={{
                     y: [0, -10, 0],
