@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 const badges = [
   "🇨🇭 Swiss Brand",
@@ -9,17 +8,23 @@ const badges = [
   "↩️ 14 Tage Rückgabe",
 ];
 
-const HeroBadgesAndCTA = () => {
-  const scrollToProducts = () => {
-    document.getElementById("products")?.scrollIntoView({ behavior: "smooth" });
+interface Props {
+  spotsLeft?: number;
+  onCtaClick?: () => void;
+}
+
+const HeroBadgesAndCTA = ({ spotsLeft, onCtaClick }: Props) => {
+  const handleClick = () => {
+    if (onCtaClick) return onCtaClick();
+    document.getElementById("signup-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   return (
     <>
       {/* Badge-Leiste */}
-      <div className="w-full bg-background border-b border-border/50">
+      <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:gap-x-10 text-xs md:text-sm text-muted-foreground overflow-x-auto">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:gap-x-10 text-xs md:text-sm overflow-x-auto">
             {badges.map((b) => (
               <span key={b} className="whitespace-nowrap" style={{ color: "#888" }}>
                 {b}
@@ -54,49 +59,44 @@ const HeroBadgesAndCTA = () => {
               </span>
             </div>
 
-            {/* Headline */}
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-6 tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2c2c2c] mb-6 tracking-tight leading-tight"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
             >
               Sichere dir den Launch-Preis.
             </h2>
 
-            {/* Preis */}
             <div className="flex items-baseline justify-center gap-4 mb-2">
-              <span
-                className="text-5xl md:text-6xl font-extrabold"
-                style={{ color: "#9b6b3f" }}
-              >
+              <span className="text-5xl md:text-6xl font-extrabold" style={{ color: "#9b6b3f" }}>
                 CHF 99
               </span>
-              <span className="text-xl md:text-2xl text-muted-foreground line-through">
-                CHF 129
-              </span>
+              <span className="text-xl md:text-2xl text-[#888] line-through">CHF 129</span>
             </div>
-            <p className="text-sm md:text-base text-muted-foreground mb-8">
-              Du sparst <span className="font-semibold text-foreground">CHF 30</span>
+            <p className="text-sm md:text-base text-[#666] mb-6">
+              Du sparst <span className="font-semibold text-[#2c2c2c]">CHF 30</span>
             </p>
 
-            {/* CTA */}
-            <Button
-              variant="hero"
-              size="xl"
-              onClick={scrollToProducts}
-              className="w-full sm:w-auto text-base group shadow-elegant-lg"
+            {typeof spotsLeft === "number" && (
+              <p className="text-xs md:text-sm font-semibold mb-6" style={{ color: "#9b6b3f" }}>
+                Nur noch <span className="text-base font-extrabold">{spotsLeft}</span> von 100 Plätzen verfügbar
+              </p>
+            )}
+
+            <button
+              onClick={handleClick}
+              className="w-full sm:w-auto px-10 py-4 rounded-xl bg-[#9b6b3f] text-white font-bold text-base hover:bg-[#8a5d36] transition-all shadow-[0_4px_14px_-4px_rgba(155,107,63,0.35)] hover:-translate-y-0.5 active:translate-y-0 inline-flex items-center justify-center gap-2"
             >
               Jetzt sichern
               <motion.span
-                className="ml-2"
                 animate={{ x: [0, 4, 0] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
                 →
               </motion.span>
-            </Button>
+            </button>
 
-            <p className="mt-4 text-xs text-muted-foreground">
-              Lieferung innerhalb von 5–7 Werktagen · Sicher bezahlen
+            <p className="mt-4 text-xs text-[#888]">
+              Kostenlose Reservierung · Keine Zahlungsdaten nötig
             </p>
           </motion.div>
         </div>
