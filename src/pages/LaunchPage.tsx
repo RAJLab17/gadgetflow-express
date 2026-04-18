@@ -351,7 +351,16 @@ const LaunchPage = () => {
             </div>
           </div>
 
-          {/* ===== 1. HERO SECTION ===== */}
+          {/* ===== 1. HERO CAROUSEL + FOUNDER CTA ===== */}
+          <HeroCarousel />
+          <HeroBadgesAndCTA
+            spotsLeft={Math.max(0, TOTAL_SPOTS - spotsTaken)}
+            onCtaClick={() => {
+              const el = document.getElementById("signup-form-bottom") || document.getElementById("signup-form");
+              el?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }}
+          />
+
           <section className="container mx-auto px-4 pt-0 pb-4 md:pt-0 md:pb-28 md:min-h-0 md:flex md:items-center">
             <div className="max-w-2xl mx-auto text-center w-full">
 
