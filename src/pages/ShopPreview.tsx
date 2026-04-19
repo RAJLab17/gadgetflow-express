@@ -353,7 +353,7 @@ const ShopPreview = () => {
               <AccordionItem value="garantie" className="border-border/60">
                 <AccordionTrigger className="text-base font-light hover:no-underline py-5">Garantie & Support</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground font-light pb-6 text-sm space-y-3">
-                  <p><span className="text-foreground/80">2 Jahre Herstellergarantie</span> auf alle Funktionen und Materialien.</p>
+                  <p><span className="text-foreground/80">3 Jahre Herstellergarantie</span> auf alle Funktionen und Materialien.</p>
                   <p>Defekt? Schreib uns an <a href="mailto:support@raj.ch" className="text-primary hover:underline">support@raj.ch</a> — wir antworten innerhalb von 24 h und schicken Ersatz oder reparieren kostenlos.</p>
                   <p>Support auf Deutsch, Französisch, Italienisch und Englisch.</p>
                 </AccordionContent>

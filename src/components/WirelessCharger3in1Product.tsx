@@ -177,7 +177,7 @@ const WirelessCharger3in1Product = () => {
               <span className="text-border">|</span>
               <span className="font-medium">3-in-1</span>
               <span className="text-border">|</span>
-              <span className="font-medium">2 Jahre Garantie</span>
+              <span className="font-medium">3 Jahre Garantie</span>
             </div>
           </div>
         </div>
