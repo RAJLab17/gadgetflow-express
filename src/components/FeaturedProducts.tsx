@@ -25,7 +25,7 @@ const product = {
   features: [
     { icon: Zap, label: "25W Schnellladen" },
     { icon: Sparkles, label: "Qi2 Zertifiziert" },
-    { icon: Shield, label: "2 Jahre Garantie" },
+    { icon: Shield, label: "3 Jahre Garantie" },
   ],
 };
 

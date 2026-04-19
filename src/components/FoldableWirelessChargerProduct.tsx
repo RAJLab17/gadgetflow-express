@@ -18,7 +18,7 @@ const features = [
   { icon: Watch, title: "Apple Watch", description: "Integrierter Lader" },
   { icon: Headphones, title: "AirPods", description: "Wireless Charging" },
   { icon: Plane, title: "Ultra Portabel", description: "Faltbares Design" },
-  { icon: Shield, title: "2 Jahre Garantie", description: "Premium Qualität" },
+  { icon: Shield, title: "3 Jahre Garantie", description: "Premium Qualität" },
 ];
 
 const FoldableWirelessChargerProduct = () => {
@@ -148,7 +148,7 @@ const FoldableWirelessChargerProduct = () => {
             <div className="flex flex-wrap items-center gap-4 mt-6 pt-6 border-t border-border">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Shield className="w-4 h-4 text-primary" />
-                <span>2 Jahre Garantie</span>
+                <span>3 Jahre Garantie</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Package className="w-4 h-4 text-primary" />

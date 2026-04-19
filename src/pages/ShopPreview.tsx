@@ -34,11 +34,16 @@ const PRODUCT_QUERY = `
   }
 `;
 
+const FOUNDER_TOTAL = 100;
+const FOUNDER_PRICE = "CHF 99.–";
+const REGULAR_PRICE = "CHF 129.–";
+
 const ShopPreview = () => {
   const { addItem, isLoading } = useCartStore();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [variantId, setVariantId] = useState<string | null>(null);
   const [available, setAvailable] = useState(true);
+  const [inventory, setInventory] = useState<number>(FOUNDER_TOTAL);
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
@@ -55,13 +60,19 @@ const ShopPreview = () => {
           if (v) { setVariantId(v.id); setAvailable(v.availableForSale ?? true); }
         }
         const info = await fetchProductVariantInfo(NEXUS_HANDLE);
-        if (info) { setVariantId(info.variantId); setAvailable(info.availableForSale); }
+        if (info) {
+          setVariantId(info.variantId);
+          setAvailable(info.availableForSale);
+          // Cap to FOUNDER_TOTAL so the counter never shows more than 100 left
+          setInventory(Math.min(info.quantityAvailable, FOUNDER_TOTAL));
+        }
       } catch (e) { console.error("Failed to load NEXUS:", e); }
     })();
   }, []);
 
-  const price = product?.node.priceRange.minVariantPrice;
-  const priceLabel = price ? `${price.currencyCode} ${parseFloat(price.amount).toFixed(2)}` : "CHF 99.00";
+  const sold = Math.max(0, FOUNDER_TOTAL - inventory);
+  const progressPct = Math.min(100, Math.round((sold / FOUNDER_TOTAL) * 100));
+  const priceLabel = FOUNDER_PRICE;
 
   const handleBuyNow = async () => {
     if (!variantId || !product) return;
@@ -144,16 +155,52 @@ const ShopPreview = () => {
             {/* Buy column */}
             <div className="space-y-6">
               <div>
-                <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">3-in-1 Wireless Charger</span>
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] tracking-[0.25em] uppercase font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                  Founder Edition · Limitiert auf {FOUNDER_TOTAL}
+                </span>
+                <span className="block text-xs tracking-[0.3em] uppercase text-muted-foreground mt-4">3-in-1 Wireless Charger</span>
                 <h1 className="text-4xl md:text-5xl font-light tracking-tight mt-2">RAJ NEXUS</h1>
                 <p className="text-lg text-muted-foreground mt-3 font-light">
                   iPhone, Apple Watch und AirPods — gleichzeitig laden. Qi2.2, 25 W, faltbar.
                 </p>
               </div>
 
-              <div className="flex items-baseline gap-3">
-                <span className="text-4xl font-light">{priceLabel}</span>
-                <span className="text-sm text-muted-foreground">inkl. MwSt.</span>
+              {/* Price block */}
+              <div className="space-y-2">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span className="text-4xl font-light">{FOUNDER_PRICE}</span>
+                  <span className="text-xl text-muted-foreground line-through font-light">{REGULAR_PRICE}</span>
+                  <span className="text-xs px-2 py-0.5 rounded bg-primary/10 text-primary font-medium tracking-wider uppercase">
+                    Spare CHF 30
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Founder-Preis · danach {REGULAR_PRICE} · inkl. MwSt.
+                </p>
+              </div>
+
+              {/* Founder counter */}
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 space-y-2.5">
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-foreground/80 font-medium">
+                    {sold} / {FOUNDER_TOTAL} Founder Editions verkauft
+                  </span>
+                  <span className="text-primary font-medium">
+                    {inventory > 0 ? `Noch ${inventory}` : "Ausverkauft"}
+                  </span>
+                </div>
+                <div className="h-1.5 w-full rounded-full bg-border/60 overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progressPct}%` }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="h-full bg-primary rounded-full"
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Sobald alle 100 vergeben sind, kostet der NEXUS regulär {REGULAR_PRICE}.
+                </p>
               </div>
 
               <ul className="space-y-2 text-sm">
@@ -177,7 +224,7 @@ const ShopPreview = () => {
                 {[
                   { icon: Truck, label: "Gratis Versand" },
                   { icon: RotateCcw, label: "30 Tage Rückgabe" },
-                  { icon: ShieldCheck, label: "2 Jahre Garantie" },
+                  { icon: ShieldCheck, label: "3 Jahre Garantie" },
                 ].map((t) => (
                   <div key={t.label} className="flex flex-col items-center text-center gap-1.5">
                     <t.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
@@ -306,7 +353,7 @@ const ShopPreview = () => {
               <AccordionItem value="garantie" className="border-border/60">
                 <AccordionTrigger className="text-base font-light hover:no-underline py-5">Garantie & Support</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground font-light pb-6 text-sm space-y-3">
-                  <p><span className="text-foreground/80">2 Jahre Herstellergarantie</span> auf alle Funktionen und Materialien.</p>
+                  <p><span className="text-foreground/80">3 Jahre Herstellergarantie</span> auf alle Funktionen und Materialien.</p>
                   <p>Defekt? Schreib uns an <a href="mailto:support@raj.ch" className="text-primary hover:underline">support@raj.ch</a> — wir antworten innerhalb von 24 h und schicken Ersatz oder reparieren kostenlos.</p>
                   <p>Support auf Deutsch, Französisch, Italienisch und Englisch.</p>
                 </AccordionContent>
