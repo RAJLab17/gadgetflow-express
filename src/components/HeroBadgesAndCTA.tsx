@@ -271,7 +271,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
                 </span>
                 <p className="text-[13px] text-[#444] text-center">
-                  Bereits <span className="font-bold" style={{ color: GOLD }}>{taken} Founder</span> haben sich registriert.
+                  Bereits <span className="font-bold" style={{ color: GOLD }}>{taken} Personen</span> haben sich registriert.
                 </p>
               </div>
             </div>
