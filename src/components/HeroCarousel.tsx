@@ -29,7 +29,7 @@ const slides: Slide[] = [
     image: slide2,
     alt: "ONE PLACE ALL YOUR POWER - 3-in-1 Wireless Charger",
     headline: "3 Geräte. 1 Ladegerät.",
-    sub: "iPhone · Apple Watch · AirPods —\ngleichzeitig geladen.",
+    sub: "iPhone · Apple Watch · AirPods\ngleichzeitig geladen.",
   },
   {
     image: slide3,
