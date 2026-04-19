@@ -5,6 +5,7 @@ import slide2 from "@/assets/hero-carousel/slide-2-one-place.jpeg";
 import slide3 from "@/assets/hero-carousel/slide-3-fast.jpg";
 import slide4 from "@/assets/hero-carousel/slide-4-foldable.jpeg";
 import slide5 from "@/assets/hero-carousel/slide-5-desire.jpeg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Slide = {
   image: string;
@@ -18,47 +19,49 @@ const SLIDE_DURATION = 4500;
 const BEIGE = "#f0ede6";
 const GOLD = "#9b6b3f";
 
-const slides: Slide[] = [
+const buildSlides = (t: (k: string) => string): Slide[] => [
   {
     image: slide1,
     alt: "Vorher Nachher Kabelchaos vs RAJ NEXUS",
-    headline: "Kennst du das?",
-    sub: "Es gibt eine bessere Lösung.",
+    headline: t("carousel.s1.headline"),
+    sub: t("carousel.s1.sub"),
   },
   {
     image: slide2,
     alt: "ONE PLACE ALL YOUR POWER - 3-in-1 Wireless Charger",
-    headline: "3 Geräte. 1 Ladegerät.",
-    sub: "iPhone · Apple Watch · AirPods\ngleichzeitig geladen.",
+    headline: t("carousel.s2.headline"),
+    sub: t("carousel.s2.sub"),
   },
   {
     image: slide3,
     alt: "100% in 1.5 Stunden - 3.3x schneller",
-    headline: "100% in 1.5 Stunden.",
-    sub: "Qi2.2 zertifiziert. 3.3x schneller.",
+    headline: t("carousel.s3.headline"),
+    sub: t("carousel.s3.sub"),
   },
   {
     image: slide4,
     alt: "Faltbar und 250g leicht - überall dabei",
-    headline: "Faltbar. 250g leicht.",
-    sub: "Vom Nachttisch ins Büro. Vom Hotel in den Flieger.",
+    headline: t("carousel.s4.headline"),
+    sub: t("carousel.s4.sub"),
   },
   {
     image: slide5,
     alt: "RAJ NEXUS - Designed to be desired",
-    headline: "Designed to be desired.",
-    sub: "RAJ NEXUS · From Switzerland",
+    headline: t("carousel.s5.headline"),
+    sub: t("carousel.s5.sub"),
     subColor: GOLD,
   },
 ];
 
 const HeroCarousel = () => {
+  const { t } = useLanguage();
+  const slides = buildSlides(t);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
-  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), []);
-  const prev = useCallback(() => setIndex((i) => (i - 1 + slides.length) % slides.length), []);
+  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [slides.length]);
+  const prev = useCallback(() => setIndex((i) => (i - 1 + slides.length) % slides.length), [slides.length]);
   const goTo = useCallback((i: number) => setIndex(i), []);
 
   useEffect(() => {
@@ -106,9 +109,9 @@ const HeroCarousel = () => {
               className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-2xl sm:text-3xl md:text-4xl"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: "-0.015em" }}
             >
-              Ein Ladegerät für alles.
+              {t("carousel.heroLine1")}
               <br />
-              <span style={{ color: GOLD }} className="font-normal">Ohne Kompromisse.</span>
+              <span style={{ color: GOLD }} className="font-normal">{t("carousel.heroLine2")}</span>
             </h1>
           </motion.div>
         </div>

@@ -113,6 +113,20 @@ const translations: Translations = {
   // Sticky CTA (new)
   "sticky.imIn": { de: "Ich bin dabei", fr: "Je suis partant", it: "Ci sto" },
 
+  // Hero Carousel
+  "carousel.heroLine1": { de: "Ein Ladegerät für alles.", fr: "Un chargeur pour tout.", it: "Un caricatore per tutto." },
+  "carousel.heroLine2": { de: "Ohne Kompromisse.", fr: "Sans compromis.", it: "Senza compromessi." },
+  "carousel.s1.headline": { de: "Kennst du das?", fr: "Ça te dit quelque chose?", it: "Ti suona familiare?" },
+  "carousel.s1.sub": { de: "Es gibt eine bessere Lösung.", fr: "Il existe une meilleure solution.", it: "Esiste una soluzione migliore." },
+  "carousel.s2.headline": { de: "3 Geräte. 1 Ladegerät.", fr: "3 appareils. 1 chargeur.", it: "3 dispositivi. 1 caricatore." },
+  "carousel.s2.sub": { de: "iPhone · Apple Watch · AirPods\ngleichzeitig geladen.", fr: "iPhone · Apple Watch · AirPods\nchargés en même temps.", it: "iPhone · Apple Watch · AirPods\ncaricati contemporaneamente." },
+  "carousel.s3.headline": { de: "100% in 1.5 Stunden.", fr: "100% en 1h30.", it: "100% in 1,5 ore." },
+  "carousel.s3.sub": { de: "Qi2.2 zertifiziert. 3.3x schneller.", fr: "Certifié Qi2.2. 3,3x plus rapide.", it: "Certificato Qi2.2. 3,3x più veloce." },
+  "carousel.s4.headline": { de: "Faltbar. 250g leicht.", fr: "Pliable. 250g seulement.", it: "Pieghevole. Solo 250g." },
+  "carousel.s4.sub": { de: "Vom Nachttisch ins Büro. Vom Hotel in den Flieger.", fr: "De la table de chevet au bureau. De l'hôtel à l'avion.", it: "Dal comodino all'ufficio. Dall'hotel all'aereo." },
+  "carousel.s5.headline": { de: "Designed to be desired.", fr: "Designed to be desired.", it: "Designed to be desired." },
+  "carousel.s5.sub": { de: "RAJ NEXUS · From Switzerland", fr: "RAJ NEXUS · From Switzerland", it: "RAJ NEXUS · From Switzerland" },
+
   // FAQ
   "faq.title": { de: "Häufige Fragen", fr: "Questions fréquentes", it: "Domande frequenti" },
   "faq.q1": { de: "Ist RAJ NEXUS mit meinem Gerät kompatibel?", fr: "Le RAJ NEXUS est-il compatible avec mon appareil?", it: "Il RAJ NEXUS è compatibile con il mio dispositivo?" },
