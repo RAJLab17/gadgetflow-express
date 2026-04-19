@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ICON_COLOR = "#9b6b3f";
 const GOLD = "#9b6b3f";
@@ -47,6 +48,7 @@ const useCountdown = () => {
 
 const HeroBadgesAndCTA = ({ spotsTaken = 81, onSignupSuccess }: Props) => {
   const taken = Math.min(TOTAL_SPOTS, Math.max(0, spotsTaken));
+  const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
