@@ -40,7 +40,7 @@ const ShopPreview = () => {
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
-  const gallery = [productMain, productAlt, folds];
+  const gallery = [productMain, productAlt, productFolded];
 
   useEffect(() => {
     (async () => {
@@ -196,7 +196,7 @@ const ShopPreview = () => {
             {/* 1. Speed */}
             <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
               <motion.img
-                src={fast}
+                src={storySpeed}
                 alt="100% in 1.5 Stunden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ const ShopPreview = () => {
                 <p className="text-muted-foreground mt-3 font-light">Vom Nachttisch zum Koffer in einer Bewegung.</p>
               </div>
               <motion.img
-                src={folds}
+                src={storyFolds}
                 alt="Faltbar"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -232,7 +232,7 @@ const ShopPreview = () => {
             {/* 3. Lifestyle */}
             <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
               <motion.img
-                src={lifestyleDesk}
+                src={storyLifestyle}
                 alt="Auf dem Schreibtisch"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
