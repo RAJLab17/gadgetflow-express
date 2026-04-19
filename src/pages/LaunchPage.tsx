@@ -628,9 +628,9 @@ const LaunchPage = () => {
           color: '#f0ede6',
           boxShadow: '0 -8px 24px -8px rgba(0,0,0,0.18)',
         }}
-        aria-label="Jetzt sichern"
+        aria-label={t("sticky.imIn")}
       >
-        Ich bin dabei
+        {t("sticky.imIn")}
       </button>
     </>
   );
