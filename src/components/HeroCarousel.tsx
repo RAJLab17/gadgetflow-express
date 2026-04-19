@@ -54,12 +54,14 @@ const buildSlides = (t: (k: string) => string): Slide[] => [
 ];
 
 const HeroCarousel = () => {
+  const { t } = useLanguage();
+  const slides = buildSlides(t);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
-  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), []);
-  const prev = useCallback(() => setIndex((i) => (i - 1 + slides.length) % slides.length), []);
+  const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [slides.length]);
+  const prev = useCallback(() => setIndex((i) => (i - 1 + slides.length) % slides.length), [slides.length]);
   const goTo = useCallback((i: number) => setIndex(i), []);
 
   useEffect(() => {
