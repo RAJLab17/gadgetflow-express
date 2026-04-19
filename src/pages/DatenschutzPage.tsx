@@ -1,10 +1,8 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Helmet } from "react-helmet-async";
+import PremiumPageLayout from "@/components/PremiumPageLayout";
 
 interface Section {
   title: string;
-  content: (string | { intro?: string; items: string[] })[];
+  content: (string | { items: string[] })[];
 }
 
 const sections: Section[] = [
@@ -28,26 +26,11 @@ const sections: Section[] = [
       `Wir bearbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung unserer Website, zur Abwicklung von Bestellungen oder zur Kommunikation erforderlich ist.`,
       `3.1 Daten, die du uns mitteilst`,
       `Beim Besuch unserer Website oder bei einer Bestellung können insbesondere folgende Daten erhoben werden:`,
-      {
-        items: [
-          "Vor‑ und Nachname",
-          "Rechnungs‑ und Lieferadresse",
-          "E‑Mail‑Adresse",
-          "Telefonnummer",
-          "Zahlungsinformationen",
-        ],
-      },
+      { items: ["Vor‑ und Nachname", "Rechnungs‑ und Lieferadresse", "E‑Mail‑Adresse", "Telefonnummer", "Zahlungsinformationen"] },
       `Diese Daten werden zur Vertragsabwicklung, Lieferung der Produkte sowie zur Kundenbetreuung verwendet.`,
       `3.2 Technische Daten`,
       `Beim Zugriff auf unsere Website werden automatisch technische Daten erfasst, unter anderem:`,
-      {
-        items: [
-          "IP‑Adresse",
-          "Datum und Uhrzeit des Zugriffs",
-          "Browsertyp und ‑version",
-          "Betriebssystem",
-        ],
-      },
+      { items: ["IP‑Adresse", "Datum und Uhrzeit des Zugriffs", "Browsertyp und ‑version", "Betriebssystem"] },
       `Diese Daten dienen der Gewährleistung eines reibungslosen Betriebs, der Sicherheit sowie der Optimierung unseres Online‑Angebots.`,
     ],
   },
@@ -69,13 +52,7 @@ const sections: Section[] = [
     title: "5. Einsatz von Shopify und Drittanbietern",
     content: [
       `Unsere Website und unser Online‑Shop werden über die Plattform Shopify betrieben (Shopify Inc., Kanada/USA). Shopify verarbeitet personenbezogene Daten in unserem Auftrag, insbesondere im Rahmen von:`,
-      {
-        items: [
-          "Bestellabwicklung",
-          "Zahlungsabwicklung",
-          "Hosting und technischer Betrieb",
-        ],
-      },
+      { items: ["Bestellabwicklung", "Zahlungsabwicklung", "Hosting und technischer Betrieb"] },
       `Je nach gewählter Zahlungsmethode können Daten an Zahlungsdienstleister (z. B. Kreditkartenanbieter, TWINT, Apple Pay, Google Pay) weitergegeben werden, soweit dies für die Zahlungsabwicklung erforderlich ist.`,
       `Shopify kann Daten in Länder ausserhalb der Schweiz oder der EU übertragen. In diesen Fällen stellt Shopify durch geeignete Garantien ein angemessenes Datenschutzniveau sicher.`,
     ],
@@ -85,7 +62,7 @@ const sections: Section[] = [
     content: [
       `Wir setzen Cookies und ähnliche Technologien ein, um die Funktionalität unserer Website sicherzustellen und – sofern du zugestimmt hast – das Nutzerverhalten zu analysieren.`,
       `6.1 Google Analytics 4`,
-      `Wir nutzen Google Analytics 4 (Google LLC, USA) zur Analyse des Nutzerverhaltens auf unserer Website. Google Analytics erfasst u.\u202Fa. Seitenaufrufe, Verweildauer und Herkunft der Besucher. Die Daten werden anonymisiert verarbeitet. Weitere Informationen: policies.google.com/privacy`,
+      `Wir nutzen Google Analytics 4 (Google LLC, USA) zur Analyse des Nutzerverhaltens auf unserer Website. Google Analytics erfasst u. a. Seitenaufrufe, Verweildauer und Herkunft der Besucher. Die Daten werden anonymisiert verarbeitet. Weitere Informationen: policies.google.com/privacy`,
       `6.2 Microsoft Clarity`,
       `Wir verwenden Microsoft Clarity (Microsoft Corporation, USA) zur Analyse von Nutzerinteraktionen, inkl. Heatmaps und Session‑Recordings. Weitere Informationen: privacy.microsoft.com`,
       `6.3 Meta Pixel (Facebook & Instagram)`,
@@ -156,90 +133,64 @@ const sections: Section[] = [
 
 const DatenschutzPage = () => {
   return (
-    <>
-      <Helmet>
-        <title>Datenschutzerklärung – RAJ</title>
-        <meta name="description" content="Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten." />
-      </Helmet>
-      <Header />
-      <main className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-16 md:py-24 max-w-3xl">
-          {/* Header */}
-          <div className="mb-12 border-b border-border pb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Datenschutzerkl&auml;rung
-            </h1>
-            <div className="space-y-1 text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground">RAJ</p>
-              <p>Gaswerkstrasse 9a</p>
-              <p>E‑Mail: info@raj.ch</p>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Stand: 19.02.2026
-            </p>
-          </div>
-
-          {/* Sections */}
-          <div className="space-y-10">
-            {sections.map((section, index) => (
-              <section key={index}>
-                <h2 className="text-lg font-bold text-foreground mb-3">
-                  {section.title}
-                </h2>
-                <div className="space-y-3">
-                  {section.content.map((block, bIndex) => {
-                    if (typeof block === "string") {
-                      // Check if it's a sub-heading (e.g. "3.1 ...")
-                      const isSubHeading = /^\d+\.\d+\s/.test(block);
-                      if (isSubHeading) {
-                        return (
-                          <h3
-                            key={bIndex}
-                            className="text-base font-semibold text-foreground mt-4"
-                          >
-                            {block}
-                          </h3>
-                        );
-                      }
-                      // Multi-line block (address)
-                      if (block.includes("\n")) {
-                        return (
-                          <div key={bIndex} className="text-muted-foreground leading-relaxed text-[15px]">
-                            {block.split("\n").map((line, i) => (
-                              <p key={i}>{line}</p>
-                            ))}
-                          </div>
-                        );
-                      }
-                      return (
-                        <p
-                          key={bIndex}
-                          className="text-muted-foreground leading-relaxed text-[15px]"
-                        >
-                          {block}
-                        </p>
-                      );
-                    }
-                    // List items
-                    return (
-                      <ul
-                        key={bIndex}
-                        className="list-disc list-inside space-y-1.5 text-muted-foreground text-[15px] ml-1"
-                      >
-                        {block.items.map((item, iIndex) => (
-                          <li key={iIndex}>{item}</li>
-                        ))}
-                      </ul>
-                    );
-                  })}
-                </div>
-              </section>
-            ))}
-          </div>
+    <PremiumPageLayout
+      title="Datenschutzerklärung – RAJ"
+      metaDescription="Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten."
+      eyebrow="Rechtliches"
+      heading="Datenschutz­erklärung"
+      meta={
+        <div className="space-y-1">
+          <p className="text-foreground font-medium">RAJ</p>
+          <p>Gaswerkstrasse 9a</p>
+          <p>info@raj.ch</p>
+          <p className="pt-2">Stand: 19.02.2026</p>
         </div>
-      </main>
-      <Footer />
-    </>
+      }
+    >
+      <div className="space-y-12 md:space-y-14">
+        {sections.map((section, index) => (
+          <section key={index} className="space-y-3">
+            <h2 className="text-xs tracking-[0.25em] uppercase text-muted-foreground font-medium">
+              {section.title}
+            </h2>
+            <div className="space-y-3 text-foreground/85 font-light leading-relaxed text-[15px] md:text-base">
+              {section.content.map((block, bIndex) => {
+                if (typeof block === "string") {
+                  const isSubHeading = /^\d+\.\d+\s/.test(block);
+                  if (isSubHeading) {
+                    return (
+                      <h3 key={bIndex} className="text-base font-medium text-foreground mt-4">
+                        {block}
+                      </h3>
+                    );
+                  }
+                  if (block.includes("\n")) {
+                    return (
+                      <div key={bIndex}>
+                        {block.split("\n").map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
+                      </div>
+                    );
+                  }
+                  return <p key={bIndex}>{block}</p>;
+                }
+                return (
+                  <ul key={bIndex} className="space-y-1.5 pl-1">
+                    {block.items.map((item, iIndex) => (
+                      <li key={iIndex} className="flex gap-3">
+                        <span className="text-muted-foreground select-none">·</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+    </PremiumPageLayout>
   );
 };
 
