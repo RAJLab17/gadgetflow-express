@@ -142,6 +142,21 @@ const HeroCarousel = () => {
           </motion.div>
         </AnimatePresence>
 
+        {/* Dots */}
+        <div className="mt-5 flex items-center gap-3">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+              className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+              style={{
+                backgroundColor: i === index ? GOLD : "#d4c5b0",
+                transform: i === index ? "scale(1.25)" : "scale(1)",
+              }}
+            />
+          ))}
+        </div>
       </div>
 
     </section>
