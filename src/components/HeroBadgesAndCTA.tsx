@@ -212,7 +212,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 ))}
               </div>
               <p className="text-xs text-[#888] mt-3">
-                Danach steigt der Preis auf CHF 129.
+                {t("cta.priceWarning")}
               </p>
             </div>
 
