@@ -11,10 +11,10 @@ import PaymentIcons from "@/components/PaymentIcons";
 
 import productMain from "@/assets/products/nexus-hero-1.jpg";
 import productAlt from "@/assets/products/nexus-hero-2.jpg";
-import lifestyleDesk from "@/assets/products/nexus-desk-setup.png";
-import lifestyleMinimal from "@/assets/products/nexus-lifestyle-minimal.png";
-import folds from "@/assets/products/nexus-hero-3.jpg";
-import fast from "@/assets/products/nexus-fast.png";
+import productFolded from "@/assets/products/nexus-hero-3.jpg";
+import storySpeed from "@/assets/products/nexus-story-speed.jpg";
+import storyFolds from "@/assets/products/nexus-story-folds.jpg";
+import storyLifestyle from "@/assets/products/nexus-story-lifestyle.jpg";
 
 const NEXUS_HANDLE = "raj-nexus-3in1-wireless-charger";
 
@@ -40,7 +40,7 @@ const ShopPreview = () => {
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
-  const gallery = [productMain, productAlt, folds];
+  const gallery = [productMain, productAlt, productFolded];
 
   useEffect(() => {
     (async () => {
@@ -196,7 +196,7 @@ const ShopPreview = () => {
             {/* 1. Speed */}
             <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
               <motion.img
-                src={fast}
+                src={storySpeed}
                 alt="100% in 1.5 Stunden"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ const ShopPreview = () => {
                 <p className="text-muted-foreground mt-3 font-light">Vom Nachttisch zum Koffer in einer Bewegung.</p>
               </div>
               <motion.img
-                src={folds}
+                src={storyFolds}
                 alt="Faltbar"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -232,7 +232,7 @@ const ShopPreview = () => {
             {/* 3. Lifestyle */}
             <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
               <motion.img
-                src={lifestyleDesk}
+                src={storyLifestyle}
                 alt="Auf dem Schreibtisch"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
