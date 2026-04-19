@@ -14,12 +14,12 @@ const GREEN = "#4a8c5c";
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
 
-const badges: { icon: React.ReactNode; label: string }[] = [
-  { icon: <SwissFlag size={18} />, label: "Swiss Brand" },
-  { icon: <Zap size={18} color={ICON_COLOR} strokeWidth={2} />, label: "Qi2.2 Zertifiziert" },
-  { icon: <ShieldCheck size={18} color={ICON_COLOR} strokeWidth={2} />, label: "3 Jahre Garantie" },
-  { icon: <Truck size={18} color={ICON_COLOR} strokeWidth={2} />, label: "Gratis Versand" },
-  { icon: <RotateCcw size={18} color={ICON_COLOR} strokeWidth={2} />, label: "14 Tage Rückgabe" },
+const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
+  { icon: <SwissFlag size={18} />, label: t("badge.swissBrand") },
+  { icon: <Zap size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.qi22") },
+  { icon: <ShieldCheck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.warranty") },
+  { icon: <Truck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.shipping") },
+  { icon: <RotateCcw size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.returns") },
 ];
 
 interface Props {
@@ -114,11 +114,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   };
 
   const countdownUnits = [
-    { value: countdown.days, label: "Tage" },
-    { value: countdown.hours, label: "Stunden" },
-    { value: countdown.minutes, label: "Minuten" },
-    { value: countdown.seconds, label: "Sekunden" },
+    { value: countdown.days, label: t("countdown.daysLong") },
+    { value: countdown.hours, label: t("countdown.hoursLong") },
+    { value: countdown.minutes, label: t("countdown.minutesLong") },
+    { value: countdown.seconds, label: t("countdown.secondsLong") },
   ];
+
+  const badges = getBadges(t);
 
   return (
     <>
@@ -157,13 +159,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             >
               <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: GOLD }} />
               <span className="text-[11px] md:text-xs font-bold tracking-[0.12em] uppercase">
-                Founder Edition · Nur 100 Stück
+                {t("cta.founderBadge")}
               </span>
             </div>
 
             {/* 2. Headline */}
             <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1] whitespace-nowrap">
-              Sichere dir den Launch-Preis.
+              {t("cta.headline")}
             </h2>
 
             {/* 3. Preis-Zeile */}
@@ -174,15 +176,15 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               <span className="text-lg md:text-xl text-[#999] line-through">CHF 129</span>
             </div>
             <p className="text-sm font-semibold mb-8" style={{ color: GREEN }}>
-              Du sparst CHF 30
+              {t("cta.savings")}
             </p>
 
             {/* 4. Benefits */}
             <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
               {[
-                { icon: "⚡", text: "Lebenslanger Early Access zu neuen RAJ Produkten." },
-                { icon: "🏆", text: "Founder Edition mit persönlicher Seriennummer." },
-                { icon: "💰", text: "CHF 30 sparen — CHF 99 statt CHF 129." },
+                { icon: "⚡", text: t("cta.benefit1") },
+                { icon: "🏆", text: t("cta.benefit2") },
+                { icon: "💰", text: t("cta.benefit3") },
               ].map((b) => (
                 <li key={b.text} className="flex items-start gap-3">
                   <span className="text-lg leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
@@ -210,7 +212,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 ))}
               </div>
               <p className="text-xs text-[#888] mt-3">
-                Danach steigt der Preis auf CHF 129.
+                {t("cta.priceWarning")}
               </p>
             </div>
 
@@ -227,7 +229,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-sm font-semibold text-[#1a1a1a]">
-                    Danke — du bist auf der Liste.
+                    {t("cta.thanks")}
                   </span>
                 </motion.div>
               ) : (
@@ -253,7 +255,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     {submitting ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <>Ich bin dabei <span aria-hidden>→</span></>
+                      <>{t("cta.button")} <span aria-hidden>→</span></>
                     )}
                   </button>
                 </form>
@@ -261,7 +263,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
               {/* 7. Trust-Text */}
               <p className="text-[13px] text-[#888] mt-4 text-center">
-                Kostenlose Reservierung · Keine Zahlungsdaten · Kein Spam
+                {t("cta.trust")}
               </p>
 
               {/* 8. Reservierungs-Hinweis */}
@@ -271,7 +273,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
                 </span>
                 <p className="text-[13px] text-[#444] text-center">
-                  Bereits <span className="font-bold" style={{ color: GOLD }}>{taken} Personen</span> haben sich registriert.
+                  {t("cta.registeredPrefix")} <span className="font-bold" style={{ color: GOLD }}>{taken} {t("cta.registeredPeople")}</span> {t("cta.registeredSuffix")}
                 </p>
               </div>
             </div>

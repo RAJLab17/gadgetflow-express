@@ -77,10 +77,41 @@ const translations: Translations = {
   // Why RAJ
   "why.title": { de: "Warum", fr: "Pourquoi", it: "Perché" },
   "why.text": {
-    de: "Wir haben selbst gesucht. Ein Ladegerät das Design, Leistung und Qualität verbindet — zu einem fairen Preis. Wir haben es nicht gefunden. Also haben wir es gebaut. In der Schweiz. Für Menschen die keine Kompromisse machen — und wissen was sie wollen.",
-    fr: "Nous avons cherché nous-mêmes. Un chargeur qui allie design, performance et qualité — à un prix juste. Nous ne l'avons pas trouvé. Alors nous l'avons construit. En Suisse. Pour ceux qui ne font aucun compromis — et savent ce qu'ils veulent.",
-    it: "Abbiamo cercato noi stessi. Un caricatore che unisce design, prestazioni e qualità — a un prezzo giusto. Non l'abbiamo trovato. Quindi l'abbiamo costruito. In Svizzera. Per chi non scende a compromessi — e sa cosa vuole.",
+    de: "Wir haben selbst gesucht. Ein Ladegerät das Design, Leistung und Qualität verbindet. Zu einem fairen Preis. Wir haben es nicht gefunden. Also haben wir es selbst gebaut. In der Schweiz. Für Menschen die wissen was sie wollen. Und die sich nicht mit Mittelmass zufrieden geben.",
+    fr: "Nous avons cherché nous-mêmes. Un chargeur qui allie design, performance et qualité. À un prix juste. Nous ne l'avons pas trouvé. Alors nous l'avons construit nous-mêmes. En Suisse. Pour les gens qui savent ce qu'ils veulent. Et qui ne se contentent pas de la médiocrité.",
+    it: "Abbiamo cercato noi stessi. Un caricatore che unisce design, prestazioni e qualità. A un prezzo giusto. Non l'abbiamo trovato. Quindi l'abbiamo costruito noi stessi. In Svizzera. Per chi sa cosa vuole. E non si accontenta della mediocrità.",
   },
+
+  // Hero Badges
+  "badge.swissBrand": { de: "Swiss Brand", fr: "Marque Suisse", it: "Brand Svizzero" },
+  "badge.qi22": { de: "Qi2.2 Zertifiziert", fr: "Certifié Qi2.2", it: "Certificato Qi2.2" },
+  "badge.warranty": { de: "3 Jahre Garantie", fr: "3 ans de garantie", it: "3 anni di garanzia" },
+  "badge.shipping": { de: "Gratis Versand", fr: "Livraison gratuite", it: "Spedizione gratuita" },
+  "badge.returns": { de: "14 Tage Rückgabe", fr: "14 jours de retour", it: "14 giorni di reso" },
+
+  // CTA Block (Hero)
+  "cta.founderBadge": { de: "Founder Edition · Nur 100 Stück", fr: "Founder Edition · Seulement 100 pièces", it: "Founder Edition · Solo 100 pezzi" },
+  "cta.headline": { de: "Sichere dir den Launch-Preis.", fr: "Profite du prix de lancement.", it: "Approfitta del prezzo di lancio." },
+  "cta.savings": { de: "Du sparst CHF 30", fr: "Tu économises CHF 30", it: "Risparmi CHF 30" },
+  "cta.benefit1": { de: "Lebenslanger Early Access zu neuen RAJ Produkten.", fr: "Early Access à vie aux nouveaux produits RAJ.", it: "Early Access a vita ai nuovi prodotti RAJ." },
+  "cta.benefit2": { de: "Founder Edition mit persönlicher Seriennummer.", fr: "Founder Edition avec numéro de série personnel.", it: "Founder Edition con numero di serie personale." },
+  "cta.benefit3": { de: "CHF 30 sparen — CHF 99 statt CHF 129.", fr: "Économise CHF 30 — CHF 99 au lieu de CHF 129.", it: "Risparmia CHF 30 — CHF 99 invece di CHF 129." },
+  "cta.priceWarning": { de: "Danach steigt der Preis auf CHF 129.", fr: "Ensuite, le prix passera à CHF 129.", it: "Dopo, il prezzo salirà a CHF 129." },
+  "cta.button": { de: "Ich bin dabei", fr: "Je suis partant", it: "Ci sto" },
+  "cta.thanks": { de: "Danke — du bist auf der Liste.", fr: "Merci — tu es sur la liste.", it: "Grazie — sei sulla lista." },
+  "cta.trust": { de: "Kostenlose Reservierung · Keine Zahlungsdaten · Kein Spam", fr: "Réservation gratuite · Aucune donnée de paiement · Pas de spam", it: "Prenotazione gratuita · Nessun dato di pagamento · Niente spam" },
+  "cta.registeredPrefix": { de: "Bereits", fr: "Déjà", it: "Già" },
+  "cta.registeredPeople": { de: "Personen", fr: "personnes", it: "persone" },
+  "cta.registeredSuffix": { de: "haben sich registriert.", fr: "se sont inscrites.", it: "si sono registrate." },
+
+  // Countdown labels (full)
+  "countdown.daysLong": { de: "Tage", fr: "Jours", it: "Giorni" },
+  "countdown.hoursLong": { de: "Stunden", fr: "Heures", it: "Ore" },
+  "countdown.minutesLong": { de: "Minuten", fr: "Minutes", it: "Minuti" },
+  "countdown.secondsLong": { de: "Sekunden", fr: "Secondi", it: "Secondi" },
+
+  // Sticky CTA (new)
+  "sticky.imIn": { de: "Ich bin dabei", fr: "Je suis partant", it: "Ci sto" },
 
   // FAQ
   "faq.title": { de: "Häufige Fragen", fr: "Questions fréquentes", it: "Domande frequenti" },
