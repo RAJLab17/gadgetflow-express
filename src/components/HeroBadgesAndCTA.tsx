@@ -84,7 +84,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const countdown = useCountdown();
-  const progress = (taken / TOTAL_SPOTS) * 100;
+  
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
