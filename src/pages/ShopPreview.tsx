@@ -15,7 +15,7 @@ import productAlt from "@/assets/products/nexus-real-3quarter.jpg";
 import productTopView from "@/assets/products/nexus-real-topview-qi2.jpg";
 import productFolds from "@/assets/products/nexus-real-folds.jpg";
 import storySpeed from "@/assets/products/nexus-real-features.jpg";
-import storyFolds from "@/assets/products/nexus-real-folds.jpg";
+import storyFolds from "@/assets/products/nexus-real-folds-text.jpg";
 import storyLifestyle from "@/assets/products/nexus-real-desk-office.jpg";
 
 const NEXUS_HANDLE = "raj-nexus-3in1-wireless-charger";
