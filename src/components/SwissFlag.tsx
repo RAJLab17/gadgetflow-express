@@ -1,10 +1,13 @@
+import { forwardRef } from "react";
+
 interface Props {
   className?: string;
   size?: number;
 }
 
-const SwissFlag = ({ className, size = 16 }: Props) => (
+const SwissFlag = forwardRef<SVGSVGElement, Props>(({ className, size = 16 }, ref) => (
   <svg
+    ref={ref}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"
     width={size}
@@ -17,6 +20,8 @@ const SwissFlag = ({ className, size = 16 }: Props) => (
     <rect x="13" y="6" width="6" height="20" fill="#FFFFFF" />
     <rect x="6" y="13" width="20" height="6" fill="#FFFFFF" />
   </svg>
-);
+));
+
+SwissFlag.displayName = "SwissFlag";
 
 export default SwissFlag;
