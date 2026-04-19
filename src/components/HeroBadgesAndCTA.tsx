@@ -46,14 +46,45 @@ const useCountdown = () => {
   return t;
 };
 
-const HeroBadgesAndCTA = ({ spotsTaken = 81, onSignupSuccess }: Props) => {
-  const taken = Math.min(TOTAL_SPOTS, Math.max(0, spotsTaken));
+const BASE_OFFSET = 75;
+
+const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const { t } = useLanguage();
+  const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? 81);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchCount = async () => {
+      const { count } = await supabase
+        .from("launch_signups")
+        .select("*", { count: "exact", head: true });
+      if (mounted && typeof count === "number") {
+        setLiveCount(BASE_OFFSET + count);
+      }
+    };
+    fetchCount();
+
+    const channel = supabase
+      .channel("launch_signups_live")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "launch_signups" },
+        () => setLiveCount((prev) => prev + 1)
+      )
+      .subscribe();
+
+    return () => {
+      mounted = false;
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
+  const taken = liveCount;
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const countdown = useCountdown();
-  const progress = (taken / TOTAL_SPOTS) * 100;
+  
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -240,7 +271,7 @@ const HeroBadgesAndCTA = ({ spotsTaken = 81, onSignupSuccess }: Props) => {
                   <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
                 </span>
                 <p className="text-[13px] text-[#444] text-center">
-                  Bereits <span className="font-bold" style={{ color: GOLD }}>{taken} Founder</span> haben sich ihren Platz gesichert.
+                  Bereits <span className="font-bold" style={{ color: GOLD }}>{taken} Founder</span> haben sich registriert.
                 </p>
               </div>
             </div>
