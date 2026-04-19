@@ -107,14 +107,9 @@ const HeroCarousel = () => {
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: "-0.015em" }}
             >
               Ein Ladegerät für alles.
-              <br className="hidden sm:block" />
-              <span className="sm:hidden"> </span>
+              <br />
               <span style={{ color: GOLD }} className="font-normal">Ohne Kompromisse.</span>
             </h1>
-            <div
-              className="mx-auto mt-4 md:mt-5 h-px w-12 md:w-16"
-              style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
-            />
           </motion.div>
         </div>
       </div>
