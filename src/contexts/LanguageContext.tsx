@@ -91,7 +91,7 @@ const translations: Translations = {
 
   // CTA Block (Hero)
   "cta.founderBadge": { de: "Founder Edition · Nur 100 Stück", fr: "Founder Edition · Seulement 100 pièces", it: "Founder Edition · Solo 100 pezzi" },
-  "cta.headline": { de: "Sichere dir den Launch-Preis.", fr: "Profite du prix de lancement.", it: "Approfitta del prezzo di lancio." },
+  "cta.headline": { de: "Sei dabei. Von Anfang an.", fr: "Sois là. Dès le début.", it: "Sii presente. Fin dall'inizio." },
   "cta.savings": { de: "Du sparst CHF 30", fr: "Tu économises CHF 30", it: "Risparmi CHF 30" },
   "cta.benefit1": { de: "Lebenslanger Early Access zu neuen RAJ Produkten.", fr: "Early Access à vie aux nouveaux produits RAJ.", it: "Early Access a vita ai nuovi prodotti RAJ." },
   "cta.benefit2": { de: "Founder Edition mit persönlicher Seriennummer.", fr: "Founder Edition avec numéro de série personnel.", it: "Founder Edition con numero di serie personale." },
