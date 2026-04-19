@@ -39,8 +39,8 @@ const slides: Slide[] = [
   },
   {
     image: slide4,
-    alt: "Faltbar und 200g leicht - überall dabei",
-    headline: "Faltbar. 200g leicht.",
+    alt: "Faltbar und 250g leicht - überall dabei",
+    headline: "Faltbar. 250g leicht.",
     sub: "Vom Nachttisch ins Büro. Vom Hotel in den Flieger.",
   },
   {
