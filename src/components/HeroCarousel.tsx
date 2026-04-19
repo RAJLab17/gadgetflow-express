@@ -29,7 +29,7 @@ const slides: Slide[] = [
     image: slide2,
     alt: "ONE PLACE ALL YOUR POWER - 3-in-1 Wireless Charger",
     headline: "3 Geräte. 1 Ladegerät.",
-    sub: "iPhone · Apple Watch · AirPods — gleichzeitig geladen.",
+    sub: "iPhone · Apple Watch · AirPods —\ngleichzeitig geladen.",
   },
   {
     image: slide3,
@@ -154,7 +154,7 @@ const HeroCarousel = () => {
               {slide.headline}
             </h2>
             <p
-              className="mt-2 md:mt-3 text-base sm:text-lg md:text-xl font-light"
+              className="mt-2 md:mt-3 text-base sm:text-lg md:text-xl font-light whitespace-pre-line"
               style={{ color: slide.subColor || "#5a5550" }}
             >
               {slide.sub}
