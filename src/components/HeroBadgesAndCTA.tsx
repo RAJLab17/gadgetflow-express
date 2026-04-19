@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import SwissFlag from "./SwissFlag";
 
-const badges = [
-  "🇨🇭 Swiss Brand",
-  "⚡ Qi2.2 Zertifiziert",
-  "🛡️ 3 Jahre Garantie",
-  "🚚 Gratis Versand",
-  "↩️ 14 Tage Rückgabe",
+const badges: { icon: React.ReactNode; label: string }[] = [
+  { icon: <SwissFlag size={16} />, label: "Swiss Brand" },
+  { icon: "⚡", label: "Qi2.2 Zertifiziert" },
+  { icon: "🛡️", label: "3 Jahre Garantie" },
+  { icon: "🚚", label: "Gratis Versand" },
+  { icon: "↩️", label: "14 Tage Rückgabe" },
 ];
 
 interface Props {
