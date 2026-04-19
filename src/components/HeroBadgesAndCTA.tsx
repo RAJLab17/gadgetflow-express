@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
+import { Zap, ShieldCheck, Truck, RotateCcw } from "lucide-react";
 import SwissFlag from "./SwissFlag";
 
+const ICON_COLOR = "#9b6b3f";
+
 const badges: { icon: React.ReactNode; label: string }[] = [
-  { icon: <SwissFlag size={16} />, label: "Swiss Brand" },
-  { icon: "⚡", label: "Qi2.2 Zertifiziert" },
-  { icon: "🛡️", label: "3 Jahre Garantie" },
-  { icon: "🚚", label: "Gratis Versand" },
-  { icon: "↩️", label: "14 Tage Rückgabe" },
+  { icon: <SwissFlag size={18} />, label: "Swiss Brand" },
+  { icon: <Zap size={18} color={ICON_COLOR} strokeWidth={2} />, label: "Qi2.2 Zertifiziert" },
+  { icon: <ShieldCheck size={18} color={ICON_COLOR} strokeWidth={2} />, label: "3 Jahre Garantie" },
+  { icon: <Truck size={18} color={ICON_COLOR} strokeWidth={2} />, label: "Gratis Versand" },
+  { icon: <RotateCcw size={18} color={ICON_COLOR} strokeWidth={2} />, label: "14 Tage Rückgabe" },
 ];
 
 interface Props {
