@@ -9,12 +9,14 @@ import { useCartStore } from "@/stores/cartStore";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import PaymentIcons from "@/components/PaymentIcons";
 
-import productMain from "@/assets/products/nexus-hero-1.jpg";
-import productAlt from "@/assets/products/nexus-hero-2.jpg";
-import productFolded from "@/assets/products/nexus-hero-3.jpg";
-import storySpeed from "@/assets/products/nexus-story-speed.jpg";
-import storyFolds from "@/assets/products/nexus-story-folds.jpg";
-import storyLifestyle from "@/assets/products/nexus-story-lifestyle.jpg";
+// Real RAJ NEXUS product photography
+import productMain from "@/assets/products/nexus-real-hero-floating.jpg";
+import productAlt from "@/assets/products/nexus-real-3quarter.jpg";
+import productTopView from "@/assets/products/nexus-real-topview-qi2.jpg";
+import productFolds from "@/assets/products/nexus-real-folds.jpg";
+import storySpeed from "@/assets/products/nexus-real-features.jpg";
+import storyFolds from "@/assets/products/nexus-real-folds.jpg";
+import storyLifestyle from "@/assets/products/nexus-real-desk-office.jpg";
 
 const NEXUS_HANDLE = "raj-nexus-3in1-wireless-charger";
 
@@ -40,7 +42,7 @@ const ShopPreview = () => {
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
-  const gallery = [productMain, productAlt, productFolded];
+  const gallery = [productMain, productAlt, productTopView, productFolds];
 
   useEffect(() => {
     (async () => {
@@ -124,7 +126,7 @@ const ShopPreview = () => {
               >
                 <img src={gallery[activeImg]} alt="RAJ NEXUS" className="w-full h-full object-contain" />
               </motion.div>
-              <div className="grid grid-cols-3 gap-3 mt-4">
+              <div className="grid grid-cols-4 gap-3 mt-4">
                 {gallery.map((img, i) => (
                   <button
                     key={i}
