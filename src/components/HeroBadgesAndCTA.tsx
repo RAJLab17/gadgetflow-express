@@ -159,13 +159,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             >
               <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: GOLD }} />
               <span className="text-[11px] md:text-xs font-bold tracking-[0.12em] uppercase">
-                Founder Edition · Nur 100 Stück
+                {t("cta.founderBadge")}
               </span>
             </div>
 
             {/* 2. Headline */}
             <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1] whitespace-nowrap">
-              Sichere dir den Launch-Preis.
+              {t("cta.headline")}
             </h2>
 
             {/* 3. Preis-Zeile */}
@@ -176,15 +176,15 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               <span className="text-lg md:text-xl text-[#999] line-through">CHF 129</span>
             </div>
             <p className="text-sm font-semibold mb-8" style={{ color: GREEN }}>
-              Du sparst CHF 30
+              {t("cta.savings")}
             </p>
 
             {/* 4. Benefits */}
             <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
               {[
-                { icon: "⚡", text: "Lebenslanger Early Access zu neuen RAJ Produkten." },
-                { icon: "🏆", text: "Founder Edition mit persönlicher Seriennummer." },
-                { icon: "💰", text: "CHF 30 sparen — CHF 99 statt CHF 129." },
+                { icon: "⚡", text: t("cta.benefit1") },
+                { icon: "🏆", text: t("cta.benefit2") },
+                { icon: "💰", text: t("cta.benefit3") },
               ].map((b) => (
                 <li key={b.text} className="flex items-start gap-3">
                   <span className="text-lg leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
