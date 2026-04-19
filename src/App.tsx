@@ -27,6 +27,7 @@ import LaunchPage from "./pages/LaunchPage";
 import VergleichPage from "./pages/VergleichPage";
 import Qi2ErklaertPage from "./pages/Qi2ErklaertPage";
 import UeberRajPage from "./pages/UeberRajPage";
+import ShopPreview from "./pages/ShopPreview";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -74,6 +75,8 @@ const App = () => (
             <Route path="/vergleich" element={<VergleichPage />} />
             <Route path="/qi2-erklaert" element={<Qi2ErklaertPage />} />
             <Route path="/ueber-raj" element={<UeberRajPage />} />
+            {/* Hidden preview route — not linked anywhere, noindex */}
+            <Route path="/shop-preview" element={<ShopPreview />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
