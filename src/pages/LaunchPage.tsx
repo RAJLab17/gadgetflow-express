@@ -630,7 +630,7 @@ const LaunchPage = () => {
         }}
         aria-label="Jetzt sichern"
       >
-        Jetzt CHF 30 sparen
+        Ich bin dabei
       </button>
     </>
   );
