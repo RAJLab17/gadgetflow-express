@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 const badges = [
   "🇨🇭 Swiss Brand",
   "⚡ Qi2.2 Zertifiziert",
-  "✅ CE Zertifiziert",
-  "📦 Gratis Versand",
+  "🛡️ 3 Jahre Garantie",
+  "🚚 Gratis Versand",
   "↩️ 14 Tage Rückgabe",
 ];
 
