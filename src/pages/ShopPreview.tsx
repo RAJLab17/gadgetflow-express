@@ -9,11 +9,11 @@ import { useCartStore } from "@/stores/cartStore";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import PaymentIcons from "@/components/PaymentIcons";
 
-import productMain from "@/assets/products/nexus-product-1.jpg";
-import productAlt from "@/assets/products/nexus-product-2.jpg";
+import productMain from "@/assets/products/nexus-hero-1.jpg";
+import productAlt from "@/assets/products/nexus-hero-2.jpg";
 import lifestyleDesk from "@/assets/products/nexus-desk-setup.png";
 import lifestyleMinimal from "@/assets/products/nexus-lifestyle-minimal.png";
-import folds from "@/assets/products/nexus-folds.jpg";
+import folds from "@/assets/products/nexus-hero-3.jpg";
 import fast from "@/assets/products/nexus-fast.png";
 
 const NEXUS_HANDLE = "raj-nexus-3in1-wireless-charger";
