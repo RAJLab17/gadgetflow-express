@@ -114,11 +114,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   };
 
   const countdownUnits = [
-    { value: countdown.days, label: "Tage" },
-    { value: countdown.hours, label: "Stunden" },
-    { value: countdown.minutes, label: "Minuten" },
-    { value: countdown.seconds, label: "Sekunden" },
+    { value: countdown.days, label: t("countdown.daysLong") },
+    { value: countdown.hours, label: t("countdown.hoursLong") },
+    { value: countdown.minutes, label: t("countdown.minutesLong") },
+    { value: countdown.seconds, label: t("countdown.secondsLong") },
   ];
+
+  const badges = getBadges(t);
 
   return (
     <>
