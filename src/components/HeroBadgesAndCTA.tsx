@@ -255,7 +255,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     {submitting ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <>Ich bin dabei <span aria-hidden>→</span></>
+                      <>{t("cta.button")} <span aria-hidden>→</span></>
                     )}
                   </button>
                 </form>
@@ -263,7 +263,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
               {/* 7. Trust-Text */}
               <p className="text-[13px] text-[#888] mt-4 text-center">
-                Kostenlose Reservierung · Keine Zahlungsdaten · Kein Spam
+                {t("cta.trust")}
               </p>
 
               {/* 8. Reservierungs-Hinweis */}
@@ -273,7 +273,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
                 </span>
                 <p className="text-[13px] text-[#444] text-center">
-                  Bereits <span className="font-bold" style={{ color: GOLD }}>{taken} Personen</span> haben sich registriert.
+                  {t("cta.registeredPrefix")} <span className="font-bold" style={{ color: GOLD }}>{taken} {t("cta.registeredPeople")}</span> {t("cta.registeredSuffix")}
                 </p>
               </div>
             </div>
