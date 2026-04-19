@@ -5,6 +5,7 @@ import slide2 from "@/assets/hero-carousel/slide-2-one-place.jpeg";
 import slide3 from "@/assets/hero-carousel/slide-3-fast.jpg";
 import slide4 from "@/assets/hero-carousel/slide-4-foldable.jpeg";
 import slide5 from "@/assets/hero-carousel/slide-5-desire.jpeg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Slide = {
   image: string;
