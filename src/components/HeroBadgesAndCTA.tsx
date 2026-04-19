@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import SwissFlag from "./SwissFlag";
 
-const badges = [
-  "🇨🇭 Swiss Brand",
-  "⚡ Qi2.2 Zertifiziert",
-  "🛡️ 3 Jahre Garantie",
-  "🚚 Gratis Versand",
-  "↩️ 14 Tage Rückgabe",
+const badges: { icon: React.ReactNode; label: string }[] = [
+  { icon: <SwissFlag size={16} />, label: "Swiss Brand" },
+  { icon: "⚡", label: "Qi2.2 Zertifiziert" },
+  { icon: "🛡️", label: "3 Jahre Garantie" },
+  { icon: "🚚", label: "Gratis Versand" },
+  { icon: "↩️", label: "14 Tage Rückgabe" },
 ];
 
 interface Props {
@@ -26,8 +27,9 @@ const HeroBadgesAndCTA = ({ spotsLeft, onCtaClick }: Props) => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:gap-x-10 text-xs md:text-sm overflow-x-auto">
             {badges.map((b) => (
-              <span key={b} className="whitespace-nowrap" style={{ color: "#888" }}>
-                {b}
+              <span key={b.label} className="whitespace-nowrap inline-flex items-center gap-1.5" style={{ color: "#888" }}>
+                <span className="inline-flex items-center">{b.icon}</span>
+                {b.label}
               </span>
             ))}
           </div>
