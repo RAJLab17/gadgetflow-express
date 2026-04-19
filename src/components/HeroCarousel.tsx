@@ -100,25 +100,19 @@ const HeroCarousel = () => {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <div
-              className="inline-block text-[10px] md:text-xs uppercase tracking-[0.32em] mb-3 md:mb-4"
-              style={{ color: GOLD }}
-            >
-              RAJ NEXUS
-            </div>
             <h1
-              className="font-extrabold tracking-tight leading-[1.05] text-[#2b2725] text-3xl sm:text-4xl md:text-6xl"
-              style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+              className="font-light tracking-tight leading-[1.2] text-[#2b2725] text-lg sm:text-xl md:text-2xl"
+              style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: "-0.01em" }}
             >
               Ein Ladegerät für alles.
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>
-              <span style={{ color: GOLD }}>Ohne Kompromisse.</span>
+              <span style={{ color: GOLD }} className="font-normal">Ohne Kompromisse.</span>
             </h1>
             <div
-              className="mx-auto mt-5 md:mt-6 h-px w-16 md:w-24"
+              className="mx-auto mt-4 md:mt-5 h-px w-12 md:w-16"
               style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
             />
           </motion.div>
