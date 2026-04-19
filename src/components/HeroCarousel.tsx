@@ -103,7 +103,7 @@ const HeroCarousel = () => {
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
             <h1
-              className="font-normal tracking-tight leading-[1.15] text-[#2b2725] text-2xl sm:text-3xl md:text-4xl"
+              className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-2xl sm:text-3xl md:text-4xl"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: "-0.015em" }}
             >
               Ein Ladegerät für alles.
