@@ -436,12 +436,8 @@ const LaunchPage = () => {
               transition={{ duration: 0.6 }}
               className="max-w-xl mx-auto text-center"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
-                {t("why.title")} <span className="text-[#9b6b3f]">RAJ</span>?
-              </h2>
-              
               <p className="text-[#555] leading-relaxed text-base md:text-lg">
-                {t("why.text")}
+                Wir haben selbst gesucht. Ein Ladegerät das Design, Leistung und Qualität verbindet. Zu einem fairen Preis. Wir haben es nicht gefunden. Also haben wir es selbst gebaut. In der Schweiz. Für Menschen die wissen was sie wollen. Und die sich nicht mit Mittelmass zufrieden geben.
               </p>
             </motion.div>
           </section>
