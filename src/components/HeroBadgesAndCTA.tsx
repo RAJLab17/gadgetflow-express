@@ -14,12 +14,12 @@ const GREEN = "#4a8c5c";
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
 
-const badges: { icon: React.ReactNode; label: string }[] = [
-  { icon: <SwissFlag size={18} />, label: "Swiss Brand" },
-  { icon: <Zap size={18} color={ICON_COLOR} strokeWidth={2} />, label: "Qi2.2 Zertifiziert" },
-  { icon: <ShieldCheck size={18} color={ICON_COLOR} strokeWidth={2} />, label: "3 Jahre Garantie" },
-  { icon: <Truck size={18} color={ICON_COLOR} strokeWidth={2} />, label: "Gratis Versand" },
-  { icon: <RotateCcw size={18} color={ICON_COLOR} strokeWidth={2} />, label: "14 Tage Rückgabe" },
+const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
+  { icon: <SwissFlag size={18} />, label: t("badge.swissBrand") },
+  { icon: <Zap size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.qi22") },
+  { icon: <ShieldCheck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.warranty") },
+  { icon: <Truck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.shipping") },
+  { icon: <RotateCcw size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.returns") },
 ];
 
 interface Props {
