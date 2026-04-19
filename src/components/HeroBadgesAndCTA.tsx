@@ -233,21 +233,15 @@ const HeroBadgesAndCTA = ({ spotsTaken = 81, onSignupSuccess }: Props) => {
                 Kostenlose Reservierung · Keine Zahlungsdaten · Kein Spam
               </p>
 
-              {/* 8. Fortschrittsbalken */}
-              <div className="mt-8">
-                <p className="text-[13px] text-[#666] mb-2 text-center">
-                  <span className="font-semibold text-[#1a1a1a]">{taken}</span> von {TOTAL_SPOTS} Founder Plätzen vergeben
+              {/* 8. Reservierungs-Hinweis */}
+              <div className="mt-8 flex items-center justify-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
+                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
+                </span>
+                <p className="text-[13px] text-[#444] text-center">
+                  Bereits <span className="font-bold" style={{ color: GOLD }}>{taken} Founder</span> haben sich ihren Platz gesichert.
                 </p>
-                <div className="w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: "#e8e0d4" }}>
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${progress}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="h-full rounded-full"
-                    style={{ backgroundColor: GOLD }}
-                  />
-                </div>
               </div>
             </div>
           </motion.div>
