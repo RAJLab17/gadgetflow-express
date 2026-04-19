@@ -46,7 +46,7 @@ const useCountdown = () => {
   return t;
 };
 
-const BASE_OFFSET = 75;
+const BASE_OFFSET = 58;
 
 const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const { t } = useLanguage();
