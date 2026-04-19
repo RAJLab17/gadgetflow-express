@@ -11,10 +11,10 @@ import PaymentIcons from "@/components/PaymentIcons";
 
 import productMain from "@/assets/products/nexus-hero-1.jpg";
 import productAlt from "@/assets/products/nexus-hero-2.jpg";
-import lifestyleDesk from "@/assets/products/nexus-desk-setup.png";
-import lifestyleMinimal from "@/assets/products/nexus-lifestyle-minimal.png";
-import folds from "@/assets/products/nexus-hero-3.jpg";
-import fast from "@/assets/products/nexus-fast.png";
+import productFolded from "@/assets/products/nexus-hero-3.jpg";
+import storySpeed from "@/assets/products/nexus-story-speed.jpg";
+import storyFolds from "@/assets/products/nexus-story-folds.jpg";
+import storyLifestyle from "@/assets/products/nexus-story-lifestyle.jpg";
 
 const NEXUS_HANDLE = "raj-nexus-3in1-wireless-charger";
 
