@@ -109,9 +109,9 @@ const HeroCarousel = () => {
               className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-2xl sm:text-3xl md:text-4xl"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: "-0.015em" }}
             >
-              Ein Ladegerät für alles.
+              {t("carousel.heroLine1")}
               <br />
-              <span style={{ color: GOLD }} className="font-normal">Ohne Kompromisse.</span>
+              <span style={{ color: GOLD }} className="font-normal">{t("carousel.heroLine2")}</span>
             </h1>
           </motion.div>
         </div>
