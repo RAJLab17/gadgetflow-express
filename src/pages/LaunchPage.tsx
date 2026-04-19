@@ -356,14 +356,15 @@ const LaunchPage = () => {
           {/* ===== 1. HERO CAROUSEL + FOUNDER CTA ===== */}
           <HeroCarousel />
           <HeroBadgesAndCTA
-            spotsLeft={Math.max(0, TOTAL_SPOTS - spotsTaken)}
-            onCtaClick={() => {
-              const el = document.getElementById("signup-form-bottom") || document.getElementById("signup-form");
-              el?.scrollIntoView({ behavior: "smooth", block: "center" });
+            spotsTaken={spotsTaken}
+            onSignupSuccess={() => {
+              setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+              fireConfetti();
+              setTimeout(() => setShowSignupToast(true), 3000);
             }}
           />
 
-          <section className="container mx-auto px-4 pt-8 pb-4 md:pt-12 md:pb-16">
+          <section className="container mx-auto px-4 pt-2 pb-4 md:pt-4 md:pb-12">
             <div className="max-w-2xl mx-auto text-center w-full">
 
               {/* Tagline directly after benefits */}
@@ -372,10 +373,11 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.85 }}
                 className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", marginTop: '56px' }}
+                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
                 {t("tagline.1")}
               </motion.p>
+
 
               {/* 8. Conviction text (after form) */}
               <motion.p
