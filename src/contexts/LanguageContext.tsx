@@ -143,7 +143,7 @@ const translations: Translations = {
   // Second CTA
   "cta2.title": { de: "Dein Platz wartet.", fr: "Ta place t'attend.", it: "Il tuo posto ti aspetta." },
   "cta2.submitted": { de: "Du bist dabei!", fr: "Tu es inscrit·e!", it: "Sei dei nostri!" },
-  "cta2.button": { de: "PLATZ SICHERN", fr: "RÉSERVER MA PLACE", it: "ASSICURATI IL POSTO" },
+  "cta2.button": { de: "JETZT REGISTRIEREN", fr: "S'INSCRIRE MAINTENANT", it: "REGISTRATI ORA" },
 
   // Footer
   "footer.rights": { de: "Alle Rechte vorbehalten.", fr: "Tous droits réservés.", it: "Tutti i diritti riservati." },
