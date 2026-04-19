@@ -94,10 +94,41 @@ const HeroCarousel = () => {
       onTouchEnd={onTouchEnd}
       aria-roledescription="carousel"
     >
+      {/* Premium Hero Headline */}
+      <div className="w-full" style={{ backgroundColor: BEIGE }}>
+        <div className="container mx-auto px-4 pt-10 md:pt-14 pb-6 md:pb-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div
+              className="inline-block text-[10px] md:text-xs uppercase tracking-[0.32em] mb-3 md:mb-4"
+              style={{ color: GOLD }}
+            >
+              RAJ NEXUS
+            </div>
+            <h1
+              className="font-extrabold tracking-tight leading-[1.05] text-[#2b2725] text-3xl sm:text-4xl md:text-6xl"
+              style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
+            >
+              Ein Ladegerät für alles.
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              <span style={{ color: GOLD }}>Ohne Kompromisse.</span>
+            </h1>
+            <div
+              className="mx-auto mt-5 md:mt-6 h-px w-16 md:w-24"
+              style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
+            />
+          </motion.div>
+        </div>
+      </div>
+
       {/* Image area — full image, no cropping */}
       <div
         className="relative w-full"
-        style={{ height: "70vh", backgroundColor: BEIGE }}
+        style={{ height: "60vh", backgroundColor: BEIGE }}
       >
         <AnimatePresence mode="sync">
           <motion.img
