@@ -253,7 +253,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     {submitting ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <>Jetzt sichern <span aria-hidden>→</span></>
+                      <>Ich bin dabei <span aria-hidden>→</span></>
                     )}
                   </button>
                 </form>
