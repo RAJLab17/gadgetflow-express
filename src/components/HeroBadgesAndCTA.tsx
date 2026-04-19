@@ -205,7 +205,7 @@ const HeroBadgesAndCTA = ({ spotsTaken = 81, onSignupSuccess }: Props) => {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="E-Mail Adresse"
+                      placeholder={t("launch.emailPlaceholder")}
                       required
                       disabled={submitting}
                       className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-[#e0d8c8] text-[#1a1a1a] placeholder:text-[#999] text-[15px] focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/30 focus:border-[#9b6b3f] transition-all"
