@@ -122,9 +122,9 @@ const ShopPreview = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="aspect-square rounded-2xl overflow-hidden bg-card flex items-center justify-center"
+                className="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-card flex items-center justify-center"
               >
-                <img src={gallery[activeImg]} alt="RAJ NEXUS" className="w-full h-full object-contain" />
+                <img src={gallery[activeImg]} alt="RAJ NEXUS" className="w-full h-full object-cover scale-110" />
               </motion.div>
               <div className="grid grid-cols-4 gap-3 mt-4">
                 {gallery.map((img, i) => (
