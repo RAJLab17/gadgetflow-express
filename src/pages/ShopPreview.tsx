@@ -34,11 +34,16 @@ const PRODUCT_QUERY = `
   }
 `;
 
+const FOUNDER_TOTAL = 100;
+const FOUNDER_PRICE = "CHF 99.–";
+const REGULAR_PRICE = "CHF 129.–";
+
 const ShopPreview = () => {
   const { addItem, isLoading } = useCartStore();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [variantId, setVariantId] = useState<string | null>(null);
   const [available, setAvailable] = useState(true);
+  const [inventory, setInventory] = useState<number>(FOUNDER_TOTAL);
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
@@ -55,13 +60,19 @@ const ShopPreview = () => {
           if (v) { setVariantId(v.id); setAvailable(v.availableForSale ?? true); }
         }
         const info = await fetchProductVariantInfo(NEXUS_HANDLE);
-        if (info) { setVariantId(info.variantId); setAvailable(info.availableForSale); }
+        if (info) {
+          setVariantId(info.variantId);
+          setAvailable(info.availableForSale);
+          // Cap to FOUNDER_TOTAL so the counter never shows more than 100 left
+          setInventory(Math.min(info.quantityAvailable, FOUNDER_TOTAL));
+        }
       } catch (e) { console.error("Failed to load NEXUS:", e); }
     })();
   }, []);
 
-  const price = product?.node.priceRange.minVariantPrice;
-  const priceLabel = price ? `${price.currencyCode} ${parseFloat(price.amount).toFixed(2)}` : "CHF 99.00";
+  const sold = Math.max(0, FOUNDER_TOTAL - inventory);
+  const progressPct = Math.min(100, Math.round((sold / FOUNDER_TOTAL) * 100));
+  const priceLabel = FOUNDER_PRICE;
 
   const handleBuyNow = async () => {
     if (!variantId || !product) return;
