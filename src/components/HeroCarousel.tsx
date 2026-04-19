@@ -119,8 +119,8 @@ const HeroCarousel = () => {
 
       {/* Image area — full image, no cropping */}
       <div
-        className="relative w-full"
-        style={{ height: "60vh", backgroundColor: BEIGE }}
+        className="relative w-full h-[48vh] md:h-[60vh]"
+        style={{ backgroundColor: BEIGE }}
       >
         <AnimatePresence mode="sync">
           <motion.img
