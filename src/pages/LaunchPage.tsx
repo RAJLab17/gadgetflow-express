@@ -437,7 +437,7 @@ const LaunchPage = () => {
               className="max-w-xl mx-auto text-center"
             >
               <p className="text-[#555] leading-relaxed text-base md:text-lg">
-                Wir haben selbst gesucht. Ein Ladegerät das Design, Leistung und Qualität verbindet. Zu einem fairen Preis. Wir haben es nicht gefunden. Also haben wir es selbst gebaut. In der Schweiz. Für Menschen die wissen was sie wollen. Und die sich nicht mit Mittelmass zufrieden geben.
+                {t("why.text")}
               </p>
             </motion.div>
           </section>
