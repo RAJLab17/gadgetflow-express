@@ -27,8 +27,9 @@ const HeroBadgesAndCTA = ({ spotsLeft, onCtaClick }: Props) => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:gap-x-10 text-xs md:text-sm overflow-x-auto">
             {badges.map((b) => (
-              <span key={b} className="whitespace-nowrap" style={{ color: "#888" }}>
-                {b}
+              <span key={b.label} className="whitespace-nowrap inline-flex items-center gap-1.5" style={{ color: "#888" }}>
+                <span className="inline-flex items-center">{b.icon}</span>
+                {b.label}
               </span>
             ))}
           </div>
