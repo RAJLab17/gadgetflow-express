@@ -199,15 +199,18 @@ const HeroBadgesAndCTA = ({ spotsTaken = 81, onSignupSuccess }: Props) => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Deine E-Mail Adresse"
-                    required
-                    disabled={submitting}
-                    className="flex-1 sm:basis-[70%] px-4 py-3.5 rounded-xl bg-white border border-[#e0d8c8] text-[#1a1a1a] placeholder:text-[#999] text-[15px] focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/30 focus:border-[#9b6b3f] transition-all"
-                  />
+                  <div className="relative flex-1 sm:basis-[70%]">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-base pointer-events-none" aria-hidden>✉️</span>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="E-Mail Adresse"
+                      required
+                      disabled={submitting}
+                      className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-[#e0d8c8] text-[#1a1a1a] placeholder:text-[#999] text-[15px] focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/30 focus:border-[#9b6b3f] transition-all"
+                    />
+                  </div>
                   <button
                     type="submit"
                     disabled={submitting}
