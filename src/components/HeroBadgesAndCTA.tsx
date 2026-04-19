@@ -229,7 +229,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-sm font-semibold text-[#1a1a1a]">
-                    Danke — du bist auf der Liste.
+                    {t("cta.thanks")}
                   </span>
                 </motion.div>
               ) : (
