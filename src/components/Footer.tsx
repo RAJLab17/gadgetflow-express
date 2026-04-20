@@ -27,10 +27,9 @@ const Footer = () => {
       });
       if (error) throw error;
       setIsSuccess(true);
+      const submittedEmail = email.trim();
       setEmail("");
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Lead');
-      }
+      trackMetaEvent("Lead", { email: submittedEmail });
       toast({ title: "Erfolgreich angemeldet ✓", description: "Vielen Dank für Ihr Interesse an RAJ." });
       setTimeout(() => setIsSuccess(false), 6000);
     } catch (err) {
