@@ -8,6 +8,7 @@ import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
+import SwissFlag from "@/components/SwissFlag";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
