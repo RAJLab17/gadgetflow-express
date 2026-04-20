@@ -30,9 +30,9 @@ export async function trackMetaEvent(
     });
   }
 
-  // 2. Server-side Conversions API
+  // 2. Server-side Conversions API (silent — never break the UI)
   try {
-    await supabase.functions.invoke("meta-capi", {
+    const { error } = await supabase.functions.invoke("meta-capi", {
       body: {
         event_name: eventName,
         event_id: eventId,
@@ -43,7 +43,10 @@ export async function trackMetaEvent(
         custom_data: options.customData,
       },
     });
+    if (error) {
+      console.warn("CAPI event failed (non-blocking):", error.message);
+    }
   } catch (err) {
-    console.warn("CAPI event failed:", err);
+    console.warn("CAPI event failed (non-blocking):", err);
   }
 }
