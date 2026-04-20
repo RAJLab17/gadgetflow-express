@@ -8,6 +8,7 @@ import confetti from "canvas-confetti";
 import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
+import SwissFlag from "@/components/SwissFlag";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -98,7 +99,7 @@ const SignupToast = () => {
 
   return (
     <div
-      className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${fading ? "opacity-0 -translate-x-4" : "opacity-100 translate-x-0"}`}
+      className={`fixed bottom-6 left-6 z-50 transition-all duration-500 flex items-center gap-2 ${fading ? "opacity-0 -translate-x-4" : "opacity-100 translate-x-0"}`}
       style={{
         background: "#f0ede6",
         borderLeft: "3px solid #9b6b3f",
@@ -110,7 +111,8 @@ const SignupToast = () => {
         maxWidth: "320px",
       }}
     >
-      {t("toast.signup")}
+      <SwissFlag size={16} />
+      <span>{t("toast.signup")}</span>
     </div>
   );
 };

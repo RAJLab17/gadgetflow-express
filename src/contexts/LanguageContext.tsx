@@ -152,7 +152,7 @@ const translations: Translations = {
   "sticky.cta": { de: "Platz sichern · Founder Edition", fr: "Réserver ma place · Founder Edition", it: "Assicurati il posto · Founder Edition" },
 
   // Toast
-  "toast.signup": { de: "🇨🇭 Jemand hat sich gerade eingetragen.", fr: "🇨🇭 Quelqu'un vient de s'inscrire.", it: "🇨🇭 Qualcuno si è appena iscritto." },
+  "toast.signup": { de: "Jemand hat sich gerade eingetragen.", fr: "Quelqu'un vient de s'inscrire.", it: "Qualcuno si è appena iscritto." },
 
   // Errors
   "error.invalidEmail": { de: "Bitte gib eine gültige E-Mail-Adresse ein.", fr: "Merci d'entrer une adresse e-mail valide.", it: "Inserisci un indirizzo e-mail valido." },
