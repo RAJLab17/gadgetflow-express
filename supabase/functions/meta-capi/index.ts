@@ -100,9 +100,28 @@ serve(async (req) => {
     });
 
     const metaData = await metaRes.json();
+    const metaError = metaData?.error;
+    const isAccessBlocked =
+      metaError?.type === "OAuthException" &&
+      metaError?.code === 200 &&
+      typeof metaError?.message === "string" &&
+      metaError.message.toLowerCase().includes("api access blocked");
 
     if (!metaRes.ok) {
       console.error("Meta CAPI error:", JSON.stringify(metaData));
+
+      if (isAccessBlocked) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            skipped: true,
+            reason: "meta_api_access_blocked",
+            details: metaError,
+          }),
+          { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
       return new Response(
         JSON.stringify({ error: "Meta API error", details: metaData }),
         { status: metaRes.status, headers: { ...corsHeaders, "Content-Type": "application/json" } }
