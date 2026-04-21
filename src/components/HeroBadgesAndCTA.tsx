@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
 import { useLanguage } from "@/contexts/LanguageContext";
+import productImage from "@/assets/hero-carousel/slide-0-specs.webp";
 
 const ICON_COLOR = "#9b6b3f";
 const GOLD = "#9b6b3f";
@@ -137,16 +138,47 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         </div>
       </div>
 
-      {/* CTA Block */}
+      {/* CTA Block — two columns: image left, content right */}
       <section id="signup-form" className="w-full" style={{ backgroundColor: "#faf6f0", fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif" }}>
         <div className="container mx-auto px-4 pt-12 pb-10 md:pt-16 md:pb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center max-w-2xl mx-auto"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto items-center">
+            {/* LEFT — Product image */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full rounded-3xl overflow-hidden"
+              style={{ backgroundColor: "#f0ede6" }}
+            >
+              {/* -23% Founder badge */}
+              <div
+                className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full text-white text-xs font-bold tracking-wide"
+                style={{ backgroundColor: GOLD }}
+              >
+                -23% Founder
+              </div>
+              <img
+                src={productImage}
+                alt="RAJ NEXUS – Qi2.2 · 25W · 3-in-1"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
+              {/* Price chip bottom-left */}
+              <div className="absolute bottom-4 left-4 px-4 py-2 rounded-2xl bg-white/85 backdrop-blur-sm">
+                <span className="text-xl font-extrabold" style={{ color: GOLD }}>CHF 99</span>
+                <span className="ml-2 text-sm text-[#999] line-through">CHF 129</span>
+              </div>
+            </motion.div>
+
+            {/* RIGHT — Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col items-start text-left"
+            >
             {/* 1. Founder Badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border"
@@ -163,23 +195,12 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1] whitespace-nowrap">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
               {t("cta.headline")}
             </h2>
 
-            {/* 3. Preis-Zeile */}
-            <div className="flex items-baseline justify-center gap-3 mb-1">
-              <span className="text-5xl md:text-6xl font-extrabold leading-none" style={{ color: GOLD }}>
-                CHF 99
-              </span>
-              <span className="text-lg md:text-xl text-[#999] line-through">CHF 129</span>
-            </div>
-            <p className="text-sm font-semibold mb-8" style={{ color: GREEN }}>
-              {t("cta.savings")}
-            </p>
-
             {/* 4. Benefits */}
-            <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
+            <ul className="w-full mb-8 text-left space-y-3">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
@@ -193,7 +214,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </ul>
 
             {/* 5. Countdown */}
-            <div className="w-full max-w-[400px] mx-auto mb-3">
+            <div className="w-full mb-3">
               <div className="grid grid-cols-4 gap-2 sm:gap-3">
                 {countdownUnits.map((u) => (
                   <div
@@ -216,7 +237,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 6. E-Mail Form */}
-            <div className="w-full max-w-[480px] mx-auto mt-8">
+            <div className="w-full mt-8">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -261,22 +282,23 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               )}
 
               {/* 7. Trust-Text */}
-              <p className="text-[13px] text-[#888] mt-4 text-center">
+              <p className="text-[13px] text-[#888] mt-4 text-center md:text-left">
                 {t("cta.trust")}
               </p>
 
               {/* 8. Reservierungs-Hinweis */}
-              <div className="mt-8 flex items-center justify-center gap-2">
+              <div className="mt-6 flex items-center justify-center md:justify-start gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
                   <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
                 </span>
-                <p className="text-[13px] text-[#444] text-center">
+                <p className="text-[13px] text-[#444]">
                   {t("cta.registeredPrefix")} <span className="font-bold" style={{ color: GOLD }}>{taken} {t("cta.registeredPeople")}</span> {t("cta.registeredSuffix")}
                 </p>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
