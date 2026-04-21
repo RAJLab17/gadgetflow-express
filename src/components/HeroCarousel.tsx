@@ -207,11 +207,11 @@ className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-xl sm
             transition={{ duration: 0.6, ease: "easeInOut" }}
             className="max-w-3xl"
           >
-            <h2 className="font-extrabold tracking-tight leading-tight text-xl sm:text-2xl md:text-4xl text-[#2b2725]">
+            <h2 className="font-extrabold tracking-tight leading-tight text-lg sm:text-xl md:text-3xl text-[#2b2725]">
               {slide.headline}
             </h2>
             <p
-              className="mt-2 md:mt-3 text-sm sm:text-base md:text-lg font-light whitespace-pre-line"
+              className="mt-2 md:mt-3 text-xs sm:text-sm md:text-base font-light whitespace-pre-line"
               style={{ color: slide.subColor || "#5a5550" }}
             >
               {slide.sub}
