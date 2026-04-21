@@ -117,7 +117,7 @@ const translations: Translations = {
   "carousel.heroLine1": { de: "Ein Kabel. Drei Geräte.", fr: "Un câble. Trois appareils.", it: "Un cavo. Tre dispositivi." },
   "carousel.heroLine2": { de: "Das war noch nie so einfach.", fr: "Ça n'a jamais été aussi simple.", it: "Non è mai stato così semplice." },
   "carousel.s0.headline": { de: "Qi2.2 · 25W · 3-in-1", fr: "Qi2.2 · 25W · 3-en-1", it: "Qi2.2 · 25W · 3-in-1" },
-  "carousel.s0.sub": { de: "Designed in Switzerland", fr: "Designed in Switzerland", it: "Designed in Switzerland" },
+  "carousel.s0.sub": { de: "From Switzerland", fr: "From Switzerland", it: "From Switzerland" },
   "carousel.s1.headline": { de: "Schluss mit Kabelchaos.", fr: "Fini le chaos de câbles.", it: "Basta col caos dei cavi." },
   "carousel.s1.sub": { de: "Alles an einem Ort — ordentlich, elegant, bereit.", fr: "Tout au même endroit — net, élégant, prêt.", it: "Tutto in un posto — ordinato, elegante, pronto." },
   "carousel.s2.headline": { de: "One Place. All Your Power.", fr: "One Place. All Your Power.", it: "One Place. All Your Power." },
