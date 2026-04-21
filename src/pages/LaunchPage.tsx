@@ -369,19 +369,25 @@ const LaunchPage = () => {
             }}
           />
 
-          {/* Lifestyle trio */}
+          {/* Lifestyle duo */}
           <section className="container mx-auto px-4 pt-6 md:pt-10">
-            <motion.img
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              src={lifestyleTrio}
-              alt="RAJ NEXUS Lifestyle"
-              loading="lazy"
-              className="w-full h-auto rounded-xl"
-            />
+            <div className="grid grid-cols-2 gap-3 md:gap-5 max-w-5xl mx-auto">
+              {[lifestyleLaptop, lifestyleWoman].map((src, i) => (
+                <motion.img
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: i * 0.1 }}
+                  src={src}
+                  alt="RAJ NEXUS Lifestyle"
+                  loading="lazy"
+                  className="w-full h-auto rounded-xl object-cover aspect-[4/3]"
+                />
+              ))}
+            </div>
           </section>
+
 
           <section className="container mx-auto px-4 pt-2 pb-4 md:pt-4 md:pb-12">
             <div className="max-w-2xl mx-auto text-center w-full">
