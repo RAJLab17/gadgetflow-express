@@ -243,7 +243,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       placeholder={t("launch.emailPlaceholder")}
                       required
                       disabled={submitting}
-                      className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border border-[#e0d8c8] text-[#1a1a1a] placeholder:text-[#999] text-[15px] focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/30 focus:border-[#9b6b3f] transition-all"
+                      className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border-2 border-[#9b6b3f]/40 text-[#1a1a1a] placeholder:text-[#666] text-[15px] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/30 focus:border-[#9b6b3f] transition-all"
                     />
                   </div>
                   <button
