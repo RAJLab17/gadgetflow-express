@@ -28,10 +28,31 @@ serve(async (req) => {
     });
   }
 
+  // True validation: send a real (test) CAPI event. This is what production
+  // events use, so success here proves the token can deliver events.
   try {
-    // Validate token by querying the pixel itself
-    const url = `https://graph.facebook.com/v21.0/${PIXEL_ID}?fields=name,last_fired_time&access_token=${ACCESS_TOKEN}`;
-    const res = await fetch(url);
+    const url = `https://graph.facebook.com/v21.0/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`;
+    const payload = {
+      data: [
+        {
+          event_name: "PageView",
+          event_time: Math.floor(Date.now() / 1000),
+          event_id: `health-check-${Date.now()}`,
+          action_source: "website",
+          event_source_url: "https://raj.ch/_health",
+          user_data: {
+            client_user_agent: "RAJ-CAPI-Health-Check/1.0",
+          },
+        },
+      ],
+      test_event_code: "TEST_HEALTH_CHECK",
+    };
+
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
     const data = await res.json();
 
     if (!res.ok || data?.error) {
@@ -44,8 +65,8 @@ serve(async (req) => {
     }
 
     result.status = "active";
-    result.pixel_name = data?.name ?? null;
-    result.last_fired_time = data?.last_fired_time ?? null;
+    result.events_received = data?.events_received ?? null;
+    result.fbtrace_id = data?.fbtrace_id ?? null;
 
     return new Response(JSON.stringify(result), {
       status: 200,
