@@ -126,11 +126,11 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     <>
       {/* Badge-Leiste */}
       <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
-        <div className="container mx-auto px-2 md:px-4 py-4">
-          <div className="flex flex-nowrap items-center justify-between md:justify-center gap-x-2 sm:gap-x-4 md:gap-x-10 text-[10px] sm:text-xs md:text-sm">
+        <div className="container mx-auto px-3 sm:px-4 py-4">
+          <div className="flex flex-nowrap items-center justify-around gap-x-2 sm:gap-x-4 md:gap-x-8 text-[10px] sm:text-xs md:text-sm">
             {badges.map((b) => (
-              <span key={b.label} className="whitespace-nowrap inline-flex items-center gap-1 sm:gap-1.5 shrink-0" style={{ color: "#888" }}>
-                <span className="inline-flex items-center [&_svg]:w-3 [&_svg]:h-3 sm:[&_svg]:w-4 sm:[&_svg]:h-4 md:[&_svg]:w-[18px] md:[&_svg]:h-[18px]">{b.icon}</span>
+              <span key={b.label} className="whitespace-nowrap inline-flex items-center gap-1.5 sm:gap-2 shrink-0" style={{ color: "#888" }}>
+                <span className="inline-flex items-center [&_svg]:w-3.5 [&_svg]:h-3.5 sm:[&_svg]:w-4 sm:[&_svg]:h-4 md:[&_svg]:w-[18px] md:[&_svg]:h-[18px]">{b.icon}</span>
                 {b.label}
               </span>
             ))}
