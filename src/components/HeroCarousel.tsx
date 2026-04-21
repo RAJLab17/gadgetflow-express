@@ -154,7 +154,7 @@ const HeroCarousel = () => {
     >
       {/* Premium Hero Headline */}
       <div className="w-full" style={{ backgroundColor: BEIGE }}>
-        <div className="container mx-auto px-4 pt-3 md:pt-8 pb-3 md:pb-5 text-center">
+        <div className="container mx-auto px-4 pt-7 md:pt-14 pb-5 md:pb-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -174,7 +174,7 @@ const HeroCarousel = () => {
 
       {/* Image area — full image, no cropping */}
       <div
-        className="relative w-full h-[38vh] md:h-[52vh]"
+        className="relative w-full h-[54vh] md:h-[60vh]"
         style={{ backgroundColor: BEIGE }}
       >
         <AnimatePresence mode="sync">
@@ -202,7 +202,7 @@ const HeroCarousel = () => {
       {/* Text area below — synced fade */}
       <div
         className="relative w-full flex flex-col items-center justify-center text-center px-6"
-        style={{ minHeight: "15vh", backgroundColor: BEIGE, paddingTop: "1.5rem", paddingBottom: "2.5rem" }}
+        style={{ minHeight: "15vh", backgroundColor: BEIGE, paddingTop: "1.5rem", paddingBottom: "1rem" }}
       >
         <AnimatePresence mode="wait">
           <motion.div
