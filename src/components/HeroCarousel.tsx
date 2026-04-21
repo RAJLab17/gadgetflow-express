@@ -45,13 +45,6 @@ const buildSlides = (t: (k: string) => string): Slide[] => [
     sub: t("carousel.s0.sub"),
   },
   {
-    image: slide1,
-    imageSm: slide1Sm,
-    alt: "Vorher Nachher Kabelchaos vs RAJ NEXUS",
-    headline: t("carousel.s1.headline"),
-    sub: t("carousel.s1.sub"),
-  },
-  {
     image: slide3,
     imageSm: slide3Sm,
     alt: "100% in 1.5 Stunden - 3.3x schneller",
