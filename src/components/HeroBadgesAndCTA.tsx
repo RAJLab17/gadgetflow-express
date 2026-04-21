@@ -208,6 +208,29 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* 6. E-Mail Form */}
             <div className="w-full mt-8">
+              {/* Premium Reservierungs-Hinweis (über E-Mail) */}
+              {!submitted && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="mb-4 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border mx-auto"
+                  style={{
+                    backgroundColor: "rgba(155, 107, 63, 0.06)",
+                    borderColor: "rgba(155, 107, 63, 0.25)",
+                  }}
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
+                    <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
+                  </span>
+                  <p className="text-[13px] text-[#444] leading-none">
+                    {t("cta.registeredPrefix")} <span className="font-bold tabular-nums" style={{ color: GOLD }}>{taken} {t("cta.registeredPeople")}</span> {t("cta.registeredSuffix")}
+                  </p>
+                </motion.div>
+              )}
+
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -255,17 +278,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               <p className="text-[13px] text-[#888] mt-4 text-center md:text-left">
                 {t("cta.trust")}
               </p>
-
-              {/* 8. Reservierungs-Hinweis */}
-              <div className="mt-6 flex items-center justify-center md:justify-start gap-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
-                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
-                </span>
-                <p className="text-[13px] text-[#444]">
-                  {t("cta.registeredPrefix")} <span className="font-bold" style={{ color: GOLD }}>{taken} {t("cta.registeredPeople")}</span> {t("cta.registeredSuffix")}
-                </p>
-              </div>
             </div>
           </motion.div>
         </div>
