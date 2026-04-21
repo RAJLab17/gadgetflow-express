@@ -1,11 +1,17 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import slide0 from "@/assets/hero-carousel/slide-0-specs.webp";
+import slide0Sm from "@/assets/hero-carousel/slide-0-specs-480.webp";
 import slide1 from "@/assets/hero-carousel/slide-1-vorher-nachher.webp";
+import slide1Sm from "@/assets/hero-carousel/slide-1-vorher-nachher-480.webp";
 import slide2 from "@/assets/hero-carousel/slide-2-clean.webp";
+import slide2Sm from "@/assets/hero-carousel/slide-2-clean-480.webp";
 import slide3 from "@/assets/hero-carousel/slide-3-fast.webp";
+import slide3Sm from "@/assets/hero-carousel/slide-3-fast-480.webp";
 import slide4 from "@/assets/hero-carousel/slide-4-clean.webp";
+import slide4Sm from "@/assets/hero-carousel/slide-4-clean-480.webp";
 import slide5 from "@/assets/hero-carousel/slide-5-desire.webp";
+import slide5Sm from "@/assets/hero-carousel/slide-5-desire-480.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type Slide = {
