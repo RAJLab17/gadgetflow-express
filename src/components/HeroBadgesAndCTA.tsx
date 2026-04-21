@@ -164,12 +164,22 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
               {t("cta.headline")}
             </h2>
 
-            {/* 4. Benefits */}
-            <ul className="w-full mb-8 text-left space-y-3">
+            {/* 3. Preis-Zeile */}
+            <div className="flex items-baseline justify-center gap-3 mb-1">
+              <span className="text-5xl md:text-6xl font-extrabold leading-none" style={{ color: GOLD }}>
+                CHF 99
+              </span>
+              <span className="text-lg md:text-xl text-[#999] line-through">CHF 129</span>
+            </div>
+            <p className="text-sm font-semibold mb-8" style={{ color: "#4a8c5c" }}>
+              {t("cta.savings")}
+            </p>
+
+            <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
