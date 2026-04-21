@@ -69,7 +69,6 @@ const buildSlides = (t: (k: string) => string): Slide[] => [
     alt: "RAJ NEXUS - Designed to be desired",
     headline: t("carousel.s5.headline"),
     sub: t("carousel.s5.sub"),
-    subColor: GOLD,
   },
 ];
 
