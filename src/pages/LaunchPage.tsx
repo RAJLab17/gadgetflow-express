@@ -9,8 +9,8 @@ import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
-import lifestyleLaptop from "@/assets/lifestyle-laptop.png";
-import lifestyleWoman from "@/assets/lifestyle-woman.png";
+import lifestyleLaptop from "@/assets/lifestyle-laptop.jpg";
+import lifestyleWoman from "@/assets/lifestyle-woman.jpg";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
