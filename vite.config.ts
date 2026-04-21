@@ -20,5 +20,22 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
     sourcemap: false,
     minify: "esbuild",
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Core React stays together (always needed)
+          "react-vendor": ["react", "react-dom", "react-router-dom"],
+          // Animations - heavy, used on most pages but can be cached separately
+          "motion-vendor": ["framer-motion"],
+          // Supabase client - only needed for forms / data
+          "supabase-vendor": ["@supabase/supabase-js"],
+          // Data layer + meta tags
+          "data-vendor": ["@tanstack/react-query", "react-helmet-async"],
+          // Form / validation libs
+          "form-vendor": ["react-hook-form", "@hookform/resolvers", "zod"],
+        },
+      },
+    },
   },
 }));
