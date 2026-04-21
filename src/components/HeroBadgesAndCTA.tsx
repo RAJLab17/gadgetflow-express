@@ -266,8 +266,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 </p>
               </div>
             </div>
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
