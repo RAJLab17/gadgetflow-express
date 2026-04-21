@@ -126,7 +126,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     <>
       {/* Badge-Leiste */}
       <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
-        <div className="container mx-auto px-3 sm:px-4 py-4">
+        <div className="container mx-auto px-3 sm:px-4 pt-1 pb-4">
           <div className="flex flex-nowrap items-center justify-around gap-x-2 sm:gap-x-4 md:gap-x-8 text-[10px] sm:text-xs md:text-sm">
             {badges.map((b) => (
               <span key={b.label} className="whitespace-nowrap inline-flex items-center gap-1.5 sm:gap-2 shrink-0" style={{ color: "#888" }}>
