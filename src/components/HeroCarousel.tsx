@@ -13,6 +13,9 @@ import slide4Sm from "@/assets/hero-carousel/slide-4-clean-480.webp";
 import slide5 from "@/assets/hero-carousel/slide-5-desire.webp";
 import slide5Sm from "@/assets/hero-carousel/slide-5-desire-480.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
+
+const BASE_OFFSET = 58;
 
 type Slide = {
   image: string;
@@ -77,7 +80,40 @@ const HeroCarousel = () => {
   const slides = buildSlides(t);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [liveCount, setLiveCount] = useState<number>(81);
+  const [pulse, setPulse] = useState(false);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchCount = async () => {
+      const { count } = await supabase
+        .from("launch_signups")
+        .select("*", { count: "exact", head: true });
+      if (mounted && typeof count === "number") {
+        setLiveCount(BASE_OFFSET + count);
+      }
+    };
+    fetchCount();
+
+    const channel = supabase
+      .channel("hero_carousel_signups_live")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "launch_signups" },
+        () => {
+          setLiveCount((prev) => prev + 1);
+          setPulse(true);
+          setTimeout(() => setPulse(false), 1800);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      mounted = false;
+      supabase.removeChannel(channel);
+    };
+  }, []);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [slides.length]);
   const prev = useCallback(() => setIndex((i) => (i - 1 + slides.length) % slides.length), [slides.length]);
@@ -204,6 +240,38 @@ const HeroCarousel = () => {
             />
           ))}
         </div>
+
+        {/* Live registration counter */}
+        <motion.div
+          className="mt-5 flex items-center justify-center gap-2"
+          animate={pulse ? { scale: [1, 1.06, 1] } : { scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span
+              className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+              style={{ backgroundColor: GOLD }}
+            />
+            <span
+              className="relative inline-flex rounded-full h-2.5 w-2.5"
+              style={{ backgroundColor: GOLD }}
+            />
+          </span>
+          <p className="text-[13px] sm:text-sm text-[#3a3530]">
+            {t("cta.registeredPrefix")}{" "}
+            <motion.span
+              key={liveCount}
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="font-bold inline-block tabular-nums"
+              style={{ color: GOLD }}
+            >
+              {liveCount} {t("cta.registeredPeople")}
+            </motion.span>{" "}
+            {t("cta.registeredSuffix")}
+          </p>
+        </motion.div>
       </div>
 
     </section>
