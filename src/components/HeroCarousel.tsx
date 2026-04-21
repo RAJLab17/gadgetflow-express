@@ -46,13 +46,6 @@ const buildSlides = (t: (k: string) => string): Slide[] => [
     sub: t("carousel.s1.sub"),
   },
   {
-    image: slide2,
-    imageSm: slide2Sm,
-    alt: "ONE PLACE ALL YOUR POWER - 3-in-1 Wireless Charger",
-    headline: t("carousel.s2.headline"),
-    sub: t("carousel.s2.sub"),
-  },
-  {
     image: slide3,
     imageSm: slide3Sm,
     alt: "100% in 1.5 Stunden - 3.3x schneller",
