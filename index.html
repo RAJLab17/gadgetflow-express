@@ -266,10 +266,14 @@
 
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Deferred tracking scripts: load after page is interactive -->
+    <!-- Deferred tracking scripts: load when browser is idle (after LCP & TBT-critical work) -->
     <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
+      (function() {
+        var loaded = false;
+        function loadTracking() {
+          if (loaded) return;
+          loaded = true;
+
           // Google Analytics
           var ga = document.createElement('script');
           ga.async = true;
@@ -283,13 +287,6 @@
           };
           document.head.appendChild(ga);
 
-          // Microsoft Clarity
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "vomrvl4nxg");
-
           // Meta Pixel
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -301,8 +298,20 @@
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '1271870244467969');
           fbq('track', 'PageView');
-        }, 100);
-      });
+        }
+
+        // Wait until browser is truly idle, OR fall back after first user interaction,
+        // OR fall back after 4s as a hard cap. This pushes scripts off the LCP path.
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadTracking, { timeout: 4000 });
+        } else {
+          window.addEventListener('load', function() { setTimeout(loadTracking, 2000); });
+        }
+        // Also load on first user interaction (covers cases where idle never fires)
+        ['scroll', 'touchstart', 'mousemove', 'keydown'].forEach(function(ev) {
+          window.addEventListener(ev, loadTracking, { once: true, passive: true });
+        });
+      })();
     </script>
   </body>
 </html>
