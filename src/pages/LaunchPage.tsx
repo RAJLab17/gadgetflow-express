@@ -4,7 +4,7 @@ import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye,
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import confetti from "canvas-confetti";
+// canvas-confetti is loaded lazily on first signup to keep the initial bundle small
 import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
@@ -72,7 +72,8 @@ const CountdownTimer = () => {
   );
 };
 
-const fireConfetti = () => {
+const fireConfetti = async () => {
+  const { default: confetti } = await import("canvas-confetti");
   const colors = ["#9b6b3f", "#f0ede6"];
   const end = Date.now() + 3000;
   const frame = () => {
@@ -324,7 +325,7 @@ const LaunchPage = () => {
         <div className="relative z-10">
           {/* Mini Header with Language Toggle */}
           <div className="py-1 md:py-4 px-4 flex items-center justify-between">
-            <img src={logo} alt="RAJ" className="h-10 w-auto" />
+            <img src={logo} alt="RAJ" width={120} height={40} className="h-10 w-auto" />
             <div className="flex items-center gap-1 text-xs font-medium">
               <button
                 onClick={() => setLang("de")}
@@ -582,7 +583,7 @@ const LaunchPage = () => {
 
           <footer className="border-t border-[#9b6b3f]/10 py-8 bg-[#f0ede6]">
             <div className="container mx-auto px-4 flex flex-col items-center gap-4 text-center">
-              <img src={logo} alt="RAJ" className="h-8 w-auto opacity-60" />
+              <img src={logo} alt="RAJ" width={96} height={32} className="h-8 w-auto opacity-60" />
               <p className="text-xs text-[#888888] uppercase tracking-[0.2em]">
                 Power. Always There.
               </p>
