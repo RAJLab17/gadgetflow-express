@@ -9,6 +9,7 @@ import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
+import lifestyleTrio from "@/assets/lifestyle-trio.png";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -366,6 +367,20 @@ const LaunchPage = () => {
               setTimeout(() => setShowSignupToast(true), 3000);
             }}
           />
+
+          {/* Lifestyle trio */}
+          <section className="container mx-auto px-4 pt-6 md:pt-10">
+            <motion.img
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              src={lifestyleTrio}
+              alt="RAJ NEXUS Lifestyle"
+              loading="lazy"
+              className="w-full h-auto rounded-xl"
+            />
+          </section>
 
           <section className="container mx-auto px-4 pt-2 pb-4 md:pt-4 md:pb-12">
             <div className="max-w-2xl mx-auto text-center w-full">
