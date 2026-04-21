@@ -16,7 +16,7 @@ type Slide = {
   subColor?: string;
 };
 
-const SLIDE_DURATION = 3000;
+const SLIDE_DURATION = 2500;
 const BEIGE = "#f0ede6";
 const GOLD = "#9b6b3f";
 
