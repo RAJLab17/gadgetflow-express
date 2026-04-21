@@ -9,6 +9,7 @@ import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
+import lifestyleTrio from "@/assets/lifestyle-trio.png";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
