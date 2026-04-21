@@ -3,8 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 // Only the first (LCP) slide is statically imported and eagerly loaded.
 // All other slides are lazy-loaded via dynamic URLs to keep them off the
 // initial critical request chain.
-import slide0 from "@/assets/hero-carousel/slide-0-specs.webp";
-import slide0Sm from "@/assets/hero-carousel/slide-0-specs-480.webp";
+// Slide 0 is the LCP image — served from /public via stable URLs and
+// preloaded in index.html. Do NOT bundle it through Vite (avoids hashed
+// filename mismatch with the <link rel="preload">).
+const slide0 = "/hero/slide-0-specs.webp";
+const slide0Sm = "/hero/slide-0-specs-480.webp";
+// All other slides are lazy-loaded via dynamic URLs to keep them off the
+// initial critical request chain.
 const slide1 = new URL("../assets/hero-carousel/slide-1-vorher-nachher.webp", import.meta.url).href;
 const slide1Sm = new URL("../assets/hero-carousel/slide-1-vorher-nachher-480.webp", import.meta.url).href;
 const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
