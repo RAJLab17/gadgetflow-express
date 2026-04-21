@@ -31,6 +31,7 @@ const VergleichPage = lazy(() => import("./pages/VergleichPage"));
 const Qi2ErklaertPage = lazy(() => import("./pages/Qi2ErklaertPage"));
 const UeberRajPage = lazy(() => import("./pages/UeberRajPage"));
 const ShopPreview = lazy(() => import("./pages/ShopPreview"));
+const MetaCapiStatusPage = lazy(() => import("./pages/MetaCapiStatusPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -83,6 +84,7 @@ const App = () => (
               <Route path="/qi2-erklaert" element={<Qi2ErklaertPage />} />
               <Route path="/ueber-raj" element={<UeberRajPage />} />
               <Route path="/shop-preview" element={<ShopPreview />} />
+              <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
