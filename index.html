@@ -40,11 +40,6 @@
     <meta name="twitter:description" content="RAJ NEXUS: Premium 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods. Qi2.2 zertifiziert, bis zu 25W, faltbar, CHF 99." />
     <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
 
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
-
     <!-- Preconnect to backend (used immediately for visitor tracking + signup count) -->
     <link rel="preconnect" href="https://ftyyjxrrmxlssghrrlzg.supabase.co" crossorigin />
 
@@ -58,13 +53,13 @@
       fetchpriority="high"
     />
 
-    <!-- Font stylesheets with display=swap (non-blocking) -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
-    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" />
-      <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro" />
-    </noscript>
+    <!-- System font stack — zero external requests, instant rendering, native look -->
+    <style>
+      :root {
+        --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      html, body { font-family: var(--font-sans); }
+    </style>
 
     <!-- Organization Schema -->
     <script type="application/ld+json">
