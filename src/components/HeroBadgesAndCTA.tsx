@@ -16,7 +16,6 @@ const TOTAL_SPOTS = 100;
 
 const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
   { icon: <SwissFlag size={18} />, label: t("badge.swissBrand") },
-  { icon: <Zap size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.qi22") },
   { icon: <ShieldCheck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.warranty") },
   { icon: <Truck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.shipping") },
   { icon: <RotateCcw size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.returns") },
