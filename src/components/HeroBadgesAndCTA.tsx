@@ -195,23 +195,12 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1] whitespace-nowrap">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
               {t("cta.headline")}
             </h2>
 
-            {/* 3. Preis-Zeile */}
-            <div className="flex items-baseline justify-center gap-3 mb-1">
-              <span className="text-5xl md:text-6xl font-extrabold leading-none" style={{ color: GOLD }}>
-                CHF 99
-              </span>
-              <span className="text-lg md:text-xl text-[#999] line-through">CHF 129</span>
-            </div>
-            <p className="text-sm font-semibold mb-8" style={{ color: GREEN }}>
-              {t("cta.savings")}
-            </p>
-
             {/* 4. Benefits */}
-            <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
+            <ul className="w-full mb-8 text-left space-y-3">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
@@ -225,7 +214,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </ul>
 
             {/* 5. Countdown */}
-            <div className="w-full max-w-[400px] mx-auto mb-3">
+            <div className="w-full mb-3">
               <div className="grid grid-cols-4 gap-2 sm:gap-3">
                 {countdownUnits.map((u) => (
                   <div
@@ -248,7 +237,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 6. E-Mail Form */}
-            <div className="w-full max-w-[480px] mx-auto mt-8">
+            <div className="w-full mt-8">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -293,22 +282,23 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               )}
 
               {/* 7. Trust-Text */}
-              <p className="text-[13px] text-[#888] mt-4 text-center">
+              <p className="text-[13px] text-[#888] mt-4 text-center md:text-left">
                 {t("cta.trust")}
               </p>
 
               {/* 8. Reservierungs-Hinweis */}
-              <div className="mt-8 flex items-center justify-center gap-2">
+              <div className="mt-6 flex items-center justify-center md:justify-start gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
                   <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
                 </span>
-                <p className="text-[13px] text-[#444] text-center">
+                <p className="text-[13px] text-[#444]">
                   {t("cta.registeredPrefix")} <span className="font-bold" style={{ color: GOLD }}>{taken} {t("cta.registeredPeople")}</span> {t("cta.registeredSuffix")}
                 </p>
               </div>
             </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
