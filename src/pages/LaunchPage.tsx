@@ -558,7 +558,7 @@ const LaunchPage = () => {
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <div className="relative flex-1">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]" />
                       <input
                         type="email"
                         value={email2}
@@ -566,13 +566,13 @@ const LaunchPage = () => {
                         placeholder={t("launch.emailPlaceholder")}
                         required
                         disabled={isSubmitting2}
-                        className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-transparent border border-white/40 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:border-white/60 focus:ring-white/20 transition-all"
+                        className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-white text-[#1a1a1a] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:ring-white/40 transition-all"
                       />
                     </div>
                     <button
                       type="submit"
                       disabled={isSubmitting2}
-                      className="px-8 py-3.5 rounded-xl bg-[#f0ede6] text-[#9b6b3f] font-semibold hover:bg-[#f0ede6]/90 transition-all disabled:opacity-60 flex items-center justify-center gap-2 min-w-[160px]"
+                      className="px-6 py-3.5 rounded-xl bg-[#1a1a1a] text-white font-bold hover:bg-black transition-all disabled:opacity-60 flex items-center justify-center gap-2 whitespace-nowrap text-sm sm:text-base"
                     >
                       {isSubmitting2 ? (
                         <Loader2 className="w-5 h-5 animate-spin" />
