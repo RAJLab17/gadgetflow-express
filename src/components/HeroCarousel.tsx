@@ -146,9 +146,11 @@ const HeroCarousel = () => {
           <motion.img
             key={`img-${index}`}
             src={slide.image}
+            srcSet={`${slide.imageSm} 480w, ${slide.image} 800w`}
+            sizes="(max-width: 640px) 480px, 800px"
             alt={slide.alt}
-            width={1200}
-            height={900}
+            width={800}
+            height={800}
             loading={index === 0 ? "eager" : "lazy"}
             decoding={index === 0 ? "sync" : "async"}
             fetchPriority={index === 0 ? "high" : "auto"}
