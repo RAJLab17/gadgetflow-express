@@ -226,7 +226,7 @@ const HeroCarousel = () => {
         </AnimatePresence>
 
         {/* Dots — active dot becomes a longer pill */}
-        <div className="mt-5 flex items-center gap-2">
+        <div className="mt-3 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -243,7 +243,7 @@ const HeroCarousel = () => {
 
         {/* Live registration counter */}
         <motion.div
-          className="mt-5 flex items-center justify-center gap-2"
+          className="mt-3 flex items-center justify-center gap-2"
           animate={pulse ? { scale: [1, 1.06, 1] } : { scale: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
