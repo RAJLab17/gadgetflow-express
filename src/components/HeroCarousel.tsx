@@ -23,7 +23,7 @@ type Slide = {
   subColor?: string;
 };
 
-const SLIDE_DURATION = 2500;
+const SLIDE_DURATION = 4000;
 const BEIGE = "#f0ede6";
 const GOLD = "#9b6b3f";
 
@@ -69,7 +69,6 @@ const buildSlides = (t: (k: string) => string): Slide[] => [
     alt: "RAJ NEXUS - Designed to be desired",
     headline: t("carousel.s5.headline"),
     sub: t("carousel.s5.sub"),
-    subColor: GOLD,
   },
 ];
 
@@ -190,17 +189,17 @@ const HeroCarousel = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* Dots */}
-        <div className="mt-5 flex items-center gap-3">
+        {/* Dots — active dot becomes a longer pill */}
+        <div className="mt-5 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Slide ${i + 1}`}
-              className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+              className="h-1.5 rounded-full transition-all duration-500 ease-out"
               style={{
+                width: i === index ? "28px" : "8px",
                 backgroundColor: i === index ? GOLD : "#d4c5b0",
-                transform: i === index ? "scale(1.25)" : "scale(1)",
               }}
             />
           ))}
