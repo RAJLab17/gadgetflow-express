@@ -10,8 +10,6 @@ const slide0 = "/hero/slide-0-specs.webp";
 const slide0Sm = "/hero/slide-0-specs-480.webp";
 // All other slides are lazy-loaded via dynamic URLs to keep them off the
 // initial critical request chain.
-const slide1 = new URL("../assets/hero-carousel/slide-1-vorher-nachher.webp", import.meta.url).href;
-const slide1Sm = new URL("../assets/hero-carousel/slide-1-vorher-nachher-480.webp", import.meta.url).href;
 const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
 const slide3Sm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
 const slide4 = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
@@ -43,13 +41,6 @@ const buildSlides = (t: (k: string) => string): Slide[] => [
     alt: "RAJ NEXUS Specs - Qi2.2, 25W, 3-in-1, 100% in 1.5h",
     headline: t("carousel.s0.headline"),
     sub: t("carousel.s0.sub"),
-  },
-  {
-    image: slide1,
-    imageSm: slide1Sm,
-    alt: "Vorher Nachher Kabelchaos vs RAJ NEXUS",
-    headline: t("carousel.s1.headline"),
-    sub: t("carousel.s1.sub"),
   },
   {
     image: slide3,
