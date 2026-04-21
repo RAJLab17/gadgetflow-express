@@ -382,7 +382,7 @@ const LaunchPage = () => {
                   src={src}
                   alt="RAJ NEXUS Lifestyle"
                   loading="lazy"
-                  className="w-full h-auto rounded-xl object-cover aspect-[4/3]"
+                  className="w-full h-full rounded-xl object-cover aspect-square"
                 />
               ))}
             </div>
