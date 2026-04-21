@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// Only the first (LCP) slide is statically imported and eagerly loaded.
+// All other slides are lazy-loaded via dynamic URLs to keep them off the
+// initial critical request chain.
 import slide0 from "@/assets/hero-carousel/slide-0-specs.webp";
 import slide0Sm from "@/assets/hero-carousel/slide-0-specs-480.webp";
-import slide1 from "@/assets/hero-carousel/slide-1-vorher-nachher.webp";
-import slide1Sm from "@/assets/hero-carousel/slide-1-vorher-nachher-480.webp";
-import slide2 from "@/assets/hero-carousel/slide-2-clean.webp";
-import slide2Sm from "@/assets/hero-carousel/slide-2-clean-480.webp";
-import slide3 from "@/assets/hero-carousel/slide-3-fast.webp";
-import slide3Sm from "@/assets/hero-carousel/slide-3-fast-480.webp";
-import slide4 from "@/assets/hero-carousel/slide-4-clean.webp";
-import slide4Sm from "@/assets/hero-carousel/slide-4-clean-480.webp";
-import slide5 from "@/assets/hero-carousel/slide-5-desire.webp";
-import slide5Sm from "@/assets/hero-carousel/slide-5-desire-480.webp";
+const slide1 = new URL("../assets/hero-carousel/slide-1-vorher-nachher.webp", import.meta.url).href;
+const slide1Sm = new URL("../assets/hero-carousel/slide-1-vorher-nachher-480.webp", import.meta.url).href;
+const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
+const slide3Sm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
+const slide4 = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
+const slide4Sm = new URL("../assets/hero-carousel/slide-4-clean-480.webp", import.meta.url).href;
+const slide5 = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
+const slide5Sm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 
