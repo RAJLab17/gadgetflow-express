@@ -56,13 +56,6 @@ const buildSlides = (t: (k: string) => string): Slide[] => [
     headline: t("carousel.s4.headline"),
     sub: t("carousel.s4.sub"),
   },
-  {
-    image: slide5,
-    imageSm: slide5Sm,
-    alt: "RAJ NEXUS - Designed to be desired",
-    headline: t("carousel.s5.headline"),
-    sub: t("carousel.s5.sub"),
-  },
 ];
 
 const HeroCarousel = () => {
