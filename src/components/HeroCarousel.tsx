@@ -202,7 +202,7 @@ const HeroCarousel = () => {
       {/* Text area below — synced fade */}
       <div
         className="relative w-full flex flex-col items-center justify-center text-center px-6"
-        style={{ minHeight: "15vh", backgroundColor: BEIGE, paddingTop: "1.5rem", paddingBottom: "1rem" }}
+        style={{ minHeight: "12vh", backgroundColor: BEIGE, paddingTop: "0.75rem", paddingBottom: "0.5rem" }}
       >
         <AnimatePresence mode="wait">
           <motion.div
