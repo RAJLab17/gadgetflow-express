@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import slide1 from "@/assets/hero-carousel/slide-1-vorher-nachher.png";
 import slide2 from "@/assets/hero-carousel/slide-2-clean.png";
 import slide3 from "@/assets/hero-carousel/slide-3-fast.jpg";
-import slide4 from "@/assets/hero-carousel/slide-4-foldable.jpeg";
+import slide4 from "@/assets/hero-carousel/slide-4-clean.png";
 import slide5 from "@/assets/hero-carousel/slide-5-desire.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
