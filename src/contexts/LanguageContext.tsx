@@ -96,7 +96,7 @@ const translations: Translations = {
   "cta.benefit1": { de: "Lebenslanger Early Access zu neuen RAJ Produkten.", fr: "Early Access à vie aux nouveaux produits RAJ.", it: "Early Access a vita ai nuovi prodotti RAJ." },
   "cta.benefit2": { de: "Founder Edition mit persönlicher Seriennummer.", fr: "Founder Edition avec numéro de série personnel.", it: "Founder Edition con numero di serie personale." },
   "cta.benefit3": { de: "CHF 30 sparen — CHF 99 statt CHF 129.", fr: "Économise CHF 30 — CHF 99 au lieu de CHF 129.", it: "Risparmia CHF 30 — CHF 99 invece di CHF 129." },
-  "cta.priceWarning": { de: "Danach steigt der Preis auf CHF 129.", fr: "Ensuite, le prix passera à CHF 129.", it: "Dopo, il prezzo salirà a CHF 129." },
+  "cta.priceWarning": { de: "Nur jetzt zum Founder-Preis – danach CHF 129", fr: "Uniquement maintenant au prix Founder – ensuite CHF 129", it: "Solo ora al prezzo Founder – poi CHF 129" },
   "cta.button": { de: "Jetzt Early Access sichern", fr: "Obtenir l'Early Access", it: "Ottieni l'Early Access" },
   "cta.thanks": { de: "Danke — du bist auf der Liste.", fr: "Merci — tu es sur la liste.", it: "Grazie — sei sulla lista." },
   "cta.trust": { de: "Kostenlose Reservierung · Keine Zahlungsdaten · Kein Spam", fr: "Réservation gratuite · Aucune donnée de paiement · Pas de spam", it: "Prenotazione gratuita · Nessun dato di pagamento · Niente spam" },
