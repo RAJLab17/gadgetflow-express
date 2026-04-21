@@ -30,36 +30,42 @@ const GOLD = "#9b6b3f";
 const buildSlides = (t: (k: string) => string): Slide[] => [
   {
     image: slide0,
+    imageSm: slide0Sm,
     alt: "RAJ NEXUS Specs - Qi2.2, 25W, 3-in-1, 100% in 1.5h",
     headline: t("carousel.s0.headline"),
     sub: t("carousel.s0.sub"),
   },
   {
     image: slide1,
+    imageSm: slide1Sm,
     alt: "Vorher Nachher Kabelchaos vs RAJ NEXUS",
     headline: t("carousel.s1.headline"),
     sub: t("carousel.s1.sub"),
   },
   {
     image: slide2,
+    imageSm: slide2Sm,
     alt: "ONE PLACE ALL YOUR POWER - 3-in-1 Wireless Charger",
     headline: t("carousel.s2.headline"),
     sub: t("carousel.s2.sub"),
   },
   {
     image: slide3,
+    imageSm: slide3Sm,
     alt: "100% in 1.5 Stunden - 3.3x schneller",
     headline: t("carousel.s3.headline"),
     sub: t("carousel.s3.sub"),
   },
   {
     image: slide4,
+    imageSm: slide4Sm,
     alt: "Faltbar und 250g leicht - überall dabei",
     headline: t("carousel.s4.headline"),
     sub: t("carousel.s4.sub"),
   },
   {
     image: slide5,
+    imageSm: slide5Sm,
     alt: "RAJ NEXUS - Designed to be desired",
     headline: t("carousel.s5.headline"),
     sub: t("carousel.s5.sub"),
