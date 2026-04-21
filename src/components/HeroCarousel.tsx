@@ -154,7 +154,7 @@ const HeroCarousel = () => {
     >
       {/* Premium Hero Headline */}
       <div className="w-full" style={{ backgroundColor: BEIGE }}>
-        <div className="container mx-auto px-4 pt-7 md:pt-14 pb-5 md:pb-8 text-center">
+        <div className="container mx-auto px-4 pt-3 md:pt-10 pb-2 md:pb-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
