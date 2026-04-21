@@ -48,6 +48,16 @@
     <!-- Preconnect to backend (used immediately for visitor tracking + signup count) -->
     <link rel="preconnect" href="https://ftyyjxrrmxlssghrrlzg.supabase.co" crossorigin />
 
+    <!-- Preload LCP hero image (slide 0) — responsive srcset so mobile fetches the 480 variant -->
+    <link
+      rel="preload"
+      as="image"
+      href="/hero/slide-0-specs.webp"
+      imagesrcset="/hero/slide-0-specs-480.webp 480w, /hero/slide-0-specs.webp 800w"
+      imagesizes="(max-width: 640px) 480px, 800px"
+      fetchpriority="high"
+    />
+
     <!-- Font stylesheets with display=swap (non-blocking) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
     <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro" media="print" onload="this.media='all'" />

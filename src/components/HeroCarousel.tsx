@@ -3,8 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 // Only the first (LCP) slide is statically imported and eagerly loaded.
 // All other slides are lazy-loaded via dynamic URLs to keep them off the
 // initial critical request chain.
-import slide0 from "@/assets/hero-carousel/slide-0-specs.webp";
-import slide0Sm from "@/assets/hero-carousel/slide-0-specs-480.webp";
+// Slide 0 is the LCP image — served from /public via stable URLs and
+// preloaded in index.html. Do NOT bundle it through Vite (avoids hashed
+// filename mismatch with the <link rel="preload">).
+const slide0 = "/hero/slide-0-specs.webp";
+const slide0Sm = "/hero/slide-0-specs-480.webp";
+// All other slides are lazy-loaded via dynamic URLs to keep them off the
+// initial critical request chain.
 const slide1 = new URL("../assets/hero-carousel/slide-1-vorher-nachher.webp", import.meta.url).href;
 const slide1Sm = new URL("../assets/hero-carousel/slide-1-vorher-nachher-480.webp", import.meta.url).href;
 const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
@@ -149,11 +154,7 @@ const HeroCarousel = () => {
       {/* Premium Hero Headline */}
       <div className="w-full" style={{ backgroundColor: BEIGE }}>
         <div className="container mx-auto px-4 pt-3 md:pt-10 pb-2 md:pb-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-          >
+          <div>
             <h1
               className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-2xl sm:text-3xl md:text-4xl"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: "-0.015em" }}
@@ -162,7 +163,7 @@ const HeroCarousel = () => {
               <br />
               <span style={{ color: GOLD }} className="font-semibold">{t("carousel.heroLine2")}</span>
             </h1>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -171,26 +172,43 @@ const HeroCarousel = () => {
         className="relative w-full h-[54vh] md:h-[60vh]"
         style={{ backgroundColor: BEIGE }}
       >
-        <AnimatePresence mode="sync">
-          <motion.img
-            key={`img-${index}`}
-            src={slide.image}
-            srcSet={`${slide.imageSm} 480w, ${slide.image} 800w`}
+        {index === 0 ? (
+          // LCP image: plain <img>, no animation, no AnimatePresence — paints
+          // the moment the preloaded asset is decoded.
+          <img
+            src={slide0}
+            srcSet={`${slide0Sm} 480w, ${slide0} 800w`}
             sizes="(max-width: 640px) 480px, 800px"
-            alt={slide.alt}
+            alt={slides[0].alt}
             width={800}
             height={800}
-            loading={index === 0 ? "eager" : "lazy"}
-            decoding={index === 0 ? "sync" : "async"}
-            fetchPriority={index === 0 ? "high" : "auto"}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
+            loading="eager"
+            decoding="sync"
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full"
             style={{ objectFit: "contain", backgroundColor: BEIGE }}
           />
-        </AnimatePresence>
+        ) : (
+          <AnimatePresence mode="sync">
+            <motion.img
+              key={`img-${index}`}
+              src={slide.image}
+              srcSet={`${slide.imageSm} 480w, ${slide.image} 800w`}
+              sizes="(max-width: 640px) 480px, 800px"
+              alt={slide.alt}
+              width={800}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full"
+              style={{ objectFit: "contain", backgroundColor: BEIGE }}
+            />
+          </AnimatePresence>
+        )}
       </div>
 
       {/* Text area below — synced fade */}
