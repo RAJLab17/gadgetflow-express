@@ -1,15 +1,22 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import slide0 from "@/assets/hero-carousel/slide-0-specs.webp";
+import slide0Sm from "@/assets/hero-carousel/slide-0-specs-480.webp";
 import slide1 from "@/assets/hero-carousel/slide-1-vorher-nachher.webp";
+import slide1Sm from "@/assets/hero-carousel/slide-1-vorher-nachher-480.webp";
 import slide2 from "@/assets/hero-carousel/slide-2-clean.webp";
+import slide2Sm from "@/assets/hero-carousel/slide-2-clean-480.webp";
 import slide3 from "@/assets/hero-carousel/slide-3-fast.webp";
+import slide3Sm from "@/assets/hero-carousel/slide-3-fast-480.webp";
 import slide4 from "@/assets/hero-carousel/slide-4-clean.webp";
+import slide4Sm from "@/assets/hero-carousel/slide-4-clean-480.webp";
 import slide5 from "@/assets/hero-carousel/slide-5-desire.webp";
+import slide5Sm from "@/assets/hero-carousel/slide-5-desire-480.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type Slide = {
   image: string;
+  imageSm: string;
   alt: string;
   headline: string;
   sub: string;
@@ -23,36 +30,42 @@ const GOLD = "#9b6b3f";
 const buildSlides = (t: (k: string) => string): Slide[] => [
   {
     image: slide0,
+    imageSm: slide0Sm,
     alt: "RAJ NEXUS Specs - Qi2.2, 25W, 3-in-1, 100% in 1.5h",
     headline: t("carousel.s0.headline"),
     sub: t("carousel.s0.sub"),
   },
   {
     image: slide1,
+    imageSm: slide1Sm,
     alt: "Vorher Nachher Kabelchaos vs RAJ NEXUS",
     headline: t("carousel.s1.headline"),
     sub: t("carousel.s1.sub"),
   },
   {
     image: slide2,
+    imageSm: slide2Sm,
     alt: "ONE PLACE ALL YOUR POWER - 3-in-1 Wireless Charger",
     headline: t("carousel.s2.headline"),
     sub: t("carousel.s2.sub"),
   },
   {
     image: slide3,
+    imageSm: slide3Sm,
     alt: "100% in 1.5 Stunden - 3.3x schneller",
     headline: t("carousel.s3.headline"),
     sub: t("carousel.s3.sub"),
   },
   {
     image: slide4,
+    imageSm: slide4Sm,
     alt: "Faltbar und 250g leicht - überall dabei",
     headline: t("carousel.s4.headline"),
     sub: t("carousel.s4.sub"),
   },
   {
     image: slide5,
+    imageSm: slide5Sm,
     alt: "RAJ NEXUS - Designed to be desired",
     headline: t("carousel.s5.headline"),
     sub: t("carousel.s5.sub"),
@@ -133,9 +146,11 @@ const HeroCarousel = () => {
           <motion.img
             key={`img-${index}`}
             src={slide.image}
+            srcSet={`${slide.imageSm} 480w, ${slide.image} 800w`}
+            sizes="(max-width: 640px) 480px, 800px"
             alt={slide.alt}
-            width={1200}
-            height={900}
+            width={800}
+            height={800}
             loading={index === 0 ? "eager" : "lazy"}
             decoding={index === 0 ? "sync" : "async"}
             fetchPriority={index === 0 ? "high" : "auto"}
