@@ -169,7 +169,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </h2>
 
 
-            <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
+            <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3 pl-6 sm:pl-10">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
