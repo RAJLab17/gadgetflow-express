@@ -138,16 +138,47 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         </div>
       </div>
 
-      {/* CTA Block */}
+      {/* CTA Block — two columns: image left, content right */}
       <section id="signup-form" className="w-full" style={{ backgroundColor: "#faf6f0", fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif" }}>
         <div className="container mx-auto px-4 pt-12 pb-10 md:pt-16 md:pb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center max-w-2xl mx-auto"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto items-center">
+            {/* LEFT — Product image */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative w-full rounded-3xl overflow-hidden"
+              style={{ backgroundColor: "#f0ede6" }}
+            >
+              {/* -23% Founder badge */}
+              <div
+                className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full text-white text-xs font-bold tracking-wide"
+                style={{ backgroundColor: GOLD }}
+              >
+                -23% Founder
+              </div>
+              <img
+                src={productImage}
+                alt="RAJ NEXUS – Qi2.2 · 25W · 3-in-1"
+                className="w-full h-auto object-contain"
+                loading="lazy"
+              />
+              {/* Price chip bottom-left */}
+              <div className="absolute bottom-4 left-4 px-4 py-2 rounded-2xl bg-white/85 backdrop-blur-sm">
+                <span className="text-xl font-extrabold" style={{ color: GOLD }}>CHF 99</span>
+                <span className="ml-2 text-sm text-[#999] line-through">CHF 129</span>
+              </div>
+            </motion.div>
+
+            {/* RIGHT — Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col items-start text-left"
+            >
             {/* 1. Founder Badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border"
