@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logo from "@/assets/logo-new.png";
+import logo from "@/assets/logo-new.webp";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
