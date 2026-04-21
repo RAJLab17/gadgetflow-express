@@ -126,8 +126,8 @@ const translations: Translations = {
   "carousel.s3.sub": { de: "3,3× schneller als Standard-Wireless.", fr: "3,3× plus rapide que le sans-fil standard.", it: "3,3× più veloce del wireless standard." },
   "carousel.s4.headline": { de: "Faltbar. 250g. Überall dabei.", fr: "Pliable. 250g. Partout avec toi.", it: "Pieghevole. 250g. Sempre con te." },
   "carousel.s4.sub": { de: "Perfekt für unterwegs und den Schreibtisch.", fr: "Parfait en déplacement et au bureau.", it: "Perfetto in viaggio e alla scrivania." },
-  "carousel.s5.headline": { de: "Designed to be desired.", fr: "Designed to be desired.", it: "Designed to be desired." },
-  "carousel.s5.sub": { de: "Power. Always There.", fr: "Power. Always There.", it: "Power. Always There." },
+  "carousel.s5.headline": { de: "POWER. ALWAYS THERE.", fr: "POWER. ALWAYS THERE.", it: "POWER. ALWAYS THERE." },
+  "carousel.s5.sub": { de: "", fr: "", it: "" },
 
   // FAQ
   "faq.title": { de: "Häufige Fragen", fr: "Questions fréquentes", it: "Domande frequenti" },
