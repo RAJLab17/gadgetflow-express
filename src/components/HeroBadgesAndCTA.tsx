@@ -210,7 +210,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-[#888] mt-3">
+              <p className="text-xs text-[#888] mt-3 inline-flex items-center justify-center gap-1.5 w-full">
+                <span aria-hidden>⏰</span>
                 {t("cta.priceWarning")}
               </p>
             </div>
