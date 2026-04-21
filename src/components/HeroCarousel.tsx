@@ -14,8 +14,6 @@ const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.
 const slide3Sm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
 const slide4 = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
 const slide4Sm = new URL("../assets/hero-carousel/slide-4-clean-480.webp", import.meta.url).href;
-const slide5 = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
-const slide5Sm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 
