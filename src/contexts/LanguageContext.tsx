@@ -115,7 +115,7 @@ const translations: Translations = {
 
   // Hero Carousel
   "carousel.heroLine1": { de: "Ein Kabel. Drei Geräte.", fr: "Un câble. Trois appareils.", it: "Un cavo. Tre dispositivi." },
-  "carousel.heroLine2": { de: "Das war noch nie so einfach.", fr: "Ça n'a jamais été aussi simple.", it: "Non è mai stato così semplice." },
+  "carousel.heroLine2": { de: "Nie wieder Kabel suchen.", fr: "Ne cherchez plus jamais de câbles.", it: "Mai più cercare cavi." },
   "carousel.s0.headline": { de: "Qi2.2 · 25W · 3-in-1", fr: "Qi2.2 · 25W · 3-en-1", it: "Qi2.2 · 25W · 3-in-1" },
   "carousel.s0.sub": { de: "From Switzerland", fr: "From Switzerland", it: "From Switzerland" },
   "carousel.s1.headline": { de: "Schluss mit Kabelchaos.", fr: "Fini le chaos de câbles.", it: "Basta col caos dei cavi." },
