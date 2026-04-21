@@ -138,47 +138,16 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         </div>
       </div>
 
-      {/* CTA Block — two columns: image left, content right */}
+      {/* CTA Block */}
       <section id="signup-form" className="w-full" style={{ backgroundColor: "#faf6f0", fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif" }}>
         <div className="container mx-auto px-4 pt-12 pb-10 md:pt-16 md:pb-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto items-center">
-            {/* LEFT — Product image */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative w-full rounded-3xl overflow-hidden"
-              style={{ backgroundColor: "#f0ede6" }}
-            >
-              {/* -23% Founder badge */}
-              <div
-                className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full text-white text-xs font-bold tracking-wide"
-                style={{ backgroundColor: GOLD }}
-              >
-                -23% Founder
-              </div>
-              <img
-                src={productImage}
-                alt="RAJ NEXUS – Qi2.2 · 25W · 3-in-1"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-              />
-              {/* Price chip bottom-left */}
-              <div className="absolute bottom-4 left-4 px-4 py-2 rounded-2xl bg-white/85 backdrop-blur-sm">
-                <span className="text-xl font-extrabold" style={{ color: GOLD }}>CHF 99</span>
-                <span className="ml-2 text-sm text-[#999] line-through">CHF 129</span>
-              </div>
-            </motion.div>
-
-            {/* RIGHT — Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col items-start text-left"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center text-center max-w-2xl mx-auto"
+          >
             {/* 1. Founder Badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border"
@@ -195,12 +164,22 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
               {t("cta.headline")}
             </h2>
 
-            {/* 4. Benefits */}
-            <ul className="w-full mb-8 text-left space-y-3">
+            {/* 3. Preis-Zeile */}
+            <div className="flex items-baseline justify-center gap-3 mb-1">
+              <span className="text-5xl md:text-6xl font-extrabold leading-none" style={{ color: GOLD }}>
+                CHF 99
+              </span>
+              <span className="text-lg md:text-xl text-[#999] line-through">CHF 129</span>
+            </div>
+            <p className="text-sm font-semibold mb-8" style={{ color: "#4a8c5c" }}>
+              {t("cta.savings")}
+            </p>
+
+            <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
@@ -297,8 +276,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 </p>
               </div>
             </div>
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
