@@ -271,58 +271,79 @@
 
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Deferred tracking scripts: load when browser is idle (after LCP & TBT-critical work) -->
+    <!-- Deferred tracking — guaranteed to load AFTER window 'load' event (post-LCP) -->
     <script>
       (function() {
         var loaded = false;
+
+        // Buffer fbq/gtag/clarity calls made before scripts arrive, so app code
+        // (e.g. PageView, conversion events) doesn't break.
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+        window.fbq = window.fbq || function(){
+          (window.fbq.q = window.fbq.q || []).push(arguments);
+        };
+        window.fbq.q = window.fbq.q || [];
+        window.clarity = window.clarity || function(){
+          (window.clarity.q = window.clarity.q || []).push(arguments);
+        };
+        window.clarity.q = window.clarity.q || [];
+
         function loadTracking() {
           if (loaded) return;
           loaded = true;
 
-          // Google Analytics
+          // Google Analytics 4
           var ga = document.createElement('script');
           ga.async = true;
           ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EST00HSY50';
           ga.onload = function() {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', 'G-EST00HSY50');
+            window.gtag('js', new Date());
+            window.gtag('config', 'G-EST00HSY50');
           };
           document.head.appendChild(ga);
 
-          // Meta Pixel
+          // Meta Pixel — replay buffered queue
           !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          {if(f.fbq && f.fbq.loaded)return;n=f.fbq=f.fbq||function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
           if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
+          n.queue=n.queue||window.fbq.q||[];t=b.createElement(e);t.async=!0;
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '1606572153733548');
-          fbq('track', 'PageView');
+          window.fbq('init', '1606572153733548');
+          window.fbq('track', 'PageView');
 
-          // Microsoft Clarity
+          // Microsoft Clarity — replay buffered queue
           (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            var existing = c[a]; var existingQ = existing && existing.q ? existing.q : [];
+            c[a]=function(){(c[a].q=c[a].q||[]).push(arguments)};
+            c[a].q = existingQ;
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "vomrvl4nxg");
         }
 
-        // Wait until browser is truly idle, OR fall back after first user interaction,
-        // OR fall back after 4s as a hard cap. This pushes scripts off the LCP path.
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadTracking, { timeout: 4000 });
-        } else {
-          window.addEventListener('load', function() { setTimeout(loadTracking, 2000); });
+        // Schedule strictly AFTER window 'load' (i.e. after LCP / above-the-fold paint).
+        function schedule() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadTracking, { timeout: 3000 });
+          } else {
+            setTimeout(loadTracking, 1500);
+          }
         }
-        // Also load on first user interaction (covers cases where idle never fires)
-        ['scroll', 'touchstart', 'mousemove', 'keydown'].forEach(function(ev) {
+        if (document.readyState === 'complete') {
+          schedule();
+        } else {
+          window.addEventListener('load', schedule, { once: true });
+        }
+        // Safety: also load on first real user interaction
+        ['pointerdown', 'keydown', 'scroll'].forEach(function(ev) {
           window.addEventListener(ev, loadTracking, { once: true, passive: true });
         });
+      })();
+    </script>
       })();
     </script>
   </body>
