@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import slide0 from "@/assets/hero-carousel/slide-0-specs.png";
 import slide1 from "@/assets/hero-carousel/slide-1-vorher-nachher.png";
 import slide2 from "@/assets/hero-carousel/slide-2-clean.png";
 import slide3 from "@/assets/hero-carousel/slide-3-fast.jpg";
@@ -20,6 +21,12 @@ const BEIGE = "#f0ede6";
 const GOLD = "#9b6b3f";
 
 const buildSlides = (t: (k: string) => string): Slide[] => [
+  {
+    image: slide0,
+    alt: "RAJ NEXUS Specs - Qi2.2, 25W, 3-in-1, 100% in 1.5h",
+    headline: t("carousel.s0.headline"),
+    sub: t("carousel.s0.sub"),
+  },
   {
     image: slide1,
     alt: "Vorher Nachher Kabelchaos vs RAJ NEXUS",

@@ -116,6 +116,8 @@ const translations: Translations = {
   // Hero Carousel
   "carousel.heroLine1": { de: "Ein Ladegerät für alles.", fr: "Un chargeur pour tout.", it: "Un caricatore per tutto." },
   "carousel.heroLine2": { de: "Ohne Kompromisse.", fr: "Sans compromis.", it: "Senza compromessi." },
+  "carousel.s0.headline": { de: "Alles, was du brauchst.", fr: "Tout ce qu'il te faut.", it: "Tutto ciò che ti serve." },
+  "carousel.s0.sub": { de: "Qi2.2 · 25W · 3-in-1 · 100% in 1.5h.\nEin Gerät. Null Kompromisse.", fr: "Qi2.2 · 25W · 3-en-1 · 100% en 1h30.\nUn appareil. Zéro compromis.", it: "Qi2.2 · 25W · 3-in-1 · 100% in 1,5h.\nUn dispositivo. Zero compromessi." },
   "carousel.s1.headline": { de: "Kennst du das?", fr: "Ça te dit quelque chose?", it: "Ti suona familiare?" },
   "carousel.s1.sub": { de: "Es gibt eine bessere Lösung.", fr: "Il existe une meilleure solution.", it: "Esiste una soluzione migliore." },
   "carousel.s2.headline": { de: "3 Geräte. 1 Ladegerät.", fr: "3 appareils. 1 chargeur.", it: "3 dispositivi. 1 caricatore." },
