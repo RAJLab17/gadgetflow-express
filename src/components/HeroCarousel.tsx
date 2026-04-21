@@ -154,7 +154,7 @@ const HeroCarousel = () => {
     >
       {/* Premium Hero Headline */}
       <div className="w-full" style={{ backgroundColor: BEIGE }}>
-        <div className="container mx-auto px-4 pt-7 md:pt-14 pb-5 md:pb-8 text-center">
+        <div className="container mx-auto px-4 pt-3 md:pt-10 pb-2 md:pb-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -202,7 +202,7 @@ const HeroCarousel = () => {
       {/* Text area below — synced fade */}
       <div
         className="relative w-full flex flex-col items-center justify-center text-center px-6"
-        style={{ minHeight: "15vh", backgroundColor: BEIGE, paddingTop: "1.5rem", paddingBottom: "1rem" }}
+        style={{ minHeight: "12vh", backgroundColor: BEIGE, paddingTop: "0.75rem", paddingBottom: "0.5rem" }}
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -226,7 +226,7 @@ const HeroCarousel = () => {
         </AnimatePresence>
 
         {/* Dots — active dot becomes a longer pill */}
-        <div className="mt-5 flex items-center gap-2">
+        <div className="mt-3 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -243,7 +243,7 @@ const HeroCarousel = () => {
 
         {/* Live registration counter */}
         <motion.div
-          className="mt-5 flex items-center justify-center gap-2"
+          className="mt-3 flex items-center justify-center gap-2"
           animate={pulse ? { scale: [1, 1.06, 1] } : { scale: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
