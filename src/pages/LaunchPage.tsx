@@ -453,7 +453,7 @@ const LaunchPage = () => {
 
 
           {/* ===== WARUM RAJ? ===== */}
-          <section className="container mx-auto px-4 pt-8 pb-12 md:pt-6 md:pb-28">
+          <section className="container mx-auto px-4 pt-8 pb-10 md:pt-6 md:pb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -467,22 +467,6 @@ const LaunchPage = () => {
 
               <p className="text-[#555] leading-relaxed text-base md:text-lg">
                 {t("why.text")}
-              </p>
-            </motion.div>
-          </section>
-          <section className="py-6 md:py-10">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="max-w-md mx-auto flex flex-col items-center gap-4"
-            >
-              <p
-                className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
-              >
-                {t("tagline.2")}
               </p>
             </motion.div>
           </section>
