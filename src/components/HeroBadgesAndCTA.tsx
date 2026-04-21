@@ -175,9 +175,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </span>
               <span className="text-lg md:text-xl text-[#999] line-through">CHF 129</span>
             </div>
-            <p className="text-sm font-semibold mb-8" style={{ color: "#4a8c5c" }}>
-              {t("cta.savings")}
-            </p>
+            <div className="mb-8" />
 
             <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3">
               {[
