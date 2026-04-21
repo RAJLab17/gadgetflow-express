@@ -211,7 +211,7 @@ className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-xl sm
               {slide.headline}
             </h2>
             <p
-              className="mt-2 md:mt-3 text-sm sm:text-base md:text-lg font-light whitespace-pre-line"
+              className="mt-2 md:mt-3 text-xs sm:text-sm md:text-base font-light whitespace-pre-line"
               style={{ color: slide.subColor || "#5a5550" }}
             >
               {slide.sub}
