@@ -138,7 +138,7 @@ const HeroCarousel = () => {
         <div className="container mx-auto px-4 pt-3 md:pt-10 pb-2 md:pb-6 text-center">
           <div>
             <h1
-              className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-2xl sm:text-3xl md:text-4xl"
+className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-xl sm:text-2xl md:text-3xl"
               style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif", letterSpacing: "-0.015em" }}
             >
               {t("carousel.heroLine1")}
