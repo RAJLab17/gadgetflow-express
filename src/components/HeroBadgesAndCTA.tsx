@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
 import { useLanguage } from "@/contexts/LanguageContext";
+import productImage from "@/assets/hero-carousel/slide-0-specs.webp";
 
 const ICON_COLOR = "#9b6b3f";
 const GOLD = "#9b6b3f";
