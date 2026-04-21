@@ -13,6 +13,9 @@ import slide4Sm from "@/assets/hero-carousel/slide-4-clean-480.webp";
 import slide5 from "@/assets/hero-carousel/slide-5-desire.webp";
 import slide5Sm from "@/assets/hero-carousel/slide-5-desire-480.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
+
+const BASE_OFFSET = 58;
 
 type Slide = {
   image: string;
@@ -77,7 +80,40 @@ const HeroCarousel = () => {
   const slides = buildSlides(t);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [liveCount, setLiveCount] = useState<number>(81);
+  const [pulse, setPulse] = useState(false);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchCount = async () => {
+      const { count } = await supabase
+        .from("launch_signups")
+        .select("*", { count: "exact", head: true });
+      if (mounted && typeof count === "number") {
+        setLiveCount(BASE_OFFSET + count);
+      }
+    };
+    fetchCount();
+
+    const channel = supabase
+      .channel("hero_carousel_signups_live")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "launch_signups" },
+        () => {
+          setLiveCount((prev) => prev + 1);
+          setPulse(true);
+          setTimeout(() => setPulse(false), 1800);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      mounted = false;
+      supabase.removeChannel(channel);
+    };
+  }, []);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [slides.length]);
   const prev = useCallback(() => setIndex((i) => (i - 1 + slides.length) % slides.length), [slides.length]);
