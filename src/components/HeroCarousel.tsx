@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import slide0 from "@/assets/hero-carousel/slide-0-specs.png";
-import slide1 from "@/assets/hero-carousel/slide-1-vorher-nachher.png";
-import slide2 from "@/assets/hero-carousel/slide-2-clean.png";
-import slide3 from "@/assets/hero-carousel/slide-3-fast.jpg";
-import slide4 from "@/assets/hero-carousel/slide-4-clean.png";
-import slide5 from "@/assets/hero-carousel/slide-5-desire.jpeg";
+import slide0 from "@/assets/hero-carousel/slide-0-specs.webp";
+import slide1 from "@/assets/hero-carousel/slide-1-vorher-nachher.webp";
+import slide2 from "@/assets/hero-carousel/slide-2-clean.webp";
+import slide3 from "@/assets/hero-carousel/slide-3-fast.webp";
+import slide4 from "@/assets/hero-carousel/slide-4-clean.webp";
+import slide5 from "@/assets/hero-carousel/slide-5-desire.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type Slide = {
@@ -134,7 +134,10 @@ const HeroCarousel = () => {
             key={`img-${index}`}
             src={slide.image}
             alt={slide.alt}
+            width={1200}
+            height={900}
             loading={index === 0 ? "eager" : "lazy"}
+            decoding={index === 0 ? "sync" : "async"}
             fetchPriority={index === 0 ? "high" : "auto"}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

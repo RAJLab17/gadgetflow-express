@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import logo from "@/assets/logo-new.png";
+import logo from "@/assets/logo-new.webp";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -127,6 +127,10 @@ const Header = () => {
               <img
                 src={logo}
                 alt="RAJ Logo"
+                width={180}
+                height={56}
+                fetchPriority="high"
+                decoding="async"
                 className="h-14 w-auto transition-all duration-300 drop-shadow-sm"
               />
               <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">

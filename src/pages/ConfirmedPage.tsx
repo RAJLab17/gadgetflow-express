@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import logo from "@/assets/logo-new.png";
+import logo from "@/assets/logo-new.webp";
 
 const ConfirmedPage = () => {
   return (

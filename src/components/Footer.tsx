@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackMetaEvent } from "@/lib/meta-pixel";
-import logo from "@/assets/logo-new.png";
+import logo from "@/assets/logo-new.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -129,6 +129,10 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="RAJ" 
+                width={180}
+                height={48}
+                loading="lazy"
+                decoding="async"
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
               />
               <span className="text-sm font-semibold text-foreground/80 tracking-wide">
