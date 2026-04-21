@@ -166,7 +166,7 @@ const HeroCarousel = () => {
             >
               {t("carousel.heroLine1")}
               <br />
-              <span style={{ color: GOLD }} className="font-normal">{t("carousel.heroLine2")}</span>
+              <span style={{ color: GOLD }} className="font-semibold">{t("carousel.heroLine2")}</span>
             </h1>
           </motion.div>
         </div>
