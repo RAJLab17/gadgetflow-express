@@ -16,6 +16,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 type Slide = {
   image: string;
+  imageSm: string;
   alt: string;
   headline: string;
   sub: string;
