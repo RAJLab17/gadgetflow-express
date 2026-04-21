@@ -129,6 +129,10 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="RAJ" 
+                width={180}
+                height={48}
+                loading="lazy"
+                decoding="async"
                 className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
               />
               <span className="text-sm font-semibold text-foreground/80 tracking-wide">
