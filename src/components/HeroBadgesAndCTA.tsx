@@ -191,7 +191,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif",
         }}
       >
-        <div className="container mx-auto px-4 pt-10 pb-12 md:pt-14 md:pb-16">
+        <div className="container mx-auto px-4 pt-5 pb-8 sm:pt-8 sm:pb-10 md:pt-14 md:pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -201,14 +201,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           >
             {/* 1. Founder Edition Badge */}
             <div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border mb-3 sm:mb-5"
               style={{
                 borderColor: "rgba(155,107,63,0.3)",
                 backgroundColor: "rgba(155,107,63,0.05)",
               }}
             >
               <span
-                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
+                className="text-[9px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
                 style={{ color: GOLD }}
               >
                 Founder Edition · Nur 100 Stück
@@ -216,12 +216,12 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-4 tracking-tight leading-[1.05]">
+            <h2 className="text-[26px] leading-[1.05] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2.5 sm:mb-4 tracking-tight">
               Sei dabei. Von Anfang an.
             </h2>
 
             {/* 3. Subheadline */}
-            <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-5 max-w-md">
+            <p className="text-[13px] sm:text-[15px] text-[#555] leading-snug sm:leading-relaxed mb-3 sm:mb-5 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
               von <span className="tabular-nums">100</span> Founder-Plätzen sind bereits vergeben.
               <br />
@@ -229,7 +229,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </p>
 
             {/* Progress Bar */}
-            <div className="w-full max-w-sm mb-10">
+            <div className="w-full max-w-sm mb-5 sm:mb-8">
               <div
                 className="relative h-1.5 rounded-full overflow-hidden"
                 style={{ backgroundColor: "rgba(155,107,63,0.12)" }}
@@ -246,50 +246,50 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
-              <div className="flex justify-between mt-2 text-[11px] text-[#888] tabular-nums">
+              <div className="flex justify-between mt-1.5 text-[10px] sm:text-[11px] text-[#888] tabular-nums">
                 <span>{taken} vergeben</span>
                 <span>{remaining} verfügbar</span>
               </div>
             </div>
 
             {/* 4. Countdown */}
-            <div className="w-full mb-10">
-              <p className="text-[12px] uppercase tracking-[0.2em] text-[#888] font-medium mb-3">
+            <div className="w-full mb-5 sm:mb-8">
+              <p className="text-[10px] sm:text-[12px] uppercase tracking-[0.2em] text-[#888] font-medium mb-2 sm:mb-3">
                 Founder-Preis endet in
               </p>
-              <div className="grid grid-cols-4 gap-2 sm:gap-3 max-w-md mx-auto">
+              <div className="grid grid-cols-4 gap-1.5 sm:gap-3 max-w-md mx-auto">
                 {countdownUnits.map((u) => (
                   <div
                     key={u.label}
-                    className="flex flex-col items-center justify-center rounded-xl py-3 sm:py-4"
+                    className="flex flex-col items-center justify-center rounded-lg sm:rounded-xl py-2 sm:py-4"
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid rgba(155,107,63,0.12)",
                     }}
                   >
-                    <span className="text-2xl sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
+                    <span className="text-xl sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
                       {String(u.value).padStart(2, "0")}
                     </span>
-                    <span className="text-[10px] sm:text-[11px] text-[#888] mt-1.5 font-medium tracking-wide">
+                    <span className="text-[9px] sm:text-[11px] text-[#888] mt-1 sm:mt-1.5 font-medium tracking-wide">
                       {u.label}
                     </span>
                   </div>
                 ))}
               </div>
-              <p className="text-[12px] text-[#888] mt-3">
+              <p className="text-[11px] sm:text-[12px] text-[#888] mt-2 sm:mt-3">
                 Danach regulär <span className="font-semibold text-[#1a1a1a]">CHF 129</span>
               </p>
             </div>
 
             {/* Benefits */}
-            <ul className="w-full max-w-sm mx-auto mb-8 text-left space-y-2.5">
+            <ul className="w-full max-w-sm mx-auto mb-5 sm:mb-7 text-left space-y-1.5 sm:space-y-2.5">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
               ].map((b) => (
-                <li key={b.text} className="flex items-start gap-2.5">
-                  <span className="text-base leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
-                  <span className="text-[13px] sm:text-[14px] leading-6 text-[#444]">{b.text}</span>
+                <li key={b.text} className="flex items-start gap-2 sm:gap-2.5">
+                  <span className="text-sm sm:text-base leading-5 sm:leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
+                  <span className="text-[12px] sm:text-[14px] leading-5 sm:leading-6 text-[#444]">{b.text}</span>
                 </li>
               ))}
             </ul>
