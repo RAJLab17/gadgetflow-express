@@ -13,7 +13,7 @@ const GOLD = "#9b6b3f";
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
-const BASE_TAKEN = 7;
+const BASE_TAKEN = 9;
 
 const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
   { icon: <SwissFlag size={18} />, label: t("badge.swissBrand") },
