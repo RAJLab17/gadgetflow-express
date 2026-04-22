@@ -148,21 +148,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center text-center max-w-2xl mx-auto"
           >
-            {/* 1. Founder Badge */}
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border"
-              style={{
-                backgroundColor: "rgba(155, 107, 63, 0.08)",
-                borderColor: GOLD,
-                color: GOLD,
-              }}
-            >
-              <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: GOLD }} />
-              <span className="text-[11px] md:text-xs font-bold tracking-[0.12em] uppercase">
-                {t("cta.founderBadge")}
-              </span>
-            </div>
-
             {/* 2. Headline */}
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
               {t("cta.headline")}
