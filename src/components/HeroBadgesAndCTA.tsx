@@ -296,11 +296,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* 5. CTA Form */}
             <div className="w-full max-w-md">
-              {!submitted && (
-                <p className="text-[12px] sm:text-[13px] text-[#1a1a1a] font-medium mb-2.5 sm:mb-3 text-center">
-                  Sichere dir deinen Platz zum Founder Preis <span className="text-[#9b6b3f] font-semibold">(CHF 99)</span>
-                </p>
-              )}
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
