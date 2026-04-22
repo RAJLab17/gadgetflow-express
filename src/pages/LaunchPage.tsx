@@ -271,7 +271,6 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.85 }}
                 className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
                 {t("tagline.1")}
               </motion.p>
@@ -334,7 +333,7 @@ const LaunchPage = () => {
               transition={{ duration: 0.6 }}
               className="max-w-xl mx-auto text-center"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6">
                 {t("why.title")} <span className="text-[#9b6b3f]">RAJ</span>?
               </h2>
 

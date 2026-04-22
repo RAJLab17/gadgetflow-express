@@ -69,7 +69,7 @@ const Hero = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight text-foreground" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight text-foreground">
                 Eleganz
               </h1>
             </motion.div>
@@ -81,7 +81,7 @@ const Hero = () => {
                 animate={{ y: 0 }}
                 transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
               >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight" style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] tracking-tight">
                 <span className="text-primary">trifft Leistung.</span>
               </h1>
               </motion.div>

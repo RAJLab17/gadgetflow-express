@@ -214,10 +214,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       <section
         id="signup-form"
         className="w-full"
-        style={{
-          backgroundColor: "#faf6f0",
-          fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif",
-        }}
+        style={{ backgroundColor: "#faf6f0" }}
       >
         <div className="container mx-auto px-4 pt-10 pb-8 sm:pt-12 sm:pb-10 md:pt-16 md:pb-16">
           <motion.div
