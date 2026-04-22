@@ -216,12 +216,12 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-[26px] leading-[1.05] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2.5 sm:mb-4 tracking-tight">
+            <h2 className="text-[28px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-5 sm:mb-6 tracking-tight">
               Sei dabei. Von Anfang an.
             </h2>
 
             {/* 3. Subheadline */}
-            <p className="text-[13px] sm:text-[15px] text-[#555] leading-snug sm:leading-relaxed mb-3 sm:mb-5 max-w-md">
+            <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-6 sm:mb-7 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
               von <span className="tabular-nums">100</span> Founder-Plätzen sind bereits vergeben.
               <br />
