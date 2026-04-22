@@ -318,8 +318,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                  <label htmlFor="founder-email" className="text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#9b6b3f] font-semibold text-center">
-                    Trag deine E-Mail ein
+                  <label htmlFor="founder-email" className="text-center">
+                    <span className="block text-[13px] sm:text-[14px] font-semibold text-[#1a1a1a]">
+                      Erhalte Zugang zum Launch
+                    </span>
+                    <span className="block text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#9b6b3f] font-semibold mt-1">
+                      Trag deine E-Mail ein
+                    </span>
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none" />
