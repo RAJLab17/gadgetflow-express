@@ -327,9 +327,7 @@ const LaunchPage = () => {
         <div className="relative z-10">
           {/* Mini Header with Language Toggle */}
           <div className="py-1 md:py-4 px-4 flex items-center justify-between">
-            <div className="inline-flex items-center rounded-md border border-border/70 bg-card/95 px-3 py-2 shadow-elegant backdrop-blur-sm">
-              <img src={logo} alt="RAJ" width={120} height={40} className="h-10 w-auto" />
-            </div>
+            <img src={logo} alt="RAJ" width={120} height={40} className="h-10 w-auto" />
             <div className="flex items-center gap-1 text-xs font-medium">
               <button
                 onClick={() => setLang("de")}
