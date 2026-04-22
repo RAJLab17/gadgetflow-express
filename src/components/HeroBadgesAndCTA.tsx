@@ -276,8 +276,12 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   </div>
                 ))}
               </div>
-              <p className="text-[11px] sm:text-[12px] text-[#888] mt-2 sm:mt-3">
-                Danach regulär <span className="font-semibold text-[#1a1a1a]">CHF 129</span>
+              <p className="mt-2 sm:mt-3 flex items-baseline justify-center gap-2">
+                <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-[#9b6b3f] font-semibold">Jetzt</span>
+                <span className="text-xl sm:text-2xl font-extrabold text-[#1a1a1a] tabular-nums tracking-tight">CHF 99.–</span>
+                <span className="text-[11px] sm:text-[12px] text-[#888]">
+                  statt <span className="line-through">CHF 129</span>
+                </span>
               </p>
             </div>
 
