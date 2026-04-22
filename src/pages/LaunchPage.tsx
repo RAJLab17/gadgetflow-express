@@ -162,45 +162,31 @@ const LaunchPage = () => {
     });
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
+  const refreshSpotsTaken = useCallback(async () => {
+    try {
+      const supabase = await getSupabase();
+      const { count, error } = await supabase
+        .from("launch_signups")
+        .select("id", { count: "exact", head: true });
 
-    const loadSignupCount = async () => {
-      try {
-        const supabase = await getSupabase();
-        const { count, error } = await supabase
-          .from("launch_signups")
-          .select("id", { count: "exact", head: true });
+      if (error || typeof count !== "number") return;
 
-        if (cancelled || error || typeof count !== "number") return;
-
-        const nextCount = Math.min(TOTAL_SPOTS, count);
-        setSpotsTaken(nextCount);
-        window.localStorage.setItem(SPOTS_CACHE_KEY, String(nextCount));
-      } catch (error) {
-        console.error("Failed to load launch signup count:", error);
-      }
-    };
-
-    loadSignupCount();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const incrementSpotsTaken = useCallback(() => {
-    setSpotsTaken((prev) => {
-      const nextCount = Math.min(TOTAL_SPOTS, prev + 1);
+      const nextCount = Math.min(TOTAL_SPOTS, count);
+      setSpotsTaken(nextCount);
       window.localStorage.setItem(SPOTS_CACHE_KEY, String(nextCount));
-      return nextCount;
-    });
+    } catch (error) {
+      console.error("Failed to load launch signup count:", error);
+    }
   }, []);
+
+  useEffect(() => {
+    void refreshSpotsTaken();
+  }, [refreshSpotsTaken]);
 
   const handleSecondSignupSuccess = useCallback(() => {
-    incrementSpotsTaken();
+    void refreshSpotsTaken();
     fireConfetti();
-  }, [incrementSpotsTaken]);
+  }, [refreshSpotsTaken]);
 
   return (
     <>
@@ -276,7 +262,7 @@ const LaunchPage = () => {
           <HeroBadgesAndCTA
             spotsTaken={spotsTaken}
             onSignupSuccess={() => {
-              incrementSpotsTaken();
+              void refreshSpotsTaken();
               fireConfetti();
             }}
           />
