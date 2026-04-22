@@ -358,8 +358,7 @@ const LaunchPage = () => {
             </div>
           </div>
 
-          {/* ===== 1. HERO CAROUSEL + FOUNDER CTA ===== */}
-          <HeroCarousel />
+          {/* ===== 1. FOUNDER CTA (HERO) + CAROUSEL BELOW ===== */}
           <HeroBadgesAndCTA
             spotsTaken={spotsTaken}
             onSignupSuccess={() => {
@@ -368,6 +367,7 @@ const LaunchPage = () => {
               setTimeout(() => setShowSignupToast(true), 3000);
             }}
           />
+          <HeroCarousel />
 
           {/* Lifestyle duo */}
           <section className="container mx-auto px-4 pt-6 md:pt-10">
