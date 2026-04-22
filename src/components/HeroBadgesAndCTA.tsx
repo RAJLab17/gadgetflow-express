@@ -13,7 +13,7 @@ const GOLD = "#9b6b3f";
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
-const BASE_TAKEN = 7;
+const BASE_TAKEN = 9;
 
 const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
   { icon: <SwissFlag size={18} />, label: t("badge.swissBrand") },
@@ -96,17 +96,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [popupTrigger, setPopupTrigger] = useState(0);
 
   useEffect(() => {
-    let mounted = true;
-    const fetchCount = async () => {
-      const { count } = await supabase
-        .from("launch_signups")
-        .select("*", { count: "exact", head: true });
-      if (mounted && typeof count === "number") {
-        setLiveCount(Math.min(TOTAL_SPOTS, BASE_TAKEN + count));
-      }
-    };
-    fetchCount();
-
     const channel = supabase
       .channel("launch_signups_live")
       .on(
@@ -120,7 +109,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       .subscribe();
 
     return () => {
-      mounted = false;
       supabase.removeChannel(channel);
     };
   }, []);
