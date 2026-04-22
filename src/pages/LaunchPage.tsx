@@ -577,7 +577,7 @@ const LaunchPage = () => {
                       {isSubmitting2 ? (
                         <Loader2 className="w-5 h-5 animate-spin" />
                       ) : (
-                          t("cta2.button")
+                          <>Meinen Founder-Platz sichern <span aria-hidden>→</span></>
                       )}
                     </button>
                   </div>
