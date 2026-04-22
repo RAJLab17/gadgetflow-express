@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Mail, Loader2, Check, Smartphone, Headphones, Watch } from "lucide-react";
+import React, { useState, useEffect, useCallback, lazy, Suspense } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Smartphone, Headphones, Watch } from "lucide-react";
 
 // Below-the-fold sections — lazy-loaded to reduce initial JS
 const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection"));
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
 import { Helmet } from "react-helmet-async";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
-import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
@@ -19,15 +16,7 @@ import lifestyleWoman from "@/assets/lifestyle-woman.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
-
 import logo from "@/assets/logo-new.webp";
-import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
-import chargerColors from "@/assets/products/charger-3in1-colors-new.webp";
-import chargerAngles from "@/assets/products/charger-3in1-angles.webp";
-import chargerFastCharge from "@/assets/products/charger-3in1-fast-charge.webp";
-
-
-const nexusImages = [chargerFastCharge, chargerColors, chargerAngles];
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 
