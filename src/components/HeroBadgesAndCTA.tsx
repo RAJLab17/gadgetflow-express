@@ -99,20 +99,44 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [popupTrigger, setPopupTrigger] = useState(0);
 
   useEffect(() => {
-    const channel = supabase
-      .channel("launch_signups_live")
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "launch_signups" },
-        () => {
-          setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
-          setPopupTrigger((p) => p + 1);
-        }
-      )
-      .subscribe();
+    let cancelled = false;
+    let channel: any = null;
+
+    // Defer the realtime subscription until the browser is idle so it
+    // doesn't compete with the LCP paint.
+    const start = async () => {
+      const supabase = await getSupabase();
+      if (cancelled) return;
+      channel = supabase
+        .channel("launch_signups_live")
+        .on(
+          "postgres_changes",
+          { event: "INSERT", schema: "public", table: "launch_signups" },
+          () => {
+            setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+            setPopupTrigger((p) => p + 1);
+          }
+        )
+        .subscribe();
+    };
+
+    const ric = (window as any).requestIdleCallback as
+      | ((cb: () => void, opts?: { timeout: number }) => number)
+      | undefined;
+    const handle = ric
+      ? ric(start, { timeout: 3000 })
+      : window.setTimeout(start, 1500);
 
     return () => {
-      supabase.removeChannel(channel);
+      cancelled = true;
+      if (ric && (window as any).cancelIdleCallback) {
+        (window as any).cancelIdleCallback(handle);
+      } else {
+        clearTimeout(handle as number);
+      }
+      if (channel) {
+        getSupabase().then((supabase) => supabase.removeChannel(channel));
+      }
     };
   }, []);
 
