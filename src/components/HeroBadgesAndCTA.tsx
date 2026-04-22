@@ -246,10 +246,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
-              <div className="flex justify-between mt-1.5 text-[10px] sm:text-[11px] text-[#888] tabular-nums">
-                <span>{taken} vergeben</span>
-                <span>{remaining} verfügbar</span>
-              </div>
             </div>
 
             {/* 4. Countdown */}
