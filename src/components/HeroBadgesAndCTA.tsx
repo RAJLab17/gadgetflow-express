@@ -1,6 +1,6 @@
 import { useEffect, useState, FormEvent } from "react";
-import { motion } from "framer-motion";
-import { Loader2, Check, Zap, ShieldCheck, Truck, RotateCcw } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Loader2, Check, ShieldCheck, Truck, RotateCcw } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -10,10 +10,10 @@ import productImage from "@/assets/hero-carousel/slide-0-specs.webp";
 
 const ICON_COLOR = "#9b6b3f";
 const GOLD = "#9b6b3f";
-const GREEN = "#4a8c5c";
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
+const BASE_TAKEN = 7;
 
 const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
   { icon: <SwissFlag size={18} />, label: t("badge.swissBrand") },
@@ -46,11 +46,54 @@ const useCountdown = () => {
   return t;
 };
 
-const BASE_OFFSET = 58;
+const SocialProofPopup = ({ trigger }: { trigger: number }) => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (trigger === 0) return;
+    setShow(true);
+    const id = setTimeout(() => setShow(false), 4500);
+    return () => clearTimeout(id);
+  }, [trigger]);
+
+  return (
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 10, scale: 0.96 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed bottom-5 left-5 z-50 max-w-[300px]"
+        >
+          <div
+            className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
+            style={{ borderColor: "rgba(155,107,63,0.18)" }}
+          >
+            <span className="relative flex h-2 w-2 shrink-0">
+              <span
+                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+                style={{ backgroundColor: GOLD }}
+              />
+              <span
+                className="relative inline-flex rounded-full h-2 w-2"
+                style={{ backgroundColor: GOLD }}
+              />
+            </span>
+            <p className="text-[13px] leading-snug text-[#2c2c2c]">
+              Jemand hat sich gerade einen Founder-Platz gesichert
+            </p>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const { t } = useLanguage();
-  const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? 81);
+  const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? BASE_TAKEN);
+  const [popupTrigger, setPopupTrigger] = useState(0);
 
   useEffect(() => {
     let mounted = true;
@@ -59,7 +102,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         .from("launch_signups")
         .select("*", { count: "exact", head: true });
       if (mounted && typeof count === "number") {
-        setLiveCount(BASE_OFFSET + count);
+        setLiveCount(Math.min(TOTAL_SPOTS, BASE_TAKEN + count));
       }
     };
     fetchCount();
@@ -69,7 +112,10 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "launch_signups" },
-        () => setLiveCount((prev) => prev + 1)
+        () => {
+          setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+          setPopupTrigger((p) => p + 1);
+        }
       )
       .subscribe();
 
@@ -80,11 +126,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   }, []);
 
   const taken = liveCount;
+  const remaining = Math.max(0, TOTAL_SPOTS - taken);
+  const progress = Math.min(100, (taken / TOTAL_SPOTS) * 100);
+
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const countdown = useCountdown();
-  
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -114,23 +162,31 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   };
 
   const countdownUnits = [
-    { value: countdown.days, label: t("countdown.daysLong") },
-    { value: countdown.hours, label: t("countdown.hoursLong") },
-    { value: countdown.minutes, label: t("countdown.minutesLong") },
-    { value: countdown.seconds, label: t("countdown.secondsLong") },
+    { value: countdown.days, label: "Tage" },
+    { value: countdown.hours, label: "Std" },
+    { value: countdown.minutes, label: "Min" },
+    { value: countdown.seconds, label: "Sek" },
   ];
 
   const badges = getBadges(t);
 
   return (
     <>
-      {/* Badge-Leiste */}
+      <SocialProofPopup trigger={popupTrigger} />
+
+      {/* Trust Badges */}
       <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
         <div className="container mx-auto px-3 sm:px-4 pt-1 pb-4">
           <div className="flex flex-nowrap items-center justify-around md:justify-center gap-x-2 sm:gap-x-4 md:gap-x-10 lg:gap-x-14 text-[10px] sm:text-xs md:text-sm">
             {badges.map((b) => (
-              <span key={b.label} className="whitespace-nowrap inline-flex items-center gap-1.5 sm:gap-2 shrink-0" style={{ color: "#888" }}>
-                <span className="inline-flex items-center [&_svg]:w-3.5 [&_svg]:h-3.5 sm:[&_svg]:w-4 sm:[&_svg]:h-4 md:[&_svg]:w-[18px] md:[&_svg]:h-[18px]">{b.icon}</span>
+              <span
+                key={b.label}
+                className="whitespace-nowrap inline-flex items-center gap-1.5 sm:gap-2 shrink-0"
+                style={{ color: "#888" }}
+              >
+                <span className="inline-flex items-center [&_svg]:w-3.5 [&_svg]:h-3.5 sm:[&_svg]:w-4 sm:[&_svg]:h-4 md:[&_svg]:w-[18px] md:[&_svg]:h-[18px]">
+                  {b.icon}
+                </span>
                 {b.label}
               </span>
             ))}
@@ -138,132 +194,175 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         </div>
       </div>
 
-      {/* CTA Block */}
-      <section id="signup-form" className="w-full" style={{ backgroundColor: "#faf6f0", fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif" }}>
-        <div className="container mx-auto px-4 pt-12 pb-10 md:pt-16 md:pb-12">
+      {/* Hero CTA */}
+      <section
+        id="signup-form"
+        className="w-full"
+        style={{
+          backgroundColor: "#faf6f0",
+          fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif",
+        }}
+      >
+        <div className="container mx-auto px-4 pt-10 pb-12 md:pt-14 md:pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center max-w-2xl mx-auto"
+            className="flex flex-col items-center text-center max-w-xl mx-auto"
           >
+            {/* 1. Founder Edition Badge */}
+            <div
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border mb-6"
+              style={{
+                borderColor: "rgba(155,107,63,0.3)",
+                backgroundColor: "rgba(155,107,63,0.05)",
+              }}
+            >
+              <span
+                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
+                style={{ color: GOLD }}
+              >
+                Founder Edition · Nur 100 Stück
+              </span>
+            </div>
+
             {/* 2. Headline */}
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#1a1a1a] mb-6 tracking-tight leading-[1.1]">
-              {t("cta.headline")}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-4 tracking-tight leading-[1.05]">
+              Sei dabei. Von Anfang an.
             </h2>
 
+            {/* 3. Subheadline */}
+            <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-5 max-w-md">
+              <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
+              von <span className="tabular-nums">100</span> Founder-Plätzen sind bereits vergeben.
+              <br className="hidden sm:block" />
+              Du kannst noch zu den ersten gehören.
+            </p>
 
-            <ul className="w-full max-w-[480px] mx-auto mb-10 text-left space-y-3 pl-6 sm:pl-10">
-              {[
-                { icon: "⚡", text: t("cta.benefit1") },
-                { icon: "🏆", text: t("cta.benefit2") },
-                { icon: "💰", text: t("cta.benefit3") },
-              ].map((b) => (
-                <li key={b.text} className="flex items-start gap-2 sm:gap-3">
-                  <span className="text-base sm:text-lg leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
-                  <span className="text-[13px] sm:text-[15px] leading-6 text-[#444] whitespace-nowrap sm:whitespace-normal overflow-hidden text-ellipsis">{b.text}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Progress Bar */}
+            <div className="w-full max-w-sm mb-10">
+              <div
+                className="relative h-1.5 rounded-full overflow-hidden"
+                style={{ backgroundColor: "rgba(155,107,63,0.12)" }}
+                role="progressbar"
+                aria-valuenow={taken}
+                aria-valuemin={0}
+                aria-valuemax={TOTAL_SPOTS}
+              >
+                <motion.div
+                  className="absolute inset-y-0 left-0 rounded-full"
+                  style={{ backgroundColor: GOLD }}
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </div>
+              <div className="flex justify-between mt-2 text-[11px] text-[#888] tabular-nums">
+                <span>{taken} vergeben</span>
+                <span>{remaining} verfügbar</span>
+              </div>
+            </div>
 
-            {/* 5. Countdown */}
-            <div className="w-full mb-3">
-              <div className="grid grid-cols-4 gap-2 sm:gap-3">
+            {/* 4. Countdown */}
+            <div className="w-full mb-10">
+              <p className="text-[12px] uppercase tracking-[0.2em] text-[#888] font-medium mb-3">
+                Founder-Preis endet in
+              </p>
+              <div className="grid grid-cols-4 gap-2 sm:gap-3 max-w-md mx-auto">
                 {countdownUnits.map((u) => (
                   <div
                     key={u.label}
-                    className="flex flex-col items-center justify-center rounded-lg p-3 sm:p-4"
-                    style={{ backgroundColor: "#f5f0e8" }}
+                    className="flex flex-col items-center justify-center rounded-xl py-3 sm:py-4"
+                    style={{
+                      backgroundColor: "#ffffff",
+                      border: "1px solid rgba(155,107,63,0.12)",
+                    }}
                   >
                     <span className="text-2xl sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
                       {String(u.value).padStart(2, "0")}
                     </span>
-                    <span className="text-[10px] sm:text-xs text-[#888] mt-1.5 font-medium">
+                    <span className="text-[10px] sm:text-[11px] text-[#888] mt-1.5 font-medium tracking-wide">
                       {u.label}
                     </span>
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-[#888] mt-3 inline-flex items-center justify-center gap-1.5 w-full">
-                <span aria-hidden>⏰</span>
-                {t("cta.priceWarning")}
+              <p className="text-[12px] text-[#888] mt-3">
+                Danach regulär <span className="font-semibold text-[#1a1a1a]">CHF 129</span>
               </p>
             </div>
 
-            {/* 6. E-Mail Form */}
-            <div className="w-full mt-8">
-              {/* Premium Reservierungs-Hinweis (über E-Mail) */}
-              {!submitted && (
-                <motion.div
-                  initial={{ opacity: 0, y: 6 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="mb-4 inline-flex items-center gap-2.5 px-4 py-2 rounded-full border mx-auto"
-                  style={{
-                    backgroundColor: "rgba(155, 107, 63, 0.06)",
-                    borderColor: "rgba(155, 107, 63, 0.25)",
-                  }}
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
-                    <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
-                  </span>
-                  <p className="text-[13px] text-[#444] leading-none">
-                    {t("cta.registeredPrefix")} <span className="font-bold tabular-nums" style={{ color: GOLD }}>{taken} {t("cta.registeredPeople")}</span> {t("cta.registeredSuffix")}
-                  </p>
-                </motion.div>
-              )}
-
+            {/* 5. CTA Form */}
+            <div className="w-full max-w-md">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex items-center justify-center gap-3 p-4 rounded-xl border"
-                  style={{ borderColor: GOLD, backgroundColor: "rgba(155,107,63,0.06)" }}
+                  style={{
+                    borderColor: GOLD,
+                    backgroundColor: "rgba(155,107,63,0.06)",
+                  }}
                 >
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: GOLD }}>
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: GOLD }}
+                  >
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-sm font-semibold text-[#1a1a1a]">
-                    {t("cta.thanks")}
+                    Dein Founder-Platz ist reserviert.
                   </span>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-                  <div className="relative flex-1 sm:basis-[70%]">
-                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-base pointer-events-none" aria-hidden>✉️</span>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder={t("launch.emailPlaceholder")}
-                      required
-                      disabled={submitting}
-                      className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-white border-2 border-[#9b6b3f]/40 text-[#1a1a1a] placeholder:text-[#666] text-[15px] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/30 focus:border-[#9b6b3f] transition-all"
-                    />
-                  </div>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="E-Mail Adresse"
+                    required
+                    disabled={submitting}
+                    className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[#9b6b3f]/25 text-[#1a1a1a] placeholder:text-[#999] text-[15px] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/20 focus:border-[#9b6b3f] transition-all"
+                  />
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="sm:basis-[30%] px-6 py-3.5 rounded-xl text-white font-bold text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                    className="w-full px-6 py-3.5 rounded-xl text-white font-bold text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
                     style={{ backgroundColor: GOLD }}
                   >
                     {submitting ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <>{t("cta.button")} <span aria-hidden>→</span></>
+                      <>
+                        Meinen Founder-Platz sichern <span aria-hidden>→</span>
+                      </>
                     )}
                   </button>
                 </form>
               )}
 
-              {/* 7. Trust-Text */}
-              <p className="text-[13px] text-[#888] mt-4 text-center md:text-left">
-                {t("cta.trust")}
+              <p className="text-[12px] text-[#888] mt-3 text-center">
+                Kostenlose Reservierung · Keine Zahlungsdaten · Kein Spam
               </p>
             </div>
+
+            {/* 6. Product Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="w-full max-w-md mt-12"
+            >
+              <img
+                src={productImage}
+                alt="RAJ NEXUS — 3-in-1 Wireless Charger"
+                loading="lazy"
+                className="w-full h-auto"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>
