@@ -1,4 +1,7 @@
-import { supabase } from "@/integrations/supabase/client";
+// Lazy-load Supabase so this module doesn't drag the supabase-vendor chunk
+// into the critical path of pages that call trackMetaEvent on mount.
+const getSupabase = () =>
+  import("@/integrations/supabase/client").then((m) => m.supabase);
 
 /**
  * Generate a unique event ID for deduplication between
@@ -32,6 +35,7 @@ export async function trackMetaEvent(
 
   // 2. Server-side Conversions API (silent — never break the UI)
   try {
+    const supabase = await getSupabase();
     const { error } = await supabase.functions.invoke("meta-capi", {
       body: {
         event_name: eventName,
