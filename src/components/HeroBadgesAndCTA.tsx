@@ -348,21 +348,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </p>
             </div>
 
-            {/* 6. Product Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="w-full max-w-md mt-12"
-            >
-              <img
-                src={productImage}
-                alt="RAJ NEXUS — 3-in-1 Wireless Charger"
-                loading="lazy"
-                className="w-full h-auto"
-              />
-            </motion.div>
           </motion.div>
         </div>
       </section>
