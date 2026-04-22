@@ -146,7 +146,6 @@ const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
   const prefersReducedMotion = useReducedMotion();
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
-  const [showSignupToast, setShowSignupToast] = useState(false);
 
   // Track ViewContent on mount
   useEffect(() => {
@@ -158,7 +157,6 @@ const LaunchPage = () => {
   const handleSecondSignupSuccess = useCallback(() => {
     setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
     fireConfetti();
-    setTimeout(() => setShowSignupToast(true), 3000);
   }, []);
 
   return (
@@ -237,7 +235,6 @@ const LaunchPage = () => {
             onSignupSuccess={() => {
               setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
               fireConfetti();
-              setTimeout(() => setShowSignupToast(true), 3000);
             }}
           />
           <HeroCarousel />
@@ -379,8 +376,6 @@ const LaunchPage = () => {
           </footer>
         </div>
       </div>
-      {showSignupToast && <SignupToast />}
-
       {/* Sticky mobile CTA removed per user request */}
     </>
   );

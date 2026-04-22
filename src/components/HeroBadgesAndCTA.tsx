@@ -98,6 +98,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? BASE_TAKEN);
   const [popupTrigger, setPopupTrigger] = useState(0);
 
+  // Keep local counter in sync when parent updates spotsTaken (e.g. after own signup)
+  useEffect(() => {
+    if (typeof spotsTaken === "number") {
+      setLiveCount((prev) => Math.max(prev, spotsTaken));
+    }
+  }, [spotsTaken]);
+
   useEffect(() => {
     let cancelled = false;
     let channel: any = null;
