@@ -337,7 +337,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
                       <>
-                        Meinen Founder-Platz sichern <span aria-hidden>→</span>
+                        Meinen Founder Platz sichern <span aria-hidden>→</span>
                       </>
                     )}
                   </button>
