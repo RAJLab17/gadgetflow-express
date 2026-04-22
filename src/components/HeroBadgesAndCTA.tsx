@@ -191,7 +191,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           fontFamily: "'Outfit', 'Neue Haas Grotesk Display Pro', sans-serif",
         }}
       >
-        <div className="container mx-auto px-4 pt-10 pb-12 md:pt-14 md:pb-16">
+        <div className="container mx-auto px-4 pt-5 pb-8 sm:pt-8 sm:pb-10 md:pt-14 md:pb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
