@@ -124,15 +124,17 @@ const Header = () => {
               transition={{ duration: 0.3 }}
               className="flex items-center gap-3"
             >
-              <img
-                src={logo}
-                alt="RAJ Logo"
-                width={180}
-                height={56}
-                fetchPriority="high"
-                decoding="async"
-                className="h-14 w-auto transition-all duration-300 drop-shadow-sm"
-              />
+              <div className="inline-flex items-center rounded-md border border-border/70 bg-card/95 px-3 py-2 shadow-elegant backdrop-blur-sm">
+                <img
+                  src={logo}
+                  alt="RAJ Logo"
+                  width={180}
+                  height={56}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="h-14 w-auto transition-all duration-300 drop-shadow-sm"
+                />
+              </div>
               <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
                 Power. Always There.
               </span>
