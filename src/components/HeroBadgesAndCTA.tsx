@@ -157,6 +157,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     }
     setSubmitting(true);
     try {
+      const supabase = await getSupabase();
       const { data, error } = await supabase.functions.invoke("brevo-subscribe", {
         body: { email: email.trim() },
       });
