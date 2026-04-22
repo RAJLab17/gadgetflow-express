@@ -96,17 +96,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [popupTrigger, setPopupTrigger] = useState(0);
 
   useEffect(() => {
-    let mounted = true;
-    const fetchCount = async () => {
-      const { count } = await supabase
-        .from("launch_signups")
-        .select("*", { count: "exact", head: true });
-      if (mounted && typeof count === "number") {
-        setLiveCount(Math.min(TOTAL_SPOTS, BASE_TAKEN + count));
-      }
-    };
-    fetchCount();
-
     const channel = supabase
       .channel("launch_signups_live")
       .on(
@@ -120,7 +109,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       .subscribe();
 
     return () => {
-      mounted = false;
       supabase.removeChannel(channel);
     };
   }, []);
