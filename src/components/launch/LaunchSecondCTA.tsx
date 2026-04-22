@@ -58,7 +58,6 @@ const LaunchSecondCTA = ({ onSignupSuccess }: LaunchSecondCTAProps) => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8"
-          style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
         >
           {t("cta2.title")}
         </motion.h2>
