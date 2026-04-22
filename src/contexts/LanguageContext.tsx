@@ -116,8 +116,8 @@ const translations: Translations = {
   // Hero Carousel
   "carousel.heroLine1": { de: "Ein Kabel. Drei Geräte.", fr: "Un câble. Trois appareils.", it: "Un cavo. Tre dispositivi." },
   "carousel.heroLine2": { de: "Kein Kabelchaos mehr.", fr: "Fini le chaos des câbles.", it: "Mai più caos di cavi." },
-  "carousel.s0.headline": { de: "Wireless Charger", fr: "Chargeur Sans Fil", it: "Caricatore Wireless" },
-  "carousel.s0.sub": { de: "Qi2.2 · 25W · 3-in-1", fr: "Qi2.2 · 25W · 3-en-1", it: "Qi2.2 · 25W · 3-in-1" },
+  "carousel.s0.headline": { de: "Alles, was du brauchst.", fr: "Tout ce qu'il te faut.", it: "Tutto ciò che ti serve." },
+  "carousel.s0.sub": { de: "An einem Ort.", fr: "En un seul endroit.", it: "In un unico posto." },
   "carousel.s1.headline": { de: "Schluss mit Kabelchaos.", fr: "Fini le chaos de câbles.", it: "Basta col caos dei cavi." },
   "carousel.s1.sub": { de: "Alles an einem Ort — ordentlich, elegant, bereit.", fr: "Tout au même endroit — net, élégant, prêt.", it: "Tutto in un posto — ordinato, elegante, pronto." },
   "carousel.s2.headline": { de: "One Place. All Your Power.", fr: "One Place. All Your Power.", it: "One Place. All Your Power." },
