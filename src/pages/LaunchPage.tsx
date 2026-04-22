@@ -376,8 +376,6 @@ const LaunchPage = () => {
           </footer>
         </div>
       </div>
-      {showSignupToast && <SignupToast />}
-
       {/* Sticky mobile CTA removed per user request */}
     </>
   );
