@@ -158,7 +158,6 @@ const LaunchPage = () => {
   const handleSecondSignupSuccess = useCallback(() => {
     setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
     fireConfetti();
-    setTimeout(() => setShowSignupToast(true), 3000);
   }, []);
 
   return (
