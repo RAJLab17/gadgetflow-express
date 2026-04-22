@@ -146,7 +146,6 @@ const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
   const prefersReducedMotion = useReducedMotion();
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
-  const [showSignupToast, setShowSignupToast] = useState(false);
 
   // Track ViewContent on mount
   useEffect(() => {
