@@ -251,47 +251,11 @@ const LaunchPage = () => {
     }
   };
 
-  const handleSubmit2 = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email2 || !email2.includes("@")) {
-      toast.error(t("error.invalidEmail"));
-      return;
-    }
-    // Honeypot: bot detected — fake success, don't submit
-    if (hpWebsite2 || hpCompany2) {
-      setIsSubmitted2(true);
-      return;
-    }
-    setIsSubmitting2(true);
-    try {
-      const { data, error } = await supabase.functions.invoke("brevo-subscribe", {
-        body: { email: email2.trim() },
-      });
-      if (error) throw error;
-      if (data?.success) {
-        setIsSubmitted2(true);
-        setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
-        fireConfetti();
-        setTimeout(() => setShowSignupToast(true), 3000);
-        trackMetaEvent("Lead", { email: email2.trim() });
-      } else {
-        throw new Error(data?.error || "Unbekannter Fehler");
-      }
-    } catch (error) {
-      console.error("Launch signup failed:", error);
-      toast.error(t("error.failed"));
-    } finally {
-      setIsSubmitting2(false);
-    }
-  };
-
-  const faqItems = [
-    { q: t("faq.q1"), a: t("faq.a1") },
-    { q: t("faq.q2"), a: t("faq.a2") },
-    { q: t("faq.q3"), a: t("faq.a3") },
-    { q: t("faq.q4"), a: t("faq.a4") },
-    { q: t("faq.q5"), a: t("faq.a5") },
-  ];
+  const handleSecondSignupSuccess = useCallback(() => {
+    setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+    fireConfetti();
+    setTimeout(() => setShowSignupToast(true), 3000);
+  }, []);
 
   return (
     <>
