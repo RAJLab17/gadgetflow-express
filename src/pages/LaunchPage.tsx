@@ -236,7 +236,6 @@ const LaunchPage = () => {
             onSignupSuccess={() => {
               setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
               fireConfetti();
-              setTimeout(() => setShowSignupToast(true), 3000);
             }}
           />
           <HeroCarousel />
