@@ -19,6 +19,8 @@ import { trackMetaEvent } from "@/lib/meta-pixel";
 import logo from "@/assets/logo-new.webp";
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
+const getSupabase = () =>
+  import("@/integrations/supabase/client").then((m) => m.supabase);
 
 const CountdownTimer = () => {
   const { t } = useLanguage();
@@ -141,11 +143,17 @@ const CountUpNumber = ({ target }: { target: number }) => {
 
 const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 9;
+const SPOTS_CACHE_KEY = "launch_spots_taken";
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
   const prefersReducedMotion = useReducedMotion();
-  const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
+  const [spotsTaken, setSpotsTaken] = useState(() => {
+    if (typeof window === "undefined") return DEFAULT_TAKEN;
+    const cachedValue = window.localStorage.getItem(SPOTS_CACHE_KEY);
+    const parsedValue = cachedValue ? Number(cachedValue) : NaN;
+    return Number.isFinite(parsedValue) ? parsedValue : DEFAULT_TAKEN;
+  });
 
   // Track ViewContent on mount
   useEffect(() => {
@@ -154,10 +162,31 @@ const LaunchPage = () => {
     });
   }, []);
 
-  const handleSecondSignupSuccess = useCallback(() => {
-    setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
-    fireConfetti();
+  const refreshSpotsTaken = useCallback(async () => {
+    try {
+      const supabase = await getSupabase();
+      const { count, error } = await supabase
+        .from("launch_signups")
+        .select("id", { count: "exact", head: true });
+
+      if (error || typeof count !== "number") return;
+
+      const nextCount = Math.min(TOTAL_SPOTS, count);
+      setSpotsTaken(nextCount);
+      window.localStorage.setItem(SPOTS_CACHE_KEY, String(nextCount));
+    } catch (error) {
+      console.error("Failed to load launch signup count:", error);
+    }
   }, []);
+
+  useEffect(() => {
+    void refreshSpotsTaken();
+  }, [refreshSpotsTaken]);
+
+  const handleSecondSignupSuccess = useCallback(() => {
+    void refreshSpotsTaken();
+    fireConfetti();
+  }, [refreshSpotsTaken]);
 
   return (
     <>
@@ -233,7 +262,7 @@ const LaunchPage = () => {
           <HeroBadgesAndCTA
             spotsTaken={spotsTaken}
             onSignupSuccess={() => {
-              setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+              void refreshSpotsTaken();
               fireConfetti();
             }}
           />
