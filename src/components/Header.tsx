@@ -131,7 +131,7 @@ const Header = () => {
                 height={56}
                 fetchPriority="high"
                 decoding="async"
-                className="h-14 w-auto transition-all duration-300 drop-shadow-sm"
+                className="h-11 md:h-14 w-auto transition-all duration-300 drop-shadow-sm"
               />
               <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
                 Power. Always There.
