@@ -271,7 +271,6 @@ const LaunchPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.85 }}
                 className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
               >
                 {t("tagline.1")}
               </motion.p>
