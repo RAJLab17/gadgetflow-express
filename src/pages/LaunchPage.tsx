@@ -147,7 +147,7 @@ const CountUpNumber = ({ target }: { target: number }) => {
 };
 
 const TOTAL_SPOTS = 100;
-const DEFAULT_TAKEN = 81;
+const DEFAULT_TAKEN = 9;
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
