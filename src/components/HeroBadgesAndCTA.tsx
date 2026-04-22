@@ -293,6 +293,20 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </p>
             </div>
 
+            {/* Benefits */}
+            <ul className="w-full max-w-sm mx-auto mb-8 text-left space-y-2.5">
+              {[
+                { icon: "⚡", text: t("cta.benefit1") },
+                { icon: "🏆", text: t("cta.benefit2") },
+                { icon: "💰", text: t("cta.benefit3") },
+              ].map((b) => (
+                <li key={b.text} className="flex items-start gap-2.5">
+                  <span className="text-base leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
+                  <span className="text-[13px] sm:text-[14px] leading-6 text-[#444]">{b.text}</span>
+                </li>
+              ))}
+            </ul>
+
             {/* 5. CTA Form */}
             <div className="w-full max-w-md">
               {submitted ? (
