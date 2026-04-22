@@ -36,7 +36,7 @@ const ImpressumPage = () => {
         </Section>
 
         <Section title="Vertretungsberechtigte Person(en)">
-          <p>Stefan Rajcic, Verwaltungsrat / Geschäftsführer</p>
+          <p>Stefan R., Verwaltungsrat / Geschäftsführer</p>
         </Section>
 
         <Section title="Haftungsausschluss">
