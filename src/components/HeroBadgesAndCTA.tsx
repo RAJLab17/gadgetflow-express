@@ -1,6 +1,6 @@
 import { useEffect, useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, Check, ShieldCheck, Truck, RotateCcw } from "lucide-react";
+import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
