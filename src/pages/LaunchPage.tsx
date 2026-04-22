@@ -275,11 +275,16 @@ const LaunchPage = () => {
       <div className="min-h-screen bg-[#f0ede6] relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#f0ede6] via-[#f0ede6] to-[#f0ede6]" />
-        <motion.div
-          className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px]"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {prefersReducedMotion ? (
+          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px] opacity-30" />
+        ) : (
+          <motion.div
+            className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px]"
+            animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            style={{ willChange: "transform, opacity" }}
+          />
+        )}
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
