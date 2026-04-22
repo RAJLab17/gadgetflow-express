@@ -35,6 +35,7 @@ export async function trackMetaEvent(
 
   // 2. Server-side Conversions API (silent — never break the UI)
   try {
+    const supabase = await getSupabase();
     const { error } = await supabase.functions.invoke("meta-capi", {
       body: {
         event_name: eventName,
