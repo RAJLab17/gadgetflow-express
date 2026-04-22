@@ -216,7 +216,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* 2. Headline */}
             <h2 className="text-[28px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-5 sm:mb-6 tracking-tight">
-              Sei dabei. Von Anfang an.
+              Sei dabei.
+              <br />
+              Von Anfang an.
             </h2>
 
             {/* 3. Subheadline */}
