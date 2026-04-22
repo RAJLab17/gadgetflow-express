@@ -1,6 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Loader2, Check, Zap, Shield, Truck, Sparkles, Heart, Target, Eye, Award, Users, Bell, Gift, Smartphone, Headphones, Watch } from "lucide-react";
+import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { Mail, Loader2, Check, Smartphone, Headphones, Watch } from "lucide-react";
+
+// Below-the-fold sections — lazy-loaded to reduce initial JS
+const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection"));
+const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -151,19 +155,15 @@ const DEFAULT_TAKEN = 9;
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
+  const prefersReducedMotion = useReducedMotion();
   const [email, setEmail] = useState("");
-  const [email2, setEmail2] = useState("");
   // Honeypot fields (must stay empty — bots will fill them)
   const [hpWebsite, setHpWebsite] = useState("");
   const [hpCompany, setHpCompany] = useState("");
-  const [hpWebsite2, setHpWebsite2] = useState("");
-  const [hpCompany2, setHpCompany2] = useState("");
   const [currentImage, setCurrentImage] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting2, setIsSubmitting2] = useState(false);
-  const [isSubmitted2, setIsSubmitted2] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [showSignupToast, setShowSignupToast] = useState(false);
   const [visitorCount, setVisitorCount] = useState(0);
@@ -251,47 +251,11 @@ const LaunchPage = () => {
     }
   };
 
-  const handleSubmit2 = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email2 || !email2.includes("@")) {
-      toast.error(t("error.invalidEmail"));
-      return;
-    }
-    // Honeypot: bot detected — fake success, don't submit
-    if (hpWebsite2 || hpCompany2) {
-      setIsSubmitted2(true);
-      return;
-    }
-    setIsSubmitting2(true);
-    try {
-      const { data, error } = await supabase.functions.invoke("brevo-subscribe", {
-        body: { email: email2.trim() },
-      });
-      if (error) throw error;
-      if (data?.success) {
-        setIsSubmitted2(true);
-        setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
-        fireConfetti();
-        setTimeout(() => setShowSignupToast(true), 3000);
-        trackMetaEvent("Lead", { email: email2.trim() });
-      } else {
-        throw new Error(data?.error || "Unbekannter Fehler");
-      }
-    } catch (error) {
-      console.error("Launch signup failed:", error);
-      toast.error(t("error.failed"));
-    } finally {
-      setIsSubmitting2(false);
-    }
-  };
-
-  const faqItems = [
-    { q: t("faq.q1"), a: t("faq.a1") },
-    { q: t("faq.q2"), a: t("faq.a2") },
-    { q: t("faq.q3"), a: t("faq.a3") },
-    { q: t("faq.q4"), a: t("faq.a4") },
-    { q: t("faq.q5"), a: t("faq.a5") },
-  ];
+  const handleSecondSignupSuccess = useCallback(() => {
+    setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+    fireConfetti();
+    setTimeout(() => setShowSignupToast(true), 3000);
+  }, []);
 
   return (
     <>
@@ -311,11 +275,16 @@ const LaunchPage = () => {
       <div className="min-h-screen bg-[#f0ede6] relative overflow-hidden">
         {/* Background effects */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#f0ede6] via-[#f0ede6] to-[#f0ede6]" />
-        <motion.div
-          className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px]"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
+        {prefersReducedMotion ? (
+          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px] opacity-30" />
+        ) : (
+          <motion.div
+            className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px]"
+            animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            style={{ willChange: "transform, opacity" }}
+          />
+        )}
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -471,120 +440,11 @@ const LaunchPage = () => {
             </motion.div>
           </section>
 
-          {/* FAQ Section */}
-          <section className="py-12 md:py-28 bg-[#f5f2ec]">
-            <div className="container mx-auto px-4 max-w-2xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] text-center mb-10 tracking-tight">
-                {t("faq.title")}
-              </h2>
-              <div className="space-y-0">
-                {faqItems.map((item, i) => (
-                  <details key={i} className="group border-b border-[#9b6b3f]/10">
-                    <summary className="flex items-center justify-between py-5 cursor-pointer list-none text-left">
-                      <span className="text-[15px] md:text-base font-medium text-[#2c2c2c] pr-6 group-hover:text-[#9b6b3f] transition-colors">
-                        {item.q}
-                      </span>
-                      <svg className="w-4 h-4 shrink-0 text-[#888888] transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </summary>
-                    <div className="pb-5 pr-10">
-                      <p className="text-[#666666] text-sm leading-relaxed">{item.a}</p>
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* ===== 6. Second CTA Section ===== */}
-          <section className="bg-[#9b6b3f] py-12 md:py-28">
-            <div className="container mx-auto px-4 max-w-lg text-center">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8"
-                style={{ fontFamily: "'Neue Haas Grotesk Display Pro', sans-serif" }}
-              >
-                {t("cta2.title")}
-              </motion.h2>
-
-              {isSubmitted2 ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="p-8 bg-white/10 rounded-2xl border border-white/20 text-center space-y-4"
-                >
-                  <div className="w-14 h-14 mx-auto rounded-full bg-white/20 flex items-center justify-center">
-                    <Check className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-white">
-                    {t("cta2.submitted")}
-                  </h3>
-                </motion.div>
-              ) : (
-                <motion.form
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  onSubmit={handleSubmit2}
-                  className="space-y-3"
-                >
-                  {/* Honeypot fields — hidden from real users, bots fill them */}
-                  <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: 0, opacity: 0, overflow: "hidden", pointerEvents: "none" }}>
-                    <label htmlFor="hp-website-2">Leave this field empty</label>
-                    <input
-                      id="hp-website-2"
-                      type="text"
-                      name="website"
-                      value={hpWebsite2}
-                      onChange={(e) => setHpWebsite2(e.target.value)}
-                      autoComplete="off"
-                      tabIndex={-1}
-                    />
-                    <label htmlFor="hp-company-2">Leave this field empty</label>
-                    <input
-                      id="hp-company-2"
-                      type="text"
-                      name="company"
-                      value={hpCompany2}
-                      onChange={(e) => setHpCompany2(e.target.value)}
-                      autoComplete="off"
-                      tabIndex={-1}
-                    />
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <div className="relative flex-1">
-                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]" />
-                      <input
-                        type="email"
-                        value={email2}
-                        onChange={(e) => setEmail2(e.target.value)}
-                        placeholder={t("launch.emailPlaceholder")}
-                        required
-                        disabled={isSubmitting2}
-                        className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white border border-white text-[#1a1a1a] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:ring-white/40 transition-all"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={isSubmitting2}
-                      className="px-6 py-3.5 rounded-xl bg-[#1a1a1a] text-white font-bold hover:bg-black transition-all disabled:opacity-60 flex items-center justify-center gap-2 whitespace-nowrap text-sm sm:text-base"
-                    >
-                      {isSubmitting2 ? (
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                      ) : (
-                          <>Meinen Founder Platz sichern <span aria-hidden>→</span></>
-                      )}
-                    </button>
-                  </div>
-                </motion.form>
-              )}
-            </div>
-          </section>
+          {/* FAQ + Second CTA — lazy-loaded (below-the-fold) */}
+          <Suspense fallback={<div className="py-16" />}>
+            <LaunchFAQSection />
+            <LaunchSecondCTA onSignupSuccess={handleSecondSignupSuccess} />
+          </Suspense>
 
 
           <footer className="border-t border-[#9b6b3f]/10 py-8 bg-[#f0ede6]">
