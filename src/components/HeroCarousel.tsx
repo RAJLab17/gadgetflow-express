@@ -136,18 +136,6 @@ const HeroCarousel = () => {
       {/* Premium Hero Headline */}
       <div className="w-full" style={{ backgroundColor: BEIGE }}>
         <div className="container mx-auto px-4 pt-3 md:pt-10 pb-2 md:pb-6 text-center">
-          {/* Founder Edition Badge */}
-          <div className="flex justify-center mb-3 md:mb-5">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border"
-              style={{ borderColor: GOLD, color: GOLD, backgroundColor: "transparent" }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: GOLD }} />
-              <span className="text-[10px] md:text-xs font-bold tracking-[0.18em] uppercase">
-                {t("cta.founderBadge")}
-              </span>
-            </div>
-          </div>
           <div>
             <h1
 className="font-semibold tracking-tight leading-[1.15] text-[#2b2725] text-xl sm:text-2xl md:text-3xl"
