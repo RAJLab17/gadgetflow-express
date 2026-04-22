@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Mail, Loader2, Check, Smartphone, Headphones, Watch } from "lucide-react";
+import React, { useState, useEffect, useCallback, lazy, Suspense } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Smartphone, Headphones, Watch } from "lucide-react";
 
 // Below-the-fold sections — lazy-loaded to reduce initial JS
 const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection"));
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
 import { Helmet } from "react-helmet-async";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
-import LikeBadge from "@/components/LikeBadge";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
@@ -19,15 +16,7 @@ import lifestyleWoman from "@/assets/lifestyle-woman.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
-
 import logo from "@/assets/logo-new.webp";
-import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
-import chargerColors from "@/assets/products/charger-3in1-colors-new.webp";
-import chargerAngles from "@/assets/products/charger-3in1-angles.webp";
-import chargerFastCharge from "@/assets/products/charger-3in1-fast-charge.webp";
-
-
-const nexusImages = [chargerFastCharge, chargerColors, chargerAngles];
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 
@@ -156,17 +145,8 @@ const DEFAULT_TAKEN = 9;
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
   const prefersReducedMotion = useReducedMotion();
-  const [email, setEmail] = useState("");
-  // Honeypot fields (must stay empty — bots will fill them)
-  const [hpWebsite, setHpWebsite] = useState("");
-  const [hpCompany, setHpCompany] = useState("");
-  const [currentImage, setCurrentImage] = useState(0);
-  const [autoPlayKey, setAutoPlayKey] = useState(0);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [spotsTaken, setSpotsTaken] = useState(DEFAULT_TAKEN);
   const [showSignupToast, setShowSignupToast] = useState(false);
-  const [visitorCount, setVisitorCount] = useState(0);
 
   // Track ViewContent on mount
   useEffect(() => {
@@ -174,82 +154,6 @@ const LaunchPage = () => {
       customData: { content_name: "RAJ NEXUS Launch Page", content_category: "Landing Page" },
     });
   }, []);
-
-  // Visitor tracking + fetch visitor count
-  useEffect(() => {
-    const handleVisitor = async () => {
-      try {
-        const storageKey = "raj_visitor_id";
-        let visitorId: string;
-        if (!localStorage.getItem(storageKey)) {
-          visitorId = crypto.randomUUID();
-          localStorage.setItem(storageKey, visitorId);
-        } else {
-          visitorId = localStorage.getItem(storageKey)!;
-        }
-        const count = await supabase.rpc("register_unique_visitor", { p_visitor_id: visitorId });
-        if (count.data !== null) {
-          setVisitorCount(count.data);
-        }
-      } catch (e) {
-        console.error("Failed to handle visitor count:", e);
-      }
-    };
-    handleVisitor();
-  }, []);
-
-  // Spots-Counter ist fix auf 29 verfügbar (DEFAULT_TAKEN = 71). Live-Signups werden bewusst nicht addiert, um die Anzeige stabil zu halten.
-  // Auto-rotate carousel
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentImage((prev) => (prev + 1) % nexusImages.length);
-    }, 4000);
-    return () => clearTimeout(timer);
-  }, [currentImage, autoPlayKey]);
-
-  const handleImageNav = useCallback((index: number) => {
-    setCurrentImage(index);
-    setAutoPlayKey((prev) => prev + 1);
-  }, []);
-
-  const handleSwipe = useCallback((_: any, info: { offset: { x: number } }) => {
-    if (info.offset.x < -50) handleImageNav((currentImage + 1) % nexusImages.length);
-    else if (info.offset.x > 50) handleImageNav((currentImage - 1 + nexusImages.length) % nexusImages.length);
-  }, [currentImage, handleImageNav]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !email.includes("@")) {
-      toast.error(t("error.invalidEmail"));
-      return;
-    }
-    // Honeypot: bot detected — fake success, don't submit
-    if (hpWebsite || hpCompany) {
-      setIsSubmitted(true);
-      return;
-    }
-    setIsSubmitting(true);
-    try {
-      const { data, error } = await supabase.functions.invoke("brevo-subscribe", {
-        body: { email: email.trim() },
-      });
-      if (error) throw error;
-      if (data?.success) {
-        setIsSubmitted(true);
-        setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
-        fireConfetti();
-        setTimeout(() => setShowSignupToast(true), 3000);
-        trackMetaEvent("Lead", { email: email.trim() });
-      } else {
-        throw new Error(data?.error || "Unbekannter Fehler");
-      }
-    } catch (error) {
-      console.error("Launch signup failed:", error);
-      toast.error(t("error.failed"));
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const handleSecondSignupSuccess = useCallback(() => {
     setSpotsTaken((prev) => Math.min(TOTAL_SPOTS, prev + 1));
