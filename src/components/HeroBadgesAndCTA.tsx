@@ -298,7 +298,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
-                { icon: "💰", text: t("cta.benefit3") },
               ].map((b) => (
                 <li key={b.text} className="flex items-start gap-2.5">
                   <span className="text-base leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
