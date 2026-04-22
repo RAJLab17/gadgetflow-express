@@ -1,11 +1,15 @@
 import { useEffect, useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+// Lazily load Supabase only when actually needed (post-LCP).
+// This keeps the 44KB gzipped supabase-vendor chunk out of the critical path.
+const getSupabase = () =>
+  import("@/integrations/supabase/client").then((m) => m.supabase);
 
 const ICON_COLOR = "#9b6b3f";
 const GOLD = "#9b6b3f";
