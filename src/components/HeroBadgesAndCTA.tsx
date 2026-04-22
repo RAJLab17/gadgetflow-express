@@ -1,6 +1,6 @@
 import { useEffect, useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, Check, ShieldCheck, Truck, RotateCcw } from "lucide-react";
+import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -317,21 +317,29 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   </span>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="E-Mail Adresse"
-                    required
-                    disabled={submitting}
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[#9b6b3f]/25 text-[#1a1a1a] placeholder:text-[#999] text-[15px] shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9b6b3f]/20 focus:border-[#9b6b3f] transition-all"
-                  />
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                  <label htmlFor="founder-email" className="text-[11px] sm:text-[12px] uppercase tracking-[0.18em] text-[#9b6b3f] font-semibold text-center">
+                    Trag deine E-Mail ein
+                  </label>
+                  <div className="relative">
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none" />
+                    <input
+                      id="founder-email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="deine@email.ch"
+                      required
+                      disabled={submitting}
+                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all"
+                      style={{ boxShadow: "0 4px 20px -6px rgba(155,107,63,0.25)" }}
+                    />
+                  </div>
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full px-6 py-3.5 rounded-xl text-white font-bold text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
-                    style={{ backgroundColor: GOLD }}
+                    className="w-full px-6 py-4 rounded-xl text-white font-bold text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                    style={{ backgroundColor: GOLD, boxShadow: "0 6px 20px -6px rgba(155,107,63,0.45)" }}
                   >
                     {submitting ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
