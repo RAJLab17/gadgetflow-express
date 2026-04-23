@@ -19,10 +19,9 @@ const TOTAL_SPOTS = 100;
 const BASE_TAKEN = 9;
 
 const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
-  { icon: <SwissFlag size={18} />, label: t("badge.swissBrand") },
-  { icon: <ShieldCheck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.warranty") },
-  { icon: <Truck size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.shipping") },
-  { icon: <RotateCcw size={18} color={ICON_COLOR} strokeWidth={2} />, label: t("badge.returns") },
+  { icon: <SwissFlag size={20} />, label: t("badge.swissBrand") },
+  { icon: <ShieldCheck size={20} color={ICON_COLOR} strokeWidth={2} />, label: "3 Jahre Garantie" },
+  { icon: <Check size={20} color={ICON_COLOR} strokeWidth={2.4} />, label: "Qi2.2 zertifiziert" },
 ];
 
 interface Props {
