@@ -76,17 +76,8 @@ const IntroReveal = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             style={{ backgroundColor: BEIGE }}
           >
-            <div className="absolute inset-0 z-0 flex items-center justify-center px-6">
-              <img
-                src={premiumShot}
-                alt="RAJ NEXUS"
-                className="w-auto max-w-[84vw] sm:max-w-[68vw] h-auto max-h-[42vh] sm:max-h-[48vh] select-none"
-                draggable={false}
-              />
-            </div>
-
             <motion.div
-              className="absolute inset-x-0 top-0 z-10 overflow-hidden will-change-transform"
+              className="absolute inset-0 z-10 overflow-hidden will-change-transform"
               initial={{ y: 0 }}
               animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
               transition={{
@@ -95,11 +86,19 @@ const IntroReveal = () => {
                 ease: [0.76, 0, 0.24, 1],
               }}
               style={{
-                height: "calc(50% + 1px)",
                 backgroundColor: BEIGE,
+                clipPath: "inset(0 0 calc(50% - 1px) 0)",
                 transform: "translateZ(0)",
               }}
             >
+              <div className="absolute inset-0 flex items-center justify-center px-6">
+                <img
+                  src={premiumShot}
+                  alt="RAJ NEXUS"
+                  className="w-auto max-w-[84vw] sm:max-w-[68vw] h-auto max-h-[42vh] sm:max-h-[48vh] select-none"
+                  draggable={false}
+                />
+              </div>
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: [0, 0, 1, 1, 0], y: [14, 14, 0, 0, -6] }}
@@ -138,7 +137,7 @@ const IntroReveal = () => {
             </motion.div>
 
             <motion.div
-              className="absolute inset-x-0 bottom-0 z-10 overflow-hidden will-change-transform"
+              className="absolute inset-0 z-10 overflow-hidden will-change-transform"
               initial={{ y: 0 }}
               animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
               transition={{
@@ -147,11 +146,19 @@ const IntroReveal = () => {
                 ease: [0.76, 0, 0.24, 1],
               }}
               style={{
-                height: "calc(50% + 1px)",
                 backgroundColor: BEIGE,
+                clipPath: "inset(calc(50% - 1px) 0 0 0)",
                 transform: "translateZ(0)",
               }}
             >
+              <div className="absolute inset-0 flex items-center justify-center px-6">
+                <img
+                  src={premiumShot}
+                  alt="RAJ NEXUS"
+                  className="w-auto max-w-[84vw] sm:max-w-[68vw] h-auto max-h-[42vh] sm:max-h-[48vh] select-none"
+                  draggable={false}
+                />
+              </div>
               <motion.div
                 initial={{ opacity: 0, y: -14 }}
                 animate={{ opacity: [0, 0, 1, 1, 0], y: [-14, -14, 0, 0, 6] }}
