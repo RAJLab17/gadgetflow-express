@@ -17,24 +17,36 @@ const INK = "#2b2725";
 const IntroReveal = () => {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+  }, []);
+
+  // Mobile: snappier feel — shorter hold + faster sweep but same choreography
+  const TOTAL = reduce ? 800 : isMobile ? 2400 : 3200;
+  const SWEEP = reduce ? 0.6 : isMobile ? 2.2 : 3.0;
+  // text in/out timing (fractions of SWEEP)
+  const TEXT_TIMES = isMobile ? [0, 0.28, 0.5, 0.82, 1] : [0, 0.35, 0.55, 0.85, 1];
+  const SWEEP_TIMES = isMobile ? [0, 0.5, 1] : [0, 0.55, 1];
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (sessionStorage.getItem(SESSION_KEY)) return;
     setShow(true);
     sessionStorage.setItem(SESSION_KEY, "1");
-    // lock body scroll while intro plays
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const t = window.setTimeout(() => {
       setShow(false);
       document.body.style.overflow = prev;
-    }, reduce ? 800 : 3200);
+    }, TOTAL);
     return () => {
       window.clearTimeout(t);
       document.body.style.overflow = prev;
     };
-  }, [reduce]);
+  }, [TOTAL]);
 
   return (
     <AnimatePresence>
