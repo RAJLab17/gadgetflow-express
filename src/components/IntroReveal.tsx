@@ -64,8 +64,8 @@ const IntroReveal = () => {
             initial={{ y: 0 }}
             animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
             transition={{
-              duration: 3.0,
-              times: [0, 0.55, 1],
+              duration: SWEEP,
+              times: SWEEP_TIMES,
               ease: [0.76, 0, 0.24, 1],
             }}
           >
@@ -75,13 +75,12 @@ const IntroReveal = () => {
                 alt=""
                 className="absolute left-1/2 -translate-x-1/2 top-0 max-w-none"
                 style={{
-                  height: "100vh",
+                  height: isMobile ? "120vh" : "100vh",
                   width: "auto",
                   objectFit: "contain",
                 }}
                 draggable={false}
               />
-              {/* hairline edge */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-px"
                 style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
@@ -96,8 +95,8 @@ const IntroReveal = () => {
             initial={{ y: 0 }}
             animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
             transition={{
-              duration: 3.0,
-              times: [0, 0.55, 1],
+              duration: SWEEP,
+              times: SWEEP_TIMES,
               ease: [0.76, 0, 0.24, 1],
             }}
           >
@@ -107,7 +106,7 @@ const IntroReveal = () => {
                 alt=""
                 className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-none"
                 style={{
-                  height: "100vh",
+                  height: isMobile ? "120vh" : "100vh",
                   width: "auto",
                   objectFit: "contain",
                 }}
@@ -122,8 +121,8 @@ const IntroReveal = () => {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: [0, 0, 1, 1, 0], y: [12, 12, 0, 0, -8] }}
               transition={{
-                duration: 3.0,
-                times: [0, 0.35, 0.55, 0.85, 1],
+                duration: SWEEP,
+                times: TEXT_TIMES,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="text-center px-6"
