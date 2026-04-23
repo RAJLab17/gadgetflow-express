@@ -36,7 +36,10 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const AppContent = () => {
+// Cart sync only runs on routes that actually need a cart (shop / product pages),
+// NOT on the Launch Page where it would needlessly drag the Shopify vendor chunk
+// into the LCP critical path.
+const ShopCartSync = () => {
   useCartSync();
   return null;
 };
@@ -45,11 +48,22 @@ const AppContent = () => {
 const HomePage = () => {
   const [searchParams] = useSearchParams();
   return searchParams.get("mode") === "shop" ? (
-    <Suspense fallback={null}><Index /></Suspense>
+    <Suspense fallback={null}>
+      <ShopCartSync />
+      <Index />
+    </Suspense>
   ) : (
     <LaunchPage />
   );
 };
+
+// Wrap shop / product routes with cart sync
+const WithCart = ({ children }: { children: React.ReactNode }) => (
+  <>
+    <ShopCartSync />
+    {children}
+  </>
+);
 
 const App = () => (
   <HelmetProvider>
