@@ -44,9 +44,7 @@ const IntroReveal = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (!show) {
-      if (sessionStorage.getItem(SESSION_KEY)) return;
       setShow(true);
-      sessionStorage.setItem(SESSION_KEY, "1");
     }
   }, [show]);
 
