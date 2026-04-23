@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import productCutout from "@/assets/products/charger-3in1-black-1.png";
+import productCutout from "@/assets/raj-nexus-premium-shot.jpeg";
 
 const GOLD = "#9b6b3f";
 const BEIGE = "#f0ede6";
