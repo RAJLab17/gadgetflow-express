@@ -45,15 +45,14 @@ const IntroReveal = () => {
     setReplayKey((k) => k + 1);
   }, []);
 
+  // Auto-play once per session on mount
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!show) {
-      if (sessionStorage.getItem(SESSION_KEY)) return;
-      setShow(true);
-      sessionStorage.setItem(SESSION_KEY, "1");
-    }
-  }, [show]);
+    if (sessionStorage.getItem(SESSION_KEY)) return;
+    setShow(true);
+  }, []);
 
+  // Body lock + auto-dismiss timer + mark session as seen AFTER playback
   useEffect(() => {
     if (!show) return;
     const prev = document.body.style.overflow;
@@ -61,6 +60,7 @@ const IntroReveal = () => {
     const t = window.setTimeout(() => {
       setShow(false);
       document.body.style.overflow = prev;
+      sessionStorage.setItem(SESSION_KEY, "1");
     }, TOTAL);
     return () => {
       window.clearTimeout(t);
