@@ -268,7 +268,7 @@ const LaunchPage = () => {
             </div>
           </div>
 
-          {/* ===== 1. FOUNDER CTA (HERO) + CAROUSEL BELOW ===== */}
+          {/* ===== HERO ===== */}
           <HeroBadgesAndCTA
             spotsTaken={spotsTaken}
             onSignupSuccess={() => {
@@ -276,7 +276,7 @@ const LaunchPage = () => {
               fireConfetti();
             }}
           />
-          <HeroCarousel />
+
 
           {/* Lifestyle duo */}
           <section className="container mx-auto px-4 pt-6 md:pt-10">
