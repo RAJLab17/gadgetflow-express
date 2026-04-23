@@ -215,10 +215,7 @@ const LaunchPage = () => {
         <meta property="og:url" content="https://raj.ch" />
       </Helmet>
 
-      <Suspense fallback={null}>
-        <IntroReveal />
-        <SecondIntro />
-      </Suspense>
+
 
       <div className="min-h-screen bg-[#f0ede6] relative overflow-hidden">
         {/* Background — static gradient only. The animated 600x600 blurred
