@@ -354,8 +354,24 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   <label htmlFor="founder-email" className="text-center text-[13px] sm:text-[14px] font-semibold text-[#9b6b3f]">
                     {t("cta.formLabel")}
                   </label>
-                  <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none" />
+                  <motion.div
+                    className="relative rounded-xl"
+                    animate={{
+                      boxShadow: [
+                        "0 4px 20px -6px rgba(155,107,63,0.25)",
+                        "0 6px 28px -4px rgba(155,107,63,0.55)",
+                        "0 4px 20px -6px rgba(155,107,63,0.25)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 2.2,
+                      delay: 4,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatDelay: 3.5,
+                    }}
+                  >
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none z-10" />
                     <input
                       id="founder-email"
                       type="email"
@@ -364,10 +380,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       placeholder={t("cta.emailPlaceholder")}
                       required
                       disabled={submitting}
-                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all"
-                      style={{ boxShadow: "0 4px 20px -6px rgba(155,107,63,0.25)" }}
+                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative"
                     />
-                  </div>
+                  </motion.div>
                   <button
                     type="submit"
                     disabled={submitting}
