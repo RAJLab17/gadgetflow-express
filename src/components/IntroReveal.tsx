@@ -28,9 +28,9 @@ const IntroReveal = () => {
   // Longer hold so the product image can breathe — premium pacing
   const TOTAL = reduce ? 1000 : isMobile ? 4200 : 5000;
   const SWEEP = reduce ? 0.8 : isMobile ? 4.0 : 4.8;
-  // Hold the image longer (~70% of runtime) before the curtain parts
-  const TEXT_TIMES = isMobile ? [0, 0.4, 0.62, 0.9, 1] : [0, 0.45, 0.65, 0.9, 1];
-  const SWEEP_TIMES = isMobile ? [0, 0.7, 1] : [0, 0.7, 1];
+  // Text appears AFTER curtains start to part — so it's never hidden behind images
+  const TEXT_TIMES = isMobile ? [0, 0.72, 0.82, 0.95, 1] : [0, 0.72, 0.82, 0.95, 1];
+  const SWEEP_TIMES = isMobile ? [0, 0.65, 1] : [0, 0.7, 1];
 
   const playIntro = useCallback(() => {
     setShow(true);
@@ -152,7 +152,7 @@ const IntroReveal = () => {
                 className="text-center px-6"
               >
                 <p
-                  className="text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4"
+                  className="text-[9px] sm:text-xs tracking-[0.35em] uppercase mb-3"
                   style={{ color: GOLD }}
                 >
                   EST. 2026 · Switzerland
@@ -162,7 +162,7 @@ const IntroReveal = () => {
                   style={{
                     color: INK,
                     fontFamily: "'Cormorant Garamond', 'Didot', 'Times New Roman', serif",
-                    fontSize: "clamp(2rem, 11vw, 4.5rem)",
+                    fontSize: "clamp(1.75rem, 9vw, 4.5rem)",
                     letterSpacing: "-0.01em",
                     lineHeight: 1.05,
                   }}
@@ -172,14 +172,14 @@ const IntroReveal = () => {
                   <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
                 </h2>
                 <div
-                  className="mx-auto mt-5 h-px"
+                  className="mx-auto mt-4 h-px"
                   style={{
-                    width: "80px",
+                    width: "60px",
                     background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
                   }}
                 />
                 <p
-                  className="mt-4 text-xs sm:text-sm font-light tracking-wide"
+                  className="mt-3 text-[11px] sm:text-sm font-light tracking-wide px-2"
                   style={{ color: "#5a5550" }}
                 >
                   Eine neue Schweizer Marke entsteht.
