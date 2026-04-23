@@ -15,10 +15,18 @@ const IntroReveal = () => {
   const [show, setShow] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
+  const [isPreview, setIsPreview] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+    const host = window.location.hostname;
+    setIsPreview(
+      host.endsWith("lovable.app") ||
+        host.endsWith("lovableproject.com") ||
+        host === "localhost" ||
+        host === "127.0.0.1"
+    );
   }, []);
 
   const TOTAL = reduce ? 1000 : isMobile ? 4500 : 5200;
