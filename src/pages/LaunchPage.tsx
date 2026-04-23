@@ -5,6 +5,7 @@ import { Smartphone, Headphones, Watch } from "lucide-react";
 // Below-the-fold sections — lazy-loaded to reduce initial JS
 const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection"));
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
+const IntroReveal = lazy(() => import("@/components/IntroReveal"));
 import { Helmet } from "react-helmet-async";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
 import HeroCarousel from "@/components/HeroCarousel";
@@ -202,6 +203,10 @@ const LaunchPage = () => {
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch" />
       </Helmet>
+
+      <Suspense fallback={null}>
+        <IntroReveal />
+      </Suspense>
 
       <div className="min-h-screen bg-[#f0ede6] relative overflow-hidden">
         {/* Background effects */}
