@@ -86,11 +86,11 @@ const SecondIntro = () => {
               lineHeight: 1.1,
             }}
           >
-            Dein Setup wird endlich{" "}
+            Setup, endlich{" "}
             <span style={{ color: GOLD, fontStyle: "italic" }}>clean.</span>
             <br />
-            <span className="text-[0.7em]" style={{ color: "#5a5550" }}>
-              Kein Suchen. Kein Einstecken.
+            <span className="text-[0.6em] tracking-[0.02em]" style={{ color: "#5a5550", fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 300 }}>
+              Kein Kabelsalat. Nur Eleganz.
             </span>
           </motion.h2>
 
