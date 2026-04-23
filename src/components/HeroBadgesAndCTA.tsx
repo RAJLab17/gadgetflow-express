@@ -293,22 +293,22 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* Benefits — inline auf Mobile, gestapelt auf sm+ */}
-            <ul className="w-full max-w-sm mx-auto mb-1.5 sm:mb-6 flex flex-row sm:flex-col items-center sm:items-start justify-center gap-x-3 gap-y-1 sm:gap-y-2.5 text-left">
+            <ul className="w-full max-w-sm mx-auto mb-2 sm:mb-6 flex flex-row sm:flex-col items-center sm:items-start justify-center gap-x-4 gap-y-1 sm:gap-y-2.5 text-left">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
               ].map((b) => (
                 <li
                   key={b.text}
-                  className="flex items-center sm:items-start gap-1 sm:gap-2.5 rounded-lg sm:px-2 sm:py-1.5 sm:-mx-2"
+                  className="flex items-center sm:items-start gap-1.5 sm:gap-2.5 rounded-lg sm:px-2 sm:py-1.5 sm:-mx-2"
                 >
                   <span
-                    className="text-[10px] sm:text-base leading-4 sm:leading-6 flex-shrink-0"
+                    className="text-[12px] sm:text-base leading-4 sm:leading-6 flex-shrink-0"
                     aria-hidden
                   >
                     {b.icon}
                   </span>
-                  <span className="text-[9px] sm:text-[14px] leading-tight sm:leading-6 text-[#444]">{b.text}</span>
+                  <span className="text-[11px] sm:text-[14px] leading-tight sm:leading-6 text-[#444]">{b.text}</span>
                 </li>
               ))}
             </ul>
@@ -336,9 +336,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   </span>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-1.5 sm:gap-3">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-3">
                   <div className="relative rounded-xl">
-                    <Mail className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-[#9b6b3f] pointer-events-none z-20" />
+                    <Mail className="absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#9b6b3f] pointer-events-none z-20" />
                     <input
                       id="founder-email"
                       type="email"
@@ -347,14 +347,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       placeholder={t("cta.emailPlaceholder")}
                       required
                       disabled={submitting}
-                      className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2 sm:py-4 rounded-lg sm:rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[13px] sm:text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative z-10"
+                      className="w-full pl-11 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[15px] sm:text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative z-10"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full px-4 sm:px-6 py-2 sm:py-4 rounded-lg sm:rounded-xl text-white font-bold text-[12px] sm:text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                    className="w-full px-4 sm:px-6 py-2.5 sm:py-4 rounded-xl text-white font-bold text-[14px] sm:text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
                     style={{ backgroundColor: GOLD, boxShadow: "0 6px 20px -6px rgba(155,107,63,0.45)" }}
                   >
                     {submitting ? (
@@ -368,7 +368,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 </form>
               )}
 
-              <p className="text-[9px] sm:text-[12px] text-[#888] mt-1 sm:mt-3 text-center">
+              <p className="text-[10px] sm:text-[12px] text-[#888] mt-1.5 sm:mt-3 text-center">
                 {t("cta.trust")}
               </p>
             </div>
