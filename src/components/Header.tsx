@@ -118,25 +118,20 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-              className="flex items-center gap-3"
-            >
-              <img
-                src={logo}
-                alt="RAJ Logo"
-                width={180}
-                height={56}
-                fetchPriority="high"
-                decoding="async"
-                className="h-6 md:h-14 w-auto transition-all duration-300 drop-shadow-sm"
-              />
-              <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
-                Power. Always There.
-              </span>
-            </motion.div>
+          <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="RAJ Home">
+            <img
+              src={logo}
+              alt="RAJ Logo"
+              width={180}
+              height={56}
+              fetchPriority="high"
+              decoding="async"
+              className="h-8 md:h-10 w-auto drop-shadow-sm select-none"
+              draggable={false}
+            />
+            <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
+              Power. Always There.
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
