@@ -29,8 +29,9 @@ const IntroReveal = () => {
     );
   }, []);
 
-  const TOTAL = reduce ? 1000 : isMobile ? 4500 : 5200;
-  const SWEEP = reduce ? 0.8 : isMobile ? 4.3 : 5.0;
+  // Shorter intro on mobile to keep TBT low while still showing the reveal.
+  const TOTAL = reduce ? 1000 : isMobile ? 2800 : 5200;
+  const SWEEP = reduce ? 0.8 : isMobile ? 2.6 : 5.0;
   const TEXT_TIMES = [0, 0.15, 0.25, 0.85, 1];
   const SWEEP_TIMES = [0, 0.75, 1];
   const fullViewportHeight = isMobile ? "100dvh" : "100vh";
@@ -43,13 +44,6 @@ const IntroReveal = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Skip the heavy intro on mobile entirely — it tanks LCP / TBT.
-    // Mobile users still see the gold "Intro" replay button on preview.
-    const isMobileDevice = window.matchMedia("(max-width: 640px)").matches;
-    if (isMobileDevice) {
-      setShow(false);
-      return;
-    }
     setShow(true);
     // Only on mount → plays once per page load / refresh
     // eslint-disable-next-line react-hooks/exhaustive-deps
