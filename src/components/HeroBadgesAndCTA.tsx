@@ -159,7 +159,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
-      toast.error("Bitte gib eine gültige E-Mail-Adresse ein.");
+      toast.error(t("error.invalidEmail"));
       return;
     }
     setSubmitting(true);
