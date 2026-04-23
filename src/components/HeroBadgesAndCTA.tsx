@@ -111,15 +111,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   // Other users' signups will be picked up on the next page load — fine for
   // a launch / waitlist context.
 
-  // Trigger the social proof popup after a quiet period. The number above
-  // ("36 von 100") stays the same — only the progress bar replays its fill
-  // animation from 0 → current %, in sync with the popup. No DB change.
-  useEffect(() => {
-    const id = window.setTimeout(() => {
-      setPopupTrigger((p) => p + 1);
-    }, 12000);
-    return () => clearTimeout(id);
-  }, []);
+  // Social proof popup is only triggered by real signups (not simulated).
 
   const taken = liveCount;
   const remaining = Math.max(0, TOTAL_SPOTS - taken);
