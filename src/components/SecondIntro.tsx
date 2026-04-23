@@ -10,7 +10,7 @@ const INK = "#2b2725";
  * Second intro shown right after the curtain reveal.
  * Displays the Before/After image with a strong overline headline.
  */
-const SECOND_INTRO_DELAY = 5400; // After IntroReveal (~5.2s desktop) finishes
+const SECOND_INTRO_DELAY = 0; // Show immediately
 const SECOND_INTRO_DURATION_DESKTOP = 4200;
 const SECOND_INTRO_DURATION_MOBILE = 3200;
 
