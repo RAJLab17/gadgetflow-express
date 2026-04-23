@@ -112,7 +112,7 @@ const IntroReveal = () => {
                     times: TEXT_TIMES,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="absolute top-0 left-0 right-0 pt-8 sm:pt-12 text-center px-6"
+                  className="absolute top-0 left-0 right-0 pt-16 sm:pt-20 text-center px-6"
                 >
                   <p
                     className="text-[9px] sm:text-xs tracking-[0.35em] uppercase mb-3"
@@ -177,7 +177,7 @@ const IntroReveal = () => {
                     times: TEXT_TIMES,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="absolute bottom-0 left-0 right-0 pb-8 sm:pb-12 text-center px-6"
+                  className="absolute bottom-0 left-0 right-0 pb-16 sm:pb-20 text-center px-6"
                 >
                   <div
                     className="mx-auto mb-3 h-px"
