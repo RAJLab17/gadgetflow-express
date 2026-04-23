@@ -113,7 +113,7 @@ const translations: Translations = {
   "cta.priceAfter": { de: "danach", fr: "ensuite", it: "poi" },
   "cta.reserved": { de: "Dein Founder-Platz ist reserviert.", fr: "Ta place Founder est réservée.", it: "Il tuo posto Founder è riservato." },
   "cta.formLabel": { de: "Erhalte Zugang zum Launch", fr: "Accède au lancement", it: "Accedi al lancio" },
-  "cta.emailPlaceholder": { de: "deine@email", fr: "ton@email", it: "tua@email" },
+  "cta.emailPlaceholder": { de: "E-Mail Adresse", fr: "Adresse e-mail", it: "Indirizzo e-mail" },
   "cta.submitButton": { de: "Meinen Founder Platz sichern", fr: "Réserver ma place Founder", it: "Assicurati il posto Founder" },
   "cta.socialProof": { de: "Jemand hat sich gerade einen Founder-Platz gesichert", fr: "Quelqu'un vient de réserver une place Founder", it: "Qualcuno si è appena assicurato un posto Founder" },
   "countdown.daysShort": { de: "Tage", fr: "Jours", it: "Giorni" },
