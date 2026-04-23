@@ -1,5 +1,5 @@
-import { useEffect, useState, FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useRef, FormEvent } from "react";
+import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -121,6 +121,29 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [submitted, setSubmitted] = useState(false);
   const countdown = useCountdown();
 
+  // Animated count-up for the spots taken number, synced with progress bar
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (v) => Math.round(v));
+  const [displayCount, setDisplayCount] = useState(0);
+  const [animatedProgress, setAnimatedProgress] = useState(0);
+
+  useEffect(() => {
+    const unsub = rounded.on("change", (v) => setDisplayCount(v));
+    return () => unsub();
+  }, [rounded]);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(count, taken, {
+      duration: 1.6,
+      ease: [0.22, 1, 0.36, 1],
+    });
+    setAnimatedProgress(progress);
+    return () => controls.stop();
+  }, [inView, taken, progress, count]);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
@@ -190,6 +213,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       >
         <div className="container mx-auto px-4 pt-10 pb-8 sm:pt-12 sm:pb-10 md:pt-16 md:pb-16">
           <motion.div
+            ref={sectionRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -221,7 +245,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* 3. Subheadline */}
             <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-6 sm:mb-7 max-w-md">
-              <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
+              <span className="font-semibold tabular-nums text-[#1a1a1a]">{displayCount}</span>{" "}
               {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
             </p>
 
@@ -236,12 +260,11 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 aria-valuemax={TOTAL_SPOTS}
               >
                 <motion.div
-                  key={`bar-${popupTrigger}`}
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{ backgroundColor: GOLD }}
                   initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                  animate={{ width: `${animatedProgress}%` }}
+                  transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
             </div>
