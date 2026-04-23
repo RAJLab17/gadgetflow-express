@@ -301,11 +301,11 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     ],
                   }}
                   transition={{
-                    duration: 1.6,
-                    delay: 1.2 + i * 1.4,
+                    duration: 2.6,
+                    delay: 1.2 + i * 2.2,
                     ease: "easeInOut",
                     repeat: Infinity,
-                    repeatDelay: 6 + i * 0.5,
+                    repeatDelay: 5.5 + i * 0.5,
                   }}
                 >
                   <motion.span
@@ -355,23 +355,23 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     {t("cta.formLabel")}
                   </label>
                   <motion.div
-                    className="relative rounded-xl"
+                    className="relative rounded-xl overflow-hidden"
                     animate={{
                       boxShadow: [
                         "0 4px 20px -6px rgba(155,107,63,0.25)",
-                        "0 6px 28px -4px rgba(155,107,63,0.55)",
+                        "0 8px 36px -2px rgba(155,107,63,0.7)",
                         "0 4px 20px -6px rgba(155,107,63,0.25)",
                       ],
                     }}
                     transition={{
-                      duration: 2.2,
-                      delay: 4,
+                      duration: 2.4,
+                      delay: 5.5,
                       ease: "easeInOut",
                       repeat: Infinity,
-                      repeatDelay: 3.5,
+                      repeatDelay: 3,
                     }}
                   >
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none z-10" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none z-20" />
                     <input
                       id="founder-email"
                       type="email"
@@ -380,9 +380,28 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       placeholder={t("cta.emailPlaceholder")}
                       required
                       disabled={submitting}
-                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative"
+                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative z-10"
+                    />
+                    {/* Wandernder Shine-Effekt — zieht das Auge ins Email-Feld */}
+                    <motion.div
+                      className="pointer-events-none absolute inset-0 z-[15] rounded-xl"
+                      style={{
+                        background:
+                          "linear-gradient(110deg, transparent 30%, rgba(155,107,63,0.18) 45%, rgba(255,235,200,0.55) 50%, rgba(155,107,63,0.18) 55%, transparent 70%)",
+                        mixBlendMode: "screen",
+                      }}
+                      initial={{ x: "-120%" }}
+                      animate={{ x: ["-120%", "120%"] }}
+                      transition={{
+                        duration: 1.6,
+                        delay: 5.8,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        repeatDelay: 3.6,
+                      }}
                     />
                   </motion.div>
+
                   <button
                     type="submit"
                     disabled={submitting}
