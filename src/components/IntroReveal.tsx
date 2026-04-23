@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import premiumShot from "@/assets/raj-nexus-premium-shot.jpeg";
+import productHero from "@/assets/products/charger-3in1-hero.png";
 
 const GOLD = "#9b6b3f";
 const BEIGE = "#f0ede6";
@@ -120,19 +120,19 @@ const IntroReveal = () => {
                     <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
                   </h2>
                 </motion.div>
-                {/* Upper half of the product — anchored to bottom of this half */}
+                {/* Upper half of the product — integrated into the top composition */}
                 <div
                   className="absolute left-1/2 bottom-0 -translate-x-1/2 overflow-hidden"
                   style={{
-                    width: "min(84vw, 520px)",
-                    height: "min(42vh, 320px)",
+                    width: "min(72vw, 420px)",
+                    height: "min(36vh, 260px)",
                   }}
                 >
                   <img
-                    src={premiumShot}
+                    src={productHero}
                     alt="RAJ NEXUS"
                     draggable={false}
-                    className="absolute left-0 top-0 w-full h-[200%] object-contain object-top select-none"
+                    className="absolute left-0 top-0 h-[200%] w-full object-contain object-top select-none"
                   />
                 </div>
                 <div
@@ -153,20 +153,20 @@ const IntroReveal = () => {
                 }}
                 style={{ backgroundColor: BEIGE }}
               >
-                {/* Lower half of the product — anchored to top of this half */}
+                {/* Lower half of the product — integrated into the bottom composition */}
                 <div
                   className="absolute left-1/2 top-0 -translate-x-1/2 overflow-hidden"
                   style={{
-                    width: "min(84vw, 520px)",
-                    height: "min(42vh, 320px)",
+                    width: "min(72vw, 420px)",
+                    height: "min(36vh, 260px)",
                   }}
                 >
                   <img
-                    src={premiumShot}
+                    src={productHero}
                     alt=""
                     aria-hidden
                     draggable={false}
-                    className="absolute left-0 bottom-0 w-full h-[200%] object-contain object-bottom select-none"
+                    className="absolute left-0 bottom-0 h-[200%] w-full object-contain object-bottom select-none"
                   />
                 </div>
                 <motion.div
