@@ -216,10 +216,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-[24px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 sm:mb-6 tracking-tight">
-              {t("cta.headlineLine1")}
-              <br />
-              {t("cta.headlineLine2")}
+            <h2 className="whitespace-nowrap text-[22px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 sm:mb-6 tracking-tight">
+              {t("cta.headlineLine1")} {t("cta.headlineLine2")}
             </h2>
 
             {/* 3. Subheadline */}
