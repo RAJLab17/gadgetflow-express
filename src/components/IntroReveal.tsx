@@ -76,114 +76,125 @@ const IntroReveal = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             style={{ backgroundColor: BEIGE }}
           >
-            <motion.div
-              className="absolute inset-0 z-10 overflow-hidden will-change-transform"
-              initial={{ y: 0 }}
-              animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
-              transition={{
-                duration: SWEEP,
-                times: SWEEP_TIMES,
-                ease: [0.76, 0, 0.24, 1],
-              }}
-              style={{
-                backgroundColor: BEIGE,
-                clipPath: "inset(0 0 calc(50% - 1px) 0)",
-                transform: "translateZ(0)",
-              }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center px-6">
-                <img
-                  src={premiumShot}
-                  alt="RAJ NEXUS"
-                  className="w-auto max-w-[84vw] sm:max-w-[68vw] h-auto max-h-[42vh] sm:max-h-[48vh] select-none"
-                  draggable={false}
-                />
-              </div>
+            <div className="absolute inset-0 flex flex-col">
+              {/* Top half — text + upper part of product, slides up */}
               <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: [0, 0, 1, 1, 0], y: [14, 14, 0, 0, -6] }}
+                className="relative flex-1 overflow-hidden will-change-transform"
+                initial={{ y: 0 }}
+                animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
                 transition={{
                   duration: SWEEP,
-                  times: TEXT_TIMES,
-                  ease: [0.22, 1, 0.36, 1],
+                  times: SWEEP_TIMES,
+                  ease: [0.76, 0, 0.24, 1],
                 }}
-                className="absolute top-0 left-0 right-0 px-6 pt-16 text-center sm:pt-20"
+                style={{ backgroundColor: BEIGE }}
               >
-                <p
-                  className="mb-3 text-[9px] uppercase tracking-[0.35em] sm:text-xs"
-                  style={{ color: GOLD }}
-                >
-                  EST. 2026 · Switzerland
-                </p>
-                <h2
-                  className="font-light tracking-tight"
-                  style={{
-                    color: INK,
-                    fontFamily: "'Cormorant Garamond', 'Didot', 'Times New Roman', serif",
-                    fontSize: "clamp(1.75rem, 9vw, 4.5rem)",
-                    letterSpacing: "-0.01em",
-                    lineHeight: 1.05,
+                <motion.div
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={{ opacity: [0, 0, 1, 1, 0], y: [14, 14, 0, 0, -6] }}
+                  transition={{
+                    duration: SWEEP,
+                    times: TEXT_TIMES,
+                    ease: [0.22, 1, 0.36, 1],
                   }}
+                  className="absolute top-0 left-0 right-0 px-6 pt-16 text-center sm:pt-20"
                 >
-                  Herzlich
-                  <br />
-                  <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
-                </h2>
-              </motion.div>
-              <div
-                className="absolute bottom-0 left-0 right-0 h-px"
-                style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
-              />
-            </motion.div>
-
-            <motion.div
-              className="absolute inset-0 z-10 overflow-hidden will-change-transform"
-              initial={{ y: 0 }}
-              animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
-              transition={{
-                duration: SWEEP,
-                times: SWEEP_TIMES,
-                ease: [0.76, 0, 0.24, 1],
-              }}
-              style={{
-                backgroundColor: BEIGE,
-                clipPath: "inset(calc(50% - 1px) 0 0 0)",
-                transform: "translateZ(0)",
-              }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center px-6">
-                <img
-                  src={premiumShot}
-                  alt="RAJ NEXUS"
-                  className="w-auto max-w-[84vw] sm:max-w-[68vw] h-auto max-h-[42vh] sm:max-h-[48vh] select-none"
-                  draggable={false}
-                />
-              </div>
-              <motion.div
-                initial={{ opacity: 0, y: -14 }}
-                animate={{ opacity: [0, 0, 1, 1, 0], y: [-14, -14, 0, 0, 6] }}
-                transition={{
-                  duration: SWEEP,
-                  times: TEXT_TIMES,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="absolute bottom-0 left-0 right-0 px-6 pb-16 text-center sm:pb-20"
-              >
+                  <p
+                    className="mb-3 text-[9px] uppercase tracking-[0.35em] sm:text-xs"
+                    style={{ color: GOLD }}
+                  >
+                    EST. 2026 · Switzerland
+                  </p>
+                  <h2
+                    className="font-light tracking-tight"
+                    style={{
+                      color: INK,
+                      fontFamily: "'Cormorant Garamond', 'Didot', 'Times New Roman', serif",
+                      fontSize: "clamp(1.75rem, 9vw, 4.5rem)",
+                      letterSpacing: "-0.01em",
+                      lineHeight: 1.05,
+                    }}
+                  >
+                    Herzlich
+                    <br />
+                    <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
+                  </h2>
+                </motion.div>
+                {/* Upper half of the product — anchored to bottom of this half */}
                 <div
-                  className="mx-auto mb-3 h-px"
+                  className="absolute left-1/2 bottom-0 -translate-x-1/2 overflow-hidden"
                   style={{
-                    width: "60px",
-                    background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+                    width: "min(84vw, 520px)",
+                    height: "min(42vh, 320px)",
                   }}
-                />
-                <p
-                  className="text-[11px] font-light tracking-wide sm:text-sm"
-                  style={{ color: COPY }}
                 >
-                  Eine neue Schweizer Marke entsteht.
-                </p>
+                  <img
+                    src={premiumShot}
+                    alt="RAJ NEXUS"
+                    draggable={false}
+                    className="absolute left-0 top-0 w-full h-[200%] object-contain object-top select-none"
+                  />
+                </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-px"
+                  style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
+                />
               </motion.div>
-            </motion.div>
+
+              {/* Bottom half — lower part of product + tagline, slides down */}
+              <motion.div
+                className="relative flex-1 overflow-hidden will-change-transform"
+                initial={{ y: 0 }}
+                animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
+                transition={{
+                  duration: SWEEP,
+                  times: SWEEP_TIMES,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
+                style={{ backgroundColor: BEIGE }}
+              >
+                {/* Lower half of the product — anchored to top of this half */}
+                <div
+                  className="absolute left-1/2 top-0 -translate-x-1/2 overflow-hidden"
+                  style={{
+                    width: "min(84vw, 520px)",
+                    height: "min(42vh, 320px)",
+                  }}
+                >
+                  <img
+                    src={premiumShot}
+                    alt=""
+                    aria-hidden
+                    draggable={false}
+                    className="absolute left-0 bottom-0 w-full h-[200%] object-contain object-bottom select-none"
+                  />
+                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: -14 }}
+                  animate={{ opacity: [0, 0, 1, 1, 0], y: [-14, -14, 0, 0, 6] }}
+                  transition={{
+                    duration: SWEEP,
+                    times: TEXT_TIMES,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="absolute bottom-0 left-0 right-0 px-6 pb-16 text-center sm:pb-20"
+                >
+                  <div
+                    className="mx-auto mb-3 h-px"
+                    style={{
+                      width: "60px",
+                      background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+                    }}
+                  />
+                  <p
+                    className="text-[11px] font-light tracking-wide sm:text-sm"
+                    style={{ color: COPY }}
+                  >
+                    Eine neue Schweizer Marke entsteht.
+                  </p>
+                </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
