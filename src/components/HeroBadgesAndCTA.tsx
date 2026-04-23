@@ -122,6 +122,29 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [submitted, setSubmitted] = useState(false);
   const countdown = useCountdown();
 
+  // Animated count-up for the spots taken number, synced with progress bar
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (v) => Math.round(v));
+  const [displayCount, setDisplayCount] = useState(0);
+  const [animatedProgress, setAnimatedProgress] = useState(0);
+
+  useEffect(() => {
+    const unsub = rounded.on("change", (v) => setDisplayCount(v));
+    return () => unsub();
+  }, [rounded]);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(count, taken, {
+      duration: 1.6,
+      ease: [0.22, 1, 0.36, 1],
+    });
+    setAnimatedProgress(progress);
+    return () => controls.stop();
+  }, [inView, taken, progress, count]);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
