@@ -93,13 +93,22 @@ const IntroReveal = () => {
                 <img
                   src={premiumShot}
                   alt=""
-                  className="absolute left-1/2 -translate-x-1/2 top-0 max-w-none"
-                  style={{
-                    height: "100vh",
-                    maxWidth: "100vw",
-                    width: "auto",
-                    objectFit: "contain",
-                  }}
+                  className="absolute left-1/2 -translate-x-1/2 top-0"
+                  style={
+                    isMobile
+                      ? {
+                          width: "100vw",
+                          height: "auto",
+                          maxHeight: "100vh",
+                          objectFit: "contain",
+                        }
+                      : {
+                          height: "100vh",
+                          width: "auto",
+                          maxWidth: "100vw",
+                          objectFit: "contain",
+                        }
+                  }
                   draggable={false}
                 />
                 <motion.div
@@ -110,7 +119,7 @@ const IntroReveal = () => {
                     times: TEXT_TIMES,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="absolute top-0 left-0 right-0 pt-16 sm:pt-20 text-center px-6"
+                  className="absolute top-0 left-0 right-0 pt-10 sm:pt-20 text-center px-6"
                 >
                   <p
                     className="text-[9px] sm:text-xs tracking-[0.35em] uppercase mb-3"
@@ -156,13 +165,22 @@ const IntroReveal = () => {
                 <img
                   src={premiumShot}
                   alt=""
-                  className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-none"
-                  style={{
-                    height: "100vh",
-                    maxWidth: "100vw",
-                    width: "auto",
-                    objectFit: "contain",
-                  }}
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0"
+                  style={
+                    isMobile
+                      ? {
+                          width: "100vw",
+                          height: "auto",
+                          maxHeight: "100vh",
+                          objectFit: "contain",
+                        }
+                      : {
+                          height: "100vh",
+                          width: "auto",
+                          maxWidth: "100vw",
+                          objectFit: "contain",
+                        }
+                  }
                   draggable={false}
                 />
                 <motion.div
@@ -173,7 +191,7 @@ const IntroReveal = () => {
                     times: TEXT_TIMES,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="absolute bottom-0 left-0 right-0 pb-16 sm:pb-20 text-center px-6"
+                  className="absolute bottom-0 left-0 right-0 pb-10 sm:pb-20 text-center px-6"
                 >
                   <div
                     className="mx-auto mb-3 h-px"
