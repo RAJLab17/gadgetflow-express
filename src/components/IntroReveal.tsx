@@ -2,17 +2,15 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import premiumShot from "@/assets/raj-nexus-premium-shot.jpeg";
 
-const SESSION_KEY = "raj_intro_seen";
 const GOLD = "#9b6b3f";
 const BEIGE = "#f0ede6";
 const INK = "#2b2725";
 
 /**
- * Premium "Curtain Reveal" intro shown once per session.
+ * Premium "Curtain Reveal" intro shown on every fresh page load.
  * - Fullscreen product shot (split horizontally)
  * - Top half lifts up · bottom half drops down
  * - Center reveals "Herzlich Willkommen" gold script
- * - Total runtime ~3.2s, then unmounts and reveals the page
  */
 const IntroReveal = () => {
   const reduce = useReducedMotion();
@@ -28,17 +26,13 @@ const IntroReveal = () => {
 
     const params = new URLSearchParams(window.location.search);
     const enableDevMode = params.get("dev") === "1";
-    const forceIntro = params.get("intro") === "1";
 
     if (enableDevMode) {
       localStorage.setItem("raj_dev_mode", "1");
     }
 
-    if (forceIntro) {
-      sessionStorage.removeItem(SESSION_KEY);
-    }
-
     setIsDev(localStorage.getItem("raj_dev_mode") === "1");
+    setShow(true);
   }, []);
 
   // Premium pacing — text visible from start, alongside the product
@@ -54,14 +48,7 @@ const IntroReveal = () => {
     setReplayKey((k) => k + 1);
   }, []);
 
-  // Auto-play once per session on mount
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(SESSION_KEY)) return;
-    setShow(true);
-  }, []);
-
-  // Body lock + auto-dismiss timer + mark session as seen AFTER playback
+  // Body lock + auto-dismiss timer
   useEffect(() => {
     if (!show) return;
     const prev = document.body.style.overflow;
@@ -69,7 +56,6 @@ const IntroReveal = () => {
     const t = window.setTimeout(() => {
       setShow(false);
       document.body.style.overflow = prev;
-      sessionStorage.setItem(SESSION_KEY, "1");
     }, TOTAL);
     return () => {
       window.clearTimeout(t);
