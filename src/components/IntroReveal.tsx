@@ -19,10 +19,17 @@ const IntroReveal = () => {
   const [show, setShow] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
+  const [isDev, setIsDev] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     setIsMobile(window.matchMedia("(max-width: 640px)").matches);
+    // Replay button only visible for developer (?dev=1 in URL, persisted in localStorage)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("dev") === "1") {
+      localStorage.setItem("raj_dev_mode", "1");
+    }
+    setIsDev(localStorage.getItem("raj_dev_mode") === "1");
   }, []);
 
   // Premium pacing — text visible from start, alongside the product
@@ -198,7 +205,7 @@ const IntroReveal = () => {
       </AnimatePresence>
 
       {/* Replay button — bottom right, subtle gold pill */}
-      {!show && (
+      {!show && isDev && (
         <button
           onClick={playIntro}
           aria-label="Intro erneut abspielen"
