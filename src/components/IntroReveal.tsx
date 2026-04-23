@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import premiumShot from "@/assets/raj-nexus-premium-shot.jpeg";
+import productCutout from "@/assets/products/charger-3in1-angle.png";
 
 const GOLD = "#9b6b3f";
 const BEIGE = "#f0ede6";
@@ -129,7 +129,7 @@ const IntroReveal = () => {
                   }}
                 >
                   <img
-                    src={premiumShot}
+                    src={productCutout}
                     alt="RAJ NEXUS"
                     draggable={false}
                     className="absolute left-0 top-0 h-[200%] w-full object-contain object-top select-none"
@@ -162,7 +162,7 @@ const IntroReveal = () => {
                   }}
                 >
                   <img
-                    src={premiumShot}
+                    src={productCutout}
                     alt=""
                     aria-hidden
                     draggable={false}
