@@ -278,16 +278,52 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </p>
             </div>
 
-            {/* Benefits */}
+            {/* Benefits — sequentially highlighted to guide the eye toward the CTA */}
             <ul className="w-full max-w-sm mx-auto mb-5 sm:mb-7 text-left space-y-1.5 sm:space-y-2.5">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
-              ].map((b) => (
-                <li key={b.text} className="flex items-start gap-2 sm:gap-2.5">
-                  <span className="text-sm sm:text-base leading-5 sm:leading-6 flex-shrink-0" aria-hidden>{b.icon}</span>
+              ].map((b, i) => (
+                <motion.li
+                  key={b.text}
+                  className="flex items-start gap-2 sm:gap-2.5 rounded-lg px-2 py-1.5 -mx-2"
+                  initial={{ backgroundColor: "rgba(155,107,63,0)", boxShadow: "0 0 0 rgba(155,107,63,0)" }}
+                  animate={{
+                    backgroundColor: [
+                      "rgba(155,107,63,0)",
+                      "rgba(155,107,63,0.10)",
+                      "rgba(155,107,63,0)",
+                    ],
+                    boxShadow: [
+                      "0 0 0 0 rgba(155,107,63,0)",
+                      "0 0 18px 2px rgba(155,107,63,0.25)",
+                      "0 0 0 0 rgba(155,107,63,0)",
+                    ],
+                  }}
+                  transition={{
+                    duration: 1.6,
+                    delay: 1.2 + i * 1.4,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatDelay: 6 + i * 0.5,
+                  }}
+                >
+                  <motion.span
+                    className="text-sm sm:text-base leading-5 sm:leading-6 flex-shrink-0"
+                    aria-hidden
+                    animate={{ scale: [1, 1.25, 1], rotate: [0, -8, 0] }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 1.4 + i * 1.4,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatDelay: 6.7 + i * 0.5,
+                    }}
+                  >
+                    {b.icon}
+                  </motion.span>
                   <span className="text-[12px] sm:text-[14px] leading-5 sm:leading-6 text-[#444]">{b.text}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
 
@@ -318,8 +354,24 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   <label htmlFor="founder-email" className="text-center text-[13px] sm:text-[14px] font-semibold text-[#9b6b3f]">
                     {t("cta.formLabel")}
                   </label>
-                  <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none" />
+                  <motion.div
+                    className="relative rounded-xl"
+                    animate={{
+                      boxShadow: [
+                        "0 4px 20px -6px rgba(155,107,63,0.25)",
+                        "0 6px 28px -4px rgba(155,107,63,0.55)",
+                        "0 4px 20px -6px rgba(155,107,63,0.25)",
+                      ],
+                    }}
+                    transition={{
+                      duration: 2.2,
+                      delay: 4,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatDelay: 3.5,
+                    }}
+                  >
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none z-10" />
                     <input
                       id="founder-email"
                       type="email"
@@ -328,10 +380,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       placeholder={t("cta.emailPlaceholder")}
                       required
                       disabled={submitting}
-                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all"
-                      style={{ boxShadow: "0 4px 20px -6px rgba(155,107,63,0.25)" }}
+                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative"
                     />
-                  </div>
+                  </motion.div>
                   <button
                     type="submit"
                     disabled={submitting}
