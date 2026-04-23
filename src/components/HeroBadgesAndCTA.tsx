@@ -214,6 +214,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       >
         <div className="container mx-auto px-4 pt-10 pb-8 sm:pt-12 sm:pb-10 md:pt-16 md:pb-16">
           <motion.div
+            ref={sectionRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -236,7 +237,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </span>
             </div>
 
-            ref={sectionRef as any}
             {/* 2. Headline */}
             <h2 className="text-[28px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-5 sm:mb-6 tracking-tight">
               {t("cta.headlineLine1")}
