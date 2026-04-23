@@ -165,17 +165,17 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     <>
       <SocialProofPopup trigger={popupTrigger} message={t("cta.socialProof")} />
 
-      {/* Trust Badges */}
+      {/* Trust Badges — kompakt */}
       <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
-        <div className="container mx-auto px-3 sm:px-4 pt-3 pb-4 sm:pt-4 sm:pb-5">
-          <div className="flex flex-nowrap items-center justify-around md:justify-center gap-x-3 sm:gap-x-8 md:gap-x-14 lg:gap-x-20 text-[12px] sm:text-sm md:text-base">
+        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3">
+          <div className="flex flex-nowrap items-center justify-around md:justify-center gap-x-2 sm:gap-x-8 md:gap-x-14 lg:gap-x-20 text-[11px] sm:text-sm md:text-base">
             {badges.map((b) => (
               <span
                 key={b.label}
-                className="whitespace-nowrap inline-flex items-center gap-2 sm:gap-2.5 shrink-0 font-semibold tracking-tight"
+                className="whitespace-nowrap inline-flex items-center gap-1.5 sm:gap-2.5 shrink-0 font-semibold tracking-tight"
                 style={{ color: "#2b2725" }}
               >
-                <span className="inline-flex items-center [&_svg]:w-[18px] [&_svg]:h-[18px] sm:[&_svg]:w-5 sm:[&_svg]:h-5 md:[&_svg]:w-[22px] md:[&_svg]:h-[22px]">
+                <span className="inline-flex items-center [&_svg]:w-4 [&_svg]:h-4 sm:[&_svg]:w-5 sm:[&_svg]:h-5 md:[&_svg]:w-[22px] md:[&_svg]:h-[22px]">
                   {b.icon}
                 </span>
                 {b.label}
@@ -185,13 +185,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         </div>
       </div>
 
-      {/* Hero CTA */}
+      {/* Hero CTA — alles im First View */}
       <section
         id="signup-form"
         className="w-full"
         style={{ backgroundColor: "#faf6f0" }}
       >
-        <div className="container mx-auto px-4 pt-10 pb-8 sm:pt-12 sm:pb-10 md:pt-16 md:pb-16">
+        <div className="container mx-auto px-4 pt-2 pb-3 sm:pt-10 sm:pb-10 md:pt-14 md:pb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -201,14 +201,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           >
             {/* 1. Founder Edition Badge */}
             <div
-              className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border mb-3 sm:mb-5"
+              className="inline-flex items-center gap-2 px-2.5 py-0.5 sm:px-3.5 sm:py-1.5 rounded-full border mb-1.5 sm:mb-5"
               style={{
                 borderColor: "rgba(155,107,63,0.3)",
                 backgroundColor: "rgba(155,107,63,0.05)",
               }}
             >
               <span
-                className="text-[9px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
+                className="text-[8px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
                 style={{ color: GOLD }}
               >
                 {t("cta.founderBadge")}
@@ -216,22 +216,22 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-[28px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-5 sm:mb-6 tracking-tight">
+            <h2 className="text-[18px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-1.5 sm:mb-6 tracking-tight">
               {t("cta.headlineLine1")}
               <br />
               {t("cta.headlineLine2")}
             </h2>
 
             {/* 3. Subheadline */}
-            <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-6 sm:mb-7 max-w-md">
+            <p className="text-[10px] sm:text-[15px] text-[#555] leading-snug mb-1.5 sm:mb-7 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
               {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
             </p>
 
             {/* Progress Bar */}
-            <div className="w-full max-w-sm mb-5 sm:mb-8">
+            <div className="w-full max-w-sm mb-1.5 sm:mb-6">
               <div
-                className="relative h-1.5 rounded-full overflow-hidden"
+                className="relative h-1 sm:h-1.5 rounded-full overflow-hidden"
                 style={{ backgroundColor: "rgba(155,107,63,0.12)" }}
                 role="progressbar"
                 aria-valuenow={taken}
@@ -248,8 +248,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </div>
             </div>
 
-            {/* Produktbild RAJ NEXUS */}
-            <div className="w-screen relative left-1/2 -translate-x-1/2 flex justify-center mt-2 mb-4 sm:mt-4 sm:mb-6">
+            {/* Produktbild RAJ NEXUS — kompakt für First View */}
+            <div className="w-full flex justify-center mb-1.5 sm:mb-5">
               <img
                 src={nexusHero}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
@@ -257,63 +257,58 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 height={853}
                 fetchPriority="high"
                 decoding="async"
-                className="w-full max-w-[560px] sm:max-w-[620px] md:max-w-[720px] h-auto object-contain"
+                className="w-auto max-h-[130px] sm:max-h-[320px] md:max-h-[420px] object-contain"
               />
             </div>
 
-            {/* Subline */}
-            <p className="text-[13px] sm:text-[14px] text-[#666] mb-5 sm:mb-7 italic">
-              Ein Ladegerät. Ein Kabel. Drei Geräte.
-            </p>
-
-            {/* 4. Countdown */}
-            <div className="w-full mb-5 sm:mb-8">
-              <p className="text-[10px] sm:text-[12px] uppercase tracking-[0.2em] text-[#888] font-medium mb-2 sm:mb-3">
+            {/* 4. Countdown — kompakt */}
+            <div className="w-full mb-1.5 sm:mb-6">
+              <p className="text-[8px] sm:text-[12px] uppercase tracking-[0.18em] text-[#888] font-medium mb-1 sm:mb-3">
                 {t("cta.priceEndsIn")}
               </p>
-              <div className="grid grid-cols-4 gap-1.5 sm:gap-3 max-w-md mx-auto">
+              <div className="grid grid-cols-4 gap-1 sm:gap-3 max-w-md mx-auto">
                 {countdownUnits.map((u) => (
                   <div
                     key={u.label}
-                    className="flex flex-col items-center justify-center rounded-lg sm:rounded-xl py-2 sm:py-4"
+                    className="flex flex-col items-center justify-center rounded-md sm:rounded-xl py-1 sm:py-4"
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid rgba(155,107,63,0.12)",
                     }}
                   >
-                    <span className="text-xl sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
+                    <span className="text-sm sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
                       {String(u.value).padStart(2, "0")}
                     </span>
-                    <span className="text-[9px] sm:text-[11px] text-[#888] mt-1 sm:mt-1.5 font-medium tracking-wide">
+                    <span className="text-[7px] sm:text-[11px] text-[#888] mt-0.5 sm:mt-1.5 font-medium tracking-wide">
                       {u.label}
                     </span>
                   </div>
                 ))}
               </div>
-              <p className="mt-2 sm:mt-3 text-center text-[11px] sm:text-[12px] text-[#888]">
+              <p className="mt-1 sm:mt-3 text-center text-[9px] sm:text-[12px] text-[#888]">
                 {t("cta.priceNow")} <span className="text-[#1a1a1a] font-semibold tabular-nums">CHF 99.–</span>
                 <span className="mx-1.5">·</span>
                 {t("cta.priceAfter")} <span className="line-through">CHF 129</span>
               </p>
             </div>
 
-            {/* Benefits */}
-            <ul className="w-full max-w-sm mx-auto mb-5 sm:mb-7 text-left space-y-1.5 sm:space-y-2.5">
+            {/* Benefits — inline auf Mobile, gestapelt auf sm+ */}
+            <ul className="w-full max-w-sm mx-auto mb-1.5 sm:mb-6 flex flex-row sm:flex-col items-center sm:items-start justify-center gap-x-3 gap-y-1 sm:gap-y-2.5 text-left">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
               ].map((b) => (
                 <li
                   key={b.text}
-                  className="flex items-start gap-2 sm:gap-2.5 rounded-lg px-2 py-1.5 -mx-2"
+                  className="flex items-center sm:items-start gap-1 sm:gap-2.5 rounded-lg sm:px-2 sm:py-1.5 sm:-mx-2"
                 >
                   <span
-                    className="text-sm sm:text-base leading-5 sm:leading-6 flex-shrink-0"
+                    className="text-[10px] sm:text-base leading-4 sm:leading-6 flex-shrink-0"
                     aria-hidden
                   >
                     {b.icon}
                   </span>
-                  <span className="text-[12px] sm:text-[14px] leading-5 sm:leading-6 text-[#444]">{b.text}</span>
+                  <span className="text-[9px] sm:text-[14px] leading-tight sm:leading-6 text-[#444]">{b.text}</span>
                 </li>
               ))}
             </ul>
@@ -324,14 +319,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex items-center justify-center gap-3 p-4 rounded-xl border"
+                  className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl border"
                   style={{
                     borderColor: GOLD,
                     backgroundColor: "rgba(155,107,63,0.06)",
                   }}
                 >
                   <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: GOLD }}
                   >
                     <Check className="w-4 h-4 text-white" />
@@ -341,12 +336,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   </span>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                  <label htmlFor="founder-email" className="text-center text-[13px] sm:text-[14px] font-semibold text-[#9b6b3f]">
-                    {t("cta.formLabel")}
-                  </label>
+                <form onSubmit={handleSubmit} className="flex flex-col gap-1.5 sm:gap-3">
                   <div className="relative rounded-xl">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none z-20" />
+                    <Mail className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-[#9b6b3f] pointer-events-none z-20" />
                     <input
                       id="founder-email"
                       type="email"
@@ -355,14 +347,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       placeholder={t("cta.emailPlaceholder")}
                       required
                       disabled={submitting}
-                      className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative z-10"
+                      className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-2 sm:py-4 rounded-lg sm:rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[13px] sm:text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative z-10"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full px-6 py-4 rounded-xl text-white font-bold text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                    className="w-full px-4 sm:px-6 py-2 sm:py-4 rounded-lg sm:rounded-xl text-white font-bold text-[12px] sm:text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
                     style={{ backgroundColor: GOLD, boxShadow: "0 6px 20px -6px rgba(155,107,63,0.45)" }}
                   >
                     {submitting ? (
@@ -376,7 +368,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 </form>
               )}
 
-              <p className="text-[12px] text-[#888] mt-3 text-center">
+              <p className="text-[9px] sm:text-[12px] text-[#888] mt-1 sm:mt-3 text-center">
                 {t("cta.trust")}
               </p>
             </div>
