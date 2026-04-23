@@ -43,10 +43,10 @@ const IntroReveal = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!show) {
-      setShow(true);
-    }
-  }, [show]);
+    setShow(true);
+    // Only on mount → plays once per page load / refresh
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!show) return;
@@ -54,11 +54,11 @@ const IntroReveal = () => {
     document.body.style.overflow = "hidden";
     const t = window.setTimeout(() => {
       setShow(false);
-      document.body.style.overflow = prev;
+      document.body.style.overflow = "";
     }, TOTAL);
     return () => {
       window.clearTimeout(t);
-      document.body.style.overflow = prev;
+      document.body.style.overflow = "";
     };
   }, [show, TOTAL, replayKey]);
 
