@@ -105,57 +105,17 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     }
   }, [spotsTaken]);
 
+  // Realtime live-counter removed: the WebSocket + Realtime client adds
+  // ~30KB and a noticeable Main Thread cost during LCP. The counter still
+  // updates locally on the user's own signup (via spotsTaken prop refresh).
+  // Other users' signups will be picked up on the next page load — fine for
+  // a launch / waitlist context.
+
+  // Trigger the social proof popup once after a quiet period (purely visual,
+  // no network).
   useEffect(() => {
-    let cancelled = false;
-    let channel: any = null;
-
-    // Defer the realtime subscription until the browser is idle so it
-    // doesn't compete with the LCP paint.
-    const start = async () => {
-      const supabase = await getSupabase();
-      if (cancelled) return;
-      channel = supabase
-        .channel("launch_signups_live")
-        .on(
-          "postgres_changes",
-          { event: "INSERT", schema: "public", table: "launch_signups" },
-          async () => {
-            // Re-read the authoritative count from DB instead of blindly +1,
-            // so the user's own signup doesn't double-count (parent refresh + listener).
-            try {
-              const { count } = await supabase
-                .from("launch_signups")
-                .select("id", { count: "exact", head: true });
-              if (typeof count === "number") {
-                setLiveCount(Math.min(TOTAL_SPOTS, count));
-              }
-            } catch {
-              /* ignore */
-            }
-            setPopupTrigger((p) => p + 1);
-          }
-        )
-        .subscribe();
-    };
-
-    const ric = (window as any).requestIdleCallback as
-      | ((cb: () => void, opts?: { timeout: number }) => number)
-      | undefined;
-    const handle = ric
-      ? ric(start, { timeout: 3000 })
-      : window.setTimeout(start, 1500);
-
-    return () => {
-      cancelled = true;
-      if (ric && (window as any).cancelIdleCallback) {
-        (window as any).cancelIdleCallback(handle);
-      } else {
-        clearTimeout(handle as number);
-      }
-      if (channel) {
-        getSupabase().then((supabase) => supabase.removeChannel(channel));
-      }
-    };
+    const id = window.setTimeout(() => setPopupTrigger((p) => p + 1), 12000);
+    return () => clearTimeout(id);
   }, []);
 
   const taken = liveCount;

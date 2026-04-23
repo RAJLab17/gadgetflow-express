@@ -183,7 +183,18 @@ const LaunchPage = () => {
   }, []);
 
   useEffect(() => {
-    void refreshSpotsTaken();
+    // Defer until after window 'load' AND idle so the count fetch never
+    // competes with LCP / first paint on mobile.
+    const schedule = () => {
+      const ric = (window as any).requestIdleCallback as
+        | ((cb: () => void, opts?: { timeout: number }) => number)
+        | undefined;
+      if (ric) ric(() => void refreshSpotsTaken(), { timeout: 4000 });
+      else window.setTimeout(() => void refreshSpotsTaken(), 2500);
+    };
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
+    return () => window.removeEventListener("load", schedule);
   }, [refreshSpotsTaken]);
 
   const handleSecondSignupSuccess = useCallback(() => {
@@ -211,20 +222,16 @@ const LaunchPage = () => {
       </Suspense>
 
       <div className="min-h-screen bg-[#f0ede6] relative overflow-hidden">
-        {/* Background effects */}
+        {/* Background — static gradient only. The animated 600x600 blurred
+            pulse was a major TBT offender on mobile (constant repaint of a
+            huge filtered layer). Static keeps the look without the cost. */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#f0ede6] via-[#f0ede6] to-[#f0ede6]" />
-        {prefersReducedMotion ? (
-          <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px] opacity-30" />
-        ) : (
-          <motion.div
-            className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-[#9b6b3f]/8 rounded-full blur-[180px]"
-            animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            style={{ willChange: "transform, opacity" }}
-          />
-        )}
         <div
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute top-1/4 left-1/3 w-[400px] h-[400px] bg-[#9b6b3f]/8 rounded-full blur-[120px] opacity-30 pointer-events-none"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 opacity-[0.02] pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(#2c2c2c 1px, transparent 1px)`,
             backgroundSize: "40px 40px",

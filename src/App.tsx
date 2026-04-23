@@ -36,7 +36,10 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const AppContent = () => {
+// Cart sync only runs on routes that actually need a cart (shop / product pages),
+// NOT on the Launch Page where it would needlessly drag the Shopify vendor chunk
+// into the LCP critical path.
+const ShopCartSync = () => {
   useCartSync();
   return null;
 };
@@ -45,11 +48,22 @@ const AppContent = () => {
 const HomePage = () => {
   const [searchParams] = useSearchParams();
   return searchParams.get("mode") === "shop" ? (
-    <Suspense fallback={null}><Index /></Suspense>
+    <Suspense fallback={null}>
+      <ShopCartSync />
+      <Index />
+    </Suspense>
   ) : (
     <LaunchPage />
   );
 };
+
+// Wrap shop / product routes with cart sync
+const WithCart = ({ children }: { children: React.ReactNode }) => (
+  <>
+    <ShopCartSync />
+    {children}
+  </>
+);
 
 const App = () => (
   <HelmetProvider>
@@ -59,19 +73,18 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <AppContent />
           <Suspense fallback={null}>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/product/magnetic-cable" element={<ProductPage />} />
-              <Route path="/product/magsafe-powerbank" element={<PowerBankPage />} />
-              <Route path="/product/powerbank-ultra-20k" element={<PowerBank20kPage />} />
-              <Route path="/product/wireless-charger-3in1" element={<WirelessChargerPage />} />
-              <Route path="/product/foldable-charger" element={<FoldableChargerPage />} />
-              <Route path="/product/stand-charger-3in1" element={<StandChargerPage />} />
-              <Route path="/product/car-charger-4in1" element={<CarChargerPage />} />
-              <Route path="/product/gan-supercharger-100w" element={<GanChargerPage />} />
-              <Route path="/product/usb-charger-35w" element={<UsbChargerPage />} />
+              <Route path="/product/magnetic-cable" element={<WithCart><ProductPage /></WithCart>} />
+              <Route path="/product/magsafe-powerbank" element={<WithCart><PowerBankPage /></WithCart>} />
+              <Route path="/product/powerbank-ultra-20k" element={<WithCart><PowerBank20kPage /></WithCart>} />
+              <Route path="/product/wireless-charger-3in1" element={<WithCart><WirelessChargerPage /></WithCart>} />
+              <Route path="/product/foldable-charger" element={<WithCart><FoldableChargerPage /></WithCart>} />
+              <Route path="/product/stand-charger-3in1" element={<WithCart><StandChargerPage /></WithCart>} />
+              <Route path="/product/car-charger-4in1" element={<WithCart><CarChargerPage /></WithCart>} />
+              <Route path="/product/gan-supercharger-100w" element={<WithCart><GanChargerPage /></WithCart>} />
+              <Route path="/product/usb-charger-35w" element={<WithCart><UsbChargerPage /></WithCart>} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/agb" element={<AGBPage />} />
               <Route path="/datenschutz" element={<DatenschutzPage />} />
@@ -83,7 +96,7 @@ const App = () => (
               <Route path="/vergleich" element={<VergleichPage />} />
               <Route path="/qi2-erklaert" element={<Qi2ErklaertPage />} />
               <Route path="/ueber-raj" element={<UeberRajPage />} />
-              <Route path="/shop-preview" element={<ShopPreview />} />
+              <Route path="/shop-preview" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
