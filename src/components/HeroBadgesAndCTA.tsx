@@ -241,7 +241,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{ backgroundColor: GOLD }}
                   initial={{ width: 0 }}
-                  animate={{ width: `${animatedProgress}%` }}
+                  animate={{ width: `${progress}%` }}
                   transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
