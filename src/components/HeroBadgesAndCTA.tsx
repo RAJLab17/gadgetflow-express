@@ -119,8 +119,19 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         .on(
           "postgres_changes",
           { event: "INSERT", schema: "public", table: "launch_signups" },
-          () => {
-            setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+          async () => {
+            // Re-read the authoritative count from DB instead of blindly +1,
+            // so the user's own signup doesn't double-count (parent refresh + listener).
+            try {
+              const { count } = await supabase
+                .from("launch_signups")
+                .select("id", { count: "exact", head: true });
+              if (typeof count === "number") {
+                setLiveCount(Math.min(TOTAL_SPOTS, count));
+              }
+            } catch {
+              /* ignore */
+            }
             setPopupTrigger((p) => p + 1);
           }
         )
