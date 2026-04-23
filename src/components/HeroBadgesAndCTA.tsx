@@ -301,11 +301,11 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     ],
                   }}
                   transition={{
-                    duration: 1.6,
-                    delay: 1.2 + i * 1.4,
+                    duration: 2.6,
+                    delay: 1.2 + i * 2.2,
                     ease: "easeInOut",
                     repeat: Infinity,
-                    repeatDelay: 6 + i * 0.5,
+                    repeatDelay: 5.5 + i * 0.5,
                   }}
                 >
                   <motion.span
