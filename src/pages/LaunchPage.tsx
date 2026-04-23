@@ -233,8 +233,8 @@ const LaunchPage = () => {
 
         <div className="relative z-10">
           {/* Mini Header with Language Toggle */}
-          <div className="py-1 md:py-4 px-4 flex items-center justify-between">
-            <img src={logo} alt="RAJ" width={120} height={40} className="h-10 w-auto object-contain" style={{ aspectRatio: "120 / 40" }} />
+          <div className="py-1 md:py-4 pl-2 pr-4 md:px-4 flex items-center justify-between">
+            <img src={logo} alt="RAJ" width={88} height={30} className="-ml-1 h-7 md:h-9 w-auto object-contain" style={{ aspectRatio: "120 / 40" }} />
             <div className="flex items-center gap-1 text-xs font-medium">
               <button
                 onClick={() => setLang("de")}
