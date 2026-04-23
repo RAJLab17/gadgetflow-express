@@ -192,7 +192,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       >
         <div className="container mx-auto px-4 pt-10 pb-8 sm:pt-12 sm:pb-10 md:pt-16 md:pb-16">
           <motion.div
-            ref={sectionRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
