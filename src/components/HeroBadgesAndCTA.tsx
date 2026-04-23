@@ -201,14 +201,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           >
             {/* 1. Founder Edition Badge */}
             <div
-              className="inline-flex items-center gap-2 px-2.5 py-0.5 sm:px-3.5 sm:py-1.5 rounded-full border mb-1.5 sm:mb-5"
+              className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border mb-2 sm:mb-5"
               style={{
                 borderColor: "rgba(155,107,63,0.3)",
                 backgroundColor: "rgba(155,107,63,0.05)",
               }}
             >
               <span
-                className="text-[8px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
+                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
                 style={{ color: GOLD }}
               >
                 {t("cta.founderBadge")}
@@ -216,22 +216,22 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 2. Headline */}
-            <h2 className="text-[18px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-1.5 sm:mb-6 tracking-tight">
+            <h2 className="text-[24px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 sm:mb-6 tracking-tight">
               {t("cta.headlineLine1")}
               <br />
               {t("cta.headlineLine2")}
             </h2>
 
             {/* 3. Subheadline */}
-            <p className="text-[10px] sm:text-[15px] text-[#555] leading-snug mb-1.5 sm:mb-7 max-w-md">
+            <p className="text-[12px] sm:text-[15px] text-[#555] leading-snug mb-2 sm:mb-7 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
               {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
             </p>
 
             {/* Progress Bar */}
-            <div className="w-full max-w-sm mb-1.5 sm:mb-6">
+            <div className="w-full max-w-sm mb-2 sm:mb-6">
               <div
-                className="relative h-1 sm:h-1.5 rounded-full overflow-hidden"
+                className="relative h-1.5 rounded-full overflow-hidden"
                 style={{ backgroundColor: "rgba(155,107,63,0.12)" }}
                 role="progressbar"
                 aria-valuenow={taken}
@@ -248,8 +248,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </div>
             </div>
 
-            {/* Produktbild RAJ NEXUS — kompakt für First View */}
-            <div className="w-full flex justify-center mb-1.5 sm:mb-5">
+            {/* Produktbild RAJ NEXUS */}
+            <div className="w-full flex justify-center mb-2 sm:mb-5">
               <img
                 src={nexusHero}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
@@ -257,35 +257,35 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 height={853}
                 fetchPriority="high"
                 decoding="async"
-                className="w-auto max-h-[130px] sm:max-h-[320px] md:max-h-[420px] object-contain"
+                className="w-auto max-h-[180px] sm:max-h-[320px] md:max-h-[420px] object-contain"
               />
             </div>
 
-            {/* 4. Countdown — kompakt */}
-            <div className="w-full mb-1.5 sm:mb-6">
-              <p className="text-[8px] sm:text-[12px] uppercase tracking-[0.18em] text-[#888] font-medium mb-1 sm:mb-3">
+            {/* 4. Countdown */}
+            <div className="w-full mb-2 sm:mb-6">
+              <p className="text-[9px] sm:text-[12px] uppercase tracking-[0.18em] text-[#888] font-medium mb-1.5 sm:mb-3">
                 {t("cta.priceEndsIn")}
               </p>
-              <div className="grid grid-cols-4 gap-1 sm:gap-3 max-w-md mx-auto">
+              <div className="grid grid-cols-4 gap-1.5 sm:gap-3 max-w-md mx-auto">
                 {countdownUnits.map((u) => (
                   <div
                     key={u.label}
-                    className="flex flex-col items-center justify-center rounded-md sm:rounded-xl py-1 sm:py-4"
+                    className="flex flex-col items-center justify-center rounded-lg sm:rounded-xl py-1.5 sm:py-4"
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid rgba(155,107,63,0.12)",
                     }}
                   >
-                    <span className="text-sm sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
+                    <span className="text-lg sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
                       {String(u.value).padStart(2, "0")}
                     </span>
-                    <span className="text-[7px] sm:text-[11px] text-[#888] mt-0.5 sm:mt-1.5 font-medium tracking-wide">
+                    <span className="text-[8px] sm:text-[11px] text-[#888] mt-0.5 sm:mt-1.5 font-medium tracking-wide">
                       {u.label}
                     </span>
                   </div>
                 ))}
               </div>
-              <p className="mt-1 sm:mt-3 text-center text-[9px] sm:text-[12px] text-[#888]">
+              <p className="mt-1.5 sm:mt-3 text-center text-[10px] sm:text-[12px] text-[#888]">
                 {t("cta.priceNow")} <span className="text-[#1a1a1a] font-semibold tabular-nums">CHF 99.–</span>
                 <span className="mx-1.5">·</span>
                 {t("cta.priceAfter")} <span className="line-through">CHF 129</span>
