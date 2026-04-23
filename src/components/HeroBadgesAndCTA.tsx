@@ -49,7 +49,7 @@ const useCountdown = () => {
   return t;
 };
 
-const SocialProofPopup = ({ trigger }: { trigger: number }) => {
+const SocialProofPopup = ({ trigger, message }: { trigger: number; message: string }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const SocialProofPopup = ({ trigger }: { trigger: number }) => {
               />
             </span>
             <p className="text-[13px] leading-snug text-[#2c2c2c]">
-              Jemand hat sich gerade einen Founder-Platz gesichert
+              {message}
             </p>
           </div>
         </motion.div>
@@ -185,17 +185,17 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   };
 
   const countdownUnits = [
-    { value: countdown.days, label: "Tage" },
-    { value: countdown.hours, label: "Std" },
-    { value: countdown.minutes, label: "Min" },
-    { value: countdown.seconds, label: "Sek" },
+    { value: countdown.days, label: t("countdown.daysShort") },
+    { value: countdown.hours, label: t("countdown.hoursShort") },
+    { value: countdown.minutes, label: t("countdown.minutesShort") },
+    { value: countdown.seconds, label: t("countdown.secondsShort") },
   ];
 
   const badges = getBadges(t);
 
   return (
     <>
-      <SocialProofPopup trigger={popupTrigger} />
+      <SocialProofPopup trigger={popupTrigger} message={t("cta.socialProof")} />
 
       {/* Trust Badges */}
       <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
@@ -243,23 +243,23 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 className="text-[9px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
                 style={{ color: GOLD }}
               >
-                Founder Edition · Nur 100 Stück
+                {t("cta.founderBadge")}
               </span>
             </div>
 
             {/* 2. Headline */}
             <h2 className="text-[28px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-5 sm:mb-6 tracking-tight">
-              Sei dabei.
+              {t("cta.headlineLine1")}
               <br />
-              Von Anfang an.
+              {t("cta.headlineLine2")}
             </h2>
 
             {/* 3. Subheadline */}
             <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-6 sm:mb-7 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
-              von <span className="tabular-nums">100</span> Founder-Plätzen sind bereits vergeben.
+              {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
               <br />
-              Werde Teil der ersten 100.
+              {t("cta.joinFirst100")}
             </p>
 
             {/* Progress Bar */}
@@ -285,7 +285,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             {/* 4. Countdown */}
             <div className="w-full mb-5 sm:mb-8">
               <p className="text-[10px] sm:text-[12px] uppercase tracking-[0.2em] text-[#888] font-medium mb-2 sm:mb-3">
-                Founder-Preis endet in
+                {t("cta.priceEndsIn")}
               </p>
               <div className="grid grid-cols-4 gap-1.5 sm:gap-3 max-w-md mx-auto">
                 {countdownUnits.map((u) => (
@@ -307,9 +307,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 ))}
               </div>
               <p className="mt-2 sm:mt-3 text-center text-[11px] sm:text-[12px] text-[#888]">
-                Jetzt <span className="text-[#1a1a1a] font-semibold tabular-nums">CHF 99.–</span>
+                {t("cta.priceNow")} <span className="text-[#1a1a1a] font-semibold tabular-nums">CHF 99.–</span>
                 <span className="mx-1.5">·</span>
-                danach <span className="line-through">CHF 129</span>
+                {t("cta.priceAfter")} <span className="line-through">CHF 129</span>
               </p>
             </div>
 
@@ -345,13 +345,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-sm font-semibold text-[#1a1a1a]">
-                    Dein Founder-Platz ist reserviert.
+                    {t("cta.reserved")}
                   </span>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                   <label htmlFor="founder-email" className="text-center text-[13px] sm:text-[14px] font-semibold text-[#9b6b3f]">
-                    Erhalte Zugang zum Launch
+                    {t("cta.formLabel")}
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none" />
@@ -360,7 +360,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="deine@email"
+                      placeholder={t("cta.emailPlaceholder")}
                       required
                       disabled={submitting}
                       className="w-full pl-12 pr-4 py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all"
@@ -377,7 +377,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
                       <>
-                        Meinen Founder Platz sichern <span aria-hidden>→</span>
+                        {t("cta.submitButton")} <span aria-hidden>→</span>
                       </>
                     )}
                   </button>
@@ -385,7 +385,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               )}
 
               <p className="text-[12px] text-[#888] mt-3 text-center">
-                Kostenlose Reservierung · Keine Zahlungsdaten · Kein Spam
+                {t("cta.trust")}
               </p>
             </div>
 
