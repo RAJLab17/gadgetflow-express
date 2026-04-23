@@ -25,12 +25,13 @@ const IntroReveal = () => {
     setIsMobile(window.matchMedia("(max-width: 640px)").matches);
   }, []);
 
-  // Longer hold so the product image can breathe — premium pacing
-  const TOTAL = reduce ? 1000 : isMobile ? 4200 : 5000;
-  const SWEEP = reduce ? 0.8 : isMobile ? 4.0 : 4.8;
-  // Text appears AFTER curtains start to part — so it's never hidden behind images
-  const TEXT_TIMES = isMobile ? [0, 0.72, 0.82, 0.95, 1] : [0, 0.72, 0.82, 0.95, 1];
-  const SWEEP_TIMES = isMobile ? [0, 0.65, 1] : [0, 0.7, 1];
+  // Premium pacing — text visible from start, alongside the product
+  const TOTAL = reduce ? 1000 : isMobile ? 4500 : 5200;
+  const SWEEP = reduce ? 0.8 : isMobile ? 4.3 : 5.0;
+  // Text fades in early (~15%) and stays until curtains close
+  const TEXT_TIMES = [0, 0.15, 0.25, 0.85, 1];
+  // Curtains hold long, then sweep at 75%
+  const SWEEP_TIMES = [0, 0.75, 1];
 
   const playIntro = useCallback(() => {
     setShow(true);
@@ -77,10 +78,10 @@ const IntroReveal = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* TOP HALF — shows top half of complete product, lifts up */}
+            {/* TOP — Product image (top 58vh), lifts up. Product fully visible, no text overlay. */}
             <motion.div
-              className="absolute top-0 left-0 right-0 overflow-hidden"
-              style={{ height: "50vh", backgroundColor: BEIGE }}
+              className="absolute top-0 left-0 right-0 overflow-hidden flex items-center justify-center"
+              style={{ height: "58vh", backgroundColor: BEIGE }}
               initial={{ y: 0 }}
               animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
               transition={{
@@ -89,32 +90,30 @@ const IntroReveal = () => {
                 ease: [0.76, 0, 0.24, 1],
               }}
             >
-              <div className="relative w-full h-full">
-                {/* Full product image, sized to fit fully within 100vh, top half visible */}
-                <img
-                  src={premiumShot}
-                  alt=""
-                  className="absolute left-1/2 -translate-x-1/2 top-0 max-w-none"
-                  style={{
-                    height: "100vh",
-                    maxWidth: "100vw",
-                    width: "auto",
-                    objectFit: "contain",
-                  }}
-                  draggable={false}
-                />
-                {/* hairline edge */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-px"
-                  style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
-                />
-              </div>
+              <img
+                src={premiumShot}
+                alt=""
+                className="max-w-none"
+                style={{
+                  maxHeight: "54vh",
+                  maxWidth: "92vw",
+                  width: "auto",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+                draggable={false}
+              />
+              {/* hairline edge */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-px"
+                style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
+              />
             </motion.div>
 
-            {/* BOTTOM HALF — shows bottom half of complete product, drops down */}
+            {/* BOTTOM — Welcome text on clean beige (bottom 42vh), drops down */}
             <motion.div
-              className="absolute bottom-0 left-0 right-0 overflow-hidden"
-              style={{ height: "50vh", backgroundColor: BEIGE }}
+              className="absolute bottom-0 left-0 right-0 overflow-hidden flex items-center justify-center"
+              style={{ height: "42vh", backgroundColor: BEIGE }}
               initial={{ y: 0 }}
               animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
               transition={{
@@ -123,27 +122,9 @@ const IntroReveal = () => {
                 ease: [0.76, 0, 0.24, 1],
               }}
             >
-              <div className="relative w-full h-full">
-                <img
-                  src={premiumShot}
-                  alt=""
-                  className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-none"
-                  style={{
-                    height: "100vh",
-                    maxWidth: "100vw",
-                    width: "auto",
-                    objectFit: "contain",
-                  }}
-                  draggable={false}
-                />
-              </div>
-            </motion.div>
-
-            {/* CENTER — welcome text revealed when curtains part */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: [0, 0, 1, 1, 0], y: [12, 12, 0, 0, -8] }}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: [0, 0, 1, 1, 0], y: [14, 14, 0, 0, -6] }}
                 transition={{
                   duration: SWEEP,
                   times: TEXT_TIMES,
@@ -185,7 +166,7 @@ const IntroReveal = () => {
                   Eine neue Schweizer Marke entsteht.
                 </p>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
