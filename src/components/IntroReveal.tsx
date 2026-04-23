@@ -195,7 +195,7 @@ const IntroReveal = () => {
         )}
       </AnimatePresence>
 
-      {!show && (
+      {!show && isPreview && (
         <button
           onClick={playIntro}
           aria-label="Intro erneut abspielen"
