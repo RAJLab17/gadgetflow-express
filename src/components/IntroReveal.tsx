@@ -5,12 +5,11 @@ import premiumShot from "@/assets/raj-nexus-premium-shot.jpeg";
 const GOLD = "#9b6b3f";
 const BEIGE = "#f0ede6";
 const INK = "#2b2725";
+const COPY = "#5a5550";
 
 /**
- * Premium "Curtain Reveal" intro shown on every fresh page load.
- * - Fullscreen product shot (split horizontally)
- * - Top half lifts up · bottom half drops down
- * - Center reveals "Herzlich Willkommen" gold script
+ * Premium intro shown on every fresh page load.
+ * Keeps the full product visible at all times and moves only the beige curtains.
  */
 const IntroReveal = () => {
   const reduce = useReducedMotion();
@@ -35,12 +34,9 @@ const IntroReveal = () => {
     setShow(true);
   }, []);
 
-  // Premium pacing — text visible from start, alongside the product
   const TOTAL = reduce ? 1000 : isMobile ? 4500 : 5200;
   const SWEEP = reduce ? 0.8 : isMobile ? 4.3 : 5.0;
-  // Text fades in early (~15%) and stays until curtains close
   const TEXT_TIMES = [0, 0.15, 0.25, 0.85, 1];
-  // Curtains hold long, then sweep at 75%
   const SWEEP_TIMES = [0, 0.75, 1];
 
   const playIntro = useCallback(() => {
@@ -48,26 +44,25 @@ const IntroReveal = () => {
     setReplayKey((k) => k + 1);
   }, []);
 
-  // Body lock + auto-dismiss timer
   useEffect(() => {
     if (!show) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
     const t = window.setTimeout(() => {
       setShow(false);
       document.body.style.overflow = prev;
     }, TOTAL);
+
     return () => {
       window.clearTimeout(t);
       document.body.style.overflow = prev;
     };
   }, [show, TOTAL, replayKey]);
 
-  // Expose global replay so any button can trigger it
   useEffect(() => {
-    (window as any).__rajReplayIntro = playIntro;
+    (window as Window & { __rajReplayIntro?: () => void }).__rajReplayIntro = playIntro;
   }, [playIntro]);
-
 
   return (
     <>
@@ -75,37 +70,24 @@ const IntroReveal = () => {
         {show && (
           <motion.div
             key={`intro-${replayKey}`}
-            className="fixed inset-0 z-[100] pointer-events-none"
+            className="fixed inset-0 z-[100] pointer-events-none overflow-hidden"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            style={{ backgroundColor: BEIGE }}
           >
-            {/* TOP HALF — split product image (top half) + "Herzlich Willkommen" overlay, lifts up */}
-            <motion.div
-              className="absolute top-0 left-0 right-0 overflow-hidden"
-              style={{ height: "50vh", backgroundColor: BEIGE }}
-              initial={{ y: 0 }}
-              animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
-              transition={{
-                duration: SWEEP,
-                times: SWEEP_TIMES,
-                ease: [0.76, 0, 0.24, 1],
-              }}
-            >
-              <div className="relative w-full h-full">
-                <img
-                  src={premiumShot}
-                  alt=""
-                  className="absolute left-0 top-0"
-                  style={{
-                    width: "100vw",
-                    height: "100vh",
-                    objectFit: "contain",
-                    objectPosition: "center center",
-                  }}
-                  draggable={false}
-                />
-                {/* Headline — pinned to top of upper curtain */}
+            <div className="absolute inset-0 flex flex-col">
+              <motion.div
+                className="relative flex-1 overflow-hidden"
+                initial={{ y: 0 }}
+                animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
+                transition={{
+                  duration: SWEEP,
+                  times: SWEEP_TIMES,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
+                style={{ backgroundColor: BEIGE }}
+              >
                 <motion.div
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: [0, 0, 1, 1, 0], y: [14, 14, 0, 0, -6] }}
@@ -137,40 +119,23 @@ const IntroReveal = () => {
                     <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
                   </h2>
                 </motion.div>
-                {/* hairline edge */}
                 <div
                   className="absolute bottom-0 left-0 right-0 h-px"
                   style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
                 />
-              </div>
-            </motion.div>
+              </motion.div>
 
-            {/* BOTTOM HALF — split product image (bottom half) + tagline, drops down */}
-            <motion.div
-              className="absolute bottom-0 left-0 right-0 overflow-hidden"
-              style={{ height: "50vh", backgroundColor: BEIGE }}
-              initial={{ y: 0 }}
-              animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
-              transition={{
-                duration: SWEEP,
-                times: SWEEP_TIMES,
-                ease: [0.76, 0, 0.24, 1],
-              }}
-            >
-              <div className="relative w-full h-full">
-                <img
-                  src={premiumShot}
-                  alt=""
-                  className="absolute left-0 bottom-0"
-                  style={{
-                    width: "100vw",
-                    height: "100vh",
-                    objectFit: "contain",
-                    objectPosition: "center center",
-                  }}
-                  draggable={false}
-                />
-                {/* Tagline — pinned to bottom of lower curtain */}
+              <motion.div
+                className="relative flex-1 overflow-hidden"
+                initial={{ y: 0 }}
+                animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
+                transition={{
+                  duration: SWEEP,
+                  times: SWEEP_TIMES,
+                  ease: [0.76, 0, 0.24, 1],
+                }}
+                style={{ backgroundColor: BEIGE }}
+              >
                 <motion.div
                   initial={{ opacity: 0, y: -14 }}
                   animate={{ opacity: [0, 0, 1, 1, 0], y: [-14, -14, 0, 0, 6] }}
@@ -190,18 +155,26 @@ const IntroReveal = () => {
                   />
                   <p
                     className="text-[11px] sm:text-sm font-light tracking-wide"
-                    style={{ color: "#5a5550" }}
+                    style={{ color: COPY }}
                   >
                     Eine neue Schweizer Marke entsteht.
                   </p>
                 </motion.div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
+
+            <div className="absolute inset-0 flex items-center justify-center px-6">
+              <img
+                src={premiumShot}
+                alt="RAJ NEXUS"
+                className="w-auto max-w-[84vw] sm:max-w-[68vw] h-auto max-h-[42vh] sm:max-h-[48vh] select-none"
+                draggable={false}
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Replay button — bottom right, subtle gold pill */}
       {!show && isDev && (
         <button
           onClick={playIntro}
