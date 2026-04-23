@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef, FormEvent } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
+import { useEffect, useState, FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -121,60 +121,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [submitted, setSubmitted] = useState(false);
   const countdown = useCountdown();
 
-  // Animated count-up for the spots taken number, synced with progress bar
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) => Math.round(v));
-  const [displayCount, setDisplayCount] = useState(0);
-  const [animatedProgress, setAnimatedProgress] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
 
-  useEffect(() => {
-    const unsub = rounded.on("change", (v) => setDisplayCount(v));
-    return () => unsub();
-  }, [rounded]);
-
-  // Trigger animation when the CTA section enters the viewport (or immediately if already visible).
-  useEffect(() => {
-    if (hasAnimated) return;
-    const el = sectionRef.current;
-    if (!el) return;
-
-    const trigger = () => {
-      if (hasAnimated) return;
-      setHasAnimated(true);
-      count.set(0);
-      animate(count, taken, {
-        duration: 1.8,
-        ease: [0.22, 1, 0.36, 1],
-      });
-      // Defer the bar so it animates from 0 (initial render had width:0)
-      requestAnimationFrame(() => setAnimatedProgress(progress));
-    };
-
-    // If already in viewport on mount, trigger immediately
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh && rect.bottom > 0) {
-      trigger();
-      return;
-    }
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            trigger();
-            io.disconnect();
-            break;
-          }
-        }
-      },
-      { threshold: 0.15 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [hasAnimated, taken, progress, count]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -245,7 +192,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       >
         <div className="container mx-auto px-4 pt-10 pb-8 sm:pt-12 sm:pb-10 md:pt-16 md:pb-16">
           <motion.div
-            ref={sectionRef}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -277,7 +223,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* 3. Subheadline */}
             <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-6 sm:mb-7 max-w-md">
-              <span className="font-semibold tabular-nums text-[#1a1a1a]">{displayCount}</span>{" "}
+              <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
               {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
             </p>
 
@@ -295,7 +241,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{ backgroundColor: GOLD }}
                   initial={{ width: 0 }}
-                  animate={{ width: `${animatedProgress}%` }}
+                  animate={{ width: `${progress}%` }}
                   transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
