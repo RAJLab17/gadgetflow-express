@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import premiumShot from "@/assets/raj-nexus-premium-shot.jpeg";
 
@@ -18,24 +18,36 @@ const IntroReveal = () => {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [replayKey, setReplayKey] = useState(0);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     setIsMobile(window.matchMedia("(max-width: 640px)").matches);
   }, []);
 
-  // Mobile: snappier feel — shorter hold + faster sweep but same choreography
-  const TOTAL = reduce ? 800 : isMobile ? 2400 : 3200;
-  const SWEEP = reduce ? 0.6 : isMobile ? 2.2 : 3.0;
-  // text in/out timing (fractions of SWEEP)
-  const TEXT_TIMES = isMobile ? [0, 0.28, 0.5, 0.82, 1] : [0, 0.35, 0.55, 0.85, 1];
-  const SWEEP_TIMES = isMobile ? [0, 0.5, 1] : [0, 0.55, 1];
+  // Longer hold so the product image can breathe — premium pacing
+  const TOTAL = reduce ? 1000 : isMobile ? 4200 : 5000;
+  const SWEEP = reduce ? 0.8 : isMobile ? 4.0 : 4.8;
+  // Hold the image longer (~70% of runtime) before the curtain parts
+  const TEXT_TIMES = isMobile ? [0, 0.4, 0.62, 0.9, 1] : [0, 0.45, 0.65, 0.9, 1];
+  const SWEEP_TIMES = isMobile ? [0, 0.7, 1] : [0, 0.7, 1];
+
+  const playIntro = useCallback(() => {
+    setShow(true);
+    setReplayKey((k) => k + 1);
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(SESSION_KEY)) return;
-    setShow(true);
-    sessionStorage.setItem(SESSION_KEY, "1");
+    if (!show) {
+      if (sessionStorage.getItem(SESSION_KEY)) return;
+      setShow(true);
+      sessionStorage.setItem(SESSION_KEY, "1");
+    }
+  }, [show]);
+
+  useEffect(() => {
+    if (!show) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const t = window.setTimeout(() => {
@@ -46,7 +58,13 @@ const IntroReveal = () => {
       window.clearTimeout(t);
       document.body.style.overflow = prev;
     };
-  }, [TOTAL]);
+  }, [show, TOTAL, replayKey]);
+
+  // Expose global replay so any button can trigger it
+  useEffect(() => {
+    (window as any).__rajReplayIntro = playIntro;
+  }, [playIntro]);
+
 
   return (
     <AnimatePresence>
