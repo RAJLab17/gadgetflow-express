@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
 import { useLanguage } from "@/contexts/LanguageContext";
+import nexusHero from "@/assets/nexus-hero-floating.jpg";
 
 // Lazily load Supabase only when actually needed (post-LCP).
 // This keeps the 44KB gzipped supabase-vendor chunk out of the critical path.
@@ -250,15 +251,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             {/* Produktbild RAJ NEXUS — kompakt */}
             <div className="w-full flex justify-center mb-3 sm:mb-4">
               <img
-                src="/hero/slide-0-specs.webp"
-                srcSet="/hero/slide-0-specs-480.webp 480w, /hero/slide-0-specs.webp 960w"
-                sizes="(max-width: 640px) 80vw, 360px"
-                alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                src={nexusHero}
+                alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
                 width={480}
-                height={480}
+                height={853}
                 fetchPriority="high"
                 decoding="async"
-                className="w-auto max-h-[200px] sm:max-h-[240px] md:max-h-[280px] object-contain"
+                className="w-auto max-h-[220px] sm:max-h-[260px] md:max-h-[300px] object-contain"
               />
             </div>
 
