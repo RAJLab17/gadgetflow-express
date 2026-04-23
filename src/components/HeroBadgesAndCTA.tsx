@@ -111,13 +111,12 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   // Other users' signups will be picked up on the next page load — fine for
   // a launch / waitlist context.
 
-  // Trigger the social proof popup AND bump the counter/progress bar at the
-  // same time — feels like a real signup is happening live. Purely visual,
-  // no network. Capped at TOTAL_SPOTS so the bar never overflows.
+  // Trigger the social proof popup after a quiet period. The number above
+  // ("36 von 100") stays the same — only the progress bar replays its fill
+  // animation from 0 → current %, in sync with the popup. No DB change.
   useEffect(() => {
     const id = window.setTimeout(() => {
       setPopupTrigger((p) => p + 1);
-      setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
     }, 12000);
     return () => clearTimeout(id);
   }, []);
@@ -248,6 +247,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 aria-valuemax={TOTAL_SPOTS}
               >
                 <motion.div
+                  key={`bar-${popupTrigger}`}
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{ backgroundColor: GOLD }}
                   initial={{ width: 0 }}
