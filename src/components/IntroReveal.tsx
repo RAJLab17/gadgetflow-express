@@ -138,7 +138,7 @@ const IntroReveal = () => {
                 style={{
                   color: INK,
                   fontFamily: "'Cormorant Garamond', 'Didot', 'Times New Roman', serif",
-                  fontSize: "clamp(2.25rem, 7vw, 4.5rem)",
+                  fontSize: "clamp(2rem, 11vw, 4.5rem)",
                   letterSpacing: "-0.01em",
                   lineHeight: 1.05,
                 }}
