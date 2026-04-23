@@ -115,10 +115,10 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-2 sm:px-4">
+      <div className="w-full px-2 sm:px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0 -ml-1 sm:ml-0" aria-label="RAJ Home">
+          <Link to="/" className="flex items-center gap-2 shrink-0 -ml-2 sm:-ml-1" aria-label="RAJ Home">
             <img
               src={logo}
               alt="RAJ Logo"
