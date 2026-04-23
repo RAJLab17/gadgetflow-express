@@ -11,8 +11,8 @@ const INK = "#2b2725";
  * Displays the Before/After image with a strong overline headline.
  */
 const SECOND_INTRO_DELAY = 0; // Show immediately
-const SECOND_INTRO_DURATION_DESKTOP = 4200;
-const SECOND_INTRO_DURATION_MOBILE = 3200;
+const SECOND_INTRO_DURATION_DESKTOP = 7000;
+const SECOND_INTRO_DURATION_MOBILE = 6000;
 
 const SecondIntro = () => {
   const reduce = useReducedMotion();
