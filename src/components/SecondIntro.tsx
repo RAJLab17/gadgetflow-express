@@ -18,6 +18,7 @@ const SecondIntro = () => {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(0);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -34,18 +35,30 @@ const SecondIntro = () => {
       setShow(true);
       document.body.style.overflow = "hidden";
 
+      const endsAt = Date.now() + duration;
+      setSecondsLeft(Math.ceil(duration / 1000));
+      const tickId = window.setInterval(() => {
+        const remaining = Math.max(0, Math.ceil((endsAt - Date.now()) / 1000));
+        setSecondsLeft(remaining);
+        if (remaining <= 0) window.clearInterval(tickId);
+      }, 250);
+
       const endTimer = window.setTimeout(() => {
         setShow(false);
         document.body.style.overflow = "";
+        window.clearInterval(tickId);
       }, duration);
 
       (window as Window & { __rajSecondIntroEnd?: number }).__rajSecondIntroEnd = endTimer;
+      (window as Window & { __rajSecondIntroTick?: number }).__rajSecondIntroTick = tickId;
     }, startDelay);
 
     return () => {
       window.clearTimeout(startTimer);
       const endTimer = (window as Window & { __rajSecondIntroEnd?: number }).__rajSecondIntroEnd;
       if (endTimer) window.clearTimeout(endTimer);
+      const tickId = (window as Window & { __rajSecondIntroTick?: number }).__rajSecondIntroTick;
+      if (tickId) window.clearInterval(tickId);
       document.body.style.overflow = "";
     };
   }, [reduce]);
@@ -61,6 +74,30 @@ const SecondIntro = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
+          {/* Countdown badge top right */}
+          <motion.div
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="absolute top-4 right-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full"
+            style={{
+              backgroundColor: "rgba(155, 107, 63, 0.08)",
+              border: `1px solid ${GOLD}`,
+              color: GOLD,
+              fontSize: "11px",
+              fontWeight: 500,
+              letterSpacing: "0.04em",
+              fontVariantNumeric: "tabular-nums",
+            }}
+            aria-label="Weiter in"
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <polyline points="12 7 12 12 15 14" />
+            </svg>
+            <span>Weiter in {secondsLeft}s</span>
+          </motion.div>
+
           {/* Overline */}
           <motion.p
             initial={{ opacity: 0, y: 8 }}
