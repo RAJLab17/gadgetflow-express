@@ -232,8 +232,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-6 sm:mb-7 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
               {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
-              <br />
-              {t("cta.joinFirst100")}
             </p>
 
             {/* Progress Bar */}
