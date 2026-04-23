@@ -43,6 +43,13 @@ const IntroReveal = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    // Skip the heavy intro on mobile entirely — it tanks LCP / TBT.
+    // Mobile users still see the gold "Intro" replay button on preview.
+    const isMobileDevice = window.matchMedia("(max-width: 640px)").matches;
+    if (isMobileDevice) {
+      setShow(false);
+      return;
+    }
     setShow(true);
     // Only on mount → plays once per page load / refresh
     // eslint-disable-next-line react-hooks/exhaustive-deps
