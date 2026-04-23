@@ -77,19 +77,19 @@ const SecondIntro = () => {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="font-light tracking-tight text-center mb-6 sm:mb-10 max-w-2xl"
+            className="font-light tracking-tight text-center mb-6 sm:mb-10 max-w-3xl whitespace-nowrap"
             style={{
               color: INK,
               fontFamily: "'Cormorant Garamond', 'Didot', 'Times New Roman', serif",
-              fontSize: "clamp(1.5rem, 6.5vw, 3.25rem)",
+              fontSize: "clamp(1.05rem, 5.2vw, 3rem)",
               letterSpacing: "-0.01em",
-              lineHeight: 1.1,
+              lineHeight: 1.15,
             }}
           >
             Dein Setup wird endlich{" "}
             <span style={{ color: GOLD, fontStyle: "italic" }}>clean.</span>
             <br />
-            <span className="text-[0.6em] tracking-[0.02em]" style={{ color: "#5a5550", fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 300 }}>
+            <span className="text-[0.55em] tracking-[0.02em]" style={{ color: "#5a5550", fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 300 }}>
               Kein Suchen. Kein Einstecken.
             </span>
           </motion.h2>
