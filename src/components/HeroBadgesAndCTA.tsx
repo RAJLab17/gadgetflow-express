@@ -247,6 +247,26 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </div>
             </div>
 
+            {/* Produktbild RAJ NEXUS — kompakt */}
+            <div className="w-full flex justify-center mb-3 sm:mb-4">
+              <img
+                src="/hero/slide-0-specs.webp"
+                srcSet="/hero/slide-0-specs-480.webp 480w, /hero/slide-0-specs.webp 960w"
+                sizes="(max-width: 640px) 80vw, 360px"
+                alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                width={480}
+                height={480}
+                fetchPriority="high"
+                decoding="async"
+                className="w-auto max-h-[200px] sm:max-h-[240px] md:max-h-[280px] object-contain"
+              />
+            </div>
+
+            {/* Subline */}
+            <p className="text-[13px] sm:text-[14px] text-[#666] mb-5 sm:mb-7 italic">
+              Ein Ladegerät. Ein Kabel. Drei Geräte.
+            </p>
+
             {/* 4. Countdown */}
             <div className="w-full mb-5 sm:mb-8">
               <p className="text-[10px] sm:text-[12px] uppercase tracking-[0.2em] text-[#888] font-medium mb-2 sm:mb-3">

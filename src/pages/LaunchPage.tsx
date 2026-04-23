@@ -5,11 +5,8 @@ import { Smartphone, Headphones, Watch } from "lucide-react";
 // Below-the-fold sections — lazy-loaded to reduce initial JS
 const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection"));
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
-const IntroReveal = lazy(() => import("@/components/IntroReveal"));
-const SecondIntro = lazy(() => import("@/components/SecondIntro"));
 import { Helmet } from "react-helmet-async";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
-import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
 // Lifestyle images live in /public so they don't bloat the initial JS bundle
@@ -218,10 +215,7 @@ const LaunchPage = () => {
         <meta property="og:url" content="https://raj.ch" />
       </Helmet>
 
-      <Suspense fallback={null}>
-        <IntroReveal />
-        <SecondIntro />
-      </Suspense>
+
 
       <div className="min-h-screen bg-[#f0ede6] relative overflow-hidden">
         {/* Background — static gradient only. The animated 600x600 blurred
@@ -274,7 +268,7 @@ const LaunchPage = () => {
             </div>
           </div>
 
-          {/* ===== 1. FOUNDER CTA (HERO) + CAROUSEL BELOW ===== */}
+          {/* ===== HERO ===== */}
           <HeroBadgesAndCTA
             spotsTaken={spotsTaken}
             onSignupSuccess={() => {
@@ -282,7 +276,7 @@ const LaunchPage = () => {
               fireConfetti();
             }}
           />
-          <HeroCarousel />
+
 
           {/* Lifestyle duo */}
           <section className="container mx-auto px-4 pt-6 md:pt-10">
