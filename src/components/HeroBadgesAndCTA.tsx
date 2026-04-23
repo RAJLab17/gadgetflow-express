@@ -236,6 +236,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </span>
             </div>
 
+            ref={sectionRef as any}
             {/* 2. Headline */}
             <h2 className="text-[28px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-5 sm:mb-6 tracking-tight">
               {t("cta.headlineLine1")}
@@ -245,7 +246,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* 3. Subheadline */}
             <p className="text-[14px] sm:text-[15px] text-[#555] leading-relaxed mb-6 sm:mb-7 max-w-md">
-              <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
+              <span className="font-semibold tabular-nums text-[#1a1a1a]">{displayCount}</span>{" "}
               {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
             </p>
 
@@ -260,12 +261,11 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 aria-valuemax={TOTAL_SPOTS}
               >
                 <motion.div
-                  key={`bar-${popupTrigger}`}
                   className="absolute inset-y-0 left-0 rounded-full"
                   style={{ backgroundColor: GOLD }}
                   initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                  animate={{ width: `${animatedProgress}%` }}
+                  transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
             </div>
