@@ -115,10 +115,10 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-2 sm:px-4">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0" aria-label="RAJ Home">
+          <Link to="/" className="flex items-center gap-2 shrink-0 -ml-1 sm:ml-0" aria-label="RAJ Home">
             <img
               src={logo}
               alt="RAJ Logo"
@@ -126,7 +126,7 @@ const Header = () => {
               height={56}
               fetchPriority="high"
               decoding="async"
-              className="h-8 md:h-10 w-auto drop-shadow-sm select-none"
+              className="h-5 md:h-8 w-auto drop-shadow-sm select-none"
               draggable={false}
             />
             <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
