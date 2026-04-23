@@ -111,10 +111,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   // Other users' signups will be picked up on the next page load — fine for
   // a launch / waitlist context.
 
-  // Trigger the social proof popup once after a quiet period (purely visual,
-  // no network).
+  // Trigger the social proof popup AND bump the counter/progress bar at the
+  // same time — feels like a real signup is happening live. Purely visual,
+  // no network. Capped at TOTAL_SPOTS so the bar never overflows.
   useEffect(() => {
-    const id = window.setTimeout(() => setPopupTrigger((p) => p + 1), 12000);
+    const id = window.setTimeout(() => {
+      setPopupTrigger((p) => p + 1);
+      setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+    }, 12000);
     return () => clearTimeout(id);
   }, []);
 
