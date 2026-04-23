@@ -94,12 +94,11 @@ const IntroReveal = () => {
                 <img
                   src={premiumShot}
                   alt=""
-                  className="absolute left-1/2 -translate-x-1/2 top-0 max-w-none"
+                  className="absolute left-1/2 -translate-x-1/2 top-0"
                   style={{
                     height: "100vh",
-                    maxWidth: "100vw",
                     width: "auto",
-                    objectFit: "contain",
+                    maxWidth: "none",
                   }}
                   draggable={false}
                 />
@@ -159,12 +158,11 @@ const IntroReveal = () => {
                 <img
                   src={premiumShot}
                   alt=""
-                  className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-none"
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0"
                   style={{
                     height: "100vh",
-                    maxWidth: "100vw",
                     width: "auto",
-                    objectFit: "contain",
+                    maxWidth: "none",
                   }}
                   draggable={false}
                 />
