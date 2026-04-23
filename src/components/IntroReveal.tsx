@@ -23,12 +23,21 @@ const IntroReveal = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+
     setIsMobile(window.matchMedia("(max-width: 640px)").matches);
-    // Replay button only visible for developer (?dev=1 in URL, persisted in localStorage)
+
     const params = new URLSearchParams(window.location.search);
-    if (params.get("dev") === "1") {
+    const enableDevMode = params.get("dev") === "1";
+    const forceIntro = params.get("intro") === "1";
+
+    if (enableDevMode) {
       localStorage.setItem("raj_dev_mode", "1");
     }
+
+    if (forceIntro) {
+      sessionStorage.removeItem(SESSION_KEY);
+    }
+
     setIsDev(localStorage.getItem("raj_dev_mode") === "1");
   }, []);
 
