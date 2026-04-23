@@ -11,8 +11,10 @@ import { Helmet } from "react-helmet-async";
 import HeroCarousel from "@/components/HeroCarousel";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
-import lifestyleLaptop from "@/assets/lifestyle-laptop.webp";
-import lifestyleWoman from "@/assets/lifestyle-woman.webp";
+// Lifestyle images live in /public so they don't bloat the initial JS bundle
+// and only fetch when scrolled into view (loading="lazy" below).
+const lifestyleLaptop = "/lifestyle/lifestyle-laptop.webp";
+const lifestyleWoman = "/lifestyle/lifestyle-woman.webp";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
