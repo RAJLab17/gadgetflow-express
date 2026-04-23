@@ -293,7 +293,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* Benefits — inline auf Mobile, gestapelt auf sm+ */}
-            <ul className="w-full max-w-sm mx-auto mb-2 sm:mb-6 flex flex-row sm:flex-col items-center sm:items-start justify-center gap-x-4 gap-y-1 sm:gap-y-2.5 text-left">
+            <ul className="w-full max-w-sm mx-auto mb-2 sm:mb-6 flex flex-col items-start justify-center gap-y-1.5 sm:gap-y-2.5 text-left">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
