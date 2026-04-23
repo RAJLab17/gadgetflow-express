@@ -33,6 +33,8 @@ const IntroReveal = () => {
   const SWEEP = reduce ? 0.8 : isMobile ? 4.3 : 5.0;
   const TEXT_TIMES = [0, 0.15, 0.25, 0.85, 1];
   const SWEEP_TIMES = [0, 0.75, 1];
+  const fullViewportHeight = isMobile ? "100dvh" : "100vh";
+  const halfViewportHeight = isMobile ? "50dvh" : "50vh";
 
   const playIntro = useCallback(() => {
     setShow(true);
@@ -80,7 +82,7 @@ const IntroReveal = () => {
             {/* TOP HALF */}
             <motion.div
               className="absolute top-0 left-0 right-0 overflow-hidden"
-              style={{ height: "50vh", backgroundColor: BEIGE }}
+              style={{ height: halfViewportHeight, backgroundColor: BEIGE }}
               initial={{ y: 0 }}
               animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
               transition={{
@@ -93,17 +95,17 @@ const IntroReveal = () => {
                 <img
                   src={premiumShot}
                   alt=""
-                  className="absolute left-1/2 -translate-x-1/2 bottom-0"
+                  className="absolute left-1/2 -translate-x-1/2 top-0"
                   style={
                     isMobile
                       ? {
                           width: "100vw",
-                          height: "100vh",
+                          height: fullViewportHeight,
                           objectFit: "contain",
                           objectPosition: "center center",
                         }
                       : {
-                          height: "100vh",
+                          height: fullViewportHeight,
                           width: "auto",
                           maxWidth: "100vw",
                           objectFit: "contain",
@@ -152,7 +154,7 @@ const IntroReveal = () => {
             {/* BOTTOM HALF */}
             <motion.div
               className="absolute bottom-0 left-0 right-0 overflow-hidden"
-              style={{ height: "50vh", backgroundColor: BEIGE }}
+              style={{ height: halfViewportHeight, backgroundColor: BEIGE }}
               initial={{ y: 0 }}
               animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
               transition={{
@@ -165,17 +167,17 @@ const IntroReveal = () => {
                 <img
                   src={premiumShot}
                   alt=""
-                  className="absolute left-1/2 -translate-x-1/2 top-0"
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0"
                   style={
                     isMobile
                       ? {
                           width: "100vw",
-                          height: "100vh",
+                          height: fullViewportHeight,
                           objectFit: "contain",
                           objectPosition: "center center",
                         }
                       : {
-                          height: "100vh",
+                          height: fullViewportHeight,
                           width: "auto",
                           maxWidth: "100vw",
                           objectFit: "contain",
