@@ -67,122 +67,150 @@ const IntroReveal = () => {
 
 
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          className="fixed inset-0 z-[100] pointer-events-none"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {/* TOP HALF — lifts up */}
+    <>
+      <AnimatePresence>
+        {show && (
           <motion.div
-            className="absolute top-0 left-0 right-0 overflow-hidden"
-            style={{ height: "50vh", backgroundColor: BEIGE }}
-            initial={{ y: 0 }}
-            animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
-            transition={{
-              duration: SWEEP,
-              times: SWEEP_TIMES,
-              ease: [0.76, 0, 0.24, 1],
-            }}
+            key={`intro-${replayKey}`}
+            className="fixed inset-0 z-[100] pointer-events-none"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative w-full h-full">
-              <img
-                src={premiumShot}
-                alt=""
-                className="absolute left-1/2 -translate-x-1/2 top-0 max-w-none"
-                style={{
-                  height: isMobile ? "120vh" : "100vh",
-                  width: "auto",
-                  objectFit: "contain",
-                }}
-                draggable={false}
-              />
-              <div
-                className="absolute bottom-0 left-0 right-0 h-px"
-                style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
-              />
-            </div>
-          </motion.div>
-
-          {/* BOTTOM HALF — drops down */}
-          <motion.div
-            className="absolute bottom-0 left-0 right-0 overflow-hidden"
-            style={{ height: "50vh", backgroundColor: BEIGE }}
-            initial={{ y: 0 }}
-            animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
-            transition={{
-              duration: SWEEP,
-              times: SWEEP_TIMES,
-              ease: [0.76, 0, 0.24, 1],
-            }}
-          >
-            <div className="relative w-full h-full">
-              <img
-                src={premiumShot}
-                alt=""
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-none"
-                style={{
-                  height: isMobile ? "120vh" : "100vh",
-                  width: "auto",
-                  objectFit: "contain",
-                }}
-                draggable={false}
-              />
-            </div>
-          </motion.div>
-
-          {/* CENTER — welcome text revealed when curtains part */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+            {/* TOP HALF — shows top half of complete product, lifts up */}
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: [0, 0, 1, 1, 0], y: [12, 12, 0, 0, -8] }}
+              className="absolute top-0 left-0 right-0 overflow-hidden"
+              style={{ height: "50vh", backgroundColor: BEIGE }}
+              initial={{ y: 0 }}
+              animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
               transition={{
                 duration: SWEEP,
-                times: TEXT_TIMES,
-                ease: [0.22, 1, 0.36, 1],
+                times: SWEEP_TIMES,
+                ease: [0.76, 0, 0.24, 1],
               }}
-              className="text-center px-6"
             >
-              <p
-                className="text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4"
-                style={{ color: GOLD }}
-              >
-                EST. 2026 · Switzerland
-              </p>
-              <h2
-                className="font-light tracking-tight"
-                style={{
-                  color: INK,
-                  fontFamily: "'Cormorant Garamond', 'Didot', 'Times New Roman', serif",
-                  fontSize: "clamp(2rem, 11vw, 4.5rem)",
-                  letterSpacing: "-0.01em",
-                  lineHeight: 1.05,
-                }}
-              >
-                Herzlich
-                <br />
-                <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
-              </h2>
-              <div
-                className="mx-auto mt-5 h-px"
-                style={{
-                  width: "80px",
-                  background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
-                }}
-              />
-              <p
-                className="mt-4 text-xs sm:text-sm font-light tracking-wide"
-                style={{ color: "#5a5550" }}
-              >
-                Eine neue Schweizer Marke entsteht.
-              </p>
+              <div className="relative w-full h-full">
+                {/* Full product image, sized to fit fully within 100vh, top half visible */}
+                <img
+                  src={premiumShot}
+                  alt=""
+                  className="absolute left-1/2 -translate-x-1/2 top-0 max-w-none"
+                  style={{
+                    height: "100vh",
+                    maxWidth: "100vw",
+                    width: "auto",
+                    objectFit: "contain",
+                  }}
+                  draggable={false}
+                />
+                {/* hairline edge */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-px"
+                  style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
+                />
+              </div>
             </motion.div>
-          </div>
-        </motion.div>
+
+            {/* BOTTOM HALF — shows bottom half of complete product, drops down */}
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 overflow-hidden"
+              style={{ height: "50vh", backgroundColor: BEIGE }}
+              initial={{ y: 0 }}
+              animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
+              transition={{
+                duration: SWEEP,
+                times: SWEEP_TIMES,
+                ease: [0.76, 0, 0.24, 1],
+              }}
+            >
+              <div className="relative w-full h-full">
+                <img
+                  src={premiumShot}
+                  alt=""
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-none"
+                  style={{
+                    height: "100vh",
+                    maxWidth: "100vw",
+                    width: "auto",
+                    objectFit: "contain",
+                  }}
+                  draggable={false}
+                />
+              </div>
+            </motion.div>
+
+            {/* CENTER — welcome text revealed when curtains part */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: [0, 0, 1, 1, 0], y: [12, 12, 0, 0, -8] }}
+                transition={{
+                  duration: SWEEP,
+                  times: TEXT_TIMES,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="text-center px-6"
+              >
+                <p
+                  className="text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4"
+                  style={{ color: GOLD }}
+                >
+                  EST. 2026 · Switzerland
+                </p>
+                <h2
+                  className="font-light tracking-tight"
+                  style={{
+                    color: INK,
+                    fontFamily: "'Cormorant Garamond', 'Didot', 'Times New Roman', serif",
+                    fontSize: "clamp(2rem, 11vw, 4.5rem)",
+                    letterSpacing: "-0.01em",
+                    lineHeight: 1.05,
+                  }}
+                >
+                  Herzlich
+                  <br />
+                  <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
+                </h2>
+                <div
+                  className="mx-auto mt-5 h-px"
+                  style={{
+                    width: "80px",
+                    background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+                  }}
+                />
+                <p
+                  className="mt-4 text-xs sm:text-sm font-light tracking-wide"
+                  style={{ color: "#5a5550" }}
+                >
+                  Eine neue Schweizer Marke entsteht.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Replay button — bottom right, subtle gold pill */}
+      {!show && (
+        <button
+          onClick={playIntro}
+          aria-label="Intro erneut abspielen"
+          className="fixed bottom-5 right-5 z-50 group flex items-center gap-2 px-4 py-2.5 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-105"
+          style={{
+            backgroundColor: "rgba(240, 237, 230, 0.85)",
+            border: `1px solid ${GOLD}`,
+            color: INK,
+            boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9" />
+            <polyline points="3 4 3 10 9 10" />
+          </svg>
+          <span className="text-xs font-medium tracking-wide">Intro</span>
+        </button>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 
