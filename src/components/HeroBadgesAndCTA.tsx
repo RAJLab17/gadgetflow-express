@@ -291,22 +291,22 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* Benefits — zentriert, premium spacing */}
-            <ul className="w-full max-w-sm mx-auto my-3 sm:my-6 flex flex-col items-center justify-center gap-y-2.5 sm:gap-y-3.5 text-center">
+            <ul className="mx-auto my-3 sm:my-6 inline-flex flex-col items-start justify-center gap-y-2.5 sm:gap-y-3.5">
               {[
                 { icon: "⚡", text: t("cta.benefit1") },
                 { icon: "🏆", text: t("cta.benefit2") },
               ].map((b) => (
                 <li
                   key={b.text}
-                  className="flex items-center justify-center gap-2 sm:gap-2.5"
+                  className="flex items-center gap-2.5 sm:gap-3"
                 >
                   <span
-                    className="text-[13px] sm:text-base leading-none flex-shrink-0"
+                    className="w-5 sm:w-6 text-center text-[14px] sm:text-base leading-none flex-shrink-0"
                     aria-hidden
                   >
                     {b.icon}
                   </span>
-                  <span className="text-[12px] sm:text-[14px] leading-snug text-[#444] tracking-wide">{b.text}</span>
+                  <span className="text-[12px] sm:text-[14px] leading-snug text-[#444] tracking-wide text-left">{b.text}</span>
                 </li>
               ))}
             </ul>
