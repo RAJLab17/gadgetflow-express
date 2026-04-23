@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, FormEvent } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useTransform, animate } from "framer-motion";
 import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
