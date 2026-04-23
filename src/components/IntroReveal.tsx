@@ -205,7 +205,7 @@ const IntroReveal = () => {
       </AnimatePresence>
 
       {/* Replay button — bottom right, subtle gold pill */}
-      {!show && (
+      {!show && isDev && (
         <button
           onClick={playIntro}
           aria-label="Intro erneut abspielen"
