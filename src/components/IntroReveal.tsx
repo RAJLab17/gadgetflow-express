@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import productHero from "@/assets/products/charger-3in1-hero.png";
+import premiumShot from "@/assets/raj-nexus-premium-shot.jpeg";
 
 const GOLD = "#9b6b3f";
 const BEIGE = "#f0ede6";
@@ -120,16 +120,16 @@ const IntroReveal = () => {
                     <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
                   </h2>
                 </motion.div>
-                {/* Upper half of the product — integrated into the top composition */}
+                {/* Upper half of the product — cut exactly at the center seam */}
                 <div
                   className="absolute left-1/2 bottom-0 -translate-x-1/2 overflow-hidden"
                   style={{
-                    width: "min(72vw, 420px)",
-                    height: "min(36vh, 260px)",
+                    width: "min(78vw, 460px)",
+                    height: "min(40vh, 300px)",
                   }}
                 >
                   <img
-                    src={productHero}
+                    src={premiumShot}
                     alt="RAJ NEXUS"
                     draggable={false}
                     className="absolute left-0 top-0 h-[200%] w-full object-contain object-top select-none"
@@ -153,16 +153,16 @@ const IntroReveal = () => {
                 }}
                 style={{ backgroundColor: BEIGE }}
               >
-                {/* Lower half of the product — integrated into the bottom composition */}
+                {/* Lower half of the product — cut exactly at the center seam */}
                 <div
                   className="absolute left-1/2 top-0 -translate-x-1/2 overflow-hidden"
                   style={{
-                    width: "min(72vw, 420px)",
-                    height: "min(36vh, 260px)",
+                    width: "min(78vw, 460px)",
+                    height: "min(40vh, 300px)",
                   }}
                 >
                   <img
-                    src={productHero}
+                    src={premiumShot}
                     alt=""
                     aria-hidden
                     draggable={false}
