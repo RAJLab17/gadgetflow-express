@@ -1,37 +1,24 @@
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import productCutout from "@/assets/raj-nexus-premium-shot.jpeg";
+import premiumShot from "@/assets/raj-nexus-premium-shot.jpeg";
 
+const SESSION_KEY = "raj_intro_seen";
 const GOLD = "#9b6b3f";
 const BEIGE = "#f0ede6";
 const INK = "#2b2725";
-const COPY = "#5a5550";
 
 /**
- * Premium intro shown on every fresh page load.
- * Keeps the full product visible at all times and moves only the beige curtains.
+ * Premium "Curtain Reveal" intro shown once per session.
  */
 const IntroReveal = () => {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
-  const [isDev, setIsDev] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-
     setIsMobile(window.matchMedia("(max-width: 640px)").matches);
-
-    const params = new URLSearchParams(window.location.search);
-    const enableDevMode = params.get("dev") === "1";
-
-    if (enableDevMode) {
-      localStorage.setItem("raj_dev_mode", "1");
-    }
-
-    setIsDev(localStorage.getItem("raj_dev_mode") === "1");
-    setShow(true);
   }, []);
 
   const TOTAL = reduce ? 1000 : isMobile ? 4500 : 5200;
@@ -45,15 +32,22 @@ const IntroReveal = () => {
   }, []);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!show) {
+      if (sessionStorage.getItem(SESSION_KEY)) return;
+      setShow(true);
+      sessionStorage.setItem(SESSION_KEY, "1");
+    }
+  }, [show]);
+
+  useEffect(() => {
     if (!show) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-
     const t = window.setTimeout(() => {
       setShow(false);
       document.body.style.overflow = prev;
     }, TOTAL);
-
     return () => {
       window.clearTimeout(t);
       document.body.style.overflow = prev;
@@ -70,25 +64,36 @@ const IntroReveal = () => {
         {show && (
           <motion.div
             key={`intro-${replayKey}`}
-            className="fixed inset-0 z-[100] pointer-events-none overflow-hidden"
+            className="fixed inset-0 z-[100] pointer-events-none"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            style={{ backgroundColor: BEIGE }}
           >
-            <div className="absolute inset-0 flex flex-col">
-              {/* Top half — text + upper part of product, slides up */}
-              <motion.div
-                className="relative flex-1 overflow-hidden will-change-transform"
-                initial={{ y: 0 }}
-                animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
-                transition={{
-                  duration: SWEEP,
-                  times: SWEEP_TIMES,
-                  ease: [0.76, 0, 0.24, 1],
-                }}
-                style={{ backgroundColor: BEIGE }}
-              >
+            {/* TOP HALF */}
+            <motion.div
+              className="absolute top-0 left-0 right-0 overflow-hidden"
+              style={{ height: "50vh", backgroundColor: BEIGE }}
+              initial={{ y: 0 }}
+              animate={{ y: reduce ? 0 : ["0%", "0%", "-100%"] }}
+              transition={{
+                duration: SWEEP,
+                times: SWEEP_TIMES,
+                ease: [0.76, 0, 0.24, 1],
+              }}
+            >
+              <div className="relative w-full h-full">
+                <img
+                  src={premiumShot}
+                  alt=""
+                  className="absolute left-1/2 -translate-x-1/2 top-0 max-w-none"
+                  style={{
+                    height: "100vh",
+                    maxWidth: "100vw",
+                    width: "auto",
+                    objectFit: "contain",
+                  }}
+                  draggable={false}
+                />
                 <motion.div
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: [0, 0, 1, 1, 0], y: [14, 14, 0, 0, -6] }}
@@ -97,10 +102,10 @@ const IntroReveal = () => {
                     times: TEXT_TIMES,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="absolute top-0 left-0 right-0 px-6 pt-16 text-center sm:pt-20"
+                  className="absolute top-0 left-0 right-0 pt-16 sm:pt-20 text-center px-6"
                 >
                   <p
-                    className="mb-3 text-[9px] uppercase tracking-[0.35em] sm:text-xs"
+                    className="text-[9px] sm:text-xs tracking-[0.35em] uppercase mb-3"
                     style={{ color: GOLD }}
                   >
                     EST. 2026 · Switzerland
@@ -120,55 +125,38 @@ const IntroReveal = () => {
                     <span style={{ color: GOLD, fontStyle: "italic" }}>Willkommen</span>
                   </h2>
                 </motion.div>
-                {/* Upper half of the product — cut exactly at the center seam */}
-                <div
-                  className="absolute left-1/2 bottom-0 -translate-x-1/2 overflow-hidden"
-                  style={{
-                    width: "min(78vw, 460px)",
-                    height: "min(40vh, 300px)",
-                  }}
-                >
-                  <img
-                    src={productCutout}
-                    alt="RAJ NEXUS"
-                    draggable={false}
-                    className="absolute left-0 top-0 h-[200%] w-full object-contain object-top select-none"
-                  />
-                </div>
                 <div
                   className="absolute bottom-0 left-0 right-0 h-px"
                   style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }}
                 />
-              </motion.div>
+              </div>
+            </motion.div>
 
-              {/* Bottom half — lower part of product + tagline, slides down */}
-              <motion.div
-                className="relative flex-1 overflow-hidden will-change-transform"
-                initial={{ y: 0 }}
-                animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
-                transition={{
-                  duration: SWEEP,
-                  times: SWEEP_TIMES,
-                  ease: [0.76, 0, 0.24, 1],
-                }}
-                style={{ backgroundColor: BEIGE }}
-              >
-                {/* Lower half of the product — cut exactly at the center seam */}
-                <div
-                  className="absolute left-1/2 top-0 -translate-x-1/2 overflow-hidden"
+            {/* BOTTOM HALF */}
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 overflow-hidden"
+              style={{ height: "50vh", backgroundColor: BEIGE }}
+              initial={{ y: 0 }}
+              animate={{ y: reduce ? 0 : ["0%", "0%", "100%"] }}
+              transition={{
+                duration: SWEEP,
+                times: SWEEP_TIMES,
+                ease: [0.76, 0, 0.24, 1],
+              }}
+            >
+              <div className="relative w-full h-full">
+                <img
+                  src={premiumShot}
+                  alt=""
+                  className="absolute left-1/2 -translate-x-1/2 bottom-0 max-w-none"
                   style={{
-                    width: "min(78vw, 460px)",
-                    height: "min(40vh, 300px)",
+                    height: "100vh",
+                    maxWidth: "100vw",
+                    width: "auto",
+                    objectFit: "contain",
                   }}
-                >
-                  <img
-                    src={productCutout}
-                    alt=""
-                    aria-hidden
-                    draggable={false}
-                    className="absolute left-0 bottom-0 h-[200%] w-full object-contain object-bottom select-none"
-                  />
-                </div>
+                  draggable={false}
+                />
                 <motion.div
                   initial={{ opacity: 0, y: -14 }}
                   animate={{ opacity: [0, 0, 1, 1, 0], y: [-14, -14, 0, 0, 6] }}
@@ -177,7 +165,7 @@ const IntroReveal = () => {
                     times: TEXT_TIMES,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="absolute bottom-0 left-0 right-0 px-6 pb-16 text-center sm:pb-20"
+                  className="absolute bottom-0 left-0 right-0 pb-16 sm:pb-20 text-center px-6"
                 >
                   <div
                     className="mx-auto mb-3 h-px"
@@ -187,19 +175,19 @@ const IntroReveal = () => {
                     }}
                   />
                   <p
-                    className="text-[11px] font-light tracking-wide sm:text-sm"
-                    style={{ color: COPY }}
+                    className="text-[11px] sm:text-sm font-light tracking-wide"
+                    style={{ color: "#5a5550" }}
                   >
                     Eine neue Schweizer Marke entsteht.
                   </p>
                 </motion.div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {!show && isDev && (
+      {!show && (
         <button
           onClick={playIntro}
           aria-label="Intro erneut abspielen"
