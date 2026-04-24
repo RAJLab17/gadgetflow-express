@@ -112,7 +112,7 @@ const AGBPage = () => {
       heading={<>Allgemeine<br />Geschäftsbedingungen</>}
       meta={
         <div className="space-y-1">
-          <p className="text-foreground font-medium">RAJ</p>
+          <p className="text-foreground font-medium">RAJ GmbH</p>
           <p>Gaswerkstrasse 9a</p>
           <p>info@raj.ch</p>
           <p className="pt-2">Stand: 19.02.2026</p>
