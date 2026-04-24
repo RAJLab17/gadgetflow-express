@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ShoppingBag, Loader2, Check, Truck, ShieldCheck, RotateCcw, FileText } from "lucide-react";
+import { ShoppingBag, Loader2, Check, Truck, ShieldCheck, RotateCcw, FileText, Zap, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useCartStore } from "@/stores/cartStore";
