@@ -150,7 +150,7 @@ const ShopPreview = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-white flex items-center justify-center"
+                className="aspect-square rounded-2xl overflow-hidden bg-white flex items-center justify-center"
               >
                 <img
                   src={gallery[activeImg]}
