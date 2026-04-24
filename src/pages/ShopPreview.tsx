@@ -11,7 +11,7 @@ import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } fr
 import PaymentIcons from "@/components/PaymentIcons";
 
 // Real RAJ NEXUS product photography
-import productMain from "@/assets/products/nexus-hero-prelaunch-white.webp";
+import productMain from "@/assets/products/nexus-hero-premium-clean.jpg";
 import productAlt from "@/assets/products/nexus-real-3quarter-white.jpg";
 import productTopView from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import productFolds from "@/assets/products/nexus-real-folds-white.jpg";
