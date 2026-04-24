@@ -11,7 +11,7 @@ import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } fr
 import PaymentIcons from "@/components/PaymentIcons";
 
 // Real RAJ NEXUS product photography
-import productMain from "@/assets/products/nexus-real-hero-floating.jpg";
+import productMain from "@/assets/products/nexus-real-hero-floating-white.jpg";
 import productAlt from "@/assets/products/nexus-real-3quarter.jpg";
 import productTopView from "@/assets/products/nexus-real-topview-qi2.jpg";
 import productFolds from "@/assets/products/nexus-real-folds.jpg";
@@ -149,9 +149,9 @@ const ShopPreview = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4 }}
-                className="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-card flex items-center justify-center"
+                className="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-white border border-border/60 shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.18)] flex items-center justify-center"
               >
-                <img src={gallery[activeImg]} alt="RAJ NEXUS" className="w-full h-full object-cover scale-110" />
+                <img src={gallery[activeImg]} alt="RAJ NEXUS" className="w-full h-full object-contain p-6 md:p-10" />
               </motion.div>
               <div className="grid grid-cols-4 gap-3 mt-4">
                 {gallery.map((img, i) => (
