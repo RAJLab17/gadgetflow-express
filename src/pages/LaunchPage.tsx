@@ -278,25 +278,72 @@ const LaunchPage = () => {
           />
 
 
-          {/* Lifestyle duo */}
-          <section className="container mx-auto px-4 pt-6 md:pt-10">
-            <div className="grid grid-cols-2 gap-3 md:gap-5 max-w-5xl mx-auto">
-              {[lifestyleLaptop, lifestyleWoman].map((src, i) => (
-                <motion.img
-                  key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: i * 0.1 }}
-                  src={src}
-                  alt="RAJ NEXUS Lifestyle"
-                  loading="lazy"
-                  decoding="async"
-                  width={600}
-                  height={600}
-                  className="w-full h-full rounded-xl object-cover aspect-square"
-                />
-              ))}
+          {/* ===== PREMIUM STORY — 3 Segmente im edlen Zickzack ===== */}
+          <section className="container mx-auto px-4 pt-10 md:pt-20 pb-4 md:pb-12">
+            <div className="max-w-6xl mx-auto space-y-16 md:space-y-28">
+              {[
+                {
+                  img: storyFolds,
+                  alt: "Faltbar wie eine Brieftasche",
+                  eyebrow: "Für Vielreisende",
+                  title: "Faltet sich. Lädt überall.",
+                  copy: "Hotelzimmer. Lounge. Airbnb. Eine Bewegung — aufgeklappt. iPhone, Watch, AirPods. Alle gleichzeitig.",
+                },
+                {
+                  img: storyLifestyle,
+                  alt: "Aufgeräumter Schreibtisch",
+                  eyebrow: "Für die, die Ordnung lieben",
+                  title: "Drei Kabel weg. Ein Objekt da.",
+                  copy: "Kein Kabelsalat. Kein Suchen. Ein einziger Ort — alles geladen, alles bereit.",
+                },
+                {
+                  img: storyNight,
+                  alt: "Nachts in der Stadt",
+                  eyebrow: "Für die späten Abende",
+                  title: "Hinlegen. Aufwachen mit 100 %.",
+                  copy: "Telefon drauf — magnetisch klick. Morgens: voll geladen, bereit für den Tag.",
+                },
+              ].map((s, i) => {
+                const imageRight = i % 2 === 1;
+                return (
+                  <div
+                    key={s.eyebrow}
+                    className="grid md:grid-cols-2 gap-8 md:gap-16 items-center"
+                  >
+                    <motion.img
+                      src={s.img}
+                      alt={s.alt}
+                      loading="lazy"
+                      decoding="async"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-80px" }}
+                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      className={`rounded-2xl w-full aspect-[4/5] object-cover shadow-[0_30px_80px_-30px_rgba(44,44,44,0.25)] ${
+                        imageRight ? "md:order-2" : ""
+                      }`}
+                    />
+                    <motion.div
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-80px" }}
+                      transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                      className={imageRight ? "md:order-1" : ""}
+                    >
+                      <span className="text-[11px] tracking-[0.32em] uppercase text-[#9b6b3f] font-semibold">
+                        {s.eyebrow}
+                      </span>
+                      <h3 className="text-2xl md:text-4xl font-light tracking-tight leading-[1.15] mt-4 text-[#2c2c2c]">
+                        {s.title}
+                      </h3>
+                      <div className="w-12 h-px bg-[#9b6b3f]/40 my-5" />
+                      <p className="text-base md:text-lg text-[#666] leading-relaxed font-light">
+                        {s.copy}
+                      </p>
+                    </motion.div>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
