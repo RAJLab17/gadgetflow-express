@@ -169,6 +169,18 @@ const ShopPreview = () => {
                 </p>
               </div>
 
+              {/* Hero benefits — premium chips */}
+              <div className="flex flex-wrap gap-2 -mt-1">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/70 bg-background/60 backdrop-blur-sm text-[11px] tracking-wider uppercase font-medium text-foreground/80">
+                  <Truck className="w-3.5 h-3.5 text-primary" strokeWidth={1.8} />
+                  Gratis Versand · CH
+                </span>
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/70 bg-background/60 backdrop-blur-sm text-[11px] tracking-wider uppercase font-medium text-foreground/80">
+                  <ShieldCheck className="w-3.5 h-3.5 text-primary" strokeWidth={1.8} />
+                  3 Jahre Garantie
+                </span>
+              </div>
+
               {/* Price block */}
               <div className="space-y-2">
                 <div className="flex items-baseline gap-3 flex-wrap">
