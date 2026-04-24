@@ -1,5 +1,5 @@
 import { useEffect, useState, FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// framer-motion removed from critical hero bundle — replaced with CSS animations.
 import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -59,37 +59,30 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
     return () => clearTimeout(id);
   }, [trigger]);
 
+  if (!show) return null;
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 10, scale: 0.96 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-5 left-5 z-50 max-w-[300px]"
-        >
-          <div
-            className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
-            style={{ borderColor: "rgba(155,107,63,0.18)" }}
-          >
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span
-                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
-                style={{ backgroundColor: GOLD }}
-              />
-              <span
-                className="relative inline-flex rounded-full h-2 w-2"
-                style={{ backgroundColor: GOLD }}
-              />
-            </span>
-            <p className="text-[13px] leading-snug text-[#2c2c2c]">
-              {message}
-            </p>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div
+      className="fixed bottom-5 left-5 z-50 max-w-[300px] animate-fade-in"
+    >
+      <div
+        className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
+        style={{ borderColor: "rgba(155,107,63,0.18)" }}
+      >
+        <span className="relative flex h-2 w-2 shrink-0">
+          <span
+            className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+            style={{ backgroundColor: GOLD }}
+          />
+          <span
+            className="relative inline-flex rounded-full h-2 w-2"
+            style={{ backgroundColor: GOLD }}
+          />
+        </span>
+        <p className="text-[13px] leading-snug text-[#2c2c2c]">
+          {message}
+        </p>
+      </div>
+    </div>
   );
 };
 
