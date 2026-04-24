@@ -279,8 +279,8 @@ const LaunchPage = () => {
 
 
           {/* ===== PREMIUM STORY — 3 Segmente im edlen Zickzack ===== */}
-          <section className="container mx-auto px-4 pt-10 md:pt-20 pb-4 md:pb-12">
-            <div className="max-w-6xl mx-auto space-y-16 md:space-y-28">
+          <section className="container mx-auto px-5 md:px-4 pt-12 md:pt-20 pb-6 md:pb-12">
+            <div className="max-w-6xl mx-auto space-y-20 md:space-y-28">
               {[
                 {
                   img: storyFolds,
@@ -308,36 +308,43 @@ const LaunchPage = () => {
                 return (
                   <div
                     key={s.eyebrow}
-                    className="grid md:grid-cols-2 gap-8 md:gap-16 items-center"
+                    className="grid md:grid-cols-2 gap-6 md:gap-16 items-center"
                   >
-                    <motion.img
-                      src={s.img}
-                      alt={s.alt}
-                      loading="lazy"
-                      decoding="async"
+                    <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                      className={`rounded-2xl w-full aspect-[4/5] object-cover shadow-[0_30px_80px_-30px_rgba(44,44,44,0.25)] ${
-                        imageRight ? "md:order-2" : ""
-                      }`}
-                    />
+                      className={`relative ${imageRight ? "md:order-2" : ""}`}
+                    >
+                      {/* Subtle warm glow behind image — only visible on mobile for premium depth */}
+                      <div
+                        className="absolute -inset-4 md:hidden rounded-[2rem] bg-gradient-to-br from-[#9b6b3f]/10 to-transparent blur-2xl pointer-events-none"
+                        aria-hidden
+                      />
+                      <img
+                        src={s.img}
+                        alt={s.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="relative rounded-2xl md:rounded-2xl w-full aspect-[5/6] md:aspect-[4/5] object-cover shadow-[0_20px_60px_-20px_rgba(44,44,44,0.35)] md:shadow-[0_30px_80px_-30px_rgba(44,44,44,0.25)]"
+                      />
+                    </motion.div>
                     <motion.div
                       initial={{ opacity: 0, y: 15 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                      className={imageRight ? "md:order-1" : ""}
+                      className={`text-center md:text-left ${imageRight ? "md:order-1" : ""}`}
                     >
-                      <span className="text-[11px] tracking-[0.32em] uppercase text-[#9b6b3f] font-semibold">
+                      <span className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-[#9b6b3f] font-semibold">
                         {s.eyebrow}
                       </span>
-                      <h3 className="text-2xl md:text-4xl font-light tracking-tight leading-[1.15] mt-4 text-[#2c2c2c]">
+                      <h3 className="text-[1.6rem] leading-[1.2] md:text-4xl font-light tracking-tight md:leading-[1.15] mt-3 md:mt-4 text-[#2c2c2c]">
                         {s.title}
                       </h3>
-                      <div className="w-12 h-px bg-[#9b6b3f]/40 my-5" />
-                      <p className="text-base md:text-lg text-[#666] leading-relaxed font-light">
+                      <div className="w-10 md:w-12 h-px bg-[#9b6b3f]/40 my-4 md:my-5 mx-auto md:mx-0" />
+                      <p className="text-[15px] md:text-lg text-[#666] leading-[1.65] md:leading-relaxed font-light max-w-md mx-auto md:mx-0">
                         {s.copy}
                       </p>
                     </motion.div>
