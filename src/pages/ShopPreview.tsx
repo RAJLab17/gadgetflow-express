@@ -167,6 +167,7 @@ const ShopPreview = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
+                    style={{ transform: activeImg === 3 ? "scale(1.35)" : undefined }}
                     transition={{ duration: 0.3 }}
                     draggable={false}
                     className="w-full h-full object-contain p-6 md:p-10 select-none"
