@@ -15,6 +15,7 @@ import productMain from "@/assets/products/nexus-hero-premium-stand.jpg";
 import productAlt from "@/assets/products/nexus-real-3quarter-white.jpg";
 import productTopView from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import productFolds from "@/assets/products/nexus-real-folds-white.jpg";
+import productFlat from "@/assets/products/nexus-flat-charging.jpg";
 import storySpeed from "@/assets/products/nexus-real-features.jpg";
 import storyFolds from "@/assets/products/nexus-real-folds-text.jpg";
 import storyLifestyle from "@/assets/products/nexus-real-desk-office.jpg";
@@ -51,7 +52,7 @@ const ShopPreview = () => {
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
-  const gallery = [productMain, productAlt, productTopView, productFolds];
+  const gallery = [productMain, productAlt, productTopView, productFolds, productFlat];
 
   useEffect(() => {
     (async () => {
