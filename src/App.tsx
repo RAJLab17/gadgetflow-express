@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useCartSync } from "@/hooks/useCartSync";
 import LaunchPage from "./pages/LaunchPage";
+import DevModeToggle from "./components/DevModeToggle";
 
 // Lazy-load everything except the LaunchPage (the LCP route)
 const Index = lazy(() => import("./pages/Index"));
@@ -74,6 +75,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Suspense fallback={null}>
+            <DevModeToggle />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/product/magnetic-cable" element={<WithCart><ProductPage /></WithCart>} />
