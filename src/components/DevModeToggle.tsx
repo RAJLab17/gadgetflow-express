@@ -23,11 +23,10 @@ const DevModeToggle = () => {
 
   if (!allowed) return null;
 
-  const isShopMode =
-    searchParams.get("mode") === "shop" || location.pathname !== "/";
+  const isShopMode = location.pathname === "/shop-preview";
 
   const goToLaunch = () => navigate("/", { replace: false });
-  const goToShop = () => navigate("/?mode=shop", { replace: false });
+  const goToShop = () => navigate("/shop-preview", { replace: false });
 
   return (
     <div className="fixed bottom-4 right-4 z-[9999] flex items-center gap-2 rounded-full border border-border/60 bg-background/90 px-3 py-2 shadow-elegant backdrop-blur-xl">
