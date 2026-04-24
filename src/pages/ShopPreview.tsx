@@ -169,15 +169,15 @@ const ShopPreview = () => {
                 </p>
               </div>
 
-              {/* Hero benefits — premium chips */}
-              <div className="flex flex-wrap gap-2 -mt-1">
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/70 bg-background/60 backdrop-blur-sm text-[11px] tracking-wider uppercase font-medium text-foreground/80">
-                  <Truck className="w-3.5 h-3.5 text-primary" strokeWidth={1.8} />
-                  Gratis Versand · CH
+              {/* Hero benefits — exklusive Founder-Privilegien */}
+              <div className="flex flex-col gap-2 -mt-1">
+                <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/25 bg-primary/[0.04] backdrop-blur-sm text-xs font-medium text-foreground/85 self-start">
+                  <Zap className="w-3.5 h-3.5 text-primary" strokeWidth={2} fill="currentColor" />
+                  Lebenslanger Early Access zu neuen RAJ Produkten
                 </span>
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/70 bg-background/60 backdrop-blur-sm text-[11px] tracking-wider uppercase font-medium text-foreground/80">
-                  <ShieldCheck className="w-3.5 h-3.5 text-primary" strokeWidth={1.8} />
-                  3 Jahre Garantie
+                <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/25 bg-primary/[0.04] backdrop-blur-sm text-xs font-medium text-foreground/85 self-start">
+                  <Award className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
+                  Founder Edition mit persönlicher Seriennummer
                 </span>
               </div>
 
