@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, Loader2, Check, Truck, ShieldCheck, RotateCcw, FileText, Zap, Award } from "lucide-react";
 import logoMark from "@/assets/logo-new.webp";
 import { Button } from "@/components/ui/button";
