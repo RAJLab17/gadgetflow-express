@@ -52,7 +52,7 @@ const ShopPreview = () => {
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
-  const gallery = [productMain, productAlt, productTopView, productFolds, productFlat];
+  const gallery = [productTopView, productMain, productAlt, productFolds, productFlat];
 
   useEffect(() => {
     (async () => {
@@ -168,12 +168,12 @@ const ShopPreview = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     style={{
-                      transform:
-                        activeImg === 3
-                          ? "scale(1.35)"
-                          : activeImg === 0 || activeImg === gallery.length - 1
-                          ? "scale(0.88)"
-                          : undefined,
+                       transform:
+                         activeImg === 3
+                           ? "scale(1.35)"
+                           : activeImg === gallery.length - 1
+                           ? "scale(0.88)"
+                           : undefined,
                     }}
                     transition={{ duration: 0.3 }}
                     draggable={false}
