@@ -154,7 +154,9 @@ const ShopPreview = () => {
                 <img
                   src={gallery[activeImg]}
                   alt="RAJ NEXUS"
-                  className="w-full h-full object-contain p-6 md:p-10"
+                  className={`w-full h-full object-contain ${
+                    activeImg === 0 ? "p-12 md:p-20" : "p-6 md:p-10"
+                  }`}
                 />
               </motion.div>
               <div className="grid grid-cols-4 gap-3 mt-4">
