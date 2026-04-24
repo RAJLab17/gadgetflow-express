@@ -318,7 +318,7 @@ const LaunchPage = () => {
                         alt={s.alt}
                         loading="lazy"
                         decoding="async"
-                        className="relative rounded-2xl md:rounded-2xl w-full aspect-[5/6] md:aspect-[4/5] object-cover shadow-[0_20px_60px_-20px_rgba(44,44,44,0.35)] md:shadow-[0_30px_80px_-30px_rgba(44,44,44,0.25)]"
+                        className="relative rounded-2xl md:rounded-2xl w-full aspect-square object-cover object-center shadow-[0_20px_60px_-20px_rgba(44,44,44,0.35)] md:shadow-[0_30px_80px_-30px_rgba(44,44,44,0.25)]"
                       />
                     </div>
                     <div
