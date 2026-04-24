@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ShoppingBag, Loader2, Check, Truck, ShieldCheck, RotateCcw, FileText, Zap, Award } from "lucide-react";
+import logoMark from "@/assets/logo-new.webp";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useCartStore } from "@/stores/cartStore";
@@ -120,9 +121,21 @@ const ShopPreview = () => {
       <div className="min-h-screen bg-background text-foreground">
         {/* Brand mark */}
         <header className="border-b border-border/60">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <span className="text-sm tracking-[0.3em] font-light">RAJ</span>
-            <span className="text-xs text-muted-foreground tracking-wider">Designed in Switzerland</span>
+          <div className="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
+            <span className="text-[11px] tracking-[0.32em] font-light text-muted-foreground/80 uppercase">
+              RAJ
+            </span>
+            <Link to="/" className="justify-self-center" aria-label="RAJ — Home">
+              <img
+                src={logoMark}
+                alt="RAJ"
+                className="h-5 md:h-6 w-auto opacity-90 select-none"
+                draggable={false}
+              />
+            </Link>
+            <span className="justify-self-end text-[11px] text-muted-foreground/80 tracking-[0.28em] uppercase font-light">
+              Swiss Brand
+            </span>
           </div>
         </header>
 
