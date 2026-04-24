@@ -75,6 +75,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Suspense fallback={null}>
+            <DevModeToggle />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/product/magnetic-cable" element={<WithCart><ProductPage /></WithCart>} />
