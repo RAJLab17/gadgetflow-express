@@ -144,25 +144,50 @@ const ShopPreview = () => {
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Gallery */}
             <div className="md:sticky md:top-8">
-              <motion.div
-                key={activeImg}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                className="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-white border border-border/60 shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.18)] flex items-center justify-center"
+              {/* Soft beige halo wrapper — no hard border */}
+              <div
+                className="rounded-[28px] p-3 md:p-4"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, hsl(var(--background)) 0%, hsl(var(--muted)) 75%, hsl(var(--card)) 100%)",
+                  boxShadow:
+                    "0 40px 80px -40px hsl(var(--foreground) / 0.15), 0 0 0 1px hsl(var(--border) / 0.4)",
+                }}
               >
-                <img src={gallery[activeImg]} alt="RAJ NEXUS" className="w-full h-full object-contain p-6 md:p-10" />
-              </motion.div>
+                <motion.div
+                  key={activeImg}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden flex items-center justify-center"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 50% 45%, #ffffff 0%, #ffffff 55%, hsl(var(--muted)) 100%)",
+                  }}
+                >
+                  <img
+                    src={gallery[activeImg]}
+                    alt="RAJ NEXUS"
+                    className="w-full h-full object-contain p-6 md:p-10"
+                  />
+                </motion.div>
+              </div>
               <div className="grid grid-cols-4 gap-3 mt-4">
                 {gallery.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className={`aspect-square rounded-lg overflow-hidden bg-card border-2 transition-colors ${
-                      activeImg === i ? "border-primary" : "border-transparent hover:border-border"
+                    className={`aspect-square rounded-lg overflow-hidden ring-2 transition-all ${
+                      activeImg === i
+                        ? "ring-primary/60"
+                        : "ring-transparent hover:ring-border/60"
                     }`}
+                    style={{
+                      background:
+                        "radial-gradient(circle at 50% 45%, #ffffff 0%, #ffffff 60%, hsl(var(--muted)) 100%)",
+                    }}
                   >
-                    <img src={img} alt="" className="w-full h-full object-contain" />
+                    <img src={img} alt="" className="w-full h-full object-contain p-1.5" />
                   </button>
                 ))}
               </div>
