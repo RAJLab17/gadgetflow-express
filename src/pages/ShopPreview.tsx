@@ -158,22 +158,22 @@ const ShopPreview = () => {
                   className="w-full h-full object-contain p-6 md:p-10"
                 />
               </motion.div>
-              <div className="grid grid-cols-5 gap-3 mt-4">
+              <div className="grid grid-cols-5 gap-2 md:gap-3 mt-3 md:mt-4">
                 {gallery.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className="group flex flex-col items-center gap-2"
+                    className="group flex flex-col items-center gap-1.5 md:gap-2"
                   >
                     <div
-                      className={`aspect-square w-full rounded-lg overflow-hidden bg-white transition-opacity ${
+                      className={`aspect-square w-full rounded-md md:rounded-lg overflow-hidden bg-white transition-opacity ${
                         activeImg === i ? "opacity-100" : "opacity-70 group-hover:opacity-100"
                       }`}
                     >
-                      <img src={img} alt="" className="w-full h-full object-contain p-1.5" />
+                      <img src={img} alt="" className="w-full h-full object-contain p-1 md:p-1.5" />
                     </div>
                     <span
-                      className={`h-px w-6 transition-all ${
+                      className={`h-px w-5 md:w-6 transition-all ${
                         activeImg === i ? "bg-primary" : "bg-transparent"
                       }`}
                     />
