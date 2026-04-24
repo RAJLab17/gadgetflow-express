@@ -156,7 +156,7 @@ const ShopPreview = () => {
                   src={gallery[activeImg]}
                   alt="RAJ NEXUS"
                   className={`w-full h-full object-contain ${
-                    activeImg === 0 ? "p-12 md:p-20" : "p-6 md:p-10"
+                    activeImg === 0 ? "p-20 md:p-32" : "p-6 md:p-10"
                   }`}
                 />
               </motion.div>
