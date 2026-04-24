@@ -9,10 +9,10 @@ import { Helmet } from "react-helmet-async";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
-// Lifestyle images live in /public so they don't bloat the initial JS bundle
-// and only fetch when scrolled into view (loading="lazy" below).
-const lifestyleLaptop = "/lifestyle/lifestyle-laptop.webp";
-const lifestyleWoman = "/lifestyle/lifestyle-woman.webp";
+// Premium story images for the 3-segment showcase below
+import storyFolds from "@/assets/products/nexus-real-folds-text.jpg";
+import storyLifestyle from "@/assets/products/nexus-real-desk-office.jpg";
+import storyNight from "@/assets/products/nexus-real-night-city.jpg";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
