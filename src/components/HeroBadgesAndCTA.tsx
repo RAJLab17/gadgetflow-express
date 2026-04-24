@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
 import { useLanguage } from "@/contexts/LanguageContext";
-import nexusHero from "@/assets/nexus-hero-premium.jpg";
+import nexusHero from "@/assets/nexus-hero-premium.png";
 
 // Lazily load Supabase only when actually needed (post-LCP).
 // This keeps the 44KB gzipped supabase-vendor chunk out of the critical path.
