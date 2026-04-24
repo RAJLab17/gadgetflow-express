@@ -304,7 +304,7 @@ const ShopPreview = () => {
                 alt: "Aufgeräumter Schreibtisch",
                 eyebrow: "Für die, die Ordnung lieben",
                 title: "Drei Kabel weg. Ein Objekt da.",
-                copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Lightning-Stecker um Mitternacht. Ein einziger Ort — alles geladen, alles bereit.",
+                copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Ein einziger Ort — alles geladen, alles bereit.",
               },
               {
                 img: storyNight,
@@ -324,7 +324,7 @@ const ShopPreview = () => {
                 img: storyWindow,
                 alt: "Material Detail im Licht",
                 eyebrow: "Für die, die Qualität spüren",
-                title: "Aluminium. Vegan-Leder. Gewicht in der Hand.",
+                title: "Aluminium. Mattes Finish. Gewicht in der Hand.",
                 copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Du nimmst es einmal in die Hand — und verstehst sofort, warum es CHF 99 kostet.",
               },
             ].map((s, i) => {
