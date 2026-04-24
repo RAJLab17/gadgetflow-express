@@ -298,6 +298,60 @@ const ShopPreview = () => {
                 <p className="text-muted-foreground mt-3 font-light">Schluss mit Kabelsalat. Alles geladen — immer bereit.</p>
               </div>
             </div>
+
+            {/* 4. Nacht / Reise */}
+            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <div className="md:order-2">
+                <span className="text-xs tracking-[0.3em] uppercase text-primary">Reise</span>
+                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Hotelzimmer. Flughafen. Zuhause.</h2>
+                <p className="text-muted-foreground mt-3 font-light">Faltet auf Kreditkartengrösse zusammen — passt in jede Tasche, lädt überall in Sekunden.</p>
+              </div>
+              <motion.img
+                src={storyNight}
+                alt="Nachts in der Stadt"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="rounded-2xl w-full md:order-1"
+              />
+            </div>
+
+            {/* 5. Sofa / Komfort */}
+            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <motion.img
+                src={storySofa}
+                alt="Entspannt auf dem Sofa"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="rounded-2xl w-full"
+              />
+              <div>
+                <span className="text-xs tracking-[0.3em] uppercase text-primary">Komfort</span>
+                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Hinlegen. Lädt.</h2>
+                <p className="text-muted-foreground mt-3 font-light">Keine Kabel suchen. Keine Stecker drehen. Magnetisch ausgerichtet — beim ersten Kontakt.</p>
+              </div>
+            </div>
+
+            {/* 6. Window / Material */}
+            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+              <div className="md:order-2">
+                <span className="text-xs tracking-[0.3em] uppercase text-primary">Material</span>
+                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Aluminium. Kühl. Präzise.</h2>
+                <p className="text-muted-foreground mt-3 font-light">CNC-gefrästes Gehäuse mit Vegan-Leder-Oberfläche. Wertig in der Hand. Zeitlos im Design.</p>
+              </div>
+              <motion.img
+                src={storyWindow}
+                alt="Material Detail"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="rounded-2xl w-full md:order-1"
+              />
+            </div>
           </div>
         </section>
 
