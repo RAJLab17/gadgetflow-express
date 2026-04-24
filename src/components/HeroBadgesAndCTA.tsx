@@ -305,10 +305,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             {/* 5. CTA Form */}
             <div className="w-full max-w-md">
               {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl border"
+                <div
+                  className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl border animate-scale-in"
                   style={{
                     borderColor: GOLD,
                     backgroundColor: "rgba(155,107,63,0.06)",
@@ -323,7 +321,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   <span className="text-sm font-semibold text-[#1a1a1a]">
                     {t("cta.reserved")}
                   </span>
-                </motion.div>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-3">
                   <div className="relative rounded-xl">
@@ -362,7 +360,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </p>
             </div>
 
-          </motion.div>
+          </div>
         </div>
       </section>
     </>
