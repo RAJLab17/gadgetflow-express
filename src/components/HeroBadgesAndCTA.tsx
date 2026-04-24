@@ -249,9 +249,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             {/* Produktbild RAJ NEXUS */}
             <div className="w-full flex justify-center mb-2 sm:mb-5 relative">
               <img
-                src={nexusHeroSm}
-                srcSet={`${nexusHeroSm} 480w, ${nexusHero} 800w`}
-                sizes="(max-width: 640px) 240px, (max-width: 768px) 360px, 480px"
+                src={nexusHero}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
                 width={480}
                 height={480}
