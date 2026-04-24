@@ -162,13 +162,20 @@ const ShopPreview = () => {
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className={`aspect-square rounded-lg overflow-hidden bg-white transition-all ${
-                      activeImg === i
-                        ? "ring-1 ring-primary/40"
-                        : "ring-1 ring-border/30 hover:ring-border/60"
-                    }`}
+                    className="group flex flex-col items-center gap-2"
                   >
-                    <img src={img} alt="" className="w-full h-full object-contain p-1.5" />
+                    <div
+                      className={`aspect-square w-full rounded-lg overflow-hidden bg-white transition-opacity ${
+                        activeImg === i ? "opacity-100" : "opacity-70 group-hover:opacity-100"
+                      }`}
+                    >
+                      <img src={img} alt="" className="w-full h-full object-contain p-1.5" />
+                    </div>
+                    <span
+                      className={`h-px w-6 transition-all ${
+                        activeImg === i ? "bg-primary" : "bg-transparent"
+                      }`}
+                    />
                   </button>
                 ))}
               </div>
