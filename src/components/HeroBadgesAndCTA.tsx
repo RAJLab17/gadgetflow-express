@@ -256,7 +256,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 fetchPriority="high"
                 decoding="async"
                 className="w-auto max-h-[180px] sm:max-h-[320px] md:max-h-[420px] object-contain relative z-10"
-                style={{ filter: "drop-shadow(0 20px 24px rgba(43, 39, 37, 0.18)) drop-shadow(0 4px 8px rgba(43, 39, 37, 0.08))" }}
+                style={{ filter: "none" }}
               />
               {/* Soft elliptical ground shadow */}
               <div
