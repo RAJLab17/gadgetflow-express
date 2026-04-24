@@ -241,117 +241,92 @@ const ShopPreview = () => {
           </div>
         </section>
 
-        {/* STORY — 3 kompakte Beweise (kein Fülltext) */}
-        <section className="bg-card py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 space-y-16 md:space-y-24">
+        {/* STORY — Premium Zickzack: jede Sektion spricht einen anderen Menschen an */}
+        <section className="bg-card py-20 md:py-32">
+          <div className="max-w-7xl mx-auto px-6 space-y-24 md:space-y-36">
 
-            {/* 1. Speed */}
-            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-              <motion.img
-                src={storySpeed}
-                alt="100% in 1.5 Stunden"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl w-full"
-              />
-              <div>
-                <span className="text-xs tracking-[0.3em] uppercase text-primary">Geschwindigkeit</span>
-                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">100 % in 1,5 Stunden.</h2>
-                <p className="text-muted-foreground mt-3 font-light">Bis zu 3,3× schneller als Standard-Wireless-Charger.</p>
-              </div>
-            </div>
-
-            {/* 2. Faltbar */}
-            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-              <div className="md:order-2">
-                <span className="text-xs tracking-[0.3em] uppercase text-primary">Form</span>
-                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Faltet sich. Passt überall hin.</h2>
-                <p className="text-muted-foreground mt-3 font-light">Vom Nachttisch zum Koffer in einer Bewegung.</p>
-              </div>
-              <motion.img
-                src={storyFolds}
-                alt="Faltbar"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl w-full md:order-1"
-              />
-            </div>
-
-            {/* 3. Lifestyle */}
-            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-              <motion.img
-                src={storyLifestyle}
-                alt="Auf dem Schreibtisch"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl w-full"
-              />
-              <div>
-                <span className="text-xs tracking-[0.3em] uppercase text-primary">Alltag</span>
-                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Ein Platz. Drei Geräte.</h2>
-                <p className="text-muted-foreground mt-3 font-light">Schluss mit Kabelsalat. Alles geladen — immer bereit.</p>
-              </div>
-            </div>
-
-            {/* 4. Nacht / Reise */}
-            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-              <div className="md:order-2">
-                <span className="text-xs tracking-[0.3em] uppercase text-primary">Reise</span>
-                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Hotelzimmer. Flughafen. Zuhause.</h2>
-                <p className="text-muted-foreground mt-3 font-light">Faltet auf Kreditkartengrösse zusammen — passt in jede Tasche, lädt überall in Sekunden.</p>
-              </div>
-              <motion.img
-                src={storyNight}
-                alt="Nachts in der Stadt"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl w-full md:order-1"
-              />
-            </div>
-
-            {/* 5. Sofa / Komfort */}
-            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-              <motion.img
-                src={storySofa}
-                alt="Entspannt auf dem Sofa"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl w-full"
-              />
-              <div>
-                <span className="text-xs tracking-[0.3em] uppercase text-primary">Komfort</span>
-                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Hinlegen. Lädt.</h2>
-                <p className="text-muted-foreground mt-3 font-light">Keine Kabel suchen. Keine Stecker drehen. Magnetisch ausgerichtet — beim ersten Kontakt.</p>
-              </div>
-            </div>
-
-            {/* 6. Window / Material */}
-            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-              <div className="md:order-2">
-                <span className="text-xs tracking-[0.3em] uppercase text-primary">Material</span>
-                <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Aluminium. Kühl. Präzise.</h2>
-                <p className="text-muted-foreground mt-3 font-light">CNC-gefrästes Gehäuse mit Vegan-Leder-Oberfläche. Wertig in der Hand. Zeitlos im Design.</p>
-              </div>
-              <motion.img
-                src={storyWindow}
-                alt="Material Detail"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="rounded-2xl w-full md:order-1"
-              />
-            </div>
+            {[
+              {
+                img: storySpeed,
+                alt: "100% in 1.5 Stunden",
+                eyebrow: "Für die, die keine Zeit haben",
+                title: "Vollgeladen, bevor der Kaffee fertig ist.",
+                copy: "90 Minuten — und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen.",
+              },
+              {
+                img: storyFolds,
+                alt: "Faltbar wie eine Brieftasche",
+                eyebrow: "Für die Vielreisenden",
+                title: "Faltet sich wie eine Brieftasche. Lädt wie eine Station.",
+                copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig.",
+              },
+              {
+                img: storyLifestyle,
+                alt: "Aufgeräumter Schreibtisch",
+                eyebrow: "Für die, die Ordnung lieben",
+                title: "Drei Kabel weg. Ein Objekt da.",
+                copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Lightning-Stecker um Mitternacht. Ein einziger Ort — alles geladen, alles bereit.",
+              },
+              {
+                img: storyNight,
+                alt: "Nachts in der Stadt",
+                eyebrow: "Für die späten Abende",
+                title: "Hinlegen. Schlafen. Aufwachen mit 100 %.",
+                copy: "Du fällst ins Bett. Telefon drauf — magnetisch klick. Kein Zielen, kein Augen-Aufmachen. Morgens: voll geladen, bereit für den Tag, der vor dir liegt.",
+              },
+              {
+                img: storySofa,
+                alt: "Entspannt auf dem Sofa",
+                eyebrow: "Für die ruhigen Sonntage",
+                title: "Lädt im Hintergrund. Wie es sein soll.",
+                copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf — leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
+              },
+              {
+                img: storyWindow,
+                alt: "Material Detail im Licht",
+                eyebrow: "Für die, die Qualität spüren",
+                title: "Aluminium. Vegan-Leder. Gewicht in der Hand.",
+                copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Du nimmst es einmal in die Hand — und verstehst sofort, warum es CHF 99 kostet.",
+              },
+            ].map((s, i) => {
+              const imageRight = i % 2 === 1;
+              return (
+                <div
+                  key={s.eyebrow}
+                  className="grid md:grid-cols-2 gap-12 md:gap-20 items-center"
+                >
+                  <motion.img
+                    src={s.img}
+                    alt={s.alt}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className={`rounded-2xl w-full aspect-[4/5] object-cover shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.25)] ${
+                      imageRight ? "md:order-2" : ""
+                    }`}
+                  />
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                    className={imageRight ? "md:order-1" : ""}
+                  >
+                    <span className="text-[11px] tracking-[0.32em] uppercase text-primary font-medium">
+                      {s.eyebrow}
+                    </span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-[1.15] mt-5 text-foreground">
+                      {s.title}
+                    </h2>
+                    <div className="mt-6 h-px w-12 bg-primary/60" />
+                    <p className="text-muted-foreground mt-6 font-light leading-relaxed text-lg max-w-md">
+                      {s.copy}
+                    </p>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
