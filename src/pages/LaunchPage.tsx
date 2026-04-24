@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, lazy, Suspense } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+// framer-motion removed from LaunchPage critical bundle — replaced with CSS animations.
 import { Smartphone, Headphones, Watch } from "lucide-react";
 
 // Below-the-fold sections — lazy-loaded to reduce initial JS
@@ -50,12 +50,7 @@ const CountdownTimer = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.35 }}
-      className="flex justify-center gap-3 mb-3 md:mb-6"
-    >
+    <div className="flex justify-center gap-3 mb-3 md:mb-6 animate-fade-in">
       {units.map((u) => (
         <div key={u.label} className="flex flex-col items-center">
           <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2c2c2c] tabular-nums leading-none tracking-tight">
@@ -66,7 +61,7 @@ const CountdownTimer = () => {
           </span>
         </div>
       ))}
-    </motion.div>
+    </div>
   );
 };
 
@@ -148,7 +143,7 @@ const SPOTS_CACHE_KEY = "launch_spots_taken";
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
-  const prefersReducedMotion = useReducedMotion();
+  
   const [spotsTaken, setSpotsTaken] = useState(() => {
     if (typeof window === "undefined") return DEFAULT_TAKEN;
     const cachedValue = window.localStorage.getItem(SPOTS_CACHE_KEY);
