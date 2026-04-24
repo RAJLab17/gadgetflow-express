@@ -160,7 +160,7 @@ const ShopPreview = () => {
                   }`}
                 />
               </motion.div>
-              <div className="grid grid-cols-4 gap-3 mt-4">
+              <div className="grid grid-cols-5 gap-3 mt-4">
                 {gallery.map((img, i) => (
                   <button
                     key={i}
