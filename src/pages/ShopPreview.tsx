@@ -146,17 +146,32 @@ const ShopPreview = () => {
             {/* Gallery */}
             <div className="md:sticky md:top-8">
               <motion.div
-                key={activeImg}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 }}
-                className="aspect-square rounded-2xl overflow-hidden bg-white flex items-center justify-center"
+                className="aspect-square rounded-2xl overflow-hidden bg-white flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.15}
+                onDragEnd={(_, info) => {
+                  const threshold = 50;
+                  if (info.offset.x < -threshold) {
+                    setActiveImg((activeImg + 1) % gallery.length);
+                  } else if (info.offset.x > threshold) {
+                    setActiveImg((activeImg - 1 + gallery.length) % gallery.length);
+                  }
+                }}
               >
-                <img
-                  src={gallery[activeImg]}
-                  alt="RAJ NEXUS"
-                  className="w-full h-full object-contain p-6 md:p-10"
-                />
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeImg}
+                    src={gallery[activeImg]}
+                    alt="RAJ NEXUS"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    draggable={false}
+                    className="w-full h-full object-contain p-6 md:p-10 select-none"
+                  />
+                </AnimatePresence>
               </motion.div>
               <div className="grid grid-cols-5 gap-2 md:gap-3 mt-3 md:mt-4">
                 {gallery.map((img, i) => (
