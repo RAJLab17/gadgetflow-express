@@ -206,8 +206,8 @@ const ShopPreview = () => {
                 </span>
                 <span className="block text-xs tracking-[0.3em] uppercase text-muted-foreground mt-4">3-in-1 Wireless Charger</span>
                 <h1 className="text-4xl md:text-5xl font-light tracking-tight mt-2">RAJ NEXUS</h1>
-                <p className="text-lg text-muted-foreground mt-3 font-light">
-                  iPhone, Apple Watch und AirPods gleichzeitig laden.
+                <p className="text-base md:text-lg text-muted-foreground mt-3 font-light whitespace-nowrap">
+                  iPhone, Apple Watch &amp; AirPods gleichzeitig laden.
                 </p>
               </div>
 
