@@ -341,11 +341,7 @@ const ShopPreview = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                    className={`rounded-2xl w-full ${
-                      i === 0
-                        ? "aspect-square object-cover object-center"
-                        : "aspect-[4/5] object-cover"
-                    } shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.25)] ${
+                    className={`rounded-2xl w-full aspect-square object-cover object-center shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.25)] ${
                       imageRight ? "md:order-2" : ""
                     }`}
                   />
