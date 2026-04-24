@@ -1,5 +1,5 @@
 import { useEffect, useState, FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// framer-motion removed from critical hero bundle — replaced with CSS animations.
 import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -59,37 +59,30 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
     return () => clearTimeout(id);
   }, [trigger]);
 
+  if (!show) return null;
   return (
-    <AnimatePresence>
-      {show && (
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 10, scale: 0.96 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-5 left-5 z-50 max-w-[300px]"
-        >
-          <div
-            className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
-            style={{ borderColor: "rgba(155,107,63,0.18)" }}
-          >
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span
-                className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
-                style={{ backgroundColor: GOLD }}
-              />
-              <span
-                className="relative inline-flex rounded-full h-2 w-2"
-                style={{ backgroundColor: GOLD }}
-              />
-            </span>
-            <p className="text-[13px] leading-snug text-[#2c2c2c]">
-              {message}
-            </p>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div
+      className="fixed bottom-5 left-5 z-50 max-w-[300px] animate-fade-in"
+    >
+      <div
+        className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
+        style={{ borderColor: "rgba(155,107,63,0.18)" }}
+      >
+        <span className="relative flex h-2 w-2 shrink-0">
+          <span
+            className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
+            style={{ backgroundColor: GOLD }}
+          />
+          <span
+            className="relative inline-flex rounded-full h-2 w-2"
+            style={{ backgroundColor: GOLD }}
+          />
+        </span>
+        <p className="text-[13px] leading-snug text-[#2c2c2c]">
+          {message}
+        </p>
+      </div>
+    </div>
   );
 };
 
@@ -192,13 +185,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         style={{ backgroundColor: "#faf6f0" }}
       >
         <div className="container mx-auto px-4 pt-2 pb-3 sm:pt-10 sm:pb-10 md:pt-14 md:pb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center max-w-xl mx-auto"
-          >
+          <div className="flex flex-col items-center text-center max-w-xl mx-auto animate-fade-in">
             {/* 1. Founder Edition Badge */}
             <div
               className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border mb-2 sm:mb-5"
@@ -236,12 +223,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 aria-valuemin={0}
                 aria-valuemax={TOTAL_SPOTS}
               >
-                <motion.div
-                  className="absolute inset-y-0 left-0 rounded-full"
-                  style={{ backgroundColor: GOLD }}
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-[1600ms] ease-out"
+                  style={{ backgroundColor: GOLD, width: `${progress}%` }}
                 />
               </div>
             </div>
@@ -321,10 +305,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             {/* 5. CTA Form */}
             <div className="w-full max-w-md">
               {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl border"
+                <div
+                  className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl border animate-scale-in"
                   style={{
                     borderColor: GOLD,
                     backgroundColor: "rgba(155,107,63,0.06)",
@@ -339,7 +321,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   <span className="text-sm font-semibold text-[#1a1a1a]">
                     {t("cta.reserved")}
                   </span>
-                </motion.div>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-3">
                   <div className="relative rounded-xl">
@@ -378,7 +360,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </p>
             </div>
 
-          </motion.div>
+          </div>
         </div>
       </section>
     </>

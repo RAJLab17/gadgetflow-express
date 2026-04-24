@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, lazy, Suspense } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+// framer-motion removed from LaunchPage critical bundle — replaced with CSS animations.
 import { Smartphone, Headphones, Watch } from "lucide-react";
 
 // Below-the-fold sections — lazy-loaded to reduce initial JS
@@ -50,12 +50,7 @@ const CountdownTimer = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.35 }}
-      className="flex justify-center gap-3 mb-3 md:mb-6"
-    >
+    <div className="flex justify-center gap-3 mb-3 md:mb-6 animate-fade-in">
       {units.map((u) => (
         <div key={u.label} className="flex flex-col items-center">
           <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2c2c2c] tabular-nums leading-none tracking-tight">
@@ -66,7 +61,7 @@ const CountdownTimer = () => {
           </span>
         </div>
       ))}
-    </motion.div>
+    </div>
   );
 };
 
@@ -148,7 +143,7 @@ const SPOTS_CACHE_KEY = "launch_spots_taken";
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
-  const prefersReducedMotion = useReducedMotion();
+  
   const [spotsTaken, setSpotsTaken] = useState(() => {
     if (typeof window === "undefined") return DEFAULT_TAKEN;
     const cachedValue = window.localStorage.getItem(SPOTS_CACHE_KEY);
@@ -310,12 +305,8 @@ const LaunchPage = () => {
                     key={s.eyebrow}
                     className="grid md:grid-cols-2 gap-6 md:gap-16 items-center"
                   >
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                      className={`relative ${imageRight ? "md:order-2" : ""}`}
+                    <div
+                      className={`relative animate-fade-in ${imageRight ? "md:order-2" : ""}`}
                     >
                       {/* Subtle warm glow behind image — only visible on mobile for premium depth */}
                       <div
@@ -329,13 +320,9 @@ const LaunchPage = () => {
                         decoding="async"
                         className="relative rounded-2xl md:rounded-2xl w-full aspect-[5/6] md:aspect-[4/5] object-cover shadow-[0_20px_60px_-20px_rgba(44,44,44,0.35)] md:shadow-[0_30px_80px_-30px_rgba(44,44,44,0.25)]"
                       />
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, y: 15 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                      className={`text-center md:text-left ${imageRight ? "md:order-1" : ""}`}
+                    </div>
+                    <div
+                      className={`text-center md:text-left animate-fade-in ${imageRight ? "md:order-1" : ""}`}
                     >
                       <span className="text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-[#9b6b3f] font-semibold">
                         {s.eyebrow}
@@ -347,7 +334,7 @@ const LaunchPage = () => {
                       <p className="text-[15px] md:text-lg text-[#666] leading-[1.65] md:leading-relaxed font-light max-w-md mx-auto md:mx-0">
                         {s.copy}
                       </p>
-                    </motion.div>
+                    </div>
                   </div>
                 );
               })}
@@ -359,43 +346,28 @@ const LaunchPage = () => {
             <div className="max-w-2xl mx-auto text-center w-full">
 
               {/* Tagline directly after benefits */}
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.85 }}
-                className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center"
-              >
+              <p className="text-lg md:text-xl font-light text-muted-foreground tracking-wide text-center animate-fade-in">
                 {t("tagline.1")}
-              </motion.p>
+              </p>
 
 
               {/* 8. Conviction text (after form) */}
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-sm sm:text-base md:text-lg font-bold text-foreground max-w-lg mx-auto text-center"
+              <p
+                className="text-sm sm:text-base md:text-lg font-bold text-foreground max-w-lg mx-auto text-center animate-fade-in"
                 style={{ marginTop: '56px' }}
               >
                 {t("launch.conviction2.bold")}
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.9 }}
-                className="text-sm sm:text-base md:text-lg italic text-[#888888] max-w-lg mx-auto leading-relaxed"
+              </p>
+              <p
+                className="text-sm sm:text-base md:text-lg italic text-[#888888] max-w-lg mx-auto leading-relaxed animate-fade-in"
                 style={{ marginTop: '20px', marginBottom: '16px' }}
               >
                 {t("launch.conviction2.sub")}
-              </motion.p>
+              </p>
 
               {/* Device icons */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                className="flex items-center justify-center gap-6"
+              <div
+                className="flex items-center justify-center gap-6 animate-fade-in"
                 style={{ marginTop: '24px' }}
               >
                 <div className="flex flex-col items-center gap-1.5">
@@ -412,20 +384,14 @@ const LaunchPage = () => {
                   <Watch className="w-5 h-5 text-[#9b6b3f]" strokeWidth={1.5} />
                   <span className="text-[10px] text-[#888888] font-medium">Apple Watch</span>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
 
           {/* ===== WARUM RAJ? ===== */}
           <section className="container mx-auto px-4 pt-8 pb-10 md:pt-6 md:pb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-xl mx-auto text-center"
-            >
+            <div className="max-w-xl mx-auto text-center animate-fade-in">
               <h2 className="text-2xl md:text-3xl font-bold text-[#2c2c2c] mb-6">
                 {t("why.title")} <span className="text-[#9b6b3f]">RAJ</span>?
               </h2>
@@ -433,7 +399,7 @@ const LaunchPage = () => {
               <p className="text-[#555] leading-relaxed text-base md:text-lg">
                 {t("why.text")}
               </p>
-            </motion.div>
+            </div>
           </section>
 
           {/* FAQ + Second CTA — lazy-loaded (below-the-fold) */}
