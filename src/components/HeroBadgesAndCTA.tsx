@@ -185,13 +185,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         style={{ backgroundColor: "#faf6f0" }}
       >
         <div className="container mx-auto px-4 pt-2 pb-3 sm:pt-10 sm:pb-10 md:pt-14 md:pb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center max-w-xl mx-auto"
-          >
+          <div className="flex flex-col items-center text-center max-w-xl mx-auto animate-fade-in">
             {/* 1. Founder Edition Badge */}
             <div
               className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border mb-2 sm:mb-5"
@@ -229,12 +223,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 aria-valuemin={0}
                 aria-valuemax={TOTAL_SPOTS}
               >
-                <motion.div
-                  className="absolute inset-y-0 left-0 rounded-full"
-                  style={{ backgroundColor: GOLD }}
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-[1600ms] ease-out"
+                  style={{ backgroundColor: GOLD, width: `${progress}%` }}
                 />
               </div>
             </div>
