@@ -52,7 +52,7 @@ const ShopPreview = () => {
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
-  const gallery = [productTopView, productMain, productAlt, productFolds, productFlat];
+  const gallery = [productMain, productTopView, productAlt, productFolds, productFlat];
 
   useEffect(() => {
     (async () => {
