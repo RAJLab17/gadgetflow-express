@@ -263,10 +263,7 @@ const ShopPreview = () => {
                     className="h-full bg-primary rounded-full"
                   />
                 </div>
-                <p className="text-xs text-muted-foreground">
-                  Sobald alle 100 vergeben sind, kostet der NEXUS regulär {REGULAR_PRICE}.
-                </p>
-              </div>
+                </div>
 
               <ul className="space-y-2 text-sm">
                 {[
