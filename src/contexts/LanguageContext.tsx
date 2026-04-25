@@ -114,7 +114,7 @@ const translations: Translations = {
   "cta.reserved": { de: "Dein Founder-Platz ist reserviert.", fr: "Ta place Founder est réservée.", it: "Il tuo posto Founder è riservato." },
   "cta.formLabel": { de: "Erhalte Zugang zum Launch", fr: "Accède au lancement", it: "Accedi al lancio" },
   "cta.emailPlaceholder": { de: "E-Mail Adresse", fr: "Adresse e-mail", it: "Indirizzo e-mail" },
-  "cta.submitButton": { de: "Founder-Preis sichern CHF 99 statt 129", fr: "Réserver le prix Founder CHF 99 au lieu de 129", it: "Assicurati il prezzo Founder CHF 99 invece di 129" },
+  "cta.submitButton": { de: "Founder Preis sichern", fr: "Réserver le prix Founder", it: "Assicurati il prezzo Founder" },
   "cta.socialProof": { de: "Jemand hat sich gerade einen Founder-Platz gesichert", fr: "Quelqu'un vient de réserver une place Founder", it: "Qualcuno si è appena assicurato un posto Founder" },
   "countdown.daysShort": { de: "Tage", fr: "Jours", it: "Giorni" },
   "countdown.hoursShort": { de: "Std", fr: "Hrs", it: "Ore" },
