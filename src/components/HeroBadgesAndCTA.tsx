@@ -200,7 +200,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* Product name tagline */}
             <p className="text-sm text-center text-[#9b6b3f] tracking-wide mb-3 sm:mb-5">
-              RAJ NEXUS — 3-in-1 Qi2.2 Ladestation
+              RAJ NEXUS — 3-in-1 Wireless Charger
             </p>
 
             {/* Produktbild RAJ NEXUS */}
