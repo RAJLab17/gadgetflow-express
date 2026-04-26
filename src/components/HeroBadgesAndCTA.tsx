@@ -247,7 +247,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 4. Countdown */}
-            <div className="w-full mb-2 sm:mb-6">
+            <div className="w-full mb-1 sm:mb-3">
               <p className="text-[9px] sm:text-[12px] uppercase tracking-[0.18em] text-[#888] font-medium mb-1.5 sm:mb-3">
                 {t("cta.priceEndsIn")}
               </p>
@@ -278,7 +278,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* Founder Membership — Sealed Pass */}
-            <div className="w-full max-w-md mx-auto mt-1 mb-2 sm:mt-2 sm:mb-4">
+            <div className="w-full max-w-md mx-auto mt-0 mb-2 sm:mt-1 sm:mb-4">
               <div
                 className="relative rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-left"
                 style={{
