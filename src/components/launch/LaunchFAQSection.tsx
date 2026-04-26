@@ -21,7 +21,7 @@ const LaunchFAQSection = () => {
           {faqItems.map((item, i) => (
             <details key={i} className="group border-b border-[#9b6b3f]/10">
               <summary className="flex items-center justify-between py-5 cursor-pointer list-none text-left">
-                <span className="text-[15px] md:text-base font-medium text-[#2c2c2c] pr-6 group-hover:text-[#9b6b3f] transition-colors">
+                <span className="text-[15px] md:text-base font-medium text-[#2c2c2c] pr-6 [@media(hover:hover)]:group-hover:text-[#9b6b3f] transition-colors">
                   {item.q}
                 </span>
                 <svg
