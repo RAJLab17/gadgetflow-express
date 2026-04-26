@@ -286,26 +286,84 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </p>
             </div>
 
-            {/* Benefits — zentriert, premium spacing */}
-            <ul className="mx-auto my-3 sm:my-6 inline-flex flex-col items-start justify-center gap-y-2.5 sm:gap-y-3.5">
-              {[
-                { icon: "⚡", text: t("cta.benefit1") },
-                { icon: "🏆", text: t("cta.benefit2") },
-              ].map((b) => (
-                <li
-                  key={b.text}
-                  className="flex items-center gap-2.5 sm:gap-3"
-                >
-                  <span
-                    className="w-5 sm:w-6 text-center text-[14px] sm:text-base leading-none flex-shrink-0"
-                    aria-hidden
+            {/* Founder Membership — Sealed Pass */}
+            <div className="w-full max-w-md mx-auto my-3 sm:my-5">
+              <div
+                className="relative rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-left"
+                style={{
+                  background: "linear-gradient(180deg, #2b2725 0%, #1a1715 100%)",
+                  border: `1px solid ${GOLD}`,
+                  boxShadow: `0 0 0 1px rgba(155,107,63,0.25), 0 8px 24px -10px rgba(155,107,63,0.4)`,
+                }}
+              >
+                {/* Inner double-border frame (certificate look) */}
+                <div
+                  className="absolute inset-1.5 rounded-lg pointer-events-none"
+                  style={{ border: "1px solid rgba(155,107,63,0.3)" }}
+                  aria-hidden
+                />
+
+                <div className="relative">
+                  {/* Eyebrow */}
+                  <p
+                    className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-center mb-1.5 sm:mb-2"
+                    style={{ color: GOLD }}
                   >
-                    {b.icon}
-                  </span>
-                  <span className="text-[12px] sm:text-[14px] leading-snug text-[#444] tracking-wide text-left">{b.text}</span>
-                </li>
-              ))}
-            </ul>
+                    ✦ Exklusiv für die ersten 100 ✦
+                  </p>
+
+                  {/* Title */}
+                  <h3 className="text-[15px] sm:text-[17px] font-extrabold text-white text-center tracking-tight mb-2.5 sm:mb-3">
+                    Founder Membership
+                  </h3>
+
+                  {/* Divider */}
+                  <div
+                    className="h-px w-12 mx-auto mb-2.5 sm:mb-3"
+                    style={{ backgroundColor: "rgba(155,107,63,0.5)" }}
+                    aria-hidden
+                  />
+
+                  {/* Benefits */}
+                  <ul className="space-y-1.5 sm:space-y-2 mb-2 sm:mb-2.5">
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[14px] sm:text-[15px] leading-none flex-shrink-0 mt-0.5" aria-hidden>⚡</span>
+                      <div>
+                        <span className="block text-[11px] sm:text-[12.5px] font-bold text-white leading-tight">
+                          Lebenslanger Early Access
+                        </span>
+                        <span className="block text-[10px] sm:text-[11px] text-white/60 leading-snug mt-0.5">
+                          Auf alle künftigen RAJ Produkte — vor allen anderen.
+                        </span>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2.5">
+                      <span className="text-[14px] sm:text-[15px] leading-none flex-shrink-0 mt-0.5" aria-hidden>🏆</span>
+                      <div>
+                        <span className="block text-[11px] sm:text-[12.5px] font-bold text-white leading-tight">
+                          Persönliche Seriennummer
+                        </span>
+                        <span className="block text-[10px] sm:text-[11px] text-white/60 leading-snug mt-0.5">
+                          Eingraviert von #001 bis #100. Dein Stück RAJ-Geschichte.
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+
+                  {/* Footer note */}
+                  <p
+                    className="text-[9px] sm:text-[10px] italic text-center pt-2 mt-1 border-t"
+                    style={{
+                      borderColor: "rgba(155,107,63,0.2)",
+                      color: "rgba(255,255,255,0.5)",
+                    }}
+                  >
+                    Nach dem 6. Mai geschlossen — für immer.
+                  </p>
+                </div>
+              </div>
+            </div>
+
 
             {/* 5. CTA Form */}
             <div className="w-full max-w-md">
