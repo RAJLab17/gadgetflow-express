@@ -121,6 +121,12 @@ const LaunchSecondCTA = ({ onSignupSuccess }: LaunchSecondCTAProps) => {
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9b6b3f]" />
                 <input
                   type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  autoCapitalize="off"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t("launch.emailPlaceholder")}
