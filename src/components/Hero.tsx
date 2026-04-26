@@ -12,30 +12,14 @@ const Hero = () => {
       {/* Elegant Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background" />
       
-      {/* Subtle Floating Elements */}
-      <motion.div
-        className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[150px]"
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+      {/* Subtle Floating Elements (CSS-only, GPU-accelerated) */}
+      <div
+        className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[150px] animate-blob-a pointer-events-none"
+        aria-hidden="true"
       />
-      <motion.div
-        className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[120px]"
-        animate={{
-          scale: [1.1, 1, 1.1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+      <div
+        className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[120px] animate-blob-b pointer-events-none"
+        aria-hidden="true"
       />
       
       {/* Subtle Pattern */}
@@ -177,22 +161,16 @@ const Hero = () => {
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-[80px] scale-75" />
                 
-                {/* Product Image */}
-              <motion.img
+                {/* Product Image — CSS float keeps main thread free */}
+                <img
                   src={chargerHero}
                   alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                  width={512}
+                  height={512}
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105"
-                  animate={{
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105 animate-float-slow"
                 />
                 
                 {/* Floating Badge */}
