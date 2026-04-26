@@ -1,14 +1,27 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowDown, Loader2, Sparkles, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
+import { AnimatedPrice } from "@/components/AnimatedPrice";
+import { MagneticButton } from "@/components/MagneticButton";
 import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
 
 const Hero = () => {
   const { quickBuy, isProcessing } = useQuickBuy();
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 80]);
+  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -6]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 1.05]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Elegant Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background" />
       
@@ -90,25 +103,24 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6"
             >
-              <Button
-                variant="hero"
-                size="xl"
-                className="w-full sm:w-auto text-base group shadow-elegant-lg"
+              <MagneticButton
                 onClick={quickBuy}
                 disabled={isProcessing}
                 aria-label="Jetzt kaufen für CHF 99"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-base shadow-elegant-lg hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    <Loader2 className="w-5 h-5 animate-spin" />
                     Wird vorbereitet…
                   </>
                 ) : (
                   <>
-                    <Zap className="w-4 h-4 mr-2" />
-                    Jetzt CHF 99.–
+                    <Zap className="w-4 h-4" />
+                    <span>Jetzt </span>
+                    <AnimatedPrice from={129} to={99} className="font-bold" />
                     <motion.span
-                      className="ml-2"
+                      className="ml-1"
                       animate={{ x: [0, 4, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     >
@@ -116,7 +128,7 @@ const Hero = () => {
                     </motion.span>
                   </>
                 )}
-              </Button>
+              </MagneticButton>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span className="line-through">CHF 129.–</span>
                 <span className="px-2 py-1 bg-primary/10 text-primary rounded-full font-semibold">-23%</span>
@@ -161,17 +173,22 @@ const Hero = () => {
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-[80px] scale-75" />
                 
-                {/* Product Image — CSS float keeps main thread free */}
-                <img
-                  src={chargerHero}
-                  alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                  width={512}
-                  height={512}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105 animate-float-slow"
-                />
+                {/* Product Image — scroll-linked parallax + CSS float */}
+                <motion.div
+                  style={{ y: imageY, rotate: imageRotate, scale: imageScale }}
+                  className="will-change-transform"
+                >
+                  <img
+                    src={chargerHero}
+                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                    width={512}
+                    height={512}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105 animate-float-slow"
+                  />
+                </motion.div>
                 
                 {/* Floating Badge */}
                 <motion.div
