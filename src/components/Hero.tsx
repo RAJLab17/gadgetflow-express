@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowDown, Loader2, Sparkles, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import { AnimatedPrice } from "@/components/AnimatedPrice";
 import { MagneticButton } from "@/components/MagneticButton";
