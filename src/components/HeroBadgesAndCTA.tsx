@@ -303,12 +303,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     Founder Membership
                   </h3>
 
-                  {/* Divider */}
-                  <div
-                    className="h-px w-12 mx-auto mb-2.5 sm:mb-3"
-                    style={{ backgroundColor: "rgba(155,107,63,0.5)" }}
-                    aria-hidden
-                  />
+                  {/* Divider entfernt */}
 
                   {/* Benefits */}
                   <ul className="space-y-1.5 sm:space-y-2 mb-2 sm:mb-2.5">
