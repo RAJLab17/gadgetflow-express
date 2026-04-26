@@ -344,7 +344,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                           Persönliche Seriennummer
                         </span>
                         <span className="block text-[10px] sm:text-[11px] text-white/60 leading-snug mt-0.5">
-                          Eingraviert von #001 bis #100. Dein Stück RAJ-Geschichte.
+                          Eingraviert von #001 bis #100. Dein Stück RAJ Geschichte.
                         </span>
                       </div>
                     </li>
