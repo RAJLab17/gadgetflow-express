@@ -1,14 +1,28 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowDown, Loader2, Sparkles, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
+import { AnimatedPrice } from "@/components/AnimatedPrice";
+import { MagneticButton } from "@/components/MagneticButton";
 import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
 
 const Hero = () => {
   const { quickBuy, isProcessing } = useQuickBuy();
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 80]);
+  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -6]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 1.05]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Elegant Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background" />
       
