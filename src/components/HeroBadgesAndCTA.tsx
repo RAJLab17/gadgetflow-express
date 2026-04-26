@@ -160,15 +160,15 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
       {/* Trust Badges — kompakt */}
       <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
-        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3">
-          <div className="flex flex-nowrap items-center justify-around md:justify-center gap-x-2 sm:gap-x-8 md:gap-x-14 lg:gap-x-20 text-[11px] sm:text-sm md:text-base">
+        <div className="container mx-auto px-3 sm:px-4 py-1.5 sm:py-2.5">
+          <div className="flex flex-nowrap items-center justify-around md:justify-center gap-x-2 sm:gap-x-8 md:gap-x-14 lg:gap-x-20 text-[10px] sm:text-[13px] md:text-[15px]">
             {badges.map((b) => (
               <span
                 key={b.label}
-                className="whitespace-nowrap inline-flex items-center gap-1.5 sm:gap-2.5 shrink-0 font-semibold tracking-tight"
+                className="whitespace-nowrap inline-flex items-center gap-1 sm:gap-2 shrink-0 font-semibold tracking-tight"
                 style={{ color: "#2b2725" }}
               >
-                <span className="inline-flex items-center [&_svg]:w-4 [&_svg]:h-4 sm:[&_svg]:w-5 sm:[&_svg]:h-5 md:[&_svg]:w-[22px] md:[&_svg]:h-[22px]">
+                <span className="inline-flex items-center [&_svg]:w-3.5 [&_svg]:h-3.5 sm:[&_svg]:w-[18px] sm:[&_svg]:h-[18px] md:[&_svg]:w-5 md:[&_svg]:h-5">
                   {b.icon}
                 </span>
                 {b.label}
