@@ -47,13 +47,26 @@ const WirelessCharger3in1Product = () => {
     });
   }, []);
 
-  // Auto-rotate images every 4 seconds
+  // Auto-rotate images every 4 seconds — pauses when tab is hidden
   useEffect(() => {
+    if (typeof document !== "undefined" && document.visibilityState === "hidden") {
+      return;
+    }
     const timeout = setTimeout(() => {
       setSelectedImageIndex((prev) => (prev + 1) % productImages.length);
     }, 4000);
     return () => clearTimeout(timeout);
   }, [selectedImageIndex, autoPlayKey]);
+
+  useEffect(() => {
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        setAutoPlayKey((prev) => prev + 1);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, []);
 
   const handleImageSelect = useCallback((index: number) => {
     setSelectedImageIndex(index);
