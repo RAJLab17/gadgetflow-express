@@ -252,7 +252,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
             {/* Tagline above countdown */}
             <p className="text-[11px] sm:text-[13px] italic text-[#777] mb-2 sm:mb-4 -mt-1">
-              iPhone. AirPods. Apple Watch — ein Kabel, fertig.
+              iPhone. AirPods. Apple Watch — gleichzeitig laden.
             </p>
 
             {/* 4. Countdown */}
