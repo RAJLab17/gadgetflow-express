@@ -104,25 +104,24 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6"
             >
-              <Button
-                variant="hero"
-                size="xl"
-                className="w-full sm:w-auto text-base group shadow-elegant-lg"
+              <MagneticButton
                 onClick={quickBuy}
                 disabled={isProcessing}
                 aria-label="Jetzt kaufen für CHF 99"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-base shadow-elegant-lg hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {isProcessing ? (
                   <>
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    <Loader2 className="w-5 h-5 animate-spin" />
                     Wird vorbereitet…
                   </>
                 ) : (
                   <>
-                    <Zap className="w-4 h-4 mr-2" />
-                    Jetzt CHF 99.–
+                    <Zap className="w-4 h-4" />
+                    <span>Jetzt </span>
+                    <AnimatedPrice from={129} to={99} className="font-bold" />
                     <motion.span
-                      className="ml-2"
+                      className="ml-1"
                       animate={{ x: [0, 4, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
                     >
@@ -130,7 +129,7 @@ const Hero = () => {
                     </motion.span>
                   </>
                 )}
-              </Button>
+              </MagneticButton>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span className="line-through">CHF 129.–</span>
                 <span className="px-2 py-1 bg-primary/10 text-primary rounded-full font-semibold">-23%</span>
