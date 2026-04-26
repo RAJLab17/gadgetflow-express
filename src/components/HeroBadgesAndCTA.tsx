@@ -266,10 +266,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               />
             </div>
 
-            {/* Tagline above countdown */}
-            <p className="text-[11px] sm:text-[13px] italic text-[#777] mb-2 sm:mb-4 -mt-1">
-              Schluss mit 3 Kabeln auf dem Nachttisch.
-            </p>
+
 
             {/* 4. Countdown */}
             <div className="w-full mb-2 sm:mb-6">
