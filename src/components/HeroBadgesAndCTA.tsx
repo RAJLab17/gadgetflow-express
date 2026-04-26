@@ -273,7 +273,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* Founder Membership — Sealed Pass */}
-            <div className="w-full max-w-md mx-auto my-3 sm:my-5">
+            <div className="w-full max-w-md mx-auto mt-1 mb-3 sm:mt-2 sm:mb-5">
               <div
                 className="relative rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-left"
                 style={{
