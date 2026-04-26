@@ -350,16 +350,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     </li>
                   </ul>
 
-                  {/* Footer note */}
-                  <p
-                    className="text-[9px] sm:text-[10px] italic text-center pt-2 mt-1 border-t"
-                    style={{
-                      borderColor: "rgba(155,107,63,0.2)",
-                      color: "rgba(255,255,255,0.5)",
-                    }}
-                  >
-                    Nach dem 6. Mai geschlossen — für immer.
-                  </p>
                 </div>
               </div>
             </div>
