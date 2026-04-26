@@ -216,8 +216,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             {/* Progress Bar */}
             <div className="w-full max-w-sm mb-2 sm:mb-6">
               <div
-                className="relative h-1.5 rounded-full overflow-hidden"
-                style={{ backgroundColor: "rgba(155,107,63,0.12)" }}
+                className="relative h-px rounded-full overflow-hidden"
+                style={{ backgroundColor: "rgba(155,107,63,0.15)" }}
                 role="progressbar"
                 aria-valuenow={taken}
                 aria-valuemin={0}
@@ -270,7 +270,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                       border: "1px solid rgba(155,107,63,0.12)",
                     }}
                   >
-                    <span className="text-lg sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
+                    <span className="text-base sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
                       {String(u.value).padStart(2, "0")}
                     </span>
                     <span className="text-[8px] sm:text-[11px] text-[#888] mt-0.5 sm:mt-1.5 font-medium tracking-wide">
