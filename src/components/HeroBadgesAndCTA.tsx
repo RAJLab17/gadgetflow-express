@@ -465,6 +465,17 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   </div>
                 </div>
               </div>
+
+              {/* Contact line */}
+              <p className="text-[10px] sm:text-[11px] text-[#888] text-center mt-3 sm:mt-4">
+                Fragen? Schreib uns:{" "}
+                <a
+                  href="mailto:founder@raj.ch"
+                  className="font-semibold text-[#9b6b3f] hover:underline underline-offset-2"
+                >
+                  founder@raj.ch
+                </a>
+              </p>
             </div>
 
           </div>
