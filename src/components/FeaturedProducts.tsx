@@ -34,14 +34,28 @@ const FeaturedProducts = () => {
   
   const [autoPlayKey, setAutoPlayKey] = useState(0);
 
-  // Auto-rotate images every 4 seconds
+  // Auto-rotate images every 4 seconds — pauses when tab is hidden (saves CPU/battery)
   useEffect(() => {
+    if (typeof document !== "undefined" && document.visibilityState === "hidden") {
+      return;
+    }
     const timeout = setTimeout(() => {
       setSelectedImage((prev) => (prev + 1) % product.images.length);
     }, 4000);
 
     return () => clearTimeout(timeout);
   }, [selectedImage, autoPlayKey]);
+
+  // Re-trigger rotation when tab becomes visible again
+  useEffect(() => {
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        setAutoPlayKey((prev) => prev + 1);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
+  }, []);
 
   // Manual selection - reset timer
   const handleImageSelect = useCallback((index: number) => {
@@ -159,6 +173,8 @@ const FeaturedProducts = () => {
                     <img
                       src={image}
                       alt={`View ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-contain p-1"
                     />
                     {selectedImage === index && (

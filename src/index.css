@@ -154,3 +154,35 @@
                 0 0 60px hsl(var(--glow-primary) / 0.15);
   }
 }
+
+/* Lightweight ambient blob animations — replaces heavy Framer Motion floats */
+@keyframes blob-pulse-a {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50%      { transform: scale(1.1); opacity: 0.5; }
+}
+@keyframes blob-pulse-b {
+  0%, 100% { transform: scale(1.1); opacity: 0.2; }
+  50%      { transform: scale(1); opacity: 0.4; }
+}
+.animate-blob-a {
+  animation: blob-pulse-a 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.animate-blob-b {
+  animation: blob-pulse-b 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.animate-float-slow {
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Respect reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob-a,
+  .animate-blob-b,
+  .animate-float-slow {
+    animation: none;
+  }
+}
+
