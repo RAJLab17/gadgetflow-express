@@ -189,17 +189,42 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             {/* Founder Badge entfernt — bereits in Top-Announcement-Bar */}
 
             {/* 2. Headline */}
-            <h2 className="whitespace-nowrap text-[22px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 sm:mb-6 tracking-tight">
+            <h2 className="whitespace-nowrap text-[22px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 sm:mb-4 tracking-tight">
               {t("cta.headlineLine1")} {t("cta.headlineLine2")}
             </h2>
 
+            {/* Subheadline — emotional hook */}
+            <p className="text-center italic text-[#9b6b3f] text-[15px] sm:text-lg md:text-xl mb-2 sm:mb-3">
+              Schluss mit 3 Kabeln auf dem Nachttisch.
+            </p>
+
             {/* Product name tagline */}
-            <p className="text-sm text-center text-[#9b6b3f] tracking-wide mb-2 sm:mb-4">
+            <p className="text-sm text-center text-[#9b6b3f] tracking-wide mb-3 sm:mb-5">
               RAJ NEXUS — 3-in-1 Qi2.2 Ladestation
             </p>
 
-            {/* 3. Subheadline */}
-            <p className="text-[12px] sm:text-[15px] text-[#555] leading-snug mb-2 sm:mb-7 max-w-md">
+            {/* Produktbild RAJ NEXUS */}
+            <div className="w-full flex justify-center mb-3 sm:mb-5 relative">
+              <img
+                src={nexusHero}
+                alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
+                width={480}
+                height={480}
+                fetchPriority="high"
+                decoding="async"
+                className="w-auto max-h-[180px] sm:max-h-[320px] md:max-h-[420px] object-contain relative z-10"
+                style={{ filter: "none" }}
+              />
+              {/* Soft elliptical ground shadow */}
+              <div
+                aria-hidden
+                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[55%] h-3 sm:h-4 rounded-[50%] blur-md pointer-events-none"
+                style={{ background: "radial-gradient(ellipse at center, rgba(43,39,37,0.22) 0%, rgba(43,39,37,0) 70%)" }}
+              />
+            </div>
+
+            {/* Spots taken — directly above countdown */}
+            <p className="text-[12px] sm:text-[15px] text-[#555] leading-snug mb-2 sm:mb-4 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
               {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
             </p>
