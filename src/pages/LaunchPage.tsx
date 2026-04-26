@@ -191,9 +191,12 @@ const LaunchPage = () => {
     return () => window.removeEventListener("load", schedule);
   }, [refreshSpotsTaken]);
 
+  const [hasSignedUp, setHasSignedUp] = useState(false);
+
   const handleSecondSignupSuccess = useCallback(() => {
     void refreshSpotsTaken();
     fireConfetti();
+    setHasSignedUp(true);
   }, [refreshSpotsTaken]);
 
   return (
