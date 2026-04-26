@@ -34,6 +34,7 @@ const WirelessCharger3in1Product = () => {
   const [inventory, setInventory] = useState<number>(100);
   const [availableForSale, setAvailableForSale] = useState<boolean>(true);
   const [variantId, setVariantId] = useState<string>("gid://shopify/ProductVariant/57169031823685");
+  const { quickBuy, isProcessing } = useQuickBuy();
 
   // Fetch variant ID + inventory dynamically from Shopify
   useEffect(() => {
@@ -108,15 +109,24 @@ const WirelessCharger3in1Product = () => {
             </p>
 
             {availableForSale && inventory > 0 ? (
-              <a
-                href="https://kcvjif-10.myshopify.com/products/raj-3-in-1-wireless-charger"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-colors duration-300 w-fit"
+              <button
+                onClick={quickBuy}
+                disabled={isProcessing}
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 w-fit disabled:opacity-60 shadow-elegant hover:shadow-elegant-lg hover:scale-[1.02] active:scale-[0.98]"
+                aria-label="Jetzt kaufen für CHF 99"
               >
-                <Zap className="w-5 h-5" />
-                Jetzt kaufen
-              </a>
+                {isProcessing ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Wird vorbereitet…
+                  </>
+                ) : (
+                  <>
+                    <Zap className="w-5 h-5" />
+                    Jetzt kaufen
+                  </>
+                )}
+              </button>
             ) : (
               <WaitlistForm />
             )}
