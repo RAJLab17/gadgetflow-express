@@ -160,7 +160,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
 
       {/* Trust Badges — kompakt */}
       <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
-        <div className="container mx-auto px-3 sm:px-4 py-1.5 sm:py-2.5">
+        <div className="container mx-auto px-3 sm:px-4 py-0.5 sm:py-1">
           <div className="flex flex-nowrap items-center justify-around md:justify-center gap-x-2 sm:gap-x-8 md:gap-x-14 lg:gap-x-20 text-[10px] sm:text-[13px] md:text-[15px]">
             {badges.map((b) => (
               <span
