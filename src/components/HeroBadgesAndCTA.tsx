@@ -246,28 +246,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               </div>
             </div>
 
-            {/* Produktbild RAJ NEXUS */}
-            <div className="w-full flex justify-center mb-2 sm:mb-5 relative">
-              <img
-                src={nexusHero}
-                alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
-                width={480}
-                height={480}
-                fetchPriority="high"
-                decoding="async"
-                className="w-auto max-h-[180px] sm:max-h-[320px] md:max-h-[420px] object-contain relative z-10"
-                style={{ filter: "none" }}
-              />
-              {/* Soft elliptical ground shadow */}
-              <div
-                aria-hidden
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[55%] h-3 sm:h-4 rounded-[50%] blur-md pointer-events-none"
-                style={{ background: "radial-gradient(ellipse at center, rgba(43,39,37,0.22) 0%, rgba(43,39,37,0) 70%)" }}
-              />
-            </div>
-
-
-
             {/* 4. Countdown */}
             <div className="w-full mb-2 sm:mb-6">
               <p className="text-[9px] sm:text-[12px] uppercase tracking-[0.18em] text-[#888] font-medium mb-1.5 sm:mb-3">
