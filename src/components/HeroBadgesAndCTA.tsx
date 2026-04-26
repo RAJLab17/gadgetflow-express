@@ -186,21 +186,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       >
         <div className="container mx-auto px-4 pt-2 pb-3 sm:pt-10 sm:pb-10 md:pt-14 md:pb-14">
           <div className="flex flex-col items-center text-center max-w-xl mx-auto animate-fade-in">
-            {/* 1. Founder Edition Badge */}
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border mb-2 sm:mb-5"
-              style={{
-                borderColor: "rgba(155,107,63,0.3)",
-                backgroundColor: "rgba(155,107,63,0.05)",
-              }}
-            >
-              <span
-                className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase"
-                style={{ color: GOLD }}
-              >
-                {t("cta.founderBadge")}
-              </span>
-            </div>
+            {/* Founder Badge entfernt — bereits in Top-Announcement-Bar */}
 
             {/* 2. Headline */}
             <h2 className="whitespace-nowrap text-[22px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 sm:mb-6 tracking-tight">
