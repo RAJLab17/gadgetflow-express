@@ -193,6 +193,11 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               {t("cta.headlineLine1")} {t("cta.headlineLine2")}
             </h2>
 
+            {/* Product name tagline */}
+            <p className="text-sm text-center text-[#9b6b3f] tracking-wide mb-2 sm:mb-4">
+              RAJ NEXUS — 3-in-1 Qi2.2 Ladestation
+            </p>
+
             {/* 3. Subheadline */}
             <p className="text-[12px] sm:text-[15px] text-[#555] leading-snug mb-2 sm:mb-7 max-w-md">
               <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
