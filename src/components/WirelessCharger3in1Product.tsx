@@ -277,6 +277,9 @@ const WirelessCharger3in1Product = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile-only sticky bottom buy bar — fastest path to checkout */}
+      {availableForSale && inventory > 0 && <StickyBuyBar />}
     </section>
   );
 };
