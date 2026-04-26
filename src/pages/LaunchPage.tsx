@@ -5,6 +5,7 @@ import { Smartphone, Headphones, Watch } from "lucide-react";
 // Below-the-fold sections — lazy-loaded to reduce initial JS
 const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection"));
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
+const ExitIntentPopup = lazy(() => import("@/components/launch/ExitIntentPopup"));
 import { Helmet } from "react-helmet-async";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
@@ -190,9 +191,12 @@ const LaunchPage = () => {
     return () => window.removeEventListener("load", schedule);
   }, [refreshSpotsTaken]);
 
+  const [hasSignedUp, setHasSignedUp] = useState(false);
+
   const handleSecondSignupSuccess = useCallback(() => {
     void refreshSpotsTaken();
     fireConfetti();
+    setHasSignedUp(true);
   }, [refreshSpotsTaken]);
 
   return (
@@ -269,8 +273,21 @@ const LaunchPage = () => {
             onSignupSuccess={() => {
               void refreshSpotsTaken();
               fireConfetti();
+              setHasSignedUp(true);
             }}
           />
+
+          {/* ===== EXIT-INTENT POPUP ===== */}
+          <Suspense fallback={null}>
+            <ExitIntentPopup
+              alreadySignedUp={hasSignedUp}
+              onSignupSuccess={() => {
+                void refreshSpotsTaken();
+                fireConfetti();
+                setHasSignedUp(true);
+              }}
+            />
+          </Suspense>
 
 
           {/* ===== PREMIUM STORY — 3 Segmente im edlen Zickzack ===== */}
