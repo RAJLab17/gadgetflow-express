@@ -278,9 +278,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* Founder Membership — Sealed Pass */}
-            <div className="w-full max-w-md mx-auto mt-1 mb-3 sm:mt-2 sm:mb-5">
+            <div className="w-full max-w-md mx-auto mt-1 mb-2 sm:mt-2 sm:mb-4">
               <div
-                className="relative rounded-xl px-4 py-3 sm:px-5 sm:py-4 text-left"
+                className="relative rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-left"
                 style={{
                   background: "linear-gradient(180deg, #2b2725 0%, #1a1715 100%)",
                   border: `1px solid ${GOLD}`,
@@ -297,23 +297,23 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 <div className="relative">
                   {/* Eyebrow */}
                   <p
-                    className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-center mb-1.5 sm:mb-2"
+                    className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-center mb-1 sm:mb-1.5"
                     style={{ color: GOLD }}
                   >
                     ✦ Exklusiv für die ersten 100 ✦
                   </p>
 
                   {/* Title */}
-                  <h3 className="text-[15px] sm:text-[17px] font-extrabold text-white text-center tracking-tight mb-2.5 sm:mb-3">
+                  <h3 className="text-[14px] sm:text-[16px] font-extrabold text-white text-center tracking-tight mb-1.5 sm:mb-2">
                     Founder Membership
                   </h3>
 
                   {/* Divider entfernt */}
 
                   {/* Benefits */}
-                  <ul className="space-y-1.5 sm:space-y-2 mb-2 sm:mb-2.5">
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-[14px] sm:text-[15px] leading-none flex-shrink-0 mt-0.5" aria-hidden>⚡</span>
+                  <ul className="space-y-1 sm:space-y-1.5 mb-1 sm:mb-1.5">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[13px] sm:text-[14px] leading-none flex-shrink-0 mt-0.5" aria-hidden>⚡</span>
                       <div>
                         <span className="block text-[11px] sm:text-[12.5px] font-bold text-white leading-tight">
                           Lebenslanger Early Access
@@ -323,8 +323,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                         </span>
                       </div>
                     </li>
-                    <li className="flex items-start gap-2.5">
-                      <span className="text-[14px] sm:text-[15px] leading-none flex-shrink-0 mt-0.5" aria-hidden>🏆</span>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[13px] sm:text-[14px] leading-none flex-shrink-0 mt-0.5" aria-hidden>🏆</span>
                       <div>
                         <span className="block text-[11px] sm:text-[12.5px] font-bold text-white leading-tight">
                           Persönliche Seriennummer
