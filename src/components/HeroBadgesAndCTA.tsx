@@ -388,7 +388,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                   </span>
                 </div>
                 <p className="text-[10px] sm:text-[11px] text-[#666] text-center leading-snug mb-2 sm:mb-3">
-                  Gefällt dir nicht? Schick es zurück — wir erstatten den vollen Preis. Ohne Diskussion.
+                  Gefällt dir nicht? Schick es zurück — wir erstatten den vollen Preis.
                 </p>
                 <div className="flex items-center justify-around gap-2 pt-2 sm:pt-3 border-t border-[#9b6b3f]/15">
                   <div className="flex items-center gap-1.5">
