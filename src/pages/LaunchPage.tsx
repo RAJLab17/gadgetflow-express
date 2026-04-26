@@ -5,6 +5,7 @@ import { Smartphone, Headphones, Watch } from "lucide-react";
 // Below-the-fold sections — lazy-loaded to reduce initial JS
 const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection"));
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
+const ExitIntentPopup = lazy(() => import("@/components/launch/ExitIntentPopup"));
 import { Helmet } from "react-helmet-async";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
