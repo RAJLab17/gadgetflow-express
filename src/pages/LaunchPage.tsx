@@ -234,6 +234,21 @@ const LaunchPage = () => {
         />
 
         <div className="relative z-10">
+          {/* Announcement Bar */}
+          <div
+            className="w-full text-center"
+            style={{
+              background: "linear-gradient(180deg, #2b2725 0%, #1a1715 100%)",
+              borderBottom: "1px solid rgba(155,107,63,0.35)",
+            }}
+          >
+            <p className="py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-white/90">
+              <span style={{ color: "#9b6b3f" }}>✦</span>
+              <span className="mx-2">Founder Edition · Nur 100 Stück · Launch 6. Mai</span>
+              <span style={{ color: "#9b6b3f" }}>✦</span>
+            </p>
+          </div>
+
           {/* Mini Header with Language Toggle */}
           <div className="py-1 md:py-4 pl-0 pr-4 md:px-4 flex items-center justify-between">
             <img src={logo} alt="RAJ" width={88} height={30} className="-ml-3 md:-ml-2 h-7 md:h-9 w-auto object-contain" style={{ aspectRatio: "120 / 40" }} />
