@@ -4,15 +4,15 @@ const sections = [
   {
     title: "1. Geltungsbereich",
     content: [
-      `Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Bestellungen und Lieferungen von Produkten von RAJ (nachfolgend „wir" oder „uns") über den Online‑Shop auf unserer Website.`,
-      `Abweichende Bedingungen von Kundinnen und Kunden (nachfolgend „Kunde") finden keine Anwendung, sofern sie nicht ausdrücklich und schriftlich von RAJ bestätigt wurden.`,
+      `Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Bestellungen und Lieferungen von Produkten der RAJ GmbH (nachfolgend „wir" oder „uns") über den Online‑Shop auf unserer Website.`,
+      `Abweichende Bedingungen von Kundinnen und Kunden (nachfolgend „Kunde") finden keine Anwendung, sofern sie nicht ausdrücklich und schriftlich von der RAJ GmbH bestätigt wurden.`,
     ],
   },
   {
     title: "2. Angebot und Vertragsschluss",
     content: [
       "Die Präsentation der Produkte auf unserer Website stellt kein rechtlich bindendes Angebot dar, sondern eine unverbindliche Aufforderung zur Abgabe einer Bestellung.",
-      `Durch Anklicken des Bestellbuttons (z. B. „Jetzt sichern", „Jetzt vorbestellen", „Jetzt kaufen" oder „Bestellung abschliessen") gibt der Kunde ein verbindliches Angebot zum Abschluss eines Kaufvertrages ab. Der Vertrag kommt zustande, sobald RAJ die Bestellung per E‑Mail bestätigt oder die Ware versendet.`,
+      `Durch Anklicken des Bestellbuttons (z. B. „Jetzt sichern", „Jetzt vorbestellen", „Jetzt kaufen" oder „Bestellung abschliessen") gibt der Kunde ein verbindliches Angebot zum Abschluss eines Kaufvertrages ab. Der Vertrag kommt zustande, sobald die RAJ GmbH die Bestellung per E‑Mail bestätigt oder die Ware versendet.`,
     ],
   },
   {
@@ -20,7 +20,7 @@ const sections = [
     content: [
       "Einzelne Produkte können als Vorbestellung angeboten werden. In diesem Fall erfolgt die Produktion oder Beschaffung erst nach Eingang der Bestellung.",
       "Die auf der Produktseite angegebene Lieferzeit stellt eine unverbindliche Richtangabe dar. Verzögerungen aufgrund von Produktion, Logistik, Lieferengpässen oder höherer Gewalt bleiben vorbehalten.",
-      "Sollte eine Lieferung ausnahmsweise nicht möglich sein, informiert RAJ den Kunden unverzüglich. Bereits geleistete Zahlungen werden in diesem Fall vollständig zurückerstattet.",
+      "Sollte eine Lieferung ausnahmsweise nicht möglich sein, informiert die RAJ GmbH den Kunden unverzüglich. Bereits geleistete Zahlungen werden in diesem Fall vollständig zurückerstattet.",
     ],
   },
   {
@@ -41,7 +41,7 @@ const sections = [
   },
   {
     title: "6. Eigentumsvorbehalt",
-    content: ["Die gelieferte Ware bleibt bis zur vollständigen Bezahlung Eigentum von RAJ."],
+    content: ["Die gelieferte Ware bleibt bis zur vollständigen Bezahlung Eigentum der RAJ GmbH."],
   },
   {
     title: "7. Rücktritts‑ und Rückgaberecht",
@@ -57,14 +57,14 @@ const sections = [
     title: "8. Gewährleistung und Garantie",
     content: [
       "Es gelten die gesetzlichen Gewährleistungsbestimmungen des schweizerischen Rechts.",
-      "Sofern auf der Produktseite angegeben, gewährt RAJ zusätzlich eine freiwillige Garantie von zwei Jahren ab Lieferdatum. Die Garantie deckt Material‑ und Herstellungsfehler ab.",
+      "Sofern auf der Produktseite angegeben, gewährt die RAJ GmbH zusätzlich eine freiwillige Garantie von zwei Jahren ab Lieferdatum. Die Garantie deckt Material‑ und Herstellungsfehler ab.",
       "Von der Garantie ausgeschlossen sind insbesondere Schäden, die durch unsachgemässe Nutzung, normale Abnutzung, äussere Einwirkungen oder eigenmächtige Reparaturen entstehen.",
     ],
   },
   {
     title: "9. Haftung",
     content: [
-      "RAJ haftet ausschliesslich für Schäden, die durch vorsätzliches oder grob fahrlässiges Verhalten verursacht wurden.",
+      "Die RAJ GmbH haftet ausschliesslich für Schäden, die durch vorsätzliches oder grob fahrlässiges Verhalten verursacht wurden.",
       "Eine Haftung für indirekte Schäden, Folgeschäden oder entgangenen Gewinn ist – soweit gesetzlich zulässig – ausgeschlossen.",
       "Zwingende gesetzliche Haftungsbestimmungen bleiben unberührt.",
     ],
@@ -85,14 +85,14 @@ const sections = [
   {
     title: "12. Änderungen der AGB",
     content: [
-      "RAJ behält sich das Recht vor, diese AGB jederzeit anzupassen. Massgeblich ist die jeweils zum Zeitpunkt der Bestellung gültige Fassung.",
+      "Die RAJ GmbH behält sich das Recht vor, diese AGB jederzeit anzupassen. Massgeblich ist die jeweils zum Zeitpunkt der Bestellung gültige Fassung.",
     ],
   },
   {
     title: "13. Anwendbares Recht und Gerichtsstand",
     content: [
       "Es gilt ausschliesslich schweizerisches Recht unter Ausschluss des UN‑Kaufrechts (CISG).",
-      "Gerichtsstand ist – soweit gesetzlich zulässig – der Sitz von RAJ.",
+      "Gerichtsstand ist – soweit gesetzlich zulässig – der Sitz der RAJ GmbH.",
     ],
   },
   {
