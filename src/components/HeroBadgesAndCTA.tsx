@@ -255,13 +255,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 {countdownUnits.map((u) => (
                   <div
                     key={u.label}
-                    className="flex flex-col items-center justify-center rounded-lg sm:rounded-xl py-1 sm:py-3"
+                    className="flex flex-col items-center justify-center rounded-lg sm:rounded-xl py-1.5 sm:py-4"
                     style={{
                       backgroundColor: "#ffffff",
                       border: "1px solid rgba(155,107,63,0.12)",
                     }}
                   >
-                    <span className="text-sm sm:text-2xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
+                    <span className="text-base sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
                       {String(u.value).padStart(2, "0")}
                     </span>
                     <span className="text-[7px] sm:text-[10px] text-[#888] mt-0.5 sm:mt-1 font-medium tracking-wide">
