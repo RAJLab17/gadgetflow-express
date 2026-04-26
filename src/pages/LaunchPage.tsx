@@ -273,8 +273,21 @@ const LaunchPage = () => {
             onSignupSuccess={() => {
               void refreshSpotsTaken();
               fireConfetti();
+              setHasSignedUp(true);
             }}
           />
+
+          {/* ===== EXIT-INTENT POPUP ===== */}
+          <Suspense fallback={null}>
+            <ExitIntentPopup
+              alreadySignedUp={hasSignedUp}
+              onSignupSuccess={() => {
+                void refreshSpotsTaken();
+                fireConfetti();
+                setHasSignedUp(true);
+              }}
+            />
+          </Suspense>
 
 
           {/* ===== PREMIUM STORY — 3 Segmente im edlen Zickzack ===== */}
