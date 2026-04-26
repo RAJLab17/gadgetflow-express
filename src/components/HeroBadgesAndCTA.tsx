@@ -363,6 +363,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               <p className="text-[10px] sm:text-[12px] text-[#888] mt-1.5 sm:mt-3 text-center">
                 {t("cta.trust")}
               </p>
+              <p className="text-[10px] sm:text-[12px] italic text-[#999] mt-1 sm:mt-2 text-center">
+                Du bekommst eine kurze Bestätigung. Am Launch-Tag erhältst du den exklusiven Kauflink — vor allen anderen.
+              </p>
             </div>
 
           </div>
