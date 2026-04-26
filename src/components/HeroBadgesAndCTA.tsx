@@ -247,7 +247,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
             </div>
 
             {/* 4. Countdown */}
-            <div className="w-full mb-2 sm:mb-6">
+            <div className="w-full mb-1 sm:mb-3">
               <p className="text-[9px] sm:text-[12px] uppercase tracking-[0.18em] text-[#888] font-medium mb-1.5 sm:mb-3">
                 {t("cta.priceEndsIn")}
               </p>
