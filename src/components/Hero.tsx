@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown, Loader2, Sparkles, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
 
 const Hero = () => {
+  const { quickBuy, isProcessing } = useQuickBuy();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Elegant Background */}
@@ -104,20 +106,32 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6"
             >
-              <Button 
-                variant="hero" 
-                size="xl" 
+              <Button
+                variant="hero"
+                size="xl"
                 className="w-full sm:w-auto text-base group shadow-elegant-lg"
-                onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={quickBuy}
+                disabled={isProcessing}
+                aria-label="Jetzt kaufen für CHF 99"
               >
-                Jetzt CHF 99.–
-                <motion.span
-                  className="ml-2"
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
+                {isProcessing ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Wird vorbereitet…
+                  </>
+                ) : (
+                  <>
+                    <Zap className="w-4 h-4 mr-2" />
+                    Jetzt CHF 99.–
+                    <motion.span
+                      className="ml-2"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </>
+                )}
               </Button>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span className="line-through">CHF 129.–</span>

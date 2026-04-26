@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Shield, Package, Layers, CheckCircle } from "lucide-react";
+import { Zap, Shield, Package, Layers, CheckCircle, Loader2 } from "lucide-react";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 import WaitlistForm from "@/components/WaitlistForm";
+import StickyBuyBar from "@/components/StickyBuyBar";
 import { fetchProductVariantInfo } from "@/lib/shopify";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 
 // Product images
 import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
