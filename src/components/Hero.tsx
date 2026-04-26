@@ -174,17 +174,22 @@ const Hero = () => {
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-[80px] scale-75" />
                 
-                {/* Product Image — CSS float keeps main thread free */}
-                <img
-                  src={chargerHero}
-                  alt="RAJ NEXUS 3-in-1 Wireless Charger"
-                  width={512}
-                  height={512}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105 animate-float-slow"
-                />
+                {/* Product Image — scroll-linked parallax + CSS float */}
+                <motion.div
+                  style={{ y: imageY, rotate: imageRotate, scale: imageScale }}
+                  className="will-change-transform"
+                >
+                  <img
+                    src={chargerHero}
+                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                    width={512}
+                    height={512}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="relative w-full max-w-lg mx-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105 animate-float-slow"
+                  />
+                </motion.div>
                 
                 {/* Floating Badge */}
                 <motion.div
