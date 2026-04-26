@@ -188,6 +188,8 @@ const WirelessCharger3in1Product = () => {
                   <img
                     src={image}
                     alt={`Ansicht ${index + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain p-1.5"
                   />
                 </motion.button>

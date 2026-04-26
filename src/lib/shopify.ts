@@ -276,7 +276,6 @@ export async function fetchProductVariantInfo(handle: string): Promise<ProductVa
   try {
     const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
     const variant = data?.data?.productByHandle?.variants?.edges?.[0]?.node;
-    console.log('Shopify product response:', JSON.stringify(data?.data?.productByHandle));
     if (!variant) return null;
     return {
       variantId: variant.id,
