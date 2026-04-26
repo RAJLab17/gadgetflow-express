@@ -372,6 +372,41 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
               <p className="text-[10px] sm:text-[12px] italic text-[#999] mt-1 sm:mt-2 text-center">
                 Du bekommst eine kurze Bestätigung. Am Launch-Tag erhältst du den exklusiven Kauflink — vor allen anderen.
               </p>
+
+              {/* Risk Reversal — Trust Badges */}
+              <div
+                className="mt-4 sm:mt-6 rounded-xl p-3 sm:p-4"
+                style={{
+                  backgroundColor: "rgba(155,107,63,0.05)",
+                  border: "1px solid rgba(155,107,63,0.18)",
+                }}
+              >
+                <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
+                  <RotateCcw size={16} color={GOLD} strokeWidth={2.4} />
+                  <span className="text-[12px] sm:text-[13px] font-bold tracking-tight text-[#1a1a1a]">
+                    30 Tage Geld-zurück. Versprochen.
+                  </span>
+                </div>
+                <p className="text-[10px] sm:text-[11px] text-[#666] text-center leading-snug mb-2 sm:mb-3">
+                  Gefällt dir nicht? Schick es zurück — wir erstatten den vollen Preis. Ohne Diskussion.
+                </p>
+                <div className="flex items-center justify-around gap-2 pt-2 sm:pt-3 border-t border-[#9b6b3f]/15">
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck size={14} color={GOLD} strokeWidth={2.2} />
+                    <span className="text-[10px] sm:text-[11px] text-[#444] font-medium">3 J. Garantie</span>
+                  </div>
+                  <div className="w-px h-3 bg-[#9b6b3f]/20" />
+                  <div className="flex items-center gap-1.5">
+                    <Truck size={14} color={GOLD} strokeWidth={2.2} />
+                    <span className="text-[10px] sm:text-[11px] text-[#444] font-medium">Gratis Versand CH</span>
+                  </div>
+                  <div className="w-px h-3 bg-[#9b6b3f]/20" />
+                  <div className="flex items-center gap-1.5">
+                    <Check size={14} color={GOLD} strokeWidth={2.4} />
+                    <span className="text-[10px] sm:text-[11px] text-[#444] font-medium">Sicher zahlen</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
