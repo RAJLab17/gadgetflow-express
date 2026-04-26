@@ -384,7 +384,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
                   <RotateCcw size={16} color={GOLD} strokeWidth={2.4} />
                   <span className="text-[12px] sm:text-[13px] font-bold tracking-tight text-[#1a1a1a]">
-                    30 Tage Geld-zurück. Versprochen.
+                    30 Tage Geld-zurück.
                   </span>
                 </div>
                 <p className="text-[10px] sm:text-[11px] text-[#666] text-center leading-snug mb-2 sm:mb-3">
