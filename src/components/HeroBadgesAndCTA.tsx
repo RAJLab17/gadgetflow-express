@@ -98,13 +98,34 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     }
   }, [spotsTaken]);
 
-  // Realtime live-counter removed: the WebSocket + Realtime client adds
-  // ~30KB and a noticeable Main Thread cost during LCP. The counter still
-  // updates locally on the user's own signup (via spotsTaken prop refresh).
-  // Other users' signups will be picked up on the next page load — fine for
-  // a launch / waitlist context.
-
-  // Social proof popup is only triggered by real signups (not simulated).
+  // Realtime subscription — alle Besucher sehen live, wenn jemand neu signed up
+  // Lazy-loaded nach LCP, damit kein Impact auf initial paint.
+  useEffect(() => {
+    let channel: any;
+    let cancelled = false;
+    const timer = setTimeout(async () => {
+      const supabase = await getSupabase();
+      if (cancelled) return;
+      channel = supabase
+        .channel("launch_signups_live")
+        .on(
+          "postgres_changes",
+          { event: "INSERT", schema: "public", table: "launch_signups" },
+          () => {
+            setLiveCount((prev) => Math.min(TOTAL_SPOTS, Math.max(prev, BASE_TAKEN) + 1));
+            setPopupTrigger((prev) => prev + 1);
+          }
+        )
+        .subscribe();
+    }, 2500);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+      if (channel) {
+        getSupabase().then((s) => s.removeChannel(channel));
+      }
+    };
+  }, []);
 
   const taken = liveCount;
   const remaining = Math.max(0, TOTAL_SPOTS - taken);
