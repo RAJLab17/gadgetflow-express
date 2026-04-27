@@ -4,27 +4,27 @@ import PreorderBanner from "@/components/PreorderBanner";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Orange images
-import orangeImg1 from "@/assets/products/powerbank-orange-1.png";
-import orangeImg2 from "@/assets/products/powerbank-orange-2.png";
-import orangeImg3 from "@/assets/products/powerbank-orange-3.png";
+import orangeImg1 from "@/assets/products/powerbank-orange-1.webp";
+import orangeImg2 from "@/assets/products/powerbank-orange-2.webp";
+import orangeImg3 from "@/assets/products/powerbank-orange-3.webp";
 
 // Pink images
-import pinkImg1 from "@/assets/products/powerbank-pink-1.png";
-import pinkImg2 from "@/assets/products/powerbank-pink-2.png";
-import pinkImg3 from "@/assets/products/powerbank-pink-3.png";
+import pinkImg1 from "@/assets/products/powerbank-pink-1.webp";
+import pinkImg2 from "@/assets/products/powerbank-pink-2.webp";
+import pinkImg3 from "@/assets/products/powerbank-pink-3.webp";
 
 // Black images
-import blackImg1 from "@/assets/products/powerbank-black-1.png";
-import blackImg2 from "@/assets/products/powerbank-black-2.png";
-import blackImg3 from "@/assets/products/powerbank-black-3.png";
+import blackImg1 from "@/assets/products/powerbank-black-1.webp";
+import blackImg2 from "@/assets/products/powerbank-black-2.webp";
+import blackImg3 from "@/assets/products/powerbank-black-3.webp";
 
 // Silver images
-import silverImg1 from "@/assets/products/powerbank-silver-1.png";
-import silverImg2 from "@/assets/products/powerbank-silver-2.png";
-import silverImg3 from "@/assets/products/powerbank-silver-3.png";
+import silverImg1 from "@/assets/products/powerbank-silver-1.webp";
+import silverImg2 from "@/assets/products/powerbank-silver-2.webp";
+import silverImg3 from "@/assets/products/powerbank-silver-3.webp";
 
 // All colors image
-import allColorsImg from "@/assets/products/powerbank-all-colors.png";
+import allColorsImg from "@/assets/products/powerbank-all-colors.webp";
 
 interface ColorVariant {
   id: string;

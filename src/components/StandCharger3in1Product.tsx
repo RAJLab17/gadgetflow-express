@@ -5,13 +5,13 @@ import PreorderBanner from "@/components/PreorderBanner";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Import product images
-import heroImg from "@/assets/products/charger-stand-hero.png";
+import heroImg from "@/assets/products/charger-stand-hero.webp";
 import whiteImg from "@/assets/products/charger-stand-white.png";
 import blueImg from "@/assets/products/charger-stand-blue.png";
 import pinkImg from "@/assets/products/charger-stand-pink.png";
 import mintImg from "@/assets/products/charger-stand-mint.png";
 import blackImg from "@/assets/products/charger-stand-black.png";
-import techImg from "@/assets/products/charger-stand-tech.png";
+import techImg from "@/assets/products/charger-stand-tech.webp";
 
 type ColorVariant = {
   id: string;

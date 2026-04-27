@@ -3,10 +3,10 @@ import { Zap, Shield, Smartphone, Clock, ChevronRight, Check, Laptop } from "luc
 import PreorderBanner from "./PreorderBanner";
 import ShopifyBuyButton from "./ShopifyBuyButton";
 
-import usbChargerDevices from "@/assets/products/usb-charger-devices.png";
+import usbChargerDevices from "@/assets/products/usb-charger-devices.webp";
 import usbChargerWhite1 from "@/assets/products/usb-charger-white-1.png";
 import usbChargerWhite2 from "@/assets/products/usb-charger-white-2.png";
-import usbChargerAction from "@/assets/products/usb-charger-action.png";
+import usbChargerAction from "@/assets/products/usb-charger-action.webp";
 
 const productImages = [
   { id: 1, src: usbChargerDevices, alt: "USB-C Schnellladegerät mit verschiedenen Smartphones" },

@@ -4,11 +4,11 @@ import PreorderBanner from "@/components/PreorderBanner";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
 // Import images
-import blackImg from "@/assets/products/powerbank-20k-black.png";
-import whiteImg from "@/assets/products/powerbank-20k-white.png";
-import sandImg from "@/assets/products/powerbank-20k-sand.png";
-import greenImg from "@/assets/products/powerbank-20k-green.png";
-import blueImg from "@/assets/products/powerbank-20k-blue.png";
+import blackImg from "@/assets/products/powerbank-20k-black.webp";
+import whiteImg from "@/assets/products/powerbank-20k-white.webp";
+import sandImg from "@/assets/products/powerbank-20k-sand.webp";
+import greenImg from "@/assets/products/powerbank-20k-green.webp";
+import blueImg from "@/assets/products/powerbank-20k-blue.webp";
 
 interface ColorVariant {
   id: string;

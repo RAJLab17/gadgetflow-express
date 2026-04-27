@@ -4,9 +4,9 @@ import PreorderBanner from "./PreorderBanner";
 import ShopifyBuyButton from "./ShopifyBuyButton";
 
 // Import product images
-import ganChargerAction from "@/assets/products/gan-charger-1.png";
-import ganChargerWhite from "@/assets/products/gan-charger-white.png";
-import ganChargerBlack from "@/assets/products/gan-charger-black.png";
+import ganChargerAction from "@/assets/products/gan-charger-1.webp";
+import ganChargerWhite from "@/assets/products/gan-charger-white.webp";
+import ganChargerBlack from "@/assets/products/gan-charger-black.webp";
 
 const colorVariants = [
   {

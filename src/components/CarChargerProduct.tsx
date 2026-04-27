@@ -3,10 +3,10 @@ import { Check, Zap, Cable, Monitor, Car } from "lucide-react";
 import PreorderBanner from "@/components/PreorderBanner";
 import ShopifyBuyButton from "@/components/ShopifyBuyButton";
 
-import img1 from "@/assets/products/car-charger-1.png";
-import img2 from "@/assets/products/car-charger-2.png";
-import img3 from "@/assets/products/car-charger-3.png";
-import img4 from "@/assets/products/car-charger-4.png";
+import img1 from "@/assets/products/car-charger-1.webp";
+import img2 from "@/assets/products/car-charger-2.webp";
+import img3 from "@/assets/products/car-charger-3.webp";
+import img4 from "@/assets/products/car-charger-4.webp";
 
 const images = [img3, img1, img2, img4]; // img3 (Automatic Retraction) als Hauptbild
 
