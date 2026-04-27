@@ -91,10 +91,10 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const [liveCount, setLiveCount] = useState<number>(Math.max(BASE_TAKEN, spotsTaken ?? 0));
   const [popupTrigger, setPopupTrigger] = useState(0);
 
-  // Keep local counter in sync when parent updates spotsTaken (e.g. after own signup)
+  // Keep local counter in sync with the shared displayed value from the backend.
   useEffect(() => {
     if (typeof spotsTaken === "number") {
-      setLiveCount((prev) => Math.max(prev, spotsTaken, BASE_TAKEN));
+      setLiveCount(spotsTaken);
     }
   }, [spotsTaken]);
 
@@ -112,7 +112,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           "postgres_changes",
           { event: "INSERT", schema: "public", table: "launch_signups" },
           () => {
-            setLiveCount((prev) => Math.min(TOTAL_SPOTS, Math.max(prev, BASE_TAKEN) + 1));
+            setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
             setPopupTrigger((prev) => prev + 1);
           }
         )
@@ -152,7 +152,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       });
       if (error) throw error;
       if (data?.success) {
-        setLiveCount((prev) => Math.min(TOTAL_SPOTS, Math.max(prev, BASE_TAKEN) + 1));
         setPopupTrigger((prev) => prev + 1);
         setSubmitted(true);
         trackMetaEvent("Lead", { email: email.trim() });
