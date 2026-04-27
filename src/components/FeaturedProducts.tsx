@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Sparkles, Zap, Shield, Star, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.png";
+import charger3in1ColorsNew from "@/assets/products/charger-3in1-colors-new.webp";
 import charger3in1Action1 from "@/assets/products/charger-3in1-action1.png";
 import charger3in1Action2 from "@/assets/products/charger-3in1-action2.png";
-import charger3in1Angles from "@/assets/products/charger-3in1-angles.png";
-import charger3in1Specs from "@/assets/products/charger-3in1-specs.png";
-import charger3in1LifestyleHome from "@/assets/products/charger-3in1-lifestyle-home.png";
-import charger3in1LifestyleOffice from "@/assets/products/charger-3in1-lifestyle-office.png";
+import charger3in1Angles from "@/assets/products/charger-3in1-angles.webp";
+import charger3in1Specs from "@/assets/products/charger-3in1-specs.webp";
+import charger3in1LifestyleHome from "@/assets/products/charger-3in1-lifestyle-home.webp";
+import charger3in1LifestyleOffice from "@/assets/products/charger-3in1-lifestyle-office.webp";
 
 const product = {
   id: 7,

@@ -3,10 +3,10 @@ import { ShoppingCart, Star, Check, Zap, Shield, Cable } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-import cableGalaxy from "@/assets/products/cable-galaxy.png";
-import cableCamo from "@/assets/products/cable-camo.png";
-import cableLavender from "@/assets/products/cable-lavender.png";
-import cableRosegold from "@/assets/products/cable-rosegold.png";
+import cableGalaxy from "@/assets/products/cable-galaxy.webp";
+import cableCamo from "@/assets/products/cable-camo.webp";
+import cableLavender from "@/assets/products/cable-lavender.webp";
+import cableRosegold from "@/assets/products/cable-rosegold.webp";
 
 const colorVariants = [
   {
