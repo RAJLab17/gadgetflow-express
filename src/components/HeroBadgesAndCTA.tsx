@@ -88,13 +88,13 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 
 const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const { t } = useLanguage();
-  const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? BASE_TAKEN);
+  const [liveCount, setLiveCount] = useState<number>(Math.max(BASE_TAKEN, spotsTaken ?? 0));
   const [popupTrigger, setPopupTrigger] = useState(0);
 
   // Keep local counter in sync when parent updates spotsTaken (e.g. after own signup)
   useEffect(() => {
     if (typeof spotsTaken === "number") {
-      setLiveCount((prev) => Math.max(prev, spotsTaken));
+      setLiveCount((prev) => Math.max(prev, spotsTaken, BASE_TAKEN));
     }
   }, [spotsTaken]);
 
