@@ -131,6 +131,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       });
       if (error) throw error;
       if (data?.success) {
+        setLiveCount((prev) => Math.min(TOTAL_SPOTS, Math.max(prev, BASE_TAKEN) + 1));
+        setPopupTrigger((prev) => prev + 1);
         setSubmitted(true);
         trackMetaEvent("Lead", { email: email.trim() });
         onSignupSuccess?.();
