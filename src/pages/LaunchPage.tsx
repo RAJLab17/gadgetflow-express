@@ -139,7 +139,10 @@ const CountUpNumber = ({ target }: { target: number }) => {
 };
 
 const TOTAL_SPOTS = 100;
-const DEFAULT_TAKEN = 9;
+const DISPLAY_BASELINE = 81;
+const REAL_SIGNUPS_AT_BASELINE = 44;
+const DISPLAY_OFFSET = DISPLAY_BASELINE - REAL_SIGNUPS_AT_BASELINE;
+const DEFAULT_TAKEN = DISPLAY_BASELINE;
 const SPOTS_CACHE_KEY = "launch_spots_taken";
 
 const LaunchPage = () => {
@@ -168,7 +171,10 @@ const LaunchPage = () => {
 
       if (error || typeof count !== "number") return;
 
-      const nextCount = Math.min(TOTAL_SPOTS, count);
+      const nextCount = Math.min(
+        TOTAL_SPOTS,
+        Math.max(DISPLAY_BASELINE, count + DISPLAY_OFFSET)
+      );
       setSpotsTaken(nextCount);
       window.localStorage.setItem(SPOTS_CACHE_KEY, String(nextCount));
     } catch (error) {
