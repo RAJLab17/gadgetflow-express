@@ -191,7 +191,7 @@ const translations: Translations = {
   "hero.miniFaq.shipping": { de: "Gratis Versand CH", fr: "Livraison gratuite CH", it: "Spedizione gratuita CH" },
   "hero.miniFaq.returns": { de: "30 Tage Rückgabe", fr: "30 jours de retour", it: "30 giorni di reso" },
  "hero.miniFaq.noCommit": { de: "Unverbindlich · Kein Spam", fr: "Sans engagement · Pas de spam", it: "Senza impegno · Niente spam" },
- "hero.questions": { de: "Sprich mich persönlich an —", fr: "Parle-moi directement —", it: "Scrivimi direttamente —" },
+ "hero.questions": { de: "Fragen? Jederzeit unter", fr: "Des questions ? À tout moment via", it: "Domande? In qualsiasi momento a" },
  "faq.contact.lead": { de: "Du hast noch eine Frage? Ich lese jede Mail selbst —", fr: "Tu as encore une question ? Je lis chaque mail moi-même —", it: "Hai ancora una domanda? Leggo ogni mail di persona —" },
  "faq.contact.sub": { de: "Antwort meist innerhalb von 24 Stunden · Direkt vom Gründer", fr: "Réponse en général sous 24 heures · Directement du fondateur", it: "Risposta di solito entro 24 ore · Direttamente dal fondatore" },
   "hero.scrollHint": { de: "So funktioniert's", fr: "Comment ça marche", it: "Come funziona" },
