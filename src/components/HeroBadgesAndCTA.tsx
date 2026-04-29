@@ -1,4 +1,4 @@
-import { useEffect, useState, FormEvent, useMemo } from "react";
+import { useEffect, useState, FormEvent } from "react";
 import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail, ArrowDown, Gift, Tag, Hash } from "lucide-react";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
