@@ -454,6 +454,15 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                     <p className="text-[10px] sm:text-[11px] text-center text-[#999] mt-1">
                       {t("hero.miniFaq.noCommit")}
                     </p>
+                    <p className="text-[10px] sm:text-[11px] text-center text-[#888] mt-0.5">
+                      {t("hero.questions")}{" "}
+                      <a
+                        href="mailto:founder@raj.ch"
+                        className="font-semibold underline decoration-[#9b6b3f]/40 underline-offset-2 hover:text-[#9b6b3f] hover:decoration-[#9b6b3f] transition-colors"
+                      >
+                        founder@raj.ch
+                      </a>
+                    </p>
                   </form>
                 )}
               </div>
