@@ -202,8 +202,8 @@ const translations: Translations = {
   "hero.sticky.label": { de: "Founder-Preis sichern", fr: "Réserver prix Founder", it: "Prezzo Founder" },
   "hero.sticky.cta": { de: "Sichern", fr: "Réserver", it: "Prenota" },
   "hero.live.justJoined": { de: "wurde gerade Founder", fr: "vient de devenir Founder", it: "è appena diventato Founder" },
-  "hero.live.newFromCity": { de: "Neue Anmeldung aus", fr: "Nouvelle inscription depuis", it: "Nuova iscrizione da" },
-  "hero.live.viewingFromCity": { de: "Jemand schaut gerade aus", fr: "Quelqu'un regarde depuis", it: "Qualcuno sta guardando da" },
+  "hero.live.newFromCity": { de: "Neuer Founder hat sich seinen Platz gesichert", fr: "Un nouveau Founder a réservé sa place", it: "Un nuovo Founder ha assicurato il suo posto" },
+  "hero.live.viewingFromCity": { de: "Jemand sichert sich gerade einen Founder-Platz", fr: "Quelqu'un réserve sa place de Founder", it: "Qualcuno sta assicurando il suo posto da Founder" },
   "hero.foundersJoined": { de: "Founder dabei", fr: "Founders inscrits", it: "Founder iscritti" },
   "hero.today": { de: "heute", fr: "aujourd'hui", it: "oggi" },
 
