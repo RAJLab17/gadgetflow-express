@@ -307,6 +307,7 @@ const LaunchPage = () => {
           {/* ===== HERO ===== */}
           <HeroBadgesAndCTA
             spotsTaken={spotsTaken}
+            signupsToday={signupsToday}
             onSignupSuccess={() => {
               void refreshSpotsTaken();
               fireConfetti();
