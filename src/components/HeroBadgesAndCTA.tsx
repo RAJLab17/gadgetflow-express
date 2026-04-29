@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
 import { useLanguage } from "@/contexts/LanguageContext";
-import nexusHero from "@/assets/nexus-hero-optimized.webp";
+import nexusHero from "@/assets/nexus-hero-optimized.png";
 
 // Lazily load Supabase only when actually needed (post-LCP).
 const getSupabase = () =>
