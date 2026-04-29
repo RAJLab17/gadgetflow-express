@@ -139,22 +139,24 @@ const CountUpNumber = ({ target }: { target: number }) => {
 };
 
 const TOTAL_SPOTS = 100;
-const DISPLAY_BASELINE = 89;
-const REAL_SIGNUPS_AT_BASELINE = 46;
-const DISPLAY_OFFSET = DISPLAY_BASELINE - REAL_SIGNUPS_AT_BASELINE;
-const DEFAULT_TAKEN = DISPLAY_BASELINE;
-const SPOTS_CACHE_KEY = "launch_spots_taken_v3";
+const SPOTS_CACHE_KEY = "launch_spots_taken_v4_real";
+const TODAY_CACHE_KEY = "launch_spots_today_v1";
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
-  
+
   const [spotsTaken, setSpotsTaken] = useState(() => {
-    if (typeof window === "undefined") return DEFAULT_TAKEN;
+    if (typeof window === "undefined") return 0;
     const cachedValue = window.localStorage.getItem(SPOTS_CACHE_KEY);
     const parsedValue = cachedValue ? Number(cachedValue) : NaN;
-    return Number.isFinite(parsedValue)
-      ? Math.max(DEFAULT_TAKEN, Math.min(TOTAL_SPOTS, parsedValue))
-      : DEFAULT_TAKEN;
+    return Number.isFinite(parsedValue) ? Math.min(TOTAL_SPOTS, Math.max(0, parsedValue)) : 0;
+  });
+
+  const [signupsToday, setSignupsToday] = useState(() => {
+    if (typeof window === "undefined") return 0;
+    const cached = window.localStorage.getItem(TODAY_CACHE_KEY);
+    const parsed = cached ? Number(cached) : NaN;
+    return Number.isFinite(parsed) ? Math.max(0, parsed) : 0;
   });
 
   // Track ViewContent on mount
@@ -167,18 +169,30 @@ const LaunchPage = () => {
   const refreshSpotsTaken = useCallback(async () => {
     try {
       const supabase = await getSupabase();
-      const { count, error } = await supabase
+
+      // Total count (real)
+      const { count: totalCount, error: totalErr } = await supabase
         .from("launch_signups")
         .select("id", { count: "exact", head: true });
 
-      if (error || typeof count !== "number") return;
+      if (!totalErr && typeof totalCount === "number") {
+        const next = Math.min(TOTAL_SPOTS, Math.max(0, totalCount));
+        setSpotsTaken(next);
+        window.localStorage.setItem(SPOTS_CACHE_KEY, String(next));
+      }
 
-      const nextCount = Math.min(
-        TOTAL_SPOTS,
-        Math.max(DISPLAY_BASELINE, count + DISPLAY_OFFSET)
-      );
-      setSpotsTaken(nextCount);
-      window.localStorage.setItem(SPOTS_CACHE_KEY, String(nextCount));
+      // Today's count (real, browser-local midnight)
+      const startOfDay = new Date();
+      startOfDay.setHours(0, 0, 0, 0);
+      const { count: todayCount, error: todayErr } = await supabase
+        .from("launch_signups")
+        .select("id", { count: "exact", head: true })
+        .gte("created_at", startOfDay.toISOString());
+
+      if (!todayErr && typeof todayCount === "number") {
+        setSignupsToday(Math.max(0, todayCount));
+        window.localStorage.setItem(TODAY_CACHE_KEY, String(todayCount));
+      }
     } catch (error) {
       console.error("Failed to load launch signup count:", error);
     }
