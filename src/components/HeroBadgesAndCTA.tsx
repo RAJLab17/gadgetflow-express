@@ -267,7 +267,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
               </p>
 
               {/* Produktbild */}
-              <div className="w-full flex justify-center md:justify-start relative mb-3 sm:mb-0">
+              <div className="w-full flex justify-center md:justify-start relative mb-1 sm:mb-0">
                 <img
                   src={nexusHero}
                   alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
@@ -275,7 +275,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                   height={480}
                   fetchPriority="high"
                   decoding="async"
-                  className="w-auto max-h-[200px] sm:max-h-[320px] md:max-h-[400px] object-contain relative z-10"
+                  className="w-auto max-h-[140px] sm:max-h-[320px] md:max-h-[400px] object-contain relative z-10"
                 />
                 <div
                   aria-hidden
