@@ -43,15 +43,8 @@
     <!-- Preconnect to backend (used immediately for visitor tracking + signup count) -->
     <link rel="preconnect" href="https://ftyyjxrrmxlssghrrlzg.supabase.co" crossorigin />
 
-    <!-- Preload LCP hero image (slide 0) — responsive srcset so mobile fetches the 480 variant -->
-    <link
-      rel="preload"
-      as="image"
-      href="/hero/slide-0-specs.webp"
-      imagesrcset="/hero/slide-0-specs-480.webp 480w, /hero/slide-0-specs.webp 800w"
-      imagesizes="(max-width: 640px) 480px, 800px"
-      fetchpriority="high"
-    />
+    <!-- Hero LCP image is bundled by Vite and marked fetchPriority="high" in React; no preload here -->
+
 
     <!-- System font stack — zero external requests, instant rendering, native look -->
     <style>
