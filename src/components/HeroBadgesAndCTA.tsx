@@ -312,14 +312,18 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#888] font-medium leading-none">
-                      Nur noch
-                    </p>
                     <p className="text-[18px] sm:text-[22px] font-extrabold tabular-nums leading-tight" style={{ color: GOLD }}>
-                      {remaining} <span className="text-[12px] sm:text-[13px] text-[#888] font-medium">/ 100</span>
+                      {taken}<span className="text-[12px] sm:text-[13px] text-[#888] font-medium"> / 100</span>
+                    </p>
+                    <p className="text-[10px] sm:text-[11px] text-[#888] font-medium leading-tight">
+                      {t("hero.foundersJoined")}
+                      {todayCount > 0 && (
+                        <> · <span className="font-semibold" style={{ color: GOLD }}>+{todayCount} {t("hero.today")}</span></>
+                      )}
                     </p>
                   </div>
                 </div>
+
 
                 {/* Progress bar */}
                 <div className="w-full mb-4 sm:mb-5">
