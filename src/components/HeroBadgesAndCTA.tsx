@@ -132,7 +132,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
         getSupabase().then((s) => s.removeChannel(channel));
       }
     };
-  }, [t]);
+  }, [t, onSignupSuccess]);
 
   // Dezenter "Aktivitäts-Toast" alle 35-65s — nur Stadt, klar als Aktivitäts-Hinweis.
   // Kein erfundener Personenname.
