@@ -119,7 +119,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
             // Trigger Re-Fetch der echten DB-Counts via parent.
             onSignupSuccess?.();
             const city = SWISS_CITIES[Math.floor(Math.random() * SWISS_CITIES.length)];
-            setPopupMessage(`✦ ${t("hero.live.newFromCity")} ${city}`);
+            setPopupMessage(`✦ ${t("hero.live.newFromCity")}`);
             setPopupTrigger((p) => p + 1);
           }
         )
