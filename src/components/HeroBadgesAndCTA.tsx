@@ -275,7 +275,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                   height={480}
                   fetchPriority="high"
                   decoding="async"
-                  className="w-auto max-h-[140px] sm:max-h-[320px] md:max-h-[400px] object-contain relative z-10"
+                  className="w-full max-w-[260px] sm:max-w-none sm:w-auto max-h-[180px] sm:max-h-[320px] md:max-h-[400px] object-contain relative z-10"
                 />
                 <div
                   aria-hidden
