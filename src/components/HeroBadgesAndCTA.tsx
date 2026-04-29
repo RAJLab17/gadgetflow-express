@@ -11,7 +11,7 @@ const getSupabase = () =>
   import("@/integrations/supabase/client").then((m) => m.supabase);
 
 const GOLD = "#9b6b3f";
-const DARK = "#2b2725";
+
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
@@ -150,7 +150,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
   }, [t]);
 
   const taken = liveCount;
-  const remaining = Math.max(0, TOTAL_SPOTS - taken);
+  // remaining wurde durch positive "X Founder dabei" Formulierung ersetzt
   const progress = Math.min(100, (taken / TOTAL_SPOTS) * 100);
   const nextFounderNumber = Math.min(TOTAL_SPOTS, taken + 1);
 
