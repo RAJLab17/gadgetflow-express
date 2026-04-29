@@ -216,7 +216,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                 {t("hero.sticky.label")}
               </p>
               <p className="text-[11px] text-[#666] leading-tight">
-                CHF 99 · Founder #{nextFounderNumber} · {remaining} frei
+                CHF 99 statt CHF 129 · Du wärst Founder #{nextFounderNumber}
               </p>
             </div>
             <a
