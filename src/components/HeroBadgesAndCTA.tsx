@@ -262,7 +262,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
               </h1>
 
               {/* Sub — der Anreiz, klar */}
-              <p className="text-[14px] sm:text-[16px] md:text-[17px] text-[#444] leading-relaxed text-center md:text-left mb-3 sm:mb-5 max-w-md">
+              <p className="text-[14px] sm:text-[15px] md:text-[16px] text-[#777] leading-relaxed text-center mx-auto md:mx-0 md:text-left mb-3 sm:mb-5 max-w-md">
                 {t("hero.sub")}
               </p>
 
