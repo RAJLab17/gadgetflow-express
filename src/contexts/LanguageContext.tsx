@@ -181,7 +181,7 @@ const translations: Translations = {
   "hero.eyebrow": { de: "Founder Edition · Nur 100 Stück · Schweiz", fr: "Founder Edition · Seulement 100 pièces · Suisse", it: "Founder Edition · Solo 100 pezzi · Svizzera" },
   "hero.h1.line1": { de: "iPhone, AirPods & Apple Watch.", fr: "iPhone, AirPods & Apple Watch.", it: "iPhone, AirPods & Apple Watch." },
   "hero.h1.line2": { de: "Eine Ladestation. Eine Bewegung.", fr: "Une station. Un geste.", it: "Una stazione. Un gesto." },
-  "hero.sub": { de: "Trag dich ein und sichere dir CHF 30 Rabatt + lebenslangen Early Access zu allen RAJ Produkten — exklusiv für die ersten 100.", fr: "Inscris-toi et obtiens CHF 30 de remise + un accès anticipé à vie à tous les produits RAJ — exclusif pour les 100 premiers.", it: "Iscriviti e ottieni CHF 30 di sconto + accesso anticipato a vita a tutti i prodotti RAJ — esclusivo per i primi 100." },
+  "hero.sub": { de: "Sei einer der ersten 100. Was du dafür bekommst, gibt's danach nie wieder.", fr: "Sois l'un des 100 premiers. Ce que tu obtiens, tu ne l'auras plus jamais après.", it: "Sii uno dei primi 100. Quello che ottieni, dopo non lo avrai mai più." },
   "hero.youAre": { de: "Du wärst Founder", fr: "Tu serais Founder", it: "Saresti Founder" },
   "hero.cta.primary": { de: "Ja, ich sichere mir Founder", fr: "Oui, je réserve Founder", it: "Sì, prenoto Founder" },
   "hero.cta.submitting": { de: "Sichere Platz…", fr: "Réservation…", it: "Riservo…" },
