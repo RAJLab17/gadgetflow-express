@@ -139,8 +139,8 @@ const CountUpNumber = ({ target }: { target: number }) => {
 };
 
 const TOTAL_SPOTS = 100;
-const DISPLAY_BASELINE = 81;
-const REAL_SIGNUPS_AT_BASELINE = 44;
+const DISPLAY_BASELINE = 89;
+const REAL_SIGNUPS_AT_BASELINE = 46;
 const DISPLAY_OFFSET = DISPLAY_BASELINE - REAL_SIGNUPS_AT_BASELINE;
 const DEFAULT_TAKEN = DISPLAY_BASELINE;
 const SPOTS_CACHE_KEY = "launch_spots_taken";
