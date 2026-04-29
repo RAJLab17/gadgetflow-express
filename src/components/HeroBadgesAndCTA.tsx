@@ -17,7 +17,7 @@ const GOLD = "#9b6b3f";
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
-const BASE_TAKEN = 81;
+const DEFAULT_TAKEN = 89;
 
 const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
   { icon: <SwissFlag size={20} />, label: t("badge.swissBrand") },
@@ -88,13 +88,13 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 
 const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const { t } = useLanguage();
-  const [liveCount, setLiveCount] = useState<number>(Math.max(BASE_TAKEN, spotsTaken ?? 0));
+  const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? DEFAULT_TAKEN);
   const [popupTrigger, setPopupTrigger] = useState(0);
 
   // Keep local counter in sync with the shared displayed value from the backend.
   useEffect(() => {
     if (typeof spotsTaken === "number") {
-      setLiveCount(spotsTaken);
+      setLiveCount((prev) => Math.max(prev, spotsTaken));
     }
   }, [spotsTaken]);
 
