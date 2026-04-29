@@ -143,7 +143,7 @@ const DISPLAY_BASELINE = 89;
 const REAL_SIGNUPS_AT_BASELINE = 46;
 const DISPLAY_OFFSET = DISPLAY_BASELINE - REAL_SIGNUPS_AT_BASELINE;
 const DEFAULT_TAKEN = DISPLAY_BASELINE;
-const SPOTS_CACHE_KEY = "launch_spots_taken";
+const SPOTS_CACHE_KEY = "launch_spots_taken_v2";
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
