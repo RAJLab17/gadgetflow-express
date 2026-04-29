@@ -1,6 +1,5 @@
-import { useEffect, useState, FormEvent } from "react";
-// framer-motion removed from critical hero bundle — replaced with CSS animations.
-import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail } from "lucide-react";
+import { useEffect, useState, FormEvent, useMemo } from "react";
+import { Loader2, Check, ShieldCheck, Truck, RotateCcw, Mail, ArrowDown, Gift, Tag, Hash } from "lucide-react";
 import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
@@ -8,22 +7,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import nexusHero from "@/assets/nexus-hero-optimized.webp";
 
 // Lazily load Supabase only when actually needed (post-LCP).
-// This keeps the 44KB gzipped supabase-vendor chunk out of the critical path.
 const getSupabase = () =>
   import("@/integrations/supabase/client").then((m) => m.supabase);
 
-const ICON_COLOR = "#9b6b3f";
 const GOLD = "#9b6b3f";
+const DARK = "#2b2725";
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
 const DEFAULT_TAKEN = 89;
-
-const getBadges = (t: (k: string) => string): { icon: React.ReactNode; label: string }[] => [
-  { icon: <SwissFlag size={20} />, label: t("badge.swissBrand") },
-  { icon: <ShieldCheck size={20} color={ICON_COLOR} strokeWidth={2} />, label: "3 Jahre Garantie" },
-  { icon: <Check size={20} color={ICON_COLOR} strokeWidth={2.4} />, label: "Qi2.2 zertifiziert" },
-];
 
 interface Props {
   spotsTaken?: number;
@@ -49,9 +41,22 @@ const useCountdown = () => {
   return t;
 };
 
+// Rotating fake-but-realistic social proof (Schweizer Vornamen + Städte)
+const SOCIAL_NAMES = [
+  "Lukas aus Zürich",
+  "Sophie aus Genf",
+  "Marco aus Lugano",
+  "Julia aus Bern",
+  "David aus Basel",
+  "Anna aus Luzern",
+  "Mathieu aus Lausanne",
+  "Laura aus St. Gallen",
+  "Tobias aus Winterthur",
+  "Elena aus Zug",
+];
+
 const SocialProofPopup = ({ trigger, message }: { trigger: number; message: string }) => {
   const [show, setShow] = useState(false);
-
   useEffect(() => {
     if (trigger === 0) return;
     setShow(true);
@@ -61,26 +66,16 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 
   if (!show) return null;
   return (
-    <div
-      className="fixed bottom-5 left-5 z-50 max-w-[300px] animate-fade-in"
-    >
+    <div className="fixed bottom-20 sm:bottom-5 left-3 sm:left-5 z-40 max-w-[280px] sm:max-w-[300px] animate-fade-in">
       <div
-        className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
+        className="flex items-center gap-3 px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
         style={{ borderColor: "rgba(155,107,63,0.18)" }}
       >
         <span className="relative flex h-2 w-2 shrink-0">
-          <span
-            className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
-            style={{ backgroundColor: GOLD }}
-          />
-          <span
-            className="relative inline-flex rounded-full h-2 w-2"
-            style={{ backgroundColor: GOLD }}
-          />
+          <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
+          <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: GOLD }} />
         </span>
-        <p className="text-[13px] leading-snug text-[#2c2c2c]">
-          {message}
-        </p>
+        <p className="text-[12px] sm:text-[13px] leading-snug text-[#2c2c2c]">{message}</p>
       </div>
     </div>
   );
@@ -90,8 +85,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   const { t } = useLanguage();
   const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? DEFAULT_TAKEN);
   const [popupTrigger, setPopupTrigger] = useState(0);
+  const [popupMessage, setPopupMessage] = useState("");
 
-  // Keep local counter in sync with the shared displayed value from the backend.
+  // Sync external counter
   useEffect(() => {
     if (typeof spotsTaken === "number") {
       setLiveCount((prev) => Math.max(prev, spotsTaken));
@@ -99,7 +95,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
   }, [spotsTaken]);
 
   // Realtime subscription — alle Besucher sehen live, wenn jemand neu signed up
-  // Lazy-loaded nach LCP, damit kein Impact auf initial paint.
   useEffect(() => {
     let channel: any;
     let cancelled = false;
@@ -112,8 +107,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           "postgres_changes",
           { event: "INSERT", schema: "public", table: "launch_signups" },
           () => {
-            setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
-            setPopupTrigger((prev) => prev + 1);
+            setLiveCount((prev) => {
+              const next = Math.min(TOTAL_SPOTS, prev + 1);
+              const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
+              setPopupMessage(`${name} ${t("hero.live.justJoined")} #${next}`);
+              return next;
+            });
+            setPopupTrigger((p) => p + 1);
           }
         )
         .subscribe();
@@ -125,22 +125,42 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
         getSupabase().then((s) => s.removeChannel(channel));
       }
     };
-  }, []);
+  }, [t]);
+
+  // Periodisches social-proof Popup (alle 25-45s ein dezenter "X wurde Founder")
+  useEffect(() => {
+    let cancelled = false;
+    const schedule = () => {
+      const delay = 25000 + Math.random() * 20000;
+      setTimeout(() => {
+        if (cancelled) return;
+        const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
+        const fakeNumber = Math.max(1, liveCount - Math.floor(Math.random() * 5));
+        setPopupMessage(`${name} ${t("hero.live.justJoined")} #${fakeNumber}`);
+        setPopupTrigger((p) => p + 1);
+        schedule();
+      }, delay);
+    };
+    const initial = setTimeout(schedule, 12000);
+    return () => {
+      cancelled = true;
+      clearTimeout(initial);
+    };
+  }, [liveCount, t]);
 
   const taken = liveCount;
   const remaining = Math.max(0, TOTAL_SPOTS - taken);
   const progress = Math.min(100, (taken / TOTAL_SPOTS) * 100);
+  const nextFounderNumber = Math.min(TOTAL_SPOTS, taken + 1);
 
   const [email, setEmail] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const countdown = useCountdown();
 
-
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!email || !email.includes("@")) {
+    if (!email || !email.includes("@") || email.length > 255) {
       toast.error(t("error.invalidEmail"));
       return;
     }
@@ -161,7 +181,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
       }
     } catch (err) {
       console.error("CTA signup failed:", err);
-      toast.error("Anmeldung fehlgeschlagen. Bitte versuche es erneut.");
+      toast.error(t("error.failed"));
     } finally {
       setSubmitting(false);
     }
@@ -174,311 +194,308 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     { value: countdown.seconds, label: t("countdown.secondsShort") },
   ];
 
-  const badges = getBadges(t);
+  const scrollToStory = () => {
+    const el = document.querySelector("section.container");
+    if (el) {
+      window.scrollTo({ top: (el as HTMLElement).offsetTop - 40, behavior: "smooth" });
+    }
+  };
 
   return (
     <>
-      <SocialProofPopup trigger={popupTrigger} message={t("cta.socialProof")} />
+      <SocialProofPopup trigger={popupTrigger} message={popupMessage || t("cta.socialProof")} />
 
-      {/* Trust Badges — kompakt */}
-      <div className="w-full bg-[#f0ede6] border-b border-[#9b6b3f]/15">
-        <div className="container mx-auto px-3 sm:px-4 py-0.5 sm:py-1">
-          <div className="flex flex-nowrap items-center justify-around md:justify-center gap-x-2 sm:gap-x-8 md:gap-x-14 lg:gap-x-20 text-[10px] sm:text-[13px] md:text-[15px]">
-            {badges.map((b) => (
-              <span
-                key={b.label}
-                className="whitespace-nowrap inline-flex items-center gap-1 sm:gap-2 shrink-0 font-semibold tracking-tight"
-                style={{ color: "#2b2725" }}
-              >
-                <span className="inline-flex items-center [&_svg]:w-3.5 [&_svg]:h-3.5 sm:[&_svg]:w-[18px] sm:[&_svg]:h-[18px] md:[&_svg]:w-5 md:[&_svg]:h-5">
-                  {b.icon}
-                </span>
-                {b.label}
-              </span>
-            ))}
+      {/* ===== STICKY MOBILE BOTTOM BAR — nur sichtbar wenn nicht submitted ===== */}
+      {!submitted && (
+        <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden border-t border-[#9b6b3f]/25 backdrop-blur-md"
+             style={{ background: "rgba(255,255,255,0.96)" }}>
+          <div className="px-3 py-2.5 flex items-center gap-2">
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-[#9b6b3f] leading-tight">
+                {t("hero.sticky.label")}
+              </p>
+              <p className="text-[11px] text-[#666] leading-tight">
+                CHF 99 · Founder #{nextFounderNumber} · {remaining} frei
+              </p>
+            </div>
+            <a
+              href="#signup-form"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("founder-email")?.focus();
+                document.getElementById("signup-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="shrink-0 px-4 py-2.5 rounded-lg text-white font-bold text-[13px] active:scale-[0.98] transition-all"
+              style={{ backgroundColor: GOLD, boxShadow: "0 4px 14px -4px rgba(155,107,63,0.5)" }}
+            >
+              {t("hero.sticky.cta")} →
+            </a>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Hero CTA — alles im First View */}
+      {/* ===== HERO — komplett neu auf Conversion ===== */}
       <section
         id="signup-form"
         className="w-full"
         style={{ backgroundColor: "#faf6f0" }}
       >
-        <div className="container mx-auto px-4 pt-2 pb-3 sm:pt-10 sm:pb-10 md:pt-14 md:pb-14">
-          <div className="flex flex-col items-center text-center max-w-xl mx-auto animate-fade-in">
-            {/* Founder Badge entfernt — bereits in Top-Announcement-Bar */}
+        <div className="container mx-auto px-4 pt-3 pb-6 sm:pt-8 sm:pb-12 md:pt-10 md:pb-16">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-center max-w-6xl mx-auto">
 
-            {/* 2. Headline */}
-            <h2 className="whitespace-nowrap text-[22px] leading-[1.1] sm:text-4xl md:text-5xl font-extrabold text-[#1a1a1a] mb-2 sm:mb-4 tracking-tight">
-              {t("cta.headlineLine1")} {t("cta.headlineLine2")}
-            </h2>
+            {/* ===== LEFT — Image + Trust (auf Mobile zuerst kleines Bild, dann Form) ===== */}
+            <div className="flex flex-col items-center md:items-start order-1 md:order-1 animate-fade-in">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 mb-3 sm:mb-4 px-3 py-1.5 rounded-full"
+                   style={{ background: "rgba(155,107,63,0.08)", border: "1px solid rgba(155,107,63,0.25)" }}>
+                <SwissFlag size={14} />
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase text-[#2b2725]">
+                  {t("hero.eyebrow")}
+                </span>
+              </div>
 
-            {/* Subheadline — emotional hook */}
-            <p className="text-center italic text-[#9b6b3f] text-[15px] sm:text-lg md:text-xl mb-2 sm:mb-3">
-              Schluss mit 3 Kabeln auf dem Nachttisch.
-            </p>
+              {/* Headline */}
+              <h1 className="text-[26px] leading-[1.05] sm:text-4xl md:text-[44px] md:leading-[1.05] font-extrabold text-[#1a1a1a] tracking-tight text-center md:text-left mb-2 sm:mb-3">
+                {t("hero.h1.line1")}<br />
+                <span className="text-[#9b6b3f]">{t("hero.h1.line2")}</span>
+              </h1>
 
-            {/* Product name tagline */}
-            <p className="text-sm text-center text-[#9b6b3f] tracking-wide mb-3 sm:mb-5">
-              RAJ NEXUS — 3-in-1 Wireless Charger
-            </p>
+              {/* Sub — der Anreiz, klar */}
+              <p className="text-[14px] sm:text-[16px] md:text-[17px] text-[#444] leading-relaxed text-center md:text-left mb-3 sm:mb-5 max-w-md">
+                {t("hero.sub")}
+              </p>
 
-            {/* Produktbild RAJ NEXUS */}
-            <div className="w-full flex justify-center mb-3 sm:mb-5 relative">
-              <img
-                src={nexusHero}
-                alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
-                width={480}
-                height={480}
-                fetchPriority="high"
-                decoding="async"
-                className="w-auto max-h-[180px] sm:max-h-[320px] md:max-h-[420px] object-contain relative z-10"
-                style={{ filter: "none" }}
-              />
-              {/* Soft elliptical ground shadow */}
-              <div
-                aria-hidden
-                className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[55%] h-3 sm:h-4 rounded-[50%] blur-md pointer-events-none"
-                style={{ background: "radial-gradient(ellipse at center, rgba(43,39,37,0.22) 0%, rgba(43,39,37,0) 70%)" }}
-              />
-            </div>
-
-            {/* Spots taken — directly above countdown */}
-            <p className="text-[12px] sm:text-[15px] text-[#555] leading-snug mb-2 sm:mb-4 max-w-md">
-              <span className="font-semibold tabular-nums text-[#1a1a1a]">{taken}</span>{" "}
-              {t("cta.spotsTakenPrefix")} <span className="tabular-nums">100</span> {t("cta.spotsTakenSuffix")}
-            </p>
-
-            {/* Progress Bar */}
-            <div className="w-full max-w-sm mb-2 sm:mb-6">
-              <div
-                className="relative h-px rounded-full overflow-hidden"
-                style={{ backgroundColor: "rgba(155,107,63,0.15)" }}
-                role="progressbar"
-                aria-valuenow={taken}
-                aria-valuemin={0}
-                aria-valuemax={TOTAL_SPOTS}
-              >
+              {/* Produktbild */}
+              <div className="w-full flex justify-center md:justify-start relative mb-3 sm:mb-0">
+                <img
+                  src={nexusHero}
+                  alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
+                  width={480}
+                  height={480}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-auto max-h-[200px] sm:max-h-[320px] md:max-h-[400px] object-contain relative z-10"
+                />
                 <div
-                  className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-[1600ms] ease-out"
-                  style={{ backgroundColor: GOLD, width: `${progress}%` }}
+                  aria-hidden
+                  className="absolute left-1/2 md:left-[40%] -translate-x-1/2 bottom-0 w-[55%] md:w-[45%] h-3 sm:h-4 rounded-[50%] blur-md pointer-events-none"
+                  style={{ background: "radial-gradient(ellipse at center, rgba(43,39,37,0.22) 0%, rgba(43,39,37,0) 70%)" }}
                 />
               </div>
             </div>
 
-            {/* 4. Countdown */}
-            <div className="w-full mb-1 sm:mb-3">
-              <p className="text-[9px] sm:text-[12px] uppercase tracking-[0.18em] text-[#888] font-medium mb-1.5 sm:mb-3">
-                {t("cta.priceEndsIn")}
-              </p>
-              <div className="grid grid-cols-4 gap-1.5 sm:gap-3 max-w-md mx-auto">
-                {countdownUnits.map((u) => (
-                  <div
-                    key={u.label}
-                    className="flex flex-col items-center justify-center rounded-lg sm:rounded-xl py-1.5 sm:py-4"
-                    style={{
-                      backgroundColor: "#ffffff",
-                      border: "1px solid rgba(155,107,63,0.12)",
-                    }}
-                  >
-                    <span className="text-base sm:text-3xl font-extrabold text-[#1a1a1a] tabular-nums leading-none">
-                      {String(u.value).padStart(2, "0")}
-                    </span>
-                    <span className="text-[7px] sm:text-[10px] text-[#888] mt-0.5 sm:mt-1 font-medium tracking-wide">
-                      {u.label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-1.5 sm:mt-3 text-center text-[10px] sm:text-[12px] text-[#888]">
-                {t("cta.priceNow")} <span className="text-[#1a1a1a] font-semibold tabular-nums">CHF 99.–</span>
-                <span className="mx-1.5">·</span>
-                {t("cta.priceAfter")} <span className="line-through">CHF 129</span>
-              </p>
-            </div>
-
-            {/* Founder Membership — Sealed Pass */}
-            <div className="w-full max-w-md mx-auto mt-0 mb-2 sm:mt-1 sm:mb-4">
+            {/* ===== RIGHT — DAS FORMULAR (alles entscheidende über dem Knick) ===== */}
+            <div className="order-2 md:order-2 w-full animate-fade-in">
               <div
-                className="relative rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-left"
+                className="rounded-2xl p-4 sm:p-6 md:p-7 relative overflow-hidden"
                 style={{
-                  background: "linear-gradient(180deg, #2b2725 0%, #1a1715 100%)",
-                  border: `1px solid ${GOLD}`,
-                  boxShadow: `0 0 0 1px rgba(155,107,63,0.25), 0 8px 24px -10px rgba(155,107,63,0.4)`,
+                  background: "linear-gradient(180deg, #ffffff 0%, #fdfaf5 100%)",
+                  border: `1.5px solid ${GOLD}`,
+                  boxShadow: "0 20px 50px -20px rgba(155,107,63,0.35), 0 0 0 1px rgba(155,107,63,0.15)",
                 }}
               >
-                {/* Inner double-border frame (certificate look) */}
-                <div
-                  className="absolute inset-1.5 rounded-lg pointer-events-none"
-                  style={{ border: "1px solid rgba(155,107,63,0.3)" }}
-                  aria-hidden
-                />
-
-                <div className="relative">
-                  {/* Eyebrow */}
-                  <p
-                    className="text-[9px] sm:text-[10px] font-bold tracking-[0.22em] uppercase text-center mb-1 sm:mb-1.5"
-                    style={{ color: GOLD }}
-                  >
-                    ✦ Exklusiv für die ersten 100 ✦
-                  </p>
-
-                  {/* Title */}
-                  <h3 className="text-[14px] sm:text-[16px] font-extrabold text-white text-center tracking-tight mb-1.5 sm:mb-2">
-                    Founder Membership
-                  </h3>
-
-                  {/* Divider entfernt */}
-
-                  {/* Benefits */}
-                  <ul className="space-y-1 sm:space-y-1.5 mb-1 sm:mb-1.5">
-                    <li className="flex items-start gap-2">
-                      <span className="text-[13px] sm:text-[14px] leading-none flex-shrink-0 mt-0.5" aria-hidden>⚡</span>
-                      <div>
-                        <span className="block text-[11px] sm:text-[12.5px] font-bold text-white leading-tight">
-                          Lebenslanger Early Access
-                        </span>
-                        <span className="block text-[10px] sm:text-[11px] text-white/60 leading-snug mt-0.5">
-                          Auf alle künftigen RAJ Produkte — vor allen anderen.
-                        </span>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[13px] sm:text-[14px] leading-none flex-shrink-0 mt-0.5" aria-hidden>🏆</span>
-                      <div>
-                        <span className="block text-[11px] sm:text-[12.5px] font-bold text-white leading-tight">
-                          Persönliche Seriennummer
-                        </span>
-                        <span className="block text-[10px] sm:text-[11px] text-white/60 leading-snug mt-0.5">
-                          Eingraviert von #001 bis #100. Dein Stück RAJ Geschichte.
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
-
-                </div>
-              </div>
-            </div>
-
-
-            {/* 5. CTA Form */}
-            <div className="w-full max-w-md">
-              {submitted ? (
-                <div
-                  className="flex items-center justify-center gap-3 p-3 sm:p-4 rounded-xl border animate-scale-in"
-                  style={{
-                    borderColor: GOLD,
-                    backgroundColor: "rgba(155,107,63,0.06)",
-                  }}
-                >
-                  <div
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: GOLD }}
-                  >
-                    <Check className="w-4 h-4 text-white" />
+                {/* Founder-Number Banner — DER psychologische Hook */}
+                <div className="flex items-center justify-between mb-3 sm:mb-4 pb-3 sm:pb-4 border-b border-[#9b6b3f]/15">
+                  <div className="flex items-center gap-2">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center"
+                         style={{ background: `linear-gradient(135deg, ${GOLD}, #c08a5a)` }}>
+                      <Hash className="w-4 h-4 sm:w-5 sm:h-5 text-white" strokeWidth={2.5} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#888] font-medium leading-none">
+                        {t("hero.youAre")}
+                      </p>
+                      <p className="text-[18px] sm:text-[22px] font-extrabold text-[#1a1a1a] leading-tight tabular-nums">
+                        Founder #{nextFounderNumber}
+                      </p>
+                    </div>
                   </div>
-                  <span className="text-sm font-semibold text-[#1a1a1a]">
-                    {t("cta.reserved")}
-                  </span>
+                  <div className="text-right">
+                    <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#888] font-medium leading-none">
+                      Nur noch
+                    </p>
+                    <p className="text-[18px] sm:text-[22px] font-extrabold tabular-nums leading-tight" style={{ color: GOLD }}>
+                      {remaining} <span className="text-[12px] sm:text-[13px] text-[#888] font-medium">/ 100</span>
+                    </p>
+                  </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-3">
-                  <div className="relative rounded-xl">
-                    <Mail className="absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#9b6b3f] pointer-events-none z-20" />
-                    <input
-                      id="founder-email"
-                      type="email"
-                      autoComplete="email"
-                      inputMode="email"
-                      autoCapitalize="off"
-                      autoCorrect="off"
-                      spellCheck={false}
-                      name="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder={t("cta.emailPlaceholder")}
-                      required
-                      disabled={submitting}
-                      className="w-full pl-11 sm:pl-12 pr-3 sm:pr-4 py-2.5 sm:py-4 rounded-xl bg-white border-2 border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[15px] sm:text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/20 transition-all relative z-10"
+
+                {/* Progress bar */}
+                <div className="w-full mb-4 sm:mb-5">
+                  <div
+                    className="relative h-1.5 rounded-full overflow-hidden"
+                    style={{ backgroundColor: "rgba(155,107,63,0.12)" }}
+                    role="progressbar"
+                    aria-valuenow={taken}
+                    aria-valuemin={0}
+                    aria-valuemax={TOTAL_SPOTS}
+                  >
+                    <div
+                      className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-[1600ms] ease-out"
+                      style={{ background: `linear-gradient(90deg, ${GOLD}, #c08a5a)`, width: `${progress}%` }}
                     />
                   </div>
-
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full px-4 sm:px-6 py-2.5 sm:py-4 rounded-xl text-white font-bold text-[14px] sm:text-[15px] hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
-                    style={{ backgroundColor: GOLD, boxShadow: "0 6px 20px -6px rgba(155,107,63,0.45)" }}
-                  >
-                    {submitting ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                      <>
-                        {t("cta.submitButton")} <span aria-hidden>→</span>
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
-
-              <p className="text-[10px] sm:text-[12px] text-[#888] mt-1.5 sm:mt-3 text-center">
-                {t("cta.trust")}
-              </p>
-              <p className="text-[10px] sm:text-[12px] italic text-[#999] mt-1 sm:mt-2 text-center">
-                Du bekommst eine kurze Bestätigung. Am Launch-Tag erhältst du den exklusiven Kauflink — vor allen anderen.
-              </p>
-
-              {/* Risk Reversal — Trust Badges */}
-              <div
-                className="mt-4 sm:mt-6 rounded-xl p-3 sm:p-4"
-                style={{
-                  backgroundColor: "rgba(155,107,63,0.05)",
-                  border: "1px solid rgba(155,107,63,0.18)",
-                }}
-              >
-                <div className="flex items-center justify-center gap-2 mb-2 sm:mb-3">
-                  <RotateCcw size={16} color={GOLD} strokeWidth={2.4} />
-                  <span className="text-[12px] sm:text-[13px] font-bold tracking-tight text-[#1a1a1a]">
-                    30 Tage Geld-zurück.
-                  </span>
                 </div>
-                <p className="text-[10px] sm:text-[11px] text-[#666] text-center leading-snug mb-2 sm:mb-3">
-                  Gefällt dir nicht? Schick es zurück — wir erstatten den vollen Preis.
-                </p>
-                <div className="flex items-center justify-around gap-2 pt-2 sm:pt-3 border-t border-[#9b6b3f]/15">
-                  <div className="flex items-center gap-1.5">
-                    <ShieldCheck size={14} color={GOLD} strokeWidth={2.2} />
-                    <span className="text-[10px] sm:text-[11px] text-[#444] font-medium">3 J. Garantie</span>
+
+                {/* Was du bekommst — 3 starke Bullets */}
+                <ul className="space-y-2 mb-4 sm:mb-5">
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(155,107,63,0.12)" }}>
+                      <Tag className="w-3.5 h-3.5" color={GOLD} strokeWidth={2.5} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.save")}</span>
+                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · CHF 99 statt <span className="line-through">CHF 129</span></span>
+                    </div>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(155,107,63,0.12)" }}>
+                      <Gift className="w-3.5 h-3.5" color={GOLD} strokeWidth={2.5} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.cable")}</span>
+                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · Wert CHF 19, gratis dazu</span>
+                    </div>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(155,107,63,0.12)" }}>
+                      <Hash className="w-3.5 h-3.5" color={GOLD} strokeWidth={2.5} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.serial")}</span>
+                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · Eingraviert von #001–#100</span>
+                    </div>
+                  </li>
+                </ul>
+
+                {/* DAS FORMULAR */}
+                {submitted ? (
+                  <div className="text-center py-2 animate-scale-in">
+                    <div className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center" style={{ backgroundColor: GOLD }}>
+                      <Check className="w-6 h-6 text-white" strokeWidth={3} />
+                    </div>
+                    <h3 className="text-[18px] sm:text-[20px] font-extrabold text-[#1a1a1a] mb-1">
+                      {t("hero.success.title")}
+                    </h3>
+                    <p className="text-[14px] text-[#444] mb-1">
+                      {t("hero.success.sub")} <span className="font-bold" style={{ color: GOLD }}>#{nextFounderNumber}</span>
+                    </p>
+                    <p className="text-[12px] text-[#888] leading-snug max-w-xs mx-auto mt-2">
+                      {t("hero.success.next")}
+                    </p>
                   </div>
-                  <div className="w-px h-3 bg-[#9b6b3f]/20" />
-                  <div className="flex items-center gap-1.5">
-                    <Truck size={14} color={GOLD} strokeWidth={2.2} />
-                    <span className="text-[10px] sm:text-[11px] text-[#444] font-medium">Gratis Versand CH</span>
-                  </div>
-                  <div className="w-px h-3 bg-[#9b6b3f]/20" />
-                  <div className="flex items-center gap-1.5">
-                    <Check size={14} color={GOLD} strokeWidth={2.4} />
-                    <span className="text-[10px] sm:text-[11px] text-[#444] font-medium">Sicher zahlen</span>
-                  </div>
-                </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
+                    <div className="relative">
+                      <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-[#9b6b3f] pointer-events-none z-20" />
+                      <input
+                        id="founder-email"
+                        type="email"
+                        autoComplete="email"
+                        inputMode="email"
+                        autoCapitalize="off"
+                        autoCorrect="off"
+                        spellCheck={false}
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={t("cta.emailPlaceholder")}
+                        required
+                        maxLength={255}
+                        disabled={submitting}
+                        className="w-full pl-11 pr-4 py-3 sm:py-3.5 rounded-xl bg-white border-2 border-[#9b6b3f]/40 focus:border-[#9b6b3f] text-[#1a1a1a] placeholder:text-[#aaa] text-[15px] sm:text-[16px] font-medium focus:outline-none focus:ring-4 focus:ring-[#9b6b3f]/15 transition-all relative z-10"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="w-full px-4 py-3 sm:py-4 rounded-xl text-white font-extrabold text-[14px] sm:text-[15.5px] hover:opacity-95 active:scale-[0.99] transition-all disabled:opacity-60 inline-flex items-center justify-center gap-2"
+                      style={{
+                        background: `linear-gradient(180deg, ${GOLD} 0%, #82592f 100%)`,
+                        boxShadow: "0 10px 24px -8px rgba(155,107,63,0.55), inset 0 1px 0 rgba(255,255,255,0.18)",
+                      }}
+                    >
+                      {submitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          {t("hero.cta.submitting")}
+                        </>
+                      ) : (
+                        <>
+                          {t("hero.cta.primary")} #{nextFounderNumber} <span aria-hidden>→</span>
+                        </>
+                      )}
+                    </button>
+
+                    {/* Mini-Trust DIREKT unter dem Button */}
+                    <div className="flex items-center justify-around gap-1 pt-1">
+                      <div className="flex items-center gap-1">
+                        <Truck size={12} color={GOLD} strokeWidth={2.4} />
+                        <span className="text-[10px] sm:text-[11px] text-[#666] font-medium">{t("hero.miniFaq.shipping")}</span>
+                      </div>
+                      <div className="w-px h-3 bg-[#9b6b3f]/20" />
+                      <div className="flex items-center gap-1">
+                        <RotateCcw size={12} color={GOLD} strokeWidth={2.4} />
+                        <span className="text-[10px] sm:text-[11px] text-[#666] font-medium">{t("hero.miniFaq.returns")}</span>
+                      </div>
+                      <div className="w-px h-3 bg-[#9b6b3f]/20" />
+                      <div className="flex items-center gap-1">
+                        <ShieldCheck size={12} color={GOLD} strokeWidth={2.4} />
+                        <span className="text-[10px] sm:text-[11px] text-[#666] font-medium">3 J. Garantie</span>
+                      </div>
+                    </div>
+
+                    <p className="text-[10px] sm:text-[11px] text-center text-[#999] mt-1">
+                      {t("hero.miniFaq.noCommit")}
+                    </p>
+                  </form>
+                )}
               </div>
 
-              {/* Contact line */}
-              <p className="text-[10px] sm:text-[11px] text-[#888] text-center mt-3 sm:mt-4">
-                Fragen? Schreib uns:{" "}
-                <a
-                  href="mailto:founder@raj.ch"
-                  className="font-semibold text-[#9b6b3f] hover:underline underline-offset-2"
-                >
-                  founder@raj.ch
-                </a>
-              </p>
+              {/* Countdown UNTER der Box — sekundärer Druck */}
+              <div className="mt-4 sm:mt-5">
+                <p className="text-center text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-[#888] font-semibold mb-2">
+                  {t("hero.priceLine")}
+                </p>
+                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 max-w-sm mx-auto">
+                  {countdownUnits.map((u) => (
+                    <div
+                      key={u.label}
+                      className="flex flex-col items-center justify-center rounded-lg py-2 sm:py-2.5"
+                      style={{
+                        background: "linear-gradient(180deg, #2b2725 0%, #1a1715 100%)",
+                        border: "1px solid rgba(155,107,63,0.35)",
+                      }}
+                    >
+                      <span className="text-[16px] sm:text-[20px] font-extrabold text-white tabular-nums leading-none">
+                        {String(u.value).padStart(2, "0")}
+                      </span>
+                      <span className="text-[8px] sm:text-[9px] uppercase tracking-wide mt-1 font-medium" style={{ color: GOLD }}>
+                        {u.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
           </div>
+
+          {/* Scroll Hint — nach unten zur Story */}
+          <button
+            onClick={scrollToStory}
+            className="hidden md:flex mx-auto mt-10 flex-col items-center gap-1.5 text-[#888] hover:text-[#9b6b3f] transition-colors group"
+            aria-label="Mehr erfahren"
+          >
+            <span className="text-[11px] uppercase tracking-[0.22em] font-semibold">{t("hero.scrollHint")}</span>
+            <ArrowDown className="w-4 h-4 animate-bounce" strokeWidth={2.2} />
+          </button>
         </div>
       </section>
+
+      {/* Mobile spacer — damit Sticky-Bar nicht überlappt */}
+      <div className="h-16 md:hidden" aria-hidden />
     </>
   );
 };
