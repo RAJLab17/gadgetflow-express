@@ -359,7 +359,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.cable")}</span>
-                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · Wert CHF 19, gratis dazu</span>
+                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · Auf alle künftigen RAJ Produkte</span>
                     </div>
                   </li>
                   <li className="flex items-center gap-2.5">
