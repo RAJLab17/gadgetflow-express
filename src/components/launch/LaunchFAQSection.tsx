@@ -40,6 +40,22 @@ const LaunchFAQSection = () => {
             </details>
           ))}
         </div>
+
+        {/* Direkter Kontakt — nach den FAQs */}
+        <div className="mt-10 md:mt-14 text-center">
+          <p className="text-[13px] md:text-sm text-[#666] mb-2">
+            {t("faq.contact.lead")}
+          </p>
+          <a
+            href="mailto:founder@raj.ch"
+            className="inline-flex items-center gap-2 text-[15px] md:text-base font-semibold text-[#2c2c2c] hover:text-[#9b6b3f] transition-colors underline decoration-[#9b6b3f]/40 underline-offset-4 hover:decoration-[#9b6b3f]"
+          >
+            founder@raj.ch
+          </a>
+          <p className="text-[11px] text-[#999] mt-2">
+            {t("faq.contact.sub")}
+          </p>
+        </div>
       </div>
     </section>
   );
