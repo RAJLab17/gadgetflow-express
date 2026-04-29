@@ -348,28 +348,19 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                     <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(155,107,63,0.12)" }}>
                       <Tag className="w-3.5 h-3.5" color={GOLD} strokeWidth={2.5} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.save")}</span>
-                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · CHF 99 statt <span className="line-through">CHF 129</span></span>
-                    </div>
+                    <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.save")}</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(155,107,63,0.12)" }}>
                       <Gift className="w-3.5 h-3.5" color={GOLD} strokeWidth={2.5} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.cable")}</span>
-                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · Auf alle künftigen RAJ Produkte</span>
-                    </div>
+                    <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.cable")}</span>
                   </li>
                   <li className="flex items-center gap-2.5">
                     <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0" style={{ background: "rgba(155,107,63,0.12)" }}>
                       <Hash className="w-3.5 h-3.5" color={GOLD} strokeWidth={2.5} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.serial")}</span>
-                      <span className="text-[12px] sm:text-[13px] text-[#666]"> · Eingraviert von #001–#100</span>
-                    </div>
+                    <span className="text-[13px] sm:text-[14px] font-bold text-[#1a1a1a]">{t("hero.benefit.serial")}</span>
                   </li>
                 </ul>
 
