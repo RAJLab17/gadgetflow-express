@@ -143,7 +143,7 @@ const DISPLAY_BASELINE = 89;
 const REAL_SIGNUPS_AT_BASELINE = 46;
 const DISPLAY_OFFSET = DISPLAY_BASELINE - REAL_SIGNUPS_AT_BASELINE;
 const DEFAULT_TAKEN = DISPLAY_BASELINE;
-const SPOTS_CACHE_KEY = "launch_spots_taken_v2";
+const SPOTS_CACHE_KEY = "launch_spots_taken_v3";
 
 const LaunchPage = () => {
   const { t, lang, setLang } = useLanguage();
@@ -152,7 +152,9 @@ const LaunchPage = () => {
     if (typeof window === "undefined") return DEFAULT_TAKEN;
     const cachedValue = window.localStorage.getItem(SPOTS_CACHE_KEY);
     const parsedValue = cachedValue ? Number(cachedValue) : NaN;
-    return Number.isFinite(parsedValue) ? parsedValue : DEFAULT_TAKEN;
+    return Number.isFinite(parsedValue)
+      ? Math.max(DEFAULT_TAKEN, Math.min(TOTAL_SPOTS, parsedValue))
+      : DEFAULT_TAKEN;
   });
 
   // Track ViewContent on mount
