@@ -11,9 +11,9 @@ import { Helmet } from "react-helmet-async";
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
 // Premium story images for the 3-segment showcase below
-import storyFolds from "@/assets/products/nexus-real-folds-text.jpg";
-import storyLifestyle from "@/assets/products/nexus-real-desk-office.jpg";
-import storyNight from "@/assets/products/nexus-real-night-city.jpg";
+import storyFolds from "@/assets/products/nexus-real-folds-text.webp";
+import storyLifestyle from "@/assets/products/nexus-real-desk-office.webp";
+import storyNight from "@/assets/products/nexus-real-night-city.webp";
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
