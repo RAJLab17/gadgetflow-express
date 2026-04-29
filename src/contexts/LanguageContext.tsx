@@ -183,7 +183,7 @@ const translations: Translations = {
   "hero.h1.line2": { de: "Eine Ladestation. Ein Griff.", fr: "Une station. Un geste.", it: "Una stazione. Un gesto." },
   "hero.sub": { de: "RAJ NEXUS bringt dein Setup aufgeräumt zusammen.", fr: "RAJ NEXUS réunit ton setup, parfaitement rangé.", it: "RAJ NEXUS unisce il tuo setup, perfettamente in ordine." },
   "hero.youAre": { de: "Du wärst Founder", fr: "Tu serais Founder", it: "Saresti Founder" },
-  "hero.cta.primary": { de: "Ja, ich sichere mir Founder", fr: "Oui, je réserve Founder", it: "Sì, prenoto Founder" },
+  "hero.cta.primary": { de: "Ja, ich sichere mir Platz", fr: "Oui, je réserve la place", it: "Sì, prenoto il posto" },
   "hero.cta.submitting": { de: "Sichere Platz…", fr: "Réservation…", it: "Riservo…" },
   "hero.benefit.save": { de: "CHF 30 Rabatt", fr: "CHF 30 remise", it: "CHF 30 sconto" },
   "hero.benefit.cable": { de: "Lebenslanger Early Access", fr: "Accès anticipé à vie", it: "Accesso anticipato a vita" },
