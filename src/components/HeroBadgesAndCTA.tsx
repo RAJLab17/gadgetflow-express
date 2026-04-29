@@ -11,14 +11,15 @@ const getSupabase = () =>
   import("@/integrations/supabase/client").then((m) => m.supabase);
 
 const GOLD = "#9b6b3f";
-const DARK = "#2b2725";
+
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const TOTAL_SPOTS = 100;
-const DEFAULT_TAKEN = 89;
+const DEFAULT_TAKEN = 0;
 
 interface Props {
   spotsTaken?: number;
+  signupsToday?: number;
   onSignupSuccess?: () => void;
 }
 
@@ -41,18 +42,13 @@ const useCountdown = () => {
   return t;
 };
 
-// Rotating fake-but-realistic social proof (Schweizer Vornamen + Städte)
-const SOCIAL_NAMES = [
-  "Lukas aus Zürich",
-  "Sophie aus Genf",
-  "Marco aus Lugano",
-  "Julia aus Bern",
-  "David aus Basel",
-  "Anna aus Luzern",
-  "Mathieu aus Lausanne",
-  "Laura aus St. Gallen",
-  "Tobias aus Winterthur",
-  "Elena aus Zug",
+// Schweizer Städte für Aktivitäts-Toasts.
+// Wir zeigen NUR Stadt + Aktion (keine erfundenen Personennamen),
+// da wir nur die Email kennen und nicht lügen wollen.
+const SWISS_CITIES = [
+  "Zürich", "Genf", "Lugano", "Bern", "Basel",
+  "Luzern", "Lausanne", "St. Gallen", "Winterthur", "Zug",
+  "Biel", "Thun", "Schaffhausen", "Chur", "Sion",
 ];
 
 const SocialProofPopup = ({ trigger, message }: { trigger: number; message: string }) => {
@@ -81,9 +77,10 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
   );
 };
 
-const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
+const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) => {
   const { t } = useLanguage();
   const [liveCount, setLiveCount] = useState<number>(spotsTaken ?? DEFAULT_TAKEN);
+  const [todayCount, setTodayCount] = useState<number>(signupsToday ?? 0);
   const [popupTrigger, setPopupTrigger] = useState(0);
   const [popupMessage, setPopupMessage] = useState("");
 
@@ -94,7 +91,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     }
   }, [spotsTaken]);
 
-  // Realtime subscription — alle Besucher sehen live, wenn jemand neu signed up
+  useEffect(() => {
+    if (typeof signupsToday === "number") {
+      setTodayCount((prev) => Math.max(prev, signupsToday));
+    }
+  }, [signupsToday]);
+
+  // Realtime — alle Besucher sehen live, wenn jemand neu signed up
   useEffect(() => {
     let channel: any;
     let cancelled = false;
@@ -107,12 +110,10 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
           "postgres_changes",
           { event: "INSERT", schema: "public", table: "launch_signups" },
           () => {
-            setLiveCount((prev) => {
-              const next = Math.min(TOTAL_SPOTS, prev + 1);
-              const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
-              setPopupMessage(`${name} ${t("hero.live.justJoined")} #${next}`);
-              return next;
-            });
+            setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
+            setTodayCount((prev) => prev + 1);
+            const city = SWISS_CITIES[Math.floor(Math.random() * SWISS_CITIES.length)];
+            setPopupMessage(`✦ ${t("hero.live.newFromCity")} ${city}`);
             setPopupTrigger((p) => p + 1);
           }
         )
@@ -127,29 +128,29 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
     };
   }, [t]);
 
-  // Periodisches social-proof Popup (alle 25-45s ein dezenter "X wurde Founder")
+  // Dezenter "Aktivitäts-Toast" alle 35-65s — nur Stadt, klar als Aktivitäts-Hinweis.
+  // Kein erfundener Personenname.
   useEffect(() => {
     let cancelled = false;
     const schedule = () => {
-      const delay = 25000 + Math.random() * 20000;
+      const delay = 35000 + Math.random() * 30000;
       setTimeout(() => {
         if (cancelled) return;
-        const name = SOCIAL_NAMES[Math.floor(Math.random() * SOCIAL_NAMES.length)];
-        const fakeNumber = Math.max(1, liveCount - Math.floor(Math.random() * 5));
-        setPopupMessage(`${name} ${t("hero.live.justJoined")} #${fakeNumber}`);
+        const city = SWISS_CITIES[Math.floor(Math.random() * SWISS_CITIES.length)];
+        setPopupMessage(`${t("hero.live.viewingFromCity")} ${city}`);
         setPopupTrigger((p) => p + 1);
         schedule();
       }, delay);
     };
-    const initial = setTimeout(schedule, 12000);
+    const initial = setTimeout(schedule, 18000);
     return () => {
       cancelled = true;
       clearTimeout(initial);
     };
-  }, [liveCount, t]);
+  }, [t]);
 
   const taken = liveCount;
-  const remaining = Math.max(0, TOTAL_SPOTS - taken);
+  // remaining wurde durch positive "X Founder dabei" Formulierung ersetzt
   const progress = Math.min(100, (taken / TOTAL_SPOTS) * 100);
   const nextFounderNumber = Math.min(TOTAL_SPOTS, taken + 1);
 
@@ -215,7 +216,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                 {t("hero.sticky.label")}
               </p>
               <p className="text-[11px] text-[#666] leading-tight">
-                CHF 99 · Founder #{nextFounderNumber} · {remaining} frei
+                CHF 99 statt CHF 129 · Du wärst Founder #{nextFounderNumber}
               </p>
             </div>
             <a
@@ -311,14 +312,18 @@ const HeroBadgesAndCTA = ({ spotsTaken, onSignupSuccess }: Props) => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#888] font-medium leading-none">
-                      Nur noch
-                    </p>
                     <p className="text-[18px] sm:text-[22px] font-extrabold tabular-nums leading-tight" style={{ color: GOLD }}>
-                      {remaining} <span className="text-[12px] sm:text-[13px] text-[#888] font-medium">/ 100</span>
+                      {taken}<span className="text-[12px] sm:text-[13px] text-[#888] font-medium"> / 100</span>
+                    </p>
+                    <p className="text-[10px] sm:text-[11px] text-[#888] font-medium leading-tight">
+                      {t("hero.foundersJoined")}
+                      {todayCount > 0 && (
+                        <> · <span className="font-semibold" style={{ color: GOLD }}>+{todayCount} {t("hero.today")}</span></>
+                      )}
                     </p>
                   </div>
                 </div>
+
 
                 {/* Progress bar */}
                 <div className="w-full mb-4 sm:mb-5">

@@ -199,6 +199,10 @@ const translations: Translations = {
   "hero.sticky.label": { de: "Founder-Preis sichern", fr: "Réserver prix Founder", it: "Prezzo Founder" },
   "hero.sticky.cta": { de: "Sichern", fr: "Réserver", it: "Prenota" },
   "hero.live.justJoined": { de: "wurde gerade Founder", fr: "vient de devenir Founder", it: "è appena diventato Founder" },
+  "hero.live.newFromCity": { de: "Neue Anmeldung aus", fr: "Nouvelle inscription depuis", it: "Nuova iscrizione da" },
+  "hero.live.viewingFromCity": { de: "Jemand schaut gerade aus", fr: "Quelqu'un regarde depuis", it: "Qualcuno sta guardando da" },
+  "hero.foundersJoined": { de: "Founder dabei", fr: "Founders inscrits", it: "Founder iscritti" },
+  "hero.today": { de: "heute", fr: "aujourd'hui", it: "oggi" },
 
   // Exit Intent Popup
   "exit.title": { de: "Sei dabei. Von Anfang an.", fr: "Sois là. Dès le début.", it: "Sii presente. Fin dall'inizio." },
