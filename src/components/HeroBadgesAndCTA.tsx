@@ -133,16 +133,14 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
     };
   }, [t, onSignupSuccess]);
 
-  // Dezenter "Aktivitäts-Toast" alle 35-65s — nur Stadt, klar als Aktivitäts-Hinweis.
-  // Kein erfundener Personenname.
+  // Dezenter "Aktivitäts-Toast" alle 35-65s — neutral, ohne Stadt/Namen.
   useEffect(() => {
     let cancelled = false;
     const schedule = () => {
       const delay = 35000 + Math.random() * 30000;
       setTimeout(() => {
         if (cancelled) return;
-        const city = SWISS_CITIES[Math.floor(Math.random() * SWISS_CITIES.length)];
-        setPopupMessage(`${t("hero.live.viewingFromCity")} ${city}`);
+        setPopupMessage(`${t("hero.live.viewingFromCity")}`);
         setPopupTrigger((p) => p + 1);
         schedule();
       }, delay);
