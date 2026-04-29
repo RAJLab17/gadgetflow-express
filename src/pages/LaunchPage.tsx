@@ -190,8 +190,9 @@ const LaunchPage = () => {
         .gte("created_at", startOfDay.toISOString());
 
       if (!todayErr && typeof todayCount === "number") {
-        setSignupsToday(Math.max(0, todayCount));
-        window.localStorage.setItem(TODAY_CACHE_KEY, String(todayCount));
+        const withBaseline = Math.max(0, todayCount) + 6;
+        setSignupsToday(withBaseline);
+        window.localStorage.setItem(TODAY_CACHE_KEY, String(withBaseline));
       }
     } catch (error) {
       console.error("Failed to load launch signup count:", error);
