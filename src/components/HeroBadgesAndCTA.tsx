@@ -86,20 +86,24 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
   const [popupTrigger, setPopupTrigger] = useState(0);
   const [popupMessage, setPopupMessage] = useState("");
 
-  // Sync external counter
+  // Sync external counter — parent ist die Source of Truth (DB-Count + Baseline).
+  // Wir spiegeln direkt, kein Math.max, sonst können lokale +1 Inkremente
+  // (z.B. aus Realtime) zusammen mit dem Refresh aus der DB doppelt zählen.
   useEffect(() => {
     if (typeof spotsTaken === "number") {
-      setLiveCount((prev) => Math.max(prev, spotsTaken));
+      setLiveCount(spotsTaken);
     }
   }, [spotsTaken]);
 
   useEffect(() => {
     if (typeof signupsToday === "number") {
-      setTodayCount((prev) => Math.max(prev, signupsToday));
+      setTodayCount(signupsToday);
     }
   }, [signupsToday]);
 
-  // Realtime — alle Besucher sehen live, wenn jemand neu signed up
+  // Realtime — alle Besucher sehen live, wenn jemand neu signed up.
+  // WICHTIG: nicht lokal inkrementieren, sondern parent re-fetchen lassen.
+  // Sonst zählt der eigene Submit doppelt (Realtime-INSERT + onSignupSuccess-Refresh).
   useEffect(() => {
     let channel: any;
     let cancelled = false;
@@ -112,8 +116,8 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
           "postgres_changes",
           { event: "INSERT", schema: "public", table: "launch_signups" },
           () => {
-            setLiveCount((prev) => Math.min(TOTAL_SPOTS, prev + 1));
-            setTodayCount((prev) => prev + 1);
+            // Trigger Re-Fetch der echten DB-Counts via parent.
+            onSignupSuccess?.();
             const city = SWISS_CITIES[Math.floor(Math.random() * SWISS_CITIES.length)];
             setPopupMessage(`✦ ${t("hero.live.newFromCity")} ${city}`);
             setPopupTrigger((p) => p + 1);
