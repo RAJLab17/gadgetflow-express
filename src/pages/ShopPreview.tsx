@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useCartStore } from "@/stores/cartStore";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import PaymentIcons from "@/components/PaymentIcons";
+import LaunchSignupCountdown from "@/components/launch/LaunchSignupCountdown";
 
 // Real RAJ NEXUS product photography
 import productMain from "@/assets/products/nexus-hero-premium-stand.jpg";
@@ -99,15 +100,12 @@ const ShopPreview = () => {
   const BuyButton = ({ size = "xl", className = "" }: { size?: "lg" | "xl"; className?: string }) => (
     <Button
       size={size}
-      onClick={handleBuyNow}
-      disabled={!variantId || !available || adding || isLoading}
-      className={className}
+      disabled
+      aria-disabled
+      className={`${className} opacity-50 cursor-not-allowed`}
     >
-      {adding || isLoading ? (
-        <Loader2 className="w-5 h-5 animate-spin" />
-      ) : !available ? "Ausverkauft" : (
-        <><ShoppingBag className="w-5 h-5 mr-2" />Jetzt kaufen — {priceLabel}</>
-      )}
+      <ShoppingBag className="w-5 h-5 mr-2" />
+      Jetzt kaufen — {priceLabel}
     </Button>
   );
 
@@ -280,6 +278,8 @@ const ShopPreview = () => {
               </ul>
 
               <BuyButton className="w-full" />
+
+              <LaunchSignupCountdown />
 
               {/* Trust row */}
               <div className="grid grid-cols-3 gap-3 pt-4 border-t border-border/60">
@@ -513,12 +513,15 @@ const ShopPreview = () => {
               {priceLabel} · Gratis Versand · 30 Tage Rückgabe
             </p>
             <BuyButton className="min-w-[280px]" />
+            <div className="max-w-md mx-auto pt-2 text-left">
+              <LaunchSignupCountdown />
+            </div>
           </div>
         </section>
 
         <footer className="py-8 px-6 border-t border-border">
           <div className="max-w-7xl mx-auto text-center text-xs text-muted-foreground tracking-wider">
-            © {new Date().getFullYear()} RAJ — Preview · Nicht öffentlich
+            © {new Date().getFullYear()} RAJ
           </div>
         </footer>
 
@@ -534,15 +537,12 @@ const ShopPreview = () => {
             </div>
             <Button
               size="lg"
-              onClick={handleBuyNow}
-              disabled={!variantId || !available || adding || isLoading}
-              className="flex-shrink-0"
+              disabled
+              aria-disabled
+              className="flex-shrink-0 opacity-50 cursor-not-allowed"
             >
-              {adding || isLoading ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : !available ? "Ausverkauft" : (
-                <><ShoppingBag className="w-4 h-4 md:mr-2" /><span className="hidden md:inline">Jetzt kaufen</span></>
-              )}
+              <ShoppingBag className="w-4 h-4 md:mr-2" />
+              <span className="hidden md:inline">Jetzt kaufen</span>
             </Button>
           </div>
         </div>
