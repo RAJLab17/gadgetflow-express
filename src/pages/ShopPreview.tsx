@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useCartStore } from "@/stores/cartStore";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import PaymentIcons from "@/components/PaymentIcons";
+import LaunchSignupCountdown from "@/components/launch/LaunchSignupCountdown";
 
 // Real RAJ NEXUS product photography
 import productMain from "@/assets/products/nexus-hero-premium-stand.jpg";
