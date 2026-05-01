@@ -537,15 +537,12 @@ const ShopPreview = () => {
             </div>
             <Button
               size="lg"
-              onClick={handleBuyNow}
-              disabled={!variantId || !available || adding || isLoading}
-              className="flex-shrink-0"
+              disabled
+              aria-disabled
+              className="flex-shrink-0 opacity-50 cursor-not-allowed"
             >
-              {adding || isLoading ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : !available ? "Ausverkauft" : (
-                <><ShoppingBag className="w-4 h-4 md:mr-2" /><span className="hidden md:inline">Jetzt kaufen</span></>
-              )}
+              <ShoppingBag className="w-4 h-4 md:mr-2" />
+              <span className="hidden md:inline">Jetzt kaufen</span>
             </Button>
           </div>
         </div>
