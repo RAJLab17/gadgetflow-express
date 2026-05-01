@@ -100,15 +100,12 @@ const ShopPreview = () => {
   const BuyButton = ({ size = "xl", className = "" }: { size?: "lg" | "xl"; className?: string }) => (
     <Button
       size={size}
-      onClick={handleBuyNow}
-      disabled={!variantId || !available || adding || isLoading}
-      className={className}
+      disabled
+      aria-disabled
+      className={`${className} opacity-50 cursor-not-allowed`}
     >
-      {adding || isLoading ? (
-        <Loader2 className="w-5 h-5 animate-spin" />
-      ) : !available ? "Ausverkauft" : (
-        <><ShoppingBag className="w-5 h-5 mr-2" />Jetzt kaufen — {priceLabel}</>
-      )}
+      <ShoppingBag className="w-5 h-5 mr-2" />
+      Jetzt kaufen — {priceLabel}
     </Button>
   );
 
