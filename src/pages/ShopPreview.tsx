@@ -513,12 +513,15 @@ const ShopPreview = () => {
               {priceLabel} · Gratis Versand · 30 Tage Rückgabe
             </p>
             <BuyButton className="min-w-[280px]" />
+            <div className="max-w-md mx-auto pt-2 text-left">
+              <LaunchSignupCountdown />
+            </div>
           </div>
         </section>
 
         <footer className="py-8 px-6 border-t border-border">
           <div className="max-w-7xl mx-auto text-center text-xs text-muted-foreground tracking-wider">
-            © {new Date().getFullYear()} RAJ — Preview · Nicht öffentlich
+            © {new Date().getFullYear()} RAJ
           </div>
         </footer>
 
