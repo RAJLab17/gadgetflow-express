@@ -35,6 +35,7 @@ const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const DokumentePage = lazy(() => import("./pages/DokumentePage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
 const BesterWirelessChargerPage = lazy(() => import("./pages/BesterWirelessChargerPage"));
+const KabellosesLadenBueroPage = lazy(() => import("./pages/KabellosesLadenBueroPage"));
 const MetaCapiStatusPage = lazy(() => import("./pages/MetaCapiStatusPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -107,6 +108,7 @@ const App = () => (
               <Route path="/manuals" element={<DokumentePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/bester-wireless-charger-schweiz" element={<BesterWirelessChargerPage />} />
+              <Route path="/kabelloses-laden-buero-schweiz" element={<KabellosesLadenBueroPage />} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
