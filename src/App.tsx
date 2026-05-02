@@ -45,16 +45,15 @@ const ShopCartSync = () => {
   return null;
 };
 
-// ?mode=shop → Shop anzeigen, sonst Launch Page
+// Startseite ist jetzt der Shop. ?mode=launch zeigt weiterhin die Launch Page.
 const HomePage = () => {
   const [searchParams] = useSearchParams();
-  return searchParams.get("mode") === "shop" ? (
+  if (searchParams.get("mode") === "launch") return <LaunchPage />;
+  return (
     <Suspense fallback={null}>
       <ShopCartSync />
-      <Index />
+      <ShopPreview />
     </Suspense>
-  ) : (
-    <LaunchPage />
   );
 };
 
