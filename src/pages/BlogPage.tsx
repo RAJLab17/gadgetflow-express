@@ -39,6 +39,15 @@ const articles: Article[] = [
       "Qi2.2, MagSafe, 3-in-1 – welcher Charger lohnt sich wirklich für iPhone-Nutzer in der Schweiz?",
     href: "/bester-wireless-charger-schweiz",
   },
+  {
+    slug: "kabelloses-laden-buero-schweiz",
+    title: "Kabelloses Laden im Büro – Kabelsalat eliminieren für Schweizer KMUs",
+    date: "02.05.2026",
+    dateISO: "2026-05-02",
+    excerpt:
+      "Ein Gerät pro Arbeitsplatz statt drei Kabel. Wie Schweizer Unternehmen mit Qi2.2 Ordnung schaffen.",
+    href: "/kabelloses-laden-buero-schweiz",
+  },
 ];
 
 const BlogPage = () => {
