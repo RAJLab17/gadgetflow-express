@@ -30,6 +30,15 @@ const articles: Article[] = [
       "Direkter Vergleich der drei beliebtesten 3-in-1 Wireless Charger für iPhone. Qi2.2, Preis, Design.",
     href: "/vergleich",
   },
+  {
+    slug: "bester-wireless-charger-schweiz-2026",
+    title: "Bester Wireless Charger Schweiz 2026 – Top 3 im Vergleich",
+    date: "02.05.2026",
+    dateISO: "2026-05-02",
+    excerpt:
+      "Qi2.2, MagSafe, 3-in-1 – welcher Charger lohnt sich wirklich für iPhone-Nutzer in der Schweiz?",
+    href: "/bester-wireless-charger-schweiz",
+  },
 ];
 
 const BlogPage = () => {
