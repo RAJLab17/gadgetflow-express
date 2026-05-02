@@ -94,9 +94,11 @@ const App = () => (
               <Route path="/versand" element={<VersandPage />} />
               <Route path="/confirmed" element={<ConfirmedPage />} />
               <Route path="/launch" element={<LaunchPage />} />
+              <Route path="/prelaunch" element={<LaunchPage />} />
               <Route path="/vergleich" element={<VergleichPage />} />
               <Route path="/qi2-erklaert" element={<Qi2ErklaertPage />} />
               <Route path="/ueber-raj" element={<UeberRajPage />} />
+              <Route path="/shop" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/shop-preview" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
