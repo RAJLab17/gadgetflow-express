@@ -2,8 +2,14 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GanChargerProduct from "@/components/GanChargerProduct";
+import { useViewContent } from "@/hooks/useViewContent";
 
 const GanChargerPage = () => {
+  useViewContent({
+    content_name: "GaN SuperCharger 100W",
+    content_ids: ["gan-100w"],
+    content_category: "Charger",
+  });
   return (
     <>
       <Helmet>

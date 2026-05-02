@@ -2,8 +2,14 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MagneticCableProduct from "@/components/MagneticCableProduct";
 import Footer from "@/components/Footer";
+import { useViewContent } from "@/hooks/useViewContent";
 
 const ProductPage = () => {
+  useViewContent({
+    content_name: "Magnetic Charging Cable",
+    content_ids: ["magnetic-cable"],
+    content_category: "Charging Cable",
+  });
   return (
     <>
       <Helmet>

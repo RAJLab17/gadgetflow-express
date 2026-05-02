@@ -2,8 +2,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CarChargerProduct from "@/components/CarChargerProduct";
 import { Helmet } from "react-helmet-async";
+import { useViewContent } from "@/hooks/useViewContent";
 
 const CarChargerPage = () => {
+  useViewContent({
+    content_name: "Car Charger 4-in-1 Pro 100W",
+    content_ids: ["car-charger-4in1"],
+    content_category: "Car Charger",
+  });
   return (
     <>
       <Helmet>
