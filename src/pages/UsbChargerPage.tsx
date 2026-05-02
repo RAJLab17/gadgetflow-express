@@ -2,8 +2,14 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import UsbChargerProduct from "@/components/UsbChargerProduct";
+import { useViewContent } from "@/hooks/useViewContent";
 
 const UsbChargerPage = () => {
+  useViewContent({
+    content_name: "USB-C Schnellladegerät 65W",
+    content_ids: ["usb-c-65w"],
+    content_category: "Charger",
+  });
   return (
     <>
       <Helmet>
