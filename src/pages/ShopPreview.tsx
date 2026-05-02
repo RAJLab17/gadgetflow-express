@@ -143,6 +143,9 @@ const ShopPreview = () => {
           </div>
         </header>
 
+        {/* Live visitor counter — dezent über Hero */}
+        <VisitorCounter />
+
         {/* HERO — Product + Buy side-by-side (Apple-style) */}
         <section className="max-w-7xl mx-auto px-6 pt-8 md:pt-16 pb-16 md:pb-24">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
@@ -309,9 +312,6 @@ const ShopPreview = () => {
             </div>
           </div>
         </section>
-
-        {/* Live visitor counter — dezent unter Hero */}
-        <VisitorCounter />
 
         {/* STORY — Premium Zickzack: jede Sektion spricht einen anderen Menschen an */}
         <section className="bg-card py-20 md:py-32">
