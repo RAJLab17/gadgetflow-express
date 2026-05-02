@@ -114,6 +114,7 @@ const KabellosesLadenFirmenPage = () => {
         </Link>
       </div>
     </PremiumPageLayout>
+    </>
   );
 };
 
