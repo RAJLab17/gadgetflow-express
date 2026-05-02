@@ -512,7 +512,7 @@ const ShopPreview = () => {
         {/* FINAL CTA */}
         <section className="py-20 md:py-28 px-6">
           <div className="max-w-2xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight">Bereit für Klarheit?</h2>
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight">Bereit für Premium Feeling?</h2>
             <p className="text-muted-foreground font-light">
               {priceLabel} · Gratis Versand · 30 Tage Rückgabe
             </p>
