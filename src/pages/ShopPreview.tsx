@@ -485,6 +485,7 @@ const ShopPreview = () => {
                       ["Qi2 erklärt", "/qi2-erklaert"],
                       ["Vergleich mit anderen Chargern", "/vergleich"],
                       ["Versandbedingungen", "/versand"],
+                      ["Manuals", "/manuals"],
                     ].map(([label, href]) => (
                       <li key={href}>
                         <Link to={href} className="inline-flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors">
