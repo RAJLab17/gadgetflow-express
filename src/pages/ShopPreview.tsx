@@ -11,6 +11,7 @@ import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } fr
 import PaymentIcons from "@/components/PaymentIcons";
 import LaunchSignupCountdown from "@/components/launch/LaunchSignupCountdown";
 import StickyVoranmeldenButton from "@/components/launch/StickyVoranmeldenButton";
+import VisitorCounter from "@/components/VisitorCounter";
 
 // Real RAJ NEXUS product photography
 import productMain from "@/assets/products/nexus-hero-premium-stand-800.webp";
