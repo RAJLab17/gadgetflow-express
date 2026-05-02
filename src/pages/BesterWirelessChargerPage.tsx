@@ -86,6 +86,7 @@ const BesterWirelessChargerPage = () => {
 
       <CTA label="RAJ NEXUS – Founder Edition sichern, CHF 99" />
     </PremiumPageLayout>
+    </>
   );
 };
 
