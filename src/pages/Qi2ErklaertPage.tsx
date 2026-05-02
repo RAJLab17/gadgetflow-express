@@ -157,6 +157,7 @@ const Qi2ErklaertPage = () => {
         <a href="https://raj.ch" className="text-primary underline hover:opacity-80">raj.ch</a>
       </p>
     </PremiumPageLayout>
+    </>
   );
 };
 
