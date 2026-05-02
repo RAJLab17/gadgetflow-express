@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Kabelloses Laden für Unternehmen Schweiz",
+  datePublished: "2026-05-02",
+  dateModified: "2026-05-02",
+  author: { "@type": "Organization", name: "RAJ" },
+  publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
+  url: "https://raj.ch/kabelloses-laden-firmen-schweiz",
+};
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mt-16 mb-6">{children}</h2>
