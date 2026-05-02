@@ -313,9 +313,6 @@ const ShopPreview = () => {
           </div>
         </section>
 
-        {/* Live visitor counter — dezent unter Hero */}
-        <VisitorCounter />
-
         {/* STORY — Premium Zickzack: jede Sektion spricht einen anderen Menschen an */}
         <section className="bg-card py-20 md:py-32">
           <div className="max-w-7xl mx-auto px-6 space-y-24 md:space-y-36">
