@@ -212,6 +212,7 @@ export type Database = {
     }
     Functions: {
       increment_visitor_count: { Args: never; Returns: number }
+      increment_visitor_count_v2: { Args: never; Returns: number }
       register_unique_visitor: {
         Args: { p_visitor_id: string }
         Returns: number
