@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
 
 const UeberRajPage = () => {
@@ -34,6 +36,25 @@ const UeberRajPage = () => {
         <p className="text-2xl md:text-3xl font-light text-foreground italic text-center pt-12">
           Power. Always There.
         </p>
+
+        <div className="mt-16 pt-12 border-t border-border">
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium mb-4">
+            RAJ Blog
+          </p>
+          <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
+            Wissen rund um kabelloses Laden.
+          </h2>
+          <p className="text-foreground/80 font-light leading-relaxed mb-6 text-base">
+            Artikel und Guides zu Qi2.2, MagSafe und Apple-Zubehör – direkt aus dem RAJ Team.
+          </p>
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-base font-medium text-primary hover:opacity-80 transition-opacity group"
+          >
+            Zum RAJ Blog
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
       </div>
     </PremiumPageLayout>
   );
