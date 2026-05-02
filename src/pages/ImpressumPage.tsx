@@ -18,7 +18,7 @@ const ImpressumPage = () => {
       heading="Impressum"
       meta={
         <div className="space-y-1">
-          <p className="text-foreground font-medium">RAJ GmbH</p>
+          <p className="text-foreground font-medium">RAJ GmbH (in Gründung)</p>
           <p>Gaswerkstrasse 9a</p>
           <p>8570 Weinfelden</p>
           <p>Schweiz</p>
@@ -42,10 +42,10 @@ const ImpressumPage = () => {
         <Section title="Haftungsausschluss">
           <p>
             Die Inhalte dieser Website werden mit grösster Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
-            Aktualität der Inhalte übernimmt die RAJ GmbH jedoch keine Gewähr.
+            Aktualität der Inhalte übernimmt die RAJ GmbH (in Gründung) jedoch keine Gewähr.
           </p>
           <p>
-            Haftungsansprüche gegen die RAJ GmbH wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder
+            Haftungsansprüche gegen die RAJ GmbH (in Gründung) wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder
             der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder
             durch technische Störungen entstanden sind, werden ausgeschlossen, soweit gesetzlich zulässig.
           </p>
@@ -62,7 +62,7 @@ const ImpressumPage = () => {
         <Section title="Urheberrechte">
           <p>
             Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website
-            gehören ausschliesslich der RAJ GmbH oder den speziell genannten Rechteinhabern.
+            gehören ausschliesslich der RAJ GmbH (in Gründung) oder den speziell genannten Rechteinhabern.
           </p>
           <p>
             Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus
