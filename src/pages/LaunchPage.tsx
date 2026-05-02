@@ -462,7 +462,7 @@ const LaunchPage = () => {
                 <a href="/agb" className="text-xs text-[#888888] hover:text-[#2c2c2c] transition-colors">AGB</a>
               </div>
               <p className="text-xs text-[#888888]">
-                © {new Date().getFullYear()} RAJ · {t("footer.rights")}
+                © {new Date().getFullYear()} RAJ — Alle Rechte vorbehalten.
               </p>
             </div>
           </footer>
