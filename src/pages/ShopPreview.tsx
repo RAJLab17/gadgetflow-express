@@ -112,9 +112,11 @@ const ShopPreview = () => {
   return (
     <>
       <Helmet>
-        <title>RAJ NEXUS — Preview</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
+        <title>RAJ NEXUS — 3-in-1 Wireless Charger</title>
+        <meta
+          name="description"
+          content="RAJ NEXUS — Qi2.2 zertifizierter 3-in-1 Wireless Charger. Lädt iPhone, Apple Watch und AirPods gleichzeitig. CHF 99.– · Gratis Versand · 3 Jahre Garantie."
+        />
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
