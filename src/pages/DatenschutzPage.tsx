@@ -143,7 +143,7 @@ const DatenschutzPage = () => {
           <p className="text-foreground font-medium">RAJ GmbH (in Gründung)</p>
           <p>Gaswerkstrasse 9a</p>
           <p>info@raj.ch</p>
-          <p className="pt-2">Stand: 19.02.2026</p>
+          <p className="pt-2">Stand: 02.05.2026</p>
         </div>
       }
     >

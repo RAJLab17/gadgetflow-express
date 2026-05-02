@@ -22,7 +22,7 @@ const ImpressumPage = () => {
           <p>Gaswerkstrasse 9a</p>
           <p>8570 Weinfelden</p>
           <p>Schweiz</p>
-          <p className="pt-2">Stand: 19.02.2026</p>
+          <p className="pt-2">Stand: 02.05.2026</p>
         </div>
       }
     >
