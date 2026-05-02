@@ -102,6 +102,7 @@ const App = () => (
               <Route path="/shop" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/shop-preview" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/dokumente" element={<DokumentePage />} />
+              <Route path="/manuals" element={<DokumentePage />} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
