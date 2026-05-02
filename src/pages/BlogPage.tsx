@@ -48,6 +48,15 @@ const articles: Article[] = [
       "Ein Gerät pro Arbeitsplatz statt drei Kabel. Wie Schweizer Unternehmen mit Qi2.2 Ordnung schaffen.",
     href: "/kabelloses-laden-buero-schweiz",
   },
+  {
+    slug: "kabelloses-laden-firmen-schweiz",
+    title: "Kabelloses Laden für Unternehmen – Sicherheit und Ordnung für Schweizer KMUs",
+    date: "02.05.2026",
+    dateISO: "2026-05-02",
+    excerpt:
+      "Mitarbeitende bringen eigene Ladekabel mit – ein unterschätztes Risiko. Wie KMUs das eleganter lösen.",
+    href: "/kabelloses-laden-firmen-schweiz",
+  },
 ];
 
 const BlogPage = () => {
