@@ -23,6 +23,10 @@ const P = ({ children }: { children: React.ReactNode }) => (
 
 const KabellosesLadenFirmenPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="Kabelloses Laden für Unternehmen Schweiz – Sicher und ohne Kabelsalat | RAJ"
       metaDescription="Mitarbeitende bringen eigene Ladekabel mit – ein unterschätztes Risiko im Schweizer Büroalltag. Wie KMUs das eleganter lösen."
