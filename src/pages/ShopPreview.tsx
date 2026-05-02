@@ -243,8 +243,8 @@ const ShopPreview = () => {
                 </p>
               </div>
 
-              {/* Founder counter */}
-              <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 space-y-2.5">
+              {/* Founder counter — vorübergehend ausgeblendet */}
+              {/* <div className="rounded-xl border border-primary/20 bg-primary/5 p-4 space-y-2.5">
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-foreground/80 font-medium">
                     {sold} / {FOUNDER_TOTAL} Founder Editions verkauft
@@ -261,7 +261,7 @@ const ShopPreview = () => {
                     className="h-full bg-primary rounded-full"
                   />
                 </div>
-                </div>
+              </div> */}
 
               <ul className="space-y-2 text-sm">
                 {[

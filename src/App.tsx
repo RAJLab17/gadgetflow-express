@@ -45,16 +45,15 @@ const ShopCartSync = () => {
   return null;
 };
 
-// ?mode=shop → Shop anzeigen, sonst Launch Page
+// Startseite ist jetzt der Shop. ?mode=launch zeigt weiterhin die Launch Page.
 const HomePage = () => {
   const [searchParams] = useSearchParams();
-  return searchParams.get("mode") === "shop" ? (
+  if (searchParams.get("mode") === "launch") return <LaunchPage />;
+  return (
     <Suspense fallback={null}>
       <ShopCartSync />
-      <Index />
+      <ShopPreview />
     </Suspense>
-  ) : (
-    <LaunchPage />
   );
 };
 
@@ -95,9 +94,11 @@ const App = () => (
               <Route path="/versand" element={<VersandPage />} />
               <Route path="/confirmed" element={<ConfirmedPage />} />
               <Route path="/launch" element={<LaunchPage />} />
+              <Route path="/prelaunch" element={<LaunchPage />} />
               <Route path="/vergleich" element={<VergleichPage />} />
               <Route path="/qi2-erklaert" element={<Qi2ErklaertPage />} />
               <Route path="/ueber-raj" element={<UeberRajPage />} />
+              <Route path="/shop" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/shop-preview" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
