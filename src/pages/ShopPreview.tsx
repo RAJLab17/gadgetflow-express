@@ -509,7 +509,7 @@ const ShopPreview = () => {
                 <AccordionTrigger className="text-base font-light hover:no-underline py-5">Über RAJ</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground font-light pb-6 text-sm space-y-3">
                   <p>RAJ ist ein Schweizer Unternehmen. Wir entwickeln Ladegeräte, die einfach funktionieren — ohne Kompromisse bei Qualität, Design und Nachhaltigkeit.</p>
-                  <p>Designed in Switzerland. Hergestellt unter fairen Bedingungen.</p>
+                  <p>Swiss Brand. Hergestellt unter fairen Bedingungen.</p>
                   <Link to="/about" className="inline-block text-primary hover:underline">Mehr über uns →</Link>
                 </AccordionContent>
               </AccordionItem>

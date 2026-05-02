@@ -117,7 +117,7 @@ const Qi2ErklaertPage = () => {
       <ul className="space-y-3 text-foreground/85 font-light mb-8 pl-1">
         <li className="flex gap-3">
           <span className="text-muted-foreground select-none">·</span>
-          <span><Strong>RAJ NEXUS 3-in-1 Wireless Charger</Strong> – CHF 99 (Early Access) / CHF 129 regulär. Qi2.2-zertifiziert, faltbar, in der Schweiz designed. Erhältlich über raj.ch.</span>
+          <span><Strong>RAJ NEXUS 3-in-1 Wireless Charger</Strong> – CHF 99 (Early Access) / CHF 129 regulär. Qi2.2-zertifiziert, faltbar, von einer Swiss Brand. Erhältlich über raj.ch.</span>
         </li>
         <li className="flex gap-3">
           <span className="text-muted-foreground select-none">·</span>

@@ -7,7 +7,7 @@ const UeberRajPage = () => {
       metaDescription="RAJ ist eine Schweizer Consumer-Electronics-Marke aus dem Thurgau. Premium-Zubehör für das Apple-Ökosystem. Präzision · Beständigkeit · Charakter."
       canonical="https://raj.ch/ueber-raj"
       eyebrow="Über RAJ"
-      heading="Designed in Switzerland."
+      heading="Swiss Brand."
       intro="Schweizer Consumer-Electronics aus dem Thurgau – mit Anspruch an Präzision, Qualität und Design."
     >
       <div className="space-y-8 text-foreground/85 font-light leading-relaxed text-lg">
@@ -19,8 +19,7 @@ const UeberRajPage = () => {
 
         <p>
           Unser erstes Produkt, der RAJ NEXUS 3-in-1 Wireless Charger, vereint Funktionalität und Ästhetik: Ein
-          Ladegerät, ein Kabel, drei Geräte geladen. Qi2.2-zertifiziert, faltbar, verstellbar – designed in
-          Switzerland.
+          Ladegerät, ein Kabel, drei Geräte geladen. Qi2.2-zertifiziert, faltbar, verstellbar – Swiss Brand.
         </p>
 
         <div className="my-14 py-10 border-y border-border text-center space-y-3">

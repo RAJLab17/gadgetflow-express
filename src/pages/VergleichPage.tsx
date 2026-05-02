@@ -48,7 +48,7 @@ const VergleichPage = () => {
 
       <H3>RAJ NEXUS 3-in-1 Wireless Charger</H3>
       <P>
-        Der RAJ NEXUS ist ein in der Schweiz designter 3-in-1 Wireless Charger mit Qi2.2-Zertifizierung. Das faltbare
+        Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Swiss Brand mit Qi2.2-Zertifizierung. Das faltbare
         Design mit verstellbarem Winkel (0–75°) macht ihn sowohl für den Schreibtisch als auch für unterwegs geeignet.
         Das iPhone wird mit bis zu 25W geladen, Apple Watch und AirPods jeweils mit 5W. Die Founder Edition ist für
         CHF 99 erhältlich (regulär CHF 129).
