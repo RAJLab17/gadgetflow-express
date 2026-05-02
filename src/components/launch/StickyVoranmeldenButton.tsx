@@ -72,9 +72,11 @@ const StickyVoranmeldenButton = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed left-1/2 top-1/2 z-[61] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-md"
+              role="dialog"
+              aria-modal="true"
+              className="fixed left-1/2 z-[61] -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-md top-[max(1rem,env(safe-area-inset-top))] md:top-1/2 md:-translate-y-1/2 max-h-[calc(100dvh-2rem)] overflow-y-auto"
             >
-              <div className="bg-background rounded-2xl border border-border shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] p-6 md:p-8">
+              <div className="relative bg-background rounded-2xl border border-border shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] p-5 sm:p-6 md:p-8">
                 <button
                   onClick={closeModal}
                   aria-label="Schliessen"
