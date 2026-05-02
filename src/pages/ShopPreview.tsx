@@ -13,7 +13,7 @@ import LaunchSignupCountdown from "@/components/launch/LaunchSignupCountdown";
 import StickyVoranmeldenButton from "@/components/launch/StickyVoranmeldenButton";
 
 // Real RAJ NEXUS product photography
-import productMain from "@/assets/products/nexus-hero-premium-stand.jpg";
+import productMain from "@/assets/products/nexus-hero-premium-stand-800.webp";
 import productAlt from "@/assets/products/nexus-real-3quarter-white.jpg";
 import productTopView from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import productFolds from "@/assets/products/nexus-real-folds-white.jpg";
@@ -165,7 +165,12 @@ const ShopPreview = () => {
                   <motion.img
                     key={activeImg}
                     src={gallery[activeImg]}
-                    alt="RAJ NEXUS"
+                    alt="RAJ NEXUS 3-in-1 Wireless Charger"
+                    width={800}
+                    height={800}
+                    loading={activeImg === 0 ? "eager" : "lazy"}
+                    fetchPriority={activeImg === 0 ? "high" : "auto"}
+                    decoding="async"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -195,7 +200,7 @@ const ShopPreview = () => {
                         activeImg === i ? "opacity-100" : "opacity-70 group-hover:opacity-100"
                       }`}
                     >
-                      <img src={img} alt="" className="w-full h-full object-contain p-1 md:p-1.5" />
+                      <img src={img} alt="" loading="lazy" decoding="async" className="w-full h-full object-contain p-1 md:p-1.5" />
                     </div>
                     <span
                       className={`h-px w-5 md:w-6 transition-all ${
@@ -361,6 +366,8 @@ const ShopPreview = () => {
                   <motion.img
                     src={s.img}
                     alt={s.alt}
+                    loading="lazy"
+                    decoding="async"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
