@@ -172,6 +172,7 @@ const VergleichPage = () => {
         <a href="https://raj.ch" className="underline hover:text-foreground">raj.ch</a> erhältlich.
       </p>
     </PremiumPageLayout>
+    </>
   );
 };
 
