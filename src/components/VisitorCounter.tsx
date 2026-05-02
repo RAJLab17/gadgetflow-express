@@ -59,7 +59,7 @@ const VisitorCounter = () => {
   if (count === null) return null;
 
   return (
-    <div className="w-full flex justify-center pt-8 pb-12 md:pt-10 md:pb-16">
+    <div className="w-full flex justify-center pt-8 pb-1 md:pt-10 md:pb-2 -mb-4 md:-mb-8">
       <p className="text-sm md:text-base text-muted-foreground font-light tracking-wide flex items-center gap-2">
         <span className="relative inline-flex items-baseline">
           <AnimatePresence mode="wait">
