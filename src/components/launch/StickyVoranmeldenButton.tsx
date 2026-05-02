@@ -74,7 +74,7 @@ const StickyVoranmeldenButton = () => {
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               role="dialog"
               aria-modal="true"
-              className="fixed left-1/2 z-[61] -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-md top-[max(1rem,env(safe-area-inset-top))] md:top-1/2 md:-translate-y-1/2 max-h-[calc(100dvh-2rem)] overflow-y-auto"
+              className="fixed inset-x-3 z-[61] mx-auto max-w-md top-[max(1rem,env(safe-area-inset-top))] md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:top-1/2 md:-translate-y-1/2 md:w-[calc(100%-1.5rem)] max-h-[calc(100dvh-2rem)] overflow-y-auto"
             >
               <div className="relative bg-background rounded-2xl border border-border shadow-[0_30px_80px_-20px_rgba(0,0,0,0.4)] p-5 sm:p-6 md:p-8">
                 <button
