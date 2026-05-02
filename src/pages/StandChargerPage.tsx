@@ -2,8 +2,14 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import StandCharger3in1Product from "@/components/StandCharger3in1Product";
 import Footer from "@/components/Footer";
+import { useViewContent } from "@/hooks/useViewContent";
 
 const StandChargerPage = () => {
+  useViewContent({
+    content_name: "Stand 3-in-1 Wireless Charger",
+    content_ids: ["stand-3in1"],
+    content_category: "Wireless Charger",
+  });
   return (
     <>
       <Helmet>
