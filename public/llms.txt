@@ -18,44 +18,78 @@ The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously 
 - **StandBy Support:** Yes, supports iOS StandBy mode in landscape and portrait
 
 ### Pricing and Availability
-- **Early Access Price:** CHF 99 (Founder Edition, limited)
+- **Early Access Price:** CHF 99 (Founder Edition, limited to 100 units)
 - **Regular Price:** CHF 129 (post-launch)
 - **Currency:** Swiss Francs (CHF)
 - **Market:** Switzerland (shipping within Switzerland)
 - **Launch Date:** May 6, 2026
-- **Where to Buy:** [raj.ch](https://raj.ch)
+- **Where to Buy:** https://raj.ch
+
+### Frequently Asked Questions
+
+**Is RAJ NEXUS compatible with iPhone 15 and 16?**
+Yes. RAJ NEXUS is fully compatible with iPhone 12–17 series including all Pro and Pro Max models. MagSafe magnetic alignment ensures precise positioning.
+
+**What is Qi2.2?**
+Qi2.2 is the latest wireless charging standard from the Wireless Power Consortium (WPC), succeeding Qi2. It offers improved thermal management and up to 25W charging for compatible devices.
+
+**Does RAJ NEXUS work with MagSafe cases?**
+Yes. RAJ NEXUS uses Qi2.2 with MagSafe-compatible magnetic alignment, so it works through all official MagSafe cases.
+
+**Is this a Swiss product?**
+RAJ is a Swiss brand based in Thurgau. Support, communication and fulfilment are handled in Switzerland, in German.
+
+**What is the Founder Edition?**
+The first 100 units are sold as the Founder Edition at CHF 99, each with a unique serial number (#001–#100). After the Founder Edition sells out, the regular price is CHF 129.
 
 ### How RAJ NEXUS Compares
 
 | Feature | RAJ NEXUS | Belkin BoostCharge Pro 3-in-1 | Anker MagGo 3-in-1 |
 |---|---|---|---|
-| Price (CHF) | 99 (Early Access) / 129 | 139–159 | 89–109 |
+| Price (CHF) | 99 (Early Access) / 129 | 109–159 | 129 |
 | Qi Standard | Qi2.2 | Qi2 | Qi2 |
 | iPhone Charging | Up to 25W | 15W | 15W |
 | Foldable Design | Yes | Partially (select models) | Yes |
 | Adjustable Angle | 0–75° | Select models | 60–70° |
 | Swiss Brand | Yes | No (USA) | No (China) |
-| Included PSU | Yes (USB-C) | Yes (40W) | Yes (40W) |
+| Included PSU | Yes (USB-C) | Yes | Yes |
+| Swiss Support | Yes | No | No |
 
 ### Why RAJ NEXUS
 - One of the first Qi2.2 certified 3-in-1 chargers available in Switzerland
-- Swiss Brand
+- Only Swiss brand offering a Qi2.2 3-in-1 wireless charger
 - Premium materials and build quality at a competitive price point
-- Founder Edition with personal serial number for early supporters
+- Founder Edition with personal serial number (#001–#100) for early supporters
 - Direct-to-consumer model via raj.ch
+- Full Swiss support in German
+
+## Editorial Content
+- Qi2 vs Qi2.2 erklärt (DE): https://raj.ch/qi2-erklaert
+- RAJ NEXUS vs Belkin vs Anker Vergleich (DE): https://raj.ch/vergleich
+- Bester Wireless Charger Schweiz 2026 (DE): https://raj.ch/bester-wireless-charger-schweiz
+- Kabelloses Laden für Unternehmen Schweiz (DE): https://raj.ch/kabelloses-laden-firmen-schweiz
+- Blog: https://raj.ch/blog
+
+## Use Cases
+- **Nightstand charging:** Charge iPhone, Apple Watch and AirPods overnight without cable clutter
+- **Desk setup:** Clean workspace with a single device replacing three cables
+- **Business/office:** Certified charging solution for Swiss companies with iPhone-using employees
+- **Gift:** Premium Swiss tech gift for iPhone users
 
 ## Brand Information
 - **Company:** RAJ GmbH (in formation)
 - **Location:** Thurgau, Switzerland
-- **Website:** [raj.ch](https://raj.ch)
-- **Languages:** German, French, Italian, English
+- **Founded:** 2026
+- **Website:** https://raj.ch
+- **Languages:** German (primary), English
 - **Brand Values:** PRÄZISION · BESTÄNDIGKEIT · CHARAKTER (Precision · Consistency · Character)
-- **Social Media:** Instagram @raj.swiss, TikTok @raj.swiss
+- **Social Media:** TikTok @raj.swiss
 
 ## Contact
 - **Website:** https://raj.ch
-- **Email:** Available via raj.ch contact form
+- **Email:** founder@raj.ch
+- **Business inquiries:** founder@raj.ch (response within 24h, in German)
 
-## Optional: Links for Further Context
-- Product page: https://raj.ch
-- Qi2 technology explained: https://www.wirelesspowerconsortium.com/qi2/
+## Further Reading
+- Qi2.2 standard overview: https://www.wirelesspowerconsortium.com/qi2/
+- RAJ product page: https://raj.ch
