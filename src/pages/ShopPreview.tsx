@@ -521,7 +521,7 @@ const ShopPreview = () => {
 
         <footer className="py-8 px-6 border-t border-border">
           <div className="max-w-7xl mx-auto text-center text-xs text-muted-foreground tracking-wider">
-            © {new Date().getFullYear()} RAJ
+            © {new Date().getFullYear()} RAJ — Alle Rechte vorbehalten.
           </div>
         </footer>
 
