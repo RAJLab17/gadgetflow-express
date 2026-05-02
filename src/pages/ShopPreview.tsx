@@ -10,6 +10,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import PaymentIcons from "@/components/PaymentIcons";
 import LaunchSignupCountdown from "@/components/launch/LaunchSignupCountdown";
+import StickyVoranmeldenButton from "@/components/launch/StickyVoranmeldenButton";
 
 // Real RAJ NEXUS product photography
 import productMain from "@/assets/products/nexus-hero-premium-stand.jpg";
@@ -120,6 +121,7 @@ const ShopPreview = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
+        <StickyVoranmeldenButton />
         {/* Brand mark */}
         <header className="border-b border-border/60">
           <div className="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
