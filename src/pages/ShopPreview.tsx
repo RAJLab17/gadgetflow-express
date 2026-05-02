@@ -147,7 +147,7 @@ const ShopPreview = () => {
         <VisitorCounter />
 
         {/* HERO — Product + Buy side-by-side (Apple-style) */}
-        <section className="max-w-7xl mx-auto px-6 pt-8 md:pt-16 pb-16 md:pb-24">
+        <section className="max-w-7xl mx-auto px-6 pt-2 md:pt-4 pb-16 md:pb-24">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Gallery */}
             <div className="md:sticky md:top-8">
