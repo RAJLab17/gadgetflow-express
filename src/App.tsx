@@ -33,6 +33,7 @@ const Qi2ErklaertPage = lazy(() => import("./pages/Qi2ErklaertPage"));
 const UeberRajPage = lazy(() => import("./pages/UeberRajPage"));
 const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const DokumentePage = lazy(() => import("./pages/DokumentePage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
 const MetaCapiStatusPage = lazy(() => import("./pages/MetaCapiStatusPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -103,6 +104,7 @@ const App = () => (
               <Route path="/shop-preview" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/dokumente" element={<DokumentePage />} />
               <Route path="/manuals" element={<DokumentePage />} />
+              <Route path="/blog" element={<BlogPage />} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
