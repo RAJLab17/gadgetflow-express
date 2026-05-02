@@ -21,6 +21,15 @@ const articles: Article[] = [
       "Qi2.2 ist der neue Standard. Was sich geändert hat und was das für dein iPhone bedeutet.",
     href: "/qi2-erklaert",
   },
+  {
+    slug: "nexus-vs-belkin-vs-anker",
+    title: "RAJ NEXUS vs. Belkin vs. Anker – Welcher lohnt sich?",
+    date: "02.05.2026",
+    dateISO: "2026-05-02",
+    excerpt:
+      "Direkter Vergleich der drei beliebtesten 3-in-1 Wireless Charger für iPhone. Qi2.2, Preis, Design.",
+    href: "/vergleich",
+  },
 ];
 
 const BlogPage = () => {
