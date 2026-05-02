@@ -217,9 +217,10 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="font-semibold mb-6 text-foreground">Rechtliches</h4>
+            <h4 className="font-semibold mb-6 text-foreground">Dokumente & Rechtliches</h4>
             <ul className="space-y-3">
               {[
+                { label: "Produktdokumentation", href: "/dokumente" },
                 { label: "Datenschutz", href: "/datenschutz" },
                 { label: "AGB", href: "/agb" },
                 { label: "Impressum", href: "/impressum" },

@@ -32,6 +32,7 @@ const VergleichPage = lazy(() => import("./pages/VergleichPage"));
 const Qi2ErklaertPage = lazy(() => import("./pages/Qi2ErklaertPage"));
 const UeberRajPage = lazy(() => import("./pages/UeberRajPage"));
 const ShopPreview = lazy(() => import("./pages/ShopPreview"));
+const DokumentePage = lazy(() => import("./pages/DokumentePage"));
 const MetaCapiStatusPage = lazy(() => import("./pages/MetaCapiStatusPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -100,6 +101,7 @@ const App = () => (
               <Route path="/ueber-raj" element={<UeberRajPage />} />
               <Route path="/shop" element={<WithCart><ShopPreview /></WithCart>} />
               <Route path="/shop-preview" element={<WithCart><ShopPreview /></WithCart>} />
+              <Route path="/dokumente" element={<DokumentePage />} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
