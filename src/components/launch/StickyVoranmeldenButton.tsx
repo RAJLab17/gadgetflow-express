@@ -49,7 +49,7 @@ const StickyVoranmeldenButton = () => {
       <button
         onClick={() => setOpen(true)}
         aria-label="Voranmelden"
-        className="fixed top-[60px] right-4 md:top-[68px] md:right-6 z-40 inline-flex items-center gap-2 rounded-full bg-[#9b6b3f] hover:bg-[#8a5e37] text-white text-xs md:text-sm font-medium px-4 py-2 shadow-[0_8px_24px_-8px_rgba(155,107,63,0.5)] hover:shadow-[0_12px_28px_-8px_rgba(155,107,63,0.6)] transition-all duration-300 hover:-translate-y-0.5"
+        className="fixed top-[44px] right-4 md:top-[52px] md:right-6 z-40 inline-flex items-center gap-2 rounded-full bg-[#9b6b3f] hover:bg-[#8a5e37] text-white text-xs md:text-sm font-medium px-4 py-2 shadow-[0_8px_24px_-8px_rgba(155,107,63,0.5)] hover:shadow-[0_12px_28px_-8px_rgba(155,107,63,0.6)] transition-all duration-300 hover:-translate-y-0.5"
       >
         <Bell className="w-3.5 h-3.5 md:w-4 md:h-4" strokeWidth={2} />
         <span className="tracking-wide">Voranmelden</span>
