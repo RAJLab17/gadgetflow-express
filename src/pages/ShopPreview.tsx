@@ -10,6 +10,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import PaymentIcons from "@/components/PaymentIcons";
 import LaunchSignupCountdown from "@/components/launch/LaunchSignupCountdown";
+import StickyVoranmeldenButton from "@/components/launch/StickyVoranmeldenButton";
 
 // Real RAJ NEXUS product photography
 import productMain from "@/assets/products/nexus-hero-premium-stand.jpg";
