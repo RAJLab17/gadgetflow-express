@@ -39,6 +39,10 @@ const P = ({ children }: { children: React.ReactNode }) => (
 
 const VergleichPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="3-in-1 Qi2 Wireless Charger Vergleich: RAJ NEXUS vs Belkin vs Anker (Schweiz 2026)"
       metaDescription="3-in-1 Wireless Charger im Vergleich: RAJ NEXUS, Belkin BoostCharge Pro und Anker MagGo. Preise, Qi2.2-Standard und Verfügbarkeit in der Schweiz 2026."
