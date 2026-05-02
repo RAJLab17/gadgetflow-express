@@ -121,6 +121,7 @@ const ShopPreview = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
+        <StickyVoranmeldenButton />
         {/* Brand mark */}
         <header className="border-b border-border/60">
           <div className="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
