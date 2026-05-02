@@ -9,7 +9,7 @@ const sections: Section[] = [
   {
     title: "1. Allgemeine Hinweise",
     content: [
-      `Der Schutz deiner personenbezogenen Daten ist der RAJ GmbH (nachfolgend „wir" oder „uns") ein wichtiges Anliegen. Diese Datenschutzerklärung informiert darüber, wie wir personenbezogene Daten im Zusammenhang mit dem Besuch unserer Website und der Nutzung unseres Online‑Shops bearbeiten.`,
+      `Der Schutz deiner personenbezogenen Daten ist der RAJ GmbH (in Gründung) (nachfolgend „wir" oder „uns") ein wichtiges Anliegen. Diese Datenschutzerklärung informiert darüber, wie wir personenbezogene Daten im Zusammenhang mit dem Besuch unserer Website und der Nutzung unseres Online‑Shops bearbeiten.`,
       `Wir bearbeiten personenbezogene Daten im Einklang mit dem schweizerischen Datenschutzgesetz (DSG) sowie – soweit anwendbar – der Datenschutz‑Grundverordnung der Europäischen Union (DSGVO).`,
     ],
   },
@@ -17,7 +17,7 @@ const sections: Section[] = [
     title: "2. Verantwortliche Stelle",
     content: [
       `Verantwortlich für die Datenbearbeitung im Sinne des Datenschutzrechts ist:`,
-      `RAJ GmbH\nGaswerkstrasse 9a\nE‑Mail: info@raj.ch`,
+      `RAJ GmbH (in Gründung)\nGaswerkstrasse 9a\nE‑Mail: info@raj.ch`,
     ],
   },
   {
@@ -125,7 +125,7 @@ const sections: Section[] = [
   {
     title: "12. Änderungen dieser Datenschutzerklärung",
     content: [
-      `Die RAJ GmbH behält sich vor, diese Datenschutzerklärung jederzeit anzupassen, insbesondere bei Änderungen gesetzlicher Vorgaben oder unseres Angebots. Es gilt die jeweils aktuelle, auf der Website veröffentlichte Version.`,
+      `Die RAJ GmbH (in Gründung) behält sich vor, diese Datenschutzerklärung jederzeit anzupassen, insbesondere bei Änderungen gesetzlicher Vorgaben oder unseres Angebots. Es gilt die jeweils aktuelle, auf der Website veröffentlichte Version.`,
       `Diese Datenschutzerklärung ist integraler Bestandteil unserer Website und unseres Online‑Shops.`,
     ],
   },
@@ -140,7 +140,7 @@ const DatenschutzPage = () => {
       heading="Datenschutz­erklärung"
       meta={
         <div className="space-y-1">
-          <p className="text-foreground font-medium">RAJ GmbH</p>
+          <p className="text-foreground font-medium">RAJ GmbH (in Gründung)</p>
           <p>Gaswerkstrasse 9a</p>
           <p>info@raj.ch</p>
           <p className="pt-2">Stand: 19.02.2026</p>

@@ -247,7 +247,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} RAJ — Alle Rechte vorbehalten.
+              © {currentYear} RAJ GmbH (in Gründung) — Alle Rechte vorbehalten.
             </p>
             <div className="flex items-center gap-6 text-xs text-muted-foreground">
               <span className="flex items-center gap-1">
