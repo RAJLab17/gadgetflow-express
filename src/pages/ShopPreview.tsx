@@ -14,16 +14,16 @@ import StickyVoranmeldenButton from "@/components/launch/StickyVoranmeldenButton
 
 // Real RAJ NEXUS product photography
 import productMain from "@/assets/products/nexus-hero-premium-stand-800.webp";
-import productAlt from "@/assets/products/nexus-real-3quarter-white.jpg";
-import productTopView from "@/assets/products/nexus-real-topview-qi2-white.jpg";
-import productFolds from "@/assets/products/nexus-real-folds-white.jpg";
-import productFlat from "@/assets/products/nexus-flat-charging.jpg";
-import storySpeed from "@/assets/products/nexus-real-features.jpg";
-import storyFolds from "@/assets/products/nexus-real-folds-text.jpg";
-import storyLifestyle from "@/assets/products/nexus-real-desk-office.jpg";
-import storyNight from "@/assets/products/nexus-real-night-city.jpg";
-import storySofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
-import storyWindow from "@/assets/products/nexus-real-window.jpg";
+import productAlt from "@/assets/products/nexus-real-3quarter-white-800.webp";
+import productTopView from "@/assets/products/nexus-real-topview-qi2-white-800.webp";
+import productFolds from "@/assets/products/nexus-real-folds-white-800.webp";
+import productFlat from "@/assets/products/nexus-flat-charging-800.webp";
+import storySpeed from "@/assets/products/nexus-real-features-800.webp";
+import storyFolds from "@/assets/products/nexus-real-folds-text-800.webp";
+import storyLifestyle from "@/assets/products/nexus-real-desk-office-800.webp";
+import storyNight from "@/assets/products/nexus-real-night-city-800.webp";
+import storySofa from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
+import storyWindow from "@/assets/products/nexus-real-window-800.webp";
 
 const NEXUS_HANDLE = "raj-nexus-3in1-wireless-charger";
 
