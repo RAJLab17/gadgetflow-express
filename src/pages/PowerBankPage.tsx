@@ -2,8 +2,14 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MagSafePowerBankProduct from "@/components/MagSafePowerBankProduct";
 import Footer from "@/components/Footer";
+import { useViewContent } from "@/hooks/useViewContent";
 
 const PowerBankPage = () => {
+  useViewContent({
+    content_name: "MagSafe PowerBank Pro 10K",
+    content_ids: ["magsafe-powerbank-10k"],
+    content_category: "PowerBank",
+  });
   return (
     <>
       <Helmet>
