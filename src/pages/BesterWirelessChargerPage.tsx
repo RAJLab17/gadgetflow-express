@@ -35,6 +35,10 @@ const CTA = ({ label }: { label: string }) => (
 
 const BesterWirelessChargerPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="Bester Wireless Charger Schweiz 2026 – Top 3 im Vergleich | RAJ"
       metaDescription="Welcher Wireless Charger lohnt sich 2026 in der Schweiz? Qi2.2, 3-in-1, MagSafe – die besten Optionen für iPhone-Nutzer im direkten Vergleich."
