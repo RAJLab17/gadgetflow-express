@@ -1,4 +1,16 @@
+import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "RAJ NEXUS vs. Belkin vs. Anker – Welcher 3-in-1 Charger lohnt sich?",
+  datePublished: "2026-05-02",
+  dateModified: "2026-05-02",
+  author: { "@type": "Organization", name: "RAJ" },
+  publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
+  url: "https://raj.ch/vergleich",
+};
 
 const tableRows: [string, string, string, string][] = [
   ["Preis in der Schweiz", "CHF 99 (Early Access) / CHF 129", "CHF 95–159", "CHF 79–99"],
