@@ -4,8 +4,15 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import WirelessCharger3in1Product from "@/components/WirelessCharger3in1Product";
 import Footer from "@/components/Footer";
+import { useViewContent } from "@/hooks/useViewContent";
 
 const WirelessChargerPage = () => {
+  useViewContent({
+    content_name: "RAJ NEXUS 3-in-1 Wireless Charger",
+    content_ids: ["raj-nexus"],
+    content_category: "Wireless Charger",
+    value: 99,
+  });
   const { hash } = useLocation();
 
   useEffect(() => {
