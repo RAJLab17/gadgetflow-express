@@ -1,4 +1,16 @@
+import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Qi2 vs. Qi2.2 – Was ist der Unterschied?",
+  datePublished: "2026-05-02",
+  dateModified: "2026-05-02",
+  author: { "@type": "Organization", name: "RAJ" },
+  publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
+  url: "https://raj.ch/qi2-erklaert",
+};
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mt-16 mb-6">{children}</h2>
@@ -12,6 +24,10 @@ const Strong = ({ children }: { children: React.ReactNode }) => (
 
 const Qi2ErklaertPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="Qi2 vs. Qi2.2: Was bedeutet der neue Wireless-Charging-Standard für dein iPhone?"
       metaDescription="Qi2 vs. Qi2.2 erklärt: Unterschiede, Vorteile und worauf du beim Kauf eines kabellosen Ladegeräts achten solltest. Stand April 2026."
@@ -141,6 +157,7 @@ const Qi2ErklaertPage = () => {
         <a href="https://raj.ch" className="text-primary underline hover:opacity-80">raj.ch</a>
       </p>
     </PremiumPageLayout>
+    </>
   );
 };
 
