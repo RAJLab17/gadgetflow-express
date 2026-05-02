@@ -101,7 +101,7 @@ const LaunchSignupCountdown = ({ className = "" }: Props) => {
               disabled={loading}
               className="bg-[#9b6b3f] hover:bg-[#8a5e37] text-white font-medium min-w-[140px]"
             >
-              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Vormerken"}
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Voranmelden"}
             </Button>
           </form>
         </div>
