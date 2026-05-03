@@ -14,7 +14,8 @@ import StickyVoranmeldenButton from "@/components/launch/StickyVoranmeldenButton
 import VisitorCounter from "@/components/VisitorCounter";
 
 // Real RAJ NEXUS product photography
-import productMain from "@/assets/products/nexus-hero-premium-stand-800.webp";
+import productMain from "@/assets/products/nexus-nachttisch-800.webp";
+import productOriginal from "@/assets/products/nexus-hero-premium-stand-800.webp";
 import productAlt from "@/assets/products/nexus-real-3quarter-white-800.webp";
 import productTopView from "@/assets/products/nexus-real-topview-qi2-white-800.webp";
 import productFolds from "@/assets/products/nexus-real-folds-white-800.webp";
