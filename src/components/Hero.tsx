@@ -8,8 +8,20 @@ import { MagneticButton } from "@/components/MagneticButton";
 import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
 
 const Hero = () => {
-  const { quickBuy, isProcessing } = useQuickBuy();
+  const { isProcessing } = useQuickBuy();
   const sectionRef = useRef<HTMLElement>(null);
+
+  const scrollToSignup = () => {
+    const target =
+      document.getElementById("signup-form") ||
+      document.getElementById("founder-email");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        document.getElementById("founder-email")?.focus({ preventScroll: true });
+      }, 600);
+    }
+  };
   const reduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
