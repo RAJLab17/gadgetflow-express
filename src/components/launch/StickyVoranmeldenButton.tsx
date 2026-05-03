@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader2, Check, Mail, Bell, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -14,13 +14,12 @@ const StickyVoranmeldenButton = () => {
   const [done, setDone] = useState(false);
 
   // Allow other components (Hero, StickyBuyBar) to open this modal
-  // by dispatching a window event: window.dispatchEvent(new Event("open-voranmelden"))
-  useState(() => {
-    if (typeof window === "undefined") return undefined;
+  // by dispatching: window.dispatchEvent(new Event("open-voranmelden"))
+  useEffect(() => {
     const handler = () => setOpen(true);
     window.addEventListener("open-voranmelden", handler);
     return () => window.removeEventListener("open-voranmelden", handler);
-  });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
