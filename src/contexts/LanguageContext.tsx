@@ -145,6 +145,8 @@ const translations: Translations = {
   "carousel.s4.sub": { de: "Perfekt für unterwegs und den Schreibtisch.", fr: "Parfait en déplacement et au bureau.", it: "Perfetto in viaggio e alla scrivania." },
   "carousel.s5.headline": { de: "POWER. ALWAYS THERE.", fr: "POWER. ALWAYS THERE.", it: "POWER. ALWAYS THERE." },
   "carousel.s5.sub": { de: "", fr: "", it: "" },
+  "carousel.snacht.headline": { de: "Lade über Nacht. Wache auf mit 100%.", fr: "Charge la nuit. Réveille-toi à 100%.", it: "Carica di notte. Svegliati al 100%." },
+  "carousel.snacht.sub": { de: "Dein neuer Nachttisch-Begleiter.", fr: "Ton nouveau compagnon de chevet.", it: "Il tuo nuovo compagno da comodino." },
 
   // FAQ
   "faq.title": { de: "Häufige Fragen", fr: "Questions fréquentes", it: "Domande frequenti" },
