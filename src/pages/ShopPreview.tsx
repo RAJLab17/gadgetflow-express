@@ -203,25 +203,23 @@ const ShopPreview = () => {
                   />
                 </AnimatePresence>
               </motion.div>
-              <div className="grid grid-cols-6 gap-1.5 md:gap-2 mt-3 md:mt-4">
+              <div
+                className="mt-3 md:mt-4 grid gap-1 md:gap-1.5"
+                style={{ gridTemplateColumns: `repeat(${gallery.length}, minmax(0, 1fr))` }}
+              >
                 {gallery.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className="group flex min-w-0 flex-col items-center gap-1 md:gap-1.5"
+                    className="group min-w-0"
                   >
                     <div
                       className={`aspect-square w-full rounded-md overflow-hidden bg-white transition-opacity ${
                         activeImg === i ? "opacity-100" : "opacity-70 group-hover:opacity-100"
                       }`}
                     >
-                      <img src={img} alt="" loading="lazy" decoding="async" className="w-full h-full object-contain p-1" />
+                      <img src={img} alt="" loading="lazy" decoding="async" className="w-full h-full object-contain p-0.5 md:p-1" />
                     </div>
-                    <span
-                       className={`h-px w-4 md:w-5 transition-all ${
-                        activeImg === i ? "bg-primary" : "bg-transparent"
-                      }`}
-                    />
                   </button>
                 ))}
               </div>
