@@ -4,12 +4,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 // Slide 0 is the LCP image — served from /public via stable URLs and
 // preloaded in index.html. Do NOT bundle it through Vite (avoids hashed
 // filename mismatch with the <link rel="preload">).
-const slide0 = "/hero/slide-nacht.webp";
-const slide0Sm = "/hero/slide-nacht-480.webp";
+const slide0 = "/hero/slide-0-specs.webp";
+const slide0Sm = "/hero/slide-0-specs-480.webp";
 
 // All other slides are lazy-loaded — only fetched once the carousel rotates.
-const slideSpecs = "/hero/slide-0-specs.webp";
-const slideSpecsSm = "/hero/slide-0-specs-480.webp";
 const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
 const slide3Sm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
 const slide4 = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
@@ -59,16 +57,9 @@ const HeroCarousel = () => {
     {
       image: slide0,
       imageSm: slide0Sm,
-      alt: "RAJ NEXUS auf dem Nachttisch - lädt iPhone, Apple Watch und AirPods über Nacht",
-      headline: hydrated ? t("carousel.snacht.headline") : "Lade über Nacht. Wache auf mit 100%.",
-      sub: hydrated ? t("carousel.snacht.sub") : "Dein neuer Nachttisch-Begleiter.",
-    },
-    {
-      image: slideSpecs,
-      imageSm: slideSpecsSm,
       alt: "RAJ NEXUS Specs - Qi2.2, 25W, 3-in-1, 100% in 1.5h",
-      headline: t("carousel.s0.headline"),
-      sub: t("carousel.s0.sub"),
+      headline: hydrated ? t("carousel.s0.headline") : STATIC_SLIDE_0_HEADLINE,
+      sub: hydrated ? t("carousel.s0.sub") : STATIC_SLIDE_0_SUB,
     },
     {
       image: slide3,

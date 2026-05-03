@@ -4,9 +4,9 @@ import { toast } from "sonner";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import SwissFlag from "./SwissFlag";
 import { useLanguage } from "@/contexts/LanguageContext";
-import nexusHero from "@/assets/nexus-hero-480.webp";
-import nexusHero280 from "@/assets/nexus-hero-280.webp";
-import nexusHero720 from "@/assets/nexus-hero-720.webp";
+import nexusHero from "@/assets/nexus-nacht-480.webp";
+import nexusHero280 from "@/assets/nexus-nacht-280.webp";
+import nexusHero720 from "@/assets/nexus-nacht-720.webp";
 
 // Lazily load Supabase only when actually needed (post-LCP).
 const getSupabase = () =>
@@ -275,7 +275,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                   src={nexusHero}
                   srcSet={`${nexusHero280} 280w, ${nexusHero} 480w, ${nexusHero720} 720w`}
                   sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 400px"
-                  alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, AirPods und Apple Watch"
+                  alt="RAJ NEXUS auf dem Nachttisch – lädt iPhone, Apple Watch und AirPods über Nacht"
                   width={480}
                   height={480}
                   fetchPriority="high"
