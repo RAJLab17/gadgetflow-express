@@ -161,9 +161,9 @@ const ShopPreview = () => {
         <section className="max-w-7xl mx-auto px-6 pt-2 md:pt-4 pb-16 md:pb-24">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Gallery */}
-            <div className="md:sticky md:top-8">
+            <div className="md:sticky md:top-8 md:max-w-[32rem] xl:max-w-[34rem] md:mx-auto w-full">
               <motion.div
-                className="aspect-square rounded-2xl overflow-hidden bg-white flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y"
+                className="aspect-square w-full rounded-2xl overflow-hidden bg-white flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y"
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.15}
@@ -204,7 +204,7 @@ const ShopPreview = () => {
                 </AnimatePresence>
               </motion.div>
               <div
-                className="mt-3 md:mt-4 grid gap-1 md:gap-1.5"
+                className="mt-2.5 md:mt-3 grid gap-1"
                 style={{ gridTemplateColumns: `repeat(${gallery.length}, minmax(0, 1fr))` }}
               >
                 {gallery.map((img, i) => (
