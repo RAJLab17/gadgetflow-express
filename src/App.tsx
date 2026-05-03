@@ -39,6 +39,7 @@ const KabellosesLadenBueroPage = lazy(() => import("./pages/KabellosesLadenBuero
 const KabellosesLadenFirmenPage = lazy(() => import("./pages/KabellosesLadenFirmenPage"));
 const MetaCapiStatusPage = lazy(() => import("./pages/MetaCapiStatusPage"));
 const IphoneStandbyPage = lazy(() => import("./pages/IphoneStandbyPage"));
+const MagSafeLadestationPage = lazy(() => import("./pages/MagSafeLadestationPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
