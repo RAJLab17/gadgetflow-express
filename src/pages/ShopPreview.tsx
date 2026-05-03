@@ -99,12 +99,22 @@ const ShopPreview = () => {
     } finally { setAdding(false); }
   };
 
+  const scrollToSignup = () => {
+    const target = document.getElementById("signup-form");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => {
+        const input = target.querySelector<HTMLInputElement>('input[type="email"]');
+        input?.focus({ preventScroll: true });
+      }, 600);
+    }
+  };
+
   const BuyButton = ({ size = "xl", className = "" }: { size?: "lg" | "xl"; className?: string }) => (
     <Button
       size={size}
-      disabled
-      aria-disabled
-      className={`${className} opacity-50 cursor-not-allowed`}
+      onClick={scrollToSignup}
+      className={className}
     >
       <ShoppingBag className="w-5 h-5 mr-2" />
       Jetzt kaufen — {priceLabel}
