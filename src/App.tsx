@@ -39,6 +39,7 @@ const KabellosesLadenBueroPage = lazy(() => import("./pages/KabellosesLadenBuero
 const KabellosesLadenFirmenPage = lazy(() => import("./pages/KabellosesLadenFirmenPage"));
 const MetaCapiStatusPage = lazy(() => import("./pages/MetaCapiStatusPage"));
 const IphoneStandbyPage = lazy(() => import("./pages/IphoneStandbyPage"));
+const MagSafeLadestationPage = lazy(() => import("./pages/MagSafeLadestationPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -114,6 +115,7 @@ const App = () => (
               <Route path="/kabelloses-laden-firmen-schweiz" element={<KabellosesLadenFirmenPage />} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="/iphone-standby-ladestation-schweiz" element={<IphoneStandbyPage />} />
+              <Route path="/magsafe-ladestation-schweiz" element={<MagSafeLadestationPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
