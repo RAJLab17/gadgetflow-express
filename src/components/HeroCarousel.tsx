@@ -4,12 +4,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 // Slide 0 is the LCP image — served from /public via stable URLs and
 // preloaded in index.html. Do NOT bundle it through Vite (avoids hashed
 // filename mismatch with the <link rel="preload">).
-const slide0 = "/hero/slide-nacht.webp";
-const slide0Sm = "/hero/slide-nacht-480.webp";
+const slide0 = "/hero/slide-0-specs.webp";
+const slide0Sm = "/hero/slide-0-specs-480.webp";
 
 // All other slides are lazy-loaded — only fetched once the carousel rotates.
-const slideSpecs = "/hero/slide-0-specs.webp";
-const slideSpecsSm = "/hero/slide-0-specs-480.webp";
 const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
 const slide3Sm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
 const slide4 = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
