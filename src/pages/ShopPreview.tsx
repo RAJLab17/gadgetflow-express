@@ -302,7 +302,9 @@ const ShopPreview = () => {
 
               <BuyButton className="w-full" />
 
-              <LaunchSignupCountdown />
+              <div id="signup-form">
+                <LaunchSignupCountdown />
+              </div>
 
               {/* Trust row */}
               <div className="grid grid-cols-3 gap-3 pt-4 border-t border-border/60">
