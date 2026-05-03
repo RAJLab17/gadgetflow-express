@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useQuickBuy } from "@/hooks/useQuickBuy";
 
 interface StickyBuyBarProps {
   /** When the user scrolls past this element (in px from top), the bar appears. Default 600 */
