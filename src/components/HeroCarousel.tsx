@@ -75,13 +75,6 @@ const HeroCarousel = () => {
       headline: t("carousel.s4.headline"),
       sub: t("carousel.s4.sub"),
     },
-    {
-      image: slideNacht,
-      imageSm: slideNachtSm,
-      alt: "RAJ NEXUS auf dem Nachttisch - lädt iPhone, Apple Watch und AirPods über Nacht",
-      headline: t("carousel.snacht.headline"),
-      sub: t("carousel.snacht.sub"),
-    },
   ];
 
   const next = useCallback(() => setIndex((i) => (i + 1) % slides.length), [slides.length]);
