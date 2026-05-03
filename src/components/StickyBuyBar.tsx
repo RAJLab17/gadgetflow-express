@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Loader2, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useQuickBuy } from "@/hooks/useQuickBuy";
 
 interface StickyBuyBarProps {
   /** When the user scrolls past this element (in px from top), the bar appears. Default 600 */
@@ -23,7 +22,18 @@ export const StickyBuyBar = ({
   label = "Jetzt kaufen",
 }: StickyBuyBarProps) => {
   const [visible, setVisible] = useState(false);
-  const { quickBuy, isProcessing } = useQuickBuy();
+
+  const scrollToSignup = () => {
+    const target =
+      document.getElementById("signup-form") ||
+      document.getElementById("founder-email");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        document.getElementById("founder-email")?.focus({ preventScroll: true });
+      }, 600);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -54,17 +64,10 @@ export const StickyBuyBar = ({
               variant="hero"
               size="lg"
               className="flex-1 shadow-elegant"
-              onClick={quickBuy}
-              disabled={isProcessing}
+              onClick={scrollToSignup}
             >
-              {isProcessing ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
-              ) : (
-                <>
-                  <Zap className="w-4 h-4 mr-2" />
-                  {label}
-                </>
-              )}
+              <Zap className="w-4 h-4 mr-2" />
+              {label}
             </Button>
           </div>
         </motion.div>

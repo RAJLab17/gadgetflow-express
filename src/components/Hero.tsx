@@ -8,8 +8,20 @@ import { MagneticButton } from "@/components/MagneticButton";
 import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
 
 const Hero = () => {
-  const { quickBuy, isProcessing } = useQuickBuy();
+  const { isProcessing } = useQuickBuy();
   const sectionRef = useRef<HTMLElement>(null);
+
+  const scrollToSignup = () => {
+    const target =
+      document.getElementById("signup-form") ||
+      document.getElementById("founder-email");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        document.getElementById("founder-email")?.focus({ preventScroll: true });
+      }, 600);
+    }
+  };
   const reduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
@@ -104,7 +116,7 @@ const Hero = () => {
               className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6"
             >
               <MagneticButton
-                onClick={quickBuy}
+                onClick={scrollToSignup}
                 disabled={isProcessing}
                 aria-label="Jetzt kaufen für CHF 99"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-base shadow-elegant-lg hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
