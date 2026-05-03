@@ -115,6 +115,7 @@ const App = () => (
               <Route path="/kabelloses-laden-firmen-schweiz" element={<KabellosesLadenFirmenPage />} />
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="/iphone-standby-ladestation-schweiz" element={<IphoneStandbyPage />} />
+              <Route path="/magsafe-ladestation-schweiz" element={<MagSafeLadestationPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

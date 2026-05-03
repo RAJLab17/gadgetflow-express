@@ -13,6 +13,15 @@ interface Article {
 
 const articles: Article[] = [
   {
+    slug: "magsafe-ladestation-schweiz",
+    title: "MagSafe kompatible Ladestation Schweiz – was bedeutet das wirklich?",
+    date: "03.05.2026",
+    dateISO: "2026-05-03",
+    excerpt:
+      "Nicht alles was MagSafe-kompatibel heisst ist gleich gut. Was du wissen musst bevor du kaufst.",
+    href: "/magsafe-ladestation-schweiz",
+  },
+  {
     slug: "iphone-standby-ladestation",
     title: "iPhone StandBy Modus – Die perfekte Ladestation",
     date: "03.05.2026",
