@@ -57,16 +57,9 @@ const HeroCarousel = () => {
     {
       image: slide0,
       imageSm: slide0Sm,
-      alt: "RAJ NEXUS auf dem Nachttisch - lädt iPhone, Apple Watch und AirPods über Nacht",
-      headline: hydrated ? t("carousel.snacht.headline") : "Lade über Nacht. Wache auf mit 100%.",
-      sub: hydrated ? t("carousel.snacht.sub") : "Dein neuer Nachttisch-Begleiter.",
-    },
-    {
-      image: slideSpecs,
-      imageSm: slideSpecsSm,
       alt: "RAJ NEXUS Specs - Qi2.2, 25W, 3-in-1, 100% in 1.5h",
-      headline: t("carousel.s0.headline"),
-      sub: t("carousel.s0.sub"),
+      headline: hydrated ? t("carousel.s0.headline") : STATIC_SLIDE_0_HEADLINE,
+      sub: hydrated ? t("carousel.s0.sub") : STATIC_SLIDE_0_SUB,
     },
     {
       image: slide3,
