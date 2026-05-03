@@ -13,6 +13,15 @@ interface Article {
 
 const articles: Article[] = [
   {
+    slug: "3-in-1-ladestation-apple",
+    title: "3-in-1 Ladestation iPhone Apple Watch AirPods – die beste Lösung 2026",
+    date: "03.05.2026",
+    dateISO: "2026-05-03",
+    excerpt:
+      "Drei Geräte, ein Ladegerät. Die beste 3-in-1 Ladestation für Apple-Nutzer in der Schweiz.",
+    href: "/3-in-1-ladestation-iphone-apple-watch-airpods",
+  },
+  {
     slug: "magsafe-ladestation-schweiz",
     title: "MagSafe kompatible Ladestation Schweiz – was bedeutet das wirklich?",
     date: "03.05.2026",

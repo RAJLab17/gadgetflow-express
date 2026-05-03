@@ -40,6 +40,7 @@ const KabellosesLadenFirmenPage = lazy(() => import("./pages/KabellosesLadenFirm
 const MetaCapiStatusPage = lazy(() => import("./pages/MetaCapiStatusPage"));
 const IphoneStandbyPage = lazy(() => import("./pages/IphoneStandbyPage"));
 const MagSafeLadestationPage = lazy(() => import("./pages/MagSafeLadestationPage"));
+const ThreeInOnePage = lazy(() => import("./pages/ThreeInOnePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -116,6 +117,7 @@ const App = () => (
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="/iphone-standby-ladestation-schweiz" element={<IphoneStandbyPage />} />
               <Route path="/magsafe-ladestation-schweiz" element={<MagSafeLadestationPage />} />
+              <Route path="/3-in-1-ladestation-iphone-apple-watch-airpods" element={<ThreeInOnePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
