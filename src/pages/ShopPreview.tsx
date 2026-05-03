@@ -161,9 +161,9 @@ const ShopPreview = () => {
         <section className="max-w-7xl mx-auto px-6 pt-2 md:pt-4 pb-16 md:pb-24">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Gallery */}
-            <div className="md:sticky md:top-8">
+            <div className="md:sticky md:top-8 md:max-w-[32rem] xl:max-w-[34rem] md:mx-auto w-full">
               <motion.div
-                className="aspect-square rounded-2xl overflow-hidden bg-white flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y"
+                className="aspect-square w-full rounded-2xl overflow-hidden bg-white flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y"
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.15}
@@ -203,25 +203,23 @@ const ShopPreview = () => {
                   />
                 </AnimatePresence>
               </motion.div>
-              <div className="grid grid-cols-5 gap-2 md:gap-3 mt-3 md:mt-4">
+              <div
+                className="mt-2.5 md:mt-3 grid gap-1"
+                style={{ gridTemplateColumns: `repeat(${gallery.length}, minmax(0, 1fr))` }}
+              >
                 {gallery.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className="group flex flex-col items-center gap-1.5 md:gap-2"
+                    className="group min-w-0"
                   >
                     <div
-                      className={`aspect-square w-full rounded-md md:rounded-lg overflow-hidden bg-white transition-opacity ${
+                      className={`aspect-square w-full rounded-md overflow-hidden bg-white transition-opacity ${
                         activeImg === i ? "opacity-100" : "opacity-70 group-hover:opacity-100"
                       }`}
                     >
-                      <img src={img} alt="" loading="lazy" decoding="async" className="w-full h-full object-contain p-1 md:p-1.5" />
+                      <img src={img} alt="" loading="lazy" decoding="async" className="w-full h-full object-contain p-0.5 md:p-1" />
                     </div>
-                    <span
-                      className={`h-px w-5 md:w-6 transition-all ${
-                        activeImg === i ? "bg-primary" : "bg-transparent"
-                      }`}
-                    />
                   </button>
                 ))}
               </div>
