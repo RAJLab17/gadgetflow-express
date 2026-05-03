@@ -164,6 +164,25 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://raj.ch/iphone-standby-ladestation-schweiz</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://raj.ch/magsafe-ladestation-schweiz</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://raj.ch/3-in-1-ladestation-iphone-apple-watch-airpods</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- ============ DOKUMENTE / MANUALS ============ -->
   <url>
     <loc>https://raj.ch/dokumente</loc>
