@@ -565,9 +565,8 @@ const ShopPreview = () => {
             </div>
             <Button
               size="lg"
-              disabled
-              aria-disabled
-              className="flex-shrink-0 opacity-50 cursor-not-allowed"
+              onClick={scrollToSignup}
+              className="flex-shrink-0"
             >
               <ShoppingBag className="w-4 h-4 md:mr-2" />
               <span className="hidden md:inline">Jetzt kaufen</span>
