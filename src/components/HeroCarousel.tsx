@@ -131,7 +131,10 @@ const HeroCarousel = () => {
       </div>
 
       {/* Image area */}
-      <div className="relative w-full h-[54vh] md:h-[60vh]" style={{ backgroundColor: BEIGE }}>
+      <div
+        className="relative w-full h-[54vh] md:h-[60vh]"
+        style={{ backgroundColor: index === 0 ? "#ffffff" : BEIGE }}
+      >
         {index === 0 ? (
           // LCP image — plain <img>, no JS animation, paints immediately.
           <img
@@ -140,12 +143,12 @@ const HeroCarousel = () => {
             sizes="(max-width: 640px) 480px, 800px"
             alt={slides[0].alt}
             width={800}
-            height={800}
+            height={600}
             loading="eager"
             decoding="sync"
             fetchPriority="high"
             className="absolute inset-0 w-full h-full"
-            style={{ objectFit: "contain", backgroundColor: BEIGE }}
+            style={{ objectFit: "contain", backgroundColor: "#ffffff" }}
           />
         ) : (
           // Subsequent slides — framer-motion only loads here.
