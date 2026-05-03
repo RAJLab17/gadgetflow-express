@@ -122,7 +122,9 @@ const FeaturedProducts = () => {
             <div className="space-y-4">
               {/* Main Image */}
               <motion.div 
-                className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-card to-muted shadow-elegant-lg group cursor-grab active:cursor-grabbing"
+                className={`relative aspect-square rounded-3xl overflow-hidden shadow-elegant-lg group cursor-grab active:cursor-grabbing ${
+                  selectedImage === 0 ? "" : "bg-gradient-to-br from-card to-muted"
+                }`}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.4 }}
                 drag="x"
@@ -139,7 +141,11 @@ const FeaturedProducts = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full h-full object-contain p-6"
+                    className={
+                      selectedImage === 0
+                        ? "w-full h-full object-cover"
+                        : "w-full h-full object-contain p-6"
+                    }
                   />
                 </AnimatePresence>
                 
