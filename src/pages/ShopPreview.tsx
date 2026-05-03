@@ -163,7 +163,9 @@ const ShopPreview = () => {
             {/* Gallery */}
             <div className="md:sticky md:top-8 md:max-w-[32rem] xl:max-w-[34rem] md:mx-auto w-full">
               <motion.div
-                className="aspect-square w-full rounded-2xl overflow-hidden bg-white flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y"
+                className={`aspect-square w-full rounded-2xl overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y ${
+                  activeImg === 0 ? "" : "bg-white"
+                }`}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.15}
@@ -199,7 +201,11 @@ const ShopPreview = () => {
                     }}
                     transition={{ duration: 0.3 }}
                     draggable={false}
-                    className="w-full h-full object-contain p-6 md:p-10 select-none"
+                    className={
+                      activeImg === 0
+                        ? "w-full h-full object-cover select-none"
+                        : "w-full h-full object-contain p-6 md:p-10 select-none"
+                    }
                   />
                 </AnimatePresence>
               </motion.div>
