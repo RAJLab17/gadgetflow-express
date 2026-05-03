@@ -151,7 +151,9 @@ const WirelessCharger3in1Product = () => {
           {/* Right: Image Gallery */}
           <div className="space-y-4 order-1 lg:order-2">
             <motion.div
-              className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-card to-muted shadow-elegant-lg cursor-grab active:cursor-grabbing"
+              className={`relative aspect-square rounded-3xl overflow-hidden shadow-elegant-lg cursor-grab active:cursor-grabbing ${
+                selectedImageIndex === 0 ? "" : "bg-gradient-to-br from-card to-muted"
+              }`}
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.4 }}
               drag="x"
