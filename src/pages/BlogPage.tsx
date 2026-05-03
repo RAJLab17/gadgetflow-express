@@ -13,6 +13,15 @@ interface Article {
 
 const articles: Article[] = [
   {
+    slug: "iphone-standby-ladestation",
+    title: "iPhone StandBy Modus – Die perfekte Ladestation",
+    date: "03.05.2026",
+    dateISO: "2026-05-03",
+    excerpt:
+      "StandBy ist Apples beste Nachttisch-Funktion. Was du brauchst um sie optimal zu nutzen.",
+    href: "/iphone-standby-ladestation-schweiz",
+  },
+  {
     slug: "qi2-vs-qi22",
     title: "Qi2 vs. Qi2.2 – Was ist der Unterschied?",
     date: "02.05.2026",
