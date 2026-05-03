@@ -22,7 +22,18 @@ export const StickyBuyBar = ({
   label = "Jetzt kaufen",
 }: StickyBuyBarProps) => {
   const [visible, setVisible] = useState(false);
-  const { quickBuy, isProcessing } = useQuickBuy();
+
+  const scrollToSignup = () => {
+    const target =
+      document.getElementById("signup-form") ||
+      document.getElementById("founder-email");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        document.getElementById("founder-email")?.focus({ preventScroll: true });
+      }, 600);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => {
