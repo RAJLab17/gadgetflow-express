@@ -168,7 +168,11 @@ const WirelessCharger3in1Product = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4 }}
-                  className="w-full h-full object-contain p-6"
+                  className={
+                    selectedImageIndex === 0
+                      ? "w-full h-full object-cover"
+                      : "w-full h-full object-contain p-6"
+                  }
                 />
               </AnimatePresence>
             </motion.div>
@@ -192,7 +196,11 @@ const WirelessCharger3in1Product = () => {
                     alt={`Ansicht ${index + 1}`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-contain p-1.5"
+                    className={
+                      index === 0
+                        ? "w-full h-full object-cover"
+                        : "w-full h-full object-contain p-1.5"
+                    }
                   />
                 </motion.button>
               ))}
