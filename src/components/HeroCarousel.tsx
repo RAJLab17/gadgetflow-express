@@ -4,8 +4,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 // Slide 0 is the LCP image — served from /public via stable URLs and
 // preloaded in index.html. Do NOT bundle it through Vite (avoids hashed
 // filename mismatch with the <link rel="preload">).
-const slide0 = "/hero/slide-0-specs.webp";
-const slide0Sm = "/hero/slide-0-specs-480.webp";
+const slide0 = "/hero/hero-1-bedside.webp";
+const slide0Sm = "/hero/hero-1-bedside-480.webp";
 
 // All other slides are lazy-loaded — only fetched once the carousel rotates.
 const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
@@ -57,7 +57,7 @@ const HeroCarousel = () => {
     {
       image: slide0,
       imageSm: slide0Sm,
-      alt: "RAJ NEXUS Specs - Qi2.2, 25W, 3-in-1, 100% in 1.5h",
+      alt: "RAJ NEXUS 3-in-1 Ladestation auf Nachttisch beim kabellosen Laden über Nacht",
       headline: hydrated ? t("carousel.s0.headline") : STATIC_SLIDE_0_HEADLINE,
       sub: hydrated ? t("carousel.s0.sub") : STATIC_SLIDE_0_SUB,
     },
@@ -131,7 +131,10 @@ const HeroCarousel = () => {
       </div>
 
       {/* Image area */}
-      <div className="relative w-full h-[54vh] md:h-[60vh]" style={{ backgroundColor: BEIGE }}>
+      <div
+        className="relative w-full h-[54vh] md:h-[60vh]"
+        style={{ backgroundColor: index === 0 ? "#ffffff" : BEIGE }}
+      >
         {index === 0 ? (
           // LCP image — plain <img>, no JS animation, paints immediately.
           <img
@@ -140,12 +143,12 @@ const HeroCarousel = () => {
             sizes="(max-width: 640px) 480px, 800px"
             alt={slides[0].alt}
             width={800}
-            height={800}
+            height={600}
             loading="eager"
             decoding="sync"
             fetchPriority="high"
             className="absolute inset-0 w-full h-full"
-            style={{ objectFit: "contain", backgroundColor: BEIGE }}
+            style={{ objectFit: "contain", backgroundColor: "#ffffff" }}
           />
         ) : (
           // Subsequent slides — framer-motion only loads here.
