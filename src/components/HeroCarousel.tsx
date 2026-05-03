@@ -12,8 +12,6 @@ const slide3 = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.
 const slide3Sm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
 const slide4 = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
 const slide4Sm = new URL("../assets/hero-carousel/slide-4-clean-480.webp", import.meta.url).href;
-const slideNacht = new URL("../assets/hero-carousel/slide-nachttisch.webp", import.meta.url).href;
-const slideNachtSm = new URL("../assets/hero-carousel/slide-nachttisch-480.webp", import.meta.url).href;
 
 // Framer Motion is heavy (~30KB gz) — load it ONLY after the user has seen
 // slide 0. Until then the hero uses pure CSS transitions.
@@ -76,13 +74,6 @@ const HeroCarousel = () => {
       alt: "Faltbar und 250g leicht - überall dabei",
       headline: t("carousel.s4.headline"),
       sub: t("carousel.s4.sub"),
-    },
-    {
-      image: slideNacht,
-      imageSm: slideNachtSm,
-      alt: "RAJ NEXUS auf dem Nachttisch - lädt iPhone, Apple Watch und AirPods über Nacht",
-      headline: t("carousel.snacht.headline"),
-      sub: t("carousel.snacht.sub"),
     },
   ];
 

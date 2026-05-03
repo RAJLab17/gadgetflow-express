@@ -15,6 +15,7 @@ import charger3in1Angles from "@/assets/products/charger-3in1-angles.webp";
 import charger3in1Specs from "@/assets/products/charger-3in1-specs.webp";
 import charger3in1LifestyleHome from "@/assets/products/charger-3in1-lifestyle-home.webp";
 import charger3in1LifestyleOffice from "@/assets/products/charger-3in1-lifestyle-office.webp";
+import charger3in1Nachttisch from "@/assets/products/charger-3in1-nachttisch.webp";
 
 const productImages = [
   charger3in1ColorsNew,
@@ -24,6 +25,7 @@ const productImages = [
   charger3in1Specs,
   charger3in1LifestyleHome,
   charger3in1LifestyleOffice,
+  charger3in1Nachttisch,
 ];
 
 const NEXUS_HANDLE = "raj-3-in-1-wireless-charger";
