@@ -20,7 +20,10 @@ const Hero = () => {
       setTimeout(() => {
         document.getElementById("founder-email")?.focus({ preventScroll: true });
       }, 600);
+      return;
     }
+    // Fallback: open the global Voranmelden modal (used on /shop)
+    window.dispatchEvent(new Event("open-voranmelden"));
   };
   const reduceMotion = useReducedMotion();
 
