@@ -102,6 +102,7 @@ const FAQPage = () => {
         ))}
       </div>
     </PremiumPageLayout>
+    </>
   );
 };
 
