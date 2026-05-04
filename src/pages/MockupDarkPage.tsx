@@ -503,17 +503,17 @@ const MockupDarkPage = () => {
         style={{ background: D.bg, color: D.beige }}
       >
         {/* Editorial dark hero background — Stone Nexus */}
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
           <img
             src={nexusStoneHero}
             alt=""
-            className="w-full h-full object-cover opacity-30"
-            style={{ objectPosition: "right center" }}
+            className="absolute top-1/2 -translate-y-1/2 h-[120%] w-auto max-w-none opacity-35"
+            style={{ right: "-8%" }}
           />
           <div
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.7) 40%, rgba(10,10,10,0.85) 75%, ${D.bg} 100%)`,
+              background: `linear-gradient(90deg, ${D.bg} 0%, rgba(10,10,10,0.92) 35%, rgba(10,10,10,0.55) 70%, rgba(10,10,10,0.4) 100%), linear-gradient(180deg, transparent 60%, ${D.bg} 100%)`,
             }}
           />
         </div>
