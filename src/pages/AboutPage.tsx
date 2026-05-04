@@ -190,6 +190,31 @@ const AboutPage = () => {
           </div>
         </div>
 
+        {/* Swiss Origin — Thurgau */}
+        <div className="relative rounded-2xl overflow-hidden border border-border/60 bg-gradient-to-br from-muted/30 to-background">
+          <div className="relative aspect-[16/10] md:aspect-[16/8]">
+            <img
+              src={thurgauMap}
+              alt="RAJ – Swiss Brand mit Sitz im Kanton Thurgau"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent 55%, hsl(var(--background)/0.6) 85%, hsl(var(--background)) 100%)",
+              }}
+            />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+              <div className="inline-flex items-center gap-3 text-[10px] md:text-xs tracking-[0.32em] uppercase text-primary font-medium">
+                <span className="h-px w-8 bg-primary/50" />
+                Made in Switzerland · Kanton Thurgau
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* SECTION 7 — Blog CTA */}
         <div className="text-center space-y-6 pt-4">
           <div className="inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-primary font-medium">
