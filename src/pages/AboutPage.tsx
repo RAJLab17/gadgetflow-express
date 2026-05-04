@@ -209,7 +209,7 @@ const AboutPage = () => {
             <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
               <div className="inline-flex items-center gap-3 text-[10px] md:text-xs tracking-[0.32em] uppercase text-primary font-medium">
                 <span className="h-px w-8 bg-primary/50" />
-                Made in Switzerland · Kanton Thurgau
+                Swiss Brand · Kanton Thurgau
               </div>
             </div>
           </div>
