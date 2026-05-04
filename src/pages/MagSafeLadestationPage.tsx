@@ -2,17 +2,25 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
-import { articleJsonLd, breadcrumbJsonLd } from "@/lib/schemas";
+import { breadcrumbJsonLd } from "@/lib/schemas";
 
 const PAGE_URL = "https://raj.ch/magsafe-ladestation-schweiz";
-const article = articleJsonLd({
-  headline: "MagSafe Ladestation Schweiz 2026",
+const article = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "MagSafe kompatible Ladestation Schweiz – was bedeutet das wirklich?",
+  description: "Nicht alles was MagSafe-kompatibel heisst ist gleich gut. Was du wissen musst bevor du kaufst.",
+  datePublished: "2026-05-03",
+  dateModified: "2026-05-03",
+  author: { "@type": "Organization", name: "RAJ" },
+  publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
   url: PAGE_URL,
-});
+  image: "https://raj.ch/raj-nexus-product.png",
+};
 const breadcrumb = breadcrumbJsonLd([
   { name: "Home", url: "https://raj.ch" },
   { name: "Blog", url: "https://raj.ch/blog" },
-  { name: "MagSafe Ladestation Schweiz 2026", url: PAGE_URL },
+  { name: "MagSafe kompatible Ladestation Schweiz", url: PAGE_URL },
 ]);
 
 const MagSafeLadestationPage = () => {
