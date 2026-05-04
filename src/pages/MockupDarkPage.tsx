@@ -19,6 +19,23 @@ import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
 
+// Hero Carousel — echte Shop-Slides (premium-rotation)
+const heroBedside = "/hero/hero-1-bedside.webp";
+const heroBedsideSm = "/hero/hero-1-bedside-480.webp";
+const heroFast = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
+const heroFastSm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
+const heroClean = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
+const heroCleanSm = new URL("../assets/hero-carousel/slide-4-clean-480.webp", import.meta.url).href;
+const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
+const heroDesireSm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
+
+const HERO_SLIDES = [
+  { src: heroBedside, srcSm: heroBedsideSm, eyebrow: "Nachts", caption: "Während du schläfst." },
+  { src: heroFast,    srcSm: heroFastSm,    eyebrow: "Tempo",  caption: "100% in 1.5 Stunden." },
+  { src: heroDesire,  srcSm: heroDesireSm,  eyebrow: "Form",   caption: "Objekt, nicht Gerät." },
+  { src: heroClean,   srcSm: heroCleanSm,   eyebrow: "Reise",  caption: "Faltbar. 250 Gramm." },
+] as const;
+
 /**
  * MOCKUP — Apple × Rolex Positioning
  * Dark Hero → Light Trust → Dark Story → Light Specs → Light FAQ → Dark CTA
@@ -238,6 +255,139 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 // ─────────────────────────────────────────────────────────────────
 const TOTAL_SPOTS = 100;
 
+// ─────────────────────────────────────────────────────────────────
+// HERO PREMIUM CAROUSEL — auto-rotating editorial slideshow
+// ─────────────────────────────────────────────────────────────────
+const HeroPremiumCarousel = () => {
+  const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const n = HERO_SLIDES.length;
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => setI((v) => (v + 1) % n), 4800);
+    return () => clearInterval(id);
+  }, [paused, n]);
+
+  return (
+    <div
+      className="relative mt-10 sm:mt-12 group"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Ambient gold halo behind frame */}
+      <div
+        className="absolute -inset-10 rounded-full blur-[120px] opacity-40 pointer-events-none"
+        style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
+        aria-hidden
+      />
+
+      {/* Frame */}
+      <div
+        className="relative w-full aspect-[5/4] overflow-hidden rounded-sm"
+        style={{
+          boxShadow: "0 60px 140px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(201,168,118,0.15)",
+        }}
+      >
+        {HERO_SLIDES.map((s, idx) => (
+          <img
+            key={s.src}
+            src={s.src}
+            srcSet={`${s.srcSm} 480w, ${s.src} 1200w`}
+            sizes="(max-width: 768px) 100vw, 700px"
+            alt={s.caption}
+            loading={idx === 0 ? "eager" : "lazy"}
+            decoding={idx === 0 ? "sync" : "async"}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-out"
+            style={{ opacity: i === idx ? 1 : 0 }}
+          />
+        ))}
+
+        {/* Top gradient — readable eyebrow */}
+        <div
+          className="absolute inset-x-0 top-0 h-32 pointer-events-none"
+          style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.55), transparent)" }}
+          aria-hidden
+        />
+        {/* Bottom gradient — caption */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
+          style={{ background: "linear-gradient(to top, rgba(10,10,10,0.85), transparent)" }}
+          aria-hidden
+        />
+
+        {/* Eyebrow (top-left) */}
+        <div className="absolute top-5 left-5 sm:top-7 sm:left-7 flex items-center gap-3">
+          <span className="w-5 h-px" style={{ background: D.gold }} />
+          <span
+            className="text-[10px] uppercase font-medium"
+            style={{ color: D.gold, letterSpacing: "0.34em" }}
+          >
+            {HERO_SLIDES[i].eyebrow}
+          </span>
+        </div>
+
+        {/* Caption (bottom-left, editorial) */}
+        <div className="absolute bottom-6 left-6 sm:bottom-9 sm:left-9 right-32 max-w-md">
+          <p
+            key={`cap-${i}`}
+            className="text-xl sm:text-2xl md:text-[28px] leading-tight animate-fade-in"
+            style={{ color: D.beige, fontWeight: 200, letterSpacing: "-0.01em" }}
+          >
+            {HERO_SLIDES[i].caption}
+          </p>
+        </div>
+
+        {/* Floating spec card (bottom-right) */}
+        <div
+          className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7 px-4 py-3 sm:px-5 sm:py-4 rounded-sm"
+          style={{
+            background: "rgba(10,10,10,0.55)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            border: `1px solid ${D.gold}33`,
+          }}
+        >
+          <div className="text-[9px] uppercase mb-1" style={{ color: D.gold, letterSpacing: "0.28em" }}>
+            Qi 2.2 · 25W
+          </div>
+          <div className="text-lg sm:text-xl font-light leading-none" style={{ color: D.beige }}>
+            CHF 99.–
+          </div>
+        </div>
+      </div>
+
+      {/* Progress indicators — minimal hairlines */}
+      <div className="flex items-center gap-2 mt-5 px-1">
+        {HERO_SLIDES.map((s, idx) => (
+          <button
+            key={s.src}
+            onClick={() => setI(idx)}
+            aria-label={`Bild ${idx + 1}: ${s.caption}`}
+            className="relative h-px flex-1 overflow-hidden transition-opacity"
+            style={{ background: `${D.gold}22` }}
+          >
+            <span
+              className="absolute inset-y-0 left-0 transition-all ease-linear"
+              style={{
+                background: D.gold,
+                width: i === idx ? "100%" : idx < i ? "100%" : "0%",
+                transitionDuration: i === idx && !paused ? "4800ms" : "400ms",
+              }}
+            />
+          </button>
+        ))}
+        <span
+          className="ml-3 text-[10px] tabular-nums font-medium"
+          style={{ color: D.mutedDim, letterSpacing: "0.2em" }}
+        >
+          {String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}
+        </span>
+      </div>
+    </div>
+  );
+};
+
 const MockupDarkPage = () => {
   const { t, lang, setLang } = useLanguage();
 
@@ -367,66 +517,50 @@ const MockupDarkPage = () => {
           </nav>
         </header>
 
+        {/* Subtle ambient gold haze (Apple keynote feel) */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[700px] pointer-events-none opacity-[0.18]"
+          style={{ background: `radial-gradient(ellipse at center, ${D.gold} 0%, transparent 60%)` }}
+          aria-hidden
+        />
+        {/* Vignette bottom */}
+        <div
+          className="absolute bottom-0 inset-x-0 h-40 pointer-events-none"
+          style={{ background: `linear-gradient(to bottom, transparent, ${D.bg})` }}
+          aria-hidden
+        />
+
         {/* Hero content */}
-        <div className="relative px-5 sm:px-10 pt-6 sm:pt-12 pb-20 sm:pb-32 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
-            {/* LEFT: editorial copy + product image */}
+        <div className="relative px-5 sm:px-10 pt-4 sm:pt-10 pb-20 sm:pb-32 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-14 items-start">
+            {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative">
               <span
-                className="inline-block text-[10px] uppercase mb-6"
-                style={{ color: D.gold, letterSpacing: "0.32em" }}
+                className="inline-flex items-center gap-3 text-[10px] uppercase mb-7"
+                style={{ color: D.gold, letterSpacing: "0.34em" }}
               >
-                — Edition 01 · Mai 2026
+                <span className="w-6 h-px" style={{ background: D.gold }} />
+                Edition 01 · Mai 2026
               </span>
               <h1
-                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight"
-                style={{ color: D.beige, fontWeight: 300 }}
+                className="text-[44px] sm:text-6xl md:text-7xl lg:text-[88px] leading-[0.92] tracking-[-0.02em]"
+                style={{ color: D.beige, fontWeight: 200 }}
               >
                 Power.<br />
                 <span style={{ fontStyle: "italic", fontWeight: 200 }}>Always</span>{" "}
-                <span style={{ color: D.gold }}>There.</span>
+                <span style={{ color: D.gold, fontWeight: 300 }}>There.</span>
               </h1>
-              <div className="w-12 h-px my-8" style={{ background: D.gold }} />
+              <div className="w-12 h-px my-7 sm:my-9" style={{ background: D.gold }} />
               <p
                 className="text-base sm:text-lg leading-relaxed max-w-md"
-                style={{ color: D.muted, fontWeight: 300 }}
+                style={{ color: D.muted, fontWeight: 300, letterSpacing: "0.005em" }}
               >
                 Drei Geräte. Ein Objekt. Kein Kabel.<br />
-                Qi2.2 zertifiziert. Schweizer Idee.
+                <span style={{ color: D.mutedDim }}>Qi 2.2 zertifiziert. Schweizer Idee.</span>
               </p>
 
-              {/* Product image — editorial */}
-              <div className="relative mt-10">
-                <div
-                  className="absolute inset-0 rounded-full blur-[100px] opacity-50 pointer-events-none"
-                  style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
-                  aria-hidden
-                />
-                <img
-                  src={nexusHeroDark}
-                  alt="RAJ NEXUS in der Nacht"
-                  className="relative w-full aspect-[5/4] object-cover rounded-sm"
-                  style={{ boxShadow: "0 60px 120px -40px rgba(0,0,0,0.8)" }}
-                />
-                <div
-                  className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 px-5 py-4 rounded-sm max-w-[200px]"
-                  style={{
-                    background: "rgba(10,10,10,0.7)",
-                    backdropFilter: "blur(20px)",
-                    border: `1px solid ${D.border}`,
-                  }}
-                >
-                  <div className="text-[9px] uppercase mb-1" style={{ color: D.gold, letterSpacing: "0.28em" }}>
-                    Qi 2.2 · 25W
-                  </div>
-                  <div className="text-xl font-light" style={{ color: D.beige }}>
-                    CHF 99.–
-                  </div>
-                  <div className="text-[10px] mt-1" style={{ color: D.mutedDim }}>
-                    Early Access · Limitiert auf 100
-                  </div>
-                </div>
-              </div>
+              {/* PREMIUM CAROUSEL — auto-rotating, editorial */}
+              <HeroPremiumCarousel />
             </div>
 
             {/* RIGHT: Founder Conversion Card */}
