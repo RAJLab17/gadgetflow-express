@@ -394,13 +394,15 @@ const HeroStillImage = () => {
         }}
       >
         <img
-          src={nexusStoneHero680}
-          srcSet={`${nexusStoneHero680} 680w, ${nexusStoneHero1200} 1200w, ${nexusStoneHero} 1600w`}
+          src={nexusStoneHero1200}
+          srcSet={`${nexusStoneHero600} 600w, ${nexusStoneHero1200} 1200w`}
           sizes="(max-width: 768px) 100vw, 680px"
           alt="RAJ NEXUS auf Stein – Premium Editorial."
           loading="eager"
           decoding="sync"
           fetchPriority="high"
+          width={1200}
+          height={960}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ background: D.surface, objectPosition: "center center" }}
         />
