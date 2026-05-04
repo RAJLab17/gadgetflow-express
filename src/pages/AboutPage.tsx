@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
 
 const grundsaetze = [
