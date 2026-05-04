@@ -13,10 +13,10 @@ import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 // Echte Shop-Bilder (1:1 mit raj.ch)
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
 import nexusHeroDark from "@/assets/products/nexus-real-night-city.webp";
-import nexusFolds from "@/assets/products/nexus-real-folds-white-800.webp";
+import nexusFolds from "@/assets/products/nexus-real-folds-text-800.webp";
 import nexusDesk from "@/assets/products/nexus-real-desk-office-clean.webp";
 import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
-import nexusFlat from "@/assets/products/nexus-flat-charging-800.webp";
+import nexusFeatures from "@/assets/products/nexus-real-features-800.webp";
 import nexusWindow from "@/assets/products/nexus-real-window-clean.webp";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-real-night-city-clean.webp";
