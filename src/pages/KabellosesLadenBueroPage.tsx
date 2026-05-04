@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/schemas";
+
+const PAGE_URL = "https://raj.ch/kabelloses-laden-buero-schweiz";
+const article = articleJsonLd({
+  headline: "Kabelloses Laden im Büro Schweiz 2026",
+  url: PAGE_URL,
+});
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://raj.ch" },
+  { name: "Blog", url: "https://raj.ch/blog" },
+  { name: "Kabelloses Laden im Büro Schweiz 2026", url: PAGE_URL },
+]);
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mt-16 mb-6">{children}</h2>
@@ -11,6 +24,11 @@ const P = ({ children }: { children: React.ReactNode }) => (
 
 const KabellosesLadenBueroPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(article)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="Kabelloses Laden im Büro Schweiz – Kabelsalat eliminieren | RAJ"
       metaDescription="Wie Schweizer KMUs mit kabellosen Ladestationen Ordnung auf den Schreibtisch bringen. Qi2.2, Swiss Support, Mengenpreise für Teams."
@@ -86,6 +104,7 @@ const KabellosesLadenBueroPage = () => {
         </Link>
       </div>
     </PremiumPageLayout>
+    </>
   );
 };
 

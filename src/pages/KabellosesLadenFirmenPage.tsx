@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { breadcrumbJsonLd } from "@/lib/schemas";
 
 const articleJsonLd = {
   "@context": "https://schema.org",
@@ -13,6 +14,12 @@ const articleJsonLd = {
   publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
   url: "https://raj.ch/kabelloses-laden-firmen-schweiz",
 };
+
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://raj.ch" },
+  { name: "Blog", url: "https://raj.ch/blog" },
+  { name: "Kabelloses Laden für Unternehmen Schweiz", url: "https://raj.ch/kabelloses-laden-firmen-schweiz" },
+]);
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mt-16 mb-6">{children}</h2>
@@ -26,6 +33,7 @@ const KabellosesLadenFirmenPage = () => {
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
     <PremiumPageLayout
       title="Kabelloses Laden für Unternehmen Schweiz – Sicher und ohne Kabelsalat | RAJ"

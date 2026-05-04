@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { breadcrumbJsonLd } from "@/lib/schemas";
 
 const articleJsonLd = {
   "@context": "https://schema.org",
@@ -11,6 +12,12 @@ const articleJsonLd = {
   publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
   url: "https://raj.ch/qi2-erklaert",
 };
+
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://raj.ch" },
+  { name: "Blog", url: "https://raj.ch/blog" },
+  { name: "Qi2 vs. Qi2.2 erklärt", url: "https://raj.ch/qi2-erklaert" },
+]);
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
   <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mt-16 mb-6">{children}</h2>
@@ -27,6 +34,7 @@ const Qi2ErklaertPage = () => {
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
     <PremiumPageLayout
       title="Qi2 vs. Qi2.2: Was bedeutet der neue Wireless-Charging-Standard für dein iPhone?"
