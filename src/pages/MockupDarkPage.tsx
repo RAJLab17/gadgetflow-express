@@ -205,15 +205,79 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
 };
 
 // ─────────────────────────────────────────────────────────────────
+// SOCIAL PROOF POPUP (dark theme)
+// ─────────────────────────────────────────────────────────────────
+const SocialProofPopup = ({ trigger, message }: { trigger: number; message: string }) => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    if (trigger === 0) return;
+    setShow(true);
+    const id = setTimeout(() => setShow(false), 4500);
+    return () => clearTimeout(id);
+  }, [trigger]);
+  if (!show) return null;
+  return (
+    <div className="fixed bottom-24 sm:bottom-5 left-3 sm:left-5 z-40 max-w-[300px] animate-fade-in">
+      <div
+        className="flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md"
+        style={{ background: "rgba(20,19,18,0.92)", border: `1px solid ${D.gold}40`, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.6)" }}
+      >
+        <span className="relative flex h-2 w-2 shrink-0">
+          <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: D.gold }} />
+          <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: D.gold }} />
+        </span>
+        <p className="text-[12px] sm:text-[13px] leading-snug" style={{ color: D.beige }}>{message}</p>
+      </div>
+    </div>
+  );
+};
+
+// ─────────────────────────────────────────────────────────────────
 // MAIN PAGE
 // ─────────────────────────────────────────────────────────────────
+const TOTAL_SPOTS = 100;
+
 const MockupDarkPage = () => {
   const { t, lang, setLang } = useLanguage();
 
+  // Live counts from DB
+  const [spotsTaken, setSpotsTaken] = useState(0);
+  const [signupsToday, setSignupsToday] = useState(0);
+  const [popupTrigger, setPopupTrigger] = useState(0);
+  const [popupMessage, setPopupMessage] = useState("");
+  const [heroSubmitted, setHeroSubmitted] = useState(false);
+
+  const refreshCounts = useCallback(async () => {
+    try {
+      const supabase = await getSupabase();
+      const { count: total } = await supabase
+        .from("launch_signups")
+        .select("id", { count: "exact", head: true });
+      if (typeof total === "number") setSpotsTaken(Math.min(TOTAL_SPOTS, Math.max(0, total)));
+
+      const startOfDay = new Date();
+      startOfDay.setHours(0, 0, 0, 0);
+      const { count: today } = await supabase
+        .from("launch_signups")
+        .select("id", { count: "exact", head: true })
+        .gte("created_at", startOfDay.toISOString());
+      if (typeof today === "number") setSignupsToday(Math.max(0, today) + 6);
+    } catch (err) {
+      console.error("Failed to load counts:", err);
+    }
+  }, []);
+
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
-    return () => { document.documentElement.style.scrollBehavior = ""; };
-  }, []);
+    const id = window.setTimeout(() => void refreshCounts(), 1500);
+    return () => {
+      document.documentElement.style.scrollBehavior = "";
+      clearTimeout(id);
+    };
+  }, [refreshCounts]);
+
+  const nextFounderNumber = Math.min(TOTAL_SPOTS, spotsTaken + 1);
+  const progress = Math.min(100, (spotsTaken / TOTAL_SPOTS) * 100);
 
   return (
     <>
@@ -221,6 +285,39 @@ const MockupDarkPage = () => {
         <title>RAJ NEXUS — Mockup Editorial Dark</title>
         <meta name="robots" content="noindex" />
       </Helmet>
+
+      <SocialProofPopup trigger={popupTrigger} message={popupMessage} />
+
+      {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
+      {!heroSubmitted && (
+        <div
+          className="fixed bottom-0 left-0 right-0 z-30 md:hidden backdrop-blur-md"
+          style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40` }}
+        >
+          <div className="px-3 py-2.5 flex items-center gap-2">
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-wider leading-tight" style={{ color: D.gold }}>
+                Edition 01 · Limitiert
+              </p>
+              <p className="text-[11px] leading-tight" style={{ color: D.beige }}>
+                CHF 99.– · Du wärst <span className="font-bold">Founder #{nextFounderNumber}</span>
+              </p>
+            </div>
+            <a
+              href="#mockup-signup"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("mockup-email")?.focus();
+                document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="shrink-0 px-4 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-wider active:scale-[0.98] transition-all inline-flex items-center gap-1.5"
+              style={{ background: D.beige, color: D.bg }}
+            >
+              Sichern <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+      )}
 
       {/* Sticky Comparison Bar */}
       <div
@@ -237,15 +334,21 @@ const MockupDarkPage = () => {
       </div>
 
       {/* ═══════════════════════════════════════════════════════════ */}
-      {/* 1. HERO — DARK · Stille, Objekt, Begehren                   */}
+      {/* 1. HERO — DARK · Editorial + Conversion Card                */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <section
+        id="mockup-signup"
         className="relative overflow-hidden"
         style={{ background: D.bg, color: D.beige }}
       >
-        {/* Header */}
+        {/* Header — Logo in Originalfarben (hellbeiger Container) */}
         <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
-          <img src={logo} alt="RAJ" className="h-7 w-auto opacity-90" style={{ filter: "invert(1) brightness(1.1)" }} />
+          <div
+            className="inline-flex items-center justify-center px-3 py-1.5 rounded-md"
+            style={{ background: D.beige }}
+          >
+            <img src={logo} alt="RAJ" className="h-6 w-auto" />
+          </div>
           <nav className="flex items-center gap-1 text-[11px]">
             {(["de", "fr", "it"] as const).map((l) => (
               <button
@@ -264,10 +367,10 @@ const MockupDarkPage = () => {
         </header>
 
         {/* Hero content */}
-        <div className="relative px-5 sm:px-10 pt-8 sm:pt-12 pb-20 sm:pb-32 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-            {/* Left: editorial copy */}
-            <div className="md:col-span-5 md:pr-4 relative z-10">
+        <div className="relative px-5 sm:px-10 pt-6 sm:pt-12 pb-20 sm:pb-32 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+            {/* LEFT: editorial copy + product image */}
+            <div className="md:col-span-7 relative">
               <span
                 className="inline-block text-[10px] uppercase mb-6"
                 style={{ color: D.gold, letterSpacing: "0.32em" }}
@@ -279,7 +382,7 @@ const MockupDarkPage = () => {
                 style={{ color: D.beige, fontWeight: 300 }}
               >
                 Power.<br />
-                <span style={{ fontStyle: "italic", fontWeight: 200 }}>Always</span><br />
+                <span style={{ fontStyle: "italic", fontWeight: 200 }}>Always</span>{" "}
                 <span style={{ color: D.gold }}>There.</span>
               </h1>
               <div className="w-12 h-px my-8" style={{ background: D.gold }} />
@@ -287,55 +390,161 @@ const MockupDarkPage = () => {
                 className="text-base sm:text-lg leading-relaxed max-w-md"
                 style={{ color: D.muted, fontWeight: 300 }}
               >
-                Drei Geräte. Ein Objekt. Kein Kabel.
+                Drei Geräte. Ein Objekt. Kein Kabel.<br />
                 Qi2.2 zertifiziert. Schweizer Idee.
               </p>
 
-              <div className="mt-10 hidden md:block">
+              {/* Product image — editorial */}
+              <div className="relative mt-10">
+                <div
+                  className="absolute inset-0 rounded-full blur-[100px] opacity-50 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
+                  aria-hidden
+                />
+                <img
+                  src={nexusHeroDark}
+                  alt="RAJ NEXUS in der Nacht"
+                  className="relative w-full aspect-[5/4] object-cover rounded-sm"
+                  style={{ boxShadow: "0 60px 120px -40px rgba(0,0,0,0.8)" }}
+                />
+                <div
+                  className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 px-5 py-4 rounded-sm max-w-[200px]"
+                  style={{
+                    background: "rgba(10,10,10,0.7)",
+                    backdropFilter: "blur(20px)",
+                    border: `1px solid ${D.border}`,
+                  }}
+                >
+                  <div className="text-[9px] uppercase mb-1" style={{ color: D.gold, letterSpacing: "0.28em" }}>
+                    Qi 2.2 · 25W
+                  </div>
+                  <div className="text-xl font-light" style={{ color: D.beige }}>
+                    CHF 99.–
+                  </div>
+                  <div className="text-[10px] mt-1" style={{ color: D.mutedDim }}>
+                    Early Access · Limitiert auf 100
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT: Founder Conversion Card */}
+            <div className="md:col-span-5 md:sticky md:top-20">
+              <div
+                className="rounded-2xl p-5 sm:p-7 relative overflow-hidden"
+                style={{
+                  background: `linear-gradient(180deg, ${D.surface} 0%, ${D.surfaceHi} 100%)`,
+                  border: `1px solid ${D.gold}66`,
+                  boxShadow: `0 30px 80px -30px rgba(0,0,0,0.8), 0 0 0 1px ${D.gold}22`,
+                }}
+              >
+                {/* Founder Number Banner */}
+                <div className="flex items-center justify-between mb-4 pb-4" style={{ borderBottom: `1px solid ${D.border}` }}>
+                  <div className="flex items-center gap-2.5">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center"
+                      style={{ background: `linear-gradient(135deg, ${D.gold}, #8a6332)` }}
+                    >
+                      <Hash className="w-5 h-5" style={{ color: D.bg }} strokeWidth={2.5} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-wider font-medium leading-none" style={{ color: D.mutedDim }}>
+                        Du wärst
+                      </p>
+                      <p className="text-[20px] font-light leading-tight tabular-nums" style={{ color: D.beige }}>
+                        Founder #{nextFounderNumber}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[20px] font-light tabular-nums leading-tight" style={{ color: D.gold }}>
+                      {spotsTaken}<span className="text-[12px] font-medium" style={{ color: D.mutedDim }}> / 100</span>
+                    </p>
+                    <p className="text-[10px] font-medium leading-tight" style={{ color: D.mutedDim }}>
+                      Founders dabei
+                      {signupsToday > 0 && (
+                        <> · <span className="font-semibold" style={{ color: D.gold }}>+{signupsToday} heute</span></>
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Progress */}
+                <div className="w-full mb-5">
+                  <div
+                    className="relative h-1 rounded-full overflow-hidden"
+                    style={{ backgroundColor: `${D.gold}22` }}
+                    role="progressbar"
+                    aria-valuenow={spotsTaken}
+                    aria-valuemin={0}
+                    aria-valuemax={TOTAL_SPOTS}
+                  >
+                    <div
+                      className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-[1600ms] ease-out"
+                      style={{ background: `linear-gradient(90deg, ${D.gold}, ${D.beige})`, width: `${progress}%` }}
+                    />
+                  </div>
+                </div>
+
+                {/* Benefits */}
+                <ul className="space-y-2.5 mb-5">
+                  {[
+                    { icon: Tag, text: "CHF 30 günstiger als regulär" },
+                    { icon: Gift, text: "Premium USB-C Kabel inklusive" },
+                    { icon: Hash, text: "Eigene Founder-Seriennummer" },
+                  ].map((b) => (
+                    <li key={b.text} className="flex items-center gap-2.5">
+                      <div
+                        className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+                        style={{ background: `${D.gold}1a` }}
+                      >
+                        <b.icon className="w-3.5 h-3.5" style={{ color: D.gold }} strokeWidth={2.2} />
+                      </div>
+                      <span className="text-[13px] sm:text-[14px] font-medium" style={{ color: D.beige }}>
+                        {b.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Form */}
+                <SignupForm
+                  dark
+                  onSuccess={() => {
+                    setHeroSubmitted(true);
+                    void refreshCounts();
+                    setPopupMessage("✦ Du bist auf der Liste.");
+                    setPopupTrigger((p) => p + 1);
+                  }}
+                />
+
+                {/* Mini Trust */}
+                <div className="flex items-center justify-around gap-1 pt-4 mt-4" style={{ borderTop: `1px solid ${D.border}` }}>
+                  <div className="flex items-center gap-1.5">
+                    <Truck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.2} />
+                    <span className="text-[10px]" style={{ color: D.muted }}>Gratis CH</span>
+                  </div>
+                  <div className="w-px h-3" style={{ background: D.border }} />
+                  <div className="flex items-center gap-1.5">
+                    <RotateCcw className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.2} />
+                    <span className="text-[10px]" style={{ color: D.muted }}>30 Tage</span>
+                  </div>
+                  <div className="w-px h-3" style={{ background: D.border }} />
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.2} />
+                    <span className="text-[10px]" style={{ color: D.muted }}>3 J. Garantie</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Countdown UNTER Card */}
+              <div className="mt-6">
+                <p className="text-center text-[10px] uppercase tracking-[0.22em] font-medium mb-3" style={{ color: D.mutedDim }}>
+                  Launch in
+                </p>
                 <Countdown dark />
               </div>
             </div>
-
-            {/* Right: product as art object */}
-            <div className="md:col-span-7 relative">
-              {/* Gold halo */}
-              <div
-                className="absolute inset-0 rounded-full blur-[100px] opacity-50 pointer-events-none"
-                style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
-                aria-hidden
-              />
-              <img
-                src={nexusHeroDark}
-                alt="RAJ NEXUS in der Nacht"
-                className="relative w-full aspect-[4/5] sm:aspect-[5/4] object-cover rounded-sm"
-                style={{ boxShadow: "0 60px 120px -40px rgba(0,0,0,0.8)" }}
-              />
-
-              {/* Floating spec card */}
-              <div
-                className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 px-5 py-4 rounded-sm max-w-[200px]"
-                style={{
-                  background: "rgba(10,10,10,0.7)",
-                  backdropFilter: "blur(20px)",
-                  border: `1px solid ${D.border}`,
-                }}
-              >
-                <div className="text-[9px] uppercase mb-1" style={{ color: D.gold, letterSpacing: "0.28em" }}>
-                  Qi 2.2 · 25W
-                </div>
-                <div className="text-xl font-light" style={{ color: D.beige }}>
-                  CHF 99.–
-                </div>
-                <div className="text-[10px] mt-1" style={{ color: D.mutedDim }}>
-                  Early Access · Limitiert auf 100
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile countdown */}
-          <div className="mt-12 md:hidden">
-            <Countdown dark />
           </div>
         </div>
 
