@@ -473,28 +473,29 @@ const MockupDarkPage = () => {
 
               {/* PREMIUM CAROUSEL — auto-rotating, editorial */}
               <HeroStillImage />
-            </div>
 
-            {/* RIGHT: Premium Product Card */}
-            <div className="md:col-span-5 md:sticky md:top-20">
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-5">
+              {/* ─── Product Info Block (Founder Edition + RAJ NEXUS + Features) ─── */}
+              <div className="mt-16 sm:mt-20">
+                <div className="flex items-center gap-3 mb-6">
                   <span className="w-6 h-px" style={{ background: D.gold }} />
                   <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
                     Founder Edition — Nur 100 Stück
                   </span>
                 </div>
 
-                <h2 className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3" style={{ color: D.beige, fontWeight: 200 }}>
+                <h2
+                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3"
+                  style={{ color: D.beige, fontWeight: 200 }}
+                >
                   RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
                 </h2>
-                <p className="text-base sm:text-lg mb-8" style={{ color: D.muted, fontWeight: 300 }}>
+                <p className="text-base sm:text-lg mb-10" style={{ color: D.muted, fontWeight: 300 }}>
                   3-in-1 Qi 2.2 Wireless Charger
                 </p>
 
-                <div className="h-px w-full mb-6" style={{ background: D.border }} />
+                <div className="h-px w-full mb-8" style={{ background: D.border }} />
 
-                <ul className="space-y-5 mb-8">
+                <ul className="space-y-6">
                   {[
                     { icon: Zap, title: "25W Qi 2.2", sub: "Schnellstes kabelloses Laden" },
                     { icon: Plus, title: "Designed in Switzerland", sub: "Präzision. Qualität. Vertrauen." },
@@ -517,8 +518,12 @@ const MockupDarkPage = () => {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
 
-                <div className="h-px w-full mb-6" style={{ background: D.border }} />
+            {/* RIGHT: Premium Product Card */}
+            <div className="md:col-span-5 md:sticky md:top-20">
+              <div className="relative">
 
                 <div className="flex items-baseline gap-3 mb-6">
                   <span className="text-6xl sm:text-7xl tabular-nums leading-none" style={{ color: D.gold, fontWeight: 200, letterSpacing: "-0.02em" }}>
