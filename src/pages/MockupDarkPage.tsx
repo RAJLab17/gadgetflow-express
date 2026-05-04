@@ -13,13 +13,13 @@ import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 // Echte Shop-Bilder (1:1 mit raj.ch)
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
 import nexusHeroDark from "@/assets/products/nexus-real-night-city.webp";
-import nexusFolds from "@/assets/products/nexus-real-folds-text-800.webp";
-import nexusDesk from "@/assets/products/nexus-real-desk-office-800.webp";
+import nexusFolds from "@/assets/products/nexus-real-folds-white-800.webp";
+import nexusDesk from "@/assets/products/nexus-real-desk-office-clean.webp";
 import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
-import nexusFeatures from "@/assets/products/nexus-real-features-800.webp";
-import nexusWindow from "@/assets/products/nexus-real-window-800.webp";
+import nexusFlat from "@/assets/products/nexus-flat-charging-800.webp";
+import nexusWindow from "@/assets/products/nexus-real-window-clean.webp";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
-import nexusNight from "@/assets/products/nexus-real-night-city-800.webp";
+import nexusNight from "@/assets/products/nexus-real-night-city-clean.webp";
 import nexusStoneHero from "@/assets/products/nexus-stone-hero.png";
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.png";
@@ -853,7 +853,7 @@ const MockupDarkPage = () => {
         <div className="max-w-7xl mx-auto space-y-24 md:space-y-36">
           {[
             {
-              img: nexusFeatures,
+              img: nexusFlat,
               alt: "100% in 1.5 Stunden",
               eyebrow: "Für die, die keine Zeit haben",
               title: "Vollgeladen, bevor der Kaffee fertig ist.",
