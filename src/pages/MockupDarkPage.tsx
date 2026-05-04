@@ -605,9 +605,6 @@ const MockupDarkPage = () => {
                   }}
                 />
 
-                <p className="text-center text-[9px] uppercase mt-4" style={{ color: D.mutedDim, letterSpacing: "0.32em" }}>
-                  Unverbindlich · Jederzeit abmeldbar
-                </p>
 
                 {/* Reassurance row */}
                 <div
