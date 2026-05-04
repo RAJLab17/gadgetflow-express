@@ -14,7 +14,7 @@ import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
 import nexusHeroDark from "@/assets/products/nexus-real-night-city.webp";
 import nexusFolds from "@/assets/products/nexus-real-folds-text-800.webp";
-import nexusDesk from "@/assets/products/nexus-real-desk-office-clean.webp";
+import nexusDesk from "@/assets/products/nexus-real-features-800.webp";
 import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
 import nexusFeatures from "@/assets/products/nexus-desk-writing.png";
 import nexusWindow from "@/assets/products/nexus-real-window-clean.webp";
