@@ -475,51 +475,72 @@ const MockupDarkPage = () => {
               <HeroStillImage />
             </div>
 
-            {/* RIGHT: Founder Conversion Card */}
+            {/* RIGHT: Premium Product Card */}
             <div className="md:col-span-5 md:sticky md:top-20">
-              <div
-                className="rounded-2xl p-5 sm:p-7 relative overflow-hidden"
-                style={{
-                  background: `linear-gradient(180deg, ${D.surface} 0%, ${D.surfaceHi} 100%)`,
-                  border: `1px solid ${D.gold}66`,
-                  boxShadow: `0 30px 80px -30px rgba(0,0,0,0.8), 0 0 0 1px ${D.gold}22`,
-                }}
-              >
-                {/* Founder Number Banner */}
-                <div className="flex items-center justify-between mb-4 pb-4" style={{ borderBottom: `1px solid ${D.border}` }}>
-                  <div className="flex items-center gap-2.5">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center"
-                      style={{ background: `linear-gradient(135deg, ${D.gold}, #8a6332)` }}
-                    >
-                      <Hash className="w-5 h-5" style={{ color: D.bg }} strokeWidth={2.5} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] uppercase tracking-wider font-medium leading-none" style={{ color: D.mutedDim }}>
-                        Du wärst
-                      </p>
-                      <p className="text-[20px] font-light leading-tight tabular-nums" style={{ color: D.beige }}>
-                        Founder #{nextFounderNumber}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[20px] font-light tabular-nums leading-tight" style={{ color: D.gold }}>
-                      {spotsTaken}<span className="text-[12px] font-medium" style={{ color: D.mutedDim }}> / 100</span>
-                    </p>
-                    <p className="text-[10px] font-medium leading-tight" style={{ color: D.mutedDim }}>
-                      Founders dabei
-                      {signupsToday > 0 && (
-                        <> · <span className="font-semibold" style={{ color: D.gold }}>+{signupsToday} heute</span></>
-                      )}
-                    </p>
-                  </div>
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="w-6 h-px" style={{ background: D.gold }} />
+                  <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
+                    Founder Edition — Nur 100 Stück
+                  </span>
                 </div>
 
-                {/* Progress */}
-                <div className="w-full mb-5">
+                <h2 className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3" style={{ color: D.beige, fontWeight: 200 }}>
+                  RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
+                </h2>
+                <p className="text-base sm:text-lg mb-8" style={{ color: D.muted, fontWeight: 300 }}>
+                  3-in-1 Qi 2.2 Wireless Charger
+                </p>
+
+                <div className="h-px w-full mb-6" style={{ background: D.border }} />
+
+                <ul className="space-y-5 mb-8">
+                  {[
+                    { icon: Zap, title: "25W Qi 2.2", sub: "Schnellstes kabelloses Laden" },
+                    { icon: Plus, title: "Designed in Switzerland", sub: "Präzision. Qualität. Vertrauen." },
+                    { icon: Package, title: "Kostenloser Versand", sub: "In der ganzen Schweiz" },
+                  ].map((f) => (
+                    <li key={f.title} className="flex items-start gap-4">
+                      <div
+                        className="w-11 h-11 rounded-md flex items-center justify-center shrink-0"
+                        style={{
+                          background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
+                          border: `1px solid ${D.gold}33`,
+                        }}
+                      >
+                        <f.icon className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.5} />
+                      </div>
+                      <div className="pt-0.5">
+                        <p className="text-[15px] font-medium leading-tight" style={{ color: D.beige }}>{f.title}</p>
+                        <p className="text-[12px] mt-1" style={{ color: D.mutedDim }}>{f.sub}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="h-px w-full mb-6" style={{ background: D.border }} />
+
+                <div className="flex items-baseline gap-3 mb-6">
+                  <span className="text-6xl sm:text-7xl tabular-nums leading-none" style={{ color: D.gold, fontWeight: 200, letterSpacing: "-0.02em" }}>
+                    CHF 99
+                  </span>
+                  <span className="text-[11px] uppercase" style={{ color: D.mutedDim, letterSpacing: "0.22em" }}>
+                    inkl. MwSt
+                  </span>
+                </div>
+
+                <div className="mb-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] uppercase font-medium" style={{ color: D.mutedDim, letterSpacing: "0.22em" }}>
+                      Du wärst Founder #{nextFounderNumber}
+                    </span>
+                    <span className="text-[10px] tabular-nums font-medium" style={{ color: D.gold, letterSpacing: "0.18em" }}>
+                      {spotsTaken} / 100
+                      {signupsToday > 0 && <span style={{ color: D.mutedDim }}> · +{signupsToday} heute</span>}
+                    </span>
+                  </div>
                   <div
-                    className="relative h-1 rounded-full overflow-hidden"
+                    className="relative h-px overflow-hidden"
                     style={{ backgroundColor: `${D.gold}22` }}
                     role="progressbar"
                     aria-valuenow={spotsTaken}
@@ -527,34 +548,12 @@ const MockupDarkPage = () => {
                     aria-valuemax={TOTAL_SPOTS}
                   >
                     <div
-                      className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-[1600ms] ease-out"
+                      className="absolute inset-y-0 left-0 transition-[width] duration-[1600ms] ease-out"
                       style={{ background: `linear-gradient(90deg, ${D.gold}, ${D.beige})`, width: `${progress}%` }}
                     />
                   </div>
                 </div>
 
-                {/* Benefits */}
-                <ul className="space-y-2.5 mb-5">
-                  {[
-                    { icon: Tag, text: "CHF 30 günstiger als regulär" },
-                    { icon: Gift, text: "Premium USB-C Kabel inklusive" },
-                    { icon: Hash, text: "Eigene Founder-Seriennummer" },
-                  ].map((b) => (
-                    <li key={b.text} className="flex items-center gap-2.5">
-                      <div
-                        className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: `${D.gold}1a` }}
-                      >
-                        <b.icon className="w-3.5 h-3.5" style={{ color: D.gold }} strokeWidth={2.2} />
-                      </div>
-                      <span className="text-[13px] sm:text-[14px] font-medium" style={{ color: D.beige }}>
-                        {b.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Form */}
                 <SignupForm
                   dark
                   onSuccess={() => {
@@ -565,31 +564,28 @@ const MockupDarkPage = () => {
                   }}
                 />
 
-                {/* Mini Trust */}
-                <div className="flex items-center justify-around gap-1 pt-4 mt-4" style={{ borderTop: `1px solid ${D.border}` }}>
-                  <div className="flex items-center gap-1.5">
-                    <Truck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.2} />
-                    <span className="text-[10px]" style={{ color: D.muted }}>Gratis CH</span>
+                <div className="flex items-center justify-center gap-5 mt-6">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.5} />
+                    <span className="text-[10px] uppercase" style={{ color: D.muted, letterSpacing: "0.18em" }}>
+                      14 Tage Rückgaberecht
+                    </span>
                   </div>
-                  <div className="w-px h-3" style={{ background: D.border }} />
-                  <div className="flex items-center gap-1.5">
-                    <RotateCcw className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.2} />
-                    <span className="text-[10px]" style={{ color: D.muted }}>30 Tage</span>
-                  </div>
-                  <div className="w-px h-3" style={{ background: D.border }} />
-                  <div className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.2} />
-                    <span className="text-[10px]" style={{ color: D.muted }}>3 J. Garantie</span>
+                  <span className="w-px h-3" style={{ background: D.border }} />
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2} />
+                    <span className="text-[10px] uppercase" style={{ color: D.muted, letterSpacing: "0.18em" }}>
+                      3 J. Garantie
+                    </span>
                   </div>
                 </div>
-              </div>
 
-              {/* Countdown UNTER Card */}
-              <div className="mt-6">
-                <p className="text-center text-[10px] uppercase tracking-[0.22em] font-medium mb-3" style={{ color: D.mutedDim }}>
-                  Launch in
-                </p>
-                <Countdown dark />
+                <div className="mt-10">
+                  <p className="text-center text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
+                    Launch in
+                  </p>
+                  <Countdown dark />
+                </div>
               </div>
             </div>
           </div>
