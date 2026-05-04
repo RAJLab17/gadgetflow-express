@@ -25,9 +25,10 @@ import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.webp";
 import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
-import nexusStoneHero from "@/assets/products/nexus-hero-night-city.webp";
-import nexusStoneHero680 from "@/assets/products/nexus-hero-night-city-680w.webp";
-import nexusStoneHero1200 from "@/assets/products/nexus-hero-night-city-1200w.webp";
+// Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
+const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
+const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
+const nexusStoneHero = nexusStoneHero1200;
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.webp";
 import payVisa from "@/assets/payments/visa.webp";
