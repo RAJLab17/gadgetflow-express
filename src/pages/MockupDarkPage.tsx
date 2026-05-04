@@ -853,7 +853,7 @@ const MockupDarkPage = () => {
         <div className="max-w-7xl mx-auto space-y-24 md:space-y-36">
           {[
             {
-              img: nexusFeatures,
+              img: nexusFlat,
               alt: "100% in 1.5 Stunden",
               eyebrow: "Für die, die keine Zeit haben",
               title: "Vollgeladen, bevor der Kaffee fertig ist.",
