@@ -19,21 +19,20 @@ import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
 
-// Hero Carousel — echte Shop-Slides (premium-rotation)
-const heroBedside = "/hero/hero-1-bedside.webp";
-const heroBedsideSm = "/hero/hero-1-bedside-480.webp";
-const heroFast = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
-const heroFastSm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
-const heroClean = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
-const heroCleanSm = new URL("../assets/hero-carousel/slide-4-clean-480.webp", import.meta.url).href;
+// Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
 const heroDesireSm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
+const heroIphoneWatchPods = new URL("../assets/hero-carousel/nexus-iphone-watch-airpods.png", import.meta.url).href;
+const heroEmptyQi2 = new URL("../assets/hero-carousel/nexus-empty-qi2.png", import.meta.url).href;
+const hero3in1Charging = new URL("../assets/hero-carousel/nexus-3in1-charging.png", import.meta.url).href;
+const heroFlatIphone = new URL("../assets/hero-carousel/nexus-flat-iphone.png", import.meta.url).href;
 
 const HERO_SLIDES = [
-  { src: heroBedside, srcSm: heroBedsideSm, eyebrow: "Nachts", caption: "Während du schläfst." },
-  { src: heroFast,    srcSm: heroFastSm,    eyebrow: "Tempo",  caption: "100% in 1.5 Stunden." },
-  { src: heroDesire,  srcSm: heroDesireSm,  eyebrow: "Form",   caption: "Objekt, nicht Gerät." },
-  { src: heroClean,   srcSm: heroCleanSm,   eyebrow: "Reise",  caption: "Faltbar. 250 Gramm." },
+  { src: heroDesire,            srcSm: heroDesireSm,        eyebrow: "Form",    caption: "Objekt, nicht Gerät." },
+  { src: heroIphoneWatchPods,   srcSm: heroIphoneWatchPods, eyebrow: "3-in-1",  caption: "iPhone. Watch. AirPods." },
+  { src: heroEmptyQi2,          srcSm: heroEmptyQi2,        eyebrow: "Qi 2.2",  caption: "Magnetisch. Präzise." },
+  { src: hero3in1Charging,      srcSm: hero3in1Charging,    eyebrow: "Power",   caption: "Drei Geräte. Eine Station." },
+  { src: heroFlatIphone,        srcSm: heroFlatIphone,      eyebrow: "Flach",   caption: "Faltbar. 250 Gramm." },
 ] as const;
 
 /**
@@ -298,8 +297,8 @@ const HeroPremiumCarousel = () => {
             alt={s.caption}
             loading={idx === 0 ? "eager" : "lazy"}
             decoding={idx === 0 ? "sync" : "async"}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-out"
-            style={{ opacity: i === idx ? 1 : 0 }}
+            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-[1400ms] ease-out"
+            style={{ opacity: i === idx ? 1 : 0, background: D.surface }}
           />
         ))}
 
