@@ -106,6 +106,8 @@ const Beste3in1ChargerPage = () => {
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <PremiumPageLayout
         title="Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich | RAJ"
