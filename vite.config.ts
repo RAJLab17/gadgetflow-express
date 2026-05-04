@@ -1,7 +1,23 @@
-import { defineConfig } from "vite";
+import { defineConfig, type PluginOption } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { generateSitemap } from "./scripts/generate-sitemap.mjs";
+
+// Vite plugin: regenerates public/sitemap.xml from src/content/site-urls.ts
+// before every build, and once on dev server start.
+const sitemapPlugin = (): PluginOption => ({
+  name: "raj-sitemap-generator",
+  apply: () => true,
+  async buildStart() {
+    try {
+      const { count } = await generateSitemap();
+      this.info(`sitemap.xml regenerated (${count} URLs)`);
+    } catch (err) {
+      this.warn(`sitemap generation skipped: ${(err as Error).message}`);
+    }
+  },
+});
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -9,7 +25,11 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(),
+    sitemapPlugin(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
