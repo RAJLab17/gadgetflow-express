@@ -19,6 +19,7 @@ import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
 import nexusFeatures from "@/assets/products/nexus-desk-writing.png";
 import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.png";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.png";
+import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.png";
 import nexusStoneHero from "@/assets/products/nexus-stone-hero.png";
 import logo from "@/assets/logo-new.webp";
@@ -1062,7 +1063,7 @@ const MockupDarkPage = () => {
       >
         {/* Background image faded */}
         <div className="absolute inset-0 opacity-25 pointer-events-none">
-          <img src={nexusSofa} alt="" className="w-full h-full object-cover" />
+          <img src={nexusFinalCta} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${D.bg} 0%, rgba(10,10,10,0.7) 50%, ${D.bg} 100%)` }} />
         </div>
 
