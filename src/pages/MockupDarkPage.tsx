@@ -420,14 +420,17 @@ const MockupDarkPage = () => {
         className="relative overflow-hidden"
         style={{ background: D.bg, color: D.beige }}
       >
-        {/* Header — Logo in Originalfarben (hellbeiger Container) */}
+        {/* Header — Logo transparent on dark */}
         <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
-          <div
-            className="inline-flex items-center justify-center px-3 py-1.5 rounded-md"
-            style={{ background: D.beige }}
-          >
-            <img src={logo} alt="RAJ" className="h-6 w-auto" />
-          </div>
+          <a href="/" aria-label="RAJ" className="inline-flex items-center">
+            <img
+              src={logoTransparent}
+              alt="RAJ"
+              className="h-9 sm:h-10 w-auto select-none"
+              style={{ filter: "drop-shadow(0 4px 14px rgba(0,0,0,0.5))" }}
+              draggable={false}
+            />
+          </a>
 
           {/* Center nav */}
           <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase" style={{ letterSpacing: "0.28em" }}>
