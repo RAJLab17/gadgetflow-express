@@ -89,7 +89,7 @@ const App = () => (
             <DevModeToggle />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/nexus" element={<WithCart><ShopPreview /></WithCart>} />
+              <Route path="/nexus" element={<MockupDarkPage />} />
               <Route path="/product/magnetic-cable" element={<WithCart><ProductPage /></WithCart>} />
               <Route path="/product/magsafe-powerbank" element={<WithCart><PowerBankPage /></WithCart>} />
               <Route path="/product/powerbank-ultra-20k" element={<WithCart><PowerBank20kPage /></WithCart>} />
