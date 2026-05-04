@@ -12,7 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
-import thurgauMap from "@/assets/about-thurgau.png";
+import thurgauMap from "@/assets/about-thurgau-clean.png";
 
 const grundsaetze = [
   "RAJ steht für Energieprodukte mit klarem Fokus auf Funktion und Beständigkeit.",

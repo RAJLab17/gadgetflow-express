@@ -56,21 +56,22 @@ const PremiumPageLayout = ({
                 <img
                   src={heroImage}
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover object-center select-none"
+                  className="absolute inset-0 w-full h-full object-cover select-none"
+                  style={{ objectPosition: "right center" }}
                 />
-                {/* Left fade for text legibility */}
+                {/* Left fade for text legibility — keeps right side (map + Thurgau) visible */}
                 <div
                   className="absolute inset-0 hidden md:block"
                   style={{
                     background:
-                      "linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.78) 35%, rgba(10,10,10,0.35) 65%, rgba(10,10,10,0.15) 100%)",
+                      "linear-gradient(90deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.82) 25%, rgba(10,10,10,0.35) 50%, rgba(10,10,10,0) 75%)",
                   }}
                 />
                 <div
                   className="absolute inset-0 md:hidden"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.85) 100%)",
+                      "linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.35) 50%, rgba(10,10,10,0.85) 100%)",
                   }}
                 />
                 {/* Bottom fade into page background */}
