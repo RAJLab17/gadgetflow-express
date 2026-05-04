@@ -528,7 +528,12 @@ const MockupDarkPage = () => {
         </div>
         {/* Header — Logo transparent on dark */}
         <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
-          <a href="/" aria-label="RAJ" className="inline-flex items-center">
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="RAJ"
+            className="inline-flex items-center bg-transparent border-0 p-0 cursor-pointer"
+          >
             <img
               src={logoTransparent}
               alt="RAJ"
@@ -536,7 +541,7 @@ const MockupDarkPage = () => {
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
-          </a>
+          </button>
 
           {/* Center nav */}
           <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase" style={{ letterSpacing: "0.28em" }}>
