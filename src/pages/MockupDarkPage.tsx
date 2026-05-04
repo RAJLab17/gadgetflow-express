@@ -1088,8 +1088,8 @@ const MockupDarkPage = () => {
 
       {/* Footer */}
       <footer style={{ background: D.bg, borderTop: `1px solid ${D.border}` }} className="py-10 px-5 text-center">
-        <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md" style={{ background: D.beige }}>
-          <img src={logo} alt="RAJ" className="h-5 w-auto" />
+        <div className="inline-flex items-center justify-center">
+          <img src={logoTransparent} alt="RAJ" className="h-12 w-auto" style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }} />
         </div>
         <p className="text-[10px] uppercase mt-4" style={{ color: D.gold, letterSpacing: "0.28em" }}>
           Power. Always There.
