@@ -1,9 +1,9 @@
-import { useEffect, useState, FormEvent, lazy, Suspense } from "react";
+import { useEffect, useState, useCallback, FormEvent, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
-  ShieldCheck, Truck, RotateCcw, Plus,
+  ShieldCheck, Truck, RotateCcw, Plus, Hash, Tag, Gift,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
