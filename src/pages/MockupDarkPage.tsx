@@ -883,6 +883,8 @@ const MockupDarkPage = () => {
             },
             {
               img: nexusDesk,
+              srcSet: `${nexusDesk680} 680w, ${nexusDesk1200} 1200w, ${nexusDesk} 1600w`,
+              sizes: "(max-width: 768px) 100vw, 50vw",
               alt: "Aufgeräumter Schreibtisch",
               eyebrow: "Für die, die Ordnung lieben",
               title: "Drei Kabel weg. Ein Objekt da.",
