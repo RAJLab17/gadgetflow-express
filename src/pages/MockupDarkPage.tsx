@@ -471,94 +471,90 @@ const MockupDarkPage = () => {
                 <span style={{ color: D.mutedDim }}>Qi 2.2 zertifiziert. Schweizer Idee.</span>
               </p>
 
-              {/* PREMIUM CAROUSEL — auto-rotating, editorial */}
+              {/* PREMIUM HERO IMAGE — single still */}
               <HeroStillImage />
+            </div>
 
-              {/* ─── Product Info Block (Founder Edition + RAJ NEXUS + Features) ─── */}
-              <div className="mt-16 sm:mt-20">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-6 h-px" style={{ background: D.gold }} />
-                  <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-                    Founder Edition — Nur 100 Stück
-                  </span>
+            {/* RIGHT: Premium Founder Card (boxed, matching reference) */}
+            <div className="md:col-span-5 md:sticky md:top-20">
+              <div
+                className="relative rounded-2xl p-7 sm:p-8"
+                style={{
+                  background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
+                  border: `1px solid ${D.gold}33`,
+                  boxShadow: "0 40px 100px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,168,118,0.08) inset",
+                }}
+              >
+                {/* Header row: Founder badge + counter */}
+                <div className="flex items-start justify-between mb-5">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                      style={{
+                        background: `${D.gold}1a`,
+                        border: `1px solid ${D.gold}55`,
+                      }}
+                    >
+                      <Hash className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.8} />
+                    </div>
+                    <div>
+                      <p className="text-[9px] uppercase font-semibold leading-none mb-1.5" style={{ color: D.mutedDim, letterSpacing: "0.28em" }}>
+                        Du wärst
+                      </p>
+                      <p className="text-lg leading-none" style={{ color: D.beige, fontWeight: 400 }}>
+                        Founder <span style={{ color: D.gold }}>#{nextFounderNumber}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-base tabular-nums leading-none" style={{ color: D.beige, fontWeight: 300 }}>
+                      <span style={{ fontWeight: 500 }}>{spotsTaken}</span>
+                      <span style={{ color: D.mutedDim }}> / {TOTAL_SPOTS}</span>
+                    </p>
+                    <p className="text-[9px] uppercase mt-1.5" style={{ color: D.mutedDim, letterSpacing: "0.18em" }}>
+                      Founders dabei
+                      {signupsToday > 0 && <span style={{ color: D.gold }}> · +{signupsToday} heute</span>}
+                    </p>
+                  </div>
                 </div>
 
-                <h2
-                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3"
-                  style={{ color: D.beige, fontWeight: 200 }}
+                {/* Progress bar */}
+                <div
+                  className="relative h-px overflow-hidden mb-7"
+                  style={{ backgroundColor: `${D.gold}22` }}
+                  role="progressbar"
+                  aria-valuenow={spotsTaken}
+                  aria-valuemin={0}
+                  aria-valuemax={TOTAL_SPOTS}
                 >
-                  RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
-                </h2>
-                <p className="text-base sm:text-lg mb-10" style={{ color: D.muted, fontWeight: 300 }}>
-                  3-in-1 Qi 2.2 Wireless Charger
-                </p>
+                  <div
+                    className="absolute inset-y-0 left-0 transition-[width] duration-[1600ms] ease-out"
+                    style={{ background: `linear-gradient(90deg, ${D.gold}, ${D.beige})`, width: `${progress}%` }}
+                  />
+                </div>
 
-                <div className="h-px w-full mb-8" style={{ background: D.border }} />
-
-                <ul className="space-y-6">
+                {/* Founder benefits */}
+                <ul className="space-y-3.5 mb-7">
                   {[
-                    { icon: Zap, title: "25W Qi 2.2", sub: "Schnellstes kabelloses Laden" },
-                    { icon: Plus, title: "Designed in Switzerland", sub: "Präzision. Qualität. Vertrauen." },
-                    { icon: Package, title: "Kostenloser Versand", sub: "In der ganzen Schweiz" },
-                  ].map((f) => (
-                    <li key={f.title} className="flex items-start gap-4">
+                    { icon: Tag, label: "CHF 30 günstiger als regulär" },
+                    { icon: Plus, label: "Premium USB-C Kabel inklusive" },
+                    { icon: Hash, label: "Eigene Founder-Seriennummer" },
+                  ].map((b) => (
+                    <li key={b.label} className="flex items-center gap-3">
                       <div
-                        className="w-11 h-11 rounded-md flex items-center justify-center shrink-0"
-                        style={{
-                          background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
-                          border: `1px solid ${D.gold}33`,
-                        }}
+                        className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+                        style={{ background: `${D.gold}14`, border: `1px solid ${D.gold}33` }}
                       >
-                        <f.icon className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.5} />
+                        <b.icon className="w-3.5 h-3.5" style={{ color: D.gold }} strokeWidth={1.8} />
                       </div>
-                      <div className="pt-0.5">
-                        <p className="text-[15px] font-medium leading-tight" style={{ color: D.beige }}>{f.title}</p>
-                        <p className="text-[12px] mt-1" style={{ color: D.mutedDim }}>{f.sub}</p>
-                      </div>
+                      <span className="text-[13px]" style={{ color: D.beige, fontWeight: 300 }}>
+                        {b.label}
+                      </span>
                     </li>
                   ))}
                 </ul>
-              </div>
-            </div>
 
-            {/* RIGHT: Premium Product Card */}
-            <div className="md:col-span-5 md:sticky md:top-20">
-              <div className="relative">
-
-                <div className="flex items-baseline gap-3 mb-6">
-                  <span className="text-6xl sm:text-7xl tabular-nums leading-none" style={{ color: D.gold, fontWeight: 200, letterSpacing: "-0.02em" }}>
-                    CHF 99
-                  </span>
-                  <span className="text-[11px] uppercase" style={{ color: D.mutedDim, letterSpacing: "0.22em" }}>
-                    inkl. MwSt
-                  </span>
-                </div>
-
-                <div className="mb-5">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] uppercase font-medium" style={{ color: D.mutedDim, letterSpacing: "0.22em" }}>
-                      Du wärst Founder #{nextFounderNumber}
-                    </span>
-                    <span className="text-[10px] tabular-nums font-medium" style={{ color: D.gold, letterSpacing: "0.18em" }}>
-                      {spotsTaken} / 100
-                      {signupsToday > 0 && <span style={{ color: D.mutedDim }}> · +{signupsToday} heute</span>}
-                    </span>
-                  </div>
-                  <div
-                    className="relative h-px overflow-hidden"
-                    style={{ backgroundColor: `${D.gold}22` }}
-                    role="progressbar"
-                    aria-valuenow={spotsTaken}
-                    aria-valuemin={0}
-                    aria-valuemax={TOTAL_SPOTS}
-                  >
-                    <div
-                      className="absolute inset-y-0 left-0 transition-[width] duration-[1600ms] ease-out"
-                      style={{ background: `linear-gradient(90deg, ${D.gold}, ${D.beige})`, width: `${progress}%` }}
-                    />
-                  </div>
-                </div>
-
+                {/* Email signup */}
                 <SignupForm
                   dark
                   onSuccess={() => {
@@ -569,28 +565,44 @@ const MockupDarkPage = () => {
                   }}
                 />
 
-                <div className="flex items-center justify-center gap-5 mt-6">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2.5} />
-                    <span className="text-[10px] uppercase" style={{ color: D.muted, letterSpacing: "0.18em" }}>
-                      14 Tage Rückgaberecht
+                <p className="text-center text-[9px] uppercase mt-4" style={{ color: D.mutedDim, letterSpacing: "0.32em" }}>
+                  Unverbindlich · Jederzeit abmeldbar
+                </p>
+
+                {/* Reassurance row */}
+                <div
+                  className="flex items-center justify-center gap-5 mt-5 pt-5"
+                  style={{ borderTop: `1px solid ${D.border}` }}
+                >
+                  <div className="flex items-center gap-1.5">
+                    <Package className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
+                    <span className="text-[10px]" style={{ color: D.muted, letterSpacing: "0.06em" }}>
+                      Gratis CH
                     </span>
                   </div>
                   <span className="w-px h-3" style={{ background: D.border }} />
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={2} />
-                    <span className="text-[10px] uppercase" style={{ color: D.muted, letterSpacing: "0.18em" }}>
+                  <div className="flex items-center gap-1.5">
+                    <RefreshCw className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
+                    <span className="text-[10px]" style={{ color: D.muted, letterSpacing: "0.06em" }}>
+                      30 Tage
+                    </span>
+                  </div>
+                  <span className="w-px h-3" style={{ background: D.border }} />
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
+                    <span className="text-[10px]" style={{ color: D.muted, letterSpacing: "0.06em" }}>
                       3 J. Garantie
                     </span>
                   </div>
                 </div>
+              </div>
 
-                <div className="mt-10">
-                  <p className="text-center text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
-                    Launch in
-                  </p>
-                  <Countdown dark />
-                </div>
+              {/* Countdown OUTSIDE card */}
+              <div className="mt-10">
+                <p className="text-center text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
+                  Launch in
+                </p>
+                <Countdown dark />
               </div>
             </div>
           </div>
