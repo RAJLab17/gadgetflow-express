@@ -384,66 +384,50 @@ const MockupDarkPage = () => {
           </nav>
         </header>
 
+        {/* Subtle ambient gold haze (Apple keynote feel) */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[700px] pointer-events-none opacity-[0.18]"
+          style={{ background: `radial-gradient(ellipse at center, ${D.gold} 0%, transparent 60%)` }}
+          aria-hidden
+        />
+        {/* Vignette bottom */}
+        <div
+          className="absolute bottom-0 inset-x-0 h-40 pointer-events-none"
+          style={{ background: `linear-gradient(to bottom, transparent, ${D.bg})` }}
+          aria-hidden
+        />
+
         {/* Hero content */}
-        <div className="relative px-5 sm:px-10 pt-6 sm:pt-12 pb-20 sm:pb-32 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
-            {/* LEFT: editorial copy + product image */}
+        <div className="relative px-5 sm:px-10 pt-4 sm:pt-10 pb-20 sm:pb-32 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-14 items-start">
+            {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative">
               <span
-                className="inline-block text-[10px] uppercase mb-6"
-                style={{ color: D.gold, letterSpacing: "0.32em" }}
+                className="inline-flex items-center gap-3 text-[10px] uppercase mb-7"
+                style={{ color: D.gold, letterSpacing: "0.34em" }}
               >
-                — Edition 01 · Mai 2026
+                <span className="w-6 h-px" style={{ background: D.gold }} />
+                Edition 01 · Mai 2026
               </span>
               <h1
-                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight"
-                style={{ color: D.beige, fontWeight: 300 }}
+                className="text-[44px] sm:text-6xl md:text-7xl lg:text-[88px] leading-[0.92] tracking-[-0.02em]"
+                style={{ color: D.beige, fontWeight: 200 }}
               >
                 Power.<br />
                 <span style={{ fontStyle: "italic", fontWeight: 200 }}>Always</span>{" "}
-                <span style={{ color: D.gold }}>There.</span>
+                <span style={{ color: D.gold, fontWeight: 300 }}>There.</span>
               </h1>
-              <div className="w-12 h-px my-8" style={{ background: D.gold }} />
+              <div className="w-12 h-px my-7 sm:my-9" style={{ background: D.gold }} />
               <p
                 className="text-base sm:text-lg leading-relaxed max-w-md"
-                style={{ color: D.muted, fontWeight: 300 }}
+                style={{ color: D.muted, fontWeight: 300, letterSpacing: "0.005em" }}
               >
                 Drei Geräte. Ein Objekt. Kein Kabel.<br />
-                Qi2.2 zertifiziert. Schweizer Idee.
+                <span style={{ color: D.mutedDim }}>Qi 2.2 zertifiziert. Schweizer Idee.</span>
               </p>
 
-              {/* Product image — editorial */}
-              <div className="relative mt-10">
-                <div
-                  className="absolute inset-0 rounded-full blur-[100px] opacity-50 pointer-events-none"
-                  style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
-                  aria-hidden
-                />
-                <img
-                  src={nexusHeroDark}
-                  alt="RAJ NEXUS in der Nacht"
-                  className="relative w-full aspect-[5/4] object-cover rounded-sm"
-                  style={{ boxShadow: "0 60px 120px -40px rgba(0,0,0,0.8)" }}
-                />
-                <div
-                  className="absolute bottom-5 left-5 sm:bottom-8 sm:left-8 px-5 py-4 rounded-sm max-w-[200px]"
-                  style={{
-                    background: "rgba(10,10,10,0.7)",
-                    backdropFilter: "blur(20px)",
-                    border: `1px solid ${D.border}`,
-                  }}
-                >
-                  <div className="text-[9px] uppercase mb-1" style={{ color: D.gold, letterSpacing: "0.28em" }}>
-                    Qi 2.2 · 25W
-                  </div>
-                  <div className="text-xl font-light" style={{ color: D.beige }}>
-                    CHF 99.–
-                  </div>
-                  <div className="text-[10px] mt-1" style={{ color: D.mutedDim }}>
-                    Early Access · Limitiert auf 100
-                  </div>
-                </div>
-              </div>
+              {/* PREMIUM CAROUSEL — auto-rotating, editorial */}
+              <HeroPremiumCarousel />
             </div>
 
             {/* RIGHT: Founder Conversion Card */}
