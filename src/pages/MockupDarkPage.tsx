@@ -387,7 +387,7 @@ const HeroStillImage = () => {
         }}
       >
         <img
-          src={heroStone}
+          src={nexusStoneHero}
           alt="RAJ NEXUS auf Stein – Premium Editorial."
           loading="eager"
           decoding="sync"
@@ -508,7 +508,7 @@ const MockupDarkPage = () => {
         {/* Editorial dark hero background — Stone Nexus */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
           <img
-            src={nexusStoneHero}
+            src={heroStone}
             alt=""
             className="absolute top-1/2 -translate-y-1/2 h-[80%] sm:h-[110%] md:h-[120%] w-auto max-w-none opacity-25 sm:opacity-35 left-1/2 -translate-x-1/2 md:left-auto md:right-[-15%] md:translate-x-0"
             style={{}}
