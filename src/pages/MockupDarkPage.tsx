@@ -176,35 +176,50 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
         <input value={hp1} onChange={(e) => setHp1(e.target.value)} tabIndex={-1} autoComplete="off" />
         <input value={hp2} onChange={(e) => setHp2(e.target.value)} tabIndex={-1} autoComplete="off" />
       </div>
-      <div
-        className="flex items-center gap-1 p-1.5 rounded-full"
-        style={{
-          background: dark ? "rgba(232,220,196,0.06)" : "#FFFFFF",
-          border: `1px solid ${dark ? D.border : L.border}`,
-          backdropFilter: "blur(12px)",
-        }}
-      >
-        <Mail className="w-4 h-4 ml-4 shrink-0" style={{ color: dark ? D.muted : L.textMuted }} />
-        <input
-          id="mockup-email"
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="deine@email.ch"
-          className="flex-1 bg-transparent outline-none px-3 py-3 text-sm"
-          style={{ color: dark ? D.beige : L.text }}
-        />
+      {/* Price row — CHF 99 with 129 strikethrough */}
+      <div className="flex items-baseline justify-center gap-3 mb-5">
+        <span className="text-4xl sm:text-5xl tracking-tight" style={{ color: dark ? D.beige : L.text, fontWeight: 300 }}>
+          CHF 99<span style={{ fontSize: "0.6em" }}>.–</span>
+        </span>
+        <span className="text-lg line-through" style={{ color: dark ? D.mutedDim : L.textDim, fontWeight: 300 }}>
+          CHF 129.–
+        </span>
+        <span className="text-[10px] uppercase" style={{ color: dark ? D.mutedDim : L.textDim, letterSpacing: "0.2em" }}>
+          inkl. MwSt
+        </span>
+      </div>
+
+      <div className="space-y-3">
+        <div
+          className="flex items-center gap-2 px-4 rounded-full"
+          style={{
+            background: "#FFFFFF",
+            border: `1px solid ${dark ? "rgba(0,0,0,0.1)" : L.border}`,
+          }}
+        >
+          <Mail className="w-4 h-4 shrink-0" style={{ color: "#8a8278" }} />
+          <input
+            id="mockup-email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="deine@email.ch"
+            className="flex-1 bg-transparent outline-none px-1 py-3 text-sm"
+            style={{ color: "#1a1714" }}
+          />
+        </div>
         <button
           type="submit"
           disabled={busy}
-          className="shrink-0 inline-flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-[0.18em] transition-all hover:scale-[1.02] disabled:opacity-60"
+          className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-[0.24em] transition-all hover:scale-[1.01] disabled:opacity-60"
           style={{
-            background: dark ? D.beige : L.text,
-            color: dark ? D.bg : L.bg,
+            background: `linear-gradient(180deg, ${D.gold}, #8a5a35)`,
+            color: "#1a1410",
+            boxShadow: `0 14px 34px -12px ${D.gold}80, inset 0 1px 0 rgba(255,255,255,0.28)`,
           }}
         >
-          {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <>Sichern <ArrowRight className="w-3.5 h-3.5" /></>}
+          {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <>Jetzt sichern <ArrowRight className="w-3.5 h-3.5" /></>}
         </button>
       </div>
       <p
