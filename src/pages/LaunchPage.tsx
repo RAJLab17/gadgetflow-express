@@ -7,6 +7,7 @@ const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
 
 import { Helmet } from "react-helmet-async";
+import { PRODUCT_NEXUS_JSON_LD, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
@@ -235,6 +236,8 @@ const LaunchPage = () => {
         <meta property="og:site_name" content="RAJ" />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch" />
+        <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
+        <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
       </Helmet>
 
 
