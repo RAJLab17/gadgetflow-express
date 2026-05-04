@@ -17,6 +17,11 @@ const breadcrumb = breadcrumbJsonLd([
 
 const MagSafeLadestationPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(article)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="MagSafe kompatible Ladestation Schweiz – Was du wissen musst | RAJ"
       metaDescription="MagSafe Ladestation für iPhone, Apple Watch und AirPods in der Schweiz. Was MagSafe-kompatibel bedeutet und welche Ladestation wirklich passt."
@@ -86,6 +91,7 @@ const MagSafeLadestationPage = () => {
         </div>
       </div>
     </PremiumPageLayout>
+    </>
   );
 };
 

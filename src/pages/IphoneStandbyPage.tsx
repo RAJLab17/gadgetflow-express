@@ -17,6 +17,11 @@ const breadcrumb = breadcrumbJsonLd([
 
 const IphoneStandbyPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(article)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="iPhone StandBy Modus – Die perfekte Ladestation dafür | RAJ"
       metaDescription="Der StandBy Modus vom iPhone braucht die richtige Ladestation. Welche Voraussetzungen es gibt und warum Qi2.2 der beste Standard dafür ist."
@@ -92,6 +97,7 @@ const IphoneStandbyPage = () => {
         </div>
       </div>
     </PremiumPageLayout>
+    </>
   );
 };
 

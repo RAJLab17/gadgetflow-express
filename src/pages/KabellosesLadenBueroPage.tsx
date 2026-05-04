@@ -24,6 +24,11 @@ const P = ({ children }: { children: React.ReactNode }) => (
 
 const KabellosesLadenBueroPage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(article)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="Kabelloses Laden im Büro Schweiz – Kabelsalat eliminieren | RAJ"
       metaDescription="Wie Schweizer KMUs mit kabellosen Ladestationen Ordnung auf den Schreibtisch bringen. Qi2.2, Swiss Support, Mengenpreise für Teams."
@@ -99,6 +104,7 @@ const KabellosesLadenBueroPage = () => {
         </Link>
       </div>
     </PremiumPageLayout>
+    </>
   );
 };
 

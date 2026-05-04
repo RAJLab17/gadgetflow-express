@@ -17,6 +17,11 @@ const breadcrumb = breadcrumbJsonLd([
 
 const ThreeInOnePage = () => {
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(article)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="3-in-1 Ladestation iPhone Apple Watch AirPods Schweiz | RAJ"
       metaDescription="Alle drei Apple-Geräte gleichzeitig laden. Die beste 3-in-1 Ladestation für iPhone, Apple Watch und AirPods in der Schweiz – Qi2.2 zertifiziert."
@@ -120,6 +125,7 @@ const ThreeInOnePage = () => {
         </div>
       </div>
     </PremiumPageLayout>
+    </>
   );
 };
 
