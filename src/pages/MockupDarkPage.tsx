@@ -366,17 +366,17 @@ const TOTAL_SPOTS = 100;
 // ─────────────────────────────────────────────────────────────────
 const HeroStillImage = () => {
   return (
-    <div className="relative mt-10 sm:mt-12">
+    <div className="relative mt-10 sm:mt-12 mx-auto w-full max-w-full">
       {/* Ambient gold halo */}
       <div
-        className="absolute -inset-10 rounded-full blur-[120px] opacity-40 pointer-events-none"
+        className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
         style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
         aria-hidden
       />
 
       {/* Frame */}
       <div
-        className="relative w-full aspect-[5/4] overflow-hidden rounded-sm"
+        className="relative w-full aspect-[5/4] overflow-hidden rounded-sm mx-auto"
         style={{
           boxShadow: "0 60px 140px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(201,168,118,0.15)",
         }}
