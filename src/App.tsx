@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useSearchParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useSearchParams, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useCartSync } from "@/hooks/useCartSync";
@@ -86,6 +86,7 @@ const App = () => (
             <DevModeToggle />
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/nexus" element={<Navigate to="/" replace />} />
               <Route path="/product/magnetic-cable" element={<WithCart><ProductPage /></WithCart>} />
               <Route path="/product/magsafe-powerbank" element={<WithCart><PowerBankPage /></WithCart>} />
               <Route path="/product/powerbank-ultra-20k" element={<WithCart><PowerBank20kPage /></WithCart>} />
