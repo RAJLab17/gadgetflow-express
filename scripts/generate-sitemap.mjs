@@ -13,17 +13,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 
 async function loadEntries() {
-  // Vite bundles esbuild — use it to transpile our TS source.
-  const { transformSync } = await import("vite").then((v) =>
-    v.preprocessCSS ? v : v,
-  ).then(async () => {
-    // esbuild is shipped inside vite's deps
-    return await import("esbuild");
-  }).catch(async () => await import("esbuild"));
-  const tsPath = resolve(ROOT, "src/content/site-urls.ts");
+  const { transformWithEsbuild } = await import("vite");
   const { readFileSync } = await import("node:fs");
+  const tsPath = resolve(ROOT, "src/content/site-urls.ts");
   const source = readFileSync(tsPath, "utf8");
-  const { code } = transformSync(source, {
+  const { code } = await transformWithEsbuild(source, tsPath, {
     loader: "ts",
     format: "esm",
     target: "es2022",
