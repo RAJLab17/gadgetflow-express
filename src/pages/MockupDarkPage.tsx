@@ -815,12 +815,12 @@ const MockupDarkPage = () => {
               — Drei Geräte · Ein Ort
             </span>
             <h2 className="text-3xl md:text-5xl mt-5 leading-tight tracking-tight" style={{ fontWeight: 300 }}>
-              Alles was du am Bett brauchst.<br />
+              Alles gleichzeitig laden.<br />
               <span style={{ fontStyle: "italic", color: L.textMuted }}>Nichts mehr.</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+          <div className="grid grid-cols-3 gap-4 sm:gap-12 md:gap-16">
             {[
               { icon: Smartphone, label: "iPhone", spec: "15W MagSafe" },
               { icon: Watch, label: "Apple Watch", spec: "Schnellladung" },
@@ -828,31 +828,15 @@ const MockupDarkPage = () => {
             ].map((d) => (
               <div key={d.label} className="text-center">
                 <div
-                  className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5"
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full flex items-center justify-center mb-5"
                   style={{ background: "#FFFFFF", border: `1px solid ${L.border}` }}
                 >
-                  <d.icon className="w-6 h-6" style={{ color: L.gold }} strokeWidth={1.3} />
+                  <d.icon className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12" style={{ color: L.gold }} strokeWidth={1.2} />
                 </div>
-                <div className="text-lg font-light tracking-tight">{d.label}</div>
-                <div className="text-xs mt-1" style={{ color: L.textDim, letterSpacing: "0.16em" }}>
+                <div className="text-sm sm:text-lg font-light tracking-tight">{d.label}</div>
+                <div className="text-[10px] sm:text-xs mt-1" style={{ color: L.textDim, letterSpacing: "0.16em" }}>
                   {d.spec.toUpperCase()}
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Trust strip */}
-          <div className="mt-20 md:mt-28 grid grid-cols-3 gap-4 max-w-3xl mx-auto pt-10" style={{ borderTop: `1px solid ${L.border}` }}>
-            {[
-              { icon: ShieldCheck, label: "3 Jahre Garantie" },
-              { icon: Truck, label: "Gratis Versand CH" },
-              { icon: RotateCcw, label: "30 Tage Rückgabe" },
-            ].map((it) => (
-              <div key={it.label} className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-center sm:text-left">
-                <it.icon className="w-4 h-4 shrink-0" style={{ color: L.gold }} strokeWidth={1.5} />
-                <span className="text-[11px] sm:text-xs uppercase" style={{ color: L.textMuted, letterSpacing: "0.18em" }}>
-                  {it.label}
-                </span>
               </div>
             ))}
           </div>
