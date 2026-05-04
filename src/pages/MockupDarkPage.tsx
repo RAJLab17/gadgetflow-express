@@ -19,12 +19,13 @@ import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.png";
-import payVisa from "@/assets/payments/visa.svg";
-import payMastercard from "@/assets/payments/mastercard.svg";
-import payAmex from "@/assets/payments/amex.svg";
-import payApplePay from "@/assets/payments/apple-pay.svg";
-import payGooglePay from "@/assets/payments/google-pay.svg";
-import payKlarna from "@/assets/payments/klarna.svg";
+import payVisa from "@/assets/payments/visa.png";
+import payMastercard from "@/assets/payments/mastercard.png";
+import payAmex from "@/assets/payments/amex.png";
+import payApplePay from "@/assets/payments/apple-pay.png";
+import payGooglePay from "@/assets/payments/google-pay.png";
+import payKlarna from "@/assets/payments/klarna.png";
+import payTwint from "@/assets/payments/twint.png";
 
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
