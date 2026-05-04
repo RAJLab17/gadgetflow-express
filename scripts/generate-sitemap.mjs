@@ -13,20 +13,21 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 
 async function loadEntries() {
-  // Load the TS module via tsx if available, else fall back to a tiny
-  // inline transpile through esbuild (already a dev dep via vite).
-  const require = createRequire(import.meta.url);
-  const esbuild = require("esbuild");
+  // Vite bundles esbuild — use it to transpile our TS source.
+  const { transformSync } = await import("vite").then((v) =>
+    v.preprocessCSS ? v : v,
+  ).then(async () => {
+    // esbuild is shipped inside vite's deps
+    return await import("esbuild");
+  }).catch(async () => await import("esbuild"));
   const tsPath = resolve(ROOT, "src/content/site-urls.ts");
-  const built = esbuild.buildSync({
-    entryPoints: [tsPath],
-    bundle: true,
-    platform: "node",
+  const { readFileSync } = await import("node:fs");
+  const source = readFileSync(tsPath, "utf8");
+  const { code } = transformSync(source, {
+    loader: "ts",
     format: "esm",
-    write: false,
     target: "es2022",
   });
-  const code = built.outputFiles[0].text;
   const dataUrl =
     "data:text/javascript;base64," + Buffer.from(code).toString("base64");
   const mod = await import(dataUrl);
