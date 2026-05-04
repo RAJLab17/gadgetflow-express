@@ -17,6 +17,12 @@ const values = [
 ];
 
 const AboutPage = () => {
+  const navigate = useNavigate();
+  const handleBack = () => {
+    if (window.history.length > 1) navigate(-1);
+    else navigate("/");
+  };
+
   return (
     <PremiumPageLayout
       title="Über RAJ – Swiss Brand aus dem Thurgau"
@@ -28,6 +34,14 @@ const AboutPage = () => {
       width="wide"
     >
       <div className="space-y-20 md:space-y-28">
+        {/* Back button */}
+        <button
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors -mt-4"
+        >
+          <ArrowLeft className="w-4 h-4" strokeWidth={1.5} />
+          Zurück
+        </button>
         {/* SECTION 2 — Brand Story */}
         <div className="space-y-6 max-w-3xl">
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">Brand Story</p>
