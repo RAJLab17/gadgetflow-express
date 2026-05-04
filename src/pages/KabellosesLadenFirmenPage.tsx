@@ -33,6 +33,7 @@ const KabellosesLadenFirmenPage = () => {
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
     <PremiumPageLayout
       title="Kabelloses Laden für Unternehmen Schweiz – Sicher und ohne Kabelsalat | RAJ"

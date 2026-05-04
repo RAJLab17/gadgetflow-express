@@ -2,6 +2,21 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { breadcrumbJsonLd, articleJsonLd } from "@/lib/schemas";
+
+const articleSchema = articleJsonLd({
+  headline: "Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich",
+  url: "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
+});
+
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://raj.ch" },
+  { name: "Blog", url: "https://raj.ch/blog" },
+  {
+    name: "Beste 3-in-1 Wireless Ladestation Schweiz 2026",
+    url: "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
+  },
+]);
 
 const faqJsonLd = {
   "@context": "https://schema.org",
