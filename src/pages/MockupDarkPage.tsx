@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
+import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 
 // Echte Shop-Bilder (1:1 mit raj.ch)
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
@@ -1097,6 +1098,11 @@ const MockupDarkPage = () => {
             <span>Schweizer Brand · Weltweit zertifiziert</span>
           </div>
         </div>
+      </section>
+
+      {/* DETAILS — Accordion (Was du wissen musst) */}
+      <section style={{ background: L.bg, color: L.text }}>
+        <ProductDetailsAccordion />
       </section>
 
       {/* Footer */}
