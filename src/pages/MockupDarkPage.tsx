@@ -837,7 +837,7 @@ const MockupDarkPage = () => {
             ))}
           </div>
 
-          <p className="text-center mt-12 md:mt-16 text-sm md:text-base italic" style={{ color: L.textMuted, fontWeight: 300 }}>
+          <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl italic leading-tight tracking-tight" style={{ color: L.textMuted, fontWeight: 300 }}>
             Mehr brauchst du nicht.
           </p>
         </div>
