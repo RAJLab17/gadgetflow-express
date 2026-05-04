@@ -939,6 +939,8 @@ const MockupDarkPage = () => {
               <div key={i} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
                 <motion.img
                   src={s.img}
+                  srcSet={s.srcSet}
+                  sizes={s.sizes}
                   alt={s.alt}
                   loading="lazy"
                   decoding="async"
