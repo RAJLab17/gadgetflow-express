@@ -739,32 +739,51 @@ const MockupDarkPage = () => {
                   >
                     Sichere Zahlungsmethoden
                   </p>
-                  <div className="flex items-center justify-center gap-1.5 flex-wrap">
+                  <div className="flex items-center justify-center gap-1.5 flex-nowrap">
                     {[
-                      { label: "VISA", render: <span className="font-bold italic tracking-tight" style={{ color: "#1A1F71", fontSize: 13 }}>VISA</span> },
-                      { label: "Mastercard", render: (
-                        <span className="relative inline-flex">
-                          <span className="w-3.5 h-3.5 rounded-full" style={{ background: "#EB001B" }} />
-                          <span className="w-3.5 h-3.5 rounded-full -ml-1.5" style={{ background: "#F79E1B", mixBlendMode: "multiply" }} />
-                        </span>
+                      { label: "Visa", svg: (
+                        <svg viewBox="0 0 48 16" className="h-3 w-auto"><text x="0" y="13" fontFamily="Arial, sans-serif" fontWeight="900" fontStyle="italic" fontSize="14" fill="#1A1F71" letterSpacing="-0.5">VISA</text></svg>
                       ) },
-                      { label: "Amex", render: <span className="font-bold tracking-tight" style={{ color: "#2E77BC", fontSize: 9, letterSpacing: "0.04em" }}>AMEX</span> },
-                      { label: "Apple Pay", render: <span className="font-semibold tracking-tight" style={{ color: "#000", fontSize: 11 }}> Pay</span> },
-                      { label: "Google Pay", render: <span className="font-medium tracking-tight" style={{ fontSize: 10 }}><span style={{ color: "#4285F4" }}>G</span><span style={{ color: "#EA4335" }}>o</span><span style={{ color: "#FBBC05" }}>o</span><span style={{ color: "#4285F4" }}>g</span><span style={{ color: "#34A853" }}>l</span><span style={{ color: "#EA4335" }}>e</span><span style={{ color: "#000" }}> Pay</span></span> },
-                      { label: "Klarna", render: <span className="font-bold tracking-tight" style={{ color: "#1a1714", fontSize: 9, background: "#FFA8CD", padding: "2px 5px", borderRadius: 3 }}>Klarna</span> },
-                      { label: "TWINT", render: <span className="font-bold tracking-tight" style={{ color: "#000", fontSize: 9, letterSpacing: "0.04em" }}>TWINT</span> },
+                      { label: "Mastercard", svg: (
+                        <svg viewBox="0 0 32 20" className="h-4 w-auto">
+                          <circle cx="12" cy="10" r="8" fill="#EB001B" />
+                          <circle cx="20" cy="10" r="8" fill="#F79E1B" />
+                          <path d="M16 4.5a8 8 0 010 11 8 8 0 010-11z" fill="#FF5F00" />
+                        </svg>
+                      ) },
+                      { label: "Amex", svg: (
+                        <svg viewBox="0 0 36 14" className="h-3 w-auto"><rect width="36" height="14" rx="1" fill="#2E77BC" /><text x="18" y="10" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="7" fill="#fff" letterSpacing="0.5">AMEX</text></svg>
+                      ) },
+                      { label: "Apple Pay", svg: (
+                        <svg viewBox="0 0 40 16" className="h-4 w-auto"><text x="0" y="12" fontFamily="-apple-system, system-ui, Arial" fontSize="11" fill="#000" fontWeight="500"></text><text x="9" y="12" fontFamily="-apple-system, system-ui, Arial" fontSize="10" fill="#000" fontWeight="600">Pay</text></svg>
+                      ) },
+                      { label: "Google Pay", svg: (
+                        <svg viewBox="0 0 56 16" className="h-4 w-auto">
+                          <text x="0" y="12" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="500">
+                            <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
+                          </text>
+                          <text x="33" y="12" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="600" fill="#5F6368">Pay</text>
+                        </svg>
+                      ) },
+                      { label: "Klarna", svg: (
+                        <svg viewBox="0 0 44 14" className="h-3.5 w-auto"><rect width="44" height="14" rx="2" fill="#FFA8CD" /><text x="22" y="10" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="800" fontSize="8" fill="#0A0A0A">Klarna</text></svg>
+                      ) },
+                      { label: "TWINT", svg: (
+                        <svg viewBox="0 0 38 14" className="h-3 w-auto"><rect width="38" height="14" rx="1" fill="#0A0A0A" /><text x="19" y="10" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="7" fill="#fff" letterSpacing="0.6">TWINT</text></svg>
+                      ) },
                     ].map((p) => (
                       <div
                         key={p.label}
-                        className="h-7 min-w-[44px] px-2.5 rounded-md flex items-center justify-center"
+                        className="h-7 px-2 rounded-md flex items-center justify-center shrink-0"
                         style={{
                           background: "#FFFFFF",
                           border: `1px solid rgba(0,0,0,0.08)`,
                           boxShadow: "0 1px 2px rgba(0,0,0,0.25)",
+                          minWidth: 38,
                         }}
                         aria-label={p.label}
                       >
-                        {p.render}
+                        {p.svg}
                       </div>
                     ))}
                   </div>
