@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
-  ShieldCheck, Truck, RotateCcw, Plus, Hash, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag,
+  ShieldCheck, Truck, RotateCcw, Hash, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -1009,55 +1009,10 @@ const MockupDarkPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
-      {/* 6. FAQ — LIGHT · Klarheit                                   */}
+      {/* 6. DETAILS / FAQ — LIGHT · Ganze Sektion                    */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: L.bg }} className="py-20 md:py-32 px-5">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-14 md:mb-16">
-            <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
-              — Klarheit
-            </span>
-            <h2 className="text-3xl md:text-4xl mt-5 leading-tight tracking-tight" style={{ color: L.text, fontWeight: 300 }}>
-              {t("faq.title")}
-            </h2>
-          </div>
-
-          <div className="space-y-0">
-            {[1, 2, 3, 4, 5].map((n) => (
-              <details key={n} className="group" style={{ borderBottom: `1px solid ${L.border}` }}>
-                <summary className="flex items-center justify-between py-5 cursor-pointer list-none">
-                  <span className="text-[15px] md:text-base pr-6" style={{ color: L.text, fontWeight: 400 }}>
-                    {t(`faq.q${n}`)}
-                  </span>
-                  <Plus
-                    className="w-4 h-4 shrink-0 transition-transform duration-300 group-open:rotate-45"
-                    style={{ color: L.gold }}
-                    strokeWidth={1.5}
-                  />
-                </summary>
-                <div className="pb-6 pr-10">
-                  <p className="text-sm leading-relaxed" style={{ color: L.textMuted, fontWeight: 300 }}>
-                    {t(`faq.a${n}`)}
-                  </p>
-                </div>
-              </details>
-            ))}
-          </div>
-
-          <div className="text-center mt-14">
-            <p className="text-xs" style={{ color: L.textMuted }}>{t("faq.contact.lead")}</p>
-            <a
-              href="mailto:founder@raj.ch"
-              className="inline-block mt-2 text-sm font-medium underline underline-offset-4"
-              style={{ color: L.text, textDecorationColor: L.gold }}
-            >
-              founder@raj.ch
-            </a>
-            <p className="text-[10px] mt-2 uppercase" style={{ color: L.textDim, letterSpacing: "0.18em" }}>
-              {t("faq.contact.sub")}
-            </p>
-          </div>
-        </div>
+      <section style={{ background: L.bg, color: L.text }}>
+        <ProductDetailsAccordion />
       </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
@@ -1098,11 +1053,6 @@ const MockupDarkPage = () => {
             <span>Schweizer Brand · Weltweit zertifiziert</span>
           </div>
         </div>
-      </section>
-
-      {/* DETAILS — Accordion (Was du wissen musst) */}
-      <section style={{ background: L.bg, color: L.text }}>
-        <ProductDetailsAccordion />
       </section>
 
       {/* Footer */}
