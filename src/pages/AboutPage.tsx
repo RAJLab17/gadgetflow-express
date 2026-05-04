@@ -12,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import thurgauMap from "@/assets/about-thurgau.png";
 
 const grundsaetze = [
   "RAJ steht für Energieprodukte mit klarem Fokus auf Funktion und Beständigkeit.",
@@ -63,6 +64,7 @@ const AboutPage = () => {
       heading={<>Swiss<br /><span className="text-primary italic">Brand.</span></>}
       intro="Schweizer Consumer-Electronics aus dem Thurgau – mit Anspruch an Präzision, Qualität und Design."
       width="wide"
+      heroImage={thurgauMap}
     >
       <div className="space-y-20 md:space-y-28">
         {/* Back button */}
@@ -185,6 +187,31 @@ const AboutPage = () => {
             <p className="text-sm tracking-[0.32em] uppercase text-muted-foreground font-light pt-2">
               Power. Always There.
             </p>
+          </div>
+        </div>
+
+        {/* Swiss Origin — Thurgau */}
+        <div className="relative rounded-2xl overflow-hidden border border-border/60 bg-gradient-to-br from-muted/30 to-background">
+          <div className="relative aspect-[16/10] md:aspect-[16/8]">
+            <img
+              src={thurgauMap}
+              alt="RAJ – Swiss Brand mit Sitz im Kanton Thurgau"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent 55%, hsl(var(--background)/0.6) 85%, hsl(var(--background)) 100%)",
+              }}
+            />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+              <div className="inline-flex items-center gap-3 text-[10px] md:text-xs tracking-[0.32em] uppercase text-primary font-medium">
+                <span className="h-px w-8 bg-primary/50" />
+                Made in Switzerland · Kanton Thurgau
+              </div>
+            </div>
           </div>
         </div>
 

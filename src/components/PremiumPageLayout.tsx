@@ -15,6 +15,8 @@ interface PremiumPageLayoutProps {
   children: ReactNode;
   /** Width of content column. Default: prose (max-w-2xl) */
   width?: "prose" | "wide";
+  /** Optional decorative background image for the hero section */
+  heroImage?: string;
 }
 
 /**
@@ -31,6 +33,7 @@ const PremiumPageLayout = ({
   meta,
   children,
   width = "prose",
+  heroImage,
 }: PremiumPageLayoutProps) => {
   const maxW = width === "wide" ? "max-w-4xl" : "max-w-2xl";
 
@@ -47,8 +50,31 @@ const PremiumPageLayout = ({
 
         <main className="pt-24 md:pt-32 pb-24">
           {/* Hero */}
-          <section className="px-6">
-            <div className={`mx-auto ${maxW}`}>
+          <section className="relative px-6 overflow-hidden">
+            {heroImage && (
+              <div className="absolute inset-0 pointer-events-none" aria-hidden>
+                <img
+                  src={heroImage}
+                  alt=""
+                  className="absolute top-1/2 -translate-y-1/2 right-[-10%] md:right-[-6%] h-[120%] md:h-[140%] w-auto max-w-none opacity-[0.18] md:opacity-[0.28] select-none"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background)/0.92) 40%, hsl(var(--background)/0.55) 75%, hsl(var(--background)/0.4) 100%)",
+                  }}
+                />
+                <div
+                  className="absolute inset-x-0 bottom-0 h-32"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, transparent 0%, hsl(var(--background)) 100%)",
+                  }}
+                />
+              </div>
+            )}
+            <div className={`relative mx-auto ${maxW}`}>
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
