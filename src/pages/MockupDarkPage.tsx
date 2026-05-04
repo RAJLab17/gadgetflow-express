@@ -77,7 +77,7 @@ const L = {
   border: "#E8E2D6",
 };
 
-const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
+const LAUNCH_DATE = new Date("2026-05-26T20:00:00+02:00").getTime();
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
 // ─────────────────────────────────────────────────────────────────
