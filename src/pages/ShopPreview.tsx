@@ -512,7 +512,6 @@ const ShopPreview = () => {
                       ["AGB", "/agb"],
                       ["Datenschutzerklärung", "/datenschutz"],
                       ["Impressum", "/impressum"],
-                      ["Über RAJ", "/ueber-raj"],
                       ["Qi2 erklärt", "/qi2-erklaert"],
                       ["Vergleich mit anderen Chargern", "/vergleich"],
                       ["Versandbedingungen", "/versand"],
