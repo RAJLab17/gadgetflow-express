@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FoldableWirelessChargerProduct from "@/components/FoldableWirelessChargerProduct";
+import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import { useViewContent } from "@/hooks/useViewContent";
 
 const FoldableChargerPage = () => {
@@ -24,6 +25,7 @@ const FoldableChargerPage = () => {
         <Header />
         <main>
           <FoldableWirelessChargerProduct />
+          <ProductDetailsAccordion />
         </main>
         <Footer />
       </div>
