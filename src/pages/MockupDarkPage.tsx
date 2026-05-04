@@ -611,12 +611,13 @@ const MockupDarkPage = () => {
             {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative">
               {/* ─── Title Block ABOVE hero image ─── */}
-              <div className="mb-8 sm:mb-10">
-                <div className="flex items-center gap-3 mb-5">
+              <div className="mb-8 sm:mb-10 text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-5">
                   <span className="w-6 h-px" style={{ background: D.gold }} />
                   <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
                     Founder Edition — Nur 100 Stück
                   </span>
+                  <span className="w-6 h-px md:hidden" style={{ background: D.gold }} />
                 </div>
 
                 <h2
