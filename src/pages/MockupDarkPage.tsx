@@ -17,7 +17,7 @@ import nexusFolds from "@/assets/products/nexus-real-folds-text-800.webp";
 import nexusDesk from "@/assets/products/nexus-real-features-800.webp";
 import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
 import nexusFeatures from "@/assets/products/nexus-desk-writing.png";
-import nexusWindow from "@/assets/products/nexus-real-window-clean.webp";
+import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.png";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.png";
 import nexusNight from "@/assets/products/nexus-bedside-night.png";
 import nexusStoneHero from "@/assets/products/nexus-stone-hero.png";
