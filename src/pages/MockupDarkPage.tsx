@@ -174,6 +174,7 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
       >
         <Mail className="w-4 h-4 ml-4 shrink-0" style={{ color: dark ? D.muted : L.textMuted }} />
         <input
+          id="mockup-email"
           type="email"
           required
           value={email}
