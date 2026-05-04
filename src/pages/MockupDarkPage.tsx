@@ -556,6 +556,12 @@ const MockupDarkPage = () => {
             ))}
           </nav>
 
+          {/* Mobile center nav — Produkte + Über RAJ */}
+          <nav className="flex md:hidden items-center gap-5 text-[10px] uppercase absolute left-1/2 -translate-x-1/2" style={{ letterSpacing: "0.26em" }}>
+            <a href="#produkte" style={{ color: D.muted, fontWeight: 500 }}>Produkte</a>
+            <a href="#ueber" style={{ color: D.muted, fontWeight: 500 }}>Über RAJ</a>
+          </nav>
+
           {/* Right cluster: lang + cart */}
           <div className="flex items-center gap-4">
             <nav className="hidden sm:flex items-center gap-1 text-[10px]">
