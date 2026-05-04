@@ -393,7 +393,9 @@ const HeroStillImage = () => {
         }}
       >
         <img
-          src={nexusStoneHero}
+          src={nexusStoneHero680}
+          srcSet={`${nexusStoneHero680} 680w, ${nexusStoneHero1200} 1200w, ${nexusStoneHero} 1600w`}
+          sizes="(max-width: 768px) 100vw, 680px"
           alt="RAJ NEXUS auf Stein – Premium Editorial."
           loading="eager"
           decoding="sync"
@@ -865,6 +867,8 @@ const MockupDarkPage = () => {
           {[
             {
               img: nexusFeatures,
+              srcSet: `${nexusFeatures1000} 1000w, ${nexusFeatures1200} 1200w, ${nexusFeatures} 1600w`,
+              sizes: "(max-width: 768px) 100vw, 50vw",
               alt: "100% in 1.5 Stunden",
               eyebrow: "Für die, die keine Zeit haben",
               title: "Vollgeladen, bevor der Kaffee fertig ist.",
