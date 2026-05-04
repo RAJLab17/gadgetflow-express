@@ -276,12 +276,12 @@ const HeroStillImage = () => {
           src={heroDesire}
           srcSet={`${heroDesireSm} 480w, ${heroDesire} 1200w`}
           sizes="(max-width: 768px) 100vw, 700px"
-          alt="RAJ NEXUS — Designed to be desired."
+          alt="RAJ NEXUS auf einem Schreibtisch im Premium-Setup."
           loading="eager"
           decoding="sync"
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ background: D.surface }}
+          style={{ background: D.surface, objectPosition: "center top" }}
         />
       </div>
 
