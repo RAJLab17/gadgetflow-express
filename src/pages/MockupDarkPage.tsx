@@ -35,6 +35,7 @@ import payTwint from "@/assets/payments/twint.png";
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
 const heroDesireSm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
+const heroStone = new URL("../assets/products/nexus-stone-hero.png", import.meta.url).href;
 const heroIphoneWatchPods = new URL("../assets/hero-carousel/nexus-iphone-watch-airpods.png", import.meta.url).href;
 const heroEmptyQi2 = new URL("../assets/hero-carousel/nexus-empty-qi2.png", import.meta.url).href;
 const hero3in1Charging = new URL("../assets/hero-carousel/nexus-3in1-charging.png", import.meta.url).href;
@@ -386,7 +387,7 @@ const HeroStillImage = () => {
         }}
       >
         <img
-          src="/src/assets/products/nexus-stone-hero.png"
+          src={heroStone}
           alt="RAJ NEXUS auf Stein – Premium Editorial."
           loading="eager"
           decoding="sync"
