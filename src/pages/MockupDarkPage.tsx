@@ -15,13 +15,19 @@ import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
 import nexusHeroDark from "@/assets/products/nexus-real-night-city.webp";
 import nexusFolds from "@/assets/products/nexus-real-folds-text-800.webp";
 import nexusDesk from "@/assets/products/nexus-office-skyline.webp";
+import nexusDesk680 from "@/assets/products/nexus-office-skyline-680w.webp";
+import nexusDesk1200 from "@/assets/products/nexus-office-skyline-1200w.webp";
 import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
 import nexusFeatures from "@/assets/products/nexus-desk-writing.webp";
+import nexusFeatures1000 from "@/assets/products/nexus-desk-writing-1000w.webp";
+import nexusFeatures1200 from "@/assets/products/nexus-desk-writing-1200w.webp";
 import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.webp";
 import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import nexusStoneHero from "@/assets/products/nexus-hero-night-city.webp";
+import nexusStoneHero680 from "@/assets/products/nexus-hero-night-city-680w.webp";
+import nexusStoneHero1200 from "@/assets/products/nexus-hero-night-city-1200w.webp";
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.webp";
 import payVisa from "@/assets/payments/visa.webp";
@@ -387,7 +393,9 @@ const HeroStillImage = () => {
         }}
       >
         <img
-          src={nexusStoneHero}
+          src={nexusStoneHero680}
+          srcSet={`${nexusStoneHero680} 680w, ${nexusStoneHero1200} 1200w, ${nexusStoneHero} 1600w`}
+          sizes="(max-width: 768px) 100vw, 680px"
           alt="RAJ NEXUS auf Stein – Premium Editorial."
           loading="eager"
           decoding="sync"
@@ -859,6 +867,8 @@ const MockupDarkPage = () => {
           {[
             {
               img: nexusFeatures,
+              srcSet: `${nexusFeatures1000} 1000w, ${nexusFeatures1200} 1200w, ${nexusFeatures} 1600w`,
+              sizes: "(max-width: 768px) 100vw, 50vw",
               alt: "100% in 1.5 Stunden",
               eyebrow: "Für die, die keine Zeit haben",
               title: "Vollgeladen, bevor der Kaffee fertig ist.",
@@ -873,6 +883,8 @@ const MockupDarkPage = () => {
             },
             {
               img: nexusDesk,
+              srcSet: `${nexusDesk680} 680w, ${nexusDesk1200} 1200w, ${nexusDesk} 1600w`,
+              sizes: "(max-width: 768px) 100vw, 50vw",
               alt: "Aufgeräumter Schreibtisch",
               eyebrow: "Für die, die Ordnung lieben",
               title: "Drei Kabel weg. Ein Objekt da.",
@@ -927,6 +939,8 @@ const MockupDarkPage = () => {
               <div key={i} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
                 <motion.img
                   src={s.img}
+                  srcSet={s.srcSet}
+                  sizes={s.sizes}
                   alt={s.alt}
                   loading="lazy"
                   decoding="async"
