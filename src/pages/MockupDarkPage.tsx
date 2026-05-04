@@ -18,6 +18,7 @@ import nexusFeatures from "@/assets/products/nexus-real-features.jpg";
 import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
+import logoTransparent from "@/assets/logo-transparent.png";
 
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
@@ -261,8 +262,93 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 };
 
 // ─────────────────────────────────────────────────────────────────
-// MAIN PAGE
+// SPLASH INTRO — black curtain split with logo flash (first visit only)
 // ─────────────────────────────────────────────────────────────────
+const SplashIntro = () => {
+  const [phase, setPhase] = useState<"hidden" | "logo" | "split" | "done">("hidden");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      if (sessionStorage.getItem("raj_intro_played") === "1") return;
+      sessionStorage.setItem("raj_intro_played", "1");
+    } catch {
+      /* ignore */
+    }
+    setPhase("logo");
+    const t1 = setTimeout(() => setPhase("split"), 1100);
+    const t2 = setTimeout(() => setPhase("done"), 2300);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, []);
+
+  if (phase === "hidden" || phase === "done") return null;
+
+  const splitting = phase === "split";
+
+  return (
+    <div className="fixed inset-0 z-[100] pointer-events-none" aria-hidden>
+      {/* Top half */}
+      <div
+        className="absolute inset-x-0 top-0 h-1/2 transition-transform ease-[cubic-bezier(0.76,0,0.24,1)]"
+        style={{
+          background: D.bg,
+          transform: splitting ? "translateY(-100%)" : "translateY(0)",
+          transitionDuration: "1100ms",
+          borderBottom: splitting ? `1px solid ${D.gold}33` : "none",
+        }}
+      />
+      {/* Bottom half */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-1/2 transition-transform ease-[cubic-bezier(0.76,0,0.24,1)]"
+        style={{
+          background: D.bg,
+          transform: splitting ? "translateY(100%)" : "translateY(0)",
+          transitionDuration: "1100ms",
+        }}
+      />
+      {/* Hairline gold seam at split */}
+      <div
+        className="absolute left-0 right-0 top-1/2 h-px transition-opacity"
+        style={{
+          background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`,
+          opacity: splitting ? 0 : 0.6,
+          transform: "translateY(-0.5px)",
+        }}
+      />
+      {/* Logo */}
+      <div
+        className="absolute inset-0 flex items-center justify-center transition-opacity"
+        style={{
+          opacity: splitting ? 0 : 1,
+          transitionDuration: splitting ? "500ms" : "700ms",
+        }}
+      >
+        <img
+          src={logoTransparent}
+          alt=""
+          className="w-32 sm:w-44 md:w-52 h-auto select-none"
+          style={{
+            filter: `drop-shadow(0 0 40px ${D.gold}66) drop-shadow(0 8px 30px rgba(0,0,0,0.6))`,
+            animation: "raj-logo-pulse 1100ms ease-out both",
+          }}
+          draggable={false}
+        />
+      </div>
+      <style>{`
+        @keyframes raj-logo-pulse {
+          0% { opacity: 0; transform: scale(0.92); filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+          55% { opacity: 1; transform: scale(1.04); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+
 const TOTAL_SPOTS = 100;
 
 // ─────────────────────────────────────────────────────────────────
@@ -364,6 +450,8 @@ const MockupDarkPage = () => {
         <meta name="robots" content="noindex" />
       </Helmet>
 
+      <SplashIntro />
+
       <SocialProofPopup trigger={popupTrigger} message={popupMessage} />
 
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
@@ -419,14 +507,17 @@ const MockupDarkPage = () => {
         className="relative overflow-hidden"
         style={{ background: D.bg, color: D.beige }}
       >
-        {/* Header — Logo in Originalfarben (hellbeiger Container) */}
+        {/* Header — Logo transparent on dark */}
         <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
-          <div
-            className="inline-flex items-center justify-center px-3 py-1.5 rounded-md"
-            style={{ background: D.beige }}
-          >
-            <img src={logo} alt="RAJ" className="h-6 w-auto" />
-          </div>
+          <a href="/" aria-label="RAJ" className="inline-flex items-center">
+            <img
+              src={logoTransparent}
+              alt="RAJ"
+              className="h-9 sm:h-10 w-auto select-none"
+              style={{ filter: "drop-shadow(0 4px 14px rgba(0,0,0,0.5))" }}
+              draggable={false}
+            />
+          </a>
 
           {/* Center nav */}
           <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase" style={{ letterSpacing: "0.28em" }}>
