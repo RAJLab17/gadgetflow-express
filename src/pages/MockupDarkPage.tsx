@@ -527,15 +527,15 @@ const MockupDarkPage = () => {
                     { icon: RotateCcw, label: "30 Tage" },
                     { icon: ShieldCheck, label: "3 J. Garantie" },
                   ].map((t, i) => (
-                    <>
-                      {i > 0 && <span key={`sep-${i}`} className="w-px h-4" style={{ background: D.border }} />}
-                      <div key={t.label} className="flex items-center gap-2">
+                    <div key={t.label} className="flex items-center gap-6 sm:gap-8">
+                      {i > 0 && <span className="w-px h-4" style={{ background: D.border }} />}
+                      <div className="flex items-center gap-2">
                         <t.icon className="w-3.5 h-3.5" style={{ color: D.gold }} strokeWidth={1.6} />
                         <span className="text-[11px] uppercase" style={{ color: D.beige, letterSpacing: "0.18em", fontWeight: 400 }}>
                           {t.label}
                         </span>
                       </div>
-                    </>
+                    </div>
                   ))}
                 </div>
               </div>
