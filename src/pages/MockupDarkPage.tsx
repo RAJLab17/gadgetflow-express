@@ -485,33 +485,8 @@ const MockupDarkPage = () => {
               {/* PREMIUM HERO IMAGE — single still */}
               <HeroStillImage />
 
-              {/* ─── Features below image ─── */}
+              {/* ─── Trust strip below image ─── */}
               <div className="mt-12 sm:mt-16">
-                <div className="h-px w-full mb-8" style={{ background: D.border }} />
-
-                <ul className="space-y-6">
-                  {[
-                    { icon: Zap, title: "25W Qi 2.2", sub: "Schnellstes kabelloses Laden" },
-                    { icon: Plus, title: "Designed in Switzerland", sub: "Präzision. Qualität. Vertrauen." },
-                    { icon: Package, title: "Kostenloser Versand", sub: "In der ganzen Schweiz" },
-                  ].map((f) => (
-                    <li key={f.title} className="flex items-start gap-4">
-                      <div
-                        className="w-11 h-11 rounded-md flex items-center justify-center shrink-0"
-                        style={{
-                          background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
-                          border: `1px solid ${D.gold}33`,
-                        }}
-                      >
-                        <f.icon className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.5} />
-                      </div>
-                      <div className="pt-0.5">
-                        <p className="text-[15px] font-medium leading-tight" style={{ color: D.beige }}>{f.title}</p>
-                        <p className="text-[12px] mt-1" style={{ color: D.mutedDim }}>{f.sub}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
 
                 {/* Trust strip — Gratis CH · 30 Tage · 3 J. Garantie */}
                 <div
