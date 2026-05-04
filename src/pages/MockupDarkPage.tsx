@@ -749,17 +749,18 @@ const MockupDarkPage = () => {
                         </span>
                       ) },
                       { label: "Amex", render: <span className="font-bold tracking-tight" style={{ color: "#2E77BC", fontSize: 9, letterSpacing: "0.04em" }}>AMEX</span> },
-                      { label: "Apple Pay", render: <span className="font-medium tracking-tight" style={{ color: "#fff", fontSize: 11 }}> Pay</span> },
-                      { label: "Google Pay", render: <span className="font-medium tracking-tight" style={{ fontSize: 10 }}><span style={{ color: "#4285F4" }}>G</span><span style={{ color: "#EA4335" }}>o</span><span style={{ color: "#FBBC05" }}>o</span><span style={{ color: "#4285F4" }}>g</span><span style={{ color: "#34A853" }}>l</span><span style={{ color: "#EA4335" }}>e</span><span style={{ color: D.beige }}> Pay</span></span> },
+                      { label: "Apple Pay", render: <span className="font-semibold tracking-tight" style={{ color: "#000", fontSize: 11 }}> Pay</span> },
+                      { label: "Google Pay", render: <span className="font-medium tracking-tight" style={{ fontSize: 10 }}><span style={{ color: "#4285F4" }}>G</span><span style={{ color: "#EA4335" }}>o</span><span style={{ color: "#FBBC05" }}>o</span><span style={{ color: "#4285F4" }}>g</span><span style={{ color: "#34A853" }}>l</span><span style={{ color: "#EA4335" }}>e</span><span style={{ color: "#000" }}> Pay</span></span> },
                       { label: "Klarna", render: <span className="font-bold tracking-tight" style={{ color: "#1a1714", fontSize: 9, background: "#FFA8CD", padding: "2px 5px", borderRadius: 3 }}>Klarna</span> },
-                      { label: "TWINT", render: <span className="font-bold tracking-tight" style={{ color: "#fff", fontSize: 9, letterSpacing: "0.04em" }}>TWINT</span> },
+                      { label: "TWINT", render: <span className="font-bold tracking-tight" style={{ color: "#000", fontSize: 9, letterSpacing: "0.04em" }}>TWINT</span> },
                     ].map((p) => (
                       <div
                         key={p.label}
-                        className="h-7 min-w-[40px] px-2 rounded-md flex items-center justify-center"
+                        className="h-7 min-w-[44px] px-2.5 rounded-md flex items-center justify-center"
                         style={{
-                          background: "rgba(255,255,255,0.04)",
-                          border: `1px solid ${D.border}`,
+                          background: "#FFFFFF",
+                          border: `1px solid rgba(0,0,0,0.08)`,
+                          boxShadow: "0 1px 2px rgba(0,0,0,0.25)",
                         }}
                         aria-label={p.label}
                       >
