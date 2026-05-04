@@ -83,8 +83,8 @@ const PremiumPageLayout = ({
                 />
               </div>
 
-              <div className="relative px-6 pt-32 md:pt-40 pb-32 md:pb-56 min-h-[80vh] md:min-h-[90vh] flex items-center">
-                <div className={`mx-auto ${maxW}`}>
+              <div className="relative px-6 md:px-12 lg:px-20 pt-32 md:pt-40 pb-32 md:pb-56 min-h-[80vh] md:min-h-[90vh] flex items-center">
+                <div className={`${maxW} mr-auto`}>
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
