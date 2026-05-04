@@ -890,23 +890,25 @@ const MockupDarkPage = () => {
             },
           ].map((s: any, i) => {
             if (s.imageOnly) {
+              const imgRight = i % 2 === 1;
               return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <img
+                <div key={i} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                  <motion.img
                     src={s.img}
                     alt={s.alt}
                     loading="lazy"
                     decoding="async"
-                    className="rounded-2xl w-full aspect-[16/9] md:aspect-[21/9] object-cover object-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    className={`rounded-2xl w-full aspect-square object-cover object-center ${
+                      imgRight ? "md:order-2" : ""
+                    }`}
                     style={{ boxShadow: "0 30px 80px -30px rgba(0,0,0,0.7)" }}
                   />
-                </motion.div>
+                  <div className={imgRight ? "md:order-1" : ""} aria-hidden />
+                </div>
               );
             }
             const imageRight = i % 2 === 1;
