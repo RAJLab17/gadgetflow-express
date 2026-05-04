@@ -12,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import thurgauMap from "@/assets/about-thurgau.png";
 
 const grundsaetze = [
   "RAJ steht für Energieprodukte mit klarem Fokus auf Funktion und Beständigkeit.",
@@ -63,6 +64,7 @@ const AboutPage = () => {
       heading={<>Swiss<br /><span className="text-primary italic">Brand.</span></>}
       intro="Schweizer Consumer-Electronics aus dem Thurgau – mit Anspruch an Präzision, Qualität und Design."
       width="wide"
+      heroImage={thurgauMap}
     >
       <div className="space-y-20 md:space-y-28">
         {/* Back button */}
