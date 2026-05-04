@@ -105,7 +105,7 @@ const MockupShopPage = () => {
                 style={{ boxShadow: "0 60px 140px -40px rgba(0,0,0,0.85)" }}
               >
                 <img
-                  src={nexusRocks}
+                  src={nexusReal}
                   alt="RAJ NEXUS 3-in-1 Wireless Charger mit Lavasteinen"
                   loading="eager"
                   decoding="sync"
