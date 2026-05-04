@@ -576,9 +576,9 @@ const MockupDarkPage = () => {
                 {/* Founder benefits */}
                 <ul className="space-y-3.5 mb-7">
                   {[
+                    { icon: InfinityIcon, label: "Lebenslanger Early Access zu neuen RAJ Produkten" },
+                    { icon: Hash, label: "Founder Edition mit persönlicher Seriennummer" },
                     { icon: Tag, label: "CHF 30 günstiger als regulär" },
-                    { icon: Plus, label: "Premium USB-C Kabel inklusive" },
-                    { icon: Hash, label: "Eigene Founder-Seriennummer" },
                   ].map((b) => (
                     <li key={b.label} className="flex items-center gap-3">
                       <div
