@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import WirelessCharger3in1Product from "@/components/WirelessCharger3in1Product";
+import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import Footer from "@/components/Footer";
 import { useViewContent } from "@/hooks/useViewContent";
 
@@ -38,6 +39,7 @@ const WirelessChargerPage = () => {
           <div id="product">
             <WirelessCharger3in1Product />
           </div>
+          <ProductDetailsAccordion />
         </main>
         <Footer />
       </div>
