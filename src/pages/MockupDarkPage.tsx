@@ -512,6 +512,32 @@ const MockupDarkPage = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* Trust strip — Gratis CH · 30 Tage · 3 J. Garantie */}
+                <div
+                  className="mt-10 flex items-center justify-center gap-6 sm:gap-8 py-4 px-6 rounded-full"
+                  style={{
+                    background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
+                    border: `1px solid ${D.gold}26`,
+                    boxShadow: "0 20px 50px -25px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  {[
+                    { icon: Package, label: "Gratis CH" },
+                    { icon: RotateCcw, label: "30 Tage" },
+                    { icon: ShieldCheck, label: "3 J. Garantie" },
+                  ].map((t, i) => (
+                    <>
+                      {i > 0 && <span key={`sep-${i}`} className="w-px h-4" style={{ background: D.border }} />}
+                      <div key={t.label} className="flex items-center gap-2">
+                        <t.icon className="w-3.5 h-3.5" style={{ color: D.gold }} strokeWidth={1.6} />
+                        <span className="text-[11px] uppercase" style={{ color: D.beige, letterSpacing: "0.18em", fontWeight: 400 }}>
+                          {t.label}
+                        </span>
+                      </div>
+                    </>
+                  ))}
+                </div>
               </div>
             </div>
 
