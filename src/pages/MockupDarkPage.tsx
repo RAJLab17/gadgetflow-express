@@ -17,6 +17,7 @@ import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
 import nexusFeatures from "@/assets/products/nexus-real-features.jpg";
 import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
+import nexusStoneHero from "@/assets/products/nexus-stone-hero.png";
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.png";
 import payVisa from "@/assets/payments/visa.png";
@@ -501,6 +502,20 @@ const MockupDarkPage = () => {
         className="relative overflow-hidden"
         style={{ background: D.bg, color: D.beige }}
       >
+        {/* Editorial dark hero background — Stone Nexus */}
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <img
+            src={nexusStoneHero}
+            alt=""
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.7) 40%, rgba(10,10,10,0.85) 75%, ${D.bg} 100%)`,
+            }}
+          />
+        </div>
         {/* Header — Logo transparent on dark */}
         <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
           <a href="/" aria-label="RAJ" className="inline-flex items-center">
