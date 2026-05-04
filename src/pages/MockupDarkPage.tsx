@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
-  ShieldCheck, Truck, RotateCcw, Plus, Hash, Tag, Gift, Zap, Package, Infinity as InfinityIcon,
+  ShieldCheck, Truck, RotateCcw, Plus, Hash, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
