@@ -754,9 +754,7 @@ const MockupDarkPage = () => {
                       { label: "Apple Pay", src: payApplePay },
                       { label: "Google Pay", src: payGooglePay },
                       { label: "Klarna", src: payKlarna },
-                      { label: "TWINT", svg: (
-                        <svg viewBox="0 0 50 16" className="h-4 w-auto"><text x="25" y="12" textAnchor="middle" fontFamily="Arial Black, Arial, sans-serif" fontWeight="900" fontSize="11" fill="#000" letterSpacing="0.5">TWINT</text></svg>
-                      ) },
+                      { label: "TWINT", src: payTwint },
                     ].map((p) => (
                       <div
                         key={p.label}
