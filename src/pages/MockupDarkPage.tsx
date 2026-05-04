@@ -19,6 +19,12 @@ import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.png";
+import payVisa from "@/assets/payments/visa.svg";
+import payMastercard from "@/assets/payments/mastercard.svg";
+import payAmex from "@/assets/payments/amex.svg";
+import payApplePay from "@/assets/payments/apple-pay.svg";
+import payGooglePay from "@/assets/payments/google-pay.svg";
+import payKlarna from "@/assets/payments/klarna.svg";
 
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
@@ -741,35 +747,14 @@ const MockupDarkPage = () => {
                   </p>
                   <div className="flex items-center justify-center gap-1.5 flex-nowrap">
                     {[
-                      { label: "Visa", svg: (
-                        <svg viewBox="0 0 48 16" className="h-3 w-auto"><text x="0" y="13" fontFamily="Arial, sans-serif" fontWeight="900" fontStyle="italic" fontSize="14" fill="#1A1F71" letterSpacing="-0.5">VISA</text></svg>
-                      ) },
-                      { label: "Mastercard", svg: (
-                        <svg viewBox="0 0 32 20" className="h-4 w-auto">
-                          <circle cx="12" cy="10" r="8" fill="#EB001B" />
-                          <circle cx="20" cy="10" r="8" fill="#F79E1B" />
-                          <path d="M16 4.5a8 8 0 010 11 8 8 0 010-11z" fill="#FF5F00" />
-                        </svg>
-                      ) },
-                      { label: "Amex", svg: (
-                        <svg viewBox="0 0 36 14" className="h-3 w-auto"><rect width="36" height="14" rx="1" fill="#2E77BC" /><text x="18" y="10" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="7" fill="#fff" letterSpacing="0.5">AMEX</text></svg>
-                      ) },
-                      { label: "Apple Pay", svg: (
-                        <svg viewBox="0 0 40 16" className="h-4 w-auto"><text x="0" y="12" fontFamily="-apple-system, system-ui, Arial" fontSize="11" fill="#000" fontWeight="500"></text><text x="9" y="12" fontFamily="-apple-system, system-ui, Arial" fontSize="10" fill="#000" fontWeight="600">Pay</text></svg>
-                      ) },
-                      { label: "Google Pay", svg: (
-                        <svg viewBox="0 0 56 16" className="h-4 w-auto">
-                          <text x="0" y="12" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="500">
-                            <tspan fill="#4285F4">G</tspan><tspan fill="#EA4335">o</tspan><tspan fill="#FBBC05">o</tspan><tspan fill="#4285F4">g</tspan><tspan fill="#34A853">l</tspan><tspan fill="#EA4335">e</tspan>
-                          </text>
-                          <text x="33" y="12" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="600" fill="#5F6368">Pay</text>
-                        </svg>
-                      ) },
-                      { label: "Klarna", svg: (
-                        <svg viewBox="0 0 44 14" className="h-3.5 w-auto"><rect width="44" height="14" rx="2" fill="#FFA8CD" /><text x="22" y="10" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="800" fontSize="8" fill="#0A0A0A">Klarna</text></svg>
-                      ) },
+                      { label: "Visa", src: payVisa },
+                      { label: "Mastercard", src: payMastercard },
+                      { label: "Amex", src: payAmex },
+                      { label: "Apple Pay", src: payApplePay },
+                      { label: "Google Pay", src: payGooglePay },
+                      { label: "Klarna", src: payKlarna },
                       { label: "TWINT", svg: (
-                        <svg viewBox="0 0 38 14" className="h-3 w-auto"><rect width="38" height="14" rx="1" fill="#0A0A0A" /><text x="19" y="10" textAnchor="middle" fontFamily="Arial, sans-serif" fontWeight="900" fontSize="7" fill="#fff" letterSpacing="0.6">TWINT</text></svg>
+                        <svg viewBox="0 0 50 16" className="h-4 w-auto"><text x="25" y="12" textAnchor="middle" fontFamily="Arial Black, Arial, sans-serif" fontWeight="900" fontSize="11" fill="#000" letterSpacing="0.5">TWINT</text></svg>
                       ) },
                     ].map((p) => (
                       <div
@@ -779,11 +764,15 @@ const MockupDarkPage = () => {
                           background: "#FFFFFF",
                           border: `1px solid rgba(0,0,0,0.08)`,
                           boxShadow: "0 1px 2px rgba(0,0,0,0.25)",
-                          minWidth: 38,
+                          minWidth: 42,
                         }}
                         aria-label={p.label}
                       >
-                        {p.svg}
+                        {p.src ? (
+                          <img src={p.src} alt={p.label} className="h-5 w-auto object-contain" />
+                        ) : (
+                          p.svg
+                        )}
                       </div>
                     ))}
                   </div>
