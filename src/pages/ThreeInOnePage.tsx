@@ -2,17 +2,25 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
-import { articleJsonLd, breadcrumbJsonLd } from "@/lib/schemas";
+import { breadcrumbJsonLd } from "@/lib/schemas";
 
 const PAGE_URL = "https://raj.ch/3-in-1-ladestation-iphone-apple-watch-airpods";
-const article = articleJsonLd({
-  headline: "3-in-1 Wireless Charger Schweiz 2026",
+const article = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "3-in-1 Ladestation iPhone Apple Watch AirPods – die beste Lösung 2026",
+  description: "Drei Geräte, ein Ladegerät. Die beste 3-in-1 Ladestation für Apple-Nutzer in der Schweiz.",
+  datePublished: "2026-05-03",
+  dateModified: "2026-05-03",
+  author: { "@type": "Organization", name: "RAJ" },
+  publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
   url: PAGE_URL,
-});
+  image: "https://raj.ch/raj-nexus-product.png",
+};
 const breadcrumb = breadcrumbJsonLd([
   { name: "Home", url: "https://raj.ch" },
   { name: "Blog", url: "https://raj.ch/blog" },
-  { name: "3-in-1 Wireless Charger Schweiz 2026", url: PAGE_URL },
+  { name: "3-in-1 Ladestation iPhone Apple Watch AirPods 2026", url: PAGE_URL },
 ]);
 
 const ThreeInOnePage = () => {
