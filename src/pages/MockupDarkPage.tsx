@@ -253,24 +253,12 @@ const TOTAL_SPOTS = 100;
 // ─────────────────────────────────────────────────────────────────
 // HERO PREMIUM CAROUSEL — auto-rotating editorial slideshow
 // ─────────────────────────────────────────────────────────────────
-const HeroPremiumCarousel = () => {
-  const [i, setI] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const n = HERO_SLIDES.length;
-
-  useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => setI((v) => (v + 1) % n), 4800);
-    return () => clearInterval(id);
-  }, [paused, n]);
-
+// HERO STILL — single editorial image (no carousel)
+// ─────────────────────────────────────────────────────────────────
+const HeroStillImage = () => {
   return (
-    <div
-      className="relative mt-10 sm:mt-12 group"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-    >
-      {/* Ambient gold halo behind frame */}
+    <div className="relative mt-10 sm:mt-12">
+      {/* Ambient gold halo */}
       <div
         className="absolute -inset-10 rounded-full blur-[120px] opacity-40 pointer-events-none"
         style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
@@ -284,100 +272,29 @@ const HeroPremiumCarousel = () => {
           boxShadow: "0 60px 140px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(201,168,118,0.15)",
         }}
       >
-        {HERO_SLIDES.map((s, idx) => (
-          <img
-            key={s.src}
-            src={s.src}
-            srcSet={`${s.srcSm} 480w, ${s.src} 1200w`}
-            sizes="(max-width: 768px) 100vw, 700px"
-            alt={s.caption}
-            loading={idx === 0 ? "eager" : "lazy"}
-            decoding={idx === 0 ? "sync" : "async"}
-            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-[1400ms] ease-out"
-            style={{ opacity: i === idx ? 1 : 0, background: D.surface }}
-          />
-        ))}
-
-        {/* Top gradient — readable eyebrow */}
-        <div
-          className="absolute inset-x-0 top-0 h-32 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.55), transparent)" }}
-          aria-hidden
+        <img
+          src={heroDesire}
+          srcSet={`${heroDesireSm} 480w, ${heroDesire} 1200w`}
+          sizes="(max-width: 768px) 100vw, 700px"
+          alt="RAJ NEXUS — Designed to be desired."
+          loading="eager"
+          decoding="sync"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ background: D.surface }}
         />
-        {/* Bottom gradient — caption */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-44 pointer-events-none"
-          style={{ background: "linear-gradient(to top, rgba(10,10,10,0.85), transparent)" }}
-          aria-hidden
-        />
-
-        {/* Eyebrow (top-left) */}
-        <div className="absolute top-5 left-5 sm:top-7 sm:left-7 flex items-center gap-3">
-          <span className="w-5 h-px" style={{ background: D.gold }} />
-          <span
-            className="text-[10px] uppercase font-medium"
-            style={{ color: D.gold, letterSpacing: "0.34em" }}
-          >
-            {HERO_SLIDES[i].eyebrow}
-          </span>
-        </div>
-
-        {/* Caption (bottom-left, editorial) */}
-        <div className="absolute bottom-6 left-6 sm:bottom-9 sm:left-9 right-32 max-w-md">
-          <p
-            key={`cap-${i}`}
-            className="text-xl sm:text-2xl md:text-[28px] leading-tight animate-fade-in"
-            style={{ color: D.beige, fontWeight: 200, letterSpacing: "-0.01em" }}
-          >
-            {HERO_SLIDES[i].caption}
-          </p>
-        </div>
-
-        {/* Floating spec card (bottom-right) */}
-        <div
-          className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7 px-4 py-3 sm:px-5 sm:py-4 rounded-sm"
-          style={{
-            background: "rgba(10,10,10,0.55)",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
-            border: `1px solid ${D.gold}33`,
-          }}
-        >
-          <div className="text-[9px] uppercase mb-1" style={{ color: D.gold, letterSpacing: "0.28em" }}>
-            Qi 2.2 · 25W
-          </div>
-          <div className="text-lg sm:text-xl font-light leading-none" style={{ color: D.beige }}>
-            CHF 99.–
-          </div>
-        </div>
       </div>
 
-      {/* Progress indicators — minimal hairlines */}
-      <div className="flex items-center gap-2 mt-5 px-1">
-        {HERO_SLIDES.map((s, idx) => (
-          <button
-            key={s.src}
-            onClick={() => setI(idx)}
-            aria-label={`Bild ${idx + 1}: ${s.caption}`}
-            className="relative h-px flex-1 overflow-hidden transition-opacity"
-            style={{ background: `${D.gold}22` }}
-          >
-            <span
-              className="absolute inset-y-0 left-0 transition-all ease-linear"
-              style={{
-                background: D.gold,
-                width: i === idx ? "100%" : idx < i ? "100%" : "0%",
-                transitionDuration: i === idx && !paused ? "4800ms" : "400ms",
-              }}
-            />
-          </button>
-        ))}
-        <span
-          className="ml-3 text-[10px] tabular-nums font-medium"
-          style={{ color: D.mutedDim, letterSpacing: "0.2em" }}
+      {/* Editorial caption UNDER image */}
+      <div className="mt-6 px-1">
+        <p
+          className="text-[10px] uppercase font-medium leading-relaxed"
+          style={{ color: D.gold, letterSpacing: "0.32em" }}
         >
-          {String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}
-        </span>
+          Engineered for <span style={{ color: D.beige }}>Performance.</span><br />
+          Designed to <span style={{ color: D.beige }}>Inspire.</span>
+        </p>
+        <div className="w-10 h-px mt-3" style={{ background: D.gold }} />
       </div>
     </div>
   );
@@ -555,7 +472,7 @@ const MockupDarkPage = () => {
               </p>
 
               {/* PREMIUM CAROUSEL — auto-rotating, editorial */}
-              <HeroPremiumCarousel />
+              <HeroStillImage />
             </div>
 
             {/* RIGHT: Founder Conversion Card */}
