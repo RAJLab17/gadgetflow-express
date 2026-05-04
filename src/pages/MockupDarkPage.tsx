@@ -869,12 +869,16 @@ const MockupDarkPage = () => {
             {
               img: nexusDesk,
               alt: "Aufgeräumter Schreibtisch",
-              imageOnly: true,
+              eyebrow: "Für die, die Ordnung lieben",
+              title: "Drei Kabel weg. Ein Objekt da.",
+              copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Ein einziger Ort — alles geladen, alles bereit.",
             },
             {
               img: nexusNight,
               alt: "Nachts in der Stadt",
-              imageOnly: true,
+              eyebrow: "Für die späten Abende",
+              title: "Hinlegen. Schlafen. Aufwachen mit 100 %.",
+              copy: "Du fällst ins Bett. Telefon drauf — magnetisch klick. Kein Zielen, kein Augen-Aufmachen. Morgens: voll geladen, bereit für den Tag, der vor dir liegt.",
             },
             {
               img: nexusSofa,
@@ -886,7 +890,9 @@ const MockupDarkPage = () => {
             {
               img: nexusWindow,
               alt: "Material Detail im Licht",
-              imageOnly: true,
+              eyebrow: "Für die, die Qualität spüren",
+              title: "Aluminium. Mattes Finish. Gewicht in der Hand.",
+              copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Du nimmst es einmal in die Hand — und verstehst sofort, warum es CHF 99 kostet.",
             },
           ].map((s: any, i) => {
             if (s.imageOnly) {
