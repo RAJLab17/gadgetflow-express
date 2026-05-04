@@ -56,8 +56,7 @@ const PremiumPageLayout = ({
                 <img
                   src={heroImage}
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover select-none"
-                  style={{ objectPosition: "right bottom" }}
+                  className="absolute inset-0 w-full h-full object-contain object-right-bottom select-none"
                 />
                 {/* Left fade for text legibility — keeps right side (map + Thurgau) visible */}
                 <div
