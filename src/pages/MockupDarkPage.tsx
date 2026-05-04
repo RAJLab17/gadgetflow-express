@@ -297,8 +297,8 @@ const HeroPremiumCarousel = () => {
             alt={s.caption}
             loading={idx === 0 ? "eager" : "lazy"}
             decoding={idx === 0 ? "sync" : "async"}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1400ms] ease-out"
-            style={{ opacity: i === idx ? 1 : 0 }}
+            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-[1400ms] ease-out"
+            style={{ opacity: i === idx ? 1 : 0, background: D.surface }}
           />
         ))}
 
