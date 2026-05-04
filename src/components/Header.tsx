@@ -221,40 +221,6 @@ const Header = () => {
                   </Link>
                 </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <button
-                    onClick={() => setIsMobileSupportOpen((prev) => !prev)}
-                    className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
-                  >
-                    {t("header.support")}
-                  </button>
-                  <AnimatePresence>
-                    {isMobileSupportOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden pl-4 border-l border-border/40"
-                      >
-                        {supportLinks.map((item) => (
-                          <Link
-                            key={item.label}
-                            to={item.href}
-                            onClick={() => { setIsMenuOpen(false); setIsMobileSupportOpen(false); }}
-                            className="block py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
