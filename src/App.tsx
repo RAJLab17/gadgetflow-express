@@ -42,6 +42,7 @@ const IphoneStandbyPage = lazy(() => import("./pages/IphoneStandbyPage"));
 const MagSafeLadestationPage = lazy(() => import("./pages/MagSafeLadestationPage"));
 const ThreeInOnePage = lazy(() => import("./pages/ThreeInOnePage"));
 const SeoCheckPage = lazy(() => import("./pages/SeoCheckPage"));
+const Beste3in1ChargerPage = lazy(() => import("./pages/Beste3in1ChargerPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -121,6 +122,7 @@ const App = () => (
               <Route path="/magsafe-ladestation-schweiz" element={<MagSafeLadestationPage />} />
               <Route path="/3-in-1-ladestation-iphone-apple-watch-airpods" element={<ThreeInOnePage />} />
               <Route path="/seo-check" element={<SeoCheckPage />} />
+              <Route path="/blog/bester-3in1-wireless-charger-schweiz-2026" element={<Beste3in1ChargerPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
