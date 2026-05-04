@@ -219,7 +219,7 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
             boxShadow: `0 14px 34px -12px ${D.gold}80, inset 0 1px 0 rgba(255,255,255,0.28)`,
           }}
         >
-          {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <>Jetzt sichern <ArrowRight className="w-3.5 h-3.5" /></>}
+          {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <>Jetzt Platz sichern <ArrowRight className="w-3.5 h-3.5" /></>}
         </button>
       </div>
       <p
