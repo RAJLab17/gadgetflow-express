@@ -1,5 +1,5 @@
 import mastercardLogo from "@/assets/payment/mastercard.png";
-import visaLogo from "@/assets/payment/visa.png";
+import visaLogo from "@/assets/payment/visa.webp";
 import googlePayLogo from "@/assets/payment/google-pay.png";
 import applePayLogo from "@/assets/payment/apple-pay.png";
 import amexLogo from "@/assets/payment/amex.png";
