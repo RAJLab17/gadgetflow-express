@@ -950,6 +950,20 @@ const MockupDarkPage = () => {
         </div>
       </section>
 
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* 4. SPECS — LIGHT · Material, Maß, Wahrheit                  */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-36 px-5">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16 md:mb-20">
+            <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
+              — Spezifikationen
+            </span>
+            <h2 className="text-3xl md:text-5xl mt-5 leading-tight tracking-tight" style={{ fontWeight: 300 }}>
+              Präzision in Zahlen.
+            </h2>
+          </div>
+
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
             {/* Image */}
             <div className="md:col-span-6">
