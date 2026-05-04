@@ -767,11 +767,7 @@ const MockupDarkPage = () => {
                         }}
                         aria-label={p.label}
                       >
-                        {p.src ? (
-                          <img src={p.src} alt={p.label} className="h-5 w-auto object-contain" />
-                        ) : (
-                          p.svg
-                        )}
+                        <img src={p.src} alt={p.label} className="h-5 w-auto object-contain" />
                       </div>
                     ))}
                   </div>
