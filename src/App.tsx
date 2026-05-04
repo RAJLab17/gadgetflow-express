@@ -44,6 +44,7 @@ const ThreeInOnePage = lazy(() => import("./pages/ThreeInOnePage"));
 const SeoCheckPage = lazy(() => import("./pages/SeoCheckPage"));
 const Beste3in1ChargerPage = lazy(() => import("./pages/Beste3in1ChargerPage"));
 const MockupDarkPage = lazy(() => import("./pages/MockupDarkPage"));
+const MockupShopPage = lazy(() => import("./pages/MockupShopPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -127,6 +128,7 @@ const App = () => (
               <Route path="/seo-check" element={<SeoCheckPage />} />
               <Route path="/blog/bester-3in1-wireless-charger-schweiz-2026" element={<Beste3in1ChargerPage />} />
               <Route path="/mockup-dark" element={<MockupDarkPage />} />
+              <Route path="/mockup-shop" element={<MockupShopPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
