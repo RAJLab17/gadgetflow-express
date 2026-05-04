@@ -837,8 +837,8 @@ const MockupDarkPage = () => {
             ))}
           </div>
 
-          <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl italic leading-tight tracking-tight" style={{ color: L.textMuted, fontWeight: 300 }}>
-            Mehr brauchst du nicht.
+          <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl leading-tight tracking-tight" style={{ color: L.textMuted, fontWeight: 300 }}>
+            Power. Always There.
           </p>
         </div>
       </section>
