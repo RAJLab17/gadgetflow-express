@@ -847,115 +847,108 @@ const MockupDarkPage = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
-      {/* 3. STORY — DARK · Editorial Zickzack mit echten Bildern    */}
+      {/* 3. STORY — Premium Zickzack (gleich wie Shop)              */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-36 px-5">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20 md:mb-28">
-            <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-              — Drei Momente
-            </span>
-            <h2 className="text-3xl md:text-5xl mt-5 leading-tight tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>
-              Mehr als ein Ladegerät.
-            </h2>
-          </div>
-
-          <div className="space-y-28 md:space-y-40">
-            {[
-              {
-                img: nexusSpeed,
-                idx: "01",
-                eyebrow: "Für die, die keine Zeit haben",
-                title: "Vollgeladen, bevor der Kaffee fertig ist.",
-                copy: "90 Minuten — und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen.",
-              },
-              {
-                img: nexusFolds,
-                idx: "02",
-                eyebrow: "Für die Vielreisenden",
-                title: "Faltet sich wie eine Brieftasche. Lädt wie eine Station.",
-                copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig.",
-              },
-              {
-                img: nexusDesk,
-                idx: "03",
-                imageOnly: true,
-              },
-              {
-                img: nexusWindow,
-                idx: "04",
-                imageOnly: true,
-              },
-              {
-                img: nexusSofa,
-                idx: "05",
-                eyebrow: "Für die ruhigen Sonntage",
-                title: "Lädt im Hintergrund. Wie es sein soll.",
-                copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf — leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
-              },
-              {
-                img: nexusFeatures,
-                idx: "06",
-                imageOnly: true,
-              },
-            ].map((s: any, i) => {
-              const right = i % 2 === 1;
-              if (s.imageOnly) {
-                return (
-                  <div key={s.idx} className="relative">
-                    <img
-                      src={s.img}
-                      alt="RAJ NEXUS"
-                      loading="lazy"
-                      className="w-full aspect-[16/9] md:aspect-[21/9] object-cover rounded-sm"
-                      style={{ boxShadow: "0 40px 80px -30px rgba(0,0,0,0.8)" }}
-                    />
-                    <div
-                      className="absolute inset-0 rounded-sm pointer-events-none"
-                      style={{ background: `linear-gradient(135deg, transparent 60%, rgba(10,10,10,0.4))` }}
-                    />
-                  </div>
-                );
-              }
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-36">
+          {[
+            {
+              img: nexusFeatures,
+              alt: "100% in 1.5 Stunden",
+              eyebrow: "Für die, die keine Zeit haben",
+              title: "Vollgeladen, bevor der Kaffee fertig ist.",
+              copy: "90 Minuten — und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen.",
+            },
+            {
+              img: nexusFolds,
+              alt: "Faltbar wie eine Brieftasche",
+              eyebrow: "Für die Vielreisenden",
+              title: "Faltet sich wie eine Brieftasche. Lädt wie eine Station.",
+              copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig.",
+            },
+            {
+              img: nexusDesk,
+              alt: "Aufgeräumter Schreibtisch",
+              imageOnly: true,
+            },
+            {
+              img: nexusNight,
+              alt: "Nachts in der Stadt",
+              imageOnly: true,
+            },
+            {
+              img: nexusSofa,
+              alt: "Entspannt auf dem Sofa",
+              eyebrow: "Für die ruhigen Sonntage",
+              title: "Lädt im Hintergrund. Wie es sein soll.",
+              copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf — leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
+            },
+            {
+              img: nexusWindow,
+              alt: "Material Detail im Licht",
+              imageOnly: true,
+            },
+          ].map((s: any, i) => {
+            if (s.imageOnly) {
               return (
-                <div key={s.idx} className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-                  <div className={`md:col-span-7 relative ${right ? "md:order-2" : ""}`}>
-                    <div className="relative">
-                      <img
-                        src={s.img}
-                        alt={s.title}
-                        loading="lazy"
-                        className="w-full aspect-[4/3] object-cover rounded-sm"
-                        style={{ boxShadow: "0 40px 80px -30px rgba(0,0,0,0.8)" }}
-                      />
-                      {/* Gradient vignette */}
-                      <div
-                        className="absolute inset-0 rounded-sm pointer-events-none"
-                        style={{ background: `linear-gradient(135deg, transparent 60%, rgba(10,10,10,0.4))` }}
-                      />
-                    </div>
-                  </div>
-                  <div className={`md:col-span-5 ${right ? "md:order-1 md:text-right" : ""}`}>
-                    <div className="flex items-center gap-3 mb-5" style={{ justifyContent: right ? "flex-end" : "flex-start" }}>
-                      <span className="text-5xl md:text-6xl font-extralight tabular-nums" style={{ color: D.gold }}>
-                        {s.idx}
-                      </span>
-                      <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-                        {s.eyebrow}
-                      </span>
-                    </div>
-                    <h3 className="text-2xl md:text-4xl leading-tight tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>
-                      {s.title}
-                    </h3>
-                    <div className={`w-10 h-px my-5 ${right ? "ml-auto" : ""}`} style={{ background: D.gold }} />
-                    <p className="text-base leading-relaxed max-w-md" style={{ color: D.muted, fontWeight: 300, marginLeft: right ? "auto" : 0 }}>
-                      {s.copy}
-                    </p>
-                  </div>
-                </div>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="rounded-2xl w-full aspect-[16/9] md:aspect-[21/9] object-cover object-center"
+                    style={{ boxShadow: "0 30px 80px -30px rgba(0,0,0,0.7)" }}
+                  />
+                </motion.div>
               );
-            })}
-          </div>
+            }
+            const imageRight = i % 2 === 1;
+            return (
+              <div key={i} className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+                <motion.img
+                  src={s.img}
+                  alt={s.alt}
+                  loading="lazy"
+                  decoding="async"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  className={`rounded-2xl w-full aspect-square object-cover object-center ${
+                    imageRight ? "md:order-2" : ""
+                  }`}
+                  style={{ boxShadow: "0 30px 80px -30px rgba(0,0,0,0.7)" }}
+                />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  className={imageRight ? "md:order-1" : ""}
+                >
+                  <span className="text-[11px] tracking-[0.32em] uppercase font-medium" style={{ color: D.gold }}>
+                    {s.eyebrow}
+                  </span>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-[1.15] mt-5" style={{ color: D.beige }}>
+                    {s.title}
+                  </h2>
+                  <div className="mt-6 h-px w-12" style={{ background: D.gold, opacity: 0.6 }} />
+                  <p className="mt-6 font-light leading-relaxed text-lg max-w-md" style={{ color: D.muted }}>
+                    {s.copy}
+                  </p>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
             {/* Image */}
