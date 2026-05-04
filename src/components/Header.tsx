@@ -153,42 +153,6 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
 
-            <div
-              className="relative"
-              onMouseEnter={handleSupportEnter}
-              onMouseLeave={handleSupportLeave}
-            >
-              <button
-                onClick={() => setIsSupportOpen((prev) => !prev)}
-                className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
-              >
-                {t("header.support")}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
-
-              <AnimatePresence>
-                {isSupportOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-card/95 backdrop-blur-xl border border-border/60 rounded-xl shadow-elegant-lg py-2 overflow-hidden"
-                  >
-                    {supportLinks.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.href}
-                        onClick={() => setIsSupportOpen(false)}
-                        className="block px-5 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-primary/5 transition-colors duration-200"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
 
             <LanguageToggle />
           </nav>
@@ -257,40 +221,6 @@ const Header = () => {
                   </Link>
                 </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <button
-                    onClick={() => setIsMobileSupportOpen((prev) => !prev)}
-                    className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
-                  >
-                    {t("header.support")}
-                  </button>
-                  <AnimatePresence>
-                    {isMobileSupportOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden pl-4 border-l border-border/40"
-                      >
-                        {supportLinks.map((item) => (
-                          <Link
-                            key={item.label}
-                            to={item.href}
-                            onClick={() => { setIsMenuOpen(false); setIsMobileSupportOpen(false); }}
-                            className="block py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
