@@ -56,8 +56,7 @@ const PremiumPageLayout = ({
                 <img
                   src={heroImage}
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover select-none"
-                  style={{ objectPosition: "right bottom" }}
+                  className="absolute inset-0 w-full h-full object-contain object-right-bottom select-none"
                 />
                 {/* Left fade for text legibility — keeps right side (map + Thurgau) visible */}
                 <div
@@ -84,7 +83,7 @@ const PremiumPageLayout = ({
                 />
               </div>
 
-              <div className="relative px-6 pt-32 md:pt-40 pb-24 md:pb-40">
+              <div className="relative px-6 pt-32 md:pt-40 pb-32 md:pb-56 min-h-[80vh] md:min-h-[90vh] flex items-center">
                 <div className={`mx-auto ${maxW}`}>
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}
