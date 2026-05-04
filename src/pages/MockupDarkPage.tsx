@@ -447,32 +447,54 @@ const MockupDarkPage = () => {
           <div className="grid md:grid-cols-12 gap-8 md:gap-14 items-start">
             {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative">
-              <span
-                className="inline-flex items-center gap-3 text-[10px] uppercase mb-7"
-                style={{ color: D.gold, letterSpacing: "0.34em" }}
-              >
-                <span className="w-6 h-px" style={{ background: D.gold }} />
-                Edition 01 · Mai 2026
-              </span>
-              <h1
-                className="text-[44px] sm:text-6xl md:text-7xl lg:text-[88px] leading-[0.92] tracking-[-0.02em]"
-                style={{ color: D.beige, fontWeight: 200 }}
-              >
-                Power.<br />
-                <span style={{ fontStyle: "italic", fontWeight: 200 }}>Always</span>{" "}
-                <span style={{ color: D.gold, fontWeight: 300 }}>There.</span>
-              </h1>
-              <div className="w-12 h-px my-7 sm:my-9" style={{ background: D.gold }} />
-              <p
-                className="text-base sm:text-lg leading-relaxed max-w-md"
-                style={{ color: D.muted, fontWeight: 300, letterSpacing: "0.005em" }}
-              >
-                Drei Geräte. Ein Objekt. Kein Kabel.<br />
-                <span style={{ color: D.mutedDim }}>Qi 2.2 zertifiziert. Schweizer Idee.</span>
-              </p>
-
               {/* PREMIUM HERO IMAGE — single still */}
               <HeroStillImage />
+
+              {/* ─── Product Info Block (Founder Edition + RAJ NEXUS + Features) ─── */}
+              <div className="mt-16 sm:mt-20">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="w-6 h-px" style={{ background: D.gold }} />
+                  <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
+                    Founder Edition — Nur 100 Stück
+                  </span>
+                </div>
+
+                <h2
+                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3"
+                  style={{ color: D.beige, fontWeight: 200 }}
+                >
+                  RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
+                </h2>
+                <p className="text-base sm:text-lg mb-10" style={{ color: D.muted, fontWeight: 300 }}>
+                  3-in-1 Qi 2.2 Wireless Charger
+                </p>
+
+                <div className="h-px w-full mb-8" style={{ background: D.border }} />
+
+                <ul className="space-y-6">
+                  {[
+                    { icon: Zap, title: "25W Qi 2.2", sub: "Schnellstes kabelloses Laden" },
+                    { icon: Plus, title: "Designed in Switzerland", sub: "Präzision. Qualität. Vertrauen." },
+                    { icon: Package, title: "Kostenloser Versand", sub: "In der ganzen Schweiz" },
+                  ].map((f) => (
+                    <li key={f.title} className="flex items-start gap-4">
+                      <div
+                        className="w-11 h-11 rounded-md flex items-center justify-center shrink-0"
+                        style={{
+                          background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
+                          border: `1px solid ${D.gold}33`,
+                        }}
+                      >
+                        <f.icon className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.5} />
+                      </div>
+                      <div className="pt-0.5">
+                        <p className="text-[15px] font-medium leading-tight" style={{ color: D.beige }}>{f.title}</p>
+                        <p className="text-[12px] mt-1" style={{ color: D.mutedDim }}>{f.sub}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* RIGHT: Premium Founder Card (boxed, matching reference) */}
