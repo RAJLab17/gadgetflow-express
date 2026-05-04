@@ -450,6 +450,8 @@ const MockupDarkPage = () => {
         <meta name="robots" content="noindex" />
       </Helmet>
 
+      <SplashIntro />
+
       <SocialProofPopup trigger={popupTrigger} message={popupMessage} />
 
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
