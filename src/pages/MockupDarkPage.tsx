@@ -508,7 +508,7 @@ const MockupDarkPage = () => {
             src={nexusStoneHero}
             alt=""
             className="w-full h-full object-cover opacity-30"
-            style={{ objectPosition: "85% center" }}
+            style={{ objectPosition: "right center" }}
           />
           <div
             className="absolute inset-0"
