@@ -19,12 +19,13 @@ import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.png";
-import payVisa from "@/assets/payments/visa.svg";
-import payMastercard from "@/assets/payments/mastercard.svg";
-import payAmex from "@/assets/payments/amex.svg";
-import payApplePay from "@/assets/payments/apple-pay.svg";
-import payGooglePay from "@/assets/payments/google-pay.svg";
-import payKlarna from "@/assets/payments/klarna.svg";
+import payVisa from "@/assets/payments/visa.png";
+import payMastercard from "@/assets/payments/mastercard.png";
+import payAmex from "@/assets/payments/amex.png";
+import payApplePay from "@/assets/payments/apple-pay.png";
+import payGooglePay from "@/assets/payments/google-pay.png";
+import payKlarna from "@/assets/payments/klarna.png";
+import payTwint from "@/assets/payments/twint.png";
 
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
@@ -753,9 +754,7 @@ const MockupDarkPage = () => {
                       { label: "Apple Pay", src: payApplePay },
                       { label: "Google Pay", src: payGooglePay },
                       { label: "Klarna", src: payKlarna },
-                      { label: "TWINT", svg: (
-                        <svg viewBox="0 0 50 16" className="h-4 w-auto"><text x="25" y="12" textAnchor="middle" fontFamily="Arial Black, Arial, sans-serif" fontWeight="900" fontSize="11" fill="#000" letterSpacing="0.5">TWINT</text></svg>
-                      ) },
+                      { label: "TWINT", src: payTwint },
                     ].map((p) => (
                       <div
                         key={p.label}
@@ -768,11 +767,7 @@ const MockupDarkPage = () => {
                         }}
                         aria-label={p.label}
                       >
-                        {p.src ? (
-                          <img src={p.src} alt={p.label} className="h-5 w-auto object-contain" />
-                        ) : (
-                          p.svg
-                        )}
+                        <img src={p.src} alt={p.label} className="h-5 w-auto object-contain" />
                       </div>
                     ))}
                   </div>
