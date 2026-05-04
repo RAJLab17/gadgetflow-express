@@ -1,5 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Mountain,
+  Compass,
+  Target,
+  Crosshair,
+  Gem,
+  ShieldCheck,
+  Eye,
+  Zap,
+} from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
 
 const grundsaetze = [
@@ -10,10 +21,30 @@ const grundsaetze = [
 ];
 
 const values = [
-  { title: "Fokus", lead: "Reduktion auf das Wesentliche.", desc: "Wir entwickeln keine Funktionen, sondern Lösungen die bleiben." },
-  { title: "Qualität", lead: "Anspruch ohne Kompromisse.", desc: "Jedes Detail folgt einem klaren Qualitätsverständnis – sichtbar und spürbar." },
-  { title: "Vertrauen", lead: "Verlässlichkeit im Alltag.", desc: "Dein Vertrauen ist unser Antrieb – wir hören zu und liefern." },
-  { title: "Transparenz", lead: "Klare Entscheidungen. Klare Preise.", desc: "Ohne versteckte Bedingungen. Ohne leere Versprechen." },
+  {
+    title: "Fokus",
+    lead: "Reduktion auf das Wesentliche.",
+    desc: "Wir entwickeln keine Funktionen, sondern Lösungen die bleiben.",
+    Icon: Crosshair,
+  },
+  {
+    title: "Qualität",
+    lead: "Anspruch ohne Kompromisse.",
+    desc: "Jedes Detail folgt einem klaren Qualitätsverständnis – sichtbar und spürbar.",
+    Icon: Gem,
+  },
+  {
+    title: "Vertrauen",
+    lead: "Verlässlichkeit im Alltag.",
+    desc: "Dein Vertrauen ist unser Antrieb – wir hören zu und liefern.",
+    Icon: ShieldCheck,
+  },
+  {
+    title: "Transparenz",
+    lead: "Klare Entscheidungen. Klare Preise.",
+    desc: "Ohne versteckte Bedingungen. Ohne leere Versprechen.",
+    Icon: Eye,
+  },
 ];
 
 const AboutPage = () => {
@@ -37,14 +68,15 @@ const AboutPage = () => {
         {/* Back button */}
         <button
           onClick={handleBack}
-          className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors -mt-4"
+          className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors -mt-4 group"
         >
-          <ArrowLeft className="w-4 h-4" strokeWidth={1.5} />
+          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" strokeWidth={1.5} />
           Zurück
         </button>
+
         {/* SECTION 2 — Brand Story */}
         <div className="space-y-6 max-w-3xl">
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">Brand Story</p>
+          <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">— Brand Story</p>
           <p className="text-lg md:text-xl font-light text-foreground/85 leading-relaxed">
             RAJ ist eine Schweizer Consumer-Electronics-Marke mit Sitz im Kanton Thurgau. RAJ bringt Premium-Zubehör für das Apple-Ökosystem in die Schweiz – mit dem Anspruch an Schweizer Präzision, nachhaltige Qualität und kompromissloses Design.
           </p>
@@ -54,17 +86,27 @@ const AboutPage = () => {
         </div>
 
         {/* SECTION 3 — Vision & Mission */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-          <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium mb-4">Vision</p>
-            <p className="text-xl md:text-2xl font-light text-foreground leading-relaxed">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12">
+          <div className="relative p-8 md:p-10 rounded-2xl border border-border/60 bg-gradient-to-br from-muted/40 to-transparent">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center bg-primary/5">
+                <Mountain className="w-4 h-4 text-primary" strokeWidth={1.5} />
+              </div>
+              <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">Vision</p>
+            </div>
+            <p className="text-xl md:text-2xl font-light leading-relaxed">
               <span className="text-foreground">Power,</span>{" "}
               <span className="text-muted-foreground">die einfach da ist, wenn du sie brauchst.</span>
             </p>
           </div>
-          <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium mb-4">Mission</p>
-            <p className="text-xl md:text-2xl font-light text-foreground leading-relaxed">
+          <div className="relative p-8 md:p-10 rounded-2xl border border-border/60 bg-gradient-to-br from-muted/40 to-transparent">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full border border-primary/40 flex items-center justify-center bg-primary/5">
+                <Compass className="w-4 h-4 text-primary" strokeWidth={1.5} />
+              </div>
+              <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">Mission</p>
+            </div>
+            <p className="text-xl md:text-2xl font-light leading-relaxed">
               <span className="text-muted-foreground">Wir stehen für Energie mit Substanz –</span>{" "}
               <span className="text-foreground">klar im Design, ehrlich in der Leistung.</span>
             </p>
@@ -73,15 +115,22 @@ const AboutPage = () => {
 
         {/* SECTION 4 — Grundsätze */}
         <div>
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium mb-4">Was uns ausmacht</p>
+          <div className="flex items-center gap-3 mb-4">
+            <Target className="w-4 h-4 text-primary" strokeWidth={1.5} />
+            <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">Was uns ausmacht</p>
+          </div>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-10">Unsere Grundsätze.</h2>
-          <div className="space-y-5">
+          <div className="space-y-1">
             {grundsaetze.map((p, i) => (
-              <div key={i} className="flex gap-6 py-5 border-b border-border/60 last:border-0">
-                <span className="text-xs text-primary font-light tabular-nums mt-1.5 w-8 tracking-wider">
+              <div
+                key={i}
+                className="group flex gap-6 md:gap-8 py-6 border-b border-border/60 last:border-0 transition-colors hover:bg-muted/30 px-2 -mx-2 rounded-lg"
+              >
+                <span className="text-sm text-primary font-light tabular-nums tracking-[0.2em] mt-1 w-10 shrink-0">
                   0{i + 1}
                 </span>
-                <p className="text-lg font-light text-foreground/85 leading-relaxed flex-1">{p}</p>
+                <div className="h-px bg-border/60 self-center w-8 shrink-0 group-hover:bg-primary/60 transition-colors" />
+                <p className="text-base md:text-lg font-light text-foreground/85 leading-relaxed flex-1">{p}</p>
               </div>
             ))}
           </div>
@@ -89,42 +138,69 @@ const AboutPage = () => {
 
         {/* SECTION 5 — Werte */}
         <div>
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium mb-4">Unsere Werte</p>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-10">Was uns antreibt.</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
-            {values.map((v, i) => (
-              <div key={i} className="space-y-2">
-                <h3 className="text-xl font-light text-primary">{v.title}</h3>
-                <p className="text-foreground font-medium">{v.lead}</p>
-                <p className="text-muted-foreground font-light leading-relaxed text-sm">{v.desc}</p>
-              </div>
-            ))}
+          <div className="flex items-center gap-3 mb-4">
+            <Gem className="w-4 h-4 text-primary" strokeWidth={1.5} />
+            <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">Unsere Werte</p>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-12">Was uns antreibt.</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+            {values.map((v, i) => {
+              const Icon = v.Icon;
+              return (
+                <div
+                  key={i}
+                  className="group relative p-6 rounded-xl border border-border/50 hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 bg-gradient-to-b from-muted/20 to-transparent"
+                >
+                  <div className="w-11 h-11 rounded-full border border-primary/40 flex items-center justify-center mb-5 bg-primary/5 group-hover:bg-primary/10 transition-colors">
+                    <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-lg font-light text-primary mb-2 tracking-wide">{v.title}</h3>
+                  <p className="text-foreground font-medium text-sm mb-2">{v.lead}</p>
+                  <p className="text-muted-foreground font-light leading-relaxed text-sm">{v.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* SECTION 6 — Werte Tagline */}
-        <div className="text-center space-y-6 py-8 border-y border-border/60">
-          <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-primary font-medium">
-            PRÄZISION · BESTÄNDIGKEIT · CHARAKTER
-          </p>
-          <p className="text-xl md:text-2xl font-light text-foreground leading-relaxed max-w-xl mx-auto">
-            RAJ steht für Produkte die funktionieren. Einfach. Ohne Kompromisse.
-          </p>
-          <p className="text-sm tracking-[0.28em] uppercase text-muted-foreground font-light">
-            Power. Always There.
-          </p>
+        <div className="relative text-center py-14 md:py-20 px-6 rounded-2xl overflow-hidden border border-border/60 bg-gradient-to-br from-muted/40 via-background to-muted/30">
+          <div
+            className="absolute inset-0 opacity-[0.04] pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+            aria-hidden
+          />
+          <div className="relative space-y-6">
+            <div className="inline-flex items-center gap-3 text-xs md:text-sm tracking-[0.32em] uppercase text-primary font-medium">
+              <span className="h-px w-8 bg-primary/40" />
+              Präzision · Beständigkeit · Charakter
+              <span className="h-px w-8 bg-primary/40" />
+            </div>
+            <p className="text-xl md:text-2xl font-light text-foreground leading-relaxed max-w-xl mx-auto">
+              RAJ steht für Produkte die funktionieren. Einfach. Ohne Kompromisse.
+            </p>
+            <p className="text-sm tracking-[0.32em] uppercase text-muted-foreground font-light pt-2">
+              Power. Always There.
+            </p>
+          </div>
         </div>
 
         {/* SECTION 7 — Blog CTA */}
-        <div className="pt-4 text-center space-y-6">
-          <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">RAJ Blog</p>
+        <div className="text-center space-y-6 pt-4">
+          <div className="inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-primary font-medium">
+            <Zap className="w-3.5 h-3.5" strokeWidth={1.5} />
+            RAJ Blog
+          </div>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight">Wissen rund um kabelloses Laden.</h2>
           <p className="text-muted-foreground font-light max-w-xl mx-auto">
             Artikel und Guides zu Qi2.2, MagSafe und Apple-Zubehör – direkt aus dem RAJ Team.
           </p>
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all hover:gap-3 shadow-sm hover:shadow-md"
           >
             Zum RAJ Blog
             <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
