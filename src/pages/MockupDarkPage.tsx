@@ -609,7 +609,7 @@ const MockupDarkPage = () => {
         <div className="relative px-5 sm:px-10 pt-4 sm:pt-10 pb-20 sm:pb-32 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-8 md:gap-14 items-start">
             {/* LEFT: editorial copy + premium carousel */}
-            <div className="md:col-span-7 relative">
+            <div className="md:col-span-7 relative min-w-0 w-full">
               {/* ─── Title Block ABOVE hero image ─── */}
               <div className="mb-8 sm:mb-10 text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-5">
@@ -637,9 +637,9 @@ const MockupDarkPage = () => {
             </div>
 
             {/* RIGHT: Premium Founder Card (boxed, matching reference) */}
-            <div className="md:col-span-5 md:sticky md:top-20">
+            <div className="md:col-span-5 md:sticky md:top-20 min-w-0 w-full">
               <div
-                className="relative rounded-2xl p-7 sm:p-8"
+                className="relative w-full max-w-full overflow-hidden rounded-2xl p-7 sm:p-8"
                 style={{
                   background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
                   border: `1px solid ${D.gold}33`,
