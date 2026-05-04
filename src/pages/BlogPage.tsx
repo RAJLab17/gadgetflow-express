@@ -1,90 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { BLOG_ARTICLES } from "@/content/site-urls";
 
-interface Article {
-  slug: string;
-  title: string;
-  date: string;
-  dateISO: string;
-  excerpt: string;
-  href: string;
-}
-
-const articles: Article[] = [
-  {
-    slug: "3-in-1-ladestation-apple",
-    title: "3-in-1 Ladestation iPhone Apple Watch AirPods – die beste Lösung 2026",
-    date: "03.05.2026",
-    dateISO: "2026-05-03",
-    excerpt:
-      "Drei Geräte, ein Ladegerät. Die beste 3-in-1 Ladestation für Apple-Nutzer in der Schweiz.",
-    href: "/3-in-1-ladestation-iphone-apple-watch-airpods",
-  },
-  {
-    slug: "magsafe-ladestation-schweiz",
-    title: "MagSafe kompatible Ladestation Schweiz – was bedeutet das wirklich?",
-    date: "03.05.2026",
-    dateISO: "2026-05-03",
-    excerpt:
-      "Nicht alles was MagSafe-kompatibel heisst ist gleich gut. Was du wissen musst bevor du kaufst.",
-    href: "/magsafe-ladestation-schweiz",
-  },
-  {
-    slug: "iphone-standby-ladestation",
-    title: "iPhone StandBy Modus – Die perfekte Ladestation",
-    date: "03.05.2026",
-    dateISO: "2026-05-03",
-    excerpt:
-      "StandBy ist Apples beste Nachttisch-Funktion. Was du brauchst um sie optimal zu nutzen.",
-    href: "/iphone-standby-ladestation-schweiz",
-  },
-  {
-    slug: "qi2-vs-qi22",
-    title: "Qi2 vs. Qi2.2 – Was ist der Unterschied?",
-    date: "02.05.2026",
-    dateISO: "2026-05-02",
-    excerpt:
-      "Qi2.2 ist der neue Standard. Was sich geändert hat und was das für dein iPhone bedeutet.",
-    href: "/qi2-erklaert",
-  },
-  {
-    slug: "nexus-vs-belkin-vs-anker",
-    title: "RAJ NEXUS vs. Belkin vs. Anker – Welcher lohnt sich?",
-    date: "02.05.2026",
-    dateISO: "2026-05-02",
-    excerpt:
-      "Direkter Vergleich der drei beliebtesten 3-in-1 Wireless Charger für iPhone. Qi2.2, Preis, Design.",
-    href: "/vergleich",
-  },
-  {
-    slug: "bester-wireless-charger-schweiz-2026",
-    title: "Bester Wireless Charger Schweiz 2026 – Top 3 im Vergleich",
-    date: "02.05.2026",
-    dateISO: "2026-05-02",
-    excerpt:
-      "Qi2.2, MagSafe, 3-in-1 – welcher Charger lohnt sich wirklich für iPhone-Nutzer in der Schweiz?",
-    href: "/bester-wireless-charger-schweiz",
-  },
-  {
-    slug: "kabelloses-laden-buero-schweiz",
-    title: "Kabelloses Laden im Büro – Kabelsalat eliminieren für Schweizer KMUs",
-    date: "02.05.2026",
-    dateISO: "2026-05-02",
-    excerpt:
-      "Ein Gerät pro Arbeitsplatz statt drei Kabel. Wie Schweizer Unternehmen mit Qi2.2 Ordnung schaffen.",
-    href: "/kabelloses-laden-buero-schweiz",
-  },
-  {
-    slug: "kabelloses-laden-firmen-schweiz",
-    title: "Kabelloses Laden für Unternehmen – Sicherheit und Ordnung für Schweizer KMUs",
-    date: "02.05.2026",
-    dateISO: "2026-05-02",
-    excerpt:
-      "Mitarbeitende bringen eigene Ladekabel mit – ein unterschätztes Risiko. Wie KMUs das eleganter lösen.",
-    href: "/kabelloses-laden-firmen-schweiz",
-  },
-];
+const articles = [...BLOG_ARTICLES].sort((a, b) =>
+  b.dateISO.localeCompare(a.dateISO),
+);
 
 const BlogPage = () => {
   return (
@@ -101,7 +22,7 @@ const BlogPage = () => {
         {articles.map((article) => (
           <Link
             key={article.slug}
-            to={article.href}
+            to={article.path}
             className="group block border border-border/60 hover:border-primary/60 transition-colors duration-300 bg-background"
           >
             <article className="p-6 md:p-8">
