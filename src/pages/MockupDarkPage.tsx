@@ -336,7 +336,7 @@ const SplashIntro = () => {
         <img
           src={logoTransparent}
           alt=""
-          className="w-16 sm:w-20 md:w-24 h-auto select-none"
+          className="w-28 sm:w-36 md:w-44 h-auto select-none"
           style={{
             filter: `drop-shadow(0 0 22px ${D.gold}55) drop-shadow(0 6px 18px rgba(0,0,0,0.45))`,
             animation: "raj-logo-pulse 1100ms ease-out both",
@@ -492,19 +492,6 @@ const MockupDarkPage = () => {
         </div>
       )}
 
-      {/* Sticky Comparison Bar */}
-      <div
-        className="sticky top-0 z-50 flex items-center justify-between px-5 py-2.5 text-xs"
-        style={{ background: D.bg, borderBottom: `1px solid ${D.border}`, color: D.muted }}
-      >
-        <div className="flex items-center gap-3">
-          <span style={{ color: D.gold, letterSpacing: "0.28em" }} className="uppercase font-semibold">Mockup</span>
-          <span className="hidden sm:inline" style={{ color: D.mutedDim }}>Editorial · Apple × Rolex</span>
-        </div>
-        <Link to="/" className="underline underline-offset-4 hover:opacity-80" style={{ color: D.beige }}>
-          ← Live-Version vergleichen
-        </Link>
-      </div>
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 1. HERO — DARK · Editorial + Conversion Card                */}
@@ -520,7 +507,7 @@ const MockupDarkPage = () => {
             <img
               src={logoTransparent}
               alt="RAJ"
-              className="h-7 sm:h-8 w-auto select-none"
+              className="h-11 sm:h-14 w-auto select-none"
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
