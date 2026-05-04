@@ -25,9 +25,10 @@ import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.webp";
 import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
-import nexusStoneHero from "@/assets/products/nexus-hero-night-city.webp";
-import nexusStoneHero680 from "@/assets/products/nexus-hero-night-city-680w.webp";
-import nexusStoneHero1200 from "@/assets/products/nexus-hero-night-city-1200w.webp";
+// Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
+const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
+const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
+const nexusStoneHero = nexusStoneHero1200;
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.webp";
 import payVisa from "@/assets/payments/visa.webp";
@@ -393,13 +394,15 @@ const HeroStillImage = () => {
         }}
       >
         <img
-          src={nexusStoneHero680}
-          srcSet={`${nexusStoneHero680} 680w, ${nexusStoneHero1200} 1200w, ${nexusStoneHero} 1600w`}
+          src={nexusStoneHero1200}
+          srcSet={`${nexusStoneHero600} 600w, ${nexusStoneHero1200} 1200w`}
           sizes="(max-width: 768px) 100vw, 680px"
           alt="RAJ NEXUS auf Stein – Premium Editorial."
           loading="eager"
           decoding="sync"
           fetchPriority="high"
+          width={1200}
+          height={960}
           className="absolute inset-0 w-full h-full object-cover"
           style={{ background: D.surface, objectPosition: "center center" }}
         />
