@@ -22,7 +22,7 @@ const BlogPage = () => {
         {articles.map((article) => (
           <Link
             key={article.slug}
-            to={article.href}
+            to={article.path}
             className="group block border border-border/60 hover:border-primary/60 transition-colors duration-300 bg-background"
           >
             <article className="p-6 md:p-8">
