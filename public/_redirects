@@ -1,0 +1,4 @@
+# Force HTTPS + apex domain (no www) — permanent 301 redirects
+http://raj.ch/*       https://raj.ch/:splat       301!
+http://www.raj.ch/*   https://raj.ch/:splat       301!
+https://www.raj.ch/*  https://raj.ch/:splat       301!
