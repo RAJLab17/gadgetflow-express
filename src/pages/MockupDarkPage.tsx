@@ -23,8 +23,8 @@ import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp"
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import nexusStoneHero from "@/assets/products/nexus-hero-night-city.webp";
 import logo from "@/assets/logo-new.webp";
-import logoTransparent from "@/assets/logo-transparent.png";
-import payVisa from "@/assets/payments/visa.png";
+import logoTransparent from "@/assets/logo-transparent.webp";
+import payVisa from "@/assets/payments/visa.webp";
 import payMastercard from "@/assets/payments/mastercard.png";
 import payAmex from "@/assets/payments/amex.png";
 import payApplePay from "@/assets/payments/apple-pay.png";
@@ -35,7 +35,7 @@ import payTwint from "@/assets/payments/twint.png";
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
 const heroDesireSm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
-const heroStone = new URL("../assets/products/nexus-stone-hero.png", import.meta.url).href;
+const heroStone = new URL("../assets/products/nexus-stone-hero.webp", import.meta.url).href;
 const heroIphoneWatchPods = new URL("../assets/hero-carousel/nexus-iphone-watch-airpods.png", import.meta.url).href;
 const heroEmptyQi2 = new URL("../assets/hero-carousel/nexus-empty-qi2.png", import.meta.url).href;
 const hero3in1Charging = new URL("../assets/hero-carousel/nexus-3in1-charging.png", import.meta.url).href;
