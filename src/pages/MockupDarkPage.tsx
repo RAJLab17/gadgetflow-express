@@ -19,6 +19,23 @@ import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
 
+// Hero Carousel — echte Shop-Slides (premium-rotation)
+const heroBedside = "/hero/hero-1-bedside.webp";
+const heroBedsideSm = "/hero/hero-1-bedside-480.webp";
+const heroFast = new URL("../assets/hero-carousel/slide-3-fast.webp", import.meta.url).href;
+const heroFastSm = new URL("../assets/hero-carousel/slide-3-fast-480.webp", import.meta.url).href;
+const heroClean = new URL("../assets/hero-carousel/slide-4-clean.webp", import.meta.url).href;
+const heroCleanSm = new URL("../assets/hero-carousel/slide-4-clean-480.webp", import.meta.url).href;
+const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
+const heroDesireSm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
+
+const HERO_SLIDES = [
+  { src: heroBedside, srcSm: heroBedsideSm, eyebrow: "Nachts", caption: "Während du schläfst." },
+  { src: heroFast,    srcSm: heroFastSm,    eyebrow: "Tempo",  caption: "100% in 1.5 Stunden." },
+  { src: heroDesire,  srcSm: heroDesireSm,  eyebrow: "Form",   caption: "Objekt, nicht Gerät." },
+  { src: heroClean,   srcSm: heroCleanSm,   eyebrow: "Reise",  caption: "Faltbar. 250 Gramm." },
+] as const;
+
 /**
  * MOCKUP — Apple × Rolex Positioning
  * Dark Hero → Light Trust → Dark Story → Light Specs → Light FAQ → Dark CTA
