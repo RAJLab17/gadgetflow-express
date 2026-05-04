@@ -18,6 +18,7 @@ import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
 import nexusFeatures from "@/assets/products/nexus-real-features.jpg";
 import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
+import nexusSpeed from "@/assets/products/nexus-story-speed.jpg";
 import nexusStoneHero from "@/assets/products/nexus-stone-hero.png";
 import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.png";
@@ -861,28 +862,60 @@ const MockupDarkPage = () => {
           <div className="space-y-28 md:space-y-40">
             {[
               {
-                img: nexusFolds,
+                img: nexusSpeed,
                 idx: "01",
-                eyebrow: "Für Vielreisende",
-                title: "Faltet sich. Lädt überall.",
-                copy: "Hotelzimmer. Lounge. Airbnb. Eine Bewegung — aufgeklappt. iPhone, Watch, AirPods. Alle gleichzeitig.",
+                eyebrow: "Für die, die keine Zeit haben",
+                title: "Vollgeladen, bevor der Kaffee fertig ist.",
+                copy: "90 Minuten — und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen.",
+              },
+              {
+                img: nexusFolds,
+                idx: "02",
+                eyebrow: "Für die Vielreisenden",
+                title: "Faltet sich wie eine Brieftasche. Lädt wie eine Station.",
+                copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig.",
               },
               {
                 img: nexusDesk,
-                idx: "02",
-                eyebrow: "Für die, die Ordnung lieben",
-                title: "Drei Kabel weg. Ein Objekt da.",
-                copy: "Kein Kabelsalat. Kein Suchen. Ein einziger Ort — alles geladen, alles bereit.",
+                idx: "03",
+                imageOnly: true,
               },
               {
                 img: nexusWindow,
-                idx: "03",
-                eyebrow: "Für die späten Abende",
-                title: "Hinlegen. Aufwachen mit 100 %.",
-                copy: "Telefon drauf — magnetisch klick. Morgens: voll geladen, bereit für den Tag.",
+                idx: "04",
+                imageOnly: true,
               },
-            ].map((s, i) => {
+              {
+                img: nexusSofa,
+                idx: "05",
+                eyebrow: "Für die ruhigen Sonntage",
+                title: "Lädt im Hintergrund. Wie es sein soll.",
+                copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf — leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
+              },
+              {
+                img: nexusFeatures,
+                idx: "06",
+                imageOnly: true,
+              },
+            ].map((s: any, i) => {
               const right = i % 2 === 1;
+              if (s.imageOnly) {
+                return (
+                  <div key={s.idx} className="relative">
+                    <img
+                      src={s.img}
+                      alt="RAJ NEXUS"
+                      loading="lazy"
+                      className="w-full aspect-[16/9] md:aspect-[21/9] object-cover rounded-sm"
+                      style={{ boxShadow: "0 40px 80px -30px rgba(0,0,0,0.8)" }}
+                    />
+                    <div
+                      className="absolute inset-0 rounded-sm pointer-events-none"
+                      style={{ background: `linear-gradient(135deg, transparent 60%, rgba(10,10,10,0.4))` }}
+                    />
+                  </div>
+                );
+              }
               return (
                 <div key={s.idx} className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
                   <div className={`md:col-span-7 relative ${right ? "md:order-2" : ""}`}>
@@ -921,22 +954,6 @@ const MockupDarkPage = () => {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* 4. SPECS — LIGHT · Material, Maß, Wahrheit                  */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-36 px-5">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 md:mb-20">
-            <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
-              — Spezifikationen
-            </span>
-            <h2 className="text-3xl md:text-5xl mt-5 leading-tight tracking-tight" style={{ fontWeight: 300 }}>
-              Präzision in Zahlen.
-            </h2>
           </div>
 
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
