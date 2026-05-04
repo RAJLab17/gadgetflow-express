@@ -815,16 +815,15 @@ const MockupDarkPage = () => {
               — Drei Geräte · Ein Ort
             </span>
             <h2 className="text-3xl md:text-5xl mt-5 leading-tight tracking-tight" style={{ fontWeight: 300 }}>
-              Alles gleichzeitig laden.<br />
-              <span style={{ fontStyle: "italic", color: L.textMuted }}>Nichts mehr.</span>
+              Alles gleichzeitig laden.
             </h2>
           </div>
 
           <div className="grid grid-cols-3 gap-4 sm:gap-12 md:gap-16">
             {[
-              { icon: Smartphone, label: "iPhone", spec: "15W MagSafe" },
-              { icon: Watch, label: "Apple Watch", spec: "Schnellladung" },
-              { icon: Headphones, label: "AirPods", spec: "Qi2 Pad" },
+              { icon: Smartphone, label: "iPhone" },
+              { icon: Watch, label: "Apple Watch" },
+              { icon: Headphones, label: "AirPods" },
             ].map((d) => (
               <div key={d.label} className="text-center">
                 <div
@@ -834,12 +833,13 @@ const MockupDarkPage = () => {
                   <d.icon className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12" style={{ color: L.gold }} strokeWidth={1.2} />
                 </div>
                 <div className="text-sm sm:text-lg font-light tracking-tight">{d.label}</div>
-                <div className="text-[10px] sm:text-xs mt-1" style={{ color: L.textDim, letterSpacing: "0.16em" }}>
-                  {d.spec.toUpperCase()}
-                </div>
               </div>
             ))}
           </div>
+
+          <p className="text-center mt-12 md:mt-16 text-sm md:text-base italic" style={{ color: L.textMuted, fontWeight: 300 }}>
+            Mehr brauchst du nicht.
+          </p>
         </div>
       </section>
 
