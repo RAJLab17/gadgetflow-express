@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { Plus, Minus } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
 
@@ -28,6 +29,16 @@ const faqData = [
   { question: "Wohin wird der RAJ NEXUS geliefert?", answer: "Aktuell liefern wir innerhalb der Schweiz. Internationaler Versand ist für spätere Produktlinien geplant." },
   { question: "Wie lange ist die Garantie?", answer: "Der RAJ NEXUS kommt mit 2 Jahren Garantie gemäss Schweizer Recht. Bei Fragen oder Defekten: founder@raj.ch." },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
 
 const FAQItem = ({ item, isOpen, onToggle, index }: {
   item: typeof faqData[0]; isOpen: boolean; onToggle: () => void; index: number;
@@ -67,9 +78,14 @@ const FAQPage = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      </Helmet>
     <PremiumPageLayout
       title="FAQ – RAJ | Häufig gestellte Fragen"
       metaDescription="Häufig gestellte Fragen zu RAJ Wireless Charging Produkten. Alles über Qi2, Kompatibilität, Ladegeschwindigkeit und mehr."
+      canonical="https://raj.ch/faq"
       eyebrow="Hilfe"
       heading="Häufige Fragen."
       intro="Antworten auf alles rund um RAJ und unsere Produkte."
