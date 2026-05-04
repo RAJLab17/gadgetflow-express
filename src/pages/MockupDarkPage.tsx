@@ -1062,7 +1062,7 @@ const MockupDarkPage = () => {
       >
         {/* Background image faded */}
         <div className="absolute inset-0 opacity-25 pointer-events-none">
-          <img src={nexusSofa} alt="" className="w-full h-full object-cover" />
+          <img src="/src/assets/products/nexus-real-lifestyle-sofa-800.webp" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${D.bg} 0%, rgba(10,10,10,0.7) 50%, ${D.bg} 100%)` }} />
         </div>
 
