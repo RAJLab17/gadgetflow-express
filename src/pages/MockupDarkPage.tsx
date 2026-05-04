@@ -492,19 +492,6 @@ const MockupDarkPage = () => {
         </div>
       )}
 
-      {/* Sticky Comparison Bar */}
-      <div
-        className="sticky top-0 z-50 flex items-center justify-between px-5 py-2.5 text-xs"
-        style={{ background: D.bg, borderBottom: `1px solid ${D.border}`, color: D.muted }}
-      >
-        <div className="flex items-center gap-3">
-          <span style={{ color: D.gold, letterSpacing: "0.28em" }} className="uppercase font-semibold">Mockup</span>
-          <span className="hidden sm:inline" style={{ color: D.mutedDim }}>Editorial · Apple × Rolex</span>
-        </div>
-        <Link to="/" className="underline underline-offset-4 hover:opacity-80" style={{ color: D.beige }}>
-          ← Live-Version vergleichen
-        </Link>
-      </div>
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 1. HERO — DARK · Editorial + Conversion Card                */}
