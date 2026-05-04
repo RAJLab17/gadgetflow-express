@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
-  ShieldCheck, Truck, RotateCcw, Plus, Hash, Tag, Gift, Zap, Package,
+  ShieldCheck, Truck, RotateCcw, Plus, Hash, Tag, Gift, Zap, Package, Infinity as InfinityIcon,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -576,9 +576,9 @@ const MockupDarkPage = () => {
                 {/* Founder benefits */}
                 <ul className="space-y-3.5 mb-7">
                   {[
+                    { icon: InfinityIcon, label: "Lebenslanger Early Access zu neuen RAJ Produkten" },
+                    { icon: Hash, label: "Founder Edition mit persönlicher Seriennummer" },
                     { icon: Tag, label: "CHF 30 günstiger als regulär" },
-                    { icon: Plus, label: "Premium USB-C Kabel inklusive" },
-                    { icon: Hash, label: "Eigene Founder-Seriennummer" },
                   ].map((b) => (
                     <li key={b.label} className="flex items-center gap-3">
                       <div
