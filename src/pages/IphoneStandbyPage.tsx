@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/schemas";
+
+const PAGE_URL = "https://raj.ch/iphone-standby-ladestation-schweiz";
+const article = articleJsonLd({
+  headline: "iPhone Standby Ladestation Schweiz 2026",
+  url: PAGE_URL,
+});
+const breadcrumb = breadcrumbJsonLd([
+  { name: "Home", url: "https://raj.ch" },
+  { name: "Blog", url: "https://raj.ch/blog" },
+  { name: "iPhone Standby Ladestation Schweiz 2026", url: PAGE_URL },
+]);
 
 const IphoneStandbyPage = () => {
   return (
