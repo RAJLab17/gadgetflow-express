@@ -336,7 +336,7 @@ const SplashIntro = () => {
         <img
           src={logoTransparent}
           alt=""
-          className="w-16 sm:w-20 md:w-24 h-auto select-none"
+          className="w-28 sm:w-36 md:w-44 h-auto select-none"
           style={{
             filter: `drop-shadow(0 0 22px ${D.gold}55) drop-shadow(0 6px 18px rgba(0,0,0,0.45))`,
             animation: "raj-logo-pulse 1100ms ease-out both",
@@ -507,7 +507,7 @@ const MockupDarkPage = () => {
             <img
               src={logoTransparent}
               alt="RAJ"
-              className="h-7 sm:h-8 w-auto select-none"
+              className="h-11 sm:h-14 w-auto select-none"
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
