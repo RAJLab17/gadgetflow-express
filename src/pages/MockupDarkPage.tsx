@@ -546,29 +546,30 @@ const MockupDarkPage = () => {
 
           {/* Center nav */}
           <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase" style={{ letterSpacing: "0.28em" }}>
-            {[
-              { label: "Produkte", href: "#produkte" },
-              { label: "Über RAJ", href: "#ueber" },
-              { label: "Technologie", href: "#tech" },
-              { label: "Kontakt", href: "#kontakt" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="transition-colors hover:opacity-100"
-                style={{ color: D.muted, fontWeight: 500 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
-              >
-                {item.label}
-              </a>
-            ))}
+            <a
+              href="#produkte"
+              className="transition-colors hover:opacity-100"
+              style={{ color: D.muted, fontWeight: 500 }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
+            >
+              Produkte
+            </a>
+            <Link
+              to="/about"
+              className="transition-colors hover:opacity-100"
+              style={{ color: D.muted, fontWeight: 500 }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
+              onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
+            >
+              Über RAJ
+            </Link>
           </nav>
 
           {/* Mobile center nav — Produkte + Über RAJ */}
           <nav className="flex md:hidden items-center gap-5 text-[10px] uppercase absolute left-1/2 -translate-x-1/2" style={{ letterSpacing: "0.26em" }}>
             <a href="#produkte" style={{ color: D.muted, fontWeight: 500 }}>Produkte</a>
-            <a href="#ueber" style={{ color: D.muted, fontWeight: 500 }}>Über RAJ</a>
+            <Link to="/about" style={{ color: D.muted, fontWeight: 500 }}>Über RAJ</Link>
           </nav>
 
           {/* Right cluster: lang + cart */}
