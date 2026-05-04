@@ -395,7 +395,7 @@ const HeroStillImage = () => {
       </div>
 
       {/* Editorial caption UNDER image */}
-      <div className="mt-6 px-1">
+      <div className="mt-6 px-1 text-center md:text-left">
         <p
           className="text-[10px] uppercase font-medium leading-relaxed"
           style={{ color: D.gold, letterSpacing: "0.32em" }}
@@ -403,7 +403,7 @@ const HeroStillImage = () => {
           Engineered for <span style={{ color: D.beige }}>Performance.</span><br />
           Designed to <span style={{ color: D.beige }}>Inspire.</span>
         </p>
-        <div className="w-10 h-px mt-3" style={{ background: D.gold }} />
+        <div className="w-10 h-px mt-3 mx-auto md:mx-0" style={{ background: D.gold }} />
       </div>
     </div>
   );
