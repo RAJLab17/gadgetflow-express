@@ -28,7 +28,6 @@ Allow: /
 # LLM context file
 # https://raj.ch/llms.txt
 
-# Sitemaps
+# Sitemaps — der Sitemap-Index referenziert sitemap.xml und sitemap-images.xml
 Sitemap: https://raj.ch/sitemap-index.xml
 Sitemap: https://raj.ch/sitemap.xml
-Sitemap: https://raj.ch/sitemap-images.xml
