@@ -507,13 +507,19 @@ const MockupDarkPage = () => {
           <img
             src={nexusStoneHero}
             alt=""
-            className="absolute top-1/2 -translate-y-1/2 h-[120%] w-auto max-w-none opacity-35"
-            style={{ right: "-8%" }}
+            className="absolute top-1/2 -translate-y-1/2 h-[80%] sm:h-[110%] md:h-[120%] w-auto max-w-none opacity-25 sm:opacity-35"
+            style={{ right: "-15%" }}
           />
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden md:block"
             style={{
               background: `linear-gradient(90deg, ${D.bg} 0%, rgba(10,10,10,0.92) 35%, rgba(10,10,10,0.55) 70%, rgba(10,10,10,0.4) 100%), linear-gradient(180deg, transparent 60%, ${D.bg} 100%)`,
+            }}
+          />
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{
+              background: `linear-gradient(180deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.85) 80%, ${D.bg} 100%)`,
             }}
           />
         </div>
