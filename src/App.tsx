@@ -120,7 +120,9 @@ const App = () => (
               <Route path="/meta-capi-status" element={<MetaCapiStatusPage />} />
               <Route path="/iphone-standby-ladestation-schweiz" element={<IphoneStandbyPage />} />
               <Route path="/magsafe-ladestation-schweiz" element={<MagSafeLadestationPage />} />
+              <Route path="/magsafe-ladestation" element={<Navigate to="/magsafe-ladestation-schweiz" replace />} />
               <Route path="/3-in-1-ladestation-iphone-apple-watch-airpods" element={<ThreeInOnePage />} />
+              <Route path="/3in1-ladestation-iphone-apple-watch-airpods" element={<Navigate to="/3-in-1-ladestation-iphone-apple-watch-airpods" replace />} />
               <Route path="/seo-check" element={<SeoCheckPage />} />
               <Route path="/blog/bester-3in1-wireless-charger-schweiz-2026" element={<Beste3in1ChargerPage />} />
               <Route path="*" element={<NotFound />} />
