@@ -15,6 +15,7 @@ const Header = () => {
   const supportCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { lang, setLang, t } = useLanguage();
+  const isDarkPage = location.pathname.startsWith("/about");
 
   const supportLinks = [
     { label: t("header.faq"), href: "/faq" },
@@ -113,7 +114,7 @@ const Header = () => {
         isScrolled
           ? "bg-background/90 backdrop-blur-xl shadow-elegant border-b border-border/50"
           : "bg-transparent"
-      }`}
+      } ${isDarkPage && !isScrolled ? "[&_*]:!text-white" : ""}`}
     >
       <div className="w-full px-2 sm:px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
