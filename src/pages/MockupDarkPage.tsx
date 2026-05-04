@@ -447,12 +447,9 @@ const MockupDarkPage = () => {
           <div className="grid md:grid-cols-12 gap-8 md:gap-14 items-start">
             {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative">
-              {/* PREMIUM HERO IMAGE — single still */}
-              <HeroStillImage />
-
-              {/* ─── Product Info Block (Founder Edition + RAJ NEXUS + Features) ─── */}
-              <div className="mt-16 sm:mt-20">
-                <div className="flex items-center gap-3 mb-6">
+              {/* ─── Title Block ABOVE hero image ─── */}
+              <div className="mb-8 sm:mb-10">
+                <div className="flex items-center gap-3 mb-5">
                   <span className="w-6 h-px" style={{ background: D.gold }} />
                   <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
                     Founder Edition — Nur 100 Stück
@@ -465,10 +462,16 @@ const MockupDarkPage = () => {
                 >
                   RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
                 </h2>
-                <p className="text-base sm:text-lg mb-10" style={{ color: D.muted, fontWeight: 300 }}>
+                <p className="text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
                   3-in-1 Qi 2.2 Wireless Charger
                 </p>
+              </div>
 
+              {/* PREMIUM HERO IMAGE — single still */}
+              <HeroStillImage />
+
+              {/* ─── Features below image ─── */}
+              <div className="mt-12 sm:mt-16">
                 <div className="h-px w-full mb-8" style={{ background: D.border }} />
 
                 <ul className="space-y-6">
