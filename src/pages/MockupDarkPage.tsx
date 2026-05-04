@@ -427,21 +427,56 @@ const MockupDarkPage = () => {
           >
             <img src={logo} alt="RAJ" className="h-6 w-auto" />
           </div>
-          <nav className="flex items-center gap-1 text-[11px]">
-            {(["de", "fr", "it"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className="px-2 py-1 uppercase tracking-widest transition-colors"
-                style={{
-                  color: lang === l ? D.beige : D.mutedDim,
-                  fontWeight: lang === l ? 600 : 400,
-                }}
+
+          {/* Center nav */}
+          <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase" style={{ letterSpacing: "0.28em" }}>
+            {[
+              { label: "Produkte", href: "#produkte" },
+              { label: "Über RAJ", href: "#ueber" },
+              { label: "Technologie", href: "#tech" },
+              { label: "Kontakt", href: "#kontakt" },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="transition-colors hover:opacity-100"
+                style={{ color: D.muted, fontWeight: 500 }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
               >
-                {l}
-              </button>
+                {item.label}
+              </a>
             ))}
           </nav>
+
+          {/* Right cluster: lang + cart */}
+          <div className="flex items-center gap-4">
+            <nav className="hidden sm:flex items-center gap-1 text-[10px]">
+              {(["de", "fr", "it"] as const).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className="px-1.5 py-1 uppercase tracking-widest transition-colors"
+                  style={{
+                    color: lang === l ? D.beige : D.mutedDim,
+                    fontWeight: lang === l ? 600 : 400,
+                  }}
+                >
+                  {l}
+                </button>
+              ))}
+            </nav>
+            <button
+              aria-label="Warenkorb"
+              className="relative w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-105"
+              style={{
+                background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
+                border: `1px solid ${D.gold}33`,
+              }}
+            >
+              <ShoppingBag className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.6} />
+            </button>
+          </div>
         </header>
 
         {/* Subtle ambient gold haze (Apple keynote feel) */}
