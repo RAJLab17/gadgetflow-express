@@ -28,11 +28,7 @@ const hero3in1Charging = new URL("../assets/hero-carousel/nexus-3in1-charging.pn
 const heroFlatIphone = new URL("../assets/hero-carousel/nexus-flat-iphone.png", import.meta.url).href;
 
 const HERO_SLIDES = [
-  { src: heroDesire,            srcSm: heroDesireSm,        eyebrow: "Form",    caption: "Objekt, nicht Gerät." },
-  { src: heroIphoneWatchPods,   srcSm: heroIphoneWatchPods, eyebrow: "3-in-1",  caption: "iPhone. Watch. AirPods." },
-  { src: heroEmptyQi2,          srcSm: heroEmptyQi2,        eyebrow: "Qi 2.2",  caption: "Magnetisch. Präzise." },
-  { src: hero3in1Charging,      srcSm: hero3in1Charging,    eyebrow: "Power",   caption: "Drei Geräte. Eine Station." },
-  { src: heroFlatIphone,        srcSm: heroFlatIphone,      eyebrow: "Flach",   caption: "Faltbar. 250 Gramm." },
+  { src: heroDesire, srcSm: heroDesireSm, eyebrow: "Form", caption: "Objekt, nicht Gerät." },
 ] as const;
 
 /**
