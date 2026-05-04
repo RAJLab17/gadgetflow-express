@@ -865,7 +865,9 @@ const MockupDarkPage = () => {
 
       {/* Footer */}
       <footer style={{ background: D.bg, borderTop: `1px solid ${D.border}` }} className="py-10 px-5 text-center">
-        <img src={logo} alt="RAJ" className="h-7 w-auto mx-auto opacity-60" style={{ filter: "invert(1)" }} />
+        <div className="inline-flex items-center justify-center px-3 py-1.5 rounded-md" style={{ background: D.beige }}>
+          <img src={logo} alt="RAJ" className="h-5 w-auto" />
+        </div>
         <p className="text-[10px] uppercase mt-4" style={{ color: D.gold, letterSpacing: "0.28em" }}>
           Power. Always There.
         </p>
@@ -873,6 +875,9 @@ const MockupDarkPage = () => {
           © {new Date().getFullYear()} RAJ GmbH (in Gründung)
         </p>
       </footer>
+
+      {/* Mobile spacer — damit Sticky Bar Footer nicht überdeckt */}
+      <div className="h-16 md:hidden" aria-hidden style={{ background: D.bg }} />
     </>
   );
 };
