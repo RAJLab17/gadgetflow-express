@@ -730,6 +730,44 @@ const MockupDarkPage = () => {
                     </span>
                   </div>
                 </div>
+
+                {/* Sichere Zahlungsmethoden */}
+                <div className="mt-6 pt-5" style={{ borderTop: `1px solid ${D.border}` }}>
+                  <p
+                    className="text-center text-[9px] uppercase mb-3"
+                    style={{ color: D.mutedDim, letterSpacing: "0.32em" }}
+                  >
+                    Sichere Zahlungsmethoden
+                  </p>
+                  <div className="flex items-center justify-center gap-1.5 flex-wrap">
+                    {[
+                      { label: "VISA", render: <span className="font-bold italic tracking-tight" style={{ color: "#1A1F71", fontSize: 13 }}>VISA</span> },
+                      { label: "Mastercard", render: (
+                        <span className="relative inline-flex">
+                          <span className="w-3.5 h-3.5 rounded-full" style={{ background: "#EB001B" }} />
+                          <span className="w-3.5 h-3.5 rounded-full -ml-1.5" style={{ background: "#F79E1B", mixBlendMode: "multiply" }} />
+                        </span>
+                      ) },
+                      { label: "Amex", render: <span className="font-bold tracking-tight" style={{ color: "#2E77BC", fontSize: 9, letterSpacing: "0.04em" }}>AMEX</span> },
+                      { label: "Apple Pay", render: <span className="font-medium tracking-tight" style={{ color: "#fff", fontSize: 11 }}> Pay</span> },
+                      { label: "Google Pay", render: <span className="font-medium tracking-tight" style={{ fontSize: 10 }}><span style={{ color: "#4285F4" }}>G</span><span style={{ color: "#EA4335" }}>o</span><span style={{ color: "#FBBC05" }}>o</span><span style={{ color: "#4285F4" }}>g</span><span style={{ color: "#34A853" }}>l</span><span style={{ color: "#EA4335" }}>e</span><span style={{ color: D.beige }}> Pay</span></span> },
+                      { label: "Klarna", render: <span className="font-bold tracking-tight" style={{ color: "#1a1714", fontSize: 9, background: "#FFA8CD", padding: "2px 5px", borderRadius: 3 }}>Klarna</span> },
+                      { label: "TWINT", render: <span className="font-bold tracking-tight" style={{ color: "#fff", fontSize: 9, letterSpacing: "0.04em" }}>TWINT</span> },
+                    ].map((p) => (
+                      <div
+                        key={p.label}
+                        className="h-7 min-w-[40px] px-2 rounded-md flex items-center justify-center"
+                        style={{
+                          background: "rgba(255,255,255,0.04)",
+                          border: `1px solid ${D.border}`,
+                        }}
+                        aria-label={p.label}
+                      >
+                        {p.render}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Countdown OUTSIDE card */}
