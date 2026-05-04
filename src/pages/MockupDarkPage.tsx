@@ -469,7 +469,7 @@ const MockupDarkPage = () => {
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
       {!heroSubmitted && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-30 md:hidden backdrop-blur-md"
+          className="fixed bottom-0 left-0 right-0 z-30 backdrop-blur-md"
           style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40` }}
         >
           <div className="px-3 py-2.5 flex items-center gap-2">
@@ -1109,7 +1109,7 @@ const MockupDarkPage = () => {
       </footer>
 
       {/* Mobile spacer — damit Sticky Bar Footer nicht überdeckt */}
-      <div className="h-16 md:hidden" aria-hidden style={{ background: D.bg }} />
+      <div className="h-16" aria-hidden style={{ background: D.bg }} />
     </>
   );
 };
