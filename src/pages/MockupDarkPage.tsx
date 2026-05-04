@@ -18,6 +18,7 @@ import nexusFeatures from "@/assets/products/nexus-real-features.jpg";
 import nexusWindow from "@/assets/products/nexus-real-window.jpg";
 import nexusSofa from "@/assets/products/nexus-real-lifestyle-sofa.jpg";
 import logo from "@/assets/logo-new.webp";
+import logoTransparent from "@/assets/logo-transparent.png";
 
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
