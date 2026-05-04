@@ -708,7 +708,7 @@ const MockupDarkPage = () => {
                       >
                         <b.icon className="w-3.5 h-3.5" style={{ color: D.gold }} strokeWidth={1.8} />
                       </div>
-                      <span className="text-[13px]" style={{ color: D.beige, fontWeight: 300 }}>
+                      <span className="text-[11px] sm:text-[13px] whitespace-nowrap" style={{ color: D.beige, fontWeight: 300 }}>
                         {b.label}
                       </span>
                     </li>
