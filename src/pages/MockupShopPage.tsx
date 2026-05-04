@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Zap, Plus, Package, Check, ShoppingBag, ArrowLeft } from "lucide-react";
-import nexusRocks from "@/assets/products/nexus-shop-hero-rocks.jpg";
+import nexusReal from "@/assets/products/nexus-real-night-city.webp";
 import logo from "@/assets/logo-new.webp";
 
 /**
