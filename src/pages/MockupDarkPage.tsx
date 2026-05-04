@@ -510,18 +510,18 @@ const MockupDarkPage = () => {
           <img
             src={heroStone}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            className="absolute top-1/2 -translate-y-1/2 h-[80%] sm:h-[110%] md:h-[120%] w-auto max-w-none opacity-25 sm:opacity-35 left-1/2 -translate-x-1/2 md:left-auto md:right-[-15%] md:translate-x-0"
           />
           <div
             className="absolute inset-0 hidden md:block"
             style={{
-              background: `linear-gradient(90deg, ${D.bg} 0%, rgba(10,10,10,0.85) 30%, rgba(10,10,10,0.45) 65%, rgba(10,10,10,0.3) 100%), linear-gradient(180deg, transparent 65%, ${D.bg} 100%)`,
+              background: `linear-gradient(90deg, ${D.bg} 0%, rgba(10,10,10,0.92) 35%, rgba(10,10,10,0.55) 70%, rgba(10,10,10,0.4) 100%), linear-gradient(180deg, transparent 60%, ${D.bg} 100%)`,
             }}
           />
           <div
             className="absolute inset-0 md:hidden"
             style={{
-              background: `linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.5) 45%, rgba(10,10,10,0.85) 80%, ${D.bg} 100%)`,
+              background: `linear-gradient(180deg, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.85) 80%, ${D.bg} 100%)`,
             }}
           />
         </div>
