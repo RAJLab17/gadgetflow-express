@@ -472,7 +472,7 @@ const MockupDarkPage = () => {
               </p>
 
               {/* PREMIUM CAROUSEL — auto-rotating, editorial */}
-              <HeroPremiumCarousel />
+              <HeroStillImage />
             </div>
 
             {/* RIGHT: Founder Conversion Card */}
