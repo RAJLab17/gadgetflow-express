@@ -19,6 +19,7 @@ import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
 import nexusFeatures from "@/assets/products/nexus-desk-writing.png";
 import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.png";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.png";
+import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.png";
 import nexusStoneHero from "@/assets/products/nexus-stone-hero.png";
 import logo from "@/assets/logo-new.webp";
