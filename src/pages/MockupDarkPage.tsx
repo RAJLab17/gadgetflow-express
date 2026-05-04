@@ -582,7 +582,7 @@ const MockupDarkPage = () => {
                   </div>
                   <span className="w-px h-3" style={{ background: D.border }} />
                   <div className="flex items-center gap-1.5">
-                    <RefreshCw className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
+                    <RotateCcw className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
                     <span className="text-[10px]" style={{ color: D.muted, letterSpacing: "0.06em" }}>
                       30 Tage
                     </span>
