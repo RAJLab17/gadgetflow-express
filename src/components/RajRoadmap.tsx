@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Lock, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import nexusLifestyle from "@/assets/lifestyle-laptop.webp";
+import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
 
 type Milestone = {
   name: string;
