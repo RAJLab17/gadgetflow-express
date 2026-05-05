@@ -465,6 +465,25 @@ const MockupDarkPage = () => {
   const nextFounderNumber = Math.min(TOTAL_SPOTS, spotsTaken + 1);
   const progress = Math.min(100, (spotsTaken / TOTAL_SPOTS) * 100);
 
+  // Animated countdown for announcement bar (starts at 100, ticks down to available)
+  const targetAvailable = TOTAL_SPOTS - spotsTaken;
+  const [displayAvailable, setDisplayAvailable] = useState(TOTAL_SPOTS);
+  useEffect(() => {
+    if (displayAvailable === targetAvailable) return;
+    const step = displayAvailable > targetAvailable ? -1 : 1;
+    const diff = Math.abs(displayAvailable - targetAvailable);
+    // total animation ~1.2s, min 25ms per tick
+    const interval = Math.max(25, Math.min(60, Math.floor(1200 / Math.max(diff, 1))));
+    const id = window.setInterval(() => {
+      setDisplayAvailable((prev) => {
+        if (prev === targetAvailable) return prev;
+        const next = prev + step;
+        return step < 0 ? Math.max(next, targetAvailable) : Math.min(next, targetAvailable);
+      });
+    }, interval);
+    return () => clearInterval(id);
+  }, [targetAvailable, displayAvailable]);
+
   return (
     <>
       <Helmet>
@@ -494,7 +513,7 @@ const MockupDarkPage = () => {
         }}
       >
         <span>
-          Founder Edition — <span style={{ transition: "opacity 300ms ease" }} key={spotsTaken}>{TOTAL_SPOTS - spotsTaken}</span> von {TOTAL_SPOTS} verfügbar
+          Founder Edition — <span style={{ display: "inline-block", minWidth: "1.5em", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{displayAvailable}</span> von {TOTAL_SPOTS} verfügbar
         </span>
       </div>
       <div aria-hidden style={{ height: 28 }} />
