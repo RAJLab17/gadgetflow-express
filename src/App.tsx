@@ -88,7 +88,7 @@ const App = () => (
           <Suspense fallback={null}>
             <DevModeToggle />
             <Routes>
-              <Route path="/" element={<Navigate to="/nexus" replace />} />
+              <Route path="/" element={<Index />} />
               <Route path="/nexus" element={<MockupDarkPage />} />
               <Route path="/product/magnetic-cable" element={<WithCart><ProductPage /></WithCart>} />
               <Route path="/product/magsafe-powerbank" element={<WithCart><PowerBankPage /></WithCart>} />
