@@ -482,7 +482,7 @@ const MockupDarkPage = () => {
         aria-live="polite"
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center text-center px-4"
         style={{
-          height: 36,
+          height: 28,
           background: D.gold,
           color: "#0a0a0a",
           fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif",
