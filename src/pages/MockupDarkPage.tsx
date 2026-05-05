@@ -486,7 +486,7 @@ const MockupDarkPage = () => {
           background: D.gold,
           color: "#0a0a0a",
           fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif",
-          fontSize: 12,
+          fontSize: 11,
           fontWeight: 600,
           letterSpacing: "0.12em",
           textTransform: "uppercase",
