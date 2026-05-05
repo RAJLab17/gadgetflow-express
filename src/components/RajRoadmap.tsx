@@ -60,14 +60,27 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
           }}
         />
 
-        {/* Unlocked pulse */}
+        {/* Unlocked: lifestyle photo background */}
         {isUnlocked && (
-          <div
-            className="absolute inset-0 opacity-40 pointer-events-none animate-pulse"
-            style={{
-              background: `radial-gradient(circle at 50% 0%, ${GOLD}55, transparent 65%)`,
-            }}
-          />
+          <>
+            <div
+              className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-55 group-hover:opacity-70 transition-opacity duration-700"
+              style={{ backgroundImage: `url(${nexusLifestyle})` }}
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.7) 55%, rgba(10,10,10,0.95) 100%)",
+              }}
+            />
+            <div
+              className="absolute inset-0 opacity-40 pointer-events-none animate-pulse"
+              style={{
+                background: `radial-gradient(circle at 50% 100%, ${GOLD}40, transparent 65%)`,
+              }}
+            />
+          </>
         )}
 
         <div className="relative z-10 flex flex-col justify-between h-full p-7 sm:p-8" style={{ minHeight: "320px" }}>
