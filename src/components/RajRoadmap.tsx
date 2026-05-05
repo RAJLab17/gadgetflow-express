@@ -208,17 +208,9 @@ const RajRoadmap = () => {
               what's next.
             </span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-base sm:text-lg md:text-xl text-white/55 font-light max-w-xl leading-relaxed"
-          >
             RAJ is more than a product.
             <br />
             It's a system designed to power your everyday.
-          </motion.p>
         </div>
 
         {/* Mobile: horizontal swipe */}
