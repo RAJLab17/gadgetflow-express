@@ -482,11 +482,11 @@ const MockupDarkPage = () => {
         aria-live="polite"
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center text-center px-4"
         style={{
-          height: 36,
+          height: 28,
           background: D.gold,
           color: "#0a0a0a",
           fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif",
-          fontSize: 12,
+          fontSize: 11,
           fontWeight: 600,
           letterSpacing: "0.12em",
           textTransform: "uppercase",
@@ -497,7 +497,7 @@ const MockupDarkPage = () => {
           Founder Edition — <span style={{ transition: "opacity 300ms ease" }} key={spotsTaken}>{TOTAL_SPOTS - spotsTaken}</span> von {TOTAL_SPOTS} verfügbar
         </span>
       </div>
-      <div aria-hidden style={{ height: 36 }} />
+      <div aria-hidden style={{ height: 28 }} />
 
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
       {!heroSubmitted && (
