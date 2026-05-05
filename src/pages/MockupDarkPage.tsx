@@ -513,7 +513,7 @@ const MockupDarkPage = () => {
         }}
       >
         <span>
-          Founder Edition — <span style={{ transition: "opacity 300ms ease" }} key={spotsTaken}>{TOTAL_SPOTS - spotsTaken}</span> von {TOTAL_SPOTS} verfügbar
+          Founder Edition — <span style={{ display: "inline-block", minWidth: "1.5em", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{displayAvailable}</span> von {TOTAL_SPOTS} verfügbar
         </span>
       </div>
       <div aria-hidden style={{ height: 28 }} />
