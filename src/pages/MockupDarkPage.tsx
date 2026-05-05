@@ -497,7 +497,7 @@ const MockupDarkPage = () => {
           Founder Edition — <span style={{ transition: "opacity 300ms ease" }} key={spotsTaken}>{TOTAL_SPOTS - spotsTaken}</span> von {TOTAL_SPOTS} verfügbar
         </span>
       </div>
-      <div aria-hidden style={{ height: 36 }} />
+      <div aria-hidden style={{ height: 28 }} />
 
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
       {!heroSubmitted && (
