@@ -403,7 +403,7 @@ const HeroStillImage = () => {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % HERO_SLIDES.length), 5000);
+    const id = setInterval(() => setIndex((i) => (i + 1) % HERO_STILL_SLIDES.length), 5000);
     return () => clearInterval(id);
   }, [paused]);
 
@@ -431,10 +431,10 @@ const HeroStillImage = () => {
         <AnimatePresence mode="sync">
           <motion.img
             key={index}
-            src={HERO_SLIDES[index].src}
-            srcSet={`${HERO_SLIDES[index].srcSm} 600w, ${HERO_SLIDES[index].src} 1200w`}
+            src={HERO_STILL_SLIDES[index].src}
+            srcSet={`${HERO_STILL_SLIDES[index].srcSm} 600w, ${HERO_STILL_SLIDES[index].src} 1200w`}
             sizes="(max-width: 768px) 100vw, 680px"
-            alt={HERO_SLIDES[index].alt}
+            alt={HERO_STILL_SLIDES[index].alt}
             loading={index === 0 ? "eager" : "lazy"}
             decoding="async"
             fetchPriority={index === 0 ? "high" : "low"}
@@ -452,7 +452,7 @@ const HeroStillImage = () => {
 
       {/* Slide indicators */}
       <div className="mt-4 flex items-center justify-center gap-3">
-        {HERO_SLIDES.map((_, i) => (
+        {HERO_STILL_SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
