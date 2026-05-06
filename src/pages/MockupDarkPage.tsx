@@ -734,12 +734,12 @@ const MockupDarkPage = () => {
         />
 
         {/* Hero content */}
-        <div className="relative px-3 sm:px-10 pt-2 sm:pt-10 pb-6 sm:pb-32 max-w-7xl mx-auto">
+        <div className="relative px-3 sm:px-10 pt-0 sm:pt-4 pb-6 sm:pb-32 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-6 md:gap-14 items-start">
             {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative min-w-0 w-full">
               {/* ─── Title Block ABOVE hero image ─── */}
-              <div className="mb-5 sm:mb-10 text-center md:text-left">
+              <div className="mb-3 sm:mb-6 text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-3 sm:mb-5">
                   <span className="w-6 h-px" style={{ background: D.gold }} />
                   <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
@@ -765,7 +765,7 @@ const MockupDarkPage = () => {
             </div>
 
             {/* RIGHT: Premium Founder Card (boxed, matching reference) */}
-            <div className="md:col-span-5 md:sticky md:top-20 min-w-0 w-full">
+            <div className="md:col-span-5 md:sticky md:top-12 min-w-0 w-full">
               <div
                 className="relative w-full max-w-full rounded-2xl p-4 sm:p-8"
                 style={{
