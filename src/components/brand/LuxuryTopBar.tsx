@@ -25,10 +25,11 @@ const LuxuryTopBar = () => {
 
   return (
     <div
-      className="relative z-[60] w-full"
+      className="fixed top-0 left-0 right-0 z-[60] w-full"
       style={{
         background: "linear-gradient(90deg, #050403 0%, #0d0a07 50%, #050403 100%)",
         borderBottom: `1px solid ${GOLD}25`,
+        backdropFilter: "blur(8px)",
       }}
     >
       {/* gold hairline shimmer */}
