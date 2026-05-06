@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Lock, ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useReveal } from "@/lib/reveal";
 import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
 import { useState, useRef } from "react";
 
@@ -29,15 +29,13 @@ const GOLD_SOFT = "#c8946b";
 const Card = ({ m, index }: { m: Milestone; index: number }) => {
   const { t } = useLanguage();
   const isUnlocked = m.status === "unlocked";
+  const ref = useReveal<HTMLDivElement>({ rootMargin: "-50px" });
 
   const inner = (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.7, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6, scale: 1.03 }}
-      className="group relative h-full snap-center shrink-0 w-[78vw] sm:w-[46vw] md:w-auto md:shrink"
+    <div
+      ref={ref}
+      className="reveal group relative h-full snap-center shrink-0 w-[78vw] sm:w-[46vw] md:w-auto md:shrink transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.03]"
+      style={{ transitionDelay: `${index * 70}ms` }}
     >
       <div
         className={`relative h-full rounded-2xl overflow-hidden transition-all duration-500 ${
@@ -52,7 +50,6 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
           minHeight: "320px",
         }}
       >
-        {/* Shimmer */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
           style={{
@@ -63,7 +60,6 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
           }}
         />
 
-        {/* Unlocked: lifestyle photo background */}
         {isUnlocked && (
           <>
             <div
@@ -79,9 +75,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
             />
             <div
               className="absolute inset-0 opacity-40 pointer-events-none animate-pulse"
-              style={{
-                background: `radial-gradient(circle at 50% 100%, ${GOLD}40, transparent 65%)`,
-              }}
+              style={{ background: `radial-gradient(circle at 50% 100%, ${GOLD}40, transparent 65%)` }}
             />
           </>
         )}
@@ -147,7 +141,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 
   if (isUnlocked && m.href) {
@@ -274,29 +268,21 @@ const RajRoadmap = () => {
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <div className="max-w-4xl mb-16 sm:mb-24">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-[10px] sm:text-xs font-light uppercase mb-6"
+          <p
+            className="raj-rise-sm text-[10px] sm:text-xs font-light uppercase mb-6"
             style={{ color: GOLD, letterSpacing: "0.5em" }}
           >
             {t("brand.road.eyebrow")}
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-white mb-8 leading-[0.95]"
-            style={{ letterSpacing: "-0.02em" }}
+          </p>
+          <h2
+            className="raj-rise text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-white mb-8 leading-[0.95]"
+            style={{ letterSpacing: "-0.02em", animationDelay: "100ms" }}
           >
             {t("brand.road.headline.l1")}{" "}
             <span className="italic font-thin" style={{ color: GOLD_SOFT }}>
               {t("brand.road.headline.l2")}
             </span>
-          </motion.h2>
+          </h2>
         </div>
 
         {/* Mobile: 3D coverflow carousel */}
@@ -312,13 +298,7 @@ const RajRoadmap = () => {
         </div>
 
         {/* Progress line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="hidden md:block mt-16 px-2"
-        >
+        <div className="raj-fade hidden md:block mt-16 px-2" style={{ animationDelay: "400ms", animationDuration: "1s" }}>
           <div className="relative">
             <div
               className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2"
@@ -330,12 +310,9 @@ const RajRoadmap = () => {
             <div className="relative grid grid-cols-7 gap-5">
               {milestones.map((m, i) => (
                 <div key={m.name} className="flex justify-center">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 + i * 0.08 }}
-                    className="relative"
+                  <div
+                    className="reveal-scale reveal-in relative"
+                    style={{ transitionDelay: `${500 + i * 80}ms` }}
                   >
                     {i === 0 && (
                       <span
@@ -351,25 +328,16 @@ const RajRoadmap = () => {
                         border: i === 0 ? "none" : "1px solid rgba(255,255,255,0.1)",
                       }}
                     />
-                  </motion.div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scarcity line */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-20 sm:mt-28 text-center max-w-2xl mx-auto"
-        >
-          <div
-            className="w-12 h-px mx-auto mb-8"
-            style={{ background: GOLD }}
-          />
+        <div className="raj-rise-sm mt-20 sm:mt-28 text-center max-w-2xl mx-auto" style={{ animationDelay: "300ms" }}>
+          <div className="w-12 h-px mx-auto mb-8" style={{ background: GOLD }} />
           <p
             className="text-base sm:text-lg md:text-xl font-extralight text-white/80 leading-relaxed"
             style={{ letterSpacing: "0.02em" }}
@@ -399,7 +367,7 @@ const RajRoadmap = () => {
             {t("brand.road.cta")}
             <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

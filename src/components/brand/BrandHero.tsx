@@ -1,4 +1,3 @@
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -14,15 +13,12 @@ const SLIDE_DURATION = 6000;
 
 const BrandHero = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const fadeRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
-
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % SLIDES.length), []);
   const goTo = useCallback((i: number) => setIndex(i), []);
@@ -32,6 +28,37 @@ const BrandHero = () => {
     const id = setInterval(next, SLIDE_DURATION);
     return () => clearInterval(id);
   }, [paused, next]);
+
+  // Lightweight scroll-linked parallax via CSS vars (rAF throttled).
+  // Cheaper than framer-motion `useScroll/useTransform` which run per-frame
+  // and force layout reads.
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = ref.current;
+        const px = parallaxRef.current;
+        const fd = fadeRef.current;
+        if (!el || !px || !fd) return;
+        const rect = el.getBoundingClientRect();
+        const h = rect.height || 1;
+        // 0 at top, 1 when fully scrolled past
+        const p = Math.min(1, Math.max(0, -rect.top / h));
+        const y = p * 200;
+        const scale = 1 + p * 0.15;
+        px.style.transform = `translate3d(0, ${y}px, 0) scale(${scale})`;
+        fd.style.opacity = String(Math.max(0, 1 - p / 0.8));
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -57,20 +84,20 @@ const BrandHero = () => {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Rotating lifestyle images with parallax + Ken Burns */}
-      <motion.div style={{ scale, y }} className="absolute inset-0">
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${SLIDES[index]})` }}
+      {/* Rotating lifestyle images with parallax — pure CSS cross-fade */}
+      <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
+        {SLIDES.map((src, i) => (
+          <div
+            key={src}
+            aria-hidden={i !== index}
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{
+              backgroundImage: `url(${src})`,
+              opacity: i === index ? 1 : 0,
+            }}
           />
-        </AnimatePresence>
-      </motion.div>
+        ))}
+      </div>
 
       <div
         className="absolute inset-0"
@@ -79,7 +106,6 @@ const BrandHero = () => {
             "linear-gradient(180deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.55) 20%, rgba(10,9,8,0.45) 40%, rgba(10,9,8,0.80) 70%, rgba(10,9,8,0.98) 100%)",
         }}
       />
-      {/* Extra readability scrim behind headline area */}
       <div
         className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
         style={{
@@ -102,19 +128,16 @@ const BrandHero = () => {
         }}
       />
 
-      <motion.div
-        style={{ opacity }}
+      <div
+        ref={fadeRef}
         className="relative z-10 container mx-auto px-6 sm:px-10 pt-24 sm:pt-28 pb-20 w-full"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
-          {/* Left: Headline + CTAs */}
+          {/* Left */}
           <div className="lg:col-span-7">
-            <motion.h1
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-              className="text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em]"
-              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)" }}
+            <h1
+              className="raj-rise text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em]"
+              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
             >
               {t("brand.hero.h1.line1")}
               <br />
@@ -128,13 +151,11 @@ const BrandHero = () => {
               >
                 {t("brand.hero.h1.line2")}
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.7 }}
-              className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
+            <div
+              className="raj-rise-sm mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
+              style={{ animationDelay: "0.7s", animationDuration: "1s" }}
             >
               <Link
                 to="/nexus"
@@ -175,7 +196,7 @@ const BrandHero = () => {
                   <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ color: GOLD_SOFT }}>→</span>
                 </a>
               </div>
-            </motion.div>
+            </div>
 
             {/* Slide indicators */}
             <div className="mt-12 flex items-center gap-3">
@@ -194,13 +215,10 @@ const BrandHero = () => {
             </div>
           </div>
 
-          {/* Right: Brand manifesto as editorial pull-quote */}
-          <motion.aside
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
-            style={{ borderColor: `${GOLD_SOFT}40` }}
+          {/* Manifesto */}
+          <aside
+            className="raj-rise lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
+            style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
               <span className="h-px w-8 sm:w-10" style={{ background: `linear-gradient(90deg, ${GOLD_SOFT}, transparent)` }} />
@@ -230,23 +248,19 @@ const BrandHero = () => {
             >
               — RAJ
             </p>
-          </motion.aside>
+          </aside>
         </div>
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
+      <div
+        className="raj-fade absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
+        style={{ animationDelay: "1.5s", animationDuration: "1s" }}
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-10"
+        <div
+          className="w-px h-10 animate-float-slow"
           style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }}
         />
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -2,6 +2,14 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Hero images served from /public/assets/hero/* — also long-cache (1 year)
+/assets/hero/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/hero/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/lifestyle/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Static images and fonts in public/
 /*.webp
   Cache-Control: public, max-age=31536000, immutable

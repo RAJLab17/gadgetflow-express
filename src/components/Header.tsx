@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -93,11 +92,8 @@ const Header = () => {
   );
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <header
+      className={`raj-slide-down fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-background/90 backdrop-blur-xl shadow-elegant border-b border-border/50"
           : "bg-transparent"
@@ -191,75 +187,63 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden bg-[#0a0908]/98 backdrop-blur-xl border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
-            >
-              <div className="py-6 space-y-1">
-                {[
-                  { label: t("header.product"), action: () => handleNavClick("#products") },
-                  { label: "Ecosystem", action: () => handleNavClick("#ecosystem") },
-                  { label: "Blog", to: "/blog" },
-                  { label: "FAQ", to: "/faq" },
-                  { label: t("header.about"), to: "/about" },
-                ].map((item, i) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    {item.to ? (
-                      <Link
-                        to={item.to}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="flex items-center justify-between py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors"
-                      >
-                        <span>{item.label}</span>
-                        <span style={{ color: "#9b6b3f" }}>→</span>
-                      </Link>
-                    ) : (
-                      <button
-                        onClick={item.action}
-                        className="flex items-center justify-between w-full py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors text-left"
-                      >
-                        <span>{item.label}</span>
-                        <span style={{ color: "#9b6b3f" }}>→</span>
-                      </button>
-                    )}
-                  </motion.div>
-                ))}
-
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="pt-6 pb-2"
+        {/* Mobile Menu — pure CSS expand */}
+        {isMenuOpen && (
+          <div
+            className="raj-fade md:hidden overflow-hidden bg-[#0a0908]/98 backdrop-blur-xl border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
+            style={{ animationDuration: "300ms" }}
+          >
+            <div className="py-6 space-y-1">
+              {[
+                { label: t("header.product"), action: () => handleNavClick("#products") },
+                { label: "Ecosystem", action: () => handleNavClick("#ecosystem") },
+                { label: "Blog", to: "/blog" },
+                { label: "FAQ", to: "/faq" },
+                { label: t("header.about"), to: "/about" },
+              ].map((item, i) => (
+                <div
+                  key={item.label}
+                  style={{ animation: `raj-slide-from-left 400ms ${i * 50}ms both` }}
                 >
-                  <button
-                    onClick={() => handleNavClick("#products")}
-                    className="w-full py-4 rounded-full text-[11px] uppercase font-medium tracking-[0.28em] transition-all"
-                    style={{
-                      background: "#9b6b3f",
-                      color: "#0a0908",
-                      boxShadow: "0 14px 40px -12px #9b6b3f",
-                    }}
-                  >
-                    {t("header.buy")}
-                  </button>
-                </motion.div>
+                  {item.to ? (
+                    <Link
+                      to={item.to}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center justify-between py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors"
+                    >
+                      <span>{item.label}</span>
+                      <span style={{ color: "#9b6b3f" }}>→</span>
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={item.action}
+                      className="flex items-center justify-between w-full py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors text-left"
+                    >
+                      <span>{item.label}</span>
+                      <span style={{ color: "#9b6b3f" }}>→</span>
+                    </button>
+                  )}
+                </div>
+              ))}
+
+              <div className="pt-6 pb-2" style={{ animation: "raj-slide-from-left 400ms 300ms both" }}>
+                <button
+                  onClick={() => handleNavClick("#products")}
+                  className="w-full py-4 rounded-full text-[11px] uppercase font-medium tracking-[0.28em] transition-all"
+                  style={{
+                    background: "#9b6b3f",
+                    color: "#0a0908",
+                    boxShadow: "0 14px 40px -12px #9b6b3f",
+                  }}
+                >
+                  {t("header.buy")}
+                </button>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        )}
       </div>
-    </motion.header>
+    </header>
   );
 };
 

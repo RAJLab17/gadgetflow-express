@@ -189,4 +189,94 @@
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* ───────────────────────────────────────────────
+   CSS-only animation primitives (replaces framer-motion on /, /nexus)
+   ─────────────────────────────────────────────── */
+
+/* Scroll-reveal: starts hidden, slides up when `.reveal-in` is added */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-fade.reveal-in {
+  opacity: 1;
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    opacity 500ms ease-out,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-scale.reveal-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Mount-time entrance keyframes (replaces motion.div initial+animate) */
+@keyframes raj-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes raj-rise-sm {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes raj-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes raj-slide-down {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes raj-slide-from-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes raj-ken-burns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+@keyframes raj-rise-text {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes raj-cross-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.raj-rise        { animation: raj-rise 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.raj-rise-sm     { animation: raj-rise-sm 700ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.raj-fade        { animation: raj-fade 800ms ease-out both; }
+.raj-slide-down  { animation: raj-slide-down 600ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.raj-rise-text   { animation: raj-rise-text 1s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.raj-cross-fade  { animation: raj-cross-fade 1.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.raj-ken-burns   { animation: raj-ken-burns 9s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-fade, .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .raj-rise, .raj-rise-sm, .raj-fade, .raj-slide-down,
+  .raj-rise-text, .raj-cross-fade, .raj-ken-burns {
+    animation: none !important;
+  }
+}
+
 
