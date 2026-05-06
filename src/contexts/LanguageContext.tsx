@@ -258,10 +258,10 @@ const translations: Translations = {
   },
   "brand.story.c2.title": { de: "Substanz statt Lärm.", fr: "Substance plutôt que bruit.", it: "Sostanza non rumore.", en: "Substance over noise." },
   "brand.story.c2.body": {
-    de: "Wir wählten Zurückhaltung. Materialien, die mit Anmut altern. Technik, die man nicht sieht, aber spürt. Jedes Detail bedacht, dann erneut bedacht.",
-    fr: "Nous avons choisi la retenue. Des matériaux qui vieillissent avec grâce. Une ingénierie qu'on ne voit pas, mais qu'on ressent. Chaque détail pensé, puis repensé.",
-    it: "Abbiamo scelto la sobrietà. Materiali che invecchiano con grazia. Ingegneria che non si vede, ma si sente. Ogni dettaglio considerato, poi riconsiderato.",
-    en: "We chose restraint. Materials that age with grace. Engineering you don't see, but feel. Every detail considered, then considered again.",
+    de: "Wir wählten Zurückhaltung. Nicht als Stil, als Haltung. Materialien, die mit Anmut altern. Technik, die man nicht sieht, aber spürt. Jedes Detail bedacht, dann erneut bedacht.",
+    fr: "Nous avons choisi la retenue. Non pas comme un style, mais comme une attitude. Des matériaux qui vieillissent avec grâce. Une ingénierie qu'on ne voit pas, aber qu'on ressent. Chaque détail pensé, puis repensé.",
+    it: "Abbiamo scelto la sobrietà. Non come stile, ma come attitudine. Materiali che invecchiano con grazia. Ingegneria che non si vede, ma si sente. Ogni dettaglio considerato, poi riconsiderato.",
+    en: "We chose restraint. Not as a style, but as an attitude. Materials that age with grace. Engineering you don't see, but feel. Every detail considered, then considered again.",
   },
   "brand.story.c3.title": { de: "Gemacht, um zu bleiben.", fr: "Fait pour rester.", it: "Fatto per restare.", en: "Built to last." },
   "brand.story.c3.body": {
