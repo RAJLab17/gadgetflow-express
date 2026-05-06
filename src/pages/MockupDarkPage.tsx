@@ -417,7 +417,15 @@ const HeroStillImage = () => {
           Engineered for <span style={{ color: D.beige }}>Performance.</span><br />
           Designed to <span style={{ color: D.beige }}>Inspire.</span>
         </p>
-        <div className="w-10 h-px mt-3 mx-auto md:mx-0" style={{ background: D.gold }} />
+        <div className="mt-4 flex justify-center md:justify-start">
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="w-px h-10"
+            style={{ background: `linear-gradient(180deg, transparent, ${D.gold})` }}
+            aria-hidden
+          />
+        </div>
       </div>
     </div>
   );
