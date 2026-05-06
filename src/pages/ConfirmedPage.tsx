@@ -76,9 +76,9 @@ const ConfirmedPage = () => {
             transition={{ delay: 1.05, duration: 0.6 }}
             className="mb-6"
           >
-            <Link to="/">
+            <a href="https://raj.ch">
               <img src={logo} alt="RAJ" className="h-10 w-auto mx-auto hover:opacity-80 transition-opacity" />
-            </Link>
+            </a>
           </motion.div>
 
           {/* Subtle tagline */}
