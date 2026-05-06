@@ -234,8 +234,8 @@ const translations: Translations = {
     it: "— RAJ · Tecnologia di lusso svizzera",
     en: "— RAJ · Swiss Luxury Technology",
   },
-  "brand.hero.h1.line1": { de: "Power.", fr: "Power.", it: "Power.", en: "Power." },
-  "brand.hero.h1.line2": { de: "Always there.", fr: "Always there.", it: "Always there.", en: "Always there." },
+  "brand.hero.h1.line1": { de: "Energie,", fr: "L'énergie,", it: "L'energia,", en: "Energy," },
+  "brand.hero.h1.line2": { de: "in Form gegossen.", fr: "prend forme.", it: "fatta forma.", en: "cast in form." },
   "brand.hero.sub": {
     de: "Ein Schweizer Tech-Atelier für Objekte mit Substanz.\nLeises Design. Ehrliches Handwerk. Gemacht, um zu bleiben.",
     fr: "Un atelier tech suisse pour des objets de substance.\nDesign discret. Ingénierie honnête. Fait pour durer.",
