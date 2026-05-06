@@ -193,12 +193,19 @@ const BrandHero = () => {
             >
               — Manifest
             </p>
-            <p
-              className="text-lg sm:text-xl text-white font-extralight leading-[1.6] whitespace-pre-line italic"
-              style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)" }}
-            >
-              {t("brand.hero.sub")}
-            </p>
+            {t("brand.hero.sub").split("\n").map((line, i, arr) => (
+              <p
+                key={i}
+                className="text-lg sm:text-xl text-white font-extralight leading-[1.6] italic"
+                style={{
+                  letterSpacing: "0.005em",
+                  textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)",
+                  marginBottom: i < arr.length - 1 ? "1.5rem" : 0,
+                }}
+              >
+                {line}
+              </p>
+            ))}
           </motion.aside>
         </div>
       </motion.div>
