@@ -1126,7 +1126,7 @@ const MockupDarkPage = () => {
                   ["Leistung", "25 W Schnellladung"],
                   ["Geräte", "iPhone · Watch · AirPods"],
                   ["Material", "Aluminium · Premium-Gewebe"],
-                  ["Garantie", "3 Jahre Schweizer Service"],
+                  ["Garantie", "3 Jahre Garantie"],
                   ["Sicherheit", "Überhitzungs- & Überladeschutz"],
                 ].map(([k, v]) => (
                   <div
