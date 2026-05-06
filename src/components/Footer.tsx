@@ -40,43 +40,36 @@ const Footer = () => {
     }
   };
 
+  const newsletterRef = useReveal<HTMLDivElement>();
+  const brandRef = useReveal<HTMLDivElement>();
+  const navRef = useReveal<HTMLDivElement>();
+  const supportRef = useReveal<HTMLDivElement>();
+  const legalRef = useReveal<HTMLDivElement>();
+  const trustRef = useReveal<HTMLDivElement>();
+
   return (
     <footer className="bg-card border-t border-border relative overflow-hidden">
-      {/* Subtle Background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[150px]" />
-      
+
       {/* Newsletter Section */}
       <div className="border-b border-border relative">
         <div className="container mx-auto px-4 py-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl mx-auto text-center"
-          >
+          <div ref={newsletterRef} className="reveal max-w-2xl mx-auto text-center">
             {isSuccess ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="py-6"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.15, type: "spring", stiffness: 200, damping: 15 }}
-                  className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5"
+              <div className="raj-fade py-6" style={{ animationDuration: "600ms" }}>
+                <div
+                  className="reveal-scale reveal-in w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5"
+                  style={{ transitionDelay: "150ms" }}
                 >
                   <Check className="w-6 h-6 text-primary" />
-                </motion.div>
+                </div>
                 <h3 className="text-xl md:text-2xl font-semibold mb-2 text-foreground">
                   Danke für Ihre Anmeldung
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto">
                   Sie sind auf der Liste und erhalten News direkt per E-Mail.
                 </p>
-              </motion.div>
+              </div>
             ) : (
               <>
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
@@ -101,39 +94,28 @@ const Footer = () => {
                     disabled={isLoading}
                     className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-all disabled:opacity-60 flex items-center justify-center gap-2 min-w-[140px]"
                   >
-                    {isLoading ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                      "Anmelden"
-                    )}
+                    {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : "Anmelden"}
                   </button>
                 </form>
               </>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16 relative">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="md:col-span-1"
-          >
+          <div ref={brandRef} className="reveal md:col-span-1">
             <a href="https://raj.ch" className="flex items-center gap-3 mb-4 group">
-              <img 
-                src={logo} 
-                alt="RAJ" 
+              <img
+                src={logo}
+                alt="RAJ"
                 width={180}
                 height={48}
                 loading="lazy"
                 decoding="async"
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105" 
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
               <span className="text-sm font-semibold text-foreground/80 tracking-wide">
                 Power. Always There.
@@ -154,69 +136,33 @@ const Footer = () => {
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+          <div ref={navRef} className="reveal" style={{ transitionDelay: "100ms" }}>
             <h4 className="font-semibold mb-6 text-foreground">Navigation</h4>
             <ul className="space-y-3">
               {["Produkt", "Über uns"].map((link) => (
                 <li key={link}>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link}
-                  </a>
+                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">{link}</a>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Support */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div ref={supportRef} className="reveal" style={{ transitionDelay: "200ms" }}>
             <h4 className="font-semibold mb-6 text-foreground">Support</h4>
             <ul className="space-y-3">
-              <li>
-                <Link to="/faq" className="text-muted-foreground hover:text-primary transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/versand" className="text-muted-foreground hover:text-primary transition-colors">
-                  Versand & Rückgabe
-                </Link>
-              </li>
+              <li><Link to="/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
+              <li><Link to="/versand" className="text-muted-foreground hover:text-primary transition-colors">Versand & Rückgabe</Link></li>
               {["Kontakt", "Manuals & Downloads"].map((link) => (
                 <li key={link}>
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link}
-                  </a>
+                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">{link}</a>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Legal */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
+          <div ref={legalRef} className="reveal" style={{ transitionDelay: "300ms" }}>
             <h4 className="font-semibold mb-6 text-foreground">Dokumente & Rechtliches</h4>
             <ul className="space-y-3">
               {[
@@ -226,26 +172,14 @@ const Footer = () => {
                 { label: "Impressum", href: "/impressum" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  <Link to={link.href} className="text-muted-foreground hover:text-primary transition-colors">{link.label}</Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Payment Methods & Trust Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-border mt-12 pt-8"
-        >
+        <div ref={trustRef} className="reveal border-t border-border mt-12 pt-8" style={{ transitionDelay: "400ms" }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
               © {currentYear} RAJ GmbH (in Gründung) — Alle Rechte vorbehalten.
@@ -271,7 +205,7 @@ const Footer = () => {
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
