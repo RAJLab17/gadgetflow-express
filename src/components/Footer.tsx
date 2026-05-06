@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, Loader2, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackMetaEvent } from "@/lib/meta-pixel";
+import { useReveal } from "@/lib/reveal";
 import logo from "@/assets/logo-new.webp";
 
 const Footer = () => {
