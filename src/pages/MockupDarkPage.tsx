@@ -996,7 +996,7 @@ const MockupDarkPage = () => {
               alt: "Faltbar wie eine Brieftasche",
               eyebrow: "Für die Vielreisenden",
               title: "Faltet sich wie eine Brieftasche. Lädt wie eine Station.",
-              copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig.",
+              copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig laden.",
             },
             {
               img: nexusDesk,
