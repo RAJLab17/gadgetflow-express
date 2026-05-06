@@ -869,21 +869,7 @@ const MockupDarkPage = () => {
           </div>
         </div>
 
-        {/* Mobile-only scroll-down indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="md:hidden absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
-          aria-hidden
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-10"
-            style={{ background: `linear-gradient(180deg, transparent, ${D.gold})` }}
-          />
-        </motion.div>
+
 
         {/* Hairline gold divider */}
         <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
