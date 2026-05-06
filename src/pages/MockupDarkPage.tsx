@@ -412,10 +412,10 @@ const HeroStillImage = () => {
       <div className="mt-6 px-1 text-center md:text-left">
         <p
           className="text-[10px] uppercase font-medium leading-relaxed"
-          style={{ color: D.gold, letterSpacing: "0.32em" }}
+          style={{ color: D.beige, letterSpacing: "0.32em" }}
         >
-          Engineered for <span style={{ color: D.beige }}>Performance.</span><br />
-          Designed to <span style={{ color: D.beige }}>Inspire.</span>
+          Engineered for Performance.<br />
+          Designed to Inspire.
         </p>
         <div className="mt-4 flex justify-center md:justify-start">
           <motion.div
