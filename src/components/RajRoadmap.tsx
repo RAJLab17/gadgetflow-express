@@ -227,14 +227,9 @@ const RajRoadmap = () => {
           </motion.p>
         </div>
 
-        {/* Mobile: horizontal swipe */}
-        <div className="md:hidden -mx-4 px-4">
-          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-6 scrollbar-hide">
-            {milestones.map((m, i) => (
-              <Card key={m.name} m={m} index={i} />
-            ))}
-            <div className="shrink-0 w-2" aria-hidden />
-          </div>
+        {/* Mobile: 3D coverflow carousel */}
+        <div className="md:hidden">
+          <CoverflowCarousel milestones={milestones} />
         </div>
 
         {/* Desktop: grid */}
