@@ -7,10 +7,11 @@ import { BrowserRouter, Routes, Route, useSearchParams, Navigate } from "react-r
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { useCartSync } from "@/hooks/useCartSync";
-import LaunchPage from "./pages/LaunchPage";
 import DevModeToggle from "./components/DevModeToggle";
 
-// Lazy-load everything except the LaunchPage (the LCP route)
+// All routes lazy-loaded for route-based code splitting.
+// LaunchPage is no longer the default landing route — only used on /launch, /prelaunch, ?mode=launch.
+const LaunchPage = lazy(() => import("./pages/LaunchPage"));
 const Index = lazy(() => import("./pages/Index"));
 const ProductPage = lazy(() => import("./pages/ProductPage"));
 const PowerBankPage = lazy(() => import("./pages/PowerBankPage"));
