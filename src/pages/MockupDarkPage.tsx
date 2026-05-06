@@ -409,7 +409,7 @@ const HeroStillImage = () => {
       </div>
 
       {/* Editorial caption UNDER image */}
-      <div className="mt-6 px-1 text-center md:text-left">
+      <div className="mt-6 px-1 text-center">
         <p
           className="text-[10px] uppercase font-medium leading-relaxed"
           style={{ color: D.beige, letterSpacing: "0.32em" }}
@@ -417,7 +417,7 @@ const HeroStillImage = () => {
           Engineered for Performance.<br />
           Designed to Inspire.
         </p>
-        <div className="mt-4 flex justify-center md:justify-start">
+        <div className="mt-4 flex justify-center">
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
