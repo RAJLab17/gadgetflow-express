@@ -374,11 +374,48 @@ const TOTAL_SPOTS = 100;
 // ─────────────────────────────────────────────────────────────────
 // HERO PREMIUM CAROUSEL — auto-rotating editorial slideshow
 // ─────────────────────────────────────────────────────────────────
-// HERO STILL — single editorial image (no carousel)
-// ─────────────────────────────────────────────────────────────────
+const heroSleep1200 = new URL("../assets/hero-nexus/sleep-1200.webp", import.meta.url).href;
+const heroSleep600 = new URL("../assets/hero-nexus/sleep-600.webp", import.meta.url).href;
+const heroWork1200 = new URL("../assets/hero-nexus/work-1200.webp", import.meta.url).href;
+const heroWork600 = new URL("../assets/hero-nexus/work-600.webp", import.meta.url).href;
+
+const HERO_SLIDES = [
+  {
+    src: nexusStoneHero1200,
+    srcSm: nexusStoneHero600,
+    alt: "RAJ NEXUS auf Stein – Premium Editorial.",
+    eager: true,
+  },
+  {
+    src: heroSleep1200,
+    srcSm: heroSleep600,
+    alt: "RAJ NEXUS auf dem Nachttisch – ruhiges Laden über Nacht.",
+    eager: false,
+  },
+  {
+    src: heroWork1200,
+    srcSm: heroWork600,
+    alt: "RAJ NEXUS am Arbeitsplatz – Homeoffice Setup.",
+    eager: false,
+  },
+];
+
 const HeroStillImage = () => {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => setIndex((i) => (i + 1) % HERO_SLIDES.length), 5000);
+    return () => clearInterval(id);
+  }, [paused]);
+
   return (
-    <div className="relative mt-2 sm:mt-12 mx-auto w-full max-w-full">
+    <div
+      className="relative mt-2 sm:mt-12 mx-auto w-full max-w-full"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       {/* Ambient gold halo */}
       <div
         className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
@@ -391,25 +428,49 @@ const HeroStillImage = () => {
         className="relative w-full aspect-[5/4] overflow-hidden rounded-sm mx-auto"
         style={{
           boxShadow: "0 60px 140px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(201,168,118,0.15)",
+          background: D.surface,
         }}
       >
-        <img
-          src={nexusStoneHero1200}
-          srcSet={`${nexusStoneHero600} 600w, ${nexusStoneHero1200} 1200w`}
-          sizes="(max-width: 768px) 100vw, 680px"
-          alt="RAJ NEXUS auf Stein – Premium Editorial."
-          loading="eager"
-          decoding="sync"
-          fetchPriority="high"
-          width={1200}
-          height={960}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ background: D.surface, objectPosition: "center center" }}
-        />
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={index}
+            src={HERO_SLIDES[index].src}
+            srcSet={`${HERO_SLIDES[index].srcSm} 600w, ${HERO_SLIDES[index].src} 1200w`}
+            sizes="(max-width: 768px) 100vw, 680px"
+            alt={HERO_SLIDES[index].alt}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
+            fetchPriority={index === 0 ? "high" : "low"}
+            width={1200}
+            height={960}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center center" }}
+          />
+        </AnimatePresence>
+      </div>
+
+      {/* Slide indicators */}
+      <div className="mt-4 flex items-center justify-center gap-3">
+        {HERO_SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Bild ${i + 1}`}
+            className="h-px transition-all duration-700 ease-out"
+            style={{
+              width: i === index ? "48px" : "18px",
+              background: i === index ? D.gold : "rgba(255,255,255,0.22)",
+            }}
+          />
+        ))}
       </div>
 
       {/* Editorial caption UNDER image */}
-      <div className="mt-3 sm:mt-6 px-1 text-center">
+      <div className="mt-3 sm:mt-5 px-1 text-center">
         <p
           className="text-[10px] uppercase font-medium leading-relaxed"
           style={{ color: D.beige, letterSpacing: "0.32em" }}
