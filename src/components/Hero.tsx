@@ -232,22 +232,6 @@ const Hero = () => {
           </Link>
         </div>
 
-        {/* Scroll Indicator - Positioned in empty space */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="flex justify-center mt-8 lg:mt-16 pb-4"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-3 text-muted-foreground"
-          >
-            <span className="text-xs uppercase tracking-[0.2em] font-medium">Scroll</span>
-            <ArrowDown className="h-4 w-4" />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );
