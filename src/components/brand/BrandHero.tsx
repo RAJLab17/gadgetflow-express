@@ -120,7 +120,8 @@ const BrandHero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[7rem] xl:text-[8.5rem] font-extralight text-white leading-[0.9] tracking-[-0.03em] max-w-6xl"
+          className="text-[16vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.5rem] xl:text-[7.5rem] font-extralight text-white leading-[0.95] tracking-[-0.035em] max-w-3xl"
+          style={{ textShadow: "0 2px 30px rgba(0,0,0,0.45)" }}
         >
           {t("brand.hero.h1.line1")}
           <br />
@@ -133,12 +134,12 @@ const BrandHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-10 sm:mt-14 max-w-5xl"
+          className="mt-8 sm:mt-12 max-w-xl"
         >
-          <div className="w-12 h-px mb-6" style={{ background: `${GOLD_SOFT}66` }} />
+          <div className="w-10 h-px mb-5" style={{ background: `${GOLD_SOFT}66` }} />
           <p
-            className="text-base sm:text-lg text-white/75 font-light max-w-md leading-relaxed whitespace-pre-line"
-            style={{ letterSpacing: "0.01em" }}
+            className="text-sm sm:text-base text-white/70 font-light max-w-sm leading-relaxed whitespace-pre-line"
+            style={{ letterSpacing: "0.015em", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}
           >
             {t("brand.hero.sub")}
           </p>
