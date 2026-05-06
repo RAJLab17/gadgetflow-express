@@ -84,7 +84,7 @@ const Footer = () => {
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold mb-2">Sei der Erste. Immer.</h3>
                 <p className="text-muted-foreground mb-5 text-base">
-                  Exklusive Updates und Angebote direkt in Ihr Postfach
+                  Neue Kollektionen. Launches. Für die, die es zuerst wissen wollen.
                 </p>
                 <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                   <input
