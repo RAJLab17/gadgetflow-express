@@ -251,10 +251,10 @@ const translations: Translations = {
   "brand.story.headline.l2": { de: "Wir bauen Begleiter.", fr: "Nous créons des compagnons.", it: "Creiamo compagni.", en: "We make companions." },
   "brand.story.c1.title": { de: "Ein leiser Anfang.", fr: "Un commencement discret.", it: "Un inizio silenzioso.", en: "A quiet beginning." },
   "brand.story.c1.body": {
-    de: "RAJ entstand in einem kleinen Atelier im Thurgau — nicht mit einem Produkt, sondern mit einer Frage. Warum wirkt Technik wegwerfbar in einer Welt, die Handwerk schätzt?",
-    fr: "RAJ est né dans un petit atelier en Thurgovie — non pas avec un produit, mais avec une question. Pourquoi la technologie semble-t-elle jetable dans un monde qui valorise l'artisanat?",
-    it: "RAJ è nato in un piccolo atelier in Turgovia — non con un prodotto, ma con una domanda. Perché la tecnologia sembra usa e getta in un mondo che valorizza l'artigianato?",
-    en: "RAJ began in a small studio in the Thurgau — not with a product, but with a question. Why does technology feel disposable in a world that values craft?",
+    de: "Alles, was heute unverzichtbar wirkt, begann einmal im Stillen. An einem Ort, der zu klein schien für eine grosse Idee.\n\nUnserer war im Thurgau. In der Schweiz.\n\nRAJ ist dieses Versprechen. Gebaut im Thurgau. Für die Welt.\n\nIch werde nicht aufhören.",
+    fr: "Tout ce qui paraît aujourd'hui indispensable a un jour commencé en silence. Dans un lieu qui semblait trop petit pour une grande idée.\n\nLe nôtre était en Thurgovie. En Suisse.\n\nRAJ, c'est cette promesse. Conçu en Thurgovie. Pour le monde.\n\nJe ne m'arrêterai pas.",
+    it: "Tutto ciò che oggi sembra indispensabile è iniziato una volta in silenzio. In un luogo che sembrava troppo piccolo per una grande idea.\n\nIl nostro era in Turgovia. In Svizzera.\n\nRAJ è questa promessa. Costruito in Turgovia. Per il mondo.\n\nNon mi fermerò.",
+    en: "Everything that feels indispensable today once began in silence. In a place that seemed too small for a big idea.\n\nOurs was in the Thurgau. In Switzerland.\n\nRAJ is that promise. Built in the Thurgau. For the world.\n\nI will not stop.",
   },
   "brand.story.c2.title": { de: "Substanz statt Lärm.", fr: "Substance plutôt que bruit.", it: "Sostanza non rumore.", en: "Substance over noise." },
   "brand.story.c2.body": {
