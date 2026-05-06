@@ -132,6 +132,30 @@ const Header = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </button>
 
+            <button
+              onClick={() => handleNavClick("#ecosystem")}
+              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+            >
+              Ecosystem
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </button>
+
+            <Link
+              to="/blog"
+              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+            >
+              Blog
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </Link>
+
+            <Link
+              to="/faq"
+              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+            >
+              FAQ
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </Link>
+
             <Link
               to="/about"
               className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
@@ -139,7 +163,6 @@ const Header = () => {
               {t("header.about")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
-
           </nav>
 
           {/* Desktop CTA */}
@@ -175,50 +198,60 @@ const Header = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden border-t border-border/50"
+              className="md:hidden overflow-hidden bg-[#0a0908]/98 backdrop-blur-xl border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
             >
-              <div className="py-6 space-y-4">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0 }}
-                >
-                  <button
-                    onClick={() => handleNavClick("#products")}
-                    className="block w-full text-left py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
+              <div className="py-6 space-y-1">
+                {[
+                  { label: t("header.product"), action: () => handleNavClick("#products") },
+                  { label: "Ecosystem", action: () => handleNavClick("#ecosystem") },
+                  { label: "Blog", to: "/blog" },
+                  { label: "FAQ", to: "/faq" },
+                  { label: t("header.about"), to: "/about" },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
                   >
-                    {t("header.product")}
-                  </button>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  <Link
-                    to="/about"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block py-3 text-foreground/80 hover:text-foreground font-medium transition-colors"
-                  >
-                    {t("header.about")}
-                  </Link>
-                </motion.div>
-
+                    {item.to ? (
+                      <Link
+                        to={item.to}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center justify-between py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors"
+                      >
+                        <span>{item.label}</span>
+                        <span style={{ color: "#9b6b3f" }}>→</span>
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={item.action}
+                        className="flex items-center justify-between w-full py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors text-left"
+                      >
+                        <span>{item.label}</span>
+                        <span style={{ color: "#9b6b3f" }}>→</span>
+                      </button>
+                    )}
+                  </motion.div>
+                ))}
 
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="pt-4"
+                  className="pt-6 pb-2"
                 >
-                  <Button
-                    variant="hero"
-                    className="w-full shadow-elegant"
+                  <button
                     onClick={() => handleNavClick("#products")}
+                    className="w-full py-4 rounded-full text-[11px] uppercase font-medium tracking-[0.28em] transition-all"
+                    style={{
+                      background: "#9b6b3f",
+                      color: "#0a0908",
+                      boxShadow: "0 14px 40px -12px #9b6b3f",
+                    }}
                   >
                     {t("header.buy")}
-                  </Button>
+                  </button>
                 </motion.div>
               </div>
             </motion.div>
