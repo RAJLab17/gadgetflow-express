@@ -41,7 +41,6 @@ const Index = () => {
       </Helmet>
 
       <div className="min-h-screen" style={{ background: "#0a0908" }}>
-        <LuxuryTopBar />
         <Header />
         <main>
           <BrandHero />
