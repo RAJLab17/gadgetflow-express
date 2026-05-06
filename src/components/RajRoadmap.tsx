@@ -1,30 +1,32 @@
 import { Link } from "react-router-dom";
 import { Lock, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
 
 type Milestone = {
   name: string;
-  tagline: string;
+  taglineKey: string;
   status: "unlocked" | "locked";
-  eta: string;
+  etaKey: string;
   href?: string;
 };
 
 const milestones: Milestone[] = [
-  { name: "RAJ NEXUS",  tagline: "Where it begins.",              status: "unlocked", eta: "Available now", href: "/nexus" },
-  { name: "RAJ MATRIX", tagline: "Smarter charging.",             status: "locked",   eta: "Coming 2026" },
-  { name: "RAJ AURORA", tagline: "Next-generation materials.",    status: "locked",   eta: "Coming 2026" },
-  { name: "RAJ DRIVE",  tagline: "Power on the move.",            status: "locked",   eta: "Coming 2027" },
-  { name: "RAJ NOMAD",  tagline: "Energy anywhere.",              status: "locked",   eta: "Coming 2027" },
-  { name: "RAJ STUDIO", tagline: "Designed for your desk.",       status: "locked",   eta: "Coming 2027" },
-  { name: "RAJ ELITE",  tagline: "Built without compromise.",     status: "locked",   eta: "Coming soon" },
+  { name: "RAJ NEXUS",  taglineKey: "brand.road.tagline.nexus",  status: "unlocked", etaKey: "brand.road.eta.now",  href: "/nexus" },
+  { name: "RAJ MATRIX", taglineKey: "brand.road.tagline.matrix", status: "locked",   etaKey: "brand.road.eta.2026" },
+  { name: "RAJ AURORA", taglineKey: "brand.road.tagline.aurora", status: "locked",   etaKey: "brand.road.eta.2026" },
+  { name: "RAJ DRIVE",  taglineKey: "brand.road.tagline.drive",  status: "locked",   etaKey: "brand.road.eta.2027" },
+  { name: "RAJ NOMAD",  taglineKey: "brand.road.tagline.nomad",  status: "locked",   etaKey: "brand.road.eta.2027" },
+  { name: "RAJ STUDIO", taglineKey: "brand.road.tagline.studio", status: "locked",   etaKey: "brand.road.eta.2027" },
+  { name: "RAJ ELITE",  taglineKey: "brand.road.tagline.elite",  status: "locked",   etaKey: "brand.road.eta.soon" },
 ];
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
 const Card = ({ m, index }: { m: Milestone; index: number }) => {
+  const { t } = useLanguage();
   const isUnlocked = m.status === "unlocked";
 
   const inner = (
