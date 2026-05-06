@@ -319,7 +319,7 @@ const translations: Translations = {
   "brand.road.unlocked": { de: "Verfügbar", fr: "Disponible", it: "Disponibile", en: "Unlocked" },
   "brand.road.tagline.nexus": { de: "Hier beginnt es.", fr: "Tout commence ici.", it: "Tutto inizia qui.", en: "Where it begins." },
   "brand.road.tagline.matrix": { de: "​", fr: "​", it: "​", en: "​" },
-  "brand.road.tagline.aurora": { de: "Materialien der nächsten Generation.", fr: "Matériaux de nouvelle génération.", it: "Materiali di nuova generazione.", en: "Next-generation materials." },
+  "brand.road.tagline.aurora": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.drive": { de: "Energie unterwegs.", fr: "L'énergie en mouvement.", it: "Energia in movimento.", en: "Power on the move." },
   "brand.road.tagline.nomad": { de: "Energie überall.", fr: "L'énergie partout.", it: "Energia ovunque.", en: "Energy anywhere." },
   "brand.road.tagline.studio": { de: "Für deinen Schreibtisch entworfen.", fr: "Conçu pour ton bureau.", it: "Progettato per la tua scrivania.", en: "Designed for your desk." },
