@@ -765,7 +765,7 @@ const MockupDarkPage = () => {
             </div>
 
             {/* RIGHT: Premium Founder Card (boxed, matching reference) */}
-            <div className="md:col-span-5 md:sticky md:top-20 min-w-0 w-full">
+            <div className="md:col-span-5 md:sticky md:top-12 min-w-0 w-full">
               <div
                 className="relative w-full max-w-full rounded-2xl p-4 sm:p-8"
                 style={{
