@@ -345,16 +345,14 @@ export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [lang, setLangState] = useState<Language>(() => {
-    // 1. Check localStorage
     const stored = localStorage.getItem("raj_lang");
-    if (stored === "de" || stored === "fr" || stored === "it") return stored;
+    if (stored === "de" || stored === "fr" || stored === "it" || stored === "en") return stored;
 
-    // 2. Auto-detect from browser — only FR if explicitly French, else DE (prio DE)
     const browserLang = navigator.language?.toLowerCase() || "";
     if (browserLang.startsWith("fr")) return "fr";
     if (browserLang.startsWith("it")) return "it";
+    if (browserLang.startsWith("en")) return "en";
 
-    // 3. Default: DE
     return "de";
   });
 
