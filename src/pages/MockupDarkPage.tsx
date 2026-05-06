@@ -674,13 +674,13 @@ const MockupDarkPage = () => {
         />
 
         {/* Hero content */}
-        <div className="relative px-3 sm:px-10 pt-4 sm:pt-10 pb-20 sm:pb-32 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-14 items-start">
+        <div className="relative px-3 sm:px-10 pt-2 sm:pt-10 pb-6 sm:pb-32 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-14 items-start">
             {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative min-w-0 w-full">
               {/* ─── Title Block ABOVE hero image ─── */}
-              <div className="mb-8 sm:mb-10 text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-5">
+              <div className="mb-5 sm:mb-10 text-center md:text-left">
+                <div className="flex items-center justify-center md:justify-start gap-3 mb-3 sm:mb-5">
                   <span className="w-6 h-px" style={{ background: D.gold }} />
                   <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
                     Founder Edition — Nur 100 Stück
@@ -689,12 +689,12 @@ const MockupDarkPage = () => {
                 </div>
 
                 <h2
-                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3"
+                  className="text-4xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-2 sm:mb-3"
                   style={{ color: D.beige, fontWeight: 200 }}
                 >
                   RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
                 </h2>
-                <p className="text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
+                <p className="text-sm sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
                   3-in-1 Qi 2.2 Wireless Charger
                 </p>
               </div>
