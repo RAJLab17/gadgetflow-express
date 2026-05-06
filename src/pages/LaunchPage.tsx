@@ -444,7 +444,7 @@ const LaunchPage = () => {
 
           <footer className="border-t border-[#9b6b3f]/10 py-8 bg-[#f0ede6]">
             <div className="container mx-auto px-4 flex flex-col items-center gap-4 text-center">
-              <img src={logo} alt="RAJ" width={96} height={32} className="h-8 w-auto opacity-60" />
+              <a href="https://raj.ch" aria-label="RAJ — Home"><img src={logo} alt="RAJ" width={96} height={32} className="h-8 w-auto opacity-60" /></a>
               <p className="text-xs text-[#888888] uppercase tracking-[0.2em]">
                 Power. Always There.
               </p>
