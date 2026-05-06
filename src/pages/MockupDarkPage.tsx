@@ -1019,7 +1019,7 @@ const MockupDarkPage = () => {
               alt: "Entspannt auf dem Sofa",
               eyebrow: "Für die ruhigen Sonntage",
               title: "Lädt im Hintergrund. Wie es sein soll.",
-              copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf — leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
+              copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf – leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
             },
             {
               img: nexusWindow,
