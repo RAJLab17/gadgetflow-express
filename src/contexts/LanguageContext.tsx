@@ -322,7 +322,7 @@ const translations: Translations = {
   "brand.road.tagline.aurora": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.drive": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.nomad": { de: "​", fr: "​", it: "​", en: "​" },
-  "brand.road.tagline.studio": { de: "Für deinen Schreibtisch entworfen.", fr: "Conçu pour ton bureau.", it: "Progettato per la tua scrivania.", en: "Designed for your desk." },
+  "brand.road.tagline.studio": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.elite": { de: "Ohne Kompromisse gebaut.", fr: "Construit sans compromis.", it: "Costruito senza compromessi.", en: "Built without compromise." },
   "brand.road.eta.now": { de: "Jetzt verfügbar", fr: "Disponible maintenant", it: "Disponibile ora", en: "Available now" },
   "brand.road.eta.2026": { de: "Kommt 2026", fr: "Arrive en 2026", it: "Arriva nel 2026", en: "Coming 2026" },
