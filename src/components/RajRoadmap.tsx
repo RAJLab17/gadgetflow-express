@@ -18,7 +18,7 @@ const milestones: Milestone[] = [
   { name: "RAJ AURORA", taglineKey: "brand.road.tagline.aurora", status: "locked",   etaKey: "brand.road.eta.2026" },
   { name: "RAJ APEX",  taglineKey: "brand.road.tagline.drive",  status: "locked",   etaKey: "brand.road.eta.2027" },
   { name: "RAJ ATLAS",  taglineKey: "brand.road.tagline.nomad",  status: "locked",   etaKey: "brand.road.eta.2027" },
-  { name: "RAJ STUDIO", taglineKey: "brand.road.tagline.studio", status: "locked",   etaKey: "brand.road.eta.2027" },
+  { name: "RAJ ATELIER", taglineKey: "brand.road.tagline.studio", status: "locked",   etaKey: "brand.road.eta.2027" },
   { name: "RAJ ELITE",  taglineKey: "brand.road.tagline.elite",  status: "locked",   etaKey: "brand.road.eta.soon" },
 ];
 
