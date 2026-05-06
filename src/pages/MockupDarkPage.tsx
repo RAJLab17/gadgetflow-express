@@ -588,9 +588,8 @@ const MockupDarkPage = () => {
         </div>
         {/* Header — Logo transparent on dark */}
         <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
-          <button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          <a
+            href="https://raj.ch"
             aria-label="RAJ"
             className="inline-flex items-center bg-transparent border-0 p-0 cursor-pointer"
           >
@@ -601,7 +600,7 @@ const MockupDarkPage = () => {
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
-          </button>
+          </a>
 
           {/* Center nav */}
           <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase" style={{ letterSpacing: "0.28em" }}>
