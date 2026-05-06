@@ -76,14 +76,21 @@ const BrandHero = () => {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(10,9,8,0.55) 0%, rgba(10,9,8,0.25) 35%, rgba(10,9,8,0.85) 80%, rgba(10,9,8,1) 100%)",
+            "linear-gradient(180deg, rgba(10,9,8,0.35) 0%, rgba(10,9,8,0.10) 30%, rgba(10,9,8,0.55) 70%, rgba(10,9,8,0.95) 100%)",
         }}
       />
       <div
-        className="absolute inset-0 mix-blend-overlay opacity-60"
+        className="absolute inset-0 hidden sm:block"
         style={{
           background:
-            "radial-gradient(ellipse at 70% 30%, rgba(200,148,107,0.25), transparent 60%)",
+            "linear-gradient(90deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.35) 35%, rgba(10,9,8,0) 60%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 mix-blend-overlay opacity-40"
+        style={{
+          background:
+            "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)",
         }}
       />
 
