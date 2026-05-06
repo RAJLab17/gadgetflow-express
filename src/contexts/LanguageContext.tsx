@@ -271,7 +271,7 @@ const translations: Translations = {
     en: "Not a season. Not a trend. Objects designed to remain. Beside your bed, on your desk, in your life. Long after the next launch is forgotten.",
   },
   "brand.story.signature": { de: "Power. Always there.", fr: "Power. Always there.", it: "Power. Always there.", en: "Power. Always there." },
-  "brand.story.madeIn": { de: "— Hergestellt in der Schweiz", fr: "— Fabriqué en Suisse", it: "— Fatto in Svizzera", en: "— Made in Switzerland" },
+  "brand.story.madeIn": { de: "— A SWISS BRAND", fr: "— UNE MARQUE SUISSE", it: "— UN MARCHIO SVIZZERO", en: "— A SWISS BRAND" },
 
   // Brand Story – two doors
   "brand.story.link.about.eyebrow": { de: "Über RAJ", fr: "À propos de RAJ", it: "Su RAJ", en: "About RAJ" },
