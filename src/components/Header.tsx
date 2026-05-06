@@ -15,7 +15,7 @@ const Header = () => {
   const supportCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { lang, setLang, t } = useLanguage();
-  const isDarkPage = location.pathname.startsWith("/about");
+  const isDarkPage = location.pathname === "/" || location.pathname.startsWith("/about");
 
   const supportLinks = [
     { label: t("header.faq"), href: "/faq" },

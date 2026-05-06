@@ -50,7 +50,7 @@ const LuxuryTopBar = () => {
               style={{ background: GOLD, boxShadow: `0 0 8px ${GOLD}` }}
             />
             <span
-              className="text-[9px] font-light uppercase text-white/55"
+              className="text-[9px] font-light uppercase text-white/85"
               style={{ letterSpacing: "0.4em" }}
             >
               Swiss · Est. 2025
@@ -66,7 +66,7 @@ const LuxuryTopBar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[10px] sm:text-[11px] font-light uppercase text-white/75 text-center truncate max-w-[80vw]"
+                className="text-[10px] sm:text-[11px] font-light uppercase text-white text-center truncate max-w-[80vw]"
                 style={{ letterSpacing: "0.28em" }}
               >
                 {t(ROTATE_KEYS[idx])}
