@@ -125,7 +125,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-1"
           >
-            <Link to="/" className="flex items-center gap-3 mb-4 group">
+            <a href="https://raj.ch" className="flex items-center gap-3 mb-4 group">
               <img 
                 src={logo} 
                 alt="RAJ" 
