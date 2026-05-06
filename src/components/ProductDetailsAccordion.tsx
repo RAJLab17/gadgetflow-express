@@ -83,7 +83,7 @@ const ProductDetailsAccordion = () => {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="docs" className="border-border/60">
+          <AccordionItem value="docs" className="border-border/60 border-b">
             <AccordionTrigger className="text-base font-light hover:no-underline py-5">Dokumente & Rechtliches</AccordionTrigger>
             <AccordionContent className="text-muted-foreground font-light pb-6 text-sm">
               <ul className="space-y-2.5">
