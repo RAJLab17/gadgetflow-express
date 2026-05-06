@@ -1177,9 +1177,9 @@ const MockupDarkPage = () => {
 
       {/* Footer */}
       <footer style={{ background: D.bg, borderTop: `1px solid ${D.border}` }} className="py-10 px-5 text-center">
-        <div className="inline-flex items-center justify-center">
+        <a href="https://raj.ch" aria-label="RAJ — Home" className="inline-flex items-center justify-center">
           <img src={logoTransparent} alt="RAJ" className="h-12 w-auto" style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }} />
-        </div>
+        </a>
         <p className="text-[10px] uppercase mt-4" style={{ color: D.gold, letterSpacing: "0.28em" }}>
           Power. Always There.
         </p>
