@@ -105,6 +105,65 @@ const BrandStory = () => {
           >
             {t("brand.story.madeIn")}
           </p>
+
+          {/* Two doors: Über RAJ + Ecosystem */}
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-px max-w-3xl mx-auto border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02]">
+            <Link
+              to="/ueber-raj"
+              className="group relative p-8 sm:p-10 text-left transition-colors duration-500 hover:bg-white/[0.03]"
+            >
+              <p
+                className="text-[10px] font-light uppercase mb-4"
+                style={{ color: GOLD, letterSpacing: "0.4em" }}
+              >
+                {t("brand.story.link.about.eyebrow")}
+              </p>
+              <h4
+                className="text-xl md:text-2xl font-extralight text-white mb-3 leading-tight"
+                style={{ letterSpacing: "-0.01em" }}
+              >
+                {t("brand.story.link.about.title")}
+              </h4>
+              <p className="text-sm text-white/55 font-light leading-relaxed mb-6">
+                {t("brand.story.link.about.body")}
+              </p>
+              <span
+                className="inline-flex items-center gap-2 text-[11px] font-medium uppercase transition-all duration-500 group-hover:gap-3"
+                style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}
+              >
+                {t("brand.story.link.about.cta")}
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
+            </Link>
+
+            <a
+              href="#ecosystem"
+              className="group relative p-8 sm:p-10 text-left transition-colors duration-500 hover:bg-white/[0.03] border-t sm:border-t-0 sm:border-l border-white/10"
+            >
+              <p
+                className="text-[10px] font-light uppercase mb-4"
+                style={{ color: GOLD, letterSpacing: "0.4em" }}
+              >
+                {t("brand.story.link.eco.eyebrow")}
+              </p>
+              <h4
+                className="text-xl md:text-2xl font-extralight text-white mb-3 leading-tight"
+                style={{ letterSpacing: "-0.01em" }}
+              >
+                {t("brand.story.link.eco.title")}
+              </h4>
+              <p className="text-sm text-white/55 font-light leading-relaxed mb-6">
+                {t("brand.story.link.eco.body")}
+              </p>
+              <span
+                className="inline-flex items-center gap-2 text-[11px] font-medium uppercase transition-all duration-500 group-hover:gap-3"
+                style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}
+              >
+                {t("brand.story.link.eco.cta")}
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
