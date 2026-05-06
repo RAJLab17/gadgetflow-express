@@ -323,7 +323,7 @@ const translations: Translations = {
   "brand.road.tagline.drive": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.nomad": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.studio": { de: "​", fr: "​", it: "​", en: "​" },
-  "brand.road.tagline.elite": { de: "Ohne Kompromisse gebaut.", fr: "Construit sans compromis.", it: "Costruito senza compromessi.", en: "Built without compromise." },
+  "brand.road.tagline.elite": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.eta.now": { de: "Jetzt verfügbar", fr: "Disponible maintenant", it: "Disponibile ora", en: "Available now" },
   "brand.road.eta.2026": { de: "Kommt 2026", fr: "Arrive en 2026", it: "Arriva nel 2026", en: "Coming 2026" },
   "brand.road.eta.2027": { de: "Kommt 2027", fr: "Arrive en 2027", it: "Arriva nel 2027", en: "Coming 2027" },
