@@ -76,7 +76,15 @@ const BrandHero = () => {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(10,9,8,0.55) 0%, rgba(10,9,8,0.25) 25%, rgba(10,9,8,0.70) 65%, rgba(10,9,8,0.98) 100%)",
+            "linear-gradient(180deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.55) 20%, rgba(10,9,8,0.45) 40%, rgba(10,9,8,0.80) 70%, rgba(10,9,8,0.98) 100%)",
+        }}
+      />
+      {/* Extra readability scrim behind headline area */}
+      <div
+        className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 90% 70% at 30% 40%, rgba(10,9,8,0.65), transparent 70%)",
         }}
       />
       <div
@@ -110,7 +118,14 @@ const BrandHero = () => {
             >
               {t("brand.hero.h1.line1")}
               <br />
-              <span className="italic font-thin" style={{ color: GOLD_SOFT, textShadow: "0 4px 40px rgba(0,0,0,0.75)" }}>
+              <span
+                className="italic font-thin"
+                style={{
+                  color: GOLD_SOFT,
+                  textShadow:
+                    "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)",
+                }}
+              >
                 {t("brand.hero.h1.line2")}
               </span>
             </motion.h1>
