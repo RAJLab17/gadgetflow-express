@@ -82,7 +82,7 @@ const Footer = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-2">Bleiben Sie informiert</h3>
+                <h3 className="text-xl md:text-2xl font-bold mb-2">Sei der Erste. Immer.</h3>
                 <p className="text-muted-foreground mb-5 text-base">
                   Exklusive Updates und Angebote direkt in Ihr Postfach
                 </p>
