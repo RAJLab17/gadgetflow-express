@@ -45,9 +45,9 @@ const BrandPillars = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#1a1612]/10">
           {pillars.map((p, i) => {
-            const sentences = p.body.split(/(?<=[.!?])\s+/);
-            const lead = sentences[0];
-            const rest = sentences.slice(1).join(" ");
+            const parts = p.body.includes("\n") ? p.body.split("\n") : p.body.split(/(?<=[.!?])\s+/);
+            const lead = parts[0].trim();
+            const rest = parts.slice(1).join(" ").trim();
 
             return (
               <motion.div
