@@ -23,16 +23,29 @@ const BrandStory = () => {
       }}
     >
       <div className="container mx-auto px-6 sm:px-10 max-w-6xl">
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-[10px] font-light uppercase mb-8"
-          style={{ color: GOLD, letterSpacing: "0.5em" }}
+          className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-8"
         >
-          {t("brand.story.eyebrow")}
-        </motion.p>
+          <span
+            className="text-[10px] font-light uppercase"
+            style={{ color: GOLD, letterSpacing: "0.5em" }}
+          >
+            {t("brand.story.eyebrow")}
+          </span>
+          <span className="hidden sm:inline-block w-8 h-px" style={{ background: `${GOLD}66` }} />
+          <a
+            href="#ecosystem"
+            className="group inline-flex items-center gap-2 text-[10px] font-light uppercase transition-colors"
+            style={{ color: GOLD_SOFT, letterSpacing: "0.5em" }}
+          >
+            {t("brand.story.link.eco.eyebrow")}
+            <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

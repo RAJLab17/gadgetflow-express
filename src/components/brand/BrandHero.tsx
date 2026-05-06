@@ -94,8 +94,8 @@ const BrandHero = () => {
         className="absolute top-24 left-0 right-0 z-10 text-center px-4"
       >
         <span
-          className="text-[10px] font-light uppercase"
-          style={{ color: GOLD, letterSpacing: "0.6em" }}
+          className="text-[10px] font-light uppercase text-white"
+          style={{ letterSpacing: "0.6em", textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}
         >
           {t("brand.hero.eyebrow")}
         </span>
