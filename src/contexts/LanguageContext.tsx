@@ -297,7 +297,7 @@ const translations: Translations = {
   },
   "brand.pillars.p2.title": { de: "Beständigkeit", fr: "Constance", it: "Costanza", en: "Permanence" },
   "brand.pillars.p2.body": {
-    de: "Entwickelt, um seine Kategorie zu überdauern. Austauschbare Teile. Reparierbares Design. Schönheit, die sich ihren Platz über Jahre verdient.",
+    de: "Nicht für die Saison. Für das Jahrzehnt. Schönheit, die sich ihren Platz über Jahre verdient.",
     fr: "Conçu pour durer plus longtemps que sa catégorie. Pièces remplaçables. Design réparable. Une beauté qui mérite sa place avec les années.",
     it: "Progettato per durare oltre la sua categoria. Parti sostituibili. Design riparabile. Una bellezza che si guadagna il suo posto negli anni.",
     en: "Designed to outlast its category. Replaceable parts. Repairable design. Beauty that earns its place over years.",
