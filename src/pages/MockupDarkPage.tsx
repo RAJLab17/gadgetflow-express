@@ -629,6 +629,9 @@ const MockupDarkPage = () => {
           <img
             src={heroStone}
             alt=""
+            width={1200}
+            height={1200}
+            decoding="async"
             className="absolute top-1/2 -translate-y-1/2 h-[80%] sm:h-[110%] md:h-[120%] w-auto max-w-none opacity-25 sm:opacity-35 left-1/2 -translate-x-1/2 md:left-auto md:right-[-15%] md:translate-x-0"
           />
           <div
@@ -659,6 +662,9 @@ const MockupDarkPage = () => {
             <img
               src={logoTransparent}
               alt="RAJ"
+              width={180}
+              height={56}
+              decoding="async"
               className="h-11 sm:h-14 w-auto select-none"
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
@@ -914,7 +920,7 @@ const MockupDarkPage = () => {
                         }}
                         aria-label={p.label}
                       >
-                        <img src={p.src} alt={p.label} className="h-5 w-auto object-contain" />
+                        <img src={p.src} alt={p.label} width={32} height={20} loading="lazy" decoding="async" className="h-5 w-auto object-contain" />
                       </div>
                     ))}
                   </div>
@@ -1114,6 +1120,10 @@ const MockupDarkPage = () => {
               <img
                 src={nexusTopview}
                 alt="RAJ NEXUS Top View"
+                width={1200}
+                height={1200}
+                loading="lazy"
+                decoding="async"
                 className="w-full aspect-square object-cover rounded-sm"
                 style={{ boxShadow: "0 30px 80px -30px rgba(26,26,26,0.25)" }}
               />
@@ -1193,7 +1203,7 @@ const MockupDarkPage = () => {
       >
         {/* Background image faded */}
         <div className="absolute inset-0 opacity-25 pointer-events-none">
-          <img src={nexusFinalCta} alt="" className="w-full h-full object-cover" />
+          <img src={nexusFinalCta} alt="" width={1600} height={1200} loading="lazy" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${D.bg} 0%, rgba(10,10,10,0.7) 50%, ${D.bg} 100%)` }} />
         </div>
 
@@ -1227,7 +1237,7 @@ const MockupDarkPage = () => {
       {/* Footer */}
       <footer style={{ background: D.bg, borderTop: `1px solid ${D.border}` }} className="py-10 px-5 text-center">
         <a href="https://raj.ch" aria-label="RAJ — Home" className="inline-flex items-center justify-center">
-          <img src={logoTransparent} alt="RAJ" className="h-12 w-auto" style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }} />
+          <img src={logoTransparent} alt="RAJ" width={180} height={56} loading="lazy" decoding="async" className="h-12 w-auto" style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }} />
         </a>
         <p className="text-[10px] uppercase mt-4" style={{ color: D.gold, letterSpacing: "0.28em" }}>
           Power. Always There.
