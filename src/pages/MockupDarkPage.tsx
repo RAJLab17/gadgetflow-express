@@ -553,8 +553,8 @@ const MockupDarkPage = () => {
   return (
     <>
       <Helmet>
-        <title>RAJ NEXUS — Mockup Editorial Dark</title>
-        <meta name="robots" content="noindex" />
+        <title>RAJ NEXUS · 3-in-1 Qi 2.2 Wireless Charger Schweiz</title>
+        <meta name="robots" content="index, follow" />
       </Helmet>
 
       <SplashIntro />
