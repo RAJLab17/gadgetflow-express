@@ -3,6 +3,7 @@ import { Lock, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
+import { useState, useRef } from "react";
 
 type Milestone = {
   name: string;
