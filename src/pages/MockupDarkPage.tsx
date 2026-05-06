@@ -1005,7 +1005,7 @@ const MockupDarkPage = () => {
               alt: "Aufgeräumter Schreibtisch",
               eyebrow: "Für die, die Ordnung lieben",
               title: "Drei Kabel weg. Ein Objekt da.",
-              copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Ein einziger Ort — alles geladen, alles bereit.",
+              copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Einfach hinlegen. Fertig.",
             },
             {
               img: nexusNight,
