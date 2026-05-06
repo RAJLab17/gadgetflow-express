@@ -287,7 +287,7 @@ const translations: Translations = {
   // Brand Pillars
   "brand.pillars.eyebrow": { de: "— Unsere Prinzipien", fr: "— Nos principes", it: "— I nostri principi", en: "— Our principles" },
   "brand.pillars.headline.l1": { de: "Drei Werte.", fr: "Trois valeurs.", it: "Tre valori.", en: "Three values." },
-  "brand.pillars.headline.l2": { de: "Ein Massstab.", fr: "Un standard.", it: "Uno standard.", en: "One standard." },
+  "brand.pillars.headline.l2": { de: "Eine Haltung.", fr: "Une attitude.", it: "Un'attitudine.", en: "An attitude." },
   "brand.pillars.p1.title": { de: "Präzision", fr: "Précision", it: "Precisione", en: "Precision" },
   "brand.pillars.p1.body": {
     de: "Kein Spielraum. Kein Kompromiss. Materialien gewählt, nicht spezifiziert. Die Arbeit zeigt sich dort, wo niemand hinschaut.",
