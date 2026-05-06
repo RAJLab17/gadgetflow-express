@@ -290,7 +290,7 @@ const translations: Translations = {
   "brand.pillars.headline.l2": { de: "Ein Massstab.", fr: "Un standard.", it: "Uno standard.", en: "One standard." },
   "brand.pillars.p1.title": { de: "Präzision", fr: "Précision", it: "Precisione", en: "Precision" },
   "brand.pillars.p1.body": {
-    de: "Toleranzen in Zehntelmillimetern. Materialien gewählt, nicht spezifiziert. Die Arbeit zeigt sich in dem, was du nicht siehst.",
+    de: "Kein Spielraum. Kein Kompromiss. Materialien gewählt, nicht spezifiziert. Die Arbeit zeigt sich dort, wo niemand hinschaut.",
     fr: "Tolérances mesurées au dixième. Matériaux choisis, non spécifiés. Le travail se voit dans ce que tu ne vois pas.",
     it: "Tolleranze al decimo. Materiali scelti, non specificati. Il lavoro si vede in ciò che non vedi.",
     en: "Tolerances measured in tenths. Materials chosen, not specified. The work shows in what you don't see.",
