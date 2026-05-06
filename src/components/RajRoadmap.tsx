@@ -196,7 +196,7 @@ const RajRoadmap = () => {
             className="text-[10px] sm:text-xs font-light uppercase mb-6"
             style={{ color: GOLD, letterSpacing: "0.5em" }}
           >
-            — The RAJ Collection
+            {t("brand.road.eyebrow")}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -206,9 +206,9 @@ const RajRoadmap = () => {
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-white mb-8 leading-[0.95]"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Built for{" "}
+            {t("brand.road.headline.l1")}{" "}
             <span className="italic font-thin" style={{ color: GOLD_SOFT }}>
-              what's next.
+              {t("brand.road.headline.l2")}
             </span>
           </motion.h2>
           <motion.p
@@ -219,9 +219,9 @@ const RajRoadmap = () => {
             className="text-base sm:text-lg md:text-xl font-extralight text-white/55 leading-relaxed max-w-xl"
             style={{ letterSpacing: "0.02em" }}
           >
-            This is where it begins.
+            {t("brand.road.sub.l1")}
             <br />
-            Everything else follows.
+            {t("brand.road.sub.l2")}
           </motion.p>
         </div>
 
@@ -305,13 +305,13 @@ const RajRoadmap = () => {
             className="text-base sm:text-lg md:text-xl font-extralight text-white/80 leading-relaxed"
             style={{ letterSpacing: "0.02em" }}
           >
-            Early access begins with{" "}
+            {t("brand.road.scarcity.l1")}{" "}
             <span style={{ color: GOLD_SOFT }} className="italic">
               RAJ NEXUS
             </span>
             .
             <br />
-            <span className="text-white/45">Everything else is already in motion.</span>
+            <span className="text-white/45">{t("brand.road.scarcity.l2")}</span>
           </p>
 
           <Link
@@ -327,7 +327,7 @@ const RajRoadmap = () => {
               boxShadow: `0 10px 40px -10px ${GOLD}`,
             }}
           >
-            Discover RAJ NEXUS
+            {t("brand.road.cta")}
             <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </motion.div>
