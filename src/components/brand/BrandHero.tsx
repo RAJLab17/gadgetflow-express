@@ -95,32 +95,14 @@ const BrandHero = () => {
       />
 
       <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute top-28 sm:top-32 left-0 right-0 z-10 px-6"
-      >
-        <div className="flex items-center justify-center gap-4">
-          <span className="hidden sm:block w-10 h-px" style={{ background: `${GOLD_SOFT}80` }} />
-          <span
-            className="text-[10px] font-light uppercase text-white/95 text-center"
-            style={{ letterSpacing: "0.55em", textShadow: "0 1px 14px rgba(0,0,0,0.7)" }}
-          >
-            {t("brand.hero.eyebrow")}
-          </span>
-          <span className="hidden sm:block w-10 h-px" style={{ background: `${GOLD_SOFT}80` }} />
-        </div>
-      </motion.div>
-
-      <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-6 sm:px-10 pb-24 sm:pb-28"
+        className="relative z-10 container mx-auto px-6 sm:px-10 pt-28 sm:pt-32 pb-24 sm:pb-28 self-start"
       >
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[16vw] sm:text-[11vw] md:text-[8.5vw] lg:text-[6.5rem] xl:text-[7.5rem] font-extralight text-white leading-[0.95] tracking-[-0.035em] max-w-3xl"
+          className="text-[13vw] sm:text-[9vw] md:text-[7vw] lg:text-[5.5rem] xl:text-[6.25rem] font-extralight text-white leading-[0.95] tracking-[-0.035em] max-w-3xl"
           style={{ textShadow: "0 2px 30px rgba(0,0,0,0.45)" }}
         >
           {t("brand.hero.h1.line1")}
