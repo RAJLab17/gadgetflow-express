@@ -1,27 +1,16 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const GOLD = "#9b6b3f";
-const GOLD_SOFT = "#c8946b";
-
-const pillars = [
-  {
-    n: "01",
-    title: "Precision",
-    body: "Tolerances measured in tenths. Materials chosen, not specified. The work shows in what you don't see.",
-  },
-  {
-    n: "02",
-    title: "Permanence",
-    body: "Designed to outlast its category. Replaceable parts. Repairable design. Beauty that earns its place over years.",
-  },
-  {
-    n: "03",
-    title: "Character",
-    body: "Quiet objects with conviction. No screens shouting for attention. Just substance — present when you need it.",
-  },
-];
 
 const BrandPillars = () => {
+  const { t } = useLanguage();
+  const pillars = [
+    { n: "01", title: t("brand.pillars.p1.title"), body: t("brand.pillars.p1.body") },
+    { n: "02", title: t("brand.pillars.p2.title"), body: t("brand.pillars.p2.body") },
+    { n: "03", title: t("brand.pillars.p3.title"), body: t("brand.pillars.p3.body") },
+  ];
+
   return (
     <section
       className="relative py-32 md:py-44 overflow-hidden"
@@ -36,7 +25,7 @@ const BrandPillars = () => {
           className="text-[10px] font-light uppercase mb-8"
           style={{ color: GOLD, letterSpacing: "0.5em" }}
         >
-          — Our principles
+          {t("brand.pillars.eyebrow")}
         </motion.p>
 
         <motion.h2
@@ -47,10 +36,10 @@ const BrandPillars = () => {
           className="text-4xl sm:text-6xl md:text-7xl font-extralight leading-[0.95] tracking-[-0.02em] max-w-4xl mb-20 md:mb-28"
           style={{ color: "#1a1612" }}
         >
-          Three values.
+          {t("brand.pillars.headline.l1")}
           <br />
           <span className="italic" style={{ color: GOLD }}>
-            One standard.
+            {t("brand.pillars.headline.l2")}
           </span>
         </motion.h2>
 
@@ -80,10 +69,7 @@ const BrandPillars = () => {
                 className="w-10 h-px mb-6 transition-all duration-500 group-hover:w-20"
                 style={{ background: GOLD }}
               />
-              <p
-                className="text-base font-light leading-relaxed"
-                style={{ color: "#3a3128" }}
-              >
+              <p className="text-base font-light leading-relaxed" style={{ color: "#3a3128" }}>
                 {p.body}
               </p>
             </motion.div>

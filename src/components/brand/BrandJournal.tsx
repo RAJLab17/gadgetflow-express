@@ -2,11 +2,13 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { BLOG_ARTICLES } from "@/content/site-urls";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
 const BrandJournal = () => {
+  const { t } = useLanguage();
   const articles = [...BLOG_ARTICLES]
     .sort((a, b) => b.dateISO.localeCompare(a.dateISO))
     .slice(0, 4);
@@ -37,10 +39,10 @@ const BrandJournal = () => {
               className="text-4xl sm:text-5xl md:text-6xl font-extralight leading-[1] tracking-[-0.02em] max-w-2xl"
               style={{ color: "#1a1612" }}
             >
-              News, ideas,
+              {t("brand.journal.headline.l1")}
               <br />
               <span className="italic" style={{ color: GOLD }}>
-                quiet thoughts.
+                {t("brand.journal.headline.l2")}
               </span>
             </motion.h2>
           </div>
@@ -49,7 +51,7 @@ const BrandJournal = () => {
             className="inline-flex items-center gap-2 text-[11px] font-medium uppercase group self-start md:self-end"
             style={{ color: "#1a1612", letterSpacing: "0.3em" }}
           >
-            All entries
+            {t("brand.journal.all")}
             <ArrowUpRight
               className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
@@ -102,7 +104,7 @@ const BrandJournal = () => {
                   className="inline-flex items-center gap-2 text-[11px] font-medium uppercase"
                   style={{ color: GOLD, letterSpacing: "0.3em" }}
                 >
-                  Read
+                  {t("brand.journal.read")}
                   <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
               </Link>

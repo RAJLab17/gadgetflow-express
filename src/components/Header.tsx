@@ -76,32 +76,19 @@ const Header = () => {
 
   const LanguageToggle = () => (
     <div className="flex items-center gap-1 text-xs font-medium">
-      <button
-        onClick={() => setLang("de")}
-        className={`px-1.5 py-0.5 rounded transition-colors ${
-          lang === "de" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        DE
-      </button>
-      <span className="text-muted-foreground/40">|</span>
-      <button
-        onClick={() => setLang("fr")}
-        className={`px-1.5 py-0.5 rounded transition-colors ${
-          lang === "fr" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        FR
-      </button>
-      <span className="text-muted-foreground/40">|</span>
-      <button
-        onClick={() => setLang("it")}
-        className={`px-1.5 py-0.5 rounded transition-colors ${
-          lang === "it" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        IT
-      </button>
+      {(["de", "fr", "it", "en"] as const).map((code, i) => (
+        <span key={code} className="flex items-center gap-1">
+          {i > 0 && <span className="text-muted-foreground/40">|</span>}
+          <button
+            onClick={() => setLang(code)}
+            className={`px-1.5 py-0.5 rounded transition-colors ${
+              lang === code ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {code.toUpperCase()}
+          </button>
+        </span>
+      ))}
     </div>
   );
 
@@ -110,7 +97,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-9 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-background/90 backdrop-blur-xl shadow-elegant border-b border-border/50"
           : "bg-transparent"

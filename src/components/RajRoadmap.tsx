@@ -1,30 +1,32 @@
 import { Link } from "react-router-dom";
 import { Lock, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
 
 type Milestone = {
   name: string;
-  tagline: string;
+  taglineKey: string;
   status: "unlocked" | "locked";
-  eta: string;
+  etaKey: string;
   href?: string;
 };
 
 const milestones: Milestone[] = [
-  { name: "RAJ NEXUS",  tagline: "Where it begins.",              status: "unlocked", eta: "Available now", href: "/nexus" },
-  { name: "RAJ MATRIX", tagline: "Smarter charging.",             status: "locked",   eta: "Coming 2026" },
-  { name: "RAJ AURORA", tagline: "Next-generation materials.",    status: "locked",   eta: "Coming 2026" },
-  { name: "RAJ DRIVE",  tagline: "Power on the move.",            status: "locked",   eta: "Coming 2027" },
-  { name: "RAJ NOMAD",  tagline: "Energy anywhere.",              status: "locked",   eta: "Coming 2027" },
-  { name: "RAJ STUDIO", tagline: "Designed for your desk.",       status: "locked",   eta: "Coming 2027" },
-  { name: "RAJ ELITE",  tagline: "Built without compromise.",     status: "locked",   eta: "Coming soon" },
+  { name: "RAJ NEXUS",  taglineKey: "brand.road.tagline.nexus",  status: "unlocked", etaKey: "brand.road.eta.now",  href: "/nexus" },
+  { name: "RAJ MATRIX", taglineKey: "brand.road.tagline.matrix", status: "locked",   etaKey: "brand.road.eta.2026" },
+  { name: "RAJ AURORA", taglineKey: "brand.road.tagline.aurora", status: "locked",   etaKey: "brand.road.eta.2026" },
+  { name: "RAJ DRIVE",  taglineKey: "brand.road.tagline.drive",  status: "locked",   etaKey: "brand.road.eta.2027" },
+  { name: "RAJ NOMAD",  taglineKey: "brand.road.tagline.nomad",  status: "locked",   etaKey: "brand.road.eta.2027" },
+  { name: "RAJ STUDIO", taglineKey: "brand.road.tagline.studio", status: "locked",   etaKey: "brand.road.eta.2027" },
+  { name: "RAJ ELITE",  taglineKey: "brand.road.tagline.elite",  status: "locked",   etaKey: "brand.road.eta.soon" },
 ];
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
 const Card = ({ m, index }: { m: Milestone; index: number }) => {
+  const { t } = useLanguage();
   const isUnlocked = m.status === "unlocked";
 
   const inner = (
@@ -100,7 +102,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
                 style={{ letterSpacing: "0.25em", color: "#0a0a0a", background: GOLD }}
               >
                 <span className="w-1 h-1 rounded-full bg-black/70 animate-pulse" />
-                Unlocked
+                {t("brand.road.unlocked")}
               </span>
             ) : (
               <Lock className="w-3.5 h-3.5" style={{ color: GOLD, opacity: 0.55 }} />
@@ -122,7 +124,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
               }`}
               style={{ letterSpacing: "0.02em" }}
             >
-              {m.tagline}
+              {t(m.taglineKey)}
             </p>
             <div className="flex items-center justify-between">
               <p
@@ -132,7 +134,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
                   letterSpacing: "0.25em",
                 }}
               >
-                {m.eta}
+                {t(m.etaKey)}
               </p>
               {isUnlocked && (
                 <ArrowUpRight
@@ -149,7 +151,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
 
   if (isUnlocked && m.href) {
     return (
-      <Link to={m.href} aria-label={`${m.name} — ${m.eta}`} className="block h-full">
+      <Link to={m.href} aria-label={`${m.name} — ${t(m.etaKey)}`} className="block h-full">
         {inner}
       </Link>
     );
@@ -158,6 +160,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
 };
 
 const RajRoadmap = () => {
+  const { t } = useLanguage();
   return (
     <section
       className="relative py-24 sm:py-32 md:py-40 overflow-hidden"
@@ -193,7 +196,7 @@ const RajRoadmap = () => {
             className="text-[10px] sm:text-xs font-light uppercase mb-6"
             style={{ color: GOLD, letterSpacing: "0.5em" }}
           >
-            — The RAJ Collection
+            {t("brand.road.eyebrow")}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -203,9 +206,9 @@ const RajRoadmap = () => {
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-white mb-8 leading-[0.95]"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Built for{" "}
+            {t("brand.road.headline.l1")}{" "}
             <span className="italic font-thin" style={{ color: GOLD_SOFT }}>
-              what's next.
+              {t("brand.road.headline.l2")}
             </span>
           </motion.h2>
           <motion.p
@@ -216,9 +219,9 @@ const RajRoadmap = () => {
             className="text-base sm:text-lg md:text-xl font-extralight text-white/55 leading-relaxed max-w-xl"
             style={{ letterSpacing: "0.02em" }}
           >
-            This is where it begins.
+            {t("brand.road.sub.l1")}
             <br />
-            Everything else follows.
+            {t("brand.road.sub.l2")}
           </motion.p>
         </div>
 
@@ -302,13 +305,13 @@ const RajRoadmap = () => {
             className="text-base sm:text-lg md:text-xl font-extralight text-white/80 leading-relaxed"
             style={{ letterSpacing: "0.02em" }}
           >
-            Early access begins with{" "}
+            {t("brand.road.scarcity.l1")}{" "}
             <span style={{ color: GOLD_SOFT }} className="italic">
               RAJ NEXUS
             </span>
             .
             <br />
-            <span className="text-white/45">Everything else is already in motion.</span>
+            <span className="text-white/45">{t("brand.road.scarcity.l2")}</span>
           </p>
 
           <Link
@@ -324,7 +327,7 @@ const RajRoadmap = () => {
               boxShadow: `0 10px 40px -10px ${GOLD}`,
             }}
           >
-            Discover RAJ NEXUS
+            {t("brand.road.cta")}
             <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </motion.div>
