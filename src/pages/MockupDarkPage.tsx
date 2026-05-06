@@ -475,15 +475,6 @@ const HeroStillImage = () => {
           Engineered for Performance.<br />
           Designed to Inspire.
         </p>
-        <div className="mt-4 flex justify-center">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-px h-10"
-            style={{ background: `linear-gradient(180deg, transparent, ${D.gold})` }}
-            aria-hidden
-          />
-        </div>
       </div>
     </div>
   );
