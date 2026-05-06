@@ -297,18 +297,6 @@ const RajRoadmap = () => {
               {t("brand.road.headline.l2")}
             </span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-base sm:text-lg md:text-xl font-extralight text-white/55 leading-relaxed max-w-xl"
-            style={{ letterSpacing: "0.02em" }}
-          >
-            {t("brand.road.sub.l1")}
-            <br />
-            {t("brand.road.sub.l2")}
-          </motion.p>
         </div>
 
         {/* Mobile: 3D coverflow carousel */}
