@@ -281,7 +281,7 @@ const translations: Translations = {
 
   "brand.story.link.eco.eyebrow":   { de: "Unser Ecosystem", fr: "Notre écosystème", it: "Il nostro ecosistema", en: "Our ecosystem" },
   "brand.story.link.eco.title":     { de: "Was kommt nach NEXUS.", fr: "Ce qui vient après NEXUS.", it: "Cosa viene dopo NEXUS.", en: "What comes after NEXUS." },
-  "brand.story.link.eco.body":      { de: "NEXUS ist der Anfang. Eine ganze Familie von Objekten folgt — entworfen, um zusammenzuarbeiten.", fr: "NEXUS est le début. Toute une famille d'objets suivra — conçue pour fonctionner ensemble.", it: "NEXUS è l'inizio. Un'intera famiglia di oggetti seguirà — progettati per lavorare insieme.", en: "NEXUS is the beginning. A full family of objects follows — designed to work together." },
+  "brand.story.link.eco.body":      { de: "Eine Welt. Eine Entscheidung. Ein Ecosystem, das bleibt. Für die, die das Richtige wollen.", fr: "Un monde. Une décision. Un écosystème qui dure. Pour ceux qui veulent ce qui est juste.", it: "Un mondo. Una decisione. Un ecosistema che resta. Per chi vuole la cosa giusta.", en: "One world. One decision. An ecosystem that remains. For those who want the right thing." },
   "brand.story.link.eco.cta":       { de: "Roadmap entdecken", fr: "Découvrir la roadmap", it: "Scopri la roadmap", en: "Explore the roadmap" },
 
   // Brand Pillars
