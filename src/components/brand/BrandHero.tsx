@@ -110,7 +110,14 @@ const BrandHero = () => {
             >
               {t("brand.hero.h1.line1")}
               <br />
-              <span className="italic font-thin" style={{ color: GOLD_SOFT, textShadow: "0 4px 40px rgba(0,0,0,0.75)" }}>
+              <span
+                className="italic font-thin"
+                style={{
+                  color: GOLD_SOFT,
+                  textShadow:
+                    "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)",
+                }}
+              >
                 {t("brand.hero.h1.line2")}
               </span>
             </motion.h1>
