@@ -102,7 +102,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
                 style={{ letterSpacing: "0.25em", color: "#0a0a0a", background: GOLD }}
               >
                 <span className="w-1 h-1 rounded-full bg-black/70 animate-pulse" />
-                Unlocked
+                {t("brand.road.unlocked")}
               </span>
             ) : (
               <Lock className="w-3.5 h-3.5" style={{ color: GOLD, opacity: 0.55 }} />
@@ -124,7 +124,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
               }`}
               style={{ letterSpacing: "0.02em" }}
             >
-              {m.tagline}
+              {t(m.taglineKey)}
             </p>
             <div className="flex items-center justify-between">
               <p
@@ -134,7 +134,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
                   letterSpacing: "0.25em",
                 }}
               >
-                {m.eta}
+                {t(m.etaKey)}
               </p>
               {isUnlocked && (
                 <ArrowUpRight
@@ -151,7 +151,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
 
   if (isUnlocked && m.href) {
     return (
-      <Link to={m.href} aria-label={`${m.name} — ${m.eta}`} className="block h-full">
+      <Link to={m.href} aria-label={`${m.name} — ${t(m.etaKey)}`} className="block h-full">
         {inner}
       </Link>
     );
@@ -160,6 +160,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
 };
 
 const RajRoadmap = () => {
+  const { t } = useLanguage();
   return (
     <section
       className="relative py-24 sm:py-32 md:py-40 overflow-hidden"
