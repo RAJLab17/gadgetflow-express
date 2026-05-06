@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage, type Language } from "@/contexts/LanguageContext";
 
 const GOLD = "#9b6b3f";
@@ -32,7 +31,6 @@ const LuxuryTopBar = () => {
         backdropFilter: "blur(8px)",
       }}
     >
-      {/* gold hairline shimmer */}
       <div
         aria-hidden
         className="absolute inset-x-0 bottom-0 h-px opacity-60"
@@ -43,7 +41,6 @@ const LuxuryTopBar = () => {
 
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4 h-9">
-          {/* left: swiss flag dot */}
           <div className="hidden sm:flex items-center gap-2.5 shrink-0">
             <span
               className="inline-block w-1.5 h-1.5 rounded-full"
@@ -57,21 +54,15 @@ const LuxuryTopBar = () => {
             </span>
           </div>
 
-          {/* center: rotating luxury message */}
+          {/* center: rotating luxury message — CSS cross-fade per key */}
           <div className="flex-1 flex justify-center overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={ROTATE_KEYS[idx]}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[10px] sm:text-[11px] font-light uppercase text-white text-center truncate max-w-[80vw]"
-                style={{ letterSpacing: "0.28em" }}
-              >
-                {t(ROTATE_KEYS[idx])}
-              </motion.span>
-            </AnimatePresence>
+            <span
+              key={ROTATE_KEYS[idx]}
+              className="raj-cross-fade text-[10px] sm:text-[11px] font-light uppercase text-white text-center truncate max-w-[80vw]"
+              style={{ letterSpacing: "0.28em", animationDuration: "500ms" }}
+            >
+              {t(ROTATE_KEYS[idx])}
+            </span>
           </div>
 
           {/* right: language pill */}
@@ -96,11 +87,9 @@ const LuxuryTopBar = () => {
                   aria-pressed={active}
                 >
                   {active && (
-                    <motion.span
-                      layoutId="lang-pill"
-                      className="absolute inset-0 rounded-full"
+                    <span
+                      className="absolute inset-0 rounded-full transition-all duration-300"
                       style={{ background: GOLD_SOFT }}
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   )}
                   <span className="relative">{l.label}</span>
