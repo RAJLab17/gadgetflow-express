@@ -378,7 +378,7 @@ const TOTAL_SPOTS = 100;
 // ─────────────────────────────────────────────────────────────────
 const HeroStillImage = () => {
   return (
-    <div className="relative mt-10 sm:mt-12 mx-auto w-full max-w-full">
+    <div className="relative mt-2 sm:mt-12 mx-auto w-full max-w-full">
       {/* Ambient gold halo */}
       <div
         className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
@@ -409,7 +409,7 @@ const HeroStillImage = () => {
       </div>
 
       {/* Editorial caption UNDER image */}
-      <div className="mt-6 px-1 text-center">
+      <div className="mt-3 sm:mt-6 px-1 text-center">
         <p
           className="text-[10px] uppercase font-medium leading-relaxed"
           style={{ color: D.beige, letterSpacing: "0.32em" }}
