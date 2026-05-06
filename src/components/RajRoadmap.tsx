@@ -163,7 +163,8 @@ const RajRoadmap = () => {
   const { t } = useLanguage();
   return (
     <section
-      className="relative py-24 sm:py-32 md:py-40 overflow-hidden"
+      id="ecosystem"
+      className="relative py-24 sm:py-32 md:py-40 overflow-hidden scroll-mt-24"
       style={{
         background:
           "linear-gradient(180deg, #050505 0%, #0a0a0a 40%, #14100d 100%)",
