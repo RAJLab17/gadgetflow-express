@@ -138,7 +138,7 @@ const Footer = () => {
               <span className="text-sm font-semibold text-foreground/80 tracking-wide">
                 Power. Always There.
               </span>
-            </Link>
+            </a>
             <p className="text-muted-foreground leading-relaxed">
               Präzision in Form gegossen.<br />
               Leistung, auf den Punkt gebracht.
