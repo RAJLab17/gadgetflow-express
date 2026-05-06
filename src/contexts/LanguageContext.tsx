@@ -321,7 +321,7 @@ const translations: Translations = {
   "brand.road.tagline.matrix": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.aurora": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.drive": { de: "Energie unterwegs.", fr: "L'énergie en mouvement.", it: "Energia in movimento.", en: "Power on the move." },
-  "brand.road.tagline.nomad": { de: "Energie überall.", fr: "L'énergie partout.", it: "Energia ovunque.", en: "Energy anywhere." },
+  "brand.road.tagline.nomad": { de: "​", fr: "​", it: "​", en: "​" },
   "brand.road.tagline.studio": { de: "Für deinen Schreibtisch entworfen.", fr: "Conçu pour ton bureau.", it: "Progettato per la tua scrivania.", en: "Designed for your desk." },
   "brand.road.tagline.elite": { de: "Ohne Kompromisse gebaut.", fr: "Construit sans compromis.", it: "Costruito senza compromessi.", en: "Built without compromise." },
   "brand.road.eta.now": { de: "Jetzt verfügbar", fr: "Disponible maintenant", it: "Disponibile ora", en: "Available now" },
