@@ -172,6 +172,7 @@ export const STATIC_URLS: SitemapEntry[] = [
   },
   { path: "/shop", lastmod: TODAY, changefreq: "daily", priority: 0.9 },
   { path: "/?mode=shop", lastmod: TODAY, changefreq: "weekly", priority: 0.8 },
+  { path: "/nexus", lastmod: TODAY, changefreq: "weekly", priority: 0.95 },
 
   // Produkte
   {
