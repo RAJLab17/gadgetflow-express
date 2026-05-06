@@ -74,12 +74,15 @@ const BrandStory = () => {
                 >
                   {c.title}
                 </h3>
-                <p
-                  className="text-base md:text-lg text-white/55 font-light leading-relaxed max-w-2xl"
-                  style={{ letterSpacing: "0.01em" }}
-                >
-                  {c.body}
-                </p>
+                {c.body.split("\n\n").map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-base md:text-lg text-white/55 font-light leading-relaxed max-w-2xl"
+                    style={{ letterSpacing: "0.01em", marginTop: idx === 0 ? 0 : "1rem" }}
+                  >
+                    {para}
+                  </p>
+                ))}
               </div>
             </motion.div>
           ))}
