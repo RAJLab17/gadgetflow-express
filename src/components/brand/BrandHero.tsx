@@ -154,6 +154,13 @@ const BrandHero = () => {
             >
               {t("brand.hero.cta.secondary")}
             </Link>
+            <a
+              href="#ecosystem"
+              className="inline-flex items-center gap-2 text-[11px] font-light uppercase text-white/60 hover:text-white transition-colors"
+              style={{ letterSpacing: "0.3em" }}
+            >
+              {t("brand.story.link.eco.eyebrow")}
+            </a>
           </div>
         </motion.div>
 
