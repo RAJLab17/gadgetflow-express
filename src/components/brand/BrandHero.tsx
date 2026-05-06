@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
 import nexusBedroom from "@/assets/lifestyle-nexus-bedside.webp";
-import nexusSuite from "@/assets/lifestyle-nexus-suite.jpg";
+import nexusSuite from "@/assets/lifestyle-nexus-suite.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
