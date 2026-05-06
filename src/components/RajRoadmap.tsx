@@ -160,6 +160,90 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
   return <div aria-disabled className="h-full">{inner}</div>;
 };
 
+const CoverflowCarousel = ({ milestones }: { milestones: Milestone[] }) => {
+  const [active, setActive] = useState(0);
+  const startX = useRef<number | null>(null);
+  const len = milestones.length;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (startX.current === null) return;
+    const dx = e.changedTouches[0].clientX - startX.current;
+    if (Math.abs(dx) > 40) {
+      setActive((p) => (dx < 0 ? (p + 1) % len : (p - 1 + len) % len));
+    }
+    startX.current = null;
+  };
+
+  const getOffset = (i: number) => {
+    let d = i - active;
+    if (d > len / 2) d -= len;
+    if (d < -len / 2) d += len;
+    return d;
+  };
+
+  return (
+    <div
+      className="relative h-[420px] w-full overflow-hidden"
+      style={{ perspective: "1200px" }}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <div
+        className="relative w-full h-full"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {milestones.map((m, i) => {
+          const offset = getOffset(i);
+          const abs = Math.abs(offset);
+          if (abs > 2) {
+            return null;
+          }
+          const translateX = offset * 55;
+          const rotateY = offset * -40;
+          const scale = abs === 0 ? 1 : abs === 1 ? 0.75 : 0.5;
+          const opacity = abs === 0 ? 1 : abs === 1 ? 0.6 : 0.3;
+          const z = 100 - abs * 10;
+
+          return (
+            <div
+              key={m.name}
+              onClick={() => setActive(i)}
+              className="absolute top-1/2 left-1/2 w-[70vw] max-w-[320px] transition-all duration-500 ease-out"
+              style={{
+                transform: `translate(-50%, -50%) translateX(${translateX}%) rotateY(${rotateY}deg) scale(${scale})`,
+                opacity,
+                zIndex: z,
+                transformStyle: "preserve-3d",
+              }}
+            >
+              <Card m={m} index={i} />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Dots */}
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2 z-50">
+        {milestones.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className="w-1.5 h-1.5 rounded-full transition-all"
+            style={{
+              background: i === active ? GOLD : "rgba(255,255,255,0.25)",
+              transform: i === active ? "scale(1.4)" : "scale(1)",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const RajRoadmap = () => {
   const { t } = useLanguage();
   return (
