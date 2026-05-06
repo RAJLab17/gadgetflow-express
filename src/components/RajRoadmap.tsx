@@ -29,15 +29,13 @@ const GOLD_SOFT = "#c8946b";
 const Card = ({ m, index }: { m: Milestone; index: number }) => {
   const { t } = useLanguage();
   const isUnlocked = m.status === "unlocked";
+  const ref = useReveal<HTMLDivElement>({ rootMargin: "-50px" });
 
   const inner = (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.7, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -6, scale: 1.03 }}
-      className="group relative h-full snap-center shrink-0 w-[78vw] sm:w-[46vw] md:w-auto md:shrink"
+    <div
+      ref={ref}
+      className="reveal group relative h-full snap-center shrink-0 w-[78vw] sm:w-[46vw] md:w-auto md:shrink transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.03]"
+      style={{ transitionDelay: `${index * 70}ms` }}
     >
       <div
         className={`relative h-full rounded-2xl overflow-hidden transition-all duration-500 ${
@@ -52,7 +50,6 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
           minHeight: "320px",
         }}
       >
-        {/* Shimmer */}
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
           style={{
@@ -63,7 +60,6 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
           }}
         />
 
-        {/* Unlocked: lifestyle photo background */}
         {isUnlocked && (
           <>
             <div
@@ -79,9 +75,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
             />
             <div
               className="absolute inset-0 opacity-40 pointer-events-none animate-pulse"
-              style={{
-                background: `radial-gradient(circle at 50% 100%, ${GOLD}40, transparent 65%)`,
-              }}
+              style={{ background: `radial-gradient(circle at 50% 100%, ${GOLD}40, transparent 65%)` }}
             />
           </>
         )}
@@ -147,7 +141,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 
   if (isUnlocked && m.href) {
