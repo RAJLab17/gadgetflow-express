@@ -76,14 +76,14 @@ const BrandHero = () => {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(10,9,8,0.35) 0%, rgba(10,9,8,0.10) 30%, rgba(10,9,8,0.55) 70%, rgba(10,9,8,0.95) 100%)",
+            "linear-gradient(180deg, rgba(10,9,8,0.55) 0%, rgba(10,9,8,0.25) 25%, rgba(10,9,8,0.70) 65%, rgba(10,9,8,0.98) 100%)",
         }}
       />
       <div
         className="absolute inset-0 hidden sm:block"
         style={{
           background:
-            "linear-gradient(90deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.35) 35%, rgba(10,9,8,0) 60%)",
+            "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)",
         }}
       />
       <div
@@ -96,18 +96,18 @@ const BrandHero = () => {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-6 sm:px-10 pt-28 sm:pt-32 pb-24 sm:pb-28 self-start"
+        className="relative z-10 container mx-auto px-6 sm:px-10 pb-16 sm:pb-20"
       >
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[13vw] sm:text-[9vw] md:text-[7vw] lg:text-[5.5rem] xl:text-[6.25rem] font-extralight text-white leading-[0.95] tracking-[-0.035em] max-w-3xl"
-          style={{ textShadow: "0 2px 30px rgba(0,0,0,0.45)" }}
+          className="text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em] max-w-3xl"
+          style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)" }}
         >
           {t("brand.hero.h1.line1")}
           <br />
-          <span className="italic font-thin" style={{ color: GOLD_SOFT }}>
+          <span className="italic font-thin" style={{ color: GOLD_SOFT, textShadow: "0 4px 40px rgba(0,0,0,0.75)" }}>
             {t("brand.hero.h1.line2")}
           </span>
         </motion.h1>
@@ -116,12 +116,12 @@ const BrandHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-8 sm:mt-12 max-w-xl"
+          className="mt-8 sm:mt-10 max-w-xl"
         >
-          <div className="w-10 h-px mb-5" style={{ background: `${GOLD_SOFT}66` }} />
+          <div className="w-12 h-px mb-6" style={{ background: GOLD_SOFT }} />
           <p
-            className="text-sm sm:text-base text-white/70 font-light max-w-sm leading-relaxed whitespace-pre-line"
-            style={{ letterSpacing: "0.015em", textShadow: "0 1px 10px rgba(0,0,0,0.5)" }}
+            className="text-base sm:text-lg text-white/90 font-light max-w-md leading-[1.7] whitespace-pre-line"
+            style={{ letterSpacing: "0.01em", textShadow: "0 2px 16px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)" }}
           >
             {t("brand.hero.sub")}
           </p>
@@ -146,16 +146,16 @@ const BrandHero = () => {
             <div className="flex items-center gap-5 text-[10px] font-light uppercase">
               <Link
                 to="/ueber-raj"
-                className="text-white/65 hover:text-white transition-colors"
-                style={{ letterSpacing: "0.32em" }}
+                className="text-white/85 hover:text-white transition-colors"
+                style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
               >
                 {t("brand.hero.cta.secondary")}
               </Link>
-              <span className="w-px h-3" style={{ background: `${GOLD_SOFT}55` }} />
+              <span className="w-px h-3" style={{ background: `${GOLD_SOFT}88` }} />
               <a
                 href="#ecosystem"
-                className="text-white/65 hover:text-white transition-colors"
-                style={{ letterSpacing: "0.32em" }}
+                className="text-white/85 hover:text-white transition-colors"
+                style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
               >
                 {t("brand.story.link.eco.eyebrow")}
               </a>
