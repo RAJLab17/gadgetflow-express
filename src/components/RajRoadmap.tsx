@@ -41,13 +41,13 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
       <div
         className={`relative h-full rounded-2xl overflow-hidden transition-all duration-500 ${
           isUnlocked
-            ? "border border-[#9b6b3f]/60 shadow-[0_0_60px_-15px_rgba(155,107,63,0.55)] group-hover:shadow-[0_0_80px_-10px_rgba(155,107,63,0.85)] group-hover:border-[#9b6b3f]"
-            : "border border-white/[0.08] group-hover:border-[#9b6b3f]/40 group-hover:shadow-[0_0_60px_-20px_rgba(155,107,63,0.4)]"
+            ? "border border-[#9b6b3f]/70 shadow-[0_0_60px_-15px_rgba(155,107,63,0.55)] group-hover:shadow-[0_0_80px_-10px_rgba(155,107,63,0.85)] group-hover:border-[#9b6b3f]"
+            : "border border-white/15 group-hover:border-[#9b6b3f]/60 group-hover:shadow-[0_0_60px_-20px_rgba(155,107,63,0.5)]"
         }`}
         style={{
           background: isUnlocked
-            ? "linear-gradient(165deg, #1c1815 0%, #0a0a0a 60%, #0a0a0a 100%)"
-            : "linear-gradient(165deg, #141414 0%, #0a0a0a 100%)",
+            ? "linear-gradient(165deg, #2a2320 0%, #161310 60%, #100e0c 100%)"
+            : "linear-gradient(165deg, #242220 0%, #17150f 100%)",
           minHeight: "320px",
         }}
       >
@@ -90,7 +90,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
             <span
               className="text-[10px] font-light"
               style={{
-                color: isUnlocked ? GOLD_SOFT : "rgba(255,255,255,0.35)",
+                color: isUnlocked ? GOLD_SOFT : "rgba(255,255,255,0.55)",
                 letterSpacing: "0.3em",
               }}
             >
@@ -105,14 +105,14 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
                 {t("brand.road.unlocked")}
               </span>
             ) : (
-              <Lock className="w-3.5 h-3.5" style={{ color: GOLD, opacity: 0.55 }} />
+              <Lock className="w-3.5 h-3.5" style={{ color: GOLD_SOFT, opacity: 0.85 }} />
             )}
           </div>
 
           <div>
             <h3
               className={`text-xl sm:text-2xl font-extralight mb-3 transition-colors duration-500 ${
-                isUnlocked ? "text-white" : "text-white/70 group-hover:text-white"
+                isUnlocked ? "text-white" : "text-white/90 group-hover:text-white"
               }`}
               style={{ letterSpacing: "0.18em" }}
             >
@@ -120,7 +120,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
             </h3>
             <p
               className={`text-sm font-light italic mb-6 transition-colors duration-500 ${
-                isUnlocked ? "text-white/75" : "text-white/40 group-hover:text-white/60"
+                isUnlocked ? "text-white/80" : "text-white/65 group-hover:text-white/80"
               }`}
               style={{ letterSpacing: "0.02em" }}
             >
@@ -130,7 +130,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
               <p
                 className="text-[10px] font-light uppercase"
                 style={{
-                  color: isUnlocked ? GOLD_SOFT : "rgba(255,255,255,0.3)",
+                  color: isUnlocked ? GOLD_SOFT : "rgba(200,148,107,0.75)",
                   letterSpacing: "0.25em",
                 }}
               >
