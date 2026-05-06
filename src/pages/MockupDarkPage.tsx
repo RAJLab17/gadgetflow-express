@@ -734,7 +734,7 @@ const MockupDarkPage = () => {
         />
 
         {/* Hero content */}
-        <div className="relative px-3 sm:px-10 pt-2 sm:pt-10 pb-6 sm:pb-32 max-w-7xl mx-auto">
+        <div className="relative px-3 sm:px-10 pt-0 sm:pt-4 pb-6 sm:pb-32 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-12 gap-6 md:gap-14 items-start">
             {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative min-w-0 w-full">
