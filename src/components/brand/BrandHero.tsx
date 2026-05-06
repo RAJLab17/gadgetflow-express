@@ -50,7 +50,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-end"
+      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center sm:items-center"
       style={{ background: "#0a0908" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -96,7 +96,7 @@ const BrandHero = () => {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-6 sm:px-10 pb-16 sm:pb-20"
+        className="relative z-10 container mx-auto px-6 sm:px-10 pt-24 sm:pt-20 pb-16 sm:pb-20"
       >
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
