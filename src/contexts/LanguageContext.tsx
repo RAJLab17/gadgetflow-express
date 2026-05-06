@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 
-export type Language = "de" | "fr" | "it";
+export type Language = "de" | "fr" | "it" | "en";
 
-type Translations = Record<string, Record<Language, string>>;
+type Translations = Record<string, Partial<Record<Language, string>>>;
 
 const translations: Translations = {
   // Header
@@ -216,6 +216,117 @@ const translations: Translations = {
   "exit.disclaimer": { de: "Kein Spam. Keine Zahlungsdaten. Jederzeit abmeldbar.", fr: "Pas de spam. Pas de paiement. Désabonnement à tout moment.", it: "Niente spam. Nessun dato di pagamento. Cancellazione in qualsiasi momento." },
   "exit.submitted.title": { de: "Du bist dabei.", fr: "Tu es inscrit·e.", it: "Sei dei nostri." },
   "exit.submitted.sub": { de: "Wir melden uns als Erstes bei dir — versprochen.", fr: "On te contacte en premier — promis.", it: "Ti contatteremo per primo — promesso." },
+
+  // ===== Brand / Masterpiece Page =====
+  // Top bar
+  "topbar.shipping": {
+    de: "Kostenloser Schweizer Versand · Founder Edition limitiert auf 100 Stück",
+    fr: "Livraison gratuite en Suisse · Founder Edition limitée à 100 pièces",
+    it: "Spedizione gratuita in Svizzera · Founder Edition limitata a 100 pezzi",
+    en: "Complimentary Swiss shipping · Founder Edition limited to 100 pieces",
+  },
+  "topbar.madeIn": { de: "Konzipiert in der Schweiz", fr: "Conçu en Suisse", it: "Concepito in Svizzera", en: "Designed in Switzerland" },
+
+  // Brand Hero
+  "brand.hero.eyebrow": {
+    de: "— RAJ · Schweizer Luxus-Technologie",
+    fr: "— RAJ · Technologie de luxe suisse",
+    it: "— RAJ · Tecnologia di lusso svizzera",
+    en: "— RAJ · Swiss Luxury Technology",
+  },
+  "brand.hero.h1.line1": { de: "Power.", fr: "Power.", it: "Power.", en: "Power." },
+  "brand.hero.h1.line2": { de: "Always there.", fr: "Always there.", it: "Always there.", en: "Always there." },
+  "brand.hero.sub": {
+    de: "Ein Schweizer Tech-Atelier für Objekte mit Substanz.\nLeises Design. Ehrliches Handwerk. Gemacht, um zu bleiben.",
+    fr: "Un atelier tech suisse pour des objets de substance.\nDesign discret. Ingénierie honnête. Fait pour durer.",
+    it: "Un atelier tech svizzero per oggetti di sostanza.\nDesign silenzioso. Ingegneria onesta. Fatto per durare.",
+    en: "A Swiss tech house building objects of substance.\nQuiet design. Honest engineering. Made to last.",
+  },
+  "brand.hero.cta.primary": { de: "NEXUS entdecken", fr: "Découvrir NEXUS", it: "Scopri NEXUS", en: "Discover NEXUS" },
+  "brand.hero.cta.secondary": { de: "Unsere Geschichte", fr: "Notre histoire", it: "La nostra storia", en: "Our story" },
+
+  // Brand Story
+  "brand.story.eyebrow": { de: "— Die Geschichte", fr: "— L'histoire", it: "— La storia", en: "— The story" },
+  "brand.story.headline.l1": { de: "Wir bauen kein Zubehör.", fr: "Nous ne créons pas d'accessoires.", it: "Non creiamo accessori.", en: "We don't make accessories." },
+  "brand.story.headline.l2": { de: "Wir bauen Begleiter.", fr: "Nous créons des compagnons.", it: "Creiamo compagni.", en: "We make companions." },
+  "brand.story.c1.title": { de: "Ein leiser Anfang.", fr: "Un commencement discret.", it: "Un inizio silenzioso.", en: "A quiet beginning." },
+  "brand.story.c1.body": {
+    de: "RAJ entstand in einem kleinen Atelier im Thurgau — nicht mit einem Produkt, sondern mit einer Frage. Warum wirkt Technik wegwerfbar in einer Welt, die Handwerk schätzt?",
+    fr: "RAJ est né dans un petit atelier en Thurgovie — non pas avec un produit, mais avec une question. Pourquoi la technologie semble-t-elle jetable dans un monde qui valorise l'artisanat?",
+    it: "RAJ è nato in un piccolo atelier in Turgovia — non con un prodotto, ma con una domanda. Perché la tecnologia sembra usa e getta in un mondo che valorizza l'artigianato?",
+    en: "RAJ began in a small studio in the Thurgau — not with a product, but with a question. Why does technology feel disposable in a world that values craft?",
+  },
+  "brand.story.c2.title": { de: "Substanz statt Lärm.", fr: "Substance plutôt que bruit.", it: "Sostanza non rumore.", en: "Substance over noise." },
+  "brand.story.c2.body": {
+    de: "Wir wählten Zurückhaltung. Materialien, die mit Anmut altern. Technik, die man nicht sieht, aber spürt. Jedes Detail bedacht, dann erneut bedacht.",
+    fr: "Nous avons choisi la retenue. Des matériaux qui vieillissent avec grâce. Une ingénierie qu'on ne voit pas, mais qu'on ressent. Chaque détail pensé, puis repensé.",
+    it: "Abbiamo scelto la sobrietà. Materiali che invecchiano con grazia. Ingegneria che non si vede, ma si sente. Ogni dettaglio considerato, poi riconsiderato.",
+    en: "We chose restraint. Materials that age with grace. Engineering you don't see, but feel. Every detail considered, then considered again.",
+  },
+  "brand.story.c3.title": { de: "Gemacht, um zu bleiben.", fr: "Fait pour rester.", it: "Fatto per restare.", en: "Built to last." },
+  "brand.story.c3.body": {
+    de: "Keine Saison. Kein Trend. Objekte, die bleiben — neben deinem Bett, auf deinem Schreibtisch, in deinem Leben — lange nachdem der nächste Launch vergessen ist.",
+    fr: "Pas une saison. Pas une tendance. Des objets faits pour demeurer — près de ton lit, sur ton bureau, dans ta vie — bien après que le prochain lancement soit oublié.",
+    it: "Non una stagione. Non una tendenza. Oggetti progettati per rimanere — accanto al tuo letto, sulla scrivania, nella tua vita — molto dopo che il prossimo lancio è dimenticato.",
+    en: "Not a season. Not a trend. Objects designed to remain — beside your bed, on your desk, in your life — long after the next launch is forgotten.",
+  },
+  "brand.story.signature": { de: "Power. Always there.", fr: "Power. Always there.", it: "Power. Always there.", en: "Power. Always there." },
+  "brand.story.madeIn": { de: "— Hergestellt in der Schweiz", fr: "— Fabriqué en Suisse", it: "— Fatto in Svizzera", en: "— Made in Switzerland" },
+
+  // Brand Pillars
+  "brand.pillars.eyebrow": { de: "— Unsere Prinzipien", fr: "— Nos principes", it: "— I nostri principi", en: "— Our principles" },
+  "brand.pillars.headline.l1": { de: "Drei Werte.", fr: "Trois valeurs.", it: "Tre valori.", en: "Three values." },
+  "brand.pillars.headline.l2": { de: "Ein Massstab.", fr: "Un standard.", it: "Uno standard.", en: "One standard." },
+  "brand.pillars.p1.title": { de: "Präzision", fr: "Précision", it: "Precisione", en: "Precision" },
+  "brand.pillars.p1.body": {
+    de: "Toleranzen in Zehntelmillimetern. Materialien gewählt, nicht spezifiziert. Die Arbeit zeigt sich in dem, was du nicht siehst.",
+    fr: "Tolérances mesurées au dixième. Matériaux choisis, non spécifiés. Le travail se voit dans ce que tu ne vois pas.",
+    it: "Tolleranze al decimo. Materiali scelti, non specificati. Il lavoro si vede in ciò che non vedi.",
+    en: "Tolerances measured in tenths. Materials chosen, not specified. The work shows in what you don't see.",
+  },
+  "brand.pillars.p2.title": { de: "Beständigkeit", fr: "Constance", it: "Costanza", en: "Permanence" },
+  "brand.pillars.p2.body": {
+    de: "Entwickelt, um seine Kategorie zu überdauern. Austauschbare Teile. Reparierbares Design. Schönheit, die sich ihren Platz über Jahre verdient.",
+    fr: "Conçu pour durer plus longtemps que sa catégorie. Pièces remplaçables. Design réparable. Une beauté qui mérite sa place avec les années.",
+    it: "Progettato per durare oltre la sua categoria. Parti sostituibili. Design riparabile. Una bellezza che si guadagna il suo posto negli anni.",
+    en: "Designed to outlast its category. Replaceable parts. Repairable design. Beauty that earns its place over years.",
+  },
+  "brand.pillars.p3.title": { de: "Charakter", fr: "Caractère", it: "Carattere", en: "Character" },
+  "brand.pillars.p3.body": {
+    de: "Leise Objekte mit Überzeugung. Keine Bildschirme, die nach Aufmerksamkeit schreien. Nur Substanz — da, wenn du sie brauchst.",
+    fr: "Des objets discrets avec conviction. Pas d'écrans qui crient pour attirer l'attention. Juste de la substance — présente quand tu en as besoin.",
+    it: "Oggetti silenziosi con convinzione. Niente schermi che urlano per attirare l'attenzione. Solo sostanza — presente quando ne hai bisogno.",
+    en: "Quiet objects with conviction. No screens shouting for attention. Just substance — present when you need it.",
+  },
+
+  // Roadmap
+  "brand.road.eyebrow": { de: "— Die RAJ Kollektion", fr: "— La collection RAJ", it: "— La collezione RAJ", en: "— The RAJ Collection" },
+  "brand.road.headline.l1": { de: "Gebaut für", fr: "Conçu pour", it: "Costruito per", en: "Built for" },
+  "brand.road.headline.l2": { de: "das, was kommt.", fr: "ce qui vient.", it: "ciò che verrà.", en: "what's next." },
+  "brand.road.sub.l1": { de: "Hier beginnt es.", fr: "Tout commence ici.", it: "Tutto inizia qui.", en: "This is where it begins." },
+  "brand.road.sub.l2": { de: "Alles andere folgt.", fr: "Tout le reste suit.", it: "Tutto il resto segue.", en: "Everything else follows." },
+  "brand.road.unlocked": { de: "Verfügbar", fr: "Disponible", it: "Disponibile", en: "Unlocked" },
+  "brand.road.tagline.nexus": { de: "Hier beginnt es.", fr: "Tout commence ici.", it: "Tutto inizia qui.", en: "Where it begins." },
+  "brand.road.tagline.matrix": { de: "Intelligenter laden.", fr: "Recharger plus intelligemment.", it: "Ricarica intelligente.", en: "Smarter charging." },
+  "brand.road.tagline.aurora": { de: "Materialien der nächsten Generation.", fr: "Matériaux de nouvelle génération.", it: "Materiali di nuova generazione.", en: "Next-generation materials." },
+  "brand.road.tagline.drive": { de: "Energie unterwegs.", fr: "L'énergie en mouvement.", it: "Energia in movimento.", en: "Power on the move." },
+  "brand.road.tagline.nomad": { de: "Energie überall.", fr: "L'énergie partout.", it: "Energia ovunque.", en: "Energy anywhere." },
+  "brand.road.tagline.studio": { de: "Für deinen Schreibtisch entworfen.", fr: "Conçu pour ton bureau.", it: "Progettato per la tua scrivania.", en: "Designed for your desk." },
+  "brand.road.tagline.elite": { de: "Ohne Kompromisse gebaut.", fr: "Construit sans compromis.", it: "Costruito senza compromessi.", en: "Built without compromise." },
+  "brand.road.eta.now": { de: "Jetzt verfügbar", fr: "Disponible maintenant", it: "Disponibile ora", en: "Available now" },
+  "brand.road.eta.2026": { de: "Kommt 2026", fr: "Arrive en 2026", it: "Arriva nel 2026", en: "Coming 2026" },
+  "brand.road.eta.2027": { de: "Kommt 2027", fr: "Arrive en 2027", it: "Arriva nel 2027", en: "Coming 2027" },
+  "brand.road.eta.soon": { de: "Bald verfügbar", fr: "Bientôt", it: "Presto", en: "Coming soon" },
+  "brand.road.scarcity.l1": { de: "Early Access beginnt mit", fr: "L'Early Access commence avec", it: "L'Early Access inizia con", en: "Early access begins with" },
+  "brand.road.scarcity.l2": { de: "Alles andere ist bereits in Bewegung.", fr: "Tout le reste est déjà en mouvement.", it: "Tutto il resto è già in movimento.", en: "Everything else is already in motion." },
+  "brand.road.cta": { de: "RAJ NEXUS entdecken", fr: "Découvrir RAJ NEXUS", it: "Scopri RAJ NEXUS", en: "Discover RAJ NEXUS" },
+
+  // Journal
+  "brand.journal.eyebrow": { de: "— Journal", fr: "— Journal", it: "— Diario", en: "— Journal" },
+  "brand.journal.headline.l1": { de: "Neuigkeiten, Ideen,", fr: "Actualités, idées,", it: "Novità, idee,", en: "News, ideas," },
+  "brand.journal.headline.l2": { de: "leise Gedanken.", fr: "pensées discrètes.", it: "pensieri silenziosi.", en: "quiet thoughts." },
+  "brand.journal.all": { de: "Alle Beiträge", fr: "Tous les articles", it: "Tutti gli articoli", en: "All entries" },
+  "brand.journal.read": { de: "Lesen", fr: "Lire", it: "Leggi", en: "Read" },
 };
 
 interface LanguageContextType {
