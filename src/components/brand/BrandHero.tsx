@@ -76,7 +76,15 @@ const BrandHero = () => {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(10,9,8,0.55) 0%, rgba(10,9,8,0.25) 25%, rgba(10,9,8,0.70) 65%, rgba(10,9,8,0.98) 100%)",
+            "linear-gradient(180deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.55) 20%, rgba(10,9,8,0.45) 40%, rgba(10,9,8,0.80) 70%, rgba(10,9,8,0.98) 100%)",
+        }}
+      />
+      {/* Extra readability scrim behind headline area */}
+      <div
+        className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 90% 70% at 30% 40%, rgba(10,9,8,0.65), transparent 70%)",
         }}
       />
       <div
