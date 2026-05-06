@@ -44,36 +44,72 @@ const BrandPillars = () => {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#1a1612]/10">
-          {pillars.map((p, i) => (
-            <motion.div
-              key={p.n}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group bg-[#f5efe6] p-10 md:p-14 transition-all duration-700 hover:bg-white"
-            >
-              <div
-                className="text-[10px] font-light uppercase mb-10"
-                style={{ color: GOLD, letterSpacing: "0.4em" }}
+          {pillars.map((p, i) => {
+            const sentences = p.body.split(/(?<=[.!?])\s+/);
+            const lead = sentences[0];
+            const rest = sentences.slice(1).join(" ");
+
+            return (
+              <motion.div
+                key={p.n}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative bg-[#f5efe6] p-10 md:p-14 transition-all duration-700 hover:bg-white cursor-default"
               >
-                {p.n}
-              </div>
-              <h3
-                className="text-3xl md:text-4xl font-extralight mb-6 leading-tight"
-                style={{ color: "#1a1612", letterSpacing: "-0.01em" }}
-              >
-                {p.title}
-              </h3>
-              <div
-                className="w-10 h-px mb-6 transition-all duration-500 group-hover:w-20"
-                style={{ background: GOLD }}
-              />
-              <p className="text-base font-light leading-relaxed" style={{ color: "#3a3128" }}>
-                {p.body}
-              </p>
-            </motion.div>
-          ))}
+                <div className="flex items-center gap-3 mb-12">
+                  <span
+                    className="text-[10px] font-light uppercase"
+                    style={{ color: GOLD, letterSpacing: "0.4em" }}
+                  >
+                    {p.n}
+                  </span>
+                  <span className="h-px w-6" style={{ background: `${GOLD}55` }} />
+                </div>
+
+                <h3
+                  className="text-4xl md:text-5xl font-extralight mb-8 leading-[1.05]"
+                  style={{ color: "#1a1612", letterSpacing: "-0.015em" }}
+                >
+                  {p.title}
+                </h3>
+
+                <p
+                  className="text-lg md:text-xl font-light leading-snug mb-8 italic"
+                  style={{ color: "#1a1612" }}
+                >
+                  {lead}
+                </p>
+
+                <div
+                  className="w-10 h-px mb-6 transition-all duration-500 group-hover:w-20"
+                  style={{ background: GOLD }}
+                />
+
+                {rest && (
+                  <div className="overflow-hidden transition-all duration-700 ease-out max-h-0 opacity-0 group-hover:max-h-60 group-hover:opacity-100">
+                    <p
+                      className="text-sm font-light leading-relaxed pt-2"
+                      style={{ color: "#3a3128" }}
+                    >
+                      {rest}
+                    </p>
+                  </div>
+                )}
+
+                {rest && (
+                  <div
+                    className="mt-4 inline-flex items-center gap-2 text-[10px] font-light uppercase opacity-70 group-hover:opacity-0 transition-opacity duration-300"
+                    style={{ color: GOLD, letterSpacing: "0.3em" }}
+                  >
+                    <span>Mehr</span>
+                    <span className="block w-3 h-px" style={{ background: GOLD }} />
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
