@@ -989,7 +989,7 @@ const MockupDarkPage = () => {
               alt: "100% in 1.5 Stunden",
               eyebrow: "Für die, die keine Zeit haben",
               title: "Vollgeladen, bevor der Kaffee fertig ist.",
-              copy: "90 Minuten — und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen.",
+              copy: "90 Minuten  und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen.",
             },
             {
               img: nexusFolds,
