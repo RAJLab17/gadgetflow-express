@@ -211,7 +211,7 @@ const CoverflowCarousel = ({ milestones }: { milestones: Milestone[] }) => {
             <div
               key={m.name}
               onClick={() => setActive(i)}
-              className="absolute top-1/2 left-1/2 transition-all duration-500 ease-out"
+              className="absolute top-1/2 left-1/2 w-[70vw] max-w-[320px] transition-all duration-500 ease-out"
               style={{
                 transform: `translate(-50%, -50%) translateX(${translateX}%) rotateY(${rotateY}deg) scale(${scale})`,
                 opacity,
