@@ -647,9 +647,14 @@ const MockupDarkPage = () => {
         {/* Header — Logo transparent on dark */}
         <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
           <a
-            href="https://raj.ch"
+            href="https://raj.ch/"
             aria-label="RAJ"
             className="inline-flex items-center bg-transparent border-0 p-0 cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.location.assign("https://raj.ch/");
+            }}
           >
             <img
               src={logoTransparent}
@@ -965,7 +970,7 @@ const MockupDarkPage = () => {
             ))}
           </div>
 
-          <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl leading-tight tracking-tight" style={{ color: L.textMuted, fontWeight: 300 }}>
+          <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl leading-tight tracking-tight" style={{ color: L.text, fontWeight: 300 }}>
             Power. Always There.
           </p>
         </div>
