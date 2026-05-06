@@ -76,32 +76,19 @@ const Header = () => {
 
   const LanguageToggle = () => (
     <div className="flex items-center gap-1 text-xs font-medium">
-      <button
-        onClick={() => setLang("de")}
-        className={`px-1.5 py-0.5 rounded transition-colors ${
-          lang === "de" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        DE
-      </button>
-      <span className="text-muted-foreground/40">|</span>
-      <button
-        onClick={() => setLang("fr")}
-        className={`px-1.5 py-0.5 rounded transition-colors ${
-          lang === "fr" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        FR
-      </button>
-      <span className="text-muted-foreground/40">|</span>
-      <button
-        onClick={() => setLang("it")}
-        className={`px-1.5 py-0.5 rounded transition-colors ${
-          lang === "it" ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        IT
-      </button>
+      {(["de", "fr", "it", "en"] as const).map((code, i) => (
+        <span key={code} className="flex items-center gap-1">
+          {i > 0 && <span className="text-muted-foreground/40">|</span>}
+          <button
+            onClick={() => setLang(code)}
+            className={`px-1.5 py-0.5 rounded transition-colors ${
+              lang === code ? "text-foreground font-bold" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {code.toUpperCase()}
+          </button>
+        </span>
+      ))}
     </div>
   );
 
