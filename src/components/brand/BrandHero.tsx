@@ -1,30 +1,77 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
+import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
+import nexusBedroom from "@/assets/lifestyle-bedroom.jpg";
+import nexusSuite from "@/assets/lifestyle-suite.jpg";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
+const SLIDES = [nexusBedroom, nexusLaptop, nexusSuite];
+const SLIDE_DURATION = 6000;
+
 const BrandHero = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+
+  const next = useCallback(() => setIndex((i) => (i + 1) % SLIDES.length), []);
+  const goTo = useCallback((i: number) => setIndex(i), []);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(next, SLIDE_DURATION);
+    return () => clearInterval(id);
+  }, [paused, next]);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    setPaused(true);
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current == null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) {
+      setIndex((i) => (dx < 0 ? (i + 1) % SLIDES.length : (i - 1 + SLIDES.length) % SLIDES.length));
+    }
+    touchStartX.current = null;
+    setTimeout(() => setPaused(false), 2000);
+  };
 
   return (
     <section
       ref={ref}
       className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-end"
       style={{ background: "#0a0908" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
-      <motion.div
-        style={{ scale, y, backgroundImage: `url(${nexusLifestyle})` }}
-        className="absolute inset-0 bg-cover bg-center"
-      />
+      {/* Rotating lifestyle images with parallax + Ken Burns */}
+      <motion.div style={{ scale, y }} className="absolute inset-0">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${SLIDES[index]})` }}
+          />
+        </AnimatePresence>
+      </motion.div>
+
       <div
         className="absolute inset-0"
         style={{
@@ -109,6 +156,22 @@ const BrandHero = () => {
             </Link>
           </div>
         </motion.div>
+
+        {/* Slide indicators */}
+        <div className="mt-10 flex items-center gap-3">
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+              className="h-px transition-all duration-700 ease-out"
+              style={{
+                width: i === index ? "56px" : "20px",
+                background: i === index ? GOLD_SOFT : "rgba(255,255,255,0.25)",
+              }}
+            />
+          ))}
+        </div>
       </motion.div>
 
       <motion.div
