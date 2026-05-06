@@ -276,7 +276,7 @@ const translations: Translations = {
   // Brand Story – two doors
   "brand.story.link.about.eyebrow": { de: "Über RAJ", fr: "À propos de RAJ", it: "Su RAJ", en: "About RAJ" },
   "brand.story.link.about.title":   { de: "Wer wir sind. Woher wir kommen.", fr: "Qui nous sommes. D'où nous venons.", it: "Chi siamo. Da dove veniamo.", en: "Who we are. Where we come from." },
-  "brand.story.link.about.body":    { de: "Eine Schweizer Marke aus dem Thurgau. Präzision, Beständigkeit, Charakter — und ein klares Versprechen.", fr: "Une marque suisse de Thurgovie. Précision, constance, caractère — et une promesse claire.", it: "Un marchio svizzero della Turgovia. Precisione, costanza, carattere — e una promessa chiara.", en: "A Swiss brand from Thurgau. Precision, permanence, character — and a clear promise." },
+  "brand.story.link.about.body":    { de: "Eine Schweizer Marke aus dem Thurgau. Präzision, Beständigkeit, Charakter. Und ein Versprechen, das bleibt.", fr: "Une marque suisse de Thurgovie. Précision, constance, caractère. Et une promesse qui dure.", it: "Un marchio svizzero della Turgovia. Precisione, costanza, carattere. E una promessa che rimane.", en: "A Swiss brand from Thurgau. Precision, permanence, character. And a promise that lasts." },
   "brand.story.link.about.cta":     { de: "Mehr erfahren", fr: "En savoir plus", it: "Scopri di più", en: "Learn more" },
 
   "brand.story.link.eco.eyebrow":   { de: "Unser Ecosystem", fr: "Notre écosystème", it: "Il nostro ecosistema", en: "Our ecosystem" },
