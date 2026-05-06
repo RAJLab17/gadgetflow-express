@@ -98,7 +98,7 @@ const BrandHero = () => {
         style={{ opacity }}
         className="relative z-10 container mx-auto px-6 sm:px-10 pt-24 sm:pt-28 pb-20 w-full"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           {/* Left: Headline + CTAs */}
           <div className="lg:col-span-7">
             <motion.h1
@@ -184,28 +184,37 @@ const BrandHero = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto"
+            className="lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
             style={{ borderColor: `${GOLD_SOFT}40` }}
           >
-            <p
-              className="text-[10px] uppercase mb-5 font-light"
-              style={{ letterSpacing: "0.4em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
-            >
-              — Manifest
-            </p>
+            <div className="flex items-center gap-3 mb-4 sm:mb-5">
+              <span className="h-px w-8 sm:w-10" style={{ background: `linear-gradient(90deg, ${GOLD_SOFT}, transparent)` }} />
+              <p
+                className="text-[9px] sm:text-[10px] uppercase font-light"
+                style={{ letterSpacing: "0.45em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+              >
+                Manifest
+              </p>
+            </div>
             {t("brand.hero.sub").split("\n").map((line, i, arr) => (
               <p
                 key={i}
-                className="text-lg sm:text-xl text-white font-extralight leading-[1.6] italic"
+                className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
                 style={{
                   letterSpacing: "0.005em",
                   textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)",
-                  marginBottom: i < arr.length - 1 ? "1.5rem" : 0,
+                  marginBottom: i < arr.length - 1 ? "0.75rem" : 0,
                 }}
               >
                 {line}
               </p>
             ))}
+            <p
+              className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal"
+              style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+            >
+              — RAJ
+            </p>
           </motion.aside>
         </div>
       </motion.div>
