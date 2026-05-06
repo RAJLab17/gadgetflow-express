@@ -50,7 +50,7 @@ const LuxuryTopBar = () => {
               style={{ background: GOLD, boxShadow: `0 0 8px ${GOLD}` }}
             />
             <span
-              className="text-[9px] font-light uppercase text-white/55"
+              className="text-[9px] font-light uppercase text-white/85"
               style={{ letterSpacing: "0.4em" }}
             >
               Swiss · Est. 2025
