@@ -114,7 +114,7 @@ const Header = () => {
               height={56}
               fetchPriority="high"
               decoding="async"
-              className="h-11 sm:h-14 w-auto select-none"
+              className="h-8 sm:h-12 w-auto select-none"
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
