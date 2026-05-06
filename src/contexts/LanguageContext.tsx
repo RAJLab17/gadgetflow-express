@@ -304,7 +304,7 @@ const translations: Translations = {
   },
   "brand.pillars.p3.title": { de: "Charakter", fr: "Caractère", it: "Carattere", en: "Character" },
   "brand.pillars.p3.body": {
-    de: "Leise. Aber mit Überzeugung. Wir machen keine Ankündigungen. Wir liefern. Im Stillen gebaut. Im Alltag bewiesen. \nNur Substanz. Da, wenn du sie brauchst.",
+    de: "Leise. Aber mit Überzeugung.\nWir machen keine Ankündigungen. Wir liefern. Im Stillen gebaut. Im Alltag bewiesen. \nNur Substanz. Da, wenn du sie brauchst.",
     fr: "Des objets discrets avec conviction. Pas d'écrans qui crient pour attirer l'attention. Juste de la substance — présente quand tu en as besoin.",
     it: "Oggetti silenziosi con convinzione. Niente schermi che urlano per attirare l'attenzione. Solo sostanza — presente quando ne hai bisogno.",
     en: "Quiet objects with conviction. No screens shouting for attention. Just substance — present when you need it.",
