@@ -96,87 +96,104 @@ const BrandHero = () => {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-6 sm:px-10 pt-24 sm:pt-20 pb-16 sm:pb-20"
+        className="relative z-10 container mx-auto px-6 sm:px-10 pt-24 sm:pt-28 pb-20 w-full"
       >
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em] max-w-3xl"
-          style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)" }}
-        >
-          {t("brand.hero.h1.line1")}
-          <br />
-          <span className="italic font-thin" style={{ color: GOLD_SOFT, textShadow: "0 4px 40px rgba(0,0,0,0.75)" }}>
-            {t("brand.hero.h1.line2")}
-          </span>
-        </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-8 sm:mt-10 max-w-xl"
-        >
-          <div className="w-12 h-px mb-6" style={{ background: GOLD_SOFT }} />
-          <p
-            className="text-base sm:text-lg md:text-xl text-white font-extralight max-w-lg leading-[1.65] whitespace-pre-line italic"
-            style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)" }}
-          >
-            {t("brand.hero.sub")}
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
-            <Link
-              to="/nexus"
-              className="group inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full transition-all duration-500 hover:gap-5 self-start"
-              style={{
-                background: GOLD,
-                color: "#0a0908",
-                letterSpacing: "0.28em",
-                fontSize: "11px",
-                fontWeight: 500,
-                textTransform: "uppercase",
-                boxShadow: `0 14px 40px -12px ${GOLD}`,
-              }}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end">
+          {/* Left: Headline + CTAs */}
+          <div className="lg:col-span-7">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              className="text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em]"
+              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)" }}
             >
-              {t("brand.hero.cta.primary")}
-            </Link>
+              {t("brand.hero.h1.line1")}
+              <br />
+              <span className="italic font-thin" style={{ color: GOLD_SOFT, textShadow: "0 4px 40px rgba(0,0,0,0.75)" }}>
+                {t("brand.hero.h1.line2")}
+              </span>
+            </motion.h1>
 
-            <div className="flex items-center gap-5 text-[10px] font-light uppercase">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
+            >
               <Link
-                to="/ueber-raj"
-                className="text-white/85 hover:text-white transition-colors"
-                style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+                to="/nexus"
+                className="group inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full transition-all duration-500 hover:gap-5 self-start"
+                style={{
+                  background: GOLD,
+                  color: "#0a0908",
+                  letterSpacing: "0.28em",
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  textTransform: "uppercase",
+                  boxShadow: `0 14px 40px -12px ${GOLD}`,
+                }}
               >
-                {t("brand.hero.cta.secondary")}
+                {t("brand.hero.cta.primary")}
               </Link>
-              <span className="w-px h-3" style={{ background: `${GOLD_SOFT}88` }} />
-              <a
-                href="#ecosystem"
-                className="text-white/85 hover:text-white transition-colors"
-                style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
-              >
-                {t("brand.story.link.eco.eyebrow")}
-              </a>
+
+              <div className="flex items-center gap-5 text-[10px] font-light uppercase">
+                <Link
+                  to="/ueber-raj"
+                  className="text-white/85 hover:text-white transition-colors"
+                  style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+                >
+                  {t("brand.hero.cta.secondary")}
+                </Link>
+                <span className="w-px h-3" style={{ background: `${GOLD_SOFT}88` }} />
+                <a
+                  href="#ecosystem"
+                  className="text-white/85 hover:text-white transition-colors"
+                  style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+                >
+                  {t("brand.story.link.eco.eyebrow")}
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Slide indicators */}
+            <div className="mt-12 flex items-center gap-3">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  aria-label={`Slide ${i + 1}`}
+                  className="h-px transition-all duration-700 ease-out"
+                  style={{
+                    width: i === index ? "56px" : "20px",
+                    background: i === index ? GOLD_SOFT : "rgba(255,255,255,0.25)",
+                  }}
+                />
+              ))}
             </div>
           </div>
-        </motion.div>
 
-        {/* Slide indicators */}
-        <div className="mt-10 flex items-center gap-3">
-          {SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              aria-label={`Slide ${i + 1}`}
-              className="h-px transition-all duration-700 ease-out"
-              style={{
-                width: i === index ? "56px" : "20px",
-                background: i === index ? GOLD_SOFT : "rgba(255,255,255,0.25)",
-              }}
-            />
-          ))}
+          {/* Right: Brand manifesto as editorial pull-quote */}
+          <motion.aside
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto"
+            style={{ borderColor: `${GOLD_SOFT}40` }}
+          >
+            <p
+              className="text-[10px] uppercase mb-5 font-light"
+              style={{ letterSpacing: "0.4em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+            >
+              — Manifest
+            </p>
+            <p
+              className="text-lg sm:text-xl text-white font-extralight leading-[1.6] whitespace-pre-line italic"
+              style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)" }}
+            >
+              {t("brand.hero.sub")}
+            </p>
+          </motion.aside>
         </div>
       </motion.div>
 
