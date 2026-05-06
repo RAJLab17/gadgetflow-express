@@ -120,8 +120,8 @@ const BrandHero = () => {
         >
           <div className="w-12 h-px mb-6" style={{ background: GOLD_SOFT }} />
           <p
-            className="text-base sm:text-lg text-white/90 font-light max-w-md leading-[1.7] whitespace-pre-line"
-            style={{ letterSpacing: "0.01em", textShadow: "0 2px 16px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)" }}
+            className="text-base sm:text-lg md:text-xl text-white font-extralight max-w-lg leading-[1.65] whitespace-pre-line italic"
+            style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.85), 0 1px 4px rgba(0,0,0,0.7)" }}
           >
             {t("brand.hero.sub")}
           </p>
