@@ -70,12 +70,14 @@ const MockupShopPage = () => {
 
         {/* ─── Header ──────────────────────────────────────────────── */}
         <header className="relative z-20 max-w-7xl mx-auto px-5 sm:px-10 pt-16 pb-6 flex items-center justify-between">
-          <div
+          <a
+            href="https://raj.ch"
+            aria-label="RAJ — Home"
             className="inline-flex items-center justify-center px-3 py-1.5 rounded-md"
             style={{ background: D.beige }}
           >
             <img src={logo} alt="RAJ" className="h-6 w-auto" />
-          </div>
+          </a>
           <nav className="hidden md:flex items-center gap-10 text-[11px] font-medium" style={{ letterSpacing: "0.28em" }}>
             {["Produkte", "Über RAJ", "Technologie", "Kontakt"].map((l) => (
               <a key={l} href="#" className="uppercase transition-colors hover:opacity-80" style={{ color: D.text }}>

@@ -264,7 +264,7 @@ const LaunchPage = () => {
 
           {/* Mini Header with Language Toggle */}
           <div className="py-1 md:py-4 pl-0 pr-4 md:px-4 flex items-center justify-between">
-            <img src={logo} alt="RAJ" width={88} height={30} className="-ml-3 md:-ml-2 h-7 md:h-9 w-auto object-contain" style={{ aspectRatio: "120 / 40" }} />
+            <a href="https://raj.ch" aria-label="RAJ — Home"><img src={logo} alt="RAJ" width={88} height={30} className="-ml-3 md:-ml-2 h-7 md:h-9 w-auto object-contain" style={{ aspectRatio: "120 / 40" }} /></a>
             <div className="flex items-center gap-1 text-xs font-medium">
               <button
                 onClick={() => setLang("de")}
@@ -444,7 +444,7 @@ const LaunchPage = () => {
 
           <footer className="border-t border-[#9b6b3f]/10 py-8 bg-[#f0ede6]">
             <div className="container mx-auto px-4 flex flex-col items-center gap-4 text-center">
-              <img src={logo} alt="RAJ" width={96} height={32} className="h-8 w-auto opacity-60" />
+              <a href="https://raj.ch" aria-label="RAJ — Home"><img src={logo} alt="RAJ" width={96} height={32} className="h-8 w-auto opacity-60" /></a>
               <p className="text-xs text-[#888888] uppercase tracking-[0.2em]">
                 Power. Always There.
               </p>

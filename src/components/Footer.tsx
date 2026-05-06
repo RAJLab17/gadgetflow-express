@@ -125,7 +125,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-1"
           >
-            <Link to="/" className="flex items-center gap-3 mb-4 group">
+            <a href="https://raj.ch" className="flex items-center gap-3 mb-4 group">
               <img 
                 src={logo} 
                 alt="RAJ" 
@@ -138,7 +138,7 @@ const Footer = () => {
               <span className="text-sm font-semibold text-foreground/80 tracking-wide">
                 Power. Always There.
               </span>
-            </Link>
+            </a>
             <p className="text-muted-foreground leading-relaxed">
               Präzision in Form gegossen.<br />
               Leistung, auf den Punkt gebracht.
