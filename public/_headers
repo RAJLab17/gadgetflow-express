@@ -1,6 +1,13 @@
 # Hashed Vite assets — immutable, long cache
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+/assets/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
 
 # Hero images served from /public/assets/hero/* — also long-cache (1 year)
 /assets/hero/*
