@@ -3,8 +3,8 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
-import nexusBedroom from "@/assets/lifestyle-bedroom.jpg";
-import nexusSuite from "@/assets/lifestyle-suite.jpg";
+import nexusBedroom from "@/assets/lifestyle-nexus-bedside.jpg";
+import nexusSuite from "@/assets/lifestyle-nexus-suite.jpg";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
