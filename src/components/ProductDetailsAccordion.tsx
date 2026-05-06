@@ -83,7 +83,7 @@ const ProductDetailsAccordion = () => {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="docs" className="border-border/60 border-b">
+          <AccordionItem value="docs" className="border-border/60">
             <AccordionTrigger className="text-base font-light hover:no-underline py-5">Dokumente & Rechtliches</AccordionTrigger>
             <AccordionContent className="text-muted-foreground font-light pb-6 text-sm">
               <ul className="space-y-2.5">
@@ -91,7 +91,6 @@ const ProductDetailsAccordion = () => {
                   ["AGB", "/agb"],
                   ["Datenschutzerklärung", "/datenschutz"],
                   ["Impressum", "/impressum"],
-                  ["Über RAJ", "/ueber-raj"],
                   ["Qi2 erklärt", "/qi2-erklaert"],
                   ["Vergleich mit anderen Chargern", "/vergleich"],
                   ["Versandbedingungen", "/versand"],
@@ -105,6 +104,15 @@ const ProductDetailsAccordion = () => {
                   </li>
                 ))}
               </ul>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="brand" className="border-border/60 border-b">
+            <AccordionTrigger className="text-base font-light hover:no-underline py-5">Über RAJ</AccordionTrigger>
+            <AccordionContent className="text-muted-foreground font-light pb-6 text-sm space-y-3">
+              <p>RAJ ist ein Schweizer Unternehmen. Wir entwickeln Ladegeräte, die einfach funktionieren — ohne Kompromisse bei Qualität, Design und Nachhaltigkeit.</p>
+              <p>Swiss Brand. Hergestellt unter fairen Bedingungen.</p>
+              <Link to="/about" className="inline-block text-primary hover:underline">Mehr über uns →</Link>
             </AccordionContent>
           </AccordionItem>
 
