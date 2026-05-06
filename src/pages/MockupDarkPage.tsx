@@ -1026,7 +1026,7 @@ const MockupDarkPage = () => {
               alt: "Material Detail im Licht",
               eyebrow: "Für die, die Qualität spüren",
               title: "Aluminium. Mattes Finish. Gewicht in der Hand.",
-              copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Du nimmst es einmal in die Hand — und verstehst sofort, warum es CHF 99 kostet.",
+              copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Manche Dinge erklären sich von selbst.",
             },
           ].map((s: any, i) => {
             if (s.imageOnly) {
