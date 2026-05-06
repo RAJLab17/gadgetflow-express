@@ -143,14 +143,14 @@ const ShopPreview = () => {
             <span className="text-[11px] tracking-[0.32em] font-light text-muted-foreground/80 uppercase">
               RAJ
             </span>
-            <Link to="/" className="justify-self-center" aria-label="RAJ — Home">
+            <a href="https://raj.ch" className="justify-self-center" aria-label="RAJ — Home">
               <img
                 src={logoMark}
                 alt="RAJ"
                 className="h-5 md:h-6 w-auto opacity-90 select-none"
                 draggable={false}
               />
-            </Link>
+            </a>
             <span className="justify-self-end text-[11px] text-muted-foreground/80 tracking-[0.28em] uppercase font-light">
               Swiss Brand
             </span>
