@@ -91,19 +91,23 @@ const BrandHero = () => {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute top-24 left-0 right-0 z-10 text-center px-4"
+        className="absolute top-28 sm:top-32 left-0 right-0 z-10 px-6"
       >
-        <span
-          className="text-[10px] font-light uppercase text-white"
-          style={{ letterSpacing: "0.6em", textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}
-        >
-          {t("brand.hero.eyebrow")}
-        </span>
+        <div className="flex items-center justify-center gap-4">
+          <span className="hidden sm:block w-10 h-px" style={{ background: `${GOLD_SOFT}80` }} />
+          <span
+            className="text-[10px] font-light uppercase text-white/95 text-center"
+            style={{ letterSpacing: "0.55em", textShadow: "0 1px 14px rgba(0,0,0,0.7)" }}
+          >
+            {t("brand.hero.eyebrow")}
+          </span>
+          <span className="hidden sm:block w-10 h-px" style={{ background: `${GOLD_SOFT}80` }} />
+        </div>
       </motion.div>
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-6 sm:px-10 pb-20 sm:pb-28"
+        className="relative z-10 container mx-auto px-6 sm:px-10 pb-24 sm:pb-28"
       >
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -122,23 +126,24 @@ const BrandHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 max-w-5xl"
+          className="mt-10 sm:mt-14 max-w-5xl"
         >
+          <div className="w-12 h-px mb-6" style={{ background: `${GOLD_SOFT}66` }} />
           <p
-            className="text-base sm:text-lg text-white/70 font-light max-w-md leading-relaxed whitespace-pre-line"
+            className="text-base sm:text-lg text-white/75 font-light max-w-md leading-relaxed whitespace-pre-line"
             style={{ letterSpacing: "0.01em" }}
           >
             {t("brand.hero.sub")}
           </p>
 
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
             <Link
               to="/nexus"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all duration-500 hover:gap-5"
+              className="group inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full transition-all duration-500 hover:gap-5 self-start"
               style={{
                 background: GOLD,
                 color: "#0a0908",
-                letterSpacing: "0.25em",
+                letterSpacing: "0.28em",
                 fontSize: "11px",
                 fontWeight: 500,
                 textTransform: "uppercase",
@@ -147,20 +152,24 @@ const BrandHero = () => {
             >
               {t("brand.hero.cta.primary")}
             </Link>
-            <Link
-              to="/ueber-raj"
-              className="text-[11px] font-light uppercase text-white/60 hover:text-white transition-colors"
-              style={{ letterSpacing: "0.3em" }}
-            >
-              {t("brand.hero.cta.secondary")}
-            </Link>
-            <a
-              href="#ecosystem"
-              className="inline-flex items-center gap-2 text-[11px] font-light uppercase text-white/60 hover:text-white transition-colors"
-              style={{ letterSpacing: "0.3em" }}
-            >
-              {t("brand.story.link.eco.eyebrow")}
-            </a>
+
+            <div className="flex items-center gap-5 text-[10px] font-light uppercase">
+              <Link
+                to="/ueber-raj"
+                className="text-white/65 hover:text-white transition-colors"
+                style={{ letterSpacing: "0.32em" }}
+              >
+                {t("brand.hero.cta.secondary")}
+              </Link>
+              <span className="w-px h-3" style={{ background: `${GOLD_SOFT}55` }} />
+              <a
+                href="#ecosystem"
+                className="text-white/65 hover:text-white transition-colors"
+                style={{ letterSpacing: "0.32em" }}
+              >
+                {t("brand.story.link.eco.eyebrow")}
+              </a>
+            </div>
           </div>
         </motion.div>
 
