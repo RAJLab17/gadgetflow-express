@@ -114,7 +114,8 @@ const Header = () => {
               height={56}
               fetchPriority="high"
               decoding="async"
-              className="h-5 md:h-8 w-auto drop-shadow-sm select-none"
+              className="h-11 sm:h-14 w-auto select-none"
+              style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
             <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
