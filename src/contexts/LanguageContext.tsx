@@ -273,6 +273,17 @@ const translations: Translations = {
   "brand.story.signature": { de: "Power. Always there.", fr: "Power. Always there.", it: "Power. Always there.", en: "Power. Always there." },
   "brand.story.madeIn": { de: "— Hergestellt in der Schweiz", fr: "— Fabriqué en Suisse", it: "— Fatto in Svizzera", en: "— Made in Switzerland" },
 
+  // Brand Story – two doors
+  "brand.story.link.about.eyebrow": { de: "Über RAJ", fr: "À propos de RAJ", it: "Su RAJ", en: "About RAJ" },
+  "brand.story.link.about.title":   { de: "Wer wir sind. Woher wir kommen.", fr: "Qui nous sommes. D'où nous venons.", it: "Chi siamo. Da dove veniamo.", en: "Who we are. Where we come from." },
+  "brand.story.link.about.body":    { de: "Eine Schweizer Marke aus dem Thurgau. Präzision, Beständigkeit, Charakter — und ein klares Versprechen.", fr: "Une marque suisse de Thurgovie. Précision, constance, caractère — et une promesse claire.", it: "Un marchio svizzero della Turgovia. Precisione, costanza, carattere — e una promessa chiara.", en: "A Swiss brand from Thurgau. Precision, permanence, character — and a clear promise." },
+  "brand.story.link.about.cta":     { de: "Mehr erfahren", fr: "En savoir plus", it: "Scopri di più", en: "Learn more" },
+
+  "brand.story.link.eco.eyebrow":   { de: "Unser Ecosystem", fr: "Notre écosystème", it: "Il nostro ecosistema", en: "Our ecosystem" },
+  "brand.story.link.eco.title":     { de: "Was kommt nach NEXUS.", fr: "Ce qui vient après NEXUS.", it: "Cosa viene dopo NEXUS.", en: "What comes after NEXUS." },
+  "brand.story.link.eco.body":      { de: "NEXUS ist der Anfang. Eine ganze Familie von Objekten folgt — entworfen, um zusammenzuarbeiten.", fr: "NEXUS est le début. Toute une famille d'objets suivra — conçue pour fonctionner ensemble.", it: "NEXUS è l'inizio. Un'intera famiglia di oggetti seguirà — progettati per lavorare insieme.", en: "NEXUS is the beginning. A full family of objects follows — designed to work together." },
+  "brand.story.link.eco.cta":       { de: "Roadmap entdecken", fr: "Découvrir la roadmap", it: "Scopri la roadmap", en: "Explore the roadmap" },
+
   // Brand Pillars
   "brand.pillars.eyebrow": { de: "— Unsere Prinzipien", fr: "— Nos principes", it: "— I nostri principi", en: "— Our principles" },
   "brand.pillars.headline.l1": { de: "Drei Werte.", fr: "Trois valeurs.", it: "Tre valori.", en: "Three values." },
