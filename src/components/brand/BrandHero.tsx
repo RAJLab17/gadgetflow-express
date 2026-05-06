@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
 
 const GOLD = "#9b6b3f";
@@ -8,6 +9,7 @@ const GOLD_SOFT = "#c8946b";
 
 const BrandHero = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
@@ -19,12 +21,10 @@ const BrandHero = () => {
       className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-end"
       style={{ background: "#0a0908" }}
     >
-      {/* Cinematic image */}
       <motion.div
         style={{ scale, y, backgroundImage: `url(${nexusLifestyle})` }}
         className="absolute inset-0 bg-cover bg-center"
       />
-      {/* Gradient veils */}
       <div
         className="absolute inset-0"
         style={{
@@ -40,22 +40,20 @@ const BrandHero = () => {
         }}
       />
 
-      {/* Top eyebrow */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.3 }}
-        className="absolute top-24 left-0 right-0 z-10 text-center"
+        className="absolute top-24 left-0 right-0 z-10 text-center px-4"
       >
         <span
           className="text-[10px] font-light uppercase"
           style={{ color: GOLD, letterSpacing: "0.6em" }}
         >
-          — RAJ · Swiss Luxury Tech
+          {t("brand.hero.eyebrow")}
         </span>
       </motion.div>
 
-      {/* Main content */}
       <motion.div
         style={{ opacity }}
         className="relative z-10 container mx-auto px-6 sm:px-10 pb-20 sm:pb-28"
@@ -66,10 +64,10 @@ const BrandHero = () => {
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
           className="text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[7rem] xl:text-[8.5rem] font-extralight text-white leading-[0.9] tracking-[-0.03em] max-w-6xl"
         >
-          Power.
+          {t("brand.hero.h1.line1")}
           <br />
           <span className="italic font-thin" style={{ color: GOLD_SOFT }}>
-            Always there.
+            {t("brand.hero.h1.line2")}
           </span>
         </motion.h1>
 
@@ -80,14 +78,13 @@ const BrandHero = () => {
           className="mt-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 max-w-5xl"
         >
           <p
-            className="text-base sm:text-lg text-white/70 font-light max-w-md leading-relaxed"
+            className="text-base sm:text-lg text-white/70 font-light max-w-md leading-relaxed whitespace-pre-line"
             style={{ letterSpacing: "0.01em" }}
           >
-            A Swiss tech house building objects of substance. <br className="hidden sm:block" />
-            Quiet design. Honest engineering. Made to last.
+            {t("brand.hero.sub")}
           </p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-6">
             <Link
               to="/nexus"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full transition-all duration-500 hover:gap-5"
@@ -101,20 +98,19 @@ const BrandHero = () => {
                 boxShadow: `0 14px 40px -12px ${GOLD}`,
               }}
             >
-              Discover NEXUS
+              {t("brand.hero.cta.primary")}
             </Link>
             <Link
               to="/ueber-raj"
               className="text-[11px] font-light uppercase text-white/60 hover:text-white transition-colors"
               style={{ letterSpacing: "0.3em" }}
             >
-              Our story
+              {t("brand.hero.cta.secondary")}
             </Link>
           </div>
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

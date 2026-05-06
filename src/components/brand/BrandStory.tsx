@@ -1,30 +1,17 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
-const chapters = [
-  {
-    n: "I",
-    title: "A quiet beginning.",
-    body:
-      "RAJ began in a small studio in the Thurgau — not with a product, but with a question. Why does technology feel disposable in a world that values craft?",
-  },
-  {
-    n: "II",
-    title: "Substance over noise.",
-    body:
-      "We chose restraint. Materials that age with grace. Engineering you don't see, but feel. Every detail considered, then considered again.",
-  },
-  {
-    n: "III",
-    title: "Built to last.",
-    body:
-      "Not a season. Not a trend. Objects designed to remain — beside your bed, on your desk, in your life — long after the next launch is forgotten.",
-  },
-];
-
 const BrandStory = () => {
+  const { t } = useLanguage();
+  const chapters = [
+    { n: "I", title: t("brand.story.c1.title"), body: t("brand.story.c1.body") },
+    { n: "II", title: t("brand.story.c2.title"), body: t("brand.story.c2.body") },
+    { n: "III", title: t("brand.story.c3.title"), body: t("brand.story.c3.body") },
+  ];
+
   return (
     <section
       className="relative py-32 md:py-44 overflow-hidden"
@@ -34,7 +21,6 @@ const BrandStory = () => {
       }}
     >
       <div className="container mx-auto px-6 sm:px-10 max-w-6xl">
-        {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -43,10 +29,9 @@ const BrandStory = () => {
           className="text-[10px] font-light uppercase mb-8"
           style={{ color: GOLD, letterSpacing: "0.5em" }}
         >
-          — The story
+          {t("brand.story.eyebrow")}
         </motion.p>
 
-        {/* Pull quote */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,14 +39,13 @@ const BrandStory = () => {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="text-3xl sm:text-5xl md:text-6xl font-extralight text-white leading-[1.1] tracking-[-0.02em] max-w-4xl mb-24 md:mb-32"
         >
-          We don't make accessories.
+          {t("brand.story.headline.l1")}
           <br />
           <span className="italic" style={{ color: GOLD_SOFT }}>
-            We make companions.
+            {t("brand.story.headline.l2")}
           </span>
         </motion.h2>
 
-        {/* Chapters */}
         <div className="space-y-20 md:space-y-28">
           {chapters.map((c, i) => (
             <motion.div
@@ -79,10 +63,7 @@ const BrandStory = () => {
                 >
                   {c.n}
                 </div>
-                <div
-                  className="mt-3 w-10 h-px"
-                  style={{ background: GOLD }}
-                />
+                <div className="mt-3 w-10 h-px" style={{ background: GOLD }} />
               </div>
               <div className="col-span-12 md:col-span-9">
                 <h3
@@ -102,7 +83,6 @@ const BrandStory = () => {
           ))}
         </div>
 
-        {/* Signature */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -110,21 +90,18 @@ const BrandStory = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="mt-32 md:mt-40 text-center"
         >
-          <div
-            className="w-16 h-px mx-auto mb-8"
-            style={{ background: GOLD }}
-          />
+          <div className="w-16 h-px mx-auto mb-8" style={{ background: GOLD }} />
           <p
             className="text-xl md:text-2xl font-extralight italic text-white/85"
             style={{ letterSpacing: "0.02em" }}
           >
-            Power. Always there.
+            {t("brand.story.signature")}
           </p>
           <p
             className="mt-4 text-[10px] font-light uppercase"
             style={{ color: GOLD, letterSpacing: "0.5em" }}
           >
-            — Made in Switzerland
+            {t("brand.story.madeIn")}
           </p>
         </motion.div>
       </div>
