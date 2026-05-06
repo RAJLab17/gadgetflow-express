@@ -137,21 +137,27 @@ const BrandHero = () => {
                 {t("brand.hero.cta.primary")}
               </Link>
 
-              <div className="flex items-center gap-5 text-[10px] font-light uppercase">
+              <div className="flex items-center gap-6 text-[11px] font-normal uppercase">
                 <Link
                   to="/ueber-raj"
-                  className="text-white/85 hover:text-white transition-colors"
-                  style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+                  className="group inline-flex items-center gap-2 text-white hover:text-white transition-all"
+                  style={{ letterSpacing: "0.28em", textShadow: "0 1px 8px rgba(0,0,0,0.85)" }}
                 >
-                  {t("brand.hero.cta.secondary")}
+                  <span className="relative pb-1 border-b" style={{ borderColor: `${GOLD_SOFT}` }}>
+                    {t("brand.hero.cta.secondary")}
+                  </span>
+                  <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ color: GOLD_SOFT }}>→</span>
                 </Link>
-                <span className="w-px h-3" style={{ background: `${GOLD_SOFT}88` }} />
+                <span className="w-px h-4" style={{ background: `${GOLD_SOFT}88` }} />
                 <a
                   href="#ecosystem"
-                  className="text-white/85 hover:text-white transition-colors"
-                  style={{ letterSpacing: "0.32em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
+                  className="group inline-flex items-center gap-2 text-white hover:text-white transition-all"
+                  style={{ letterSpacing: "0.28em", textShadow: "0 1px 8px rgba(0,0,0,0.85)" }}
                 >
-                  {t("brand.story.link.eco.eyebrow")}
+                  <span className="relative pb-1 border-b" style={{ borderColor: `${GOLD_SOFT}` }}>
+                    {t("brand.story.link.eco.eyebrow")}
+                  </span>
+                  <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ color: GOLD_SOFT }}>→</span>
                 </a>
               </div>
             </motion.div>
