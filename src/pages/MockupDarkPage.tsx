@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, FormEvent, lazy, Suspense } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -379,24 +379,21 @@ const heroSleep600 = new URL("../assets/hero-nexus/sleep-600.webp", import.meta.
 const heroWork1200 = new URL("../assets/hero-nexus/work-1200.webp", import.meta.url).href;
 const heroWork600 = new URL("../assets/hero-nexus/work-600.webp", import.meta.url).href;
 
-const HERO_SLIDES = [
+const HERO_STILL_SLIDES = [
   {
     src: nexusStoneHero1200,
     srcSm: nexusStoneHero600,
     alt: "RAJ NEXUS auf Stein – Premium Editorial.",
-    eager: true,
   },
   {
     src: heroSleep1200,
     srcSm: heroSleep600,
     alt: "RAJ NEXUS auf dem Nachttisch – ruhiges Laden über Nacht.",
-    eager: false,
   },
   {
     src: heroWork1200,
     srcSm: heroWork600,
     alt: "RAJ NEXUS am Arbeitsplatz – Homeoffice Setup.",
-    eager: false,
   },
 ];
 
