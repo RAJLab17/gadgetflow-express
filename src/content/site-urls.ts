@@ -187,76 +187,8 @@ export const STATIC_URLS: SitemapEntry[] = [
   { path: "/?mode=shop", lastmod: TODAY, changefreq: "weekly", priority: 0.8 },
   { path: "/nexus", lastmod: TODAY, changefreq: "weekly", priority: 0.95 },
 
-  // Produkte
-  {
-    path: "/product/wireless-charger-3in1",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.95,
-    images: [
-      {
-        loc: `${SITE_URL}/raj-nexus-product.png`,
-        title: "RAJ NEXUS 3-in-1 Wireless Charger",
-        caption: "3-in-1 Qi2.2 Wireless Charger - CHF 99.–",
-      },
-    ],
-  },
-  {
-    path: "/product/foldable-charger",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ Foldable Wireless Charger" }],
-  },
-  {
-    path: "/product/stand-charger-3in1",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ Stand Charger 3-in-1" }],
-  },
-  {
-    path: "/product/magsafe-powerbank",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ MagSafe Powerbank" }],
-  },
-  {
-    path: "/product/powerbank-ultra-20k",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ Powerbank Ultra 20K" }],
-  },
-  {
-    path: "/product/car-charger-4in1",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ Car Charger 4-in-1" }],
-  },
-  {
-    path: "/product/gan-supercharger-100w",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ GaN Supercharger 100W" }],
-  },
-  {
-    path: "/product/usb-charger-35w",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ USB Charger 35W" }],
-  },
-  {
-    path: "/product/magnetic-cable",
-    lastmod: TODAY,
-    changefreq: "weekly",
-    priority: 0.8,
-    images: [{ loc: `${SITE_URL}/raj-logo.png`, title: "RAJ Magnetic Cable" }],
-  },
+  // Produkte – derzeit nur RAJ NEXUS aktiv (siehe /nexus oben).
+  // Andere /product/* Routen sind als noindex markiert und nicht in der Sitemap.
 
   // Info
   { path: "/about", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
