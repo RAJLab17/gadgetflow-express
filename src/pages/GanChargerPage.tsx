@@ -2,7 +2,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GanChargerProduct from "@/components/GanChargerProduct";
 import SeoTags from "@/components/SeoTags";
+import { productJsonLd } from "@/lib/schemas";
 import { useViewContent } from "@/hooks/useViewContent";
+
+const CANONICAL = "https://raj.ch/product/gan-supercharger-100w";
+const TITLE = "RAJTech GaN SuperCharger 100W | 4-Port USB-C Schnellladegerät";
+const DESC = "100W GaN III Multi-Port Ladegerät mit 3×USB-C + 1×USB-A. Lade Laptop, Smartphone & Tablet gleichzeitig. PD 3.0, QC 4.0+ – ultra-kompakt & effizient.";
 
 const GanChargerPage = () => {
   useViewContent({
@@ -13,9 +18,10 @@ const GanChargerPage = () => {
   return (
     <>
       <SeoTags
-        title="RAJTech GaN SuperCharger 100W | 4-Port USB-C Schnellladegerät"
-        description="100W GaN III Multi-Port Ladegerät mit 3×USB-C + 1×USB-A. Lade Laptop, Smartphone & Tablet gleichzeitig. PD 3.0, QC 4.0+ – ultra-kompakt & effizient."
-        canonical="https://raj.ch/product/gan-supercharger-100w"
+        title={TITLE}
+        description={DESC}
+        canonical={CANONICAL}
+        jsonLd={productJsonLd({ name: "RAJTech GaN SuperCharger 100W", description: DESC, url: CANONICAL, sku: "gan-100w", category: "Electronics > Chargers > USB Chargers" })}
       />
       <div className="min-h-screen bg-background">
         <Header />
