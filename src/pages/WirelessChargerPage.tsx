@@ -5,6 +5,7 @@ import WirelessCharger3in1Product from "@/components/WirelessCharger3in1Product"
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import Footer from "@/components/Footer";
 import SeoTags from "@/components/SeoTags";
+import { PRODUCT_NEXUS_JSON_LD } from "@/lib/schemas";
 import { useViewContent } from "@/hooks/useViewContent";
 
 const WirelessChargerPage = () => {
