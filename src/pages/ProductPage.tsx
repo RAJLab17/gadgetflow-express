@@ -2,7 +2,12 @@ import Header from "@/components/Header";
 import MagneticCableProduct from "@/components/MagneticCableProduct";
 import Footer from "@/components/Footer";
 import SeoTags from "@/components/SeoTags";
+import { productJsonLd } from "@/lib/schemas";
 import { useViewContent } from "@/hooks/useViewContent";
+
+const CANONICAL = "https://raj.ch/product/magnetic-cable";
+const TITLE = "Magnetic Charging Cable - RAJTech";
+const DESC = "Premium 3-in-1 magnetic charging cable with interchangeable tips. Fast charging, LED indicator, multiple colors available.";
 
 const ProductPage = () => {
   useViewContent({
@@ -13,9 +18,10 @@ const ProductPage = () => {
   return (
     <>
       <SeoTags
-        title="Magnetic Charging Cable - RAJTech"
-        description="Premium 3-in-1 magnetic charging cable with interchangeable tips. Fast charging, LED indicator, multiple colors available."
-        canonical="https://raj.ch/product/magnetic-cable"
+        title={TITLE}
+        description={DESC}
+        canonical={CANONICAL}
+        jsonLd={productJsonLd({ name: "RAJTech Magnetic Charging Cable", description: DESC, url: CANONICAL, sku: "magnetic-cable", category: "Electronics > Cables" })}
       />
 
       <div className="min-h-screen bg-background">

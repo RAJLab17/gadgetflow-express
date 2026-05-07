@@ -1,4 +1,5 @@
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { webPageJsonLd } from "@/lib/schemas";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="space-y-3">
@@ -15,6 +16,7 @@ const ImpressumPage = () => {
       title="Impressum – RAJ"
       metaDescription="Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise."
       canonical="https://raj.ch/impressum"
+      jsonLd={webPageJsonLd({ name: "Impressum – RAJ", description: "Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise.", url: "https://raj.ch/impressum" })}
       eyebrow="Rechtliches"
       heading="Impressum"
       meta={

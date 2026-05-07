@@ -166,3 +166,55 @@ export function articleJsonLd(opts: {
     url: opts.url,
   };
 }
+
+/** Generic Product JSON-LD builder (for non-NEXUS catalogue items). */
+export function productJsonLd(opts: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  sku?: string;
+  category?: string;
+  price?: string;
+  priceCurrency?: string;
+  availability?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: opts.name,
+    description: opts.description,
+    image: opts.image ?? "https://raj.ch/og-image.webp",
+    brand: { "@type": "Brand", name: "RAJ" },
+    manufacturer: PUBLISHER,
+    sku: opts.sku,
+    category: opts.category ?? "Electronics > Chargers",
+    offers: {
+      "@type": "Offer",
+      url: opts.url,
+      priceCurrency: opts.priceCurrency ?? "CHF",
+      price: opts.price,
+      availability: opts.availability ?? "https://schema.org/PreOrder",
+      itemCondition: "https://schema.org/NewCondition",
+      seller: PUBLISHER,
+    },
+  };
+}
+
+/** WebPage JSON-LD for legal / informational pages. */
+export function webPageJsonLd(opts: {
+  name: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    isPartOf: { "@type": "WebSite", name: "RAJ", url: "https://raj.ch" },
+    publisher: PUBLISHER,
+    inLanguage: "de-CH",
+  };
+}

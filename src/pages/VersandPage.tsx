@@ -1,5 +1,6 @@
 import { Truck, RotateCcw, Mail, Globe, Clock, ShieldCheck, Package } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { webPageJsonLd } from "@/lib/schemas";
 
 const Item = ({ icon: Icon, title, desc }: { icon: typeof Truck; title: string; desc: React.ReactNode }) => (
   <li className="flex items-start gap-4 py-5 border-b border-border/60 last:border-0">
@@ -17,6 +18,7 @@ const VersandPage = () => {
       title="Versand & Rückgabe – RAJ"
       metaDescription="Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit."
       canonical="https://raj.ch/versand"
+      jsonLd={webPageJsonLd({ name: "Versand & Rückgabe – RAJ", description: "Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit.", url: "https://raj.ch/versand" })}
       eyebrow="Service"
       heading={<>Transparent.<br />Fair.</>}
       intro="Alles, was du über Versand und Rückgabe bei RAJ wissen musst."
