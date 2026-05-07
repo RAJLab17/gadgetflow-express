@@ -138,6 +138,7 @@ const DatenschutzPage = () => {
       title="Datenschutzerklärung – RAJ"
       metaDescription="Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten."
       canonical="https://raj.ch/datenschutz"
+      jsonLd={webPageJsonLd({ name: "Datenschutzerklärung – RAJ", description: "Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten.", url: "https://raj.ch/datenschutz" })}
       eyebrow="Rechtliches"
       heading="Datenschutz­erklärung"
       meta={
