@@ -21,6 +21,8 @@ interface PremiumPageLayoutProps {
   width?: "prose" | "wide";
   /** Optional decorative background image for the hero section */
   heroImage?: string;
+  /** Optional JSON-LD object(s) to inject. */
+  jsonLd?: object | object[];
 }
 
 /**
