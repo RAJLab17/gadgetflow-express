@@ -23,13 +23,14 @@ const SeoTags = ({
   ogImage = "https://raj.ch/og-image.webp",
   ogType = "product",
   jsonLd,
+  noindex,
 }: SeoTagsProps) => {
-  const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+  const schemas = noindex || !jsonLd ? (jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []) : (Array.isArray(jsonLd) ? jsonLd : [jsonLd]);
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
       <link rel="canonical" href={canonical} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
