@@ -1,4 +1,5 @@
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { webPageJsonLd } from "@/lib/schemas";
 
 const sections = [
   {
