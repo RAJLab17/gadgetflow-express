@@ -16,6 +16,7 @@ const VersandPage = () => {
     <PremiumPageLayout
       title="Versand & Rückgabe – RAJ"
       metaDescription="Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit."
+      canonical="https://raj.ch/versand"
       eyebrow="Service"
       heading={<>Transparent.<br />Fair.</>}
       intro="Alles, was du über Versand und Rückgabe bei RAJ wissen musst."
