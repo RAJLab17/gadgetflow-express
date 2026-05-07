@@ -21,6 +21,7 @@ const PowerBankPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({ name: "RAJTech MagSafe PowerBank Pro 10K", description: DESC, url: CANONICAL, sku: "magsafe-powerbank-10k", category: "Electronics > Power Banks" })}
       />
 

@@ -21,6 +21,7 @@ const CarChargerPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({ name: "RAJTech Car Charger 4-in-1 Pro 100W", description: DESC, url: CANONICAL, sku: "car-charger-4in1", category: "Electronics > Chargers > Car Chargers" })}
       />
       <Header />

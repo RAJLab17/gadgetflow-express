@@ -30,6 +30,7 @@ const WirelessChargerPage = () => {
         title="RAJ NEXUS 3-in-1 Wireless Charger - RAJ"
         description="RAJ NEXUS - Qi2 zertifizierte 3-in-1 MagSafe Ladestation mit 25W Schnellladen. Faltbares Design für iPhone, Apple Watch und AirPods."
         canonical="https://raj.ch/product/wireless-charger-3in1"
+        noindex
         jsonLd={PRODUCT_NEXUS_JSON_LD}
       />
 

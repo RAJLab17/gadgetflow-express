@@ -21,6 +21,7 @@ const UsbChargerPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({ name: "RAJTech USB-C Schnellladegerät 65W", description: DESC, url: CANONICAL, sku: "usb-c-65w", category: "Electronics > Chargers > USB Chargers" })}
       />
       <div className="min-h-screen flex flex-col bg-background text-foreground">
