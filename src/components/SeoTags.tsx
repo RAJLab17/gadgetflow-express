@@ -8,6 +8,8 @@ interface SeoTagsProps {
   ogType?: string;
   /** Optional JSON-LD object(s) to inject on the page. */
   jsonLd?: object | object[];
+  /** If true, emit "noindex, nofollow" instead of "index, follow". */
+  noindex?: boolean;
 }
 
 /**
