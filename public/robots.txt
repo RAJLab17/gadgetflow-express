@@ -3,6 +3,13 @@
 User-agent: *
 Allow: /
 
+# Inactive product pages use <meta name="robots" content="noindex, nofollow">.
+# We intentionally do NOT Disallow /product/* here — crawlers must be able to
+# fetch the pages to see the noindex directive. Once Google has dropped these
+# URLs from the index, uncomment the block below to also save crawl budget.
+#
+# Disallow: /product/
+
 # AI Crawlers - explicitly allowed
 User-agent: GPTBot
 Allow: /
