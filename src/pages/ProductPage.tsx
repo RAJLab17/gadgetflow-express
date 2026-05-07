@@ -1,7 +1,7 @@
-import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import MagneticCableProduct from "@/components/MagneticCableProduct";
 import Footer from "@/components/Footer";
+import SeoTags from "@/components/SeoTags";
 import { useViewContent } from "@/hooks/useViewContent";
 
 const ProductPage = () => {
@@ -12,13 +12,11 @@ const ProductPage = () => {
   });
   return (
     <>
-      <Helmet>
-        <title>Magnetic Charging Cable - RAJTech</title>
-        <meta
-          name="description"
-          content="Premium 3-in-1 magnetic charging cable with interchangeable tips. Fast charging, LED indicator, multiple colors available."
-        />
-      </Helmet>
+      <SeoTags
+        title="Magnetic Charging Cable - RAJTech"
+        description="Premium 3-in-1 magnetic charging cable with interchangeable tips. Fast charging, LED indicator, multiple colors available."
+        canonical="https://raj.ch/product/magnetic-cable"
+      />
 
       <div className="min-h-screen bg-background">
         <Header />
