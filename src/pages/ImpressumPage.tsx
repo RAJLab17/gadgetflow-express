@@ -14,6 +14,7 @@ const ImpressumPage = () => {
     <PremiumPageLayout
       title="Impressum – RAJ"
       metaDescription="Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise."
+      canonical="https://raj.ch/impressum"
       eyebrow="Rechtliches"
       heading="Impressum"
       meta={
