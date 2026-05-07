@@ -8,6 +8,10 @@ interface PremiumPageLayoutProps {
   title: string;
   metaDescription?: string;
   canonical?: string;
+  /** Open Graph image URL (absolute). Defaults to RAJ og-image. */
+  ogImage?: string;
+  /** Open Graph type. Defaults to "article". */
+  ogType?: string;
   eyebrow?: string;
   heading: ReactNode;
   intro?: ReactNode;
