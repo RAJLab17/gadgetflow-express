@@ -545,7 +545,21 @@ const MockupDarkPage = () => {
     <>
       <Helmet>
         <title>RAJ NEXUS · 3-in-1 Qi 2.2 Wireless Charger Schweiz</title>
+        <meta name="description" content="RAJ NEXUS – Schweizer 3-in-1 Qi2.2 Wireless Charger für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://raj.ch/nexus" />
+        <meta property="og:title" content="RAJ NEXUS · 3-in-1 Qi 2.2 Wireless Charger Schweiz" />
+        <meta property="og:description" content="RAJ NEXUS – Schweizer 3-in-1 Qi2.2 Wireless Charger für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
+        <meta property="og:type" content="product" />
+        <meta property="og:site_name" content="RAJ" />
+        <meta property="og:url" content="https://raj.ch/nexus" />
+        <meta property="og:image" content="https://raj.ch/og-image.webp" />
+        <meta property="og:locale" content="de_CH" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@raj_swiss_" />
+        <meta name="twitter:title" content="RAJ NEXUS · 3-in-1 Qi 2.2 Wireless Charger Schweiz" />
+        <meta name="twitter:description" content="RAJ NEXUS – Schweizer 3-in-1 Qi2.2 Wireless Charger für iPhone, Apple Watch und AirPods." />
+        <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
       </Helmet>
 
       <SplashIntro />

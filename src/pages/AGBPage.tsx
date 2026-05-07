@@ -108,6 +108,7 @@ const AGBPage = () => {
     <PremiumPageLayout
       title="AGB – RAJ"
       metaDescription="Allgemeine Geschäftsbedingungen von RAJ."
+      canonical="https://raj.ch/agb"
       eyebrow="Rechtliches"
       heading={<>Allgemeine<br />Geschäftsbedingungen</>}
       meta={
