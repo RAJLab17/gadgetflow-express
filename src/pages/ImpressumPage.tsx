@@ -1,4 +1,5 @@
 import PremiumPageLayout from "@/components/PremiumPageLayout";
+import { webPageJsonLd } from "@/lib/schemas";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="space-y-3">
