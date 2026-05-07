@@ -21,6 +21,7 @@ const PowerBank20kPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({ name: "RAJTech PowerBank Ultra 20K", description: DESC, url: CANONICAL, sku: "powerbank-20k", category: "Electronics > Power Banks" })}
       />
       <div className="min-h-screen bg-background">

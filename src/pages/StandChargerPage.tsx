@@ -21,6 +21,7 @@ const StandChargerPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({ name: "RAJTech Stand 3-in-1 Wireless Charger", description: DESC, url: CANONICAL, sku: "stand-3in1", category: "Electronics > Chargers > Wireless Chargers" })}
       />
 

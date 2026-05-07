@@ -21,6 +21,7 @@ const ProductPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({ name: "RAJTech Magnetic Charging Cable", description: DESC, url: CANONICAL, sku: "magnetic-cable", category: "Electronics > Cables" })}
       />
 

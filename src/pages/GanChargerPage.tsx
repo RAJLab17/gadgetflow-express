@@ -21,6 +21,7 @@ const GanChargerPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({ name: "RAJTech GaN SuperCharger 100W", description: DESC, url: CANONICAL, sku: "gan-100w", category: "Electronics > Chargers > USB Chargers" })}
       />
       <div className="min-h-screen bg-background">
