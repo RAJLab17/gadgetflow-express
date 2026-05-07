@@ -31,6 +31,8 @@ const PremiumPageLayout = ({
   title,
   metaDescription,
   canonical,
+  ogImage = "https://raj.ch/og-image.webp",
+  ogType = "article",
   eyebrow,
   heading,
   intro,
@@ -46,7 +48,22 @@ const PremiumPageLayout = ({
       <Helmet>
         <title>{title}</title>
         {metaDescription && <meta name="description" content={metaDescription} />}
+        <meta name="robots" content="index, follow" />
         {canonical && <link rel="canonical" href={canonical} />}
+        {/* Open Graph */}
+        <meta property="og:title" content={title} />
+        {metaDescription && <meta property="og:description" content={metaDescription} />}
+        <meta property="og:type" content={ogType} />
+        <meta property="og:site_name" content="RAJ" />
+        {canonical && <meta property="og:url" content={canonical} />}
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:locale" content="de_CH" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@raj_swiss_" />
+        <meta name="twitter:title" content={title} />
+        {metaDescription && <meta name="twitter:description" content={metaDescription} />}
+        <meta name="twitter:image" content={ogImage} />
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
