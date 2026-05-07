@@ -42,8 +42,10 @@ const PremiumPageLayout = ({
   children,
   width = "prose",
   heroImage,
+  jsonLd,
 }: PremiumPageLayoutProps) => {
   const maxW = width === "wide" ? "max-w-4xl" : "max-w-2xl";
+  const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
   return (
     <>
@@ -66,6 +68,9 @@ const PremiumPageLayout = ({
         <meta name="twitter:title" content={title} />
         {metaDescription && <meta name="twitter:description" content={metaDescription} />}
         <meta name="twitter:image" content={ogImage} />
+        {schemas.map((s, i) => (
+          <script key={i} type="application/ld+json">{JSON.stringify(s)}</script>
+        ))}
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
