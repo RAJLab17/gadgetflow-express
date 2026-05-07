@@ -22,6 +22,7 @@ const FoldableChargerPage = () => {
         title={TITLE}
         description={DESC}
         canonical={CANONICAL}
+        noindex
         jsonLd={productJsonLd({
           name: "RAJTech Foldable 3-in-1 Wireless Charger",
           description: DESC,
