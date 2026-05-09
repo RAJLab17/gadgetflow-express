@@ -9,7 +9,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
-import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd } from "@/lib/schemas";
+import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 
 // Echte Shop-Bilder (1:1 mit raj.ch)
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
@@ -566,6 +566,7 @@ const MockupDarkPage = () => {
           { name: "Home", url: "https://raj.ch/" },
           { name: "RAJ NEXUS", url: "https://raj.ch/nexus" },
         ]))}</script>
+        <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
       </Helmet>
 
       <SplashIntro />
@@ -1203,6 +1204,55 @@ const MockupDarkPage = () => {
       {/* ═══════════════════════════════════════════════════════════ */}
       <section style={{ background: L.bg, color: L.text }}>
         <ProductDetailsAccordion />
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* 6b. FAQ — LIGHT · SEO-rich rich-result block                */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section
+        id="faq"
+        className="py-20 md:py-28 px-5"
+        style={{ background: L.bg, color: L.text, borderTop: `1px solid ${L.border}` }}
+        aria-labelledby="nexus-faq-heading"
+      >
+        <div className="max-w-3xl mx-auto">
+          <p
+            className="text-[10px] uppercase mb-4"
+            style={{ color: L.gold, letterSpacing: "0.32em" }}
+          >
+            Häufige Fragen
+          </p>
+          <h2
+            id="nexus-faq-heading"
+            className="text-3xl md:text-4xl tracking-tight leading-tight mb-10"
+            style={{ color: L.text, fontWeight: 300 }}
+          >
+            Alles zum RAJ NEXUS — auf einen Blick.
+          </h2>
+
+          <dl className="space-y-8">
+            {FAQ_NEXUS_JSON_LD.mainEntity.map((item: any) => (
+              <div
+                key={item.name}
+                className="pb-8"
+                style={{ borderBottom: `1px solid ${L.border}` }}
+              >
+                <dt
+                  className="text-base md:text-lg mb-3"
+                  style={{ color: L.text, fontWeight: 500 }}
+                >
+                  {item.name}
+                </dt>
+                <dd
+                  className="text-sm md:text-base leading-relaxed"
+                  style={{ color: L.textMuted, fontWeight: 300 }}
+                >
+                  {item.acceptedAnswer.text}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
