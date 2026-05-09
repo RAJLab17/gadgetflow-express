@@ -566,6 +566,7 @@ const MockupDarkPage = () => {
           { name: "Home", url: "https://raj.ch/" },
           { name: "RAJ NEXUS", url: "https://raj.ch/nexus" },
         ]))}</script>
+        <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
       </Helmet>
 
       <SplashIntro />
