@@ -749,6 +749,29 @@ const MockupDarkPage = () => {
           </div>
         </header>
 
+        {/* Visible Breadcrumb — matches BreadcrumbList JSON-LD */}
+        <div className="relative z-20 px-5 sm:px-10 pb-2">
+          <Breadcrumb>
+            <BreadcrumbList className="text-[11px] uppercase tracking-[0.22em]" style={{ color: D.muted }}>
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  href="https://raj.ch/"
+                  className="hover:opacity-100 transition-opacity"
+                  style={{ color: D.muted }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
+                >
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator style={{ color: D.mutedDim }}>/</BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage style={{ color: D.beige }}>RAJ NEXUS</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+
         {/* Subtle ambient gold haze (Apple keynote feel) */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[700px] pointer-events-none opacity-[0.18]"
