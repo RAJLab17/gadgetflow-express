@@ -98,9 +98,26 @@ const WirelessCharger3in1Product = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Product Info */}
           <div className="flex flex-col justify-center order-2 lg:order-1">
-            <h1 className="text-5xl md:text-6xl font-bold mb-2 text-foreground">
-              RAJ <span className="text-primary">NEXUS</span>
+            {/* Visually hidden SEO H1 */}
+            <h1
+              style={{
+                position: "absolute",
+                width: "1px",
+                height: "1px",
+                overflow: "hidden",
+                clip: "rect(0 0 0 0)",
+                whiteSpace: "nowrap",
+                border: 0,
+                padding: 0,
+                margin: 0,
+              }}
+            >
+              RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz
             </h1>
+
+            <h2 className="text-5xl md:text-6xl font-bold mb-2 text-foreground">
+              RAJ <span className="text-primary">NEXUS</span>
+            </h2>
             <p className="text-xl md:text-2xl text-muted-foreground mb-6">
               3-in-1 Wireless Charger
             </p>
