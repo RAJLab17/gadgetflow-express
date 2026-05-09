@@ -562,6 +562,10 @@ const MockupDarkPage = () => {
         <meta name="twitter:description" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
         <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
         <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd([
+          { name: "Home", url: "https://raj.ch/" },
+          { name: "RAJ NEXUS", url: "https://raj.ch/nexus" },
+        ]))}</script>
       </Helmet>
 
       <SplashIntro />
