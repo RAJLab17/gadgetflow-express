@@ -9,6 +9,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
+import { PRODUCT_NEXUS_JSON_LD } from "@/lib/schemas";
 
 // Echte Shop-Bilder (1:1 mit raj.ch)
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
