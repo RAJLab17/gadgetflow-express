@@ -9,7 +9,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
-import { PRODUCT_NEXUS_JSON_LD } from "@/lib/schemas";
+import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd } from "@/lib/schemas";
 
 // Echte Shop-Bilder (1:1 mit raj.ch)
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
@@ -562,6 +562,10 @@ const MockupDarkPage = () => {
         <meta name="twitter:description" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
         <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
         <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd([
+          { name: "Home", url: "https://raj.ch/" },
+          { name: "RAJ NEXUS", url: "https://raj.ch/nexus" },
+        ]))}</script>
       </Helmet>
 
       <SplashIntro />
