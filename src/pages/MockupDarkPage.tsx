@@ -561,6 +561,7 @@ const MockupDarkPage = () => {
         <meta name="twitter:title" content="RAJ NEXUS · 3-in-1 Qi 2.2 Wireless Charger Schweiz" />
         <meta name="twitter:description" content="RAJ NEXUS – Schweizer 3-in-1 Qi2.2 Wireless Charger für iPhone, Apple Watch und AirPods." />
         <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
+        <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
       </Helmet>
 
       <SplashIntro />
