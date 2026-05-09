@@ -10,6 +10,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 // Echte Shop-Bilder (1:1 mit raj.ch)
 import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
@@ -740,6 +748,29 @@ const MockupDarkPage = () => {
             </button>
           </div>
         </header>
+
+        {/* Visible Breadcrumb — matches BreadcrumbList JSON-LD */}
+        <div className="relative z-20 px-5 sm:px-10 pb-2">
+          <Breadcrumb>
+            <BreadcrumbList className="text-[11px] uppercase tracking-[0.22em]" style={{ color: D.muted }}>
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  href="https://raj.ch/"
+                  className="hover:opacity-100 transition-opacity"
+                  style={{ color: D.muted }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
+                >
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator style={{ color: D.mutedDim }}>/</BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage style={{ color: D.beige }}>RAJ NEXUS</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
 
         {/* Subtle ambient gold haze (Apple keynote feel) */}
         <div
