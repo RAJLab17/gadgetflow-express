@@ -845,13 +845,7 @@ const MockupDarkPage = () => {
                 </div>
               </div>
 
-              {/* Countdown OUTSIDE card */}
-              <div className="mt-10">
-                <p className="text-center text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
-                  Launch in
-                </p>
-                <Countdown dark />
-              </div>
+            </div>
             </div>
           </div>
         </div>
