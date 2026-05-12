@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
-  ShieldCheck, Truck, RotateCcw, Hash, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag,
+  ShieldCheck, Truck, RotateCcw, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -378,7 +378,7 @@ const SplashIntro = () => {
 };
 
 
-const TOTAL_SPOTS = 100;
+
 
 // ─────────────────────────────────────────────────────────────────
 // HERO PREMIUM CAROUSEL — auto-rotating editorial slideshow
@@ -493,62 +493,9 @@ const MockupDarkPage = () => {
   const { t, lang, setLang } = useLanguage();
 
   // Live counts from DB
-  const [spotsTaken, setSpotsTaken] = useState(0);
-  const [signupsToday, setSignupsToday] = useState(0);
   const [popupTrigger, setPopupTrigger] = useState(0);
   const [popupMessage, setPopupMessage] = useState("");
   const [heroSubmitted, setHeroSubmitted] = useState(false);
-
-  const refreshCounts = useCallback(async () => {
-    try {
-      const supabase = await getSupabase();
-      const { count: total } = await supabase
-        .from("launch_signups")
-        .select("id", { count: "exact", head: true });
-      if (typeof total === "number") setSpotsTaken(Math.min(TOTAL_SPOTS, Math.max(0, total)));
-
-      const startOfDay = new Date();
-      startOfDay.setHours(0, 0, 0, 0);
-      const { count: today } = await supabase
-        .from("launch_signups")
-        .select("id", { count: "exact", head: true })
-        .gte("created_at", startOfDay.toISOString());
-      if (typeof today === "number") setSignupsToday(Math.max(0, today) + 6);
-    } catch (err) {
-      console.error("Failed to load counts:", err);
-    }
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.style.scrollBehavior = "smooth";
-    const id = window.setTimeout(() => void refreshCounts(), 1500);
-    return () => {
-      document.documentElement.style.scrollBehavior = "";
-      clearTimeout(id);
-    };
-  }, [refreshCounts]);
-
-  const nextFounderNumber = Math.min(TOTAL_SPOTS, spotsTaken + 1);
-  const progress = Math.min(100, (spotsTaken / TOTAL_SPOTS) * 100);
-
-  // Animated countdown for announcement bar (starts at 100, ticks down to available)
-  const targetAvailable = TOTAL_SPOTS - spotsTaken;
-  const [displayAvailable, setDisplayAvailable] = useState(TOTAL_SPOTS);
-  useEffect(() => {
-    if (displayAvailable === targetAvailable) return;
-    const step = displayAvailable > targetAvailable ? -1 : 1;
-    const diff = Math.abs(displayAvailable - targetAvailable);
-    // total animation ~1.2s, min 25ms per tick
-    const interval = Math.max(25, Math.min(60, Math.floor(1200 / Math.max(diff, 1))));
-    const id = window.setInterval(() => {
-      setDisplayAvailable((prev) => {
-        if (prev === targetAvailable) return prev;
-        const next = prev + step;
-        return step < 0 ? Math.max(next, targetAvailable) : Math.min(next, targetAvailable);
-      });
-    }, interval);
-    return () => clearInterval(id);
-  }, [targetAvailable, displayAvailable]);
 
   return (
     <>
@@ -581,28 +528,6 @@ const MockupDarkPage = () => {
 
       <SocialProofPopup trigger={popupTrigger} message={popupMessage} />
 
-      {/* ===== PREMIUM ANNOUNCEMENT BAR ===== */}
-      <div
-        role="status"
-        aria-live="polite"
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center text-center px-4"
-        style={{
-          height: 28,
-          background: D.gold,
-          color: "#0a0a0a",
-          fontFamily: "'Inter', 'SF Pro Display', system-ui, sans-serif",
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: "0.12em",
-          textTransform: "uppercase",
-          lineHeight: 1,
-        }}
-      >
-        <span>
-          Founder Edition — <span style={{ display: "inline-block", minWidth: "1.5em", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>{displayAvailable}</span> von {TOTAL_SPOTS} verfügbar
-        </span>
-      </div>
-      <div aria-hidden style={{ height: 28 }} />
 
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
       {!heroSubmitted && (
@@ -616,7 +541,7 @@ const MockupDarkPage = () => {
                 Edition 01 · Limitiert
               </p>
               <p className="text-[11px] leading-tight" style={{ color: D.beige }}>
-                CHF 99.– · Du wärst <span className="font-bold">Founder #{nextFounderNumber}</span>
+                CHF 99.–
               </p>
             </div>
             <a
@@ -826,59 +751,12 @@ const MockupDarkPage = () => {
                   boxShadow: "0 40px 100px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,168,118,0.08) inset",
                 }}
               >
-                {/* Header row: Founder badge + counter */}
-                <div className="flex items-start justify-between mb-5">
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                      style={{
-                        background: `${D.gold}1a`,
-                        border: `1px solid ${D.gold}55`,
-                      }}
-                    >
-                      <Hash className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.8} />
-                    </div>
-                    <div>
-                      <p className="text-[9px] uppercase font-semibold leading-none mb-1.5" style={{ color: D.mutedDim, letterSpacing: "0.28em" }}>
-                        Du wärst
-                      </p>
-                      <p className="text-lg leading-none" style={{ color: D.beige, fontWeight: 400 }}>
-                        Founder <span style={{ color: D.gold }}>#{nextFounderNumber}</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-base tabular-nums leading-none" style={{ color: D.beige, fontWeight: 300 }}>
-                      <span style={{ fontWeight: 500 }}>{spotsTaken}</span>
-                      <span style={{ color: D.mutedDim }}> / {TOTAL_SPOTS}</span>
-                    </p>
-                    <p className="text-[9px] uppercase mt-1.5" style={{ color: D.mutedDim, letterSpacing: "0.18em" }}>
-                      Founders dabei
-                      {signupsToday > 0 && <span style={{ color: D.gold }}> · +{signupsToday} heute</span>}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Progress bar */}
-                <div
-                  className="relative h-px overflow-hidden mb-7"
-                  style={{ backgroundColor: `${D.gold}22` }}
-                  role="progressbar"
-                  aria-valuenow={spotsTaken}
-                  aria-valuemin={0}
-                  aria-valuemax={TOTAL_SPOTS}
-                >
-                  <div
-                    className="absolute inset-y-0 left-0 transition-[width] duration-[1600ms] ease-out"
-                    style={{ background: `linear-gradient(90deg, ${D.gold}, ${D.beige})`, width: `${progress}%` }}
-                  />
-                </div>
 
                 {/* Founder benefits */}
                 <ul className="space-y-3.5 mb-7">
                   {[
                     { icon: InfinityIcon, label: "Lebenslanger Early Access zu neuen RAJ Produkten" },
-                    { icon: Hash, label: "Founder Edition mit persönlicher Seriennummer" },
+                    { icon: Gift, label: "Founder Edition mit persönlicher Seriennummer" },
                     { icon: Tag, label: "CHF 30 günstiger als regulär" },
                   ].map((b) => (
                     <li key={b.label} className="flex items-center gap-3">
@@ -900,7 +778,6 @@ const MockupDarkPage = () => {
                   dark
                   onSuccess={() => {
                     setHeroSubmitted(true);
-                    void refreshCounts();
                     setPopupMessage("✦ Du bist auf der Liste.");
                     setPopupTrigger((p) => p + 1);
                   }}
