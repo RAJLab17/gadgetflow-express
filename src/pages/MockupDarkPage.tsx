@@ -475,16 +475,6 @@ const HeroStillImage = () => {
         ))}
       </div>
 
-      {/* Editorial caption UNDER image */}
-      <div className="mt-3 sm:mt-5 px-1 text-center">
-        <p
-          className="text-[10px] uppercase font-medium leading-relaxed"
-          style={{ color: D.beige, letterSpacing: "0.32em" }}
-        >
-          Engineered for Performance.<br />
-          Designed to Inspire.
-        </p>
-      </div>
     </div>
   );
 };
