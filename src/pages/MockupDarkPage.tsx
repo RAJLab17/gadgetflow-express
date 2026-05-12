@@ -844,8 +844,6 @@ const MockupDarkPage = () => {
                   </div>
                 </div>
               </div>
-
-            </div>
             </div>
           </div>
         </div>
