@@ -726,6 +726,14 @@ const MockupDarkPage = () => {
                 </p>
               </div>
 
+              {/* Countdown under Founder Edition segment */}
+              <div className="mb-4 sm:mb-6">
+                <p className="text-center md:text-left text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
+                  Launch in
+                </p>
+                <Countdown dark />
+              </div>
+
               {/* PREMIUM HERO IMAGE — single still */}
               <HeroStillImage />
 
