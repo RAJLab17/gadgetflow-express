@@ -390,14 +390,14 @@ const heroWork600 = new URL("../assets/hero-nexus/work-600.webp", import.meta.ur
 
 const HERO_STILL_SLIDES = [
   {
-    src: nexusStoneHero1200,
-    srcSm: nexusStoneHero600,
-    alt: "RAJ NEXUS auf Stein – Premium Editorial.",
-  },
-  {
     src: heroSleep1200,
     srcSm: heroSleep600,
     alt: "RAJ NEXUS auf dem Nachttisch – ruhiges Laden über Nacht.",
+  },
+  {
+    src: nexusStoneHero1200,
+    srcSm: nexusStoneHero600,
+    alt: "RAJ NEXUS auf Stein – Premium Editorial.",
   },
   {
     src: heroWork1200,
