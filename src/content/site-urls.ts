@@ -207,9 +207,6 @@ export const STATIC_URLS: SitemapEntry[] = [
   { path: "/agb", lastmod: TODAY, changefreq: "yearly", priority: 0.3 },
   { path: "/datenschutz", lastmod: TODAY, changefreq: "yearly", priority: 0.3 },
   { path: "/impressum", lastmod: TODAY, changefreq: "yearly", priority: 0.3 },
-
-  // LLM context
-  { path: "/llms.txt", lastmod: TODAY, changefreq: "monthly", priority: 0.5 },
 ];
 
 /**
