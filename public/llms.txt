@@ -63,6 +63,19 @@ The first 100 units are sold as the Founder Edition at CHF 99, each with a uniqu
 - Direct-to-consumer model via raj.ch
 - Full Swiss support in German
 
+## Pages
+- [Startseite](/): RAJ NEXUS Launch & Founder Edition
+- [Shop](/shop): Alle RAJ Produkte
+- [RAJ NEXUS](/nexus): 3-in-1 Qi2.2 Wireless Charger Produktseite
+- [Über RAJ](/about): Marke, Mission und Schweizer Herkunft
+- [FAQ](/faq): Häufige Fragen zu Produkten und Bestellung
+- [Versand](/versand): Versand- und Lieferinformationen Schweiz
+- [Blog](/blog): Artikel zu Wireless Charging und Qi2.2
+- [Dokumente](/dokumente): Handbücher und Zertifikate
+- [AGB](/agb): Allgemeine Geschäftsbedingungen
+- [Datenschutz](/datenschutz): Datenschutzerklärung
+- [Impressum](/impressum): Rechtliche Angaben
+
 ## Editorial Content
 - Qi2 vs Qi2.2 erklärt (DE): https://raj.ch/qi2-erklaert
 - RAJ NEXUS vs Belkin vs Anker Vergleich (DE): https://raj.ch/vergleich
