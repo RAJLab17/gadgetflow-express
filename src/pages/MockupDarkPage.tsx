@@ -705,7 +705,7 @@ const MockupDarkPage = () => {
           <div className="grid md:grid-cols-12 gap-6 md:gap-14 items-start">
             {/* LEFT: editorial copy + premium carousel */}
             <div className="md:col-span-7 relative min-w-0 w-full">
-              {/* ─── Title Block ABOVE hero image ─── */}
+              {/* ─── Founder Edition tag + Countdown ─── */}
               <div className="mb-3 sm:mb-6 text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-3 sm:mb-5">
                   <span className="w-6 h-px" style={{ background: D.gold }} />
@@ -714,7 +714,18 @@ const MockupDarkPage = () => {
                   </span>
                   <span className="w-6 h-px md:hidden" style={{ background: D.gold }} />
                 </div>
+              </div>
 
+              {/* Countdown under Founder Edition segment */}
+              <div className="mb-4 sm:mb-6">
+                <p className="text-center md:text-left text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
+                  Launch in
+                </p>
+                <Countdown dark />
+              </div>
+
+              {/* ─── Title Block AFTER countdown ─── */}
+              <div className="mb-3 sm:mb-6 text-center md:text-left">
                 <h2
                   className="text-4xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-2 sm:mb-3"
                   style={{ color: D.beige, fontWeight: 200 }}
@@ -724,14 +735,6 @@ const MockupDarkPage = () => {
                 <p className="text-sm sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
                   3-in-1 Qi 2.2 Wireless Charger
                 </p>
-              </div>
-
-              {/* Countdown under Founder Edition segment */}
-              <div className="mb-4 sm:mb-6">
-                <p className="text-center md:text-left text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
-                  Launch in
-                </p>
-                <Countdown dark />
               </div>
 
               {/* PREMIUM HERO IMAGE — single still */}
