@@ -13,11 +13,6 @@ import DevModeToggle from "./components/DevModeToggle";
 // LaunchPage is no longer the default landing route — only used on /launch, /prelaunch, ?mode=launch.
 const LaunchPage = lazy(() => import("./pages/LaunchPage"));
 const Index = lazy(() => import("./pages/Index"));
-const ProductPage = lazy(() => import("./pages/ProductPage"));
-const PowerBankPage = lazy(() => import("./pages/PowerBankPage"));
-const PowerBank20kPage = lazy(() => import("./pages/PowerBank20kPage"));
-const WirelessChargerPage = lazy(() => import("./pages/WirelessChargerPage"));
-const FoldableChargerPage = lazy(() => import("./pages/FoldableChargerPage"));
 const StandChargerPage = lazy(() => import("./pages/StandChargerPage"));
 const CarChargerPage = lazy(() => import("./pages/CarChargerPage"));
 const GanChargerPage = lazy(() => import("./pages/GanChargerPage"));
@@ -91,11 +86,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/nexus" element={<MockupDarkPage />} />
-              <Route path="/product/magnetic-cable" element={<WithCart><ProductPage /></WithCart>} />
-              <Route path="/product/magsafe-powerbank" element={<WithCart><PowerBankPage /></WithCart>} />
-              <Route path="/product/powerbank-ultra-20k" element={<WithCart><PowerBank20kPage /></WithCart>} />
-              <Route path="/product/wireless-charger-3in1" element={<WithCart><WirelessChargerPage /></WithCart>} />
-              <Route path="/product/foldable-charger" element={<WithCart><FoldableChargerPage /></WithCart>} />
+              
               <Route path="/product/stand-charger-3in1" element={<WithCart><StandChargerPage /></WithCart>} />
               <Route path="/product/car-charger-4in1" element={<WithCart><CarChargerPage /></WithCart>} />
               <Route path="/product/gan-supercharger-100w" element={<WithCart><GanChargerPage /></WithCart>} />

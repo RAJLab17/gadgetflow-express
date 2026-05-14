@@ -20,7 +20,7 @@ const product = {
   rating: 5,
   reviews: 89,
   category: "Premium Collection",
-  link: "/product/wireless-charger-3in1",
+  link: "/nexus",
   description: "Lade iPhone, Apple Watch und AirPods gleichzeitig mit bis zu 25W – elegant und kompakt.",
   features: [
     { icon: Zap, label: "25W Schnellladen" },

@@ -177,7 +177,7 @@ const Hero = () => {
           </div>
 
           {/* Hero Product Image */}
-          <Link to="/product/wireless-charger-3in1" className="block order-1 lg:order-2">
+          <Link to="/nexus" className="block order-1 lg:order-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
