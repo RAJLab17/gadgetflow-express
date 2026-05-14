@@ -86,7 +86,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/nexus" element={<MockupDarkPage />} />
-              <Route path="/product/wireless-charger-3in1" element={<Navigate to="/nexus" replace />} />
+              
               <Route path="/product/stand-charger-3in1" element={<WithCart><StandChargerPage /></WithCart>} />
               <Route path="/product/car-charger-4in1" element={<WithCart><CarChargerPage /></WithCart>} />
               <Route path="/product/gan-supercharger-100w" element={<WithCart><GanChargerPage /></WithCart>} />
