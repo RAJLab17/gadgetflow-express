@@ -131,6 +131,7 @@ const ShopPreview = () => {
           name="description"
           content="RAJ NEXUS — Qi2.2 zertifizierter 3-in-1 Wireless Charger. Lädt iPhone, Apple Watch und AirPods gleichzeitig. CHF 99.– · Gratis Versand · 3 Jahre Garantie."
         />
+        <link rel="canonical" href={`https://raj.ch${typeof window !== "undefined" ? window.location.pathname : "/shop"}`} />
         <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
       </Helmet>
