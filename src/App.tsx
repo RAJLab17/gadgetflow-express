@@ -13,11 +13,6 @@ import DevModeToggle from "./components/DevModeToggle";
 // LaunchPage is no longer the default landing route — only used on /launch, /prelaunch, ?mode=launch.
 const LaunchPage = lazy(() => import("./pages/LaunchPage"));
 const Index = lazy(() => import("./pages/Index"));
-const ProductPage = lazy(() => import("./pages/ProductPage"));
-const PowerBankPage = lazy(() => import("./pages/PowerBankPage"));
-const PowerBank20kPage = lazy(() => import("./pages/PowerBank20kPage"));
-const WirelessChargerPage = lazy(() => import("./pages/WirelessChargerPage"));
-const FoldableChargerPage = lazy(() => import("./pages/FoldableChargerPage"));
 const StandChargerPage = lazy(() => import("./pages/StandChargerPage"));
 const CarChargerPage = lazy(() => import("./pages/CarChargerPage"));
 const GanChargerPage = lazy(() => import("./pages/GanChargerPage"));
