@@ -57,6 +57,7 @@ const SeoCheckPage = () => {
       <Helmet>
         <title>SEO Check – RAJ Admin</title>
         <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://raj.ch/seo-check" />
       </Helmet>
       <div className="min-h-screen bg-[#f0ede6] py-12 px-4">
         <div className="max-w-4xl mx-auto">
