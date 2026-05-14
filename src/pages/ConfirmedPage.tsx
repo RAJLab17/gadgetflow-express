@@ -10,6 +10,7 @@ const ConfirmedPage = () => {
       <Helmet>
         <title>Anmeldung bestätigt – RAJ</title>
         <meta name="description" content="Ihre E-Mail-Adresse wurde erfolgreich bestätigt. Willkommen bei RAJ." />
+        <link rel="canonical" href="https://raj.ch/confirmed" />
       </Helmet>
 
       <div className="min-h-screen bg-background flex items-center justify-center px-4 relative overflow-hidden">
