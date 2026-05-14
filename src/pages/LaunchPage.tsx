@@ -231,11 +231,12 @@ const LaunchPage = () => {
           name="description"
           content="iPhone, AirPods & Apple Watch gleichzeitig laden. Qi2.2 zertifiziert, 25W. CHF 99 Early Access. Gratis Lieferung Schweiz."
         />
+        <link rel="canonical" href={`https://raj.ch${typeof window !== "undefined" ? window.location.pathname : "/launch"}`} />
         <meta property="og:title" content="RAJ NEXUS — 3-in-1 Qi2 Wireless Charger" />
         <meta property="og:description" content="iPhone, AirPods & Apple Watch gleichzeitig laden. CHF 99 Early Access. Swiss Brand." />
         <meta property="og:site_name" content="RAJ" />
         <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://raj.ch" />
+        <meta property="og:url" content={`https://raj.ch${typeof window !== "undefined" ? window.location.pathname : "/launch"}`} />
         <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
       </Helmet>
