@@ -42,6 +42,7 @@ const MockupShopPage = () => {
       <Helmet>
         <title>RAJ NEXUS · Shop Mockup</title>
         <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://raj.ch/mockup-shop" />
       </Helmet>
 
       <div className="min-h-screen" style={{ background: D.bg, color: D.text }}>
