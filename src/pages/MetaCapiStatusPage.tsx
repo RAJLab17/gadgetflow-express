@@ -76,6 +76,7 @@ const MetaCapiStatusPage = () => {
       <Helmet>
         <title>Meta CAPI Status | RAJ</title>
         <meta name="robots" content="noindex,nofollow" />
+        <link rel="canonical" href="https://raj.ch/meta-capi-status" />
       </Helmet>
 
       <div className="mx-auto max-w-2xl">
