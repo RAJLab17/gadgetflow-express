@@ -185,7 +185,57 @@ export const STATIC_URLS: SitemapEntry[] = [
   },
   { path: "/shop", lastmod: TODAY, changefreq: "daily", priority: 0.9 },
   { path: "/?mode=shop", lastmod: TODAY, changefreq: "weekly", priority: 0.8 },
-  { path: "/nexus", lastmod: TODAY, changefreq: "weekly", priority: 0.95 },
+  {
+    path: "/nexus",
+    lastmod: TODAY,
+    changefreq: "weekly",
+    priority: 0.95,
+    images: [
+      {
+        loc: `${SITE_URL}/raj-nexus-hero-800.webp`,
+        title: "RAJ NEXUS 3-in-1 Wireless Charger – Hero",
+        caption:
+          "RAJ NEXUS Premium 3-in-1 Qi2.2 Wireless Charger für iPhone, Apple Watch und AirPods",
+      },
+      {
+        loc: `${SITE_URL}/raj-nexus-folding-800.webp`,
+        title: "RAJ NEXUS Faltmechanismus",
+        caption:
+          "RAJ NEXUS faltbares Design – kompakt für unterwegs und elegant zu Hause",
+      },
+      {
+        loc: `${SITE_URL}/raj-nexus-folded-side-800.webp`,
+        title: "RAJ NEXUS gefaltet – Seitenansicht",
+        caption: "RAJ NEXUS im gefalteten Zustand – Seitenprofil",
+      },
+      {
+        loc: `${SITE_URL}/raj-nexus-lifestyle-1-800.webp`,
+        title: "RAJ NEXUS Lifestyle 1",
+        caption: "RAJ NEXUS im Alltag – Premium kabelloses Laden",
+      },
+      {
+        loc: `${SITE_URL}/raj-nexus-lifestyle-2-800.webp`,
+        title: "RAJ NEXUS Lifestyle 2",
+        caption: "RAJ NEXUS Lifestyle – iPhone, Apple Watch und AirPods kabellos laden",
+      },
+      {
+        loc: `${SITE_URL}/hero/hero-1-bedside.webp`,
+        title: "RAJ NEXUS am Nachttisch",
+        caption:
+          "RAJ NEXUS 3-in-1 Ladestation lädt iPhone, Apple Watch und AirPods kabellos über Nacht",
+      },
+      {
+        loc: `${SITE_URL}/lifestyle/lifestyle-laptop.webp`,
+        title: "RAJ NEXUS am Arbeitsplatz",
+        caption: "RAJ NEXUS neben dem Laptop – kabelloses Laden im Büro",
+      },
+      {
+        loc: `${SITE_URL}/lifestyle/lifestyle-woman.webp`,
+        title: "RAJ NEXUS Lifestyle",
+        caption: "RAJ NEXUS im modernen Schweizer Wohnambiente",
+      },
+    ],
+  },
 
   // Produkte – derzeit nur RAJ NEXUS aktiv (siehe /nexus oben).
   // Andere /product/* Routen sind als noindex markiert und nicht in der Sitemap.
