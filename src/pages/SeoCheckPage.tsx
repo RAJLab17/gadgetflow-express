@@ -23,7 +23,9 @@ interface SeoReport {
   sitemaps: SitemapCheck[];
   crossCheck: { inRobotsButNotFound: string[]; inFsButNotInRobots: string[] };
   pageChecks: UrlCheck[];
-  summary: { totalUrls: number; okUrls: number; failedUrls: number; overallOk: boolean };
+  imageChecks: UrlCheck[];
+  missingImages: string[];
+  summary: { totalUrls: number; okUrls: number; failedUrls: number; missingImageCount: number; overallOk: boolean };
 }
 
 const StatusIcon = ({ ok }: { ok: boolean }) =>
