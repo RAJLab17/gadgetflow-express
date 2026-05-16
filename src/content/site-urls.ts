@@ -192,47 +192,62 @@ export const STATIC_URLS: SitemapEntry[] = [
     priority: 0.95,
     images: [
       {
-        loc: `${SITE_URL}/raj-nexus-hero-800.webp`,
+        loc: `${SITE_URL}/assets/products/nexus-real-3quarter-white.jpg`,
         title: "RAJ NEXUS 3-in-1 Wireless Charger – Hero",
         caption:
           "RAJ NEXUS Premium 3-in-1 Qi2.2 Wireless Charger für iPhone, Apple Watch und AirPods",
       },
       {
-        loc: `${SITE_URL}/raj-nexus-folding-800.webp`,
+        loc: `${SITE_URL}/assets/products/nexus-real-topview-qi2.jpg`,
+        title: "RAJ NEXUS Qi2.2 Topview",
+        caption: "RAJ NEXUS von oben – Qi2.2 zertifizierte Ladeflächen",
+      },
+      {
+        loc: `${SITE_URL}/assets/products/nexus-real-folds-text-800.webp`,
         title: "RAJ NEXUS Faltmechanismus",
         caption:
           "RAJ NEXUS faltbares Design – kompakt für unterwegs und elegant zu Hause",
       },
       {
-        loc: `${SITE_URL}/raj-nexus-folded-side-800.webp`,
-        title: "RAJ NEXUS gefaltet – Seitenansicht",
-        caption: "RAJ NEXUS im gefalteten Zustand – Seitenprofil",
+        loc: `${SITE_URL}/assets/products/nexus-stone-hero.webp`,
+        title: "RAJ NEXUS auf Stein",
+        caption: "RAJ NEXUS – Premium Materialien im Schweizer Design",
       },
       {
-        loc: `${SITE_URL}/raj-nexus-lifestyle-1-800.webp`,
-        title: "RAJ NEXUS Lifestyle 1",
-        caption: "RAJ NEXUS im Alltag – Premium kabelloses Laden",
-      },
-      {
-        loc: `${SITE_URL}/raj-nexus-lifestyle-2-800.webp`,
-        title: "RAJ NEXUS Lifestyle 2",
-        caption: "RAJ NEXUS Lifestyle – iPhone, Apple Watch und AirPods kabellos laden",
-      },
-      {
-        loc: `${SITE_URL}/hero/hero-1-bedside.webp`,
+        loc: `${SITE_URL}/assets/products/nexus-bedside-night.webp`,
         title: "RAJ NEXUS am Nachttisch",
         caption:
           "RAJ NEXUS 3-in-1 Ladestation lädt iPhone, Apple Watch und AirPods kabellos über Nacht",
       },
       {
-        loc: `${SITE_URL}/lifestyle/lifestyle-laptop.webp`,
-        title: "RAJ NEXUS am Arbeitsplatz",
-        caption: "RAJ NEXUS neben dem Laptop – kabelloses Laden im Büro",
+        loc: `${SITE_URL}/assets/products/nexus-sidetable-enjoy.webp`,
+        title: "RAJ NEXUS am Beistelltisch",
+        caption: "RAJ NEXUS im entspannten Wohnambiente",
       },
       {
-        loc: `${SITE_URL}/lifestyle/lifestyle-woman.webp`,
-        title: "RAJ NEXUS Lifestyle",
+        loc: `${SITE_URL}/assets/products/nexus-coffee-lifestyle.webp`,
+        title: "RAJ NEXUS Coffee Lifestyle",
+        caption: "RAJ NEXUS beim Kaffee – kabelloses Laden im Alltag",
+      },
+      {
+        loc: `${SITE_URL}/assets/products/nexus-desk-writing-1200w.webp`,
+        title: "RAJ NEXUS am Schreibtisch",
+        caption: "RAJ NEXUS am Arbeitsplatz – kabelloses Laden im Büro",
+      },
+      {
+        loc: `${SITE_URL}/assets/products/nexus-office-skyline-1200w.webp`,
+        title: "RAJ NEXUS Office Skyline",
+        caption: "RAJ NEXUS mit Skyline-Aussicht – Premium Office Setup",
+      },
+      {
+        loc: `${SITE_URL}/assets/products/nexus-real-lifestyle-sofa-800.webp`,
+        title: "RAJ NEXUS Lifestyle Sofa",
         caption: "RAJ NEXUS im modernen Schweizer Wohnambiente",
+      },
+      {
+        loc: `${SITE_URL}/assets/products/nexus-real-night-city.webp`,
+        title: "RAJ NEXUS Night City",
+        caption: "RAJ NEXUS bei Nacht – Premium kabelloses Laden",
       },
     ],
   },
