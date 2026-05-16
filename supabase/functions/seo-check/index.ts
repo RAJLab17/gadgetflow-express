@@ -26,10 +26,13 @@ interface SeoReport {
     inFsButNotInRobots: string[];
   };
   pageChecks: UrlCheck[];
+  imageChecks: UrlCheck[];
+  missingImages: string[];
   summary: {
     totalUrls: number;
     okUrls: number;
     failedUrls: number;
+    missingImageCount: number;
     overallOk: boolean;
   };
 }
@@ -126,6 +129,7 @@ Deno.serve(async (req) => {
   // 3. Fetch + parse each sitemap
   const sitemaps: SitemapCheck[] = [];
   const allLocs = new Set<string>();
+  const allImageLocs = new Set<string>();
   for (const sUrl of sitemapUrls) {
     const r = await fetchText(sUrl);
     if ("error" in r) {
@@ -144,6 +148,9 @@ Deno.serve(async (req) => {
     const ct = r.res.headers.get("content-type");
     const parsed = parseLocs(r.text);
     parsed.locs.forEach((l) => allLocs.add(l));
+    // Extract <image:loc> tags too
+    const imgMatches = [...r.text.matchAll(/<image:loc>\s*([^<\s]+)\s*<\/image:loc>/gi)];
+    imgMatches.forEach((m) => allImageLocs.add(m[1]));
     sitemaps.push({
       url: sUrl,
       status: r.res.status,
@@ -157,7 +164,6 @@ Deno.serve(async (req) => {
   }
 
   // 4. Cross-check robots ↔ sitemaps
-  const foundSitemapUrls = new Set(sitemaps.filter((s) => s.ok).map((s) => s.url));
   const inRobotsButNotFound = sitemapsListed.filter((u) => {
     const match = sitemaps.find((s) => s.url === u);
     return !match || !match.ok;
@@ -165,25 +171,36 @@ Deno.serve(async (req) => {
   const inFsButNotInRobots = wellKnown.filter((u) => !sitemapsListed.includes(u));
 
   // 5. Crawl every page URL from sitemaps (skip image-only sitemap entries duplicates)
-  // Limit to dedup'd page URLs, filter to https raj.ch only
   const pageUrls = [...allLocs].filter((u) => /^https?:\/\/(www\.)?raj\.ch/i.test(u));
 
-  // Run with limited concurrency to be polite
   const concurrency = 6;
   const pageChecks: UrlCheck[] = [];
   let cursor = 0;
-  async function worker() {
+  async function pageWorker() {
     while (cursor < pageUrls.length) {
       const i = cursor++;
-      const u = pageUrls[i];
-      pageChecks.push(await head(u));
+      pageChecks.push(await head(pageUrls[i]));
     }
   }
-  await Promise.all(Array.from({ length: concurrency }, worker));
+  await Promise.all(Array.from({ length: concurrency }, pageWorker));
 
-  const totalUrls = pageChecks.length + sitemaps.length + 1;
+  // 6. Crawl every image URL from sitemap-images
+  const imageUrls = [...allImageLocs].filter((u) => /^https?:\/\/(www\.)?raj\.ch/i.test(u));
+  const imageChecks: UrlCheck[] = [];
+  let iCursor = 0;
+  async function imageWorker() {
+    while (iCursor < imageUrls.length) {
+      const i = iCursor++;
+      imageChecks.push(await head(imageUrls[i]));
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, imageWorker));
+  const missingImages = imageChecks.filter((c) => !c.ok).map((c) => c.url);
+
+  const totalUrls = pageChecks.length + imageChecks.length + sitemaps.length + 1;
   const failedUrls =
     pageChecks.filter((p) => !p.ok).length +
+    imageChecks.filter((p) => !p.ok).length +
     sitemaps.filter((s) => !s.ok || !s.xmlValid).length +
     (robotsCheck.ok ? 0 : 1);
   const okUrls = totalUrls - failedUrls;
@@ -194,10 +211,13 @@ Deno.serve(async (req) => {
     sitemaps,
     crossCheck: { inRobotsButNotFound, inFsButNotInRobots },
     pageChecks,
+    imageChecks,
+    missingImages,
     summary: {
       totalUrls,
       okUrls,
       failedUrls,
+      missingImageCount: missingImages.length,
       overallOk: failedUrls === 0 && inRobotsButNotFound.length === 0,
     },
   };
@@ -206,4 +226,5 @@ Deno.serve(async (req) => {
     headers: { ...corsHeaders, "Content-Type": "application/json" },
     status: 200,
   });
+});
 });
