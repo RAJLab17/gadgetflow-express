@@ -26,10 +26,13 @@ interface SeoReport {
     inFsButNotInRobots: string[];
   };
   pageChecks: UrlCheck[];
+  imageChecks: UrlCheck[];
+  missingImages: string[];
   summary: {
     totalUrls: number;
     okUrls: number;
     failedUrls: number;
+    missingImageCount: number;
     overallOk: boolean;
   };
 }
