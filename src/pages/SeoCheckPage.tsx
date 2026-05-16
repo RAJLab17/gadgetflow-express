@@ -219,6 +219,51 @@ const SeoCheckPage = () => {
                     ))}
                 </div>
               </section>
+
+              {/* Image checks */}
+              <section className="border border-border/60 bg-background p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-lg font-medium">
+                    Bilder aus sitemap-images.xml ({report.imageChecks.length})
+                  </h2>
+                  {report.summary.missingImageCount > 0 ? (
+                    <span className="text-xs font-medium text-red-700">
+                      {report.summary.missingImageCount} fehlend (404)
+                    </span>
+                  ) : (
+                    <span className="text-xs text-emerald-700">Alle erreichbar</span>
+                  )}
+                </div>
+
+                {report.missingImages.length > 0 && (
+                  <div className="border border-red-300 bg-red-50 p-3 mb-4">
+                    <p className="text-xs font-medium text-red-900 mb-2">
+                      Fehlende Bild-URLs:
+                    </p>
+                    <ul className="text-xs space-y-1">
+                      {report.missingImages.map((u) => (
+                        <li key={u}>
+                          <code className="break-all">{u}</code>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="space-y-1 max-h-[600px] overflow-auto">
+                  {report.imageChecks
+                    .sort((a, b) => Number(a.ok) - Number(b.ok))
+                    .map((p) => (
+                      <div key={p.url} className="flex items-center gap-2 text-xs py-1">
+                        <StatusIcon ok={p.ok} />
+                        <code className="flex-1 break-all">{p.url}</code>
+                        <span className="text-muted-foreground tabular-nums">
+                          {p.status ?? "ERR"}
+                        </span>
+                      </div>
+                    ))}
+                </div>
+              </section>
             </div>
           )}
         </div>
