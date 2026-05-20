@@ -141,7 +141,7 @@ const ShopPreview = () => {
         {/* Brand mark */}
         <header className="border-b border-border/60">
           <div className="max-w-7xl mx-auto px-6 py-4 grid grid-cols-3 items-center">
-            <span className="text-[11px] tracking-[0.32em] font-light text-muted-foreground/80 uppercase">
+            <span className="text-[11px] tracking-[0.32em] font-light text-muted-foreground uppercase">
               RAJ
             </span>
             <a href="https://raj.ch" className="justify-self-center" aria-label="RAJ — Home">
@@ -152,7 +152,7 @@ const ShopPreview = () => {
                 draggable={false}
               />
             </a>
-            <span className="justify-self-end text-[11px] text-muted-foreground/80 tracking-[0.28em] uppercase font-light">
+            <span className="justify-self-end text-[11px] text-muted-foreground tracking-[0.28em] uppercase font-light">
               Swiss Brand
             </span>
           </div>
