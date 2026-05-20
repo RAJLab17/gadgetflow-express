@@ -301,7 +301,7 @@ const PreorderForm = ({
           )}
         </Button>
 
-        <p className="text-[11px] text-center text-muted-foreground/70">
+        <p className="text-[11px] text-center text-muted-foreground">
           Mit deiner Bestellung akzeptierst du unsere{" "}
           <a href="/agb" className="underline hover:text-muted-foreground transition-colors">AGB</a>{" "}
           und{" "}
