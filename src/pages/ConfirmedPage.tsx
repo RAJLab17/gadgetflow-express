@@ -87,7 +87,7 @@ const ConfirmedPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="text-xs text-muted-foreground/50 tracking-widest uppercase"
+            className="text-xs text-muted-foreground tracking-widest uppercase"
           >
             Power. Always There.
           </motion.p>
