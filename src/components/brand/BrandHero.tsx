@@ -2,11 +2,14 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
-import nexusBedroom from "@/assets/lifestyle-nexus-bedside.webp";
 import nexusSuite from "@/assets/lifestyle-nexus-suite.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
+
+// First slide is served from /public so the <link rel="preload"> in index.html
+// hits the exact same URL — guarantees the LCP image is reused instantly.
+const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
 
 const SLIDES = [nexusBedroom, nexusLaptop, nexusSuite];
 const SLIDE_DURATION = 6000;
