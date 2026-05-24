@@ -171,10 +171,9 @@ const LaunchPage = () => {
     try {
       const supabase = await getSupabase();
 
-      // Total count (real)
-      const { count: totalCount, error: totalErr } = await supabase
-        .from("launch_signups")
-        .select("id", { count: "exact", head: true });
+      // Total count (real) — via SECURITY DEFINER function, no row data exposed
+      const { data: totalCount, error: totalErr } = await supabase
+        .rpc("get_launch_signups_total");
 
       if (!totalErr && typeof totalCount === "number") {
         const next = Math.min(TOTAL_SPOTS, Math.max(0, totalCount));
@@ -182,13 +181,9 @@ const LaunchPage = () => {
         window.localStorage.setItem(SPOTS_CACHE_KEY, String(next));
       }
 
-      // Today's count (real, browser-local midnight)
-      const startOfDay = new Date();
-      startOfDay.setHours(0, 0, 0, 0);
-      const { count: todayCount, error: todayErr } = await supabase
-        .from("launch_signups")
-        .select("id", { count: "exact", head: true })
-        .gte("created_at", startOfDay.toISOString());
+      // Today's count (real)
+      const { data: todayCount, error: todayErr } = await supabase
+        .rpc("get_launch_signups_today_count");
 
       if (!todayErr && typeof todayCount === "number") {
         const withBaseline = Math.max(0, todayCount) + 6;
@@ -199,6 +194,7 @@ const LaunchPage = () => {
       console.error("Failed to load launch signup count:", error);
     }
   }, []);
+
 
   useEffect(() => {
     // Defer until after window 'load' AND idle so the count fetch never
