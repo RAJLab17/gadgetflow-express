@@ -101,37 +101,10 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
     }
   }, [signupsToday]);
 
-  // Realtime — alle Besucher sehen live, wenn jemand neu signed up.
-  // WICHTIG: nicht lokal inkrementieren, sondern parent re-fetchen lassen.
-  // Sonst zählt der eigene Submit doppelt (Realtime-INSERT + onSignupSuccess-Refresh).
-  useEffect(() => {
-    let channel: any;
-    let cancelled = false;
-    const timer = setTimeout(async () => {
-      const supabase = await getSupabase();
-      if (cancelled) return;
-      channel = supabase
-        .channel("launch_signups_live")
-        .on(
-          "postgres_changes",
-          { event: "INSERT", schema: "public", table: "launch_signups" },
-          () => {
-            // Trigger Re-Fetch der echten DB-Counts via parent.
-            onSignupSuccess?.();
-            setPopupMessage(`✦ ${t("hero.live.newFromCity")}`);
-            setPopupTrigger((p) => p + 1);
-          }
-        )
-        .subscribe();
-    }, 2500);
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-      if (channel) {
-        getSupabase().then((s) => s.removeChannel(channel));
-      }
-    };
-  }, [t, onSignupSuccess]);
+  // Realtime broadcasts were removed to prevent email addresses being
+  // pushed to unauthenticated listeners. The parent polls counts via
+  // a SECURITY DEFINER RPC, which is enough for the live counter.
+
 
   // Dezenter "Aktivitäts-Toast" alle 35-65s — neutral, ohne Stadt/Namen.
   useEffect(() => {
