@@ -211,6 +211,8 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_launch_signups_today_count: { Args: never; Returns: number }
+      get_launch_signups_total: { Args: never; Returns: number }
       increment_visitor_count: { Args: never; Returns: number }
       increment_visitor_count_v2: { Args: never; Returns: number }
       register_unique_visitor: {
