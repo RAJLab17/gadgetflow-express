@@ -10,7 +10,7 @@ const GOLD_SOFT = "#c8946b";
 const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
 
 const SLIDES = [
-  { src: nexusBedroom, position: "center 30%", mobilePosition: "center 65%" },
+  { src: nexusBedroom, position: "center 30%", mobilePosition: "32% 55%" },
   { src: nexusLaptop, position: "65% center", mobilePosition: "62% 62%" },
   { src: nexusSuite, position: "40% center", mobilePosition: "48% 60%" },
 ];
