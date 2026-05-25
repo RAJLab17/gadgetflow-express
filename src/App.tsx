@@ -11,6 +11,7 @@ import DevModeToggle from "./components/DevModeToggle";
 
 const LaunchPage = lazy(() => import("./pages/LaunchPage"));
 const Index = lazy(() => import("./pages/Index"));
+const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const NexusPage = lazy(() => import("./pages/NexusPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const AGBPage = lazy(() => import("./pages/AGBPage"));
@@ -52,6 +53,7 @@ const App = () => (
               <DevModeToggle />
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/shop" element={<ShopPreview />} />
                 <Route path="/nexus" element={<NexusPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/agb" element={<AGBPage />} />
