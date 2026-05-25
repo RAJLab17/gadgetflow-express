@@ -106,12 +106,13 @@ const Header = () => {
 
   return (
     <header
-      className={`raj-slide-down fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${
+      className={`raj-slide-down fixed top-0 left-0 right-0 z-50 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-elegant border-b border-border/50"
+          ? "bg-background shadow-elegant border-b border-border/50"
           : "bg-transparent"
       } ${isDarkPage && !isScrolled ? "[&_*]:!text-white" : ""}`}
     >
+
 
       <div className="w-full px-2 sm:px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
