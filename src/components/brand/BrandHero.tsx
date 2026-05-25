@@ -10,9 +10,9 @@ const GOLD_SOFT = "#c8946b";
 const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
 
 const SLIDES = [
-  { src: nexusBedroom, position: "center 30%" },
-  { src: nexusLaptop, position: "65% center" },
-  { src: nexusSuite, position: "40% center" },
+  { src: nexusBedroom, position: "center 30%", mobilePosition: "center 62%", mobileSize: "140%" },
+  { src: nexusLaptop, position: "65% center", mobilePosition: "62% 60%", mobileSize: "175%" },
+  { src: nexusSuite, position: "40% center", mobilePosition: "50% 60%", mobileSize: "160%" },
 ];
 const SLIDE_DURATION = 6000;
 
