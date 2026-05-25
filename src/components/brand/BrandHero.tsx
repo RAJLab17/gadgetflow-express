@@ -106,7 +106,7 @@ const BrandHero = () => {
       <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
       <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-8 sm:pt-28 pb-20 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-start overflow-y-auto">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
             <div
@@ -180,7 +180,7 @@ const BrandHero = () => {
           </div>
 
           <aside
-            className="raj-rise lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
+            className="raj-rise col-span-1 lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative mt-6 lg:mt-0""
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
