@@ -152,7 +152,7 @@ const BrandHero = () => {
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
             <div
-              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center justify-start gap-3"
+              className="raj-rise-sm mb-8 sm:mb-10 hidden lg:flex flex-row items-center justify-start gap-3"
               style={{ animationDelay: "0.3s", animationDuration: "1s" }}
             >
               <Link
