@@ -104,12 +104,10 @@ const BrandHero = () => {
           <div
             key={`m-${slide.src}`}
             aria-hidden={i !== index}
-            className="absolute inset-0 transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden"
+            className="absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden"
             style={{
               backgroundImage: `url(${slide.src})`,
               backgroundPosition: slide.mobilePosition,
-              backgroundSize: slide.mobileSize,
-              backgroundRepeat: "no-repeat",
               backgroundColor: "#0a0908",
               opacity: i === index ? 1 : 0,
             }}
