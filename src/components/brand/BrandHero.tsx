@@ -118,12 +118,13 @@ const BrandHero = () => {
               key={i === index ? `kb-${index}` : `kb-idle-${i}`}
               className="absolute inset-0 bg-cover bg-no-repeat will-change-transform"
               style={{
-                backgroundImage: `url(${slide.src})`,
-                backgroundPosition: slide.mobilePosition,
+                backgroundImage: `url(${slide.mobileSrc})`,
+                backgroundPosition: "center center",
                 animation: i === index ? "raj-ken-burns 9s ease-out both" : undefined,
                 transform: i === index ? undefined : "scale(1.04)",
               }}
             />
+
           </div>
         ))}
       </div>
