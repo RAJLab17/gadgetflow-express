@@ -105,7 +105,7 @@ const BrandHero = () => {
       <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)" }} />
       <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
-      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-16 sm:pt-28 pb-20 w-full">
+      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-12 sm:pt-28 pb-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-start">
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
 
@@ -157,9 +157,8 @@ const BrandHero = () => {
               className="raj-rise text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em]"
               style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
             >
-              {t("brand.hero.h1.line1")}
-              <br />
-              <span className="italic font-thin" style={{ color: GOLD_SOFT, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)" }}>
+              <span className="block">{t("brand.hero.h1.line1")}</span>
+              <span className="italic font-thin block" style={{ color: GOLD_SOFT, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)" }}>
                 {t("brand.hero.h1.line2")}
               </span>
             </h1>
@@ -181,7 +180,7 @@ const BrandHero = () => {
           </div>
 
           <aside
-            className="raj-rise lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
+            className="raj-rise hidden lg:block lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
