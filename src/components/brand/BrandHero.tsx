@@ -151,20 +151,20 @@ const BrandHero = () => {
           </button>
         </div>
 
-        {/* H1 — "Energie," 1 Zeile, "in Form" + "gegossen" je 1 Zeile (gross) */}
+        {/* H1 — "Energie," 1 Zeile, "in Form gegossen" 1 Zeile */}
         <h1
           className="raj-rise mt-10 text-left font-extralight text-white leading-[0.95] tracking-[-0.035em]"
           style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
         >
           <span className="block text-[14vw]">{t("brand.hero.h1.line1")}</span>
           <span
-            className="italic font-thin block text-[19vw]"
-            style={{ color: GOLD_SOFT, lineHeight: 0.95, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85)" }}
+            className="italic font-thin block text-[10vw] whitespace-nowrap"
+            style={{ color: GOLD_SOFT, lineHeight: 1, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85)" }}
           >
-            <span className="block">in Form</span>
-            <span className="block">gegossen</span>
+            in Form gegossen
           </span>
         </h1>
+
 
         {/* Carousel dots */}
         <div className="raj-rise mt-7 flex items-center justify-start gap-3" style={{ animationDelay: "0.6s", animationDuration: "1s" }}>
@@ -195,11 +195,12 @@ const BrandHero = () => {
             <span className="h-px w-8" style={{ background: `linear-gradient(90deg, ${GOLD_SOFT}, transparent)` }} />
           </div>
           <p
-            className="text-[15px] text-white font-extralight italic leading-[1.55] max-w-[30ch]"
+            className="text-[14px] text-white font-extralight italic leading-[1.5] max-w-[42ch]"
             style={{ letterSpacing: "0.01em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)" }}
           >
             {t("brand.hero.sub").split("\n")[0]}
           </p>
+
         </div>
       </div>
 
