@@ -201,11 +201,20 @@ const BrandHero = () => {
         >
           <span className="block text-[11vw]">{t("brand.hero.h1.line1")}</span>
           <span
-            className="italic font-thin block text-[11vw] whitespace-nowrap"
-            style={{ color: GOLD_SOFT, lineHeight: 1, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85)" }}
+            className="italic font-light block text-[11vw] whitespace-nowrap"
+            style={{
+              backgroundImage: `linear-gradient(180deg, #f0d9b8 0%, ${GOLD_SOFT} 55%, ${GOLD} 100%)`,
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              WebkitTextFillColor: "transparent",
+              lineHeight: 1,
+              filter: `drop-shadow(0 2px 10px rgba(0,0,0,0.9)) drop-shadow(0 6px 28px rgba(0,0,0,0.7)) drop-shadow(0 0 18px ${GOLD}55)`,
+            }}
           >
             in Form gegossen
           </span>
+
         </h1>
 
 
