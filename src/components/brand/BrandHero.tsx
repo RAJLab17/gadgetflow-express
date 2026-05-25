@@ -8,12 +8,16 @@ const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
 const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
+const nexusBedroomMobile = "/assets/hero/mobile-bedside.webp";
+const nexusLaptopMobile = "/assets/hero/mobile-laptop.webp";
+const nexusSuiteMobile = "/assets/hero/mobile-suite.webp";
 
 const SLIDES = [
-  { src: nexusBedroom, position: "center 30%", mobilePosition: "50% 58%" },
-  { src: nexusLaptop, position: "65% center", mobilePosition: "62% 62%" },
-  { src: nexusSuite, position: "40% center", mobilePosition: "48% 60%" },
+  { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%" },
+  { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "65% center" },
+  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "40% center" },
 ];
+
 const SLIDE_DURATION = 6000;
 
 const BrandHero = () => {
@@ -114,12 +118,13 @@ const BrandHero = () => {
               key={i === index ? `kb-${index}` : `kb-idle-${i}`}
               className="absolute inset-0 bg-cover bg-no-repeat will-change-transform"
               style={{
-                backgroundImage: `url(${slide.src})`,
-                backgroundPosition: slide.mobilePosition,
+                backgroundImage: `url(${slide.mobileSrc})`,
+                backgroundPosition: "center center",
                 animation: i === index ? "raj-ken-burns 9s ease-out both" : undefined,
                 transform: i === index ? undefined : "scale(1.04)",
               }}
             />
+
           </div>
         ))}
       </div>
