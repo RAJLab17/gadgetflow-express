@@ -156,9 +156,9 @@ const BrandHero = () => {
           className="raj-rise mt-10 text-left font-extralight text-white leading-[0.95] tracking-[-0.035em]"
           style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
         >
-          <span className="block text-[14vw]">{t("brand.hero.h1.line1")}</span>
+          <span className="block text-[11vw]">{t("brand.hero.h1.line1")}</span>
           <span
-            className="italic font-thin block text-[10vw] whitespace-nowrap"
+            className="italic font-thin block text-[11vw] whitespace-nowrap"
             style={{ color: GOLD_SOFT, lineHeight: 1, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85)" }}
           >
             in Form gegossen
