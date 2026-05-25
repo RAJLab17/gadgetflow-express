@@ -78,7 +78,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center"
+      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-start"
       style={{ background: "#0a0908" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -180,7 +180,7 @@ const BrandHero = () => {
           </div>
 
           <aside
-            className="raj-rise hidden lg:block lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
+            className="raj-rise lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
