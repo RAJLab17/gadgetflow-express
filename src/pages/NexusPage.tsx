@@ -1179,7 +1179,7 @@ const NexusPage = () => {
           </h2>
           <div className="w-12 h-px mx-auto my-8" style={{ background: D.gold }} />
           <p className="text-base md:text-lg leading-relaxed max-w-md mx-auto mb-10" style={{ color: D.muted, fontWeight: 300 }}>
-            Early Access Mai 2026. CHF 99.– statt regulärem Preis.
+            Early Access Juni 2026. CHF 99.– statt regulärem Preis.
             Priorität bei der Auslieferung.
           </p>
 
