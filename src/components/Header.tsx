@@ -30,8 +30,8 @@ const Header = () => {
       raf = requestAnimationFrame(() => {
         raf = 0;
         const y = window.scrollY;
-        // Hysteresis: avoid flicker around the threshold
-        setIsScrolled((prev) => (prev ? y > 8 : y > 40));
+        // Wide hysteresis so mobile URL-bar collapse (~60–100px jumps) doesn't flicker
+        setIsScrolled((prev) => (prev ? y > 4 : y > 200));
       });
     };
     handleScroll();
@@ -41,6 +41,7 @@ const Header = () => {
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
+
 
 
   useEffect(() => {
