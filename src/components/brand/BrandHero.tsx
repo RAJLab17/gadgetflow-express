@@ -81,106 +81,68 @@ const BrandHero = () => {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Background slides */}
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
         {SLIDES.map((src, i) => (
           <div
             key={src}
             aria-hidden={i !== index}
             className="absolute inset-0 bg-cover bg-center transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{
-              backgroundImage: `url(${src})`,
-              opacity: i === index ? 1 : 0,
-            }}
+            style={{ backgroundImage: `url(${src})`, opacity: i === index ? 1 : 0 }}
           />
         ))}
       </div>
 
-      {/* Overlays */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.55) 20%, rgba(10,9,8,0.45) 40%, rgba(10,9,8,0.80) 70%, rgba(10,9,8,0.98) 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse 90% 70% at 30% 40%, rgba(10,9,8,0.65), transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 hidden sm:block"
-        style={{
-          background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 mix-blend-overlay opacity-40"
-        style={{
-          background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)",
-        }}
-      />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.55) 20%, rgba(10,9,8,0.45) 40%, rgba(10,9,8,0.80) 70%, rgba(10,9,8,0.98) 100%)" }} />
+      <div className="absolute inset-x-0 top-0 h-[55%] pointer-events-none" style={{ background: "radial-gradient(ellipse 90% 70% at 30% 40%, rgba(10,9,8,0.65), transparent 70%)" }} />
+      <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)" }} />
+      <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
-      <div
-        ref={fadeRef}
-        className="relative z-10 container mx-auto px-6 sm:px-10 pt-24 sm:pt-28 pb-20 w-full"
-      >
+      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-20 sm:pt-28 pb-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
-          {/* Left */}
           <div className="lg:col-span-7">
 
-            {/* ── TWO BUTTONS — above the title ── */}
+            {/* TWO BUTTONS — above title, side by side */}
             <div
-              className="raj-rise-sm mb-8 sm:mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
+              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center gap-3"
               style={{ animationDelay: "0.3s", animationDuration: "1s" }}
             >
-              {/* Primary — Entdecken → /nexus */}
               <Link
                 to="/nexus"
-                className="group inline-flex items-center justify-center gap-2 py-4 px-8 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 py-3.5 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(180deg, ${GOLD_SOFT} 0%, ${GOLD} 100%)`,
                   color: "#0a0908",
-                  letterSpacing: "0.22em",
-                  fontSize: "11px",
+                  letterSpacing: "0.18em",
+                  fontSize: "10px",
                   fontWeight: 600,
                   textTransform: "uppercase",
                   boxShadow: `0 20px 50px -12px ${GOLD}99, 0 8px 20px -8px ${GOLD}66, inset 0 1px 0 rgba(255,255,255,0.25)`,
                   whiteSpace: "nowrap",
                 }}
               >
-                RAJ NEXUS entdecken
-                <span
-                  className="transition-transform duration-500 group-hover:translate-x-1"
-                  style={{ fontSize: "13px" }}
-                >
-                  →
-                </span>
+                Entdecken
+                <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
               </Link>
 
-              {/* Secondary — Jetzt kaufen (disabled) */}
               <button
                 disabled
                 aria-disabled="true"
-                className="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-full cursor-not-allowed"
+                className="inline-flex items-center justify-center gap-2 py-3.5 px-6 sm:py-4 sm:px-8 rounded-full cursor-not-allowed"
                 style={{
-                  background: "transparent",
-                  border: `1px solid ${GOLD_SOFT}55`,
-                  color: `${GOLD_SOFT}55`,
-                  letterSpacing: "0.22em",
-                  fontSize: "11px",
+                  background: "rgba(255,255,255,0.92)",
+                  color: "rgba(10,9,8,0.35)",
+                  letterSpacing: "0.18em",
+                  fontSize: "10px",
                   fontWeight: 500,
                   textTransform: "uppercase",
                   whiteSpace: "nowrap",
                 }}
               >
-                Jetzt kaufen — CHF 99
+                Kaufen — CHF 99
               </button>
             </div>
 
-            {/* ── TITLE ── */}
+            {/* TITLE */}
             <h1
               className="raj-rise text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em]"
               style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
@@ -189,11 +151,7 @@ const BrandHero = () => {
               <br />
               <span
                 className="italic font-thin"
-                style={{
-                  color: GOLD_SOFT,
-                  textShadow:
-                    "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)",
-                }}
+                style={{ color: GOLD_SOFT, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)" }}
               >
                 {t("brand.hero.h1.line2")}
               </span>
@@ -223,10 +181,7 @@ const BrandHero = () => {
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
               <span className="h-px w-8 sm:w-10" style={{ background: `linear-gradient(90deg, ${GOLD_SOFT}, transparent)` }} />
-              <p
-                className="text-[9px] sm:text-[10px] uppercase font-light"
-                style={{ letterSpacing: "0.45em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
-              >
+              <p className="text-[9px] sm:text-[10px] uppercase font-light" style={{ letterSpacing: "0.45em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
                 Manifest
               </p>
             </div>
@@ -234,34 +189,20 @@ const BrandHero = () => {
               <p
                 key={i}
                 className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
-                style={{
-                  letterSpacing: "0.005em",
-                  textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)",
-                  marginBottom: i < arr.length - 1 ? "0.75rem" : 0,
-                }}
+                style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)", marginBottom: i < arr.length - 1 ? "0.75rem" : 0 }}
               >
                 {line}
               </p>
             ))}
-            <p
-              className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal"
-              style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
-            >
+            <p className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal" style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
               — RAJ
             </p>
           </aside>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        className="raj-fade absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
-        style={{ animationDelay: "1.5s", animationDuration: "1s" }}
-      >
-        <div
-          className="w-px h-10 animate-float-slow"
-          style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }}
-        />
+      <div className="raj-fade absolute bottom-6 left-1/2 -translate-x-1/2 z-10" style={{ animationDelay: "1.5s", animationDuration: "1s" }}>
+        <div className="w-px h-10 animate-float-slow" style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }} />
       </div>
     </section>
   );
