@@ -106,38 +106,11 @@ const BrandHero = () => {
       <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
       {/* ===================== MOBILE LAYOUT (lg:hidden, additive) ===================== */}
-      <div className="lg:hidden absolute inset-0 z-10 flex flex-col pt-[112px] pb-16 px-6">
-        {/* H1 at top */}
-        <h1
-          className="raj-rise text-[13vw] font-extralight text-white leading-[0.98] tracking-[-0.035em] text-left"
-          style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
-        >
-          <span className="block">{t("brand.hero.h1.line1")}</span>
-          <span className="italic font-thin block" style={{ color: GOLD_SOFT, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9)" }}>
-            {t("brand.hero.h1.line2")}
-          </span>
-        </h1>
-
-        {/* Carousel dots — directly under H1 so the bg slides read as the carousel */}
-        <div className="raj-rise mt-6 flex items-center justify-start gap-3" style={{ animationDelay: "0.3s", animationDuration: "1s" }}>
-          {SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              aria-label={`Slide ${i + 1}`}
-              className="h-px transition-all duration-700 ease-out"
-              style={{
-                width: i === index ? "48px" : "18px",
-                background: i === index ? GOLD_SOFT : "rgba(255,255,255,0.28)",
-              }}
-            />
-          ))}
-        </div>
-
-        {/* CTA buttons — premium, with breathing room */}
+      <div className="lg:hidden absolute inset-0 z-10 flex flex-col pt-[104px] pb-16 px-6">
+        {/* CTAs — ganz oben */}
         <div
-          className="raj-rise-sm mt-7 flex flex-row items-center justify-start gap-3"
-          style={{ animationDelay: "0.5s", animationDuration: "1s" }}
+          className="raj-rise-sm flex flex-row items-center justify-center gap-3"
+          style={{ animationDelay: "0.2s", animationDuration: "1s" }}
         >
           <Link
             to="/nexus"
@@ -163,7 +136,7 @@ const BrandHero = () => {
             style={{
               background: "rgba(201,168,118,0.07)",
               border: `1px solid ${GOLD_SOFT}50`,
-              color: `${GOLD_SOFT}80`,
+              color: `${GOLD_SOFT}90`,
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
               letterSpacing: "0.2em",
@@ -178,10 +151,41 @@ const BrandHero = () => {
           </button>
         </div>
 
-        {/* Spacer pushes manifest sentence to bottom (above the arrow) */}
+        {/* H1 — "Energie," 1 Zeile, "in Form" + "gegossen" je 1 Zeile (gross) */}
+        <h1
+          className="raj-rise mt-10 text-left font-extralight text-white leading-[0.95] tracking-[-0.035em]"
+          style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
+        >
+          <span className="block text-[14vw]">{t("brand.hero.h1.line1")}</span>
+          <span
+            className="italic font-thin block text-[19vw]"
+            style={{ color: GOLD_SOFT, lineHeight: 0.95, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85)" }}
+          >
+            <span className="block">in Form</span>
+            <span className="block">gegossen</span>
+          </span>
+        </h1>
+
+        {/* Carousel dots */}
+        <div className="raj-rise mt-7 flex items-center justify-start gap-3" style={{ animationDelay: "0.6s", animationDuration: "1s" }}>
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+              className="h-px transition-all duration-700 ease-out"
+              style={{
+                width: i === index ? "48px" : "18px",
+                background: i === index ? GOLD_SOFT : "rgba(255,255,255,0.32)",
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Spacer */}
         <div className="flex-1" />
 
-        {/* Manifest — first sentence only, just above the arrow */}
+        {/* Manifest — erster Satz, über dem Pfeil */}
         <div className="raj-fade flex flex-col items-center text-center" style={{ animationDelay: "0.9s", animationDuration: "1.2s" }}>
           <div className="flex items-center gap-3 mb-3">
             <span className="h-px w-8" style={{ background: `linear-gradient(90deg, transparent, ${GOLD_SOFT})` }} />
@@ -198,6 +202,18 @@ const BrandHero = () => {
           </p>
         </div>
       </div>
+
+      {/* Mobile-only Helligkeit: macht das Produkt-Bild besser sichtbar (überlagert nur die dunklen Overlays auf Mobile) */}
+      <div
+        className="lg:hidden absolute inset-x-0 z-[5] pointer-events-none"
+        style={{
+          top: "30%",
+          bottom: "30%",
+          background: "radial-gradient(ellipse 80% 100% at 50% 50%, rgba(255,255,255,0.12), transparent 70%)",
+          mixBlendMode: "screen",
+        }}
+      />
+
 
       {/* ===================== DESKTOP LAYOUT (unchanged, hidden on mobile) ===================== */}
       <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full hidden lg:block">
