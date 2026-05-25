@@ -9,7 +9,11 @@ const GOLD_SOFT = "#c8946b";
 
 const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
 
-const SLIDES = [nexusBedroom, nexusLaptop, nexusSuite];
+const SLIDES = [
+  { src: nexusBedroom, position: "center 30%" },
+  { src: nexusLaptop, position: "65% center" },
+  { src: nexusSuite, position: "40% center" },
+];
 const SLIDE_DURATION = 6000;
 
 const BrandHero = () => {
@@ -74,7 +78,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center sm:items-center"
+      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center"
       style={{ background: "#0a0908" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -82,12 +86,16 @@ const BrandHero = () => {
       onTouchEnd={onTouchEnd}
     >
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
-        {SLIDES.map((src, i) => (
+        {SLIDES.map((slide, i) => (
           <div
-            key={src}
+            key={slide.src}
             aria-hidden={i !== index}
-            className="absolute inset-0 bg-cover bg-center transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{ backgroundImage: `url(${src})`, opacity: i === index ? 1 : 0 }}
+            className="absolute inset-0 bg-cover transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{
+              backgroundImage: `url(${slide.src})`,
+              backgroundPosition: slide.position,
+              opacity: i === index ? 1 : 0,
+            }}
           />
         ))}
       </div>
@@ -97,68 +105,66 @@ const BrandHero = () => {
       <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)" }} />
       <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
-      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-20 sm:pt-28 pb-20 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
-          <div className="lg:col-span-7">
+      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-16 sm:pt-28 pb-20 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-start">
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
 
-            {/* TWO BUTTONS — above title, side by side */}
             <div
-              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center gap-3"
+              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center justify-center lg:justify-start gap-3"
               style={{ animationDelay: "0.3s", animationDuration: "1s" }}
             >
               <Link
                 to="/nexus"
-                className="group inline-flex items-center justify-center gap-2 py-3.5 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  background: `linear-gradient(180deg, ${GOLD_SOFT} 0%, ${GOLD} 100%)`,
+                  background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
                   color: "#0a0908",
-                  letterSpacing: "0.18em",
+                  letterSpacing: "0.2em",
                   fontSize: "10px",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   textTransform: "uppercase",
-                  boxShadow: `0 20px 50px -12px ${GOLD}99, 0 8px 20px -8px ${GOLD}66, inset 0 1px 0 rgba(255,255,255,0.25)`,
+                  boxShadow: `0 20px 50px -12px ${GOLD}aa, 0 8px 20px -8px ${GOLD}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
                   whiteSpace: "nowrap",
                 }}
               >
-                Entdecken
+                NEXUS entdecken
                 <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
               </Link>
 
               <button
                 disabled
                 aria-disabled="true"
-                className="inline-flex items-center justify-center gap-2 py-3.5 px-6 sm:py-4 sm:px-8 rounded-full cursor-not-allowed"
+                className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full cursor-not-allowed"
                 style={{
-                  background: "rgba(255,255,255,0.92)",
-                  color: "rgba(10,9,8,0.35)",
-                  letterSpacing: "0.18em",
+                  background: "rgba(201,168,118,0.07)",
+                  border: `1px solid ${GOLD_SOFT}50`,
+                  color: `${GOLD_SOFT}60`,
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  letterSpacing: "0.2em",
                   fontSize: "10px",
                   fontWeight: 500,
                   textTransform: "uppercase",
                   whiteSpace: "nowrap",
+                  boxShadow: `inset 0 1px 0 rgba(201,168,118,0.15), 0 4px 20px rgba(0,0,0,0.2)`,
                 }}
               >
                 Kaufen — CHF 99
               </button>
             </div>
 
-            {/* TITLE */}
             <h1
               className="raj-rise text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em]"
               style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
             >
               {t("brand.hero.h1.line1")}
               <br />
-              <span
-                className="italic font-thin"
-                style={{ color: GOLD_SOFT, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)" }}
-              >
+              <span className="italic font-thin" style={{ color: GOLD_SOFT, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85), 0 0 60px rgba(0,0,0,0.6)" }}>
                 {t("brand.hero.h1.line2")}
               </span>
             </h1>
 
-            {/* Slide indicators */}
-            <div className="mt-10 flex items-center gap-3">
+            <div className="mt-10 flex items-center justify-center lg:justify-start gap-3">
               {SLIDES.map((_, i) => (
                 <button
                   key={i}
@@ -174,9 +180,8 @@ const BrandHero = () => {
             </div>
           </div>
 
-          {/* Manifesto — desktop only */}
           <aside
-            className="raj-rise hidden lg:block lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
+            className="raj-rise lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
@@ -188,13 +193,13 @@ const BrandHero = () => {
             {t("brand.hero.sub").split("\n").map((line, i, arr) => (
               <p
                 key={i}
-                className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
+                className={`text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic ${i > 0 ? "hidden lg:block" : ""}`}
                 style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)", marginBottom: i < arr.length - 1 ? "0.75rem" : 0 }}
               >
                 {line}
               </p>
             ))}
-            <p className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal" style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
+            <p className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal hidden lg:block" style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
               — RAJ
             </p>
           </aside>
