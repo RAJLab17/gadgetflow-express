@@ -7,8 +7,6 @@ import nexusSuite from "@/assets/lifestyle-nexus-suite.webp";
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
-// First slide is served from /public so the <link rel="preload"> in index.html
-// hits the exact same URL — guarantees the LCP image is reused instantly.
 const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
 
 const SLIDES = [nexusBedroom, nexusLaptop, nexusSuite];
@@ -32,9 +30,6 @@ const BrandHero = () => {
     return () => clearInterval(id);
   }, [paused, next]);
 
-  // Lightweight scroll-linked parallax via CSS vars (rAF throttled).
-  // Cheaper than framer-motion `useScroll/useTransform` which run per-frame
-  // and force layout reads.
   useEffect(() => {
     let raf = 0;
     const onScroll = () => {
@@ -47,7 +42,6 @@ const BrandHero = () => {
         if (!el || !px || !fd) return;
         const rect = el.getBoundingClientRect();
         const h = rect.height || 1;
-        // 0 at top, 1 when fully scrolled past
         const p = Math.min(1, Math.max(0, -rect.top / h));
         const y = p * 200;
         const scale = 1 + p * 0.15;
@@ -87,7 +81,7 @@ const BrandHero = () => {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {/* Rotating lifestyle images with parallax — pure CSS cross-fade */}
+      {/* Background slides */}
       <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
         {SLIDES.map((src, i) => (
           <div
@@ -102,6 +96,7 @@ const BrandHero = () => {
         ))}
       </div>
 
+      {/* Overlays */}
       <div
         className="absolute inset-0"
         style={{
@@ -112,22 +107,19 @@ const BrandHero = () => {
       <div
         className="absolute inset-x-0 top-0 h-[55%] pointer-events-none"
         style={{
-          background:
-            "radial-gradient(ellipse 90% 70% at 30% 40%, rgba(10,9,8,0.65), transparent 70%)",
+          background: "radial-gradient(ellipse 90% 70% at 30% 40%, rgba(10,9,8,0.65), transparent 70%)",
         }}
       />
       <div
         className="absolute inset-0 hidden sm:block"
         style={{
-          background:
-            "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)",
+          background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)",
         }}
       />
       <div
         className="absolute inset-0 mix-blend-overlay opacity-40"
         style={{
-          background:
-            "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)",
+          background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)",
         }}
       />
 
@@ -138,6 +130,57 @@ const BrandHero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           {/* Left */}
           <div className="lg:col-span-7">
+
+            {/* ── TWO BUTTONS — above the title ── */}
+            <div
+              className="raj-rise-sm mb-8 sm:mb-10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4"
+              style={{ animationDelay: "0.3s", animationDuration: "1s" }}
+            >
+              {/* Primary — Entdecken → /nexus */}
+              <Link
+                to="/nexus"
+                className="group inline-flex items-center justify-center gap-2 py-4 px-8 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  background: `linear-gradient(180deg, ${GOLD_SOFT} 0%, ${GOLD} 100%)`,
+                  color: "#0a0908",
+                  letterSpacing: "0.22em",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  boxShadow: `0 20px 50px -12px ${GOLD}99, 0 8px 20px -8px ${GOLD}66, inset 0 1px 0 rgba(255,255,255,0.25)`,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                RAJ NEXUS entdecken
+                <span
+                  className="transition-transform duration-500 group-hover:translate-x-1"
+                  style={{ fontSize: "13px" }}
+                >
+                  →
+                </span>
+              </Link>
+
+              {/* Secondary — Jetzt kaufen (disabled) */}
+              <button
+                disabled
+                aria-disabled="true"
+                className="inline-flex items-center justify-center gap-2 py-4 px-8 rounded-full cursor-not-allowed"
+                style={{
+                  background: "transparent",
+                  border: `1px solid ${GOLD_SOFT}55`,
+                  color: `${GOLD_SOFT}55`,
+                  letterSpacing: "0.22em",
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Jetzt kaufen — CHF 99
+              </button>
+            </div>
+
+            {/* ── TITLE ── */}
             <h1
               className="raj-rise text-[12vw] sm:text-[8vw] md:text-[6.5vw] lg:text-[5rem] xl:text-[5.75rem] font-extralight text-white leading-[0.98] tracking-[-0.035em]"
               style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
@@ -156,67 +199,8 @@ const BrandHero = () => {
               </span>
             </h1>
 
-            <div
-              className="raj-rise-sm mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
-              style={{ animationDelay: "0.7s", animationDuration: "1s" }}
-            >
-              <div className="flex flex-col gap-3">
-                <Link
-                  to="/nexus"
-                  className="group inline-flex items-center justify-center gap-3 py-5 px-10 rounded-full transition-all duration-500 hover:gap-5 self-start"
-                  style={{
-                    background: GOLD,
-                    color: "#0a0908",
-                    letterSpacing: "0.28em",
-                    fontSize: "11px",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    boxShadow: `0 20px 50px -12px ${GOLD}, 0 8px 20px -8px ${GOLD}`,
-                  }}
-                >
-                  RAJ NEXUS entdecken →
-                </Link>
-
-                <p
-                  className="sm:hidden text-center"
-                  style={{
-                    color: GOLD_SOFT,
-                    fontSize: "11px",
-                    letterSpacing: "0.2em",
-                    textShadow: "0 1px 8px rgba(0,0,0,0.85)",
-                  }}
-                >
-                  CHF 99.– · Founder Edition · Nur 100 Stück
-                </p>
-              </div>
-
-              <div className="hidden sm:flex items-center gap-6 text-[11px] font-normal uppercase">
-                <Link
-                  to="/ueber-raj"
-                  className="group inline-flex items-center gap-2 text-white hover:text-white transition-all"
-                  style={{ letterSpacing: "0.28em", textShadow: "0 1px 8px rgba(0,0,0,0.85)" }}
-                >
-                  <span className="relative pb-1 border-b" style={{ borderColor: `${GOLD_SOFT}` }}>
-                    {t("brand.hero.cta.secondary")}
-                  </span>
-                  <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ color: GOLD_SOFT }}>→</span>
-                </Link>
-                <span className="w-px h-4" style={{ background: `${GOLD_SOFT}88` }} />
-                <a
-                  href="#ecosystem"
-                  className="group inline-flex items-center gap-2 text-white hover:text-white transition-all"
-                  style={{ letterSpacing: "0.28em", textShadow: "0 1px 8px rgba(0,0,0,0.85)" }}
-                >
-                  <span className="relative pb-1 border-b" style={{ borderColor: `${GOLD_SOFT}` }}>
-                    {t("brand.story.link.eco.eyebrow")}
-                  </span>
-                  <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ color: GOLD_SOFT }}>→</span>
-                </a>
-              </div>
-            </div>
-
             {/* Slide indicators */}
-            <div className="mt-12 flex items-center gap-3">
+            <div className="mt-10 flex items-center gap-3">
               {SLIDES.map((_, i) => (
                 <button
                   key={i}
@@ -232,9 +216,9 @@ const BrandHero = () => {
             </div>
           </div>
 
-          {/* Manifesto */}
+          {/* Manifesto — desktop only */}
           <aside
-            className="raj-rise lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
+            className="raj-rise hidden lg:block lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
@@ -249,7 +233,7 @@ const BrandHero = () => {
             {t("brand.hero.sub").split("\n").map((line, i, arr) => (
               <p
                 key={i}
-                className={`text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic ${i > 0 ? 'hidden sm:block' : ''}`}
+                className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
                 style={{
                   letterSpacing: "0.005em",
                   textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)",
@@ -260,7 +244,7 @@ const BrandHero = () => {
               </p>
             ))}
             <p
-              className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal hidden sm:block"
+              className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal"
               style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
             >
               — RAJ
@@ -269,6 +253,7 @@ const BrandHero = () => {
         </div>
       </div>
 
+      {/* Scroll indicator */}
       <div
         className="raj-fade absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
         style={{ animationDelay: "1.5s", animationDuration: "1s" }}
