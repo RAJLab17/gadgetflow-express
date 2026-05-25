@@ -195,7 +195,7 @@ const BrandHero = () => {
             <span className="h-px w-8" style={{ background: `linear-gradient(90deg, ${GOLD_SOFT}, transparent)` }} />
           </div>
           <p
-            className="text-[14px] text-white font-extralight italic leading-[1.5] max-w-[42ch]"
+            className="text-[12px] text-white font-extralight italic leading-[1.6] max-w-[52ch]"
             style={{ letterSpacing: "0.01em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)" }}
           >
             {t("brand.hero.sub").split("\n")[0]}
