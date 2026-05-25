@@ -24,12 +24,24 @@ const Header = () => {
   ];
 
   useEffect(() => {
+    let raf = 0;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const y = window.scrollY;
+        // Hysteresis: avoid flicker around the threshold
+        setIsScrolled((prev) => (prev ? y > 8 : y > 40));
+      });
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
+
 
   useEffect(() => {
     return () => {
