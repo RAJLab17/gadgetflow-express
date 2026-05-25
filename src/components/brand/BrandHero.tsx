@@ -105,7 +105,7 @@ const BrandHero = () => {
       <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)" }} />
       <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
-      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-12 sm:pt-28 pb-20 w-full">
+      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-8 sm:pt-28 pb-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-start">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
