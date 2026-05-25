@@ -151,20 +151,20 @@ const BrandHero = () => {
           </button>
         </div>
 
-        {/* H1 — "Energie," 1 Zeile, "in Form" + "gegossen" je 1 Zeile (gross) */}
+        {/* H1 — "Energie," 1 Zeile, "in Form gegossen" 1 Zeile */}
         <h1
           className="raj-rise mt-10 text-left font-extralight text-white leading-[0.95] tracking-[-0.035em]"
           style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
         >
           <span className="block text-[14vw]">{t("brand.hero.h1.line1")}</span>
           <span
-            className="italic font-thin block text-[19vw]"
-            style={{ color: GOLD_SOFT, lineHeight: 0.95, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85)" }}
+            className="italic font-thin block text-[10vw] whitespace-nowrap"
+            style={{ color: GOLD_SOFT, lineHeight: 1, textShadow: "0 2px 8px rgba(0,0,0,0.95), 0 4px 24px rgba(0,0,0,0.9), 0 8px 48px rgba(0,0,0,0.85)" }}
           >
-            <span className="block">in Form</span>
-            <span className="block">gegossen</span>
+            in Form gegossen
           </span>
         </h1>
+
 
         {/* Carousel dots */}
         <div className="raj-rise mt-7 flex items-center justify-start gap-3" style={{ animationDelay: "0.6s", animationDuration: "1s" }}>
