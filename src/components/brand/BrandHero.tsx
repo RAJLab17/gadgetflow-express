@@ -120,7 +120,7 @@ const BrandHero = () => {
               className="absolute inset-0 bg-cover bg-no-repeat will-change-transform"
               style={{
                 backgroundImage: `url(${slide.mobileSrc})`,
-                backgroundPosition: "center center",
+                backgroundPosition: slide.mobilePosition,
                 animation: i === index ? "raj-ken-burns 9s ease-out both" : undefined,
                 transform: i === index ? undefined : "scale(1.04)",
               }}
