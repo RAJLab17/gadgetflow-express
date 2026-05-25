@@ -78,7 +78,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-start"
+      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center sm:items-center"
       style={{ background: "#0a0908" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -105,12 +105,12 @@ const BrandHero = () => {
       <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)" }} />
       <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
-      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-8 sm:pt-28 pb-20 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-start overflow-y-auto">
+      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
             <div
-              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center justify-center lg:justify-start gap-3"
+              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center justify-start gap-3"
               style={{ animationDelay: "0.3s", animationDuration: "1s" }}
             >
               <Link
@@ -163,7 +163,7 @@ const BrandHero = () => {
               </span>
             </h1>
 
-            <div className="mt-10 flex items-center justify-center lg:justify-start gap-3">
+            <div className="mt-10 flex items-center justify-start gap-3">
               {SLIDES.map((_, i) => (
                 <button
                   key={i}
@@ -180,7 +180,7 @@ const BrandHero = () => {
           </div>
 
           <aside
-            className="raj-rise col-span-1 lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative mt-6 lg:mt-0""
+            className="raj-rise hidden lg:block lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto relative"
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
@@ -192,13 +192,13 @@ const BrandHero = () => {
             {t("brand.hero.sub").split("\n").map((line, i, arr) => (
               <p
                 key={i}
-                className={`text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic ${i > 0 ? "hidden lg:block" : ""}`}
+                className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
                 style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)", marginBottom: i < arr.length - 1 ? "0.75rem" : 0 }}
               >
                 {line}
               </p>
             ))}
-            <p className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal hidden lg:block" style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
+            <p className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal" style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
               — RAJ
             </p>
           </aside>
