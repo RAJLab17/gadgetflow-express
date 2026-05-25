@@ -105,7 +105,49 @@ const BrandHero = () => {
       <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)" }} />
       <div className="absolute inset-0 mix-blend-overlay opacity-40" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
 
+      {/* Mobile-only CTA bar — pinned directly below the nav */}
+      <div className="lg:hidden absolute left-0 right-0 z-20 flex flex-row items-center justify-center gap-3 px-6" style={{ top: "calc(env(safe-area-inset-top, 0px) + 112px)" }}>
+        <Link
+          to="/nexus"
+          className="group inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full transition-all duration-500 active:scale-[0.98]"
+          style={{
+            background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
+            color: "#0a0908",
+            letterSpacing: "0.2em",
+            fontSize: "10px",
+            fontWeight: 700,
+            textTransform: "uppercase",
+            boxShadow: `0 20px 50px -12px ${GOLD}aa, 0 8px 20px -8px ${GOLD}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
+            whiteSpace: "nowrap",
+          }}
+        >
+          NEXUS entdecken
+          <span style={{ fontSize: "12px" }}>→</span>
+        </Link>
+        <button
+          disabled
+          aria-disabled="true"
+          className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full cursor-not-allowed"
+          style={{
+            background: "rgba(201,168,118,0.07)",
+            border: `1px solid ${GOLD_SOFT}50`,
+            color: `${GOLD_SOFT}60`,
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            letterSpacing: "0.2em",
+            fontSize: "10px",
+            fontWeight: 500,
+            textTransform: "uppercase",
+            whiteSpace: "nowrap",
+            boxShadow: `inset 0 1px 0 rgba(201,168,118,0.15), 0 4px 20px rgba(0,0,0,0.2)`,
+          }}
+        >
+          Kaufen — CHF 99
+        </button>
+      </div>
+
       <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full">
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
