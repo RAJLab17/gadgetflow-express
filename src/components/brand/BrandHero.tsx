@@ -160,23 +160,37 @@ const BrandHero = () => {
               className="raj-rise-sm mt-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
               style={{ animationDelay: "0.7s", animationDuration: "1s" }}
             >
-              <Link
-                to="/nexus"
-                className="group inline-flex items-center justify-center gap-3 px-9 py-4 rounded-full transition-all duration-500 hover:gap-5 self-start"
-                style={{
-                  background: GOLD,
-                  color: "#0a0908",
-                  letterSpacing: "0.28em",
-                  fontSize: "11px",
-                  fontWeight: 500,
-                  textTransform: "uppercase",
-                  boxShadow: `0 14px 40px -12px ${GOLD}`,
-                }}
-              >
-                {t("brand.hero.cta.primary")}
-              </Link>
+              <div className="flex flex-col gap-3">
+                <Link
+                  to="/nexus"
+                  className="group inline-flex items-center justify-center gap-3 py-5 px-10 rounded-full transition-all duration-500 hover:gap-5 self-start"
+                  style={{
+                    background: GOLD,
+                    color: "#0a0908",
+                    letterSpacing: "0.28em",
+                    fontSize: "11px",
+                    fontWeight: 500,
+                    textTransform: "uppercase",
+                    boxShadow: `0 20px 50px -12px ${GOLD}, 0 8px 20px -8px ${GOLD}`,
+                  }}
+                >
+                  RAJ NEXUS entdecken →
+                </Link>
 
-              <div className="flex items-center gap-6 text-[11px] font-normal uppercase">
+                <p
+                  className="sm:hidden text-center"
+                  style={{
+                    color: GOLD_SOFT,
+                    fontSize: "11px",
+                    letterSpacing: "0.2em",
+                    textShadow: "0 1px 8px rgba(0,0,0,0.85)",
+                  }}
+                >
+                  CHF 99.– · Founder Edition · Nur 100 Stück
+                </p>
+              </div>
+
+              <div className="hidden sm:flex items-center gap-6 text-[11px] font-normal uppercase">
                 <Link
                   to="/ueber-raj"
                   className="group inline-flex items-center gap-2 text-white hover:text-white transition-all"
@@ -235,7 +249,7 @@ const BrandHero = () => {
             {t("brand.hero.sub").split("\n").map((line, i, arr) => (
               <p
                 key={i}
-                className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
+                className={`text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic ${i > 0 ? 'hidden sm:block' : ''}`}
                 style={{
                   letterSpacing: "0.005em",
                   textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)",
@@ -246,7 +260,7 @@ const BrandHero = () => {
               </p>
             ))}
             <p
-              className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal"
+              className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal hidden sm:block"
               style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
             >
               — RAJ
