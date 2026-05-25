@@ -15,8 +15,9 @@ const nexusSuiteMobile = "/assets/hero/mobile-suite.webp";
 const SLIDES = [
   { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%", mobilePosition: "center center" },
   { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "65% center", mobilePosition: "center center" },
-  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "40% center", mobilePosition: "center 25%" },
+  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "40% center", mobilePosition: "center center" },
 ];
+
 
 
 const SLIDE_DURATION = 6000;
