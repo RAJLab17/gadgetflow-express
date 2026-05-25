@@ -107,7 +107,7 @@ const BrandHero = () => {
 
       <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-12 sm:pt-28 pb-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-start">
-          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
 
             <div
               className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center justify-center lg:justify-start gap-3"
