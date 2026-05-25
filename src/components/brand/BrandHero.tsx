@@ -149,7 +149,7 @@ const BrandHero = () => {
 
 
       {/* ===================== MOBILE LAYOUT (lg:hidden, additive) ===================== */}
-      <div className="lg:hidden absolute inset-0 z-10 flex flex-col pt-[104px] pb-16 px-6">
+      <div className="lg:hidden absolute inset-0 z-10 flex flex-col pt-[88px] pb-16 px-6">
         {/* CTAs — ganz oben */}
         <div
           className="raj-rise-sm flex flex-row items-center justify-center gap-3"
@@ -196,7 +196,7 @@ const BrandHero = () => {
 
         {/* H1 — "Energie," 1 Zeile, "in Form gegossen" 1 Zeile */}
         <h1
-          className="raj-rise mt-10 text-left font-extralight text-white leading-[0.95] tracking-[-0.035em]"
+          className="raj-rise mt-6 text-left font-extralight text-white leading-[0.95] tracking-[-0.035em]"
           style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
         >
           <span className="block text-[11vw]">{t("brand.hero.h1.line1")}</span>
