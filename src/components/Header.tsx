@@ -24,12 +24,24 @@ const Header = () => {
   ];
 
   useEffect(() => {
+    let raf = 0;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const y = window.scrollY;
+        // Hysteresis: avoid flicker around the threshold
+        setIsScrolled((prev) => (prev ? y > 8 : y > 40));
+      });
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
+
 
   useEffect(() => {
     return () => {
@@ -93,12 +105,13 @@ const Header = () => {
 
   return (
     <header
-      className={`raj-slide-down fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`raj-slide-down fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-300 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-xl shadow-elegant border-b border-border/50"
+          ? "bg-background/95 backdrop-blur-md shadow-elegant border-b border-border/50"
           : "bg-transparent"
       } ${isDarkPage && !isScrolled ? "[&_*]:!text-white" : ""}`}
     >
+
       <div className="w-full px-2 sm:px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
