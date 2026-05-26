@@ -395,6 +395,11 @@ const HERO_STILL_SLIDES = [
     alt: "RAJ NEXUS auf dem Nachttisch – ruhiges Laden über Nacht.",
   },
   {
+    src: nexusStoneHero1200,
+    srcSm: nexusStoneHero600,
+    alt: "RAJ NEXUS auf Stein – Premium Editorial.",
+  },
+  {
     src: heroWork1200,
     srcSm: heroWork600,
     alt: "RAJ NEXUS am Arbeitsplatz – Homeoffice Setup.",
