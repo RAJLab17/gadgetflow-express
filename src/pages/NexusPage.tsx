@@ -695,12 +695,12 @@ const NexusPage = () => {
 
               {/* ─── Title Block BEFORE countdown ─── */}
               <div className="mb-3 sm:mb-6 text-center md:text-left">
-                <h2
+                <h1
                   className="text-4xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-2 sm:mb-3"
                   style={{ color: D.beige, fontWeight: 200 }}
                 >
                   RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
-                </h2>
+                </h1>
                 <p className="text-sm sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
                   3-in-1 Qi 2.2 Wireless Charger
                 </p>
@@ -799,13 +799,13 @@ const NexusPage = () => {
                   </p>
                   <div className="flex items-center justify-center gap-1.5 flex-nowrap">
                     {[
-                      { label: "Visa", src: payVisa },
-                      { label: "Mastercard", src: payMastercard },
-                      { label: "Amex", src: payAmex },
-                      { label: "Apple Pay", src: payApplePay },
-                      { label: "Google Pay", src: payGooglePay },
-                      { label: "Klarna", src: payKlarna },
-                      { label: "TWINT", src: payTwint },
+                      { label: "Visa Kreditkarte", src: payVisa },
+                      { label: "Mastercard Kreditkarte", src: payMastercard },
+                      { label: "American Express Karte", src: payAmex },
+                      { label: "Apple Pay Zahlung", src: payApplePay },
+                      { label: "Google Pay Zahlung", src: payGooglePay },
+                      { label: "Klarna Ratenzahlung", src: payKlarna },
+                      { label: "TWINT Zahlung", src: payTwint },
                     ].map((p) => (
                       <div
                         key={p.label}
