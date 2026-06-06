@@ -375,6 +375,8 @@ const BrandHero = () => {
         <div className="w-px h-10 animate-float-slow" style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }} />
       </div>
     </section>
+    <BuyModal open={buyOpen} onClose={() => setBuyOpen(false)} />
+    </>
   );
 };
 
