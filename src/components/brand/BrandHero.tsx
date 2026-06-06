@@ -172,26 +172,25 @@ const BrandHero = () => {
             NEXUS entdecken
             <span style={{ fontSize: "12px" }}>→</span>
           </Link>
-          <button
-            disabled
-            aria-disabled="true"
-            className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full cursor-not-allowed"
+          <Link
+            to="/nexus?buy=1"
+            className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full active:scale-[0.98] transition-all"
             style={{
               background: "rgba(201,168,118,0.07)",
-              border: `1px solid ${GOLD_SOFT}50`,
-              color: `${GOLD_SOFT}90`,
+              border: `1px solid ${GOLD_SOFT}80`,
+              color: GOLD_SOFT,
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
               letterSpacing: "0.2em",
               fontSize: "10px",
-              fontWeight: 500,
+              fontWeight: 600,
               textTransform: "uppercase",
               whiteSpace: "nowrap",
-              boxShadow: `inset 0 1px 0 rgba(201,168,118,0.15), 0 4px 20px rgba(0,0,0,0.2)`,
+              boxShadow: `inset 0 1px 0 rgba(201,168,118,0.2), 0 4px 20px rgba(0,0,0,0.25)`,
             }}
           >
             Kaufen — CHF 99
-          </button>
+          </Link>
         </div>
 
         {/* H1 — "Energie," 1 Zeile, "in Form gegossen" 1 Zeile */}
@@ -296,26 +295,25 @@ const BrandHero = () => {
                 <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
               </Link>
 
-              <button
-                disabled
-                aria-disabled="true"
-                className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full cursor-not-allowed"
+              <Link
+                to="/nexus?buy=1"
+                className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.07)",
-                  border: `1px solid ${GOLD_SOFT}50`,
-                  color: `${GOLD_SOFT}60`,
+                  border: `1px solid ${GOLD_SOFT}80`,
+                  color: GOLD_SOFT,
                   backdropFilter: "blur(16px)",
                   WebkitBackdropFilter: "blur(16px)",
                   letterSpacing: "0.2em",
                   fontSize: "10px",
-                  fontWeight: 500,
+                  fontWeight: 600,
                   textTransform: "uppercase",
                   whiteSpace: "nowrap",
-                  boxShadow: `inset 0 1px 0 rgba(201,168,118,0.15), 0 4px 20px rgba(0,0,0,0.2)`,
+                  boxShadow: `inset 0 1px 0 rgba(201,168,118,0.2), 0 4px 20px rgba(0,0,0,0.25)`,
                 }}
               >
                 Kaufen — CHF 99
-              </button>
+              </Link>
             </div>
 
             <h1
