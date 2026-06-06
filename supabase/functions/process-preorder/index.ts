@@ -47,7 +47,7 @@ serve(async (req) => {
 
     const { data: orderRecord, error: orderError } = await supabase
       .from('preorders')
-      .select('order_number, customer_email, customer_name, product_name, product_variant, original_price, discount_percent, final_price, street_address, postal_code, city, phone')
+      .select('order_number, customer_email, customer_name, product_name, product_variant, original_price, discount_percent, final_price, street_address, postal_code, city, phone, email_sent_at')
       .eq('order_number', data.orderNumber)
       .single();
 
@@ -58,6 +58,20 @@ serve(async (req) => {
         { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
+
+    // Idempotency guard: don't reprocess an already-emailed order
+    if (orderRecord.email_sent_at) {
+      return new Response(
+        JSON.stringify({ success: true, alreadyProcessed: true }),
+        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Mark as processed up-front to prevent concurrent duplicate runs
+    await supabase
+      .from('preorders')
+      .update({ email_sent_at: new Date().toISOString() })
+      .eq('order_number', data.orderNumber);
 
     // Use server-side data from DB instead of client-provided data
     const safeData = {
