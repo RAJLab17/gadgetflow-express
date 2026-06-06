@@ -46,9 +46,14 @@ serve(async (req) => {
       custom_data,
     } = body;
 
-    if (!event_name) {
+    const ALLOWED_EVENTS = new Set([
+      "PageView", "ViewContent", "Lead", "CompleteRegistration",
+      "AddToCart", "InitiateCheckout", "AddPaymentInfo", "Purchase",
+      "Subscribe", "Contact", "Search",
+    ]);
+    if (!event_name || !ALLOWED_EVENTS.has(event_name)) {
       return new Response(
-        JSON.stringify({ error: "event_name is required" }),
+        JSON.stringify({ error: "Invalid or missing event_name" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
