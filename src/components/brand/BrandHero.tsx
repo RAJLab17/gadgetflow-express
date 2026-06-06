@@ -30,6 +30,7 @@ const BrandHero = () => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [buyOpen, setBuyOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % SLIDES.length), []);
