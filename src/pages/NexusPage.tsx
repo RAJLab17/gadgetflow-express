@@ -516,7 +516,7 @@ const NexusPage = () => {
 
       <SplashIntro />
 
-      <SocialProofPopup trigger={popupTrigger} message={popupMessage} />
+      
 
 
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
@@ -547,7 +547,7 @@ const NexusPage = () => {
                 boxShadow: `0 8px 24px -8px ${D.gold}`,
               }}
             >
-              Jetzt kaufen <ArrowRight className="w-3.5 h-3.5" />
+              Kaufen <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
@@ -749,6 +749,13 @@ const NexusPage = () => {
             <p className="mt-4 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
               Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
             </p>
+
+            {/* Founder benefits */}
+            <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
+              <li><span style={{ color: D.gold }}>✦</span> Founder Edition mit persönlicher Seriennummer</li>
+              <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
+              <li><span style={{ color: D.gold }}>✦</span> CHF 30 günstiger als regulärer Preis</li>
+            </ul>
           </div>
 
           {/* Single hero image — full width */}
@@ -793,7 +800,7 @@ const NexusPage = () => {
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 2. TRUST — LIGHT · Drei Versprechen                         */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: L.bg, color: L.text }} className="py-20 md:py-32 px-5">
+      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
@@ -804,26 +811,19 @@ const NexusPage = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 sm:gap-12 md:gap-16">
-            {[
-              { icon: Smartphone, label: "iPhone" },
-              { icon: Watch, label: "Apple Watch" },
-              { icon: Headphones, label: "AirPods" },
-            ].map((d) => (
-              <div key={d.label} className="text-center">
-                <div
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full flex items-center justify-center mb-5"
-                  style={{ background: "#FFFFFF", border: `1px solid ${L.border}` }}
-                >
-                  <d.icon className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12" style={{ color: L.gold }} strokeWidth={1.2} />
-                </div>
-                <div className="text-sm sm:text-lg font-light tracking-tight">{d.label}</div>
-              </div>
-            ))}
-          </div>
+          <img
+            src={nexusTopview}
+            alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig laden."
+            width={1600}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto rounded-sm"
+            style={{ boxShadow: "0 40px 100px -40px rgba(26,26,26,0.25)" }}
+          />
 
-          <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl leading-tight tracking-tight" style={{ color: L.text, fontWeight: 300 }}>
-            Power. Always There.
+          <p className="text-center mt-8 text-sm" style={{ color: L.gold, letterSpacing: "0.06em" }}>
+            iPhone · Apple Watch · AirPods
           </p>
         </div>
       </section>
@@ -831,8 +831,8 @@ const NexusPage = () => {
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 3. STORY — Premium Zickzack (gleich wie Shop)              */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-36 px-5">
-        <div className="max-w-7xl mx-auto space-y-24 md:space-y-36">
+      <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-48">
           {[
             {
               img: nexusFeatures,
@@ -847,7 +847,7 @@ const NexusPage = () => {
               img: nexusFolds,
               alt: "Faltbar wie eine Brieftasche",
               eyebrow: "Für die Vielreisenden",
-              title: "Faltet sich wie eine Brieftasche. Lädt wie eine Station.",
+              title: "Faltet sich wie eine Brieftasche.",
               copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig laden.",
             },
             {
@@ -859,20 +859,7 @@ const NexusPage = () => {
               title: "Drei Kabel weg. Ein Objekt da.",
               copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Einfach hinlegen. Fertig.",
             },
-            {
-              img: nexusNight,
-              alt: "Nachts in der Stadt",
-              eyebrow: "Für die späten Abende",
-              title: "Hinlegen. Schlafen. Aufwachen mit 100 %.",
-              copy: "Du fällst ins Bett. Telefon drauf — magnetisch klick. Kein Zielen, kein Augen-Aufmachen. Morgens: voll geladen, bereit für den Tag, der vor dir liegt.",
-            },
-            {
-              img: nexusSofa,
-              alt: "Entspannt auf dem Sofa",
-              eyebrow: "Für die ruhigen Sonntage",
-              title: "Lädt im Hintergrund. Wie es sein soll.",
-              copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf – leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
-            },
+
             {
               img: nexusWindow,
               alt: "Material Detail im Licht",
@@ -949,7 +936,7 @@ const NexusPage = () => {
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 4. SPECS — LIGHT · Material, Maß, Wahrheit                  */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-36 px-5">
+      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
@@ -1014,24 +1001,6 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* 5. WHY RAJ — LIGHT · Markenphilosophie (statt Vergleich)   */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: "#F2EDE3", color: L.text }} className="py-20 md:py-32 px-5">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
-            — {t("why.title")} RAJ?
-          </span>
-          <h2 className="text-3xl md:text-5xl mt-6 leading-tight tracking-tight" style={{ fontWeight: 300 }}>
-            Wir vergleichen uns nicht.<br />
-            <span style={{ fontStyle: "italic", color: L.textMuted }}>Wir definieren.</span>
-          </h2>
-          <div className="w-12 h-px mx-auto my-8" style={{ background: L.gold }} />
-          <p className="text-base md:text-lg leading-relaxed" style={{ color: L.textMuted, fontWeight: 300 }}>
-            {t("why.text")}
-          </p>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 6. DETAILS / FAQ — LIGHT · Ganze Sektion                    */}
@@ -1093,39 +1062,39 @@ const NexusPage = () => {
       {/* 7. FINAL CTA — DARK · Begehren in Aktion                    */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden py-24 md:py-36 px-5"
+        className="relative py-24 md:py-36 px-5"
         style={{ background: D.bg, color: D.beige }}
       >
-        {/* Background image faded */}
-        <div className="absolute inset-0 opacity-25 pointer-events-none">
-          <img src={nexusFinalCta} alt="" width={1600} height={1200} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${D.bg} 0%, rgba(10,10,10,0.7) 50%, ${D.bg} 100%)` }} />
-        </div>
-
         <div className="relative max-w-2xl mx-auto text-center">
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-            — Edition 01 · Limitiert auf 100
+            — Founder Edition · Limitiert auf 100
           </span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>
-            Sei unter den<br />
-            <span style={{ fontStyle: "italic", color: D.gold }}>ersten Hundert.</span>
+            Bereit?
           </h2>
-          <div className="w-12 h-px mx-auto my-8" style={{ background: D.gold }} />
-          <p className="text-base md:text-lg leading-relaxed max-w-md mx-auto mb-10" style={{ color: D.muted, fontWeight: 300 }}>
-            Early Access Juni 2026. CHF 99.– statt regulärem Preis.
-            Priorität bei der Auslieferung.
+          <p className="text-base md:text-lg mt-6 mb-10" style={{ color: D.muted, fontWeight: 300 }}>
+            CHF 99.– statt CHF 129.–
           </p>
 
-          <div className="mb-10">
-            <Countdown dark />
-          </div>
+          <a
+            href="#mockup-signup"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all"
+            style={{
+              background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
+              color: D.bg,
+              boxShadow: `0 16px 40px -12px ${D.gold}`,
+            }}
+          >
+            Jetzt kaufen
+          </a>
 
-          <SignupForm dark />
-
-          <div className="mt-12 flex items-center justify-center gap-2 text-[10px] uppercase" style={{ color: D.mutedDim, letterSpacing: "0.22em" }}>
-            <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} />
-            <span>Schweizer Brand · Weltweit zertifiziert</span>
-          </div>
+          <p className="mt-6 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
+            Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+          </p>
         </div>
       </section>
 
