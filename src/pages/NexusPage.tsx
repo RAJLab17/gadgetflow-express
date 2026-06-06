@@ -904,7 +904,7 @@ const NexusPage = () => {
               <button
                 type="button"
                 onClick={openBuyModal}
-                className="group inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 py-3.5 px-14 sm:py-4 sm:px-20 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
                   color: "#0a0908",
