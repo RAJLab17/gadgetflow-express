@@ -538,13 +538,16 @@ const NexusPage = () => {
               href="#mockup-signup"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById("mockup-email")?.focus();
                 document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
               className="shrink-0 px-4 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-wider active:scale-[0.98] transition-all inline-flex items-center gap-1.5"
-              style={{ background: D.beige, color: D.bg }}
+              style={{
+                background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
+                color: D.bg,
+                boxShadow: `0 8px 24px -8px ${D.gold}`,
+              }}
             >
-              Sichern <ArrowRight className="w-3.5 h-3.5" />
+              Jetzt kaufen <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
