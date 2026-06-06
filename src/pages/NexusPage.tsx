@@ -547,7 +547,7 @@ const NexusPage = () => {
                 boxShadow: `0 8px 24px -8px ${D.gold}`,
               }}
             >
-              Jetzt kaufen <ArrowRight className="w-3.5 h-3.5" />
+              Kaufen <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
