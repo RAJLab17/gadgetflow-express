@@ -800,7 +800,7 @@ const NexusPage = () => {
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 2. TRUST — LIGHT · Drei Versprechen                         */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: L.bg, color: L.text }} className="py-20 md:py-32 px-5">
+      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
@@ -811,26 +811,19 @@ const NexusPage = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 sm:gap-12 md:gap-16">
-            {[
-              { icon: Smartphone, label: "iPhone" },
-              { icon: Watch, label: "Apple Watch" },
-              { icon: Headphones, label: "AirPods" },
-            ].map((d) => (
-              <div key={d.label} className="text-center">
-                <div
-                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 mx-auto rounded-full flex items-center justify-center mb-5"
-                  style={{ background: "#FFFFFF", border: `1px solid ${L.border}` }}
-                >
-                  <d.icon className="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12" style={{ color: L.gold }} strokeWidth={1.2} />
-                </div>
-                <div className="text-sm sm:text-lg font-light tracking-tight">{d.label}</div>
-              </div>
-            ))}
-          </div>
+          <img
+            src={nexusTopview}
+            alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig laden."
+            width={1600}
+            height={1000}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-auto rounded-sm"
+            style={{ boxShadow: "0 40px 100px -40px rgba(26,26,26,0.25)" }}
+          />
 
-          <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl leading-tight tracking-tight" style={{ color: L.text, fontWeight: 300 }}>
-            Power. Always There.
+          <p className="text-center mt-8 text-sm" style={{ color: L.gold, letterSpacing: "0.06em" }}>
+            iPhone · Apple Watch · AirPods
           </p>
         </div>
       </section>
