@@ -27,6 +27,20 @@ serve(async (req) => {
           status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         });
       }
+      // Validate prices are positive numbers in plausible range
+      const op = Number(originalPrice);
+      const fp = Number(finalPrice);
+      if (!Number.isFinite(op) || !Number.isFinite(fp) || op <= 0 || fp <= 0 || op > 10000 || fp > 10000 || fp > op) {
+        return new Response(JSON.stringify({ error: 'Invalid price' }), {
+          status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+      // Basic email shape check
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+        return new Response(JSON.stringify({ error: 'Invalid email' }), {
+          status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
 
       // Check if already tracked for this email+product
       const { data: existing } = await supabase
@@ -104,6 +118,19 @@ serve(async (req) => {
       if (!email || !productName) {
         return new Response(JSON.stringify({ error: 'Missing fields' }), {
           status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+
+      // Only allow convert if a real preorder exists for this email+product
+      const { data: realOrder } = await supabase
+        .from('preorders')
+        .select('id')
+        .eq('customer_email', email)
+        .eq('product_name', productName)
+        .maybeSingle();
+      if (!realOrder) {
+        return new Response(JSON.stringify({ error: 'No matching order' }), {
+          status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         });
       }
 

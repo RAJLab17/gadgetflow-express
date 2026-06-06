@@ -76,6 +76,7 @@ export type Database = {
           customer_email: string
           customer_name: string
           discount_percent: number
+          email_sent_at: string | null
           final_price: number
           id: string
           includes_free_cable: boolean
@@ -99,6 +100,7 @@ export type Database = {
           customer_email: string
           customer_name: string
           discount_percent?: number
+          email_sent_at?: string | null
           final_price: number
           id?: string
           includes_free_cable?: boolean
@@ -122,6 +124,7 @@ export type Database = {
           customer_email?: string
           customer_name?: string
           discount_percent?: number
+          email_sent_at?: string | null
           final_price?: number
           id?: string
           includes_free_cable?: boolean
