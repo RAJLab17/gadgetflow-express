@@ -1062,39 +1062,39 @@ const NexusPage = () => {
       {/* 7. FINAL CTA — DARK · Begehren in Aktion                    */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden py-24 md:py-36 px-5"
+        className="relative py-24 md:py-36 px-5"
         style={{ background: D.bg, color: D.beige }}
       >
-        {/* Background image faded */}
-        <div className="absolute inset-0 opacity-25 pointer-events-none">
-          <img src={nexusFinalCta} alt="" width={1600} height={1200} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${D.bg} 0%, rgba(10,10,10,0.7) 50%, ${D.bg} 100%)` }} />
-        </div>
-
         <div className="relative max-w-2xl mx-auto text-center">
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-            — Edition 01 · Limitiert auf 100
+            — Founder Edition · Limitiert auf 100
           </span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>
-            Sei unter den<br />
-            <span style={{ fontStyle: "italic", color: D.gold }}>ersten Hundert.</span>
+            Bereit?
           </h2>
-          <div className="w-12 h-px mx-auto my-8" style={{ background: D.gold }} />
-          <p className="text-base md:text-lg leading-relaxed max-w-md mx-auto mb-10" style={{ color: D.muted, fontWeight: 300 }}>
-            Early Access Juni 2026. CHF 99.– statt regulärem Preis.
-            Priorität bei der Auslieferung.
+          <p className="text-base md:text-lg mt-6 mb-10" style={{ color: D.muted, fontWeight: 300 }}>
+            CHF 99.– statt CHF 129.–
           </p>
 
-          <div className="mb-10">
-            <Countdown dark />
-          </div>
+          <a
+            href="#mockup-signup"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+            className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all"
+            style={{
+              background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
+              color: D.bg,
+              boxShadow: `0 16px 40px -12px ${D.gold}`,
+            }}
+          >
+            Jetzt kaufen
+          </a>
 
-          <SignupForm dark />
-
-          <div className="mt-12 flex items-center justify-center gap-2 text-[10px] uppercase" style={{ color: D.mutedDim, letterSpacing: "0.22em" }}>
-            <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} />
-            <span>Schweizer Brand · Weltweit zertifiziert</span>
-          </div>
+          <p className="mt-6 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
+            Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+          </p>
         </div>
       </section>
 
