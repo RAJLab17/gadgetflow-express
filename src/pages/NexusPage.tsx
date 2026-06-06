@@ -752,9 +752,7 @@ const NexusPage = () => {
 
             {/* Founder benefits */}
             <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
-              <li><span style={{ color: D.gold }}>✦</span> Founder Edition mit persönlicher Seriennummer</li>
               <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
-              <li><span style={{ color: D.gold }}>✦</span> CHF 30 günstiger als regulärer Preis</li>
             </ul>
           </div>
 
