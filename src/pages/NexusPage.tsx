@@ -651,6 +651,8 @@ const NexusPage = () => {
   const [popupTrigger, setPopupTrigger] = useState(0);
   const [popupMessage, setPopupMessage] = useState("");
   const [heroSubmitted, setHeroSubmitted] = useState(false);
+  const [buyModalOpen, setBuyModalOpen] = useState(false);
+  const openBuyModal = useCallback(() => setBuyModalOpen(true), []);
 
   return (
     <>
