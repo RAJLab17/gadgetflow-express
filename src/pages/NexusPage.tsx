@@ -1001,24 +1001,6 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* 5. WHY RAJ — LIGHT · Markenphilosophie (statt Vergleich)   */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: "#F2EDE3", color: L.text }} className="py-20 md:py-32 px-5">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
-            — {t("why.title")} RAJ?
-          </span>
-          <h2 className="text-3xl md:text-5xl mt-6 leading-tight tracking-tight" style={{ fontWeight: 300 }}>
-            Wir vergleichen uns nicht.<br />
-            <span style={{ fontStyle: "italic", color: L.textMuted }}>Wir definieren.</span>
-          </h2>
-          <div className="w-12 h-px mx-auto my-8" style={{ background: L.gold }} />
-          <p className="text-base md:text-lg leading-relaxed" style={{ color: L.textMuted, fontWeight: 300 }}>
-            {t("why.text")}
-          </p>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 6. DETAILS / FAQ — LIGHT · Ganze Sektion                    */}
