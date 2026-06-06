@@ -516,7 +516,7 @@ const NexusPage = () => {
 
       <SplashIntro />
 
-      <SocialProofPopup trigger={popupTrigger} message={popupMessage} />
+      
 
 
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
