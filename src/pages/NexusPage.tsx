@@ -654,6 +654,15 @@ const NexusPage = () => {
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const openBuyModal = useCallback(() => setBuyModalOpen(true), []);
 
+  // Auto-open modal when arriving with ?buy=1 (e.g. from raj.ch hero CTA)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("buy") === "1") {
+      setBuyModalOpen(true);
+    }
+  }, []);
+
   return (
     <>
       <Helmet>
