@@ -702,7 +702,7 @@ const NexusPage = () => {
             <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
               <span className="w-6 h-px" style={{ background: D.gold }} />
               <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-                Founder Edition — Ab 16. Juni — Nur 100 Stück
+                Founder Edition — Nur 100 Stück
               </span>
               <span className="w-6 h-px" style={{ background: D.gold }} />
             </div>
@@ -714,8 +714,14 @@ const NexusPage = () => {
             >
               RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
             </h1>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: D.muted, fontWeight: 300 }}>
+            <p className="text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
               3-in-1 Qi 2.2 Wireless Charger
+            </p>
+            <p
+              className="text-[11px] uppercase mt-3 mb-6"
+              style={{ color: D.mutedDim, letterSpacing: "0.22em" }}
+            >
+              Verfügbar ab 16. Juni
             </p>
 
             {/* Price */}
