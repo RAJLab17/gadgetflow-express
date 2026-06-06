@@ -920,20 +920,30 @@ const NexusPage = () => {
             </ul>
           </div>
 
-          {/* Single hero image — full width */}
-          <div className="relative mt-12 sm:mt-16">
+          {/* Single hero image — full width, edge-to-edge */}
+          <div className="relative -mx-5 sm:-mx-10 mt-8 sm:mt-10">
+            {/* Second subtle gold glow behind product */}
+            <div
+              className="absolute inset-0 flex items-center justify-center pointer-events-none"
+              aria-hidden
+            >
+              <div
+                className="w-[80%] h-[80%] blur-[160px]"
+                style={{ background: `radial-gradient(circle at center, ${D.gold}14, transparent 60%)` }}
+              />
+            </div>
             <div
               className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
               style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
               aria-hidden
             />
-            <div
-              className="relative w-full aspect-[5/4] sm:aspect-[16/9] overflow-hidden rounded-sm"
-              style={{
-                boxShadow: "0 60px 140px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(201,168,118,0.15)",
-                background: D.surface,
-              }}
-            >
+            <div className="relative w-full aspect-[3/4] sm:aspect-[16/10] overflow-hidden">
+              {/* Top gradient overlay: fade from dark bg into image */}
+              <div
+                className="absolute inset-x-0 top-0 h-[15%] pointer-events-none z-10"
+                style={{ background: `linear-gradient(to bottom, ${D.bg}, transparent)` }}
+                aria-hidden
+              />
               <img
                 src={nexusStoneHero1200}
                 srcSet={`${nexusStoneHero600} 600w, ${nexusStoneHero1200} 1200w`}
