@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import BuyModal from "@/components/BuyModal";
 import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
 import nexusSuite from "@/assets/lifestyle-nexus-suite.webp";
 
@@ -29,6 +30,7 @@ const BrandHero = () => {
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [buyOpen, setBuyOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % SLIDES.length), []);
@@ -82,6 +84,7 @@ const BrandHero = () => {
   };
 
   return (
+    <>
     <section
       ref={ref}
       className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center sm:items-center"
@@ -172,8 +175,9 @@ const BrandHero = () => {
             NEXUS entdecken
             <span style={{ fontSize: "12px" }}>→</span>
           </Link>
-          <Link
-            to="/nexus?buy=1"
+          <button
+            type="button"
+            onClick={() => setBuyOpen(true)}
             className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full active:scale-[0.98] transition-all"
             style={{
               background: "rgba(201,168,118,0.07)",
@@ -190,7 +194,7 @@ const BrandHero = () => {
             }}
           >
             Kaufen — CHF 99
-          </Link>
+          </button>
         </div>
 
         {/* H1 — "Energie," 1 Zeile, "in Form gegossen" 1 Zeile */}
@@ -295,8 +299,9 @@ const BrandHero = () => {
                 <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
               </Link>
 
-              <Link
-                to="/nexus?buy=1"
+              <button
+                type="button"
+                onClick={() => setBuyOpen(true)}
                 className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.07)",
@@ -313,7 +318,7 @@ const BrandHero = () => {
                 }}
               >
                 Kaufen — CHF 99
-              </Link>
+              </button>
             </div>
 
             <h1
@@ -372,6 +377,8 @@ const BrandHero = () => {
         <div className="w-px h-10 animate-float-slow" style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }} />
       </div>
     </section>
+    <BuyModal open={buyOpen} onClose={() => setBuyOpen(false)} />
+    </>
   );
 };
 
