@@ -890,19 +890,27 @@ const NexusPage = () => {
               </span>
             </div>
 
-            {/* CTA */}
-            <button
-              type="button"
-              onClick={openBuyModal}
-              className="block w-full max-w-sm mx-auto px-8 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all"
-              style={{
-                background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
-                color: D.bg,
-                boxShadow: `0 16px 40px -12px ${D.gold}`,
-              }}
-            >
-              Jetzt kaufen
-            </button>
+            {/* CTA — matches BrandHero "NEXUS entdecken" button style */}
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={openBuyModal}
+                className="group inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
+                  color: "#0a0908",
+                  letterSpacing: "0.2em",
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  boxShadow: `0 20px 50px -12px ${D.gold}aa, 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Jetzt kaufen
+                <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
+              </button>
+            </div>
 
             {/* Reassurance line */}
             <p className="mt-4 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
