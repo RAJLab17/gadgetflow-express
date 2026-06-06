@@ -702,7 +702,7 @@ const NexusPage = () => {
             <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
               <span className="w-6 h-px" style={{ background: D.gold }} />
               <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-                Founder Edition — Nur 100 Stück
+                Founder Edition — Ab 16. Juni — Nur 100 Stück
               </span>
               <span className="w-6 h-px" style={{ background: D.gold }} />
             </div>
