@@ -831,8 +831,8 @@ const NexusPage = () => {
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 3. STORY — Premium Zickzack (gleich wie Shop)              */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-36 px-5">
-        <div className="max-w-7xl mx-auto space-y-24 md:space-y-36">
+      <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-48">
           {[
             {
               img: nexusFeatures,
@@ -847,7 +847,7 @@ const NexusPage = () => {
               img: nexusFolds,
               alt: "Faltbar wie eine Brieftasche",
               eyebrow: "Für die Vielreisenden",
-              title: "Faltet sich wie eine Brieftasche. Lädt wie eine Station.",
+              title: "Faltet sich wie eine Brieftasche.",
               copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig laden.",
             },
             {
@@ -859,20 +859,7 @@ const NexusPage = () => {
               title: "Drei Kabel weg. Ein Objekt da.",
               copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Einfach hinlegen. Fertig.",
             },
-            {
-              img: nexusNight,
-              alt: "Nachts in der Stadt",
-              eyebrow: "Für die späten Abende",
-              title: "Hinlegen. Schlafen. Aufwachen mit 100 %.",
-              copy: "Du fällst ins Bett. Telefon drauf — magnetisch klick. Kein Zielen, kein Augen-Aufmachen. Morgens: voll geladen, bereit für den Tag, der vor dir liegt.",
-            },
-            {
-              img: nexusSofa,
-              alt: "Entspannt auf dem Sofa",
-              eyebrow: "Für die ruhigen Sonntage",
-              title: "Lädt im Hintergrund. Wie es sein soll.",
-              copy: "Film läuft. Tee dampft. Telefon liegt einfach drauf – leise, kühl, unsichtbar. Technik, die sich nicht in den Vordergrund drängt.",
-            },
+
             {
               img: nexusWindow,
               alt: "Material Detail im Licht",
