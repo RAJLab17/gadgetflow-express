@@ -844,7 +844,7 @@ const NexusPage = () => {
 
         {/* Subtle ambient gold haze (Apple keynote feel) */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[700px] pointer-events-none opacity-[0.18]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[160%] h-[700px] pointer-events-none opacity-[0.25]"
           style={{ background: `radial-gradient(ellipse at center, ${D.gold} 0%, transparent 60%)` }}
           aria-hidden
         />
