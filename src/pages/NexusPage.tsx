@@ -562,8 +562,11 @@ const NexusPage = () => {
         className="relative overflow-hidden"
         style={{ background: D.bg, color: D.beige }}
       >
-        {/* Header — Logo transparent on dark */}
-        <header className="relative z-20 flex items-center justify-between px-5 sm:px-10 py-5">
+        {/* Header — sticky with Buy button */}
+        <header
+          className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-10 py-4 backdrop-blur-md"
+          style={{ background: "rgba(10,10,10,0.85)", borderBottom: `1px solid ${D.gold}22` }}
+        >
           <a
             href="https://raj.ch/"
             aria-label="RAJ"
@@ -580,17 +583,17 @@ const NexusPage = () => {
               width={180}
               height={56}
               decoding="async"
-              className="h-11 sm:h-14 w-auto select-none"
+              className="h-9 sm:h-12 w-auto select-none"
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
           </a>
 
-          {/* Center nav */}
+          {/* Center nav — desktop only */}
           <nav className="hidden md:flex items-center gap-10 text-[11px] uppercase" style={{ letterSpacing: "0.28em" }}>
             <a
               href="#produkte"
-              className="transition-colors hover:opacity-100"
+              className="transition-colors"
               style={{ color: D.muted, fontWeight: 500 }}
               onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
               onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
@@ -599,7 +602,7 @@ const NexusPage = () => {
             </a>
             <Link
               to="/about"
-              className="transition-colors hover:opacity-100"
+              className="transition-colors"
               style={{ color: D.muted, fontWeight: 500 }}
               onMouseEnter={(e) => (e.currentTarget.style.color = D.beige)}
               onMouseLeave={(e) => (e.currentTarget.style.color = D.muted)}
@@ -608,14 +611,8 @@ const NexusPage = () => {
             </Link>
           </nav>
 
-          {/* Mobile center nav — Produkte + Über RAJ */}
-          <nav className="flex md:hidden items-center gap-5 text-[10px] uppercase absolute left-1/2 -translate-x-1/2" style={{ letterSpacing: "0.26em" }}>
-            <a href="#produkte" style={{ color: D.muted, fontWeight: 500 }}>Produkte</a>
-            <Link to="/about" style={{ color: D.muted, fontWeight: 500 }}>Über RAJ</Link>
-          </nav>
-
-          {/* Right cluster: lang + cart */}
-          <div className="flex items-center gap-4">
+          {/* Right cluster: lang + Buy + cart */}
+          <div className="flex items-center gap-2 sm:gap-3">
             <nav className="hidden sm:flex items-center gap-1 text-[10px]">
               {(["de", "fr", "it"] as const).map((l) => (
                 <button
@@ -631,9 +628,26 @@ const NexusPage = () => {
                 </button>
               ))}
             </nav>
+
+            <a
+              href="#mockup-signup"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="px-3.5 sm:px-5 py-2 rounded-full font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] active:scale-[0.98] transition-all"
+              style={{
+                background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
+                color: D.bg,
+                boxShadow: `0 8px 22px -8px ${D.gold}`,
+              }}
+            >
+              Jetzt kaufen
+            </a>
+
             <button
               aria-label="Warenkorb"
-              className="relative w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-105"
+              className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all hover:scale-105"
               style={{
                 background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
                 border: `1px solid ${D.gold}33`,
