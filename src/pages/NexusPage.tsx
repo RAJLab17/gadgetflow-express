@@ -793,12 +793,9 @@ const NexusPage = () => {
               ))}
             </nav>
 
-            <a
-              href="#mockup-signup"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
+            <button
+              type="button"
+              onClick={openBuyModal}
               className="px-3.5 sm:px-5 py-2 rounded-full font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] active:scale-[0.98] transition-all"
               style={{
                 background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
@@ -807,7 +804,7 @@ const NexusPage = () => {
               }}
             >
               Jetzt kaufen
-            </a>
+            </button>
 
             <button
               aria-label="Warenkorb"
