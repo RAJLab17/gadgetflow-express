@@ -1138,7 +1138,7 @@ const NexusPage = () => {
           Power. Always There.
         </p>
         <p className="text-[10px] mt-3" style={{ color: D.mutedDim }}>
-          © {new Date().getFullYear()} RAJ GmbH (in Gründung)
+          © {new Date().getFullYear()} RAJ GmbH
         </p>
       </footer>
 

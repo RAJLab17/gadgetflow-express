@@ -557,7 +557,7 @@ const ShopPreview = () => {
 
         <footer className="py-8 px-6 border-t border-border">
           <div className="max-w-7xl mx-auto text-center text-xs text-muted-foreground tracking-wider">
-            © {new Date().getFullYear()} RAJ GmbH (in Gründung) — Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} RAJ GmbH — Alle Rechte vorbehalten.
           </div>
         </footer>
 
