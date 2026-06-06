@@ -936,7 +936,7 @@ const NexusPage = () => {
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* 4. SPECS — LIGHT · Material, Maß, Wahrheit                  */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-36 px-5">
+      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>
