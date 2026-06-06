@@ -121,6 +121,19 @@ serve(async (req) => {
         });
       }
 
+      // Only allow convert if a real preorder exists for this email+product
+      const { data: realOrder } = await supabase
+        .from('preorders')
+        .select('id')
+        .eq('customer_email', email)
+        .eq('product_name', productName)
+        .maybeSingle();
+      if (!realOrder) {
+        return new Response(JSON.stringify({ error: 'No matching order' }), {
+          status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
+      }
+
       const { data: abandoned } = await supabase
         .from('abandoned_carts')
         .select('id, shopify_draft_order_id')
