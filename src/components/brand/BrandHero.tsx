@@ -175,8 +175,9 @@ const BrandHero = () => {
             NEXUS entdecken
             <span style={{ fontSize: "12px" }}>→</span>
           </Link>
-          <Link
-            to="/nexus?buy=1"
+          <button
+            type="button"
+            onClick={() => setBuyOpen(true)}
             className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full active:scale-[0.98] transition-all"
             style={{
               background: "rgba(201,168,118,0.07)",
@@ -193,7 +194,7 @@ const BrandHero = () => {
             }}
           >
             Kaufen — CHF 99
-          </Link>
+          </button>
         </div>
 
         {/* H1 — "Energie," 1 Zeile, "in Form gegossen" 1 Zeile */}
