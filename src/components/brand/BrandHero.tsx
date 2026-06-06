@@ -84,6 +84,7 @@ const BrandHero = () => {
   };
 
   return (
+    <>
     <section
       ref={ref}
       className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center sm:items-center"
