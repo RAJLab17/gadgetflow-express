@@ -694,156 +694,95 @@ const NexusPage = () => {
           aria-hidden
         />
 
-        {/* Hero content */}
-        <div className="relative px-3 sm:px-10 pt-0 sm:pt-4 pb-6 sm:pb-32 max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-6 md:gap-14 items-start">
-            {/* LEFT: editorial copy + premium carousel */}
-            <div className="md:col-span-7 relative min-w-0 w-full">
-              {/* ─── Founder Edition tag ─── */}
-              <div className="mb-3 sm:mb-6 text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-3 mb-3 sm:mb-5">
-                  <span className="w-6 h-px" style={{ background: D.gold }} />
-                  <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-                    Founder Edition — Nur 100 Stück
-                  </span>
-                  <span className="w-6 h-px md:hidden" style={{ background: D.gold }} />
-                </div>
-              </div>
-
-              {/* ─── Title Block BEFORE countdown ─── */}
-              <div className="mb-3 sm:mb-6 text-center md:text-left">
-                <h1
-                  className="text-4xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-2 sm:mb-3"
-                  style={{ color: D.beige, fontWeight: 200 }}
-                >
-                  RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
-                </h1>
-                <p className="text-sm sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
-                  3-in-1 Qi 2.2 Wireless Charger
-                </p>
-              </div>
-
-              {/* Countdown under title */}
-              <div className="mb-4 sm:mb-6">
-                <p className="text-center md:text-left text-[10px] uppercase tracking-[0.32em] font-medium mb-4" style={{ color: D.mutedDim }}>
-                  Launch in
-                </p>
-                <Countdown dark />
-              </div>
-
-              {/* PREMIUM HERO IMAGE — single still */}
-              <HeroStillImage />
-
+        {/* Hero content — clean, single-column, one image */}
+        <div className="relative px-5 sm:px-10 pt-6 sm:pt-10 pb-12 sm:pb-24 max-w-5xl mx-auto">
+          {/* Centered text block */}
+          <div className="text-center max-w-2xl mx-auto">
+            {/* Founder Edition tag */}
+            <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
+              <span className="w-6 h-px" style={{ background: D.gold }} />
+              <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
+                Founder Edition — Nur 100 Stück
+              </span>
+              <span className="w-6 h-px" style={{ background: D.gold }} />
             </div>
 
-            {/* RIGHT: Premium Founder Card (boxed, matching reference) */}
-            <div className="md:col-span-5 md:sticky md:top-12 min-w-0 w-full">
-              <div
-                className="relative w-full max-w-full rounded-2xl p-4 sm:p-8"
-                style={{
-                  background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
-                  border: `1px solid ${D.gold}33`,
-                  boxShadow: "0 40px 100px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,168,118,0.08) inset",
-                }}
-              >
+            {/* Title */}
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3"
+              style={{ color: D.beige, fontWeight: 200 }}
+            >
+              RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
+            </h1>
+            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: D.muted, fontWeight: 300 }}>
+              3-in-1 Qi 2.2 Wireless Charger
+            </p>
 
-                {/* Founder benefits */}
-                <ul className="space-y-3.5 mb-7">
-                  {[
-                    { icon: InfinityIcon, label: "Lebenslanger Early Access zu neuen RAJ Produkten" },
-                    { icon: Gift, label: "Founder Edition mit persönlicher Seriennummer" },
-                    { icon: Tag, label: "CHF 30 günstiger als regulär" },
-                  ].map((b) => (
-                    <li key={b.label} className="flex items-center gap-3">
-                      <div
-                        className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
-                        style={{ background: `${D.gold}14`, border: `1px solid ${D.gold}33` }}
-                      >
-                        <b.icon className="w-3.5 h-3.5" style={{ color: D.gold }} strokeWidth={1.8} />
-                      </div>
-                      <span className="text-[11px] sm:text-[13px] whitespace-nowrap" style={{ color: D.beige, fontWeight: 300 }}>
-                        {b.label}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+            {/* Price */}
+            <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
+              <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
+                CHF 99.–
+              </span>
+              <span className="text-lg sm:text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>
+                CHF 129.–
+              </span>
+            </div>
 
-                {/* Email signup */}
-                <SignupForm
-                  dark
-                  onSuccess={() => {
-                    setHeroSubmitted(true);
-                    setPopupMessage("✦ Du bist auf der Liste.");
-                    setPopupTrigger((p) => p + 1);
-                  }}
-                />
+            {/* CTA */}
+            <a
+              href="#mockup-signup"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="block w-full max-w-sm mx-auto px-8 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all"
+              style={{
+                background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
+                color: D.bg,
+                boxShadow: `0 16px 40px -12px ${D.gold}`,
+              }}
+            >
+              Jetzt kaufen
+            </a>
 
+            {/* Reassurance line */}
+            <p className="mt-4 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
+              Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+            </p>
+          </div>
 
-                {/* Reassurance row */}
-                <div
-                  className="flex items-center justify-center gap-5 mt-5 pt-5"
-                  style={{ borderTop: `1px solid ${D.border}` }}
-                >
-                  <div className="flex items-center gap-1.5">
-                    <Package className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
-                    <span className="text-[10px]" style={{ color: D.muted, letterSpacing: "0.06em" }}>
-                      Gratis CH
-                    </span>
-                  </div>
-                  <span className="w-px h-3" style={{ background: D.border }} />
-                  <div className="flex items-center gap-1.5">
-                    <RotateCcw className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
-                    <span className="text-[10px]" style={{ color: D.muted, letterSpacing: "0.06em" }}>
-                      30 Tage
-                    </span>
-                  </div>
-                  <span className="w-px h-3" style={{ background: D.border }} />
-                  <div className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3 h-3" style={{ color: D.gold }} strokeWidth={1.8} />
-                    <span className="text-[10px]" style={{ color: D.muted, letterSpacing: "0.06em" }}>
-                      3 J. Garantie
-                    </span>
-                  </div>
-                </div>
-
-                {/* Sichere Zahlungsmethoden */}
-                <div className="mt-6 pt-5" style={{ borderTop: `1px solid ${D.border}` }}>
-                  <p
-                    className="text-center text-[9px] uppercase mb-3"
-                    style={{ color: D.mutedDim, letterSpacing: "0.32em" }}
-                  >
-                    Sichere Zahlungsmethoden
-                  </p>
-                  <div className="flex items-center justify-center gap-1.5 flex-nowrap">
-                    {[
-                      { label: "Visa Kreditkarte", src: payVisa },
-                      { label: "Mastercard Kreditkarte", src: payMastercard },
-                      { label: "American Express Karte", src: payAmex },
-                      { label: "Apple Pay Zahlung", src: payApplePay },
-                      { label: "Google Pay Zahlung", src: payGooglePay },
-                      { label: "Klarna Ratenzahlung", src: payKlarna },
-                      { label: "TWINT Zahlung", src: payTwint },
-                    ].map((p) => (
-                      <div
-                        key={p.label}
-                        className="h-7 px-2 rounded-md flex items-center justify-center shrink-0"
-                        style={{
-                          background: "#FFFFFF",
-                          border: `1px solid rgba(0,0,0,0.08)`,
-                          boxShadow: "0 1px 2px rgba(0,0,0,0.25)",
-                          minWidth: 42,
-                        }}
-                        aria-label={p.label}
-                      >
-                        <img src={p.src} alt={p.label} width={32} height={20} loading="lazy" decoding="async" className="h-5 w-auto object-contain" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          {/* Single hero image — full width */}
+          <div className="relative mt-12 sm:mt-16">
+            <div
+              className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
+              style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
+              aria-hidden
+            />
+            <div
+              className="relative w-full aspect-[5/4] sm:aspect-[16/9] overflow-hidden rounded-sm"
+              style={{
+                boxShadow: "0 60px 140px -40px rgba(0,0,0,0.85), 0 0 0 1px rgba(201,168,118,0.15)",
+                background: D.surface,
+              }}
+            >
+              <img
+                src={nexusStoneHero1200}
+                srcSet={`${nexusStoneHero600} 600w, ${nexusStoneHero1200} 1200w`}
+                sizes="(max-width: 768px) 100vw, 1024px"
+                alt="RAJ NEXUS auf Stein – 3-in-1 Qi2.2 Wireless Charger."
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                width={1200}
+                height={960}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: "center center" }}
+              />
             </div>
           </div>
         </div>
+
+
 
 
 
