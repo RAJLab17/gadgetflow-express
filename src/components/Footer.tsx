@@ -182,7 +182,7 @@ const Footer = () => {
         <div ref={trustRef} className="reveal border-t border-border mt-12 pt-8" style={{ transitionDelay: "400ms" }}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} RAJ GmbH (in Gründung) — Alle Rechte vorbehalten.
+              © {currentYear} RAJ GmbH — Alle Rechte vorbehalten.
             </p>
             <div className="flex items-center gap-6 text-xs text-muted-foreground">
               <span className="flex items-center gap-1">
