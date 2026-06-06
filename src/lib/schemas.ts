@@ -18,7 +18,7 @@ export const PRODUCT_NEXUS_JSON_LD = {
   brand: { "@type": "Brand", name: "RAJ" },
   manufacturer: {
     "@type": "Organization",
-    name: "RAJ GmbH (in Gründung)",
+    name: "RAJ GmbH",
     url: "https://raj.ch",
     address: {
       "@type": "PostalAddress",
@@ -57,7 +57,7 @@ export const PRODUCT_NEXUS_JSON_LD = {
     priceValidUntil: "2026-12-31",
     availability: "https://schema.org/PreOrder",
     itemCondition: "https://schema.org/NewCondition",
-    seller: { "@type": "Organization", name: "RAJ GmbH (in Gründung)" },
+    seller: { "@type": "Organization", name: "RAJ GmbH" },
     hasMerchantReturnPolicy: {
       "@type": "MerchantReturnPolicy",
       applicableCountry: "CH",
