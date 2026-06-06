@@ -299,8 +299,9 @@ const BrandHero = () => {
                 <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
               </Link>
 
-              <Link
-                to="/nexus?buy=1"
+              <button
+                type="button"
+                onClick={() => setBuyOpen(true)}
                 className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.07)",
@@ -317,7 +318,7 @@ const BrandHero = () => {
                 }}
               >
                 Kaufen — CHF 99
-              </Link>
+              </button>
             </div>
 
             <h1
