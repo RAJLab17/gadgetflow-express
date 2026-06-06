@@ -1242,12 +1242,9 @@ const NexusPage = () => {
             CHF 99.– statt CHF 129.–
           </p>
 
-          <a
-            href="#mockup-signup"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
-            }}
+          <button
+            type="button"
+            onClick={openBuyModal}
             className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all"
             style={{
               background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
@@ -1256,7 +1253,7 @@ const NexusPage = () => {
             }}
           >
             Jetzt kaufen
-          </a>
+          </button>
 
           <p className="mt-6 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
             Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
