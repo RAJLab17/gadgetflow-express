@@ -996,11 +996,8 @@ const NexusPage = () => {
 
           {/* Conviction line */}
           <div className="text-center mt-20 md:mt-28 max-w-2xl mx-auto">
-            <p className="text-xl md:text-2xl leading-relaxed tracking-tight" style={{ fontWeight: 300, color: L.text }}>
-              {t("launch.conviction2.bold")}
-            </p>
-            <p className="text-sm md:text-base italic mt-4" style={{ color: L.textMuted }}>
-              {t("launch.conviction2.sub")}
+            <p className="text-xl md:text-2xl tracking-tight" style={{ fontWeight: 300, color: L.text }}>
+              Präzise. Zuverlässig. Durchdacht.
             </p>
           </div>
         </div>
