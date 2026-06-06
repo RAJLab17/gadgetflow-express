@@ -1276,6 +1276,8 @@ const NexusPage = () => {
 
       {/* Mobile spacer — damit Sticky Bar Footer nicht überdeckt */}
       <div className="h-16" aria-hidden style={{ background: D.bg }} />
+
+      <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
     </>
   );
 };
