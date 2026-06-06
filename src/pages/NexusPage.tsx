@@ -701,12 +701,9 @@ const NexusPage = () => {
                 CHF 99.–
               </p>
             </div>
-            <a
-              href="#mockup-signup"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("mockup-signup")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
+            <button
+              type="button"
+              onClick={openBuyModal}
               className="shrink-0 px-4 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-wider active:scale-[0.98] transition-all inline-flex items-center gap-1.5"
               style={{
                 background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
