@@ -29,12 +29,25 @@ const BrandHero = () => {
   const fadeRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
+  const [loaded, setLoaded] = useState<Set<number>>(() => new Set([0]));
   const [paused, setPaused] = useState(false);
   const [buyOpen, setBuyOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % SLIDES.length), []);
   const goTo = useCallback((i: number) => setIndex(i), []);
+
+  // Lazy-load: only fetch a slide when it becomes current or is next up.
+  useEffect(() => {
+    setLoaded((prev) => {
+      const nextIdx = (index + 1) % SLIDES.length;
+      if (prev.has(index) && prev.has(nextIdx)) return prev;
+      const s = new Set(prev);
+      s.add(index);
+      s.add(nextIdx);
+      return s;
+    });
+  }, [index]);
 
   useEffect(() => {
     if (paused) return;
@@ -102,7 +115,7 @@ const BrandHero = () => {
             aria-hidden={i !== index}
             className="absolute inset-0 bg-cover transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] hidden lg:block"
             style={{
-              backgroundImage: `url(${slide.src})`,
+              backgroundImage: loaded.has(i) ? `url(${slide.src})` : undefined,
               backgroundPosition: slide.position,
               opacity: i === index ? 1 : 0,
             }}
@@ -123,7 +136,7 @@ const BrandHero = () => {
               key={i === index ? `kb-${index}` : `kb-idle-${i}`}
               className="absolute inset-0 bg-cover bg-no-repeat will-change-transform"
               style={{
-                backgroundImage: `url(${slide.mobileSrc})`,
+                backgroundImage: loaded.has(i) ? `url(${slide.mobileSrc})` : undefined,
                 backgroundPosition: slide.mobilePosition,
                 animation: i === index ? "raj-ken-burns 9s ease-out both" : undefined,
                 transform: i === index ? undefined : "scale(1.04)",
