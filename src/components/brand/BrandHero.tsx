@@ -29,12 +29,25 @@ const BrandHero = () => {
   const fadeRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   const [index, setIndex] = useState(0);
+  const [loaded, setLoaded] = useState<Set<number>>(() => new Set([0]));
   const [paused, setPaused] = useState(false);
   const [buyOpen, setBuyOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % SLIDES.length), []);
   const goTo = useCallback((i: number) => setIndex(i), []);
+
+  // Lazy-load: only fetch a slide when it becomes current or is next up.
+  useEffect(() => {
+    setLoaded((prev) => {
+      const nextIdx = (index + 1) % SLIDES.length;
+      if (prev.has(index) && prev.has(nextIdx)) return prev;
+      const s = new Set(prev);
+      s.add(index);
+      s.add(nextIdx);
+      return s;
+    });
+  }, [index]);
 
   useEffect(() => {
     if (paused) return;
