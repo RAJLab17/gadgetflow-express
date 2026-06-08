@@ -25,7 +25,7 @@ const ImpressumPage = () => {
           <p>Gaswerkstrasse 9a</p>
           <p>8570 Weinfelden</p>
           <p>Schweiz</p>
-          <p className="pt-2">Stand: 02.05.2026</p>
+          <p className="pt-2">Stand: 08.06.2026</p>
         </div>
       }
     >
@@ -35,7 +35,8 @@ const ImpressumPage = () => {
         </Section>
 
         <Section title="Unternehmensangaben">
-          <p>Firmensitz: Schweiz</p>
+          <p>Firmensitz: Weinfelden, Schweiz</p>
+          <p>UID: CHE-336.124.813</p>
         </Section>
 
         <Section title="Vertretungsberechtigte Person(en)">
@@ -56,7 +57,7 @@ const ImpressumPage = () => {
 
         <Section title="Haftung für Links">
           <p>
-            Verweise und Links auf Websites Dritter liegen außerhalb unseres Verantwortungsbereichs. Es wird jegliche
+            Verweise und Links auf Websites Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche
             Verantwortung für solche Websites abgelehnt. Der Zugriff und die Nutzung solcher Websites erfolgen auf
             eigene Gefahr des Nutzers.
           </p>
