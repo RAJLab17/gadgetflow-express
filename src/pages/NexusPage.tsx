@@ -921,6 +921,12 @@ const NexusPage = () => {
               </button>
             </div>
 
+            <p
+              className="mt-4 text-[11px] sm:text-xs text-center"
+              style={{ color: D.muted, letterSpacing: "0.04em" }}
+            >
+              Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+            </p>
 
             {/* Founder benefits */}
             <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
