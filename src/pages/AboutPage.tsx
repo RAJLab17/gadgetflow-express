@@ -59,7 +59,7 @@ const AboutPage = () => {
     <PremiumPageLayout
       title="Über RAJ – Swiss Brand aus dem Thurgau"
       metaDescription="RAJ ist eine Schweizer Consumer-Electronics-Marke aus dem Thurgau. Premium-Zubehör für das Apple-Ökosystem – mit Anspruch an Präzision, Qualität und Design."
-      canonical="https://raj.ch/about"
+      canonical="https://raj.ch/ueber-raj"
       eyebrow="Über RAJ"
       heading={<>Swiss<br /><span className="text-primary italic">Brand.</span></>}
       intro="Schweizer Consumer-Electronics aus dem Thurgau – mit Anspruch an Präzision, Qualität und Design."
