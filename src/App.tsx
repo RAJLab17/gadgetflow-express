@@ -66,7 +66,7 @@ const App = () => (
                 <Route path="/prelaunch" element={<LaunchPage />} />
                 <Route path="/vergleich" element={<VergleichPage />} />
                 <Route path="/qi2-erklaert" element={<Qi2ErklaertPage />} />
-                <Route path="/ueber-raj" element={<UeberRajPage />} />
+                <Route path="/ueber-raj" element={<Navigate to="/about" replace />} />
                 <Route path="/dokumente" element={<DokumentePage />} />
                 <Route path="/manuals" element={<DokumentePage />} />
                 <Route path="/blog" element={<BlogPage />} />

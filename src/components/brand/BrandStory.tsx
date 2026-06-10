@@ -106,7 +106,7 @@ const BrandStory = () => {
 
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-px max-w-3xl mx-auto border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02]">
             <Link
-              to="/ueber-raj"
+              to="/about"
               className="group relative p-8 sm:p-10 text-left transition-colors duration-500 hover:bg-white/[0.03]"
             >
               <p className="text-[10px] font-light uppercase mb-4" style={{ color: GOLD, letterSpacing: "0.4em" }}>
