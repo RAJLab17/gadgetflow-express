@@ -257,7 +257,6 @@ export const STATIC_URLS: SitemapEntry[] = [
 
   // Info
   { path: "/about", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
-  { path: "/ueber-raj", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
   { path: "/faq", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
   { path: "/versand", lastmod: TODAY, changefreq: "monthly", priority: 0.6 },
 
