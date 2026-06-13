@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { CartDrawer } from "@/components/CartDrawer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 import logo from "@/assets/logo-new.webp";
 
-const CHECKOUT_URL = "https://checkout.raj.ch/cart/57169031823685:1";
-const openCheckout = () => window.open(CHECKOUT_URL, "_blank", "noopener,noreferrer");
-
 const Header = () => {
+  const { quickBuy } = useQuickBuy();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
