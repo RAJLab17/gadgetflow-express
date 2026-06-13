@@ -244,7 +244,10 @@ const Header = () => {
 
               <div className="pt-6 pb-2" style={{ animation: "raj-slide-from-left 400ms 300ms both" }}>
                 <button
-                  onClick={() => handleNavClick("#products")}
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
+                  }}
                   className="w-full py-4 rounded-full text-[11px] uppercase font-medium tracking-[0.28em] transition-all"
                   style={{
                     background: "#9b6b3f",
