@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { ShoppingBag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PaymentIcons from "@/components/PaymentIcons";
 import WaitlistForm from "@/components/WaitlistForm";
-import { createShopifyCart } from "@/lib/shopify";
-import type { CartItem } from "@/lib/shopify";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 
 interface ShopifyBuyButtonProps {
   variantId?: string;
