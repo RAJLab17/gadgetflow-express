@@ -48,7 +48,7 @@ const sections = [
       "Der Kunde hat das Recht, innerhalb von 30 Tagen nach Erhalt der Ware vom Kaufvertrag zurückzutreten.",
       "Voraussetzung für die Rückgabe ist, dass sich die Ware in unbenutztem, unbeschädigtem Zustand und – sofern möglich – in der Originalverpackung befindet.",
       "Vom Rücktrittsrecht ausgeschlossen sind individuell angefertigte oder personalisierte Produkte, sofern diese entsprechend gekennzeichnet sind.",
-      "Die Rückerstattung erfolgt nach Prüfung der zurückgesendeten Ware über das ursprünglich verwendete Zahlungsmittel.",
+      "Die Rückerstattung erfolgt innerhalb von 5 Werktagen nach Prüfung der zurückgesendeten Ware über das ursprünglich verwendete Zahlungsmittel.",
       "Die Rücksendkosten trägt der Kunde, sofern nicht anders vereinbart.",
     ],
   },
@@ -116,7 +116,7 @@ const AGBPage = () => {
           <p className="text-foreground font-medium">RAJ GmbH</p>
           <p>Gaswerkstrasse 9a</p>
           <p>info@raj.ch</p>
-          <p className="pt-2">Stand: 02.05.2026</p>
+          <p className="pt-2">Stand: 13.06.2026</p>
         </div>
       }
     >
