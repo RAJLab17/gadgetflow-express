@@ -190,7 +190,7 @@ const BrandHero = () => {
           </Link>
           <button
             type="button"
-            onClick={() => setBuyOpen(true)}
+            onClick={() => window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer")}
             className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full active:scale-[0.98] transition-all"
             style={{
               background: "rgba(201,168,118,0.07)",
@@ -314,7 +314,7 @@ const BrandHero = () => {
 
               <button
                 type="button"
-                onClick={() => setBuyOpen(true)}
+                onClick={() => window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer")}
                 className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.07)",
