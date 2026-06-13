@@ -23,19 +23,8 @@ export const StickyBuyBar = ({
 }: StickyBuyBarProps) => {
   const [visible, setVisible] = useState(false);
 
-  const scrollToSignup = () => {
-    const target =
-      document.getElementById("signup-form") ||
-      document.getElementById("founder-email");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      setTimeout(() => {
-        document.getElementById("founder-email")?.focus({ preventScroll: true });
-      }, 600);
-      return;
-    }
-    // Fallback: open the global Voranmelden modal (used on /shop)
-    window.dispatchEvent(new Event("open-voranmelden"));
+  const openCheckout = () => {
+    window.open("https://checkout.raj.ch", "_blank", "noopener,noreferrer");
   };
 
   useEffect(() => {
