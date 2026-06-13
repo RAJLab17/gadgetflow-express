@@ -248,7 +248,7 @@ const Header = () => {
                 <button
                   onClick={() => {
                     setIsMenuOpen(false);
-                    window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
+                    quickBuy();
                   }}
                   className="w-full py-4 rounded-full text-[11px] uppercase font-medium tracking-[0.28em] transition-all"
                   style={{
