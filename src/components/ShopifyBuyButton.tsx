@@ -22,30 +22,10 @@ const ShopifyBuyButton = ({
   discountLabel,
   soldOut = false,
 }: ShopifyBuyButtonProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading] = useState(false);
 
-  const handleBuyNow = async () => {
-    if (!variantId) return;
-    setIsLoading(true);
-    try {
-      const dummyItem: CartItem = {
-        lineId: null,
-        product: { node: { id: '', title: '', description: '', handle: '', priceRange: { minVariantPrice: { amount: '0', currencyCode: 'CHF' } }, images: { edges: [] }, variants: { edges: [] }, options: [] } },
-        variantId,
-        variantTitle: '',
-        price: { amount: '0', currencyCode: 'CHF' },
-        quantity: 1,
-        selectedOptions: [],
-      };
-      const result = await createShopifyCart(dummyItem);
-      if (result?.checkoutUrl) {
-        window.open(result.checkoutUrl, '_blank');
-      }
-    } catch (error) {
-      console.error('Checkout failed:', error);
-    } finally {
-      setIsLoading(false);
-    }
+  const handleBuyNow = () => {
+    window.open("https://checkout.raj.ch", '_blank', 'noopener,noreferrer');
   };
 
   // Show waitlist form when sold out

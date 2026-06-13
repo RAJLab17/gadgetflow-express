@@ -14,11 +14,8 @@ export const CartDrawer = () => {
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
 
   const handleCheckout = () => {
-    const checkoutUrl = getCheckoutUrl();
-    if (checkoutUrl) {
-      window.open(checkoutUrl, '_blank');
-      setIsOpen(false);
-    }
+    window.open("https://checkout.raj.ch", '_blank', 'noopener,noreferrer');
+    setIsOpen(false);
   };
 
   return (
@@ -88,7 +85,7 @@ export const CartDrawer = () => {
                   <span className="text-xl font-bold">{items[0]?.price.currencyCode || 'CHF'} {totalPrice.toFixed(2)}</span>
                 </div>
                 <Button onClick={handleCheckout} className="w-full" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
-                  {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Zur Kasse (Shopify)</>}
+                  {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Zur Kasse</>}
                 </Button>
               </div>
             </>
