@@ -20,11 +20,9 @@ const ShopifyBuyButton = ({
   discountLabel,
   soldOut = false,
 }: ShopifyBuyButtonProps) => {
-  const [isLoading] = useState(false);
-
-  const handleBuyNow = () => {
-    window.open("https://checkout.raj.ch/cart/57169031823685:1", '_blank', 'noopener,noreferrer');
-  };
+  const { quickBuy, isProcessing } = useQuickBuy();
+  const isLoading = isProcessing;
+  const handleBuyNow = () => { quickBuy(); };
 
   // Show waitlist form when sold out
   if (soldOut) {
