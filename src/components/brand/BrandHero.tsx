@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BuyModal from "@/components/BuyModal";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
 import nexusSuite from "@/assets/lifestyle-nexus-suite.webp";
 
