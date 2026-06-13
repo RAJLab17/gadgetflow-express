@@ -8,7 +8,7 @@ import { MagneticButton } from "@/components/MagneticButton";
 import chargerHero from "@/assets/products/charger-3in1-inuse.webp";
 
 const Hero = () => {
-  const { isProcessing } = useQuickBuy();
+  const { quickBuy, isProcessing } = useQuickBuy();
   const sectionRef = useRef<HTMLElement>(null);
 
   const scrollToSignup = () => {
