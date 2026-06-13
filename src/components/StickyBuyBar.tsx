@@ -54,7 +54,7 @@ export const StickyBuyBar = ({
               variant="hero"
               size="lg"
               className="flex-1 shadow-elegant"
-              onClick={openCheckout}
+              onClick={quickBuy}
             >
               <Zap className="w-4 h-4 mr-2" />
               {label}
