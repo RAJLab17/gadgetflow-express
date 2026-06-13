@@ -181,12 +181,14 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <CartDrawer />
+            <Button variant="outline" size="icon" aria-label="Zur Kasse" onClick={openCheckout}>
+              <ShoppingCart className="h-5 w-5" />
+            </Button>
             <Button
               variant="hero"
               size="default"
               className="shadow-elegant"
-              onClick={() => handleNavClick("#products")}
+              onClick={openCheckout}
             >
               {t("header.buy")}
             </Button>
@@ -194,7 +196,9 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
-            <CartDrawer />
+            <Button variant="outline" size="icon" aria-label="Zur Kasse" onClick={openCheckout}>
+              <ShoppingCart className="h-5 w-5" />
+            </Button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 text-foreground hover:text-primary transition-colors"
