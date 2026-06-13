@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { ShoppingBag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PaymentIcons from "@/components/PaymentIcons";
 import WaitlistForm from "@/components/WaitlistForm";
-import { createShopifyCart } from "@/lib/shopify";
-import type { CartItem } from "@/lib/shopify";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 
 interface ShopifyBuyButtonProps {
   variantId?: string;
@@ -22,11 +20,9 @@ const ShopifyBuyButton = ({
   discountLabel,
   soldOut = false,
 }: ShopifyBuyButtonProps) => {
-  const [isLoading] = useState(false);
-
-  const handleBuyNow = () => {
-    window.open("https://checkout.raj.ch/cart/57169031823685:1", '_blank', 'noopener,noreferrer');
-  };
+  const { quickBuy, isProcessing } = useQuickBuy();
+  const isLoading = isProcessing;
+  const handleBuyNow = () => { quickBuy(); };
 
   // Show waitlist form when sold out
   if (soldOut) {

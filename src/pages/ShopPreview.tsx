@@ -85,7 +85,10 @@ const ShopPreview = () => {
   const priceLabel = FOUNDER_PRICE;
 
   const handleBuyNow = async () => {
-    if (!variantId || !product) return;
+    if (!variantId || !product) {
+      window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
+      return;
+    }
     setAdding(true);
     try {
       const variant = product.node.variants.edges[0]?.node;
@@ -96,8 +99,7 @@ const ShopPreview = () => {
         quantity: 1,
         selectedOptions: variant?.selectedOptions || [],
       });
-      const url = useCartStore.getState().getCheckoutUrl();
-      if (url) window.open(url, "_blank");
+      window.dispatchEvent(new Event("raj:open-cart"));
     } finally { setAdding(false); }
   };
 
@@ -112,7 +114,7 @@ const ShopPreview = () => {
     }
   };
 
-  const openCheckout = () => window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
+  const openCheckout = handleBuyNow;
 
   const BuyButton = ({ size = "xl", className = "" }: { size?: "lg" | "xl"; className?: string }) => (
     <Button

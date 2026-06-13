@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 
 interface StickyBuyBarProps {
   /** When the user scrolls past this element (in px from top), the bar appears. Default 600 */
@@ -22,10 +23,7 @@ export const StickyBuyBar = ({
   label = "Jetzt kaufen",
 }: StickyBuyBarProps) => {
   const [visible, setVisible] = useState(false);
-
-  const openCheckout = () => {
-    window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
-  };
+  const { quickBuy } = useQuickBuy();
 
   useEffect(() => {
     const onScroll = () => {
@@ -56,7 +54,7 @@ export const StickyBuyBar = ({
               variant="hero"
               size="lg"
               className="flex-1 shadow-elegant"
-              onClick={openCheckout}
+              onClick={quickBuy}
             >
               <Zap className="w-4 h-4 mr-2" />
               {label}

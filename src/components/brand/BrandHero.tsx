@@ -2,6 +2,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BuyModal from "@/components/BuyModal";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
 import nexusSuite from "@/assets/lifestyle-nexus-suite.webp";
 
@@ -24,6 +25,7 @@ const SLIDES = [
 const SLIDE_DURATION = 6000;
 
 const BrandHero = () => {
+  const { quickBuy } = useQuickBuy();
   const ref = useRef<HTMLDivElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
@@ -190,7 +192,7 @@ const BrandHero = () => {
           </Link>
           <button
             type="button"
-            onClick={() => window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer")}
+            onClick={quickBuy}
             className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full active:scale-[0.98] transition-all"
             style={{
               background: "rgba(201,168,118,0.07)",
@@ -314,7 +316,7 @@ const BrandHero = () => {
 
               <button
                 type="button"
-                onClick={() => window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer")}
+                onClick={quickBuy}
                 className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.07)",
