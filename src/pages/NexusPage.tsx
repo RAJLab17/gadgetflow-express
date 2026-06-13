@@ -714,7 +714,7 @@ const NexusPage = () => {
             </div>
             <button
               type="button"
-              onClick={openBuyModal}
+              onClick={quickBuy} disabled={buyProcessing}
               className="shrink-0 px-4 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-wider active:scale-[0.98] transition-all inline-flex items-center gap-1.5"
               style={{
                 background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
@@ -806,7 +806,7 @@ const NexusPage = () => {
 
             <button
               type="button"
-              onClick={openBuyModal}
+              onClick={quickBuy} disabled={buyProcessing}
               className="px-3.5 sm:px-5 py-2 rounded-full font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] active:scale-[0.98] transition-all"
               style={{
                 background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
@@ -905,7 +905,7 @@ const NexusPage = () => {
             <div className="flex justify-center">
               <button
                 type="button"
-                onClick={openBuyModal}
+                onClick={quickBuy} disabled={buyProcessing}
                 className="group inline-flex items-center justify-center gap-2 py-3.5 px-14 sm:py-4 sm:px-20 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
@@ -1270,7 +1270,7 @@ const NexusPage = () => {
 
           <button
             type="button"
-            onClick={openBuyModal}
+            onClick={quickBuy} disabled={buyProcessing}
             className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all"
             style={{
               background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
