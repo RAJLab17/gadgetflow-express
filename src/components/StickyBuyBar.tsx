@@ -23,10 +23,7 @@ export const StickyBuyBar = ({
   label = "Jetzt kaufen",
 }: StickyBuyBarProps) => {
   const [visible, setVisible] = useState(false);
-
-  const openCheckout = () => {
-    window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
-  };
+  const { quickBuy } = useQuickBuy();
 
   useEffect(() => {
     const onScroll = () => {
