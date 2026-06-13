@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-const CHECKOUT_URL = "https://checkout.raj.ch";
+const CHECKOUT_URL = "https://checkout.raj.ch/cart/57169031823685:1";
 
 /**
  * One-click buy: opens the RAJ Checkout directly.

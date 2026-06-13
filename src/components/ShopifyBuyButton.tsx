@@ -25,7 +25,7 @@ const ShopifyBuyButton = ({
   const [isLoading] = useState(false);
 
   const handleBuyNow = () => {
-    window.open("https://checkout.raj.ch", '_blank', 'noopener,noreferrer');
+    window.open("https://checkout.raj.ch/cart/57169031823685:1", '_blank', 'noopener,noreferrer');
   };
 
   // Show waitlist form when sold out

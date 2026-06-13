@@ -112,7 +112,7 @@ const ShopPreview = () => {
     }
   };
 
-  const openCheckout = () => window.open("https://checkout.raj.ch", "_blank", "noopener,noreferrer");
+  const openCheckout = () => window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
 
   const BuyButton = ({ size = "xl", className = "" }: { size?: "lg" | "xl"; className?: string }) => (
     <Button

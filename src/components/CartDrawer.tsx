@@ -14,7 +14,7 @@ export const CartDrawer = () => {
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
 
   const handleCheckout = () => {
-    window.open("https://checkout.raj.ch", '_blank', 'noopener,noreferrer');
+    window.open("https://checkout.raj.ch/cart/57169031823685:1", '_blank', 'noopener,noreferrer');
     setIsOpen(false);
   };
 
