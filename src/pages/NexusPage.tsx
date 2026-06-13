@@ -654,6 +654,7 @@ const NexusPage = () => {
   const [heroSubmitted, setHeroSubmitted] = useState(false);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const openBuyModal = useCallback(() => setBuyModalOpen(true), []);
+  const { quickBuy, isProcessing: buyProcessing } = useQuickBuy();
 
   // Auto-open modal when arriving with ?buy=1 (e.g. from raj.ch hero CTA)
   useEffect(() => {
