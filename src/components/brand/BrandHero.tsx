@@ -25,6 +25,7 @@ const SLIDES = [
 const SLIDE_DURATION = 6000;
 
 const BrandHero = () => {
+  const { quickBuy } = useQuickBuy();
   const ref = useRef<HTMLDivElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
