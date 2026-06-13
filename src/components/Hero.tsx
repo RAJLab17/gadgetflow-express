@@ -119,7 +119,7 @@ const Hero = () => {
               className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 mb-6"
             >
               <MagneticButton
-                onClick={scrollToSignup}
+                onClick={quickBuy}
                 disabled={isProcessing}
                 aria-label="Jetzt kaufen für CHF 99"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-base shadow-elegant-lg hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
