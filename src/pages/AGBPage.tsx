@@ -34,10 +34,8 @@ const sections = [
   },
   {
     title: "5. Lieferung und Versand",
-    content: [
-      "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdrücklich anders angegeben.",
-      "Die Lieferzeit richtet sich nach den Angaben auf der jeweiligen Produktseite. Teillieferungen sind zulässig, sofern sie für den Kunden zumutbar sind.",
-      "Der Versand ist ab einem Bestellwert von CHF 50.00 kostenlos. Bei Bestellungen unter CHF 50.00 wird eine Versandpauschale von CHF 4.90 berechnet.",
+      content: [
+      "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdrücklich anders angegeben. Der Versand innerhalb der Schweiz ist kostenlos, ohne Mindestbestellwert. Die Lieferzeit beträgt 3–5 Werktage.",
     ],
   },
   {
