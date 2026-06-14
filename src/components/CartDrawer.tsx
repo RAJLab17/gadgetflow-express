@@ -28,7 +28,11 @@ export const CartDrawer = () => {
     }
 
     setIsOpen(false);
-    window.open(url, "_blank", "noopener,noreferrer");
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    // Fallback for mobile/popup blockers: navigate in same tab
+    if (!win || win.closed || typeof win.closed === "undefined") {
+      window.location.href = url;
+    }
   };
 
   return (
