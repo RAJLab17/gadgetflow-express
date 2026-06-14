@@ -12,7 +12,6 @@ import { useQuickBuy } from "@/hooks/useQuickBuy";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import { CartDrawer } from "@/components/CartDrawer";
 import Header from "@/components/Header";
-import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import {
   Breadcrumb,
