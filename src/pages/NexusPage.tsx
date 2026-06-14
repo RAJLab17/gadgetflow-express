@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, FormEvent, lazy, Suspense } from "react";
+import { useEffect, useState, useCallback, FormEvent, lazy, Suspense, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -655,6 +655,21 @@ const NexusPage = () => {
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const openBuyModal = useCallback(() => setBuyModalOpen(true), []);
   const { quickBuy, isProcessing: buyProcessing } = useQuickBuy();
+  const pinnedBuyLock = useRef(false);
+
+  const handlePinnedBuy = useCallback((event?: { preventDefault?: () => void; stopPropagation?: () => void }) => {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+
+    if (buyProcessing || pinnedBuyLock.current) return;
+    pinnedBuyLock.current = true;
+
+    void quickBuy().finally(() => {
+      window.setTimeout(() => {
+        pinnedBuyLock.current = false;
+      }, 250);
+    });
+  }, [buyProcessing, quickBuy]);
 
   // Auto-open modal when arriving with ?buy=1 (e.g. from raj.ch hero CTA)
   useEffect(() => {
@@ -700,8 +715,8 @@ const NexusPage = () => {
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
       {!heroSubmitted && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-30 backdrop-blur-md"
-          style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40` }}
+          className="fixed bottom-0 left-0 right-0 z-[70] backdrop-blur-md"
+          style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40`, pointerEvents: "auto", transform: "translateZ(0)" }}
         >
           <div className="px-3 py-2.5 flex items-center gap-2">
             <div className="flex-1 min-w-0">
@@ -714,12 +729,16 @@ const NexusPage = () => {
             </div>
             <button
               type="button"
-              onClick={quickBuy} disabled={buyProcessing}
+              onClick={handlePinnedBuy}
+              onTouchEnd={handlePinnedBuy}
+              disabled={buyProcessing}
               className="shrink-0 px-4 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-wider active:scale-[0.98] transition-all inline-flex items-center gap-1.5"
               style={{
                 background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
                 color: D.bg,
                 boxShadow: `0 8px 24px -8px ${D.gold}`,
+                touchAction: "manipulation",
+                WebkitTapHighlightColor: "transparent",
               }}
             >
               Kaufen <ArrowRight className="w-3.5 h-3.5" />
@@ -739,8 +758,8 @@ const NexusPage = () => {
       >
         {/* Header — sticky with Buy button */}
         <header
-          className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-10 py-4 backdrop-blur-md"
-          style={{ background: "rgba(10,10,10,0.85)", borderBottom: `1px solid ${D.gold}22` }}
+          className="sticky top-0 z-[60] flex items-center justify-between px-4 sm:px-10 py-4 backdrop-blur-md"
+          style={{ background: "rgba(10,10,10,0.85)", borderBottom: `1px solid ${D.gold}22`, pointerEvents: "auto", transform: "translateZ(0)" }}
         >
           <a
             href="https://raj.ch/"
@@ -806,12 +825,16 @@ const NexusPage = () => {
 
             <button
               type="button"
-              onClick={quickBuy} disabled={buyProcessing}
+              onClick={handlePinnedBuy}
+              onTouchEnd={handlePinnedBuy}
+              disabled={buyProcessing}
               className="px-3.5 sm:px-5 py-2 rounded-full font-bold text-[10px] sm:text-[11px] uppercase tracking-[0.18em] sm:tracking-[0.22em] active:scale-[0.98] transition-all"
               style={{
                 background: `linear-gradient(135deg, ${D.gold}, #c8946b)`,
                 color: D.bg,
                 boxShadow: `0 8px 22px -8px ${D.gold}`,
+                touchAction: "manipulation",
+                WebkitTapHighlightColor: "transparent",
               }}
             >
               Jetzt kaufen
