@@ -751,9 +751,136 @@ const NexusPage = () => {
 
 
       {/* ═══════════════════════════════════════════════════════════ */}
-      {/* 1. TOP — 1:1 wie raj.ch (Header + BrandHero)                */}
+      {/* 1. HERO — DARK · Editorial + Conversion Card                */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <Header />
+      <section
+        id="mockup-signup"
+        className="relative overflow-hidden pt-20"
+        style={{ background: D.bg, color: D.beige }}
+      >
+        {/* Vignette bottom */}
+        <div
+          className="absolute bottom-0 inset-x-0 h-40 pointer-events-none"
+          style={{ background: `linear-gradient(to bottom, transparent, ${D.bg})` }}
+          aria-hidden
+        />
+
+        {/* Hero content — clean, single-column, one image */}
+        <div className="relative px-5 sm:px-10 pt-6 sm:pt-10 pb-12 sm:pb-24 max-w-5xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto">
+            {/* Founder Edition tag */}
+            <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
+              <span className="w-6 h-px" style={{ background: D.gold }} />
+              <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
+                Founder Edition — Nur 100 Stück
+              </span>
+              <span className="w-6 h-px" style={{ background: D.gold }} />
+            </div>
+
+            {/* Title */}
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3"
+              style={{ color: D.beige, fontWeight: 200 }}
+            >
+              RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
+            </h1>
+            <p className="text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
+              3-in-1 Qi 2.2 Wireless Charger
+            </p>
+            <p
+              className="text-[11px] uppercase mt-3 mb-6"
+              style={{ color: D.mutedDim, letterSpacing: "0.22em" }}
+            >
+              Verfügbar ab 16. Juni
+            </p>
+
+            {/* Price */}
+            <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
+              <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
+                CHF 99.–
+              </span>
+              <span className="text-lg sm:text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>
+                CHF 129.–
+              </span>
+            </div>
+
+            {/* CTA */}
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={quickBuy}
+                disabled={buyProcessing}
+                className="group inline-flex items-center justify-center gap-2 py-3.5 px-14 sm:py-4 sm:px-20 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
+                  color: "#0a0908",
+                  letterSpacing: "0.2em",
+                  fontSize: "10px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  boxShadow: `0 20px 50px -12px ${D.gold}aa, 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Jetzt kaufen
+                <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
+              </button>
+            </div>
+
+            <p
+              className="mt-4 text-[11px] sm:text-xs text-center"
+              style={{ color: D.muted, letterSpacing: "0.04em" }}
+            >
+              Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+            </p>
+
+            <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
+              <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
+            </ul>
+          </div>
+
+          {/* Single hero image */}
+          <div className="relative -mx-5 sm:-mx-10 mt-8 sm:mt-10">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
+              <div
+                className="w-[80%] h-[80%] blur-[160px]"
+                style={{ background: `radial-gradient(circle at center, ${D.gold}14, transparent 60%)` }}
+              />
+            </div>
+            <div
+              className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
+              style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
+              aria-hidden
+            />
+            <div className="relative w-full aspect-[3/4] sm:aspect-[16/10] overflow-hidden">
+              <div
+                className="absolute inset-x-0 top-0 h-[15%] pointer-events-none z-10"
+                style={{ background: `linear-gradient(to bottom, ${D.bg}, transparent)` }}
+                aria-hidden
+              />
+              <img
+                src={nexusStoneHero1200}
+                srcSet={`${nexusStoneHero600} 600w, ${nexusStoneHero1200} 1200w`}
+                sizes="(max-width: 768px) 100vw, 1024px"
+                alt="RAJ NEXUS auf Stein – 3-in-1 Qi2.2 Wireless Charger."
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                width={1200}
+                height={960}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: "center center" }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Hairline gold divider */}
+        <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
+      </section>
+
+
 
 
 
