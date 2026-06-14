@@ -77,16 +77,15 @@ export function useQuickBuy() {
         selectedOptions: variant.selectedOptions || [],
       });
 
-      const checkoutUrl = useCartStore.getState().checkoutUrl;
-      if (!checkoutUrl || typeof window === "undefined") {
-        toast.error("Checkout konnte nicht geöffnet werden.");
+      if (typeof window === "undefined") {
+        toast.error("Warenkorb konnte nicht geöffnet werden.");
         return;
       }
 
-      window.location.assign(checkoutUrl);
+      window.dispatchEvent(new CustomEvent(OPEN_CART_EVENT));
     } catch (e) {
       console.error("quickBuy failed:", e);
-      toast.error("Checkout konnte nicht geöffnet werden.");
+      toast.error("Warenkorb konnte nicht geöffnet werden.");
     } finally {
       setIsProcessing(false);
     }
