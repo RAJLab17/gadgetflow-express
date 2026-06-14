@@ -45,6 +45,7 @@ const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
+        <ShopCartSync />
         <TooltipProvider>
           <Toaster />
           <Sonner />

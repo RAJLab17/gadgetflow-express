@@ -28,7 +28,7 @@ export const CartDrawer = () => {
     }
 
     setIsOpen(false);
-    window.location.assign(url);
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
