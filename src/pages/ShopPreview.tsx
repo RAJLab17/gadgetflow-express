@@ -6,7 +6,6 @@ import { ShoppingBag, Loader2, Check, Truck, ShieldCheck, RotateCcw, FileText, Z
 import logoMark from "@/assets/logo-new.webp";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useCartStore } from "@/stores/cartStore";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import { PRODUCT_NEXUS_JSON_LD, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
@@ -50,10 +49,8 @@ const FOUNDER_PRICE = "CHF 99.–";
 const REGULAR_PRICE = "CHF 129.–";
 
 const ShopPreview = () => {
-  const { addItem, isLoading } = useCartStore();
   const { quickBuy, isProcessing: buyNowProcessing } = useQuickBuy();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
-  const [variantId, setVariantId] = useState<string | null>(null);
   const [available, setAvailable] = useState(true);
   const [inventory, setInventory] = useState<number>(FOUNDER_TOTAL);
   const [adding, setAdding] = useState(false);
@@ -69,11 +66,10 @@ const ShopPreview = () => {
         if (node) {
           setProduct({ node });
           const v = node.variants?.edges?.[0]?.node;
-          if (v) { setVariantId(v.id); setAvailable(v.availableForSale ?? true); }
+          if (v) { setAvailable(v.availableForSale ?? true); }
         }
         const info = await fetchProductVariantInfo(NEXUS_HANDLE);
         if (info) {
-          setVariantId(info.variantId);
           setAvailable(info.availableForSale);
           // Cap to FOUNDER_TOTAL so the counter never shows more than 100 left
           setInventory(Math.min(info.quantityAvailable, FOUNDER_TOTAL));
