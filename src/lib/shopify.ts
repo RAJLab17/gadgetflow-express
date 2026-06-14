@@ -180,10 +180,6 @@ const CART_LINES_REMOVE_MUTATION = `
 export function normalizeCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
-    if (url.hostname === 'checkout.raj.ch') {
-      url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
-      url.protocol = 'https:';
-    }
     url.searchParams.set('channel', 'online_store');
     return url.toString();
   } catch {
