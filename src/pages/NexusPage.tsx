@@ -10,6 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
+import { CartDrawer } from "@/components/CartDrawer";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import {
   Breadcrumb,
@@ -840,16 +841,7 @@ const NexusPage = () => {
               Jetzt kaufen
             </button>
 
-            <button
-              aria-label="Warenkorb"
-              className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all hover:scale-105"
-              style={{
-                background: `linear-gradient(180deg, ${D.surface}, ${D.surfaceHi})`,
-                border: `1px solid ${D.gold}33`,
-              }}
-            >
-              <ShoppingBag className="w-4 h-4" style={{ color: D.gold }} strokeWidth={1.6} />
-            </button>
+            <CartDrawer />
           </div>
         </header>
 
