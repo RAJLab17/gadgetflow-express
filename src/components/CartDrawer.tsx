@@ -20,7 +20,8 @@ export const CartDrawer = () => {
   }, []);
 
   const handleCheckout = () => {
-    window.open("https://checkout.raj.ch/cart/57169031823685:1", '_blank', 'noopener,noreferrer');
+    const url = getCheckoutUrl() || "https://checkout.raj.ch/cart/57169031823685:1";
+    window.open(url, '_blank', 'noopener,noreferrer');
     setIsOpen(false);
   };
 
