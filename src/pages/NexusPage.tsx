@@ -12,7 +12,6 @@ import { useQuickBuy } from "@/hooks/useQuickBuy";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import { CartDrawer } from "@/components/CartDrawer";
 import Header from "@/components/Header";
-import BrandHero from "@/components/brand/BrandHero";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import {
   Breadcrumb,
@@ -755,7 +754,6 @@ const NexusPage = () => {
       {/* 1. TOP — 1:1 wie raj.ch (Header + BrandHero)                */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <Header />
-      <BrandHero />
 
 
 
