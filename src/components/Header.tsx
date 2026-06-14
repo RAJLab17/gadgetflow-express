@@ -125,7 +125,7 @@ const Header = () => {
               alt="RAJ Logo"
               width={180}
               height={56}
-              fetchPriority="high"
+              fetchpriority="high"
               decoding="async"
               className="h-8 sm:h-12 w-auto select-none"
               style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
