@@ -57,12 +57,18 @@ export const useCartStore = create<CartStore>()(
             if (!existingItem.lineId) return;
             const result = await updateShopifyCartLine(cartId, existingItem.lineId, newQuantity);
             if (result.success) {
-              set({ items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i) });
+              set({
+                items: get().items.map(i => i.variantId === item.variantId ? { ...i, quantity: newQuantity } : i),
+                checkoutUrl: result.checkoutUrl ?? get().checkoutUrl,
+              });
             } else if (result.cartNotFound) { clearCart(); }
           } else {
             const result = await addLineToShopifyCart(cartId, { ...item, lineId: null });
             if (result.success) {
-              set({ items: [...get().items, { ...item, lineId: result.lineId ?? null }] });
+              set({
+                items: [...get().items, { ...item, lineId: result.lineId ?? null }],
+                checkoutUrl: result.checkoutUrl ?? get().checkoutUrl,
+              });
             } else if (result.cartNotFound) { clearCart(); }
           }
         } catch (error) {
@@ -82,7 +88,10 @@ export const useCartStore = create<CartStore>()(
         try {
           const result = await updateShopifyCartLine(cartId, item.lineId, quantity);
           if (result.success) {
-            set({ items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i) });
+            set({
+              items: get().items.map(i => i.variantId === variantId ? { ...i, quantity } : i),
+              checkoutUrl: result.checkoutUrl ?? get().checkoutUrl,
+            });
           } else if (result.cartNotFound) { clearCart(); }
         } catch (error) { console.error('Failed to update quantity:', error); }
         finally { set({ isLoading: false }); }
@@ -98,7 +107,9 @@ export const useCartStore = create<CartStore>()(
           const result = await removeLineFromShopifyCart(cartId, item.lineId);
           if (result.success) {
             const newItems = get().items.filter(i => i.variantId !== variantId);
-            newItems.length === 0 ? clearCart() : set({ items: newItems });
+            newItems.length === 0
+              ? clearCart()
+              : set({ items: newItems, checkoutUrl: result.checkoutUrl ?? get().checkoutUrl });
           } else if (result.cartNotFound) { clearCart(); }
         } catch (error) { console.error('Failed to remove item:', error); }
         finally { set({ isLoading: false }); }
@@ -118,7 +129,11 @@ export const useCartStore = create<CartStore>()(
           const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
           if (!data) return;
           const cart = data?.data?.cart;
-          if (!cart || cart.totalQuantity === 0) clearCart();
+          if (!cart || cart.totalQuantity === 0) {
+            clearCart();
+          } else {
+            set({ checkoutUrl: cart.checkoutUrl ? normalizeCheckoutUrl(cart.checkoutUrl) : get().checkoutUrl });
+          }
         } catch (error) { console.error('Failed to sync cart:', error); }
         finally { set({ isSyncing: false }); }
       },

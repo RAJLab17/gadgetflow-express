@@ -130,7 +130,11 @@ export const PRODUCTS_QUERY = `
 // Cart mutations
 const CART_QUERY = `
   query cart($id: ID!) {
-    cart(id: $id) { id totalQuantity }
+    cart(id: $id) {
+      id
+      checkoutUrl
+      totalQuantity
+    }
   }
 `;
 
@@ -152,6 +156,7 @@ const CART_LINES_ADD_MUTATION = `
     cartLinesAdd(cartId: $cartId, lines: $lines) {
       cart {
         id
+        checkoutUrl
         lines(first: 100) { edges { node { id merchandise { ... on ProductVariant { id } } } } }
       }
       userErrors { field message }
@@ -162,7 +167,10 @@ const CART_LINES_ADD_MUTATION = `
 const CART_LINES_UPDATE_MUTATION = `
   mutation cartLinesUpdate($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
     cartLinesUpdate(cartId: $cartId, lines: $lines) {
-      cart { id }
+      cart {
+        id
+        checkoutUrl
+      }
       userErrors { field message }
     }
   }
@@ -171,7 +179,10 @@ const CART_LINES_UPDATE_MUTATION = `
 const CART_LINES_REMOVE_MUTATION = `
   mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
     cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
-      cart { id }
+      cart {
+        id
+        checkoutUrl
+      }
       userErrors { field message }
     }
   }
@@ -216,7 +227,7 @@ export async function createShopifyCart(item: CartItem): Promise<{ cartId: strin
   return { cartId: cart.id, checkoutUrl: normalizeCheckoutUrl(cart.checkoutUrl), lineId };
 }
 
-export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
+export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; checkoutUrl?: string; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_ADD_MUTATION, {
     cartId,
     lines: [{ quantity: item.quantity, merchandiseId: item.variantId }],
@@ -226,23 +237,26 @@ export async function addLineToShopifyCart(cartId: string, item: CartItem): Prom
   if (userErrors.length > 0) { console.error('Add line failed:', userErrors); return { success: false }; }
   const lines = data?.data?.cartLinesAdd?.cart?.lines?.edges || [];
   const newLine = lines.find((l: { node: { id: string; merchandise: { id: string } } }) => l.node.merchandise.id === item.variantId);
-  return { success: true, lineId: newLine?.node?.id };
+  const checkoutUrl = data?.data?.cartLinesAdd?.cart?.checkoutUrl;
+  return { success: true, lineId: newLine?.node?.id, checkoutUrl: checkoutUrl ? normalizeCheckoutUrl(checkoutUrl) : undefined };
 }
 
-export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; cartNotFound?: boolean }> {
+export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; checkoutUrl?: string; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, { cartId, lines: [{ id: lineId, quantity }] });
   const userErrors = data?.data?.cartLinesUpdate?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) { console.error('Update line failed:', userErrors); return { success: false }; }
-  return { success: true };
+  const checkoutUrl = data?.data?.cartLinesUpdate?.cart?.checkoutUrl;
+  return { success: true, checkoutUrl: checkoutUrl ? normalizeCheckoutUrl(checkoutUrl) : undefined };
 }
 
-export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; cartNotFound?: boolean }> {
+export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; checkoutUrl?: string; cartNotFound?: boolean }> {
   const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, { cartId, lineIds: [lineId] });
   const userErrors = data?.data?.cartLinesRemove?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) { console.error('Remove line failed:', userErrors); return { success: false }; }
-  return { success: true };
+  const checkoutUrl = data?.data?.cartLinesRemove?.cart?.checkoutUrl;
+  return { success: true, checkoutUrl: checkoutUrl ? normalizeCheckoutUrl(checkoutUrl) : undefined };
 }
 
 export { CART_QUERY };
