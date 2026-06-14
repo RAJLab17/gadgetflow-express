@@ -96,7 +96,7 @@ export const CartDrawer = () => {
                   ))}
                 </div>
               </div>
-              <div className="flex-shrink-0 space-y-4 pt-4 border-t bg-background">
+              <div className="flex-shrink-0 space-y-4 pt-4 border-t border-white/20 bg-background">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold">Gesamt</span>
                   <span className="text-xl font-bold">{items[0]?.price.currencyCode || 'CHF'} {totalPrice.toFixed(2)}</span>
