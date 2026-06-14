@@ -83,11 +83,11 @@ export const CartDrawer = () => {
                           <Trash2 className="h-3 w-3" />
                         </Button>
                         <div className="flex items-center gap-1">
-                          <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(item.variantId, item.quantity - 1)} aria-label="Menge verringern">
+                          <Button variant="outline" size="icon" className="h-6 w-6 border-white/30" onClick={() => updateQuantity(item.variantId, item.quantity - 1)} aria-label="Menge verringern">
                             <Minus className="h-3 w-3" />
                           </Button>
                           <span className="w-8 text-center text-sm">{item.quantity}</span>
-                          <Button variant="outline" size="icon" className="h-6 w-6" onClick={() => updateQuantity(item.variantId, item.quantity + 1)} aria-label="Menge erhöhen">
+                          <Button variant="outline" size="icon" className="h-6 w-6 border-white/30" onClick={() => updateQuantity(item.variantId, item.quantity + 1)} aria-label="Menge erhöhen">
                             <Plus className="h-3 w-3" />
                           </Button>
                         </div>
@@ -96,7 +96,7 @@ export const CartDrawer = () => {
                   ))}
                 </div>
               </div>
-              <div className="flex-shrink-0 space-y-4 pt-4 border-t bg-background">
+              <div className="flex-shrink-0 space-y-4 pt-4 border-t border-white/20 bg-background">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold">Gesamt</span>
                   <span className="text-xl font-bold">{items[0]?.price.currencyCode || 'CHF'} {totalPrice.toFixed(2)}</span>
