@@ -54,31 +54,42 @@ export function useQuickBuy() {
   const quickBuy = useCallback(async () => {
     if (isProcessing) return;
     setIsProcessing(true);
+    // Open a tab synchronously so popup blockers don't kill it after the await
+    const checkoutTab = typeof window !== "undefined"
+      ? window.open("about:blank", "_blank", "noopener,noreferrer")
+      : null;
     if (typeof navigator !== "undefined" && "vibrate" in navigator) {
       try { navigator.vibrate(15); } catch { /* noop */ }
     }
+    const fallbackUrl = "https://checkout.raj.ch/cart/57169031823685:1";
+    const goTo = (url: string) => {
+      if (checkoutTab && !checkoutTab.closed) {
+        checkoutTab.location.href = url;
+      } else {
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+    };
     try {
       const product = await loadNexusProduct();
       const variant = product?.node.variants.edges[0]?.node;
-      const variantId = variant?.id || FALLBACK_VARIANT_ID;
 
       if (product && variant) {
         await addItem({
           product,
-          variantId,
+          variantId: variant.id,
           variantTitle: variant.title || "Default",
           price: variant.price || { amount: "99.00", currencyCode: "CHF" },
           quantity: 1,
           selectedOptions: variant.selectedOptions || [],
         });
-        window.dispatchEvent(new Event(OPEN_CART_EVENT));
+        const checkoutUrl = useCartStore.getState().checkoutUrl;
+        goTo(checkoutUrl || fallbackUrl);
       } else {
-        // Fallback: open checkout directly if we cannot load the product
-        window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
+        goTo(fallbackUrl);
       }
     } catch (e) {
       console.error("quickBuy failed:", e);
-      window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
+      goTo(fallbackUrl);
     } finally {
       setIsProcessing(false);
     }
