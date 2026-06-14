@@ -10,6 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
+import { CartDrawer } from "@/components/CartDrawer";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import {
   Breadcrumb,
