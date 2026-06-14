@@ -177,9 +177,13 @@ const CART_LINES_REMOVE_MUTATION = `
   }
 `;
 
-function formatCheckoutUrl(checkoutUrl: string): string {
+export function normalizeCheckoutUrl(checkoutUrl: string): string {
   try {
     const url = new URL(checkoutUrl);
+    if (url.hostname === 'checkout.raj.ch') {
+      url.hostname = SHOPIFY_STORE_PERMANENT_DOMAIN;
+      url.protocol = 'https:';
+    }
     url.searchParams.set('channel', 'online_store');
     return url.toString();
   } catch {
@@ -213,7 +217,7 @@ export async function createShopifyCart(item: CartItem): Promise<{ cartId: strin
   if (!cart?.checkoutUrl) return null;
   const lineId = cart.lines.edges[0]?.node?.id;
   if (!lineId) return null;
-  return { cartId: cart.id, checkoutUrl: formatCheckoutUrl(cart.checkoutUrl), lineId };
+  return { cartId: cart.id, checkoutUrl: normalizeCheckoutUrl(cart.checkoutUrl), lineId };
 }
 
 export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; cartNotFound?: boolean }> {
