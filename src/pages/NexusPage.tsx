@@ -754,7 +754,7 @@ const NexusPage = () => {
       {/* 1. TOP — 1:1 wie raj.ch (Header + BrandHero)                */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <Header />
-      <BrandHero />
+      <Header />
 
 
 
