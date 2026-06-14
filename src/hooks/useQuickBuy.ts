@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { toast } from "sonner";
 import { useCartStore } from "@/stores/cartStore";
 import { storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 
@@ -54,42 +55,38 @@ export function useQuickBuy() {
   const quickBuy = useCallback(async () => {
     if (isProcessing) return;
     setIsProcessing(true);
-    // Open a tab synchronously so popup blockers don't kill it after the await
-    const checkoutTab = typeof window !== "undefined"
-      ? window.open("about:blank", "_blank", "noopener,noreferrer")
-      : null;
     if (typeof navigator !== "undefined" && "vibrate" in navigator) {
       try { navigator.vibrate(15); } catch { /* noop */ }
     }
-    const fallbackUrl = "https://checkout.raj.ch/cart/57169031823685:1";
-    const goTo = (url: string) => {
-      if (checkoutTab && !checkoutTab.closed) {
-        checkoutTab.location.href = url;
-      } else {
-        window.open(url, "_blank", "noopener,noreferrer");
-      }
-    };
+
     try {
       const product = await loadNexusProduct();
       const variant = product?.node.variants.edges[0]?.node;
 
-      if (product && variant) {
-        await addItem({
-          product,
-          variantId: variant.id,
-          variantTitle: variant.title || "Default",
-          price: variant.price || { amount: "99.00", currencyCode: "CHF" },
-          quantity: 1,
-          selectedOptions: variant.selectedOptions || [],
-        });
-        const checkoutUrl = useCartStore.getState().checkoutUrl;
-        goTo(checkoutUrl || fallbackUrl);
-      } else {
-        goTo(fallbackUrl);
+      if (!product || !variant) {
+        toast.error("Produkt konnte nicht geladen werden.");
+        return;
       }
+
+      await addItem({
+        product,
+        variantId: variant.id,
+        variantTitle: variant.title || "Default",
+        price: variant.price || { amount: "99.00", currencyCode: "CHF" },
+        quantity: 1,
+        selectedOptions: variant.selectedOptions || [],
+      });
+
+      const checkoutUrl = useCartStore.getState().checkoutUrl;
+      if (!checkoutUrl || typeof window === "undefined") {
+        toast.error("Checkout konnte nicht geöffnet werden.");
+        return;
+      }
+
+      window.location.assign(checkoutUrl);
     } catch (e) {
       console.error("quickBuy failed:", e);
-      goTo(fallbackUrl);
+      toast.error("Checkout konnte nicht geöffnet werden.");
     } finally {
       setIsProcessing(false);
     }

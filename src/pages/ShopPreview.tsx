@@ -6,7 +6,7 @@ import { ShoppingBag, Loader2, Check, Truck, ShieldCheck, RotateCcw, FileText, Z
 import logoMark from "@/assets/logo-new.webp";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useCartStore } from "@/stores/cartStore";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import { PRODUCT_NEXUS_JSON_LD, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import PaymentIcons from "@/components/PaymentIcons";
@@ -49,9 +49,8 @@ const FOUNDER_PRICE = "CHF 99.–";
 const REGULAR_PRICE = "CHF 129.–";
 
 const ShopPreview = () => {
-  const { addItem, isLoading } = useCartStore();
+  const { quickBuy, isProcessing: buyNowProcessing } = useQuickBuy();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
-  const [variantId, setVariantId] = useState<string | null>(null);
   const [available, setAvailable] = useState(true);
   const [inventory, setInventory] = useState<number>(FOUNDER_TOTAL);
   const [adding, setAdding] = useState(false);
@@ -67,11 +66,10 @@ const ShopPreview = () => {
         if (node) {
           setProduct({ node });
           const v = node.variants?.edges?.[0]?.node;
-          if (v) { setVariantId(v.id); setAvailable(v.availableForSale ?? true); }
+          if (v) { setAvailable(v.availableForSale ?? true); }
         }
         const info = await fetchProductVariantInfo(NEXUS_HANDLE);
         if (info) {
-          setVariantId(info.variantId);
           setAvailable(info.availableForSale);
           // Cap to FOUNDER_TOTAL so the counter never shows more than 100 left
           setInventory(Math.min(info.quantityAvailable, FOUNDER_TOTAL));
@@ -85,22 +83,12 @@ const ShopPreview = () => {
   const priceLabel = FOUNDER_PRICE;
 
   const handleBuyNow = async () => {
-    if (!variantId || !product) {
-      window.open("https://checkout.raj.ch/cart/57169031823685:1", "_blank", "noopener,noreferrer");
-      return;
-    }
     setAdding(true);
     try {
-      const variant = product.node.variants.edges[0]?.node;
-      await addItem({
-        product, variantId,
-        variantTitle: variant?.title || "Default",
-        price: variant?.price || { amount: "99.00", currencyCode: "CHF" },
-        quantity: 1,
-        selectedOptions: variant?.selectedOptions || [],
-      });
-      window.dispatchEvent(new Event("raj:open-cart"));
-    } finally { setAdding(false); }
+      await quickBuy();
+    } finally {
+      setAdding(false);
+    }
   };
 
   const scrollToSignup = () => {
@@ -120,10 +108,11 @@ const ShopPreview = () => {
     <Button
       size={size}
       onClick={openCheckout}
+        disabled={adding || buyNowProcessing}
       className={className}
     >
-      <ShoppingBag className="w-5 h-5 mr-2" />
-      Jetzt kaufen — {priceLabel}
+        {adding || buyNowProcessing ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <ShoppingBag className="w-5 h-5 mr-2" />}
+        Jetzt kaufen — {priceLabel}
     </Button>
   );
 
