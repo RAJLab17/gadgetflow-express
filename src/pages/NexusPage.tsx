@@ -788,12 +788,6 @@ const NexusPage = () => {
             <p className="text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
               3-in-1 Qi 2.2 Wireless Charger
             </p>
-            <p
-              className="text-[11px] uppercase mt-3 mb-6"
-              style={{ color: D.mutedDim, letterSpacing: "0.22em" }}
-            >
-              Verfügbar ab 16. Juni
-            </p>
 
             {/* Price */}
             <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
