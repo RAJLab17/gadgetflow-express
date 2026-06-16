@@ -799,11 +799,8 @@ const NexusPage = () => {
           </div>
 
           {/* Lower content */}
-          <div className="relative px-5 sm:px-10 pt-4 sm:pt-6 pb-12 sm:pb-24 max-w-5xl mx-auto">
+          <div className="relative px-5 sm:px-10 pb-12 sm:pb-24 max-w-5xl mx-auto">
             <div className="text-center max-w-2xl mx-auto">
-              <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: D.muted, fontWeight: 300 }}>
-                3-in-1 Qi 2.2 Wireless Charger
-              </p>
 
               {/* Product carousel */}
               <div className="relative -mx-5 sm:-mx-10 mb-8 sm:mb-10">
