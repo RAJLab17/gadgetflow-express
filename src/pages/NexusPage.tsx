@@ -823,13 +823,13 @@ const NexusPage = () => {
                       { src: carousel5, alt: "RAJ NEXUS – Marmor Küchen Lifestyle" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
-                        <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden" style={{ background: "#ffffff" }}>
+                        <div className="relative w-full aspect-square overflow-hidden" style={{ background: "#ffffff" }}>
                           <img
                             src={img.src}
                             alt={img.alt}
                             loading={i === 0 ? "eager" : "lazy"}
                             decoding="async"
-                            className="absolute inset-0 w-full h-full object-contain p-6 sm:p-10"
+                            className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain p-8 sm:p-14" : "object-cover"}`}
                           />
                           {/* White edge fades for seamless transitions */}
                           <div
