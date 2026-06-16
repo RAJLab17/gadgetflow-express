@@ -785,16 +785,11 @@ const NexusPage = () => {
             </div>
             <div className="text-center">
               <div
-                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
-                style={{ color: D.beige, fontWeight: 100 }}
+                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] whitespace-nowrap"
+                style={{ fontWeight: 100 }}
               >
-                RAJ
-              </div>
-              <div
-                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
-                style={{ WebkitTextStroke: "1.5px #C9A876", color: "transparent" }}
-              >
-                NEXUS
+                <span style={{ color: D.beige }}>RAJ</span>{" "}
+                <span style={{ WebkitTextStroke: "1.5px #C9A876", color: "transparent" }}>NEXUS</span>
               </div>
             </div>
             <p className="mt-4 text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
