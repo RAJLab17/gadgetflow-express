@@ -823,8 +823,9 @@ const NexusPage = () => {
                       { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
                       { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
                       { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
-                      { src: carousel4, alt: "RAJ NEXUS – Stein Editorial" },
-                      { src: carousel5, alt: "RAJ NEXUS – Marmor Premium" },
+                      { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
+                      { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
+                      { src: carousel6, alt: "RAJ NEXUS – Marmor Premium" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
                         <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#ffffff" }}>
