@@ -42,8 +42,10 @@ import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import carousel1 from "@/assets/products/nexus-real-hero-floating-white.jpg";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import carousel3 from "@/assets/products/nexus-real-folds-white.jpg";
-import carousel4 from "@/assets/products/nexus-stone-hero.webp";
+import carousel4Asset from "@/assets/products/nexus-carousel4-lifestyle.png.asset.json";
 import carousel5 from "@/assets/products/nexus-shop-hero-rocks.jpg";
+
+const carousel4 = carousel4Asset.url;
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
 const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
