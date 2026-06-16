@@ -779,15 +779,57 @@ const NexusPage = () => {
             </div>
 
             {/* Title */}
-            <h1
-              className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] mb-3"
-              style={{ color: D.beige, fontWeight: 200 }}
-            >
-              RAJ <span style={{ fontWeight: 300 }}>NEXUS</span>
-            </h1>
-            <p className="text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
+            <div className="mb-3">
+              <div
+                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
+                style={{ color: D.beige, fontWeight: 100 }}
+              >
+                RAJ
+              </div>
+              <div
+                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
+                style={{
+                  WebkitTextStroke: "1.5px #C9A876",
+                  color: "transparent",
+                }}
+              >
+                NEXUS
+              </div>
+            </div>
+            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: D.muted, fontWeight: 300 }}>
               3-in-1 Qi 2.2 Wireless Charger
             </p>
+
+            {/* Hero image — directly after title */}
+            <div className="relative -mx-5 sm:-mx-10 mb-8 sm:mb-10">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
+                <div
+                  className="w-[80%] h-[80%] blur-[160px]"
+                  style={{ background: `radial-gradient(circle at center, ${D.gold}14, transparent 60%)` }}
+                />
+              </div>
+              <div
+                className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
+                style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
+                aria-hidden
+              />
+              <div className="relative w-full aspect-[3/4] sm:aspect-[16/10] overflow-hidden">
+                <div
+                  className="absolute inset-x-0 top-0 h-[15%] pointer-events-none z-10"
+                  style={{ background: `linear-gradient(to bottom, ${D.bg}, transparent)` }}
+                  aria-hidden
+                />
+                <img
+                  src={nexusHeroDark}
+                  alt="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger in Space Black."
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: "center center" }}
+                />
+              </div>
+            </div>
 
             {/* Price */}
             <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
@@ -800,12 +842,12 @@ const NexusPage = () => {
             </div>
 
             {/* CTA */}
-            <div className="flex justify-center">
+            <div className="flex justify-center px-0">
               <button
                 type="button"
                 onClick={quickBuy}
                 disabled={buyProcessing}
-                className="group inline-flex items-center justify-center gap-2 py-3.5 px-14 sm:py-4 sm:px-20 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 py-5 px-12 sm:px-16 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
                   color: "#0a0908",
@@ -813,7 +855,7 @@ const NexusPage = () => {
                   fontSize: "10px",
                   fontWeight: 700,
                   textTransform: "uppercase",
-                  boxShadow: `0 20px 50px -12px ${D.gold}aa, 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
+                  boxShadow: `0 20px 50px -10px rgba(201,168,118,0.6), 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
                   whiteSpace: "nowrap",
                 }}
               >
@@ -832,41 +874,6 @@ const NexusPage = () => {
             <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
               <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
             </ul>
-          </div>
-
-          {/* Single hero image */}
-          <div className="relative -mx-5 sm:-mx-10 mt-8 sm:mt-10">
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
-              <div
-                className="w-[80%] h-[80%] blur-[160px]"
-                style={{ background: `radial-gradient(circle at center, ${D.gold}14, transparent 60%)` }}
-              />
-            </div>
-            <div
-              className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
-              style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
-              aria-hidden
-            />
-            <div className="relative w-full aspect-[3/4] sm:aspect-[16/10] overflow-hidden">
-              <div
-                className="absolute inset-x-0 top-0 h-[15%] pointer-events-none z-10"
-                style={{ background: `linear-gradient(to bottom, ${D.bg}, transparent)` }}
-                aria-hidden
-              />
-              <img
-                src={nexusStoneHero1200}
-                srcSet={`${nexusStoneHero600} 600w, ${nexusStoneHero1200} 1200w`}
-                sizes="(max-width: 768px) 100vw, 1024px"
-                alt="RAJ NEXUS auf Stein – 3-in-1 Qi2.2 Wireless Charger."
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                width={1200}
-                height={960}
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: "center center" }}
-              />
-            </div>
           </div>
         </div>
 
