@@ -831,7 +831,7 @@ const NexusPage = () => {
                             alt={img.alt}
                             loading={i === 0 ? "eager" : "lazy"}
                             decoding="async"
-                            className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : "object-cover"}`}
+                            className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : "object-cover"} ${i === 0 ? "scale-[1.35]" : i === 2 ? "scale-110" : ""}`}
                           />
                           {/* Subtle edge fades for seamless transitions */}
                           <div
