@@ -804,7 +804,7 @@ const NexusPage = () => {
               <li><span style={{ color: D.gold }}>✦</span> Qi 2.2, 25 Watt</li>
               <li><span style={{ color: D.gold }}>✦</span> Kompakt faltbar</li>
               <li><span style={{ color: D.gold }}>✦</span> 3 Jahre Garantie</li>
-            </div>
+            </ul>
           </div>
 
           {/* Lower content */}
