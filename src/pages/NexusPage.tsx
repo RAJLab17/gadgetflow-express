@@ -42,10 +42,12 @@ import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import carousel1 from "@/assets/products/nexus-real-hero-floating-white.jpg";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import carousel3 from "@/assets/products/nexus-real-folds-white.jpg";
-import carousel4Asset from "@/assets/products/nexus-carousel4-lifestyle.png.asset.json";
-import carousel5 from "@/assets/products/nexus-shop-hero-rocks.jpg";
+import carousel4Asset from "@/assets/products/nexus-now-before-comparison.png.asset.json";
+import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.png.asset.json";
+import carousel6 from "@/assets/products/nexus-shop-hero-rocks.jpg";
 
 const carousel4 = carousel4Asset.url;
+const carousel5 = carousel5Asset.url;
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
 const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
@@ -821,8 +823,9 @@ const NexusPage = () => {
                       { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
                       { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
                       { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
-                      { src: carousel4, alt: "RAJ NEXUS – Stein Editorial" },
-                      { src: carousel5, alt: "RAJ NEXUS – Marmor Premium" },
+                      { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
+                      { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
+                      { src: carousel6, alt: "RAJ NEXUS – Marmor Premium" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
                         <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#ffffff" }}>
