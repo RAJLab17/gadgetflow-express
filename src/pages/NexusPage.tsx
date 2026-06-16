@@ -1,4 +1,6 @@
 import { useEffect, useState, useCallback, FormEvent, lazy, Suspense, useRef } from "react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -766,114 +768,158 @@ const NexusPage = () => {
           aria-hidden
         />
 
-        {/* Hero content — clean, single-column, one image */}
-        <div className="relative px-5 sm:px-10 pt-6 sm:pt-10 pb-12 sm:pb-24 max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto">
-            {/* Founder Edition tag */}
-            <div className="flex items-center justify-center gap-3 mb-5 sm:mb-7">
-              <span className="w-6 h-px" style={{ background: D.gold }} />
-              <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-                Founder Edition — Nur 100 Stück
-              </span>
-              <span className="w-6 h-px" style={{ background: D.gold }} />
-            </div>
+        {/* Hero — Window Crop atmosphere band + product carousel */}
+        <div className="relative">
+          {/* Atmospheric backdrop band: top crop of hero image (mirror, lamp, bokeh) */}
+          <div className="relative w-full h-[34vh] sm:h-[40vh] overflow-hidden">
+            <img
+              src={nexusHeroDark}
+              alt=""
+              aria-hidden
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "center 15%", transform: "scale(1.05)" }}
+            />
+            {/* Gold glow */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: `radial-gradient(ellipse at 50% 30%, ${D.gold}22, transparent 60%)` }}
+              aria-hidden
+            />
+            {/* Bottom fade-to-black */}
+            <div
+              className="absolute inset-x-0 bottom-0 h-[70%] pointer-events-none"
+              style={{ background: `linear-gradient(to bottom, transparent 0%, ${D.bg}cc 55%, ${D.bg} 100%)` }}
+              aria-hidden
+            />
+            {/* Top subtle fade for header readability */}
+            <div
+              className="absolute inset-x-0 top-0 h-24 pointer-events-none"
+              style={{ background: `linear-gradient(to bottom, ${D.bg}cc, transparent)` }}
+              aria-hidden
+            />
 
-            {/* Title */}
-            <div className="mb-3">
-              <div
-                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
-                style={{ color: D.beige, fontWeight: 100 }}
-              >
-                RAJ
+            {/* Title overlay */}
+            <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 sm:pb-10 px-5">
+              <div className="flex items-center justify-center gap-3 mb-4 sm:mb-5">
+                <span className="w-6 h-px" style={{ background: D.gold }} />
+                <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
+                  Founder Edition — Nur 100 Stück
+                </span>
+                <span className="w-6 h-px" style={{ background: D.gold }} />
               </div>
-              <div
-                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
-                style={{
-                  WebkitTextStroke: "1.5px #C9A876",
-                  color: "transparent",
-                }}
-              >
-                NEXUS
-              </div>
-            </div>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: D.muted, fontWeight: 300 }}>
-              3-in-1 Qi 2.2 Wireless Charger
-            </p>
-
-            {/* Hero image — directly after title */}
-            <div className="relative -mx-5 sm:-mx-10 mb-8 sm:mb-10">
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
+              <div className="text-center">
                 <div
-                  className="w-[80%] h-[80%] blur-[160px]"
-                  style={{ background: `radial-gradient(circle at center, ${D.gold}14, transparent 60%)` }}
-                />
-              </div>
-              <div
-                className="absolute inset-0 rounded-full blur-[120px] opacity-40 pointer-events-none"
-                style={{ background: `radial-gradient(circle at center, ${D.gold}, transparent 65%)` }}
-                aria-hidden
-              />
-              <div className="relative w-full aspect-[3/4] sm:aspect-[16/10] overflow-hidden">
+                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
+                  style={{ color: D.beige, fontWeight: 100 }}
+                >
+                  RAJ
+                </div>
                 <div
-                  className="absolute inset-x-0 top-0 h-[15%] pointer-events-none z-10"
-                  style={{ background: `linear-gradient(to bottom, ${D.bg}, transparent)` }}
-                  aria-hidden
-                />
-                <img
-                  src={nexusHeroDark}
-                  alt="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger in Space Black."
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: "center center" }}
-                />
+                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
+                  style={{ WebkitTextStroke: "1.5px #C9A876", color: "transparent" }}
+                >
+                  NEXUS
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Price */}
-            <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
-              <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
-                CHF 99.–
-              </span>
-              <span className="text-lg sm:text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>
-                CHF 129.–
-              </span>
-            </div>
+          {/* Lower content */}
+          <div className="relative px-5 sm:px-10 pt-4 sm:pt-6 pb-12 sm:pb-24 max-w-5xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: D.muted, fontWeight: 300 }}>
+                3-in-1 Qi 2.2 Wireless Charger
+              </p>
 
-            {/* CTA */}
-            <div className="flex justify-center px-0">
-              <button
-                type="button"
-                onClick={quickBuy}
-                disabled={buyProcessing}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 py-5 px-12 sm:px-16 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
-                style={{
-                  background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
-                  color: "#0a0908",
-                  letterSpacing: "0.2em",
-                  fontSize: "10px",
-                  fontWeight: 700,
-                  textTransform: "uppercase",
-                  boxShadow: `0 20px 50px -10px rgba(201,168,118,0.6), 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
-                  whiteSpace: "nowrap",
-                }}
+              {/* Product carousel */}
+              <div className="relative -mx-5 sm:-mx-10 mb-8 sm:mb-10">
+                <Carousel
+                  opts={{ loop: true, align: "center" }}
+                  plugins={[Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]}
+                  className="w-full"
+                >
+                  <CarouselContent className="-ml-0">
+                    {[
+                      { src: nexusHeroDark, alt: "RAJ NEXUS – Lifestyle bei Nacht" },
+                      { src: nexusTopview, alt: "RAJ NEXUS – Topview Qi2.2" },
+                      { src: nexusFolds, alt: "RAJ NEXUS – Faltmechanismus Detail" },
+                      { src: nexusSofa, alt: "RAJ NEXUS – Wohnzimmer Lifestyle" },
+                      { src: nexusNight, alt: "RAJ NEXUS – Nachttisch" },
+                    ].map((img, i) => (
+                      <CarouselItem key={i} className="pl-0 basis-full">
+                        <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden">
+                          <img
+                            src={img.src}
+                            alt={img.alt}
+                            loading={i === 0 ? "eager" : "lazy"}
+                            decoding="async"
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                          {/* Edge fades for cinematic feel */}
+                          <div
+                            className="absolute inset-x-0 top-0 h-[12%] pointer-events-none"
+                            style={{ background: `linear-gradient(to bottom, ${D.bg}, transparent)` }}
+                            aria-hidden
+                          />
+                          <div
+                            className="absolute inset-x-0 bottom-0 h-[15%] pointer-events-none"
+                            style={{ background: `linear-gradient(to top, ${D.bg}, transparent)` }}
+                            aria-hidden
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              </div>
+
+              {/* Price */}
+              <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
+                <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
+                  CHF 99.–
+                </span>
+                <span className="text-lg sm:text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>
+                  CHF 129.–
+                </span>
+              </div>
+
+              {/* CTA */}
+              <div className="flex justify-center px-0">
+                <button
+                  type="button"
+                  onClick={quickBuy}
+                  disabled={buyProcessing}
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 py-5 px-12 sm:px-16 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                  style={{
+                    background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
+                    color: "#0a0908",
+                    letterSpacing: "0.2em",
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    boxShadow: `0 20px 50px -10px rgba(201,168,118,0.6), 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Jetzt kaufen
+                  <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
+                </button>
+              </div>
+
+              <p
+                className="mt-4 text-[11px] sm:text-xs text-center"
+                style={{ color: D.muted, letterSpacing: "0.04em" }}
               >
-                Jetzt kaufen
-                <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
-              </button>
+                Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+              </p>
+
+              <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
+                <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
+              </ul>
             </div>
-
-            <p
-              className="mt-4 text-[11px] sm:text-xs text-center"
-              style={{ color: D.muted, letterSpacing: "0.04em" }}
-            >
-              Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
-            </p>
-
-            <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
-              <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
-            </ul>
           </div>
         </div>
 
