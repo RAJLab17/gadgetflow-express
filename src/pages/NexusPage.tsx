@@ -770,69 +770,37 @@ const NexusPage = () => {
 
         {/* Hero — Window Crop atmosphere band + product carousel */}
         <div className="relative">
-          {/* Atmospheric backdrop band: top crop of hero image (mirror, lamp, bokeh) */}
-          <div className="relative w-full h-[34vh] sm:h-[40vh] overflow-hidden">
-            <img
-              src={nexusHeroDark}
-              alt=""
-              aria-hidden
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "center 15%", transform: "scale(1.05)" }}
-            />
-            {/* Gold glow */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ background: `radial-gradient(ellipse at 50% 30%, ${D.gold}22, transparent 60%)` }}
-              aria-hidden
-            />
-            {/* Bottom fade-to-black */}
-            <div
-              className="absolute inset-x-0 bottom-0 h-[70%] pointer-events-none"
-              style={{ background: `linear-gradient(to bottom, transparent 0%, ${D.bg}cc 55%, ${D.bg} 100%)` }}
-              aria-hidden
-            />
-            {/* Top subtle fade for header readability */}
-            <div
-              className="absolute inset-x-0 top-0 h-24 pointer-events-none"
-              style={{ background: `linear-gradient(to bottom, ${D.bg}cc, transparent)` }}
-              aria-hidden
-            />
-
-            {/* Title overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 sm:pb-10 px-5">
-              <div className="flex items-center justify-center gap-3 mb-4 sm:mb-5">
-                <span className="w-6 h-px" style={{ background: D.gold }} />
-                <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
-                  Founder Edition — Nur 100 Stück
-                </span>
-                <span className="w-6 h-px" style={{ background: D.gold }} />
+          {/* Title */}
+          <div className="relative z-10 flex flex-col items-center justify-center px-5 pt-10 pb-6">
+            <div className="flex items-center justify-center gap-3 mb-4 sm:mb-5">
+              <span className="w-6 h-px" style={{ background: D.gold }} />
+              <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
+                Founder Edition — Nur 100 Stück
+              </span>
+              <span className="w-6 h-px" style={{ background: D.gold }} />
+            </div>
+            <div className="text-center">
+              <div
+                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
+                style={{ color: D.beige, fontWeight: 100 }}
+              >
+                RAJ
               </div>
-              <div className="text-center">
-                <div
-                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
-                  style={{ color: D.beige, fontWeight: 100 }}
-                >
-                  RAJ
-                </div>
-                <div
-                  className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
-                  style={{ WebkitTextStroke: "1.5px #C9A876", color: "transparent" }}
-                >
-                  NEXUS
-                </div>
+              <div
+                className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em]"
+                style={{ WebkitTextStroke: "1.5px #C9A876", color: "transparent" }}
+              >
+                NEXUS
               </div>
             </div>
+            <p className="mt-4 text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
+              3-in-1 Qi 2.2 Wireless Charger
+            </p>
           </div>
 
           {/* Lower content */}
-          <div className="relative px-5 sm:px-10 pt-4 sm:pt-6 pb-12 sm:pb-24 max-w-5xl mx-auto">
+          <div className="relative px-5 sm:px-10 pb-12 sm:pb-24 max-w-5xl mx-auto">
             <div className="text-center max-w-2xl mx-auto">
-              <p className="text-base sm:text-lg mb-6 sm:mb-8" style={{ color: D.muted, fontWeight: 300 }}>
-                3-in-1 Qi 2.2 Wireless Charger
-              </p>
 
               {/* Product carousel */}
               <div className="relative -mx-5 sm:-mx-10 mb-8 sm:mb-10">
