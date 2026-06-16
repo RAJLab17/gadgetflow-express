@@ -825,32 +825,32 @@ const NexusPage = () => {
                       { src: carousel5, alt: "RAJ NEXUS – Marmor Premium" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
-                        <div className="relative w-full aspect-square overflow-hidden" style={{ background: "#ffffff" }}>
+                        <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#ffffff" }}>
                           <img
                             src={img.src}
                             alt={img.alt}
                             loading={i === 0 ? "eager" : "lazy"}
                             decoding="async"
-                            className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain p-8 sm:p-14" : "object-cover"}`}
+                            className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : "object-cover"}`}
                           />
-                          {/* White edge fades for seamless transitions */}
+                          {/* Subtle edge fades for seamless transitions */}
                           <div
-                            className="absolute inset-x-0 top-0 h-[12%] pointer-events-none"
+                            className="absolute inset-x-0 top-0 h-[4%] pointer-events-none"
                             style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }}
                             aria-hidden
                           />
                           <div
-                            className="absolute inset-x-0 bottom-0 h-[15%] pointer-events-none"
+                            className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none"
                             style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
                             aria-hidden
                           />
                           <div
-                            className="absolute inset-y-0 left-0 w-[8%] pointer-events-none"
+                            className="absolute inset-y-0 left-0 w-[3%] pointer-events-none"
                             style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
                             aria-hidden
                           />
                           <div
-                            className="absolute inset-y-0 right-0 w-[8%] pointer-events-none"
+                            className="absolute inset-y-0 right-0 w-[3%] pointer-events-none"
                             style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
                             aria-hidden
                           />
