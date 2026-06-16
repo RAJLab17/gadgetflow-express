@@ -798,11 +798,11 @@ const NexusPage = () => {
               </div>
             </div>
             <p className="mt-4 text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
-              iPhone, Watch & AirPods — einfach gleichzeitig laden.
+              iPhone, Watch & AirPods. Geladen an einem Ort.
             </p>
             <ul className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[11px] sm:text-xs" style={{ color: D.mutedDim }}>
-              <li><span style={{ color: D.gold }}>✦</span> Qi 2.2 mit 25 W</li>
-              <li><span style={{ color: D.gold }}>✦</span> Faltbar & mobil</li>
+              <li><span style={{ color: D.gold }}>✦</span> Qi 2.2, 25 Watt</li>
+              <li><span style={{ color: D.gold }}>✦</span> Kompakt faltbar</li>
               <li><span style={{ color: D.gold }}>✦</span> 3 Jahre Garantie</li>
             </ul>
           </div>
