@@ -39,6 +39,10 @@ import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.webp";
 import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
+import carousel1 from "@/assets/hero-carousel/nexus-carousel-1.jpg";
+import carousel2 from "@/assets/hero-carousel/nexus-carousel-2.jpg";
+import carousel3 from "@/assets/hero-carousel/nexus-carousel-3.jpg";
+import carousel4 from "@/assets/hero-carousel/nexus-carousel-4.jpg";
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
 const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
@@ -794,8 +798,13 @@ const NexusPage = () => {
               </div>
             </div>
             <p className="mt-4 text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
-              3-in-1 Qi 2.2 Wireless Charger
+              iPhone, Watch & AirPods — einfach gleichzeitig laden.
             </p>
+            <ul className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[11px] sm:text-xs" style={{ color: D.mutedDim }}>
+              <li><span style={{ color: D.gold }}>✦</span> Qi 2.2 mit 25 W</li>
+              <li><span style={{ color: D.gold }}>✦</span> Faltbar & mobil</li>
+              <li><span style={{ color: D.gold }}>✦</span> 3 Jahre Garantie</li>
+            </ul>
           </div>
 
           {/* Lower content */}
@@ -811,11 +820,10 @@ const NexusPage = () => {
                 >
                   <CarouselContent className="-ml-0">
                     {[
-                      { src: nexusHeroDark, alt: "RAJ NEXUS – Lifestyle bei Nacht" },
-                      { src: nexusTopview, alt: "RAJ NEXUS – Topview Qi2.2" },
-                      { src: nexusFolds, alt: "RAJ NEXUS – Faltmechanismus Detail" },
-                      { src: nexusSofa, alt: "RAJ NEXUS – Wohnzimmer Lifestyle" },
-                      { src: nexusNight, alt: "RAJ NEXUS – Nachttisch" },
+                      { src: carousel1, alt: "RAJ NEXUS – Luxus Nachttisch Lifestyle" },
+                      { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
+                      { src: carousel3, alt: "RAJ NEXUS – Modernes Büro Setup" },
+                      { src: carousel4, alt: "RAJ NEXUS – Premium Detail & Hinge" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
                         <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden">
