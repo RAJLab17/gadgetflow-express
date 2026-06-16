@@ -815,11 +815,10 @@ const NexusPage = () => {
                 >
                   <CarouselContent className="-ml-0">
                     {[
-                      { src: nexusHeroDark, alt: "RAJ NEXUS – Lifestyle bei Nacht" },
-                      { src: nexusTopview, alt: "RAJ NEXUS – Topview Qi2.2" },
-                      { src: nexusFolds, alt: "RAJ NEXUS – Faltmechanismus Detail" },
-                      { src: nexusSofa, alt: "RAJ NEXUS – Wohnzimmer Lifestyle" },
-                      { src: nexusNight, alt: "RAJ NEXUS – Nachttisch" },
+                      { src: carousel1, alt: "RAJ NEXUS – Luxus Nachttisch Lifestyle" },
+                      { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
+                      { src: carousel3, alt: "RAJ NEXUS – Modernes Büro Setup" },
+                      { src: carousel4, alt: "RAJ NEXUS – Premium Detail & Hinge" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
                         <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden">
