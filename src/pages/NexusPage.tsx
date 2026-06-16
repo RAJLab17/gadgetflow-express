@@ -816,30 +816,40 @@ const NexusPage = () => {
                 >
                   <CarouselContent className="-ml-0">
                     {[
-                      { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht", fit: "contain" as const },
-                      { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods", fit: "contain" as const },
-                      { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge", fit: "contain" as const },
-                      { src: carousel4, alt: "RAJ NEXUS – Nachttisch Lifestyle", fit: "cover" as const },
-                      { src: carousel5, alt: "RAJ NEXUS – Marmor Küchen Lifestyle", fit: "cover" as const },
+                      { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
+                      { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
+                      { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
+                      { src: carousel4, alt: "RAJ NEXUS – Nachttisch Lifestyle" },
+                      { src: carousel5, alt: "RAJ NEXUS – Marmor Küchen Lifestyle" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
-                        <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden">
+                        <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden" style={{ background: "#ffffff" }}>
                           <img
                             src={img.src}
                             alt={img.alt}
                             loading={i === 0 ? "eager" : "lazy"}
                             decoding="async"
-                            className={`absolute inset-0 w-full h-full ${img.fit === "contain" ? "object-contain p-6 sm:p-10" : "object-cover"}`}
+                            className="absolute inset-0 w-full h-full object-contain p-6 sm:p-10"
                           />
-                          {/* Edge fades for cinematic feel */}
+                          {/* White edge fades for seamless transitions */}
                           <div
                             className="absolute inset-x-0 top-0 h-[12%] pointer-events-none"
-                            style={{ background: `linear-gradient(to bottom, ${D.bg}, transparent)` }}
+                            style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }}
                             aria-hidden
                           />
                           <div
                             className="absolute inset-x-0 bottom-0 h-[15%] pointer-events-none"
-                            style={{ background: `linear-gradient(to top, ${D.bg}, transparent)` }}
+                            style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
+                            aria-hidden
+                          />
+                          <div
+                            className="absolute inset-y-0 left-0 w-[8%] pointer-events-none"
+                            style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
+                            aria-hidden
+                          />
+                          <div
+                            className="absolute inset-y-0 right-0 w-[8%] pointer-events-none"
+                            style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
                             aria-hidden
                           />
                         </div>
