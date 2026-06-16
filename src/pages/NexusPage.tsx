@@ -39,10 +39,10 @@ import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.webp";
 import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
-import carousel1 from "@/assets/hero-carousel/nexus-carousel-1.jpg";
-import carousel2 from "@/assets/hero-carousel/nexus-carousel-2.jpg";
-import carousel3 from "@/assets/hero-carousel/nexus-carousel-3.jpg";
-import carousel4 from "@/assets/hero-carousel/nexus-carousel-4.jpg";
+import carousel1 from "@/assets/products/nexus-real-hero-floating-white.jpg";
+import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.jpg";
+import carousel3 from "@/assets/products/nexus-real-desk-office.jpg";
+import carousel4 from "@/assets/products/nexus-real-folds-white.jpg";
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
 const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
