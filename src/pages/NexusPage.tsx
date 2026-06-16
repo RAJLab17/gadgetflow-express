@@ -41,8 +41,9 @@ import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp"
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import carousel1 from "@/assets/products/nexus-real-hero-floating-white.jpg";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.jpg";
-import carousel3 from "@/assets/products/nexus-real-desk-office.jpg";
-import carousel4 from "@/assets/products/nexus-real-folds-white.jpg";
+import carousel3 from "@/assets/products/nexus-real-folds-white.jpg";
+import carousel4 from "@/assets/products/nexus-lifestyle-bedroom.jpg";
+import carousel5 from "@/assets/products/nexus-lifestyle-marble.jpg";
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
 const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
@@ -815,10 +816,11 @@ const NexusPage = () => {
                 >
                   <CarouselContent className="-ml-0">
                     {[
-                      { src: carousel1, alt: "RAJ NEXUS – Luxus Nachttisch Lifestyle" },
-                      { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
-                      { src: carousel3, alt: "RAJ NEXUS – Modernes Büro Setup" },
-                      { src: carousel4, alt: "RAJ NEXUS – Premium Detail & Hinge" },
+                      { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht", fit: "contain" as const },
+                      { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods", fit: "contain" as const },
+                      { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge", fit: "contain" as const },
+                      { src: carousel4, alt: "RAJ NEXUS – Nachttisch Lifestyle", fit: "cover" as const },
+                      { src: carousel5, alt: "RAJ NEXUS – Marmor Küchen Lifestyle", fit: "cover" as const },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
                         <div className="relative w-full aspect-[4/5] sm:aspect-[16/10] overflow-hidden">
@@ -827,7 +829,7 @@ const NexusPage = () => {
                             alt={img.alt}
                             loading={i === 0 ? "eager" : "lazy"}
                             decoding="async"
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className={`absolute inset-0 w-full h-full ${img.fit === "contain" ? "object-contain p-6 sm:p-10" : "object-cover"}`}
                           />
                           {/* Edge fades for cinematic feel */}
                           <div
