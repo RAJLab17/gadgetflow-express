@@ -42,8 +42,8 @@ import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import carousel1 from "@/assets/products/nexus-real-hero-floating-white.jpg";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import carousel3 from "@/assets/products/nexus-real-folds-white.jpg";
-import carousel4 from "@/assets/products/nexus-lifestyle-bedroom.jpg";
-import carousel5 from "@/assets/products/nexus-lifestyle-marble.jpg";
+import carousel4 from "@/assets/products/nexus-stone-hero.webp";
+import carousel5 from "@/assets/products/nexus-shop-hero-rocks.jpg";
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
 const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
@@ -819,8 +819,8 @@ const NexusPage = () => {
                       { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
                       { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
                       { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
-                      { src: carousel4, alt: "RAJ NEXUS – Nachttisch Lifestyle" },
-                      { src: carousel5, alt: "RAJ NEXUS – Marmor Küchen Lifestyle" },
+                      { src: carousel4, alt: "RAJ NEXUS – Stein Editorial" },
+                      { src: carousel5, alt: "RAJ NEXUS – Marmor Premium" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
                         <div className="relative w-full aspect-square overflow-hidden" style={{ background: "#ffffff" }}>
