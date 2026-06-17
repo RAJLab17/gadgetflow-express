@@ -208,8 +208,8 @@ const Header = () => {
         {/* Mobile Menu — pure CSS expand */}
         {isMenuOpen && (
           <div
-            className="raj-fade md:hidden overflow-hidden bg-[#0a0908]/98 backdrop-blur-xl border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
-            style={{ animationDuration: "300ms" }}
+            className="raj-fade md:hidden overflow-hidden border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
+            style={{ animationDuration: "300ms", background: "rgba(10,10,10,0.97)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}
           >
             <div className="py-6 space-y-1">
               {[
