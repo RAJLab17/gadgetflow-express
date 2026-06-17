@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { useCartStore } from "@/stores/cartStore";
 import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
 
-export const CartDrawer = () => {
+export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
@@ -38,8 +38,8 @@ export const CartDrawer = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon" className="relative" aria-label="Warenkorb öffnen">
-          <ShoppingCart className="h-5 w-5" />
+        <Button variant="outline" size="icon" className={`relative ${triggerClassName ?? ""}`} aria-label="Warenkorb öffnen">
+          <ShoppingCart ref={triggerClassName ? (el) => el?.style.setProperty("color", "#E8DCC4", "important") : undefined} className="h-5 w-5" />
           {totalItems > 0 && (
             <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-primary text-primary-foreground">
               {totalItems}

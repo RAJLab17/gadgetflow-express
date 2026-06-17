@@ -193,13 +193,17 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
-            <CartDrawer />
+            <CartDrawer triggerClassName="!h-10 !w-10 !rounded-full !border-white/10 !bg-[rgba(10,10,10,0.55)] backdrop-blur-[8px] hover:!bg-[rgba(10,10,10,0.7)] [&_svg]:![color:#E8DCC4]" />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-foreground hover:text-primary transition-colors"
+              className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-white/10 bg-[rgba(10,10,10,0.55)] backdrop-blur-[8px] transition-colors"
               aria-label={isMenuOpen ? "Menü schliessen" : "Menü öffnen"}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X ref={(el) => el?.style.setProperty("color", "#E8DCC4", "important")} className="h-5 w-5" />
+              ) : (
+                <Menu ref={(el) => el?.style.setProperty("color", "#E8DCC4", "important")} className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -207,8 +211,8 @@ const Header = () => {
         {/* Mobile Menu — pure CSS expand */}
         {isMenuOpen && (
           <div
-            className="raj-fade md:hidden overflow-hidden bg-[#0a0908]/98 backdrop-blur-xl border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
-            style={{ animationDuration: "300ms" }}
+            className="raj-fade md:hidden overflow-hidden border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
+            style={{ animationDuration: "300ms", background: "rgba(10,10,10,0.97)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}
           >
             <div className="py-6 space-y-1">
               {[
@@ -226,7 +230,7 @@ const Header = () => {
                     <Link
                       to={item.to}
                       onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center justify-between py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors"
+                      className="flex items-center justify-between py-4 border-b border-white/10 font-light tracking-wide [color:#E8DCC4!important] hover:[color:#c8946b!important] transition-colors text-[18px]"
                     >
                       <span>{item.label}</span>
                       <span style={{ color: "#9b6b3f" }}>→</span>
@@ -234,7 +238,7 @@ const Header = () => {
                   ) : (
                     <button
                       onClick={item.action}
-                      className="flex items-center justify-between w-full py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors text-left"
+                      className="flex items-center justify-between w-full py-4 border-b border-white/10 font-light tracking-wide [color:#E8DCC4!important] hover:[color:#c8946b!important] transition-colors text-left text-[18px]"
                     >
                       <span>{item.label}</span>
                       <span style={{ color: "#9b6b3f" }}>→</span>
