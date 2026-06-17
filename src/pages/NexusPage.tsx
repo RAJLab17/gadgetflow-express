@@ -921,11 +921,11 @@ const NexusPage = () => {
                       ))}
                     </CarouselContent>
                   </Carousel>
-                </div>
-              </div>
+                </div>{/* end carousel wrapper */}
+              </div>{/* end RIGHT col */}
 
-              {/* Mobile-only: price, CTA, trust (preserves exact mobile layout) */}
-              <div className="md:hidden contents">
+              {/* MOBILE ONLY — Price + CTA (hidden on desktop, desktop has it in left col) */}
+              <div className="md:hidden order-3">
                 {/* Price */}
                 <div className="flex items-baseline justify-center gap-3 mb-4 sm:mb-5">
                   <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
@@ -959,10 +959,7 @@ const NexusPage = () => {
                   </button>
                 </div>
 
-                <p
-                  className="mt-4 text-[11px] sm:text-xs text-center"
-                  style={{ color: D.muted, letterSpacing: "0.04em" }}
-                >
+                <p className="mt-4 text-[11px] sm:text-xs text-center" style={{ color: D.muted, letterSpacing: "0.04em" }}>
                   Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
                 </p>
 
