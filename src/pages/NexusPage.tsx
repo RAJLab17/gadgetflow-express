@@ -1103,21 +1103,14 @@ const NexusPage = () => {
                     }}
                     aria-hidden
                   />
-                  <div
-                    className="relative -mx-5 sm:-mx-10 md:mx-0 mb-5 sm:mb-6 md:mb-0 md:rounded-2xl md:overflow-hidden"
-                    style={{
-                      boxShadow: "var(--tw-shadow, none)",
-                    }}
-                  >
-                    <div
-                      className="hidden md:block absolute inset-0 pointer-events-none z-10 rounded-2xl"
-                      style={{
-                        boxShadow: `0 40px 80px -20px rgba(0,0,0,0.7), 0 0 0 1px ${D.gold}33 inset`,
-                      }}
-                      aria-hidden
-                    />
-                    <NexusCarousel />
-                  </div>
+                <div
+                  className="relative -mx-5 sm:-mx-10 md:mx-0 mb-5 sm:mb-6 md:mb-0"
+                  style={{
+                    boxShadow: "var(--tw-shadow, none)",
+                  }}
+                >
+                  <NexusCarousel />
+                </div>
                 </div>
               </div>{/* end RIGHT col */}
 
