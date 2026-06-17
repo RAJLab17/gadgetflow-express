@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
+import { useViewContent } from "@/hooks/useViewContent";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import { CartDrawer } from "@/components/CartDrawer";
