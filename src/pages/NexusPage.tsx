@@ -145,7 +145,7 @@ function NexusCarousel() {
             const bg = isComponent ? D.bg : "#ffffff";
             return (
               <CarouselItem key={i} className="pl-0 basis-full">
-                <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden rounded-2xl" style={{ background: bg, border: `2px solid ${D.gold}55` }}>
+                <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden rounded-2xl" style={{ background: bg }}>
                   {isComponent ? (
                     <BeforeNowSlide />
                   ) : (
