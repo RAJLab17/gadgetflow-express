@@ -43,7 +43,7 @@ import carousel1 from "@/assets/products/nexus-real-hero-floating-white.webp";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.webp";
 import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
-import beforeCableImg from "@/assets/products/cable.jpg";
+import beforeCableImg from "@/assets/products/nexus-before-cable-chaos.jpg";
 import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
 
 const carousel5 = carousel5Asset.url;
@@ -120,7 +120,7 @@ function BeforeNowSlide() {
       <div className="relative w-1/2 h-full overflow-hidden">
         <img
           src={beforeCableImg}
-          alt="Vorher – Kabelchaos auf dem Nachttisch"
+          alt="Vorher – Smartphone, AirPods und Smartwatch mit mehreren Kabeln auf dem Tisch"
           loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
