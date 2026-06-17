@@ -44,7 +44,7 @@ import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import carousel3 from "@/assets/products/nexus-real-folds-white.jpg";
 import carousel4Asset from "@/assets/products/nexus-now-before-comparison-v3.png.asset.json";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.png.asset.json";
-import carousel6 from "@/assets/products/nexus-shop-hero-rocks.jpg";
+
 
 const carousel4 = carousel4Asset.url;
 const carousel5 = carousel5Asset.url;
