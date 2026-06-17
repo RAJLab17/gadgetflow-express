@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, FormEvent, lazy, Suspense, useRef } from "react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -118,7 +118,7 @@ function NexusCarousel() {
     { type: "before-now" as const, alt: "RAJ NEXUS – Vorher vs. Jetzt" },
     { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
   ];
-  const [api, setApi] = useState<ReturnType<NonNullable<React.ComponentProps<typeof Carousel>["setApi"]>> extends void ? any : any>(undefined as any);
+  const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   useEffect(() => {
     if (!api) return;
