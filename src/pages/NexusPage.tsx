@@ -283,7 +283,7 @@ function BeforeNowSlide() {
             className="text-[10px] sm:text-xs md:text-sm font-light leading-snug"
             style={{ color: D.beige, letterSpacing: "0.04em" }}
           >
-            Ein Objekt.<br />Drei Geräte.<br />Null Kabel.
+            Ein Objekt.<br />Drei Geräte.<br />Kein Chaos.
           </p>
         </div>
       </div>
