@@ -170,7 +170,7 @@ function NexusCarousel() {
         </CarouselContent>
       </Carousel>
       {/* Dash indicators */}
-      <div className="flex items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-5 md:mt-6 px-4">
+      <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 md:mt-10 px-4">
         {slides.map((_, i) => {
           const active = i === current;
           return (
