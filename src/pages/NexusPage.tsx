@@ -780,7 +780,7 @@ const NexusPage = () => {
         {/* Hero — Window Crop atmosphere band + product carousel */}
         <div className="relative">
           {/* Title */}
-          <div className="relative z-10 flex flex-col items-center justify-center px-5 pt-10 pb-6">
+          <div className="relative z-10 flex flex-col items-center justify-center px-5 pt-4 sm:pt-6 pb-3 sm:pb-4">
             <div className="flex items-center justify-center gap-3 mb-4 sm:mb-5">
               <span className="w-6 h-px" style={{ background: D.gold }} />
               <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
