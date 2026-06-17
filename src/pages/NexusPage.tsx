@@ -42,7 +42,7 @@ import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import carousel1 from "@/assets/products/nexus-real-hero-floating-white.jpg";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.jpg";
 import carousel3 from "@/assets/products/nexus-real-folds-white.jpg";
-import carousel4Asset from "@/assets/products/nexus-now-before-comparison-v2.png.asset.json";
+import carousel4Asset from "@/assets/products/nexus-now-before-comparison-v3.png.asset.json";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.png.asset.json";
 import carousel6 from "@/assets/products/nexus-shop-hero-rocks.jpg";
 
