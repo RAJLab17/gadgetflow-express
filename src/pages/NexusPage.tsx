@@ -767,7 +767,7 @@ const NexusPage = () => {
       <Header />
       <section
         id="mockup-signup"
-        className="relative overflow-hidden pt-10 sm:pt-12"
+        className="relative overflow-hidden pt-10 sm:pt-12 md:pt-24 md:min-h-screen md:flex md:flex-col md:justify-center"
         style={{ background: D.bg, color: D.beige }}
       >
         {/* Vignette bottom */}
@@ -808,38 +808,49 @@ const NexusPage = () => {
           </div>
 
           {/* Lower content */}
-          <div className="relative px-5 sm:px-10 pb-8 sm:pb-12 max-w-6xl mx-auto">
-            <div className="md:grid md:grid-cols-2 md:gap-16 md:items-center text-center md:text-left max-w-2xl md:max-w-none mx-auto">
+          <div className="relative px-5 sm:px-10 md:px-12 lg:px-16 pb-8 sm:pb-12 md:pb-20 max-w-[1440px] mx-auto">
+            <div className="md:grid md:grid-cols-[1.05fr_1.25fr] md:gap-12 lg:gap-20 md:items-center text-center md:text-left max-w-2xl md:max-w-none mx-auto">
 
               {/* LEFT — Text + CTA (desktop only split) */}
               <div className="hidden md:flex flex-col justify-center order-1">
 
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="w-6 h-px" style={{ background: D.gold }} />
+                <div className="flex items-center gap-3 mb-7">
+                  <span className="w-8 h-px" style={{ background: D.gold }} />
                   <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
                     Founder Edition — Nur 100 Stück
                   </span>
                 </div>
 
                 <div
-                  className="text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-[-0.02em]"
+                  className="text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-[-0.02em] whitespace-nowrap"
                   style={{ fontWeight: 100 }}
                 >
                   <span style={{ color: D.beige }}>RAJ</span>{" "}
                   <span style={{ WebkitTextStroke: "1.5px #C9A876", color: "transparent" }}>NEXUS</span>
                 </div>
 
-                <p className="mt-5 text-lg lg:text-xl" style={{ color: D.muted, fontWeight: 300 }}>
-                  iPhone, Watch & AirPods. Geladen an einem Ort.
+                <p className="mt-6 text-xl lg:text-2xl leading-snug" style={{ color: D.muted, fontWeight: 300 }}>
+                  iPhone, Watch & AirPods.<br />Geladen an einem Ort.
                 </p>
-                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: D.mutedDim }}>
-                  <li><span style={{ color: D.gold }}>✦</span> Qi 2.2, 25 Watt</li>
-                  <li><span style={{ color: D.gold }}>✦</span> Kompakt faltbar</li>
-                  <li><span style={{ color: D.gold }}>✦</span> 3 Jahre Garantie</li>
-                </ul>
+
+                {/* Premium specs row */}
+                <div className="mt-8 grid grid-cols-3 gap-4 max-w-md border-y py-5" style={{ borderColor: `${D.gold}33` }}>
+                  <div>
+                    <div className="text-2xl lg:text-3xl" style={{ color: D.beige, fontWeight: 200 }}>25<span className="text-sm align-top ml-0.5" style={{ color: D.muted }}>W</span></div>
+                    <div className="text-[10px] mt-1 uppercase" style={{ color: D.mutedDim, letterSpacing: "0.2em" }}>Qi 2.2</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl lg:text-3xl" style={{ color: D.beige, fontWeight: 200 }}>3<span className="text-sm align-top ml-0.5" style={{ color: D.muted }}>×</span></div>
+                    <div className="text-[10px] mt-1 uppercase" style={{ color: D.mutedDim, letterSpacing: "0.2em" }}>Geräte</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl lg:text-3xl" style={{ color: D.beige, fontWeight: 200 }}>3<span className="text-sm align-top ml-0.5" style={{ color: D.muted }}>J</span></div>
+                    <div className="text-[10px] mt-1 uppercase" style={{ color: D.mutedDim, letterSpacing: "0.2em" }}>Garantie</div>
+                  </div>
+                </div>
 
                 <div className="flex items-baseline gap-3 mt-8 mb-6">
-                  <span className="text-5xl" style={{ color: D.beige, fontWeight: 300 }}>CHF 99.–</span>
+                  <span className="text-5xl lg:text-6xl" style={{ color: D.beige, fontWeight: 300 }}>CHF 99.–</span>
                   <span className="text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>CHF 129.–</span>
                 </div>
 
@@ -847,7 +858,7 @@ const NexusPage = () => {
                   type="button"
                   onClick={quickBuy}
                   disabled={buyProcessing}
-                  className="group w-fit inline-flex items-center justify-center gap-2 py-5 px-12 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group w-fit inline-flex items-center justify-center gap-2 py-5 px-14 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                   style={{
                     background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
                     color: "#0a0908",
@@ -861,68 +872,91 @@ const NexusPage = () => {
                   Jetzt kaufen
                   <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
                 </button>
-                <p className="mt-4 text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
+                <p className="mt-5 text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
                   Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
                 </p>
-                <ul className="mt-5 flex flex-col gap-2 text-[11px]" style={{ color: D.muted }}>
+                <ul className="mt-3 flex flex-col gap-2 text-[11px]" style={{ color: D.muted }}>
                   <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
                 </ul>
               </div>
 
               {/* RIGHT — Carousel (always visible, full width on mobile) */}
               <div className="order-2">
-                {/* Product carousel */}
-                <div className="relative -mx-5 sm:-mx-10 md:mx-0 mb-5 sm:mb-6 md:mb-0">
-                  <Carousel
-                    opts={{ loop: true, align: "center" }}
-                    plugins={[Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]}
-                    className="w-full"
+                {/* Premium glow behind carousel on desktop */}
+                <div className="relative">
+                  <div
+                    className="hidden md:block absolute -inset-8 lg:-inset-12 pointer-events-none rounded-[2rem]"
+                    style={{
+                      background: `radial-gradient(ellipse at center, ${D.gold}22 0%, transparent 65%)`,
+                      filter: "blur(20px)",
+                    }}
+                    aria-hidden
+                  />
+                  <div
+                    className="relative -mx-5 sm:-mx-10 md:mx-0 mb-5 sm:mb-6 md:mb-0 md:rounded-2xl md:overflow-hidden"
+                    style={{
+                      boxShadow: "var(--tw-shadow, none)",
+                    }}
                   >
-                    <CarouselContent className="-ml-0">
-                      {[
-                        { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
-                        { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
-                        { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
-                        { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
-                        { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
-                      ].map((img, i) => (
-                        <CarouselItem key={i} className="pl-0 basis-full">
-                          <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#ffffff" }}>
-                            <img
-                              src={img.src}
-                              alt={img.alt}
-                              loading={i === 0 ? "eager" : "lazy"}
-                              decoding="async"
-                              className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : i === 3 ? "object-contain" : "object-cover"} ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""}`}
-                            />
-                            {/* Subtle edge fades for seamless transitions */}
-                            <div
-                              className="absolute inset-x-0 top-0 h-[4%] pointer-events-none"
-                              style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }}
-                              aria-hidden
-                            />
-                            <div
-                              className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none"
-                              style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
-                              aria-hidden
-                            />
-                            <div
-                              className="absolute inset-y-0 left-0 w-[3%] pointer-events-none"
-                              style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
-                              aria-hidden
-                            />
-                            <div
-                              className="absolute inset-y-0 right-0 w-[3%] pointer-events-none"
-                              style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
-                              aria-hidden
-                            />
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
-                </div>{/* end carousel wrapper */}
+                    <div
+                      className="hidden md:block absolute inset-0 pointer-events-none z-10 rounded-2xl"
+                      style={{
+                        boxShadow: `0 40px 80px -20px rgba(0,0,0,0.7), 0 0 0 1px ${D.gold}33 inset`,
+                      }}
+                      aria-hidden
+                    />
+                    <Carousel
+                      opts={{ loop: true, align: "center" }}
+                      plugins={[Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]}
+                      className="w-full"
+                    >
+                      <CarouselContent className="-ml-0">
+                        {[
+                          { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
+                          { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
+                          { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
+                          { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
+                          { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
+                        ].map((img, i) => (
+                          <CarouselItem key={i} className="pl-0 basis-full">
+                            <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden" style={{ background: "#ffffff" }}>
+                              <img
+                                src={img.src}
+                                alt={img.alt}
+                                loading={i === 0 ? "eager" : "lazy"}
+                                decoding="async"
+                                className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : i === 3 ? "object-contain" : "object-cover"} ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""}`}
+                              />
+                              {/* Subtle edge fades for seamless transitions */}
+                              <div
+                                className="absolute inset-x-0 top-0 h-[4%] pointer-events-none"
+                                style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }}
+                                aria-hidden
+                              />
+                              <div
+                                className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none"
+                                style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
+                                aria-hidden
+                              />
+                              <div
+                                className="absolute inset-y-0 left-0 w-[3%] pointer-events-none"
+                                style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
+                                aria-hidden
+                              />
+                              <div
+                                className="absolute inset-y-0 right-0 w-[3%] pointer-events-none"
+                                style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
+                                aria-hidden
+                              />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
+                  </div>
+                </div>
               </div>{/* end RIGHT col */}
+
 
               {/* MOBILE ONLY — Price + CTA (hidden on desktop, desktop has it in left col) */}
               <div className="md:hidden order-3">
