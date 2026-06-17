@@ -53,6 +53,7 @@ const App = () => (
           <BrowserRouter>
             <Suspense fallback={null}>
               <DevModeToggle />
+              <RouteTracker />
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/shop" element={<ShopPreview />} />
