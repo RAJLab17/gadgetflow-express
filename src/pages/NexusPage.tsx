@@ -767,7 +767,7 @@ const NexusPage = () => {
       <Header />
       <section
         id="mockup-signup"
-        className="relative overflow-hidden pt-20"
+        className="relative overflow-hidden pt-10 sm:pt-12"
         style={{ background: D.bg, color: D.beige }}
       >
         {/* Vignette bottom */}
@@ -780,7 +780,7 @@ const NexusPage = () => {
         {/* Hero — Window Crop atmosphere band + product carousel */}
         <div className="relative">
           {/* Title */}
-          <div className="relative z-10 flex flex-col items-center justify-center px-5 pt-10 pb-6">
+          <div className="relative z-10 flex flex-col items-center justify-center px-5 pt-4 sm:pt-6 pb-3 sm:pb-4">
             <div className="flex items-center justify-center gap-3 mb-4 sm:mb-5">
               <span className="w-6 h-px" style={{ background: D.gold }} />
               <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
@@ -808,11 +808,11 @@ const NexusPage = () => {
           </div>
 
           {/* Lower content */}
-          <div className="relative px-5 sm:px-10 pb-12 sm:pb-24 max-w-5xl mx-auto">
+          <div className="relative px-5 sm:px-10 pb-8 sm:pb-12 max-w-5xl mx-auto">
             <div className="text-center max-w-2xl mx-auto">
 
               {/* Product carousel */}
-              <div className="relative -mx-5 sm:-mx-10 mb-8 sm:mb-10">
+              <div className="relative -mx-5 sm:-mx-10 mb-5 sm:mb-6">
                 <Carousel
                   opts={{ loop: true, align: "center" }}
                   plugins={[Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]}
@@ -864,7 +864,7 @@ const NexusPage = () => {
               </div>
 
               {/* Price */}
-              <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
+              <div className="flex items-baseline justify-center gap-3 mb-4 sm:mb-5">
                 <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
                   CHF 99.–
                 </span>
