@@ -42,11 +42,9 @@ import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import carousel1 from "@/assets/products/nexus-real-hero-floating-white.webp";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.webp";
 import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
-import carousel4Asset from "@/assets/products/nexus-before-now-premium.webp.asset.json";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
+import beforeCableImg from "@/assets/products/cable.jpg";
 
-
-const carousel4 = carousel4Asset.url;
 const carousel5 = carousel5Asset.url;
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
@@ -107,6 +105,128 @@ const L = {
   gold: "#9b6b3f",
   border: "#E8E2D6",
 };
+
+// ─────────────────────────────────────────────────────────────────
+// BEFORE / NOW — editorial split panel using real product photo
+// ─────────────────────────────────────────────────────────────────
+function BeforeNowSlide() {
+  return (
+    <div
+      className="absolute inset-0 flex overflow-hidden"
+      style={{ background: D.bg }}
+    >
+      {/* BEFORE — left half */}
+      <div className="relative w-1/2 h-full overflow-hidden">
+        <img
+          src={beforeCableImg}
+          alt="Vorher – Kabelchaos auf dem Nachttisch"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "grayscale(1) brightness(0.55) contrast(1.05)" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(135deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.2) 50%, rgba(10,10,10,0.75) 100%)`,
+          }}
+          aria-hidden
+        />
+        {/* Label */}
+        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 z-10">
+          <div
+            className="text-[9px] sm:text-[10px] md:text-[11px] uppercase font-light"
+            style={{ color: D.muted, letterSpacing: "0.32em" }}
+          >
+            Vorher
+          </div>
+          <div
+            className="mt-1 h-px w-8 sm:w-10"
+            style={{ background: D.muted, opacity: 0.5 }}
+          />
+        </div>
+        {/* Caption */}
+        <div className="absolute bottom-4 left-4 right-2 sm:bottom-6 sm:left-6 md:bottom-8 md:left-8 z-10">
+          <p
+            className="text-[10px] sm:text-xs md:text-sm font-light leading-snug"
+            style={{ color: D.beige, opacity: 0.85, letterSpacing: "0.04em" }}
+          >
+            Drei Kabel.<br />Drei Stecker.<br />Ein Durcheinander.
+          </p>
+        </div>
+      </div>
+
+      {/* NOW — right half */}
+      <div className="relative w-1/2 h-full overflow-hidden" style={{ background: "#ffffff" }}>
+        <img
+          src={carousel1}
+          alt="Nachher – RAJ NEXUS, ein Objekt für alle Geräte"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-contain scale-[1.85]"
+        />
+        {/* Subtle gold radial glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(ellipse at 50% 60%, ${D.gold}1a 0%, transparent 60%)`,
+          }}
+          aria-hidden
+        />
+        {/* Label */}
+        <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 z-10 text-right">
+          <div
+            className="text-[9px] sm:text-[10px] md:text-[11px] uppercase font-medium"
+            style={{ color: D.gold, letterSpacing: "0.32em" }}
+          >
+            Jetzt
+          </div>
+          <div
+            className="mt-1 h-px w-8 sm:w-10 ml-auto"
+            style={{ background: D.gold }}
+          />
+        </div>
+        {/* Caption */}
+        <div className="absolute bottom-4 right-4 left-2 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-10 text-right">
+          <p
+            className="text-[10px] sm:text-xs md:text-sm font-light leading-snug"
+            style={{ color: "#1A1A1A", letterSpacing: "0.04em" }}
+          >
+            Ein Objekt.<br />Drei Geräte.<br />Null Kabel.
+          </p>
+        </div>
+      </div>
+
+      {/* Center divider — gold hairline + medallion */}
+      <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 flex items-center justify-center pointer-events-none z-20">
+        <div
+          className="h-full w-px"
+          style={{
+            background: `linear-gradient(to bottom, transparent 0%, ${D.gold} 18%, ${D.gold} 82%, transparent 100%)`,
+            opacity: 0.85,
+          }}
+        />
+        <div
+          className="absolute flex items-center justify-center rounded-full"
+          style={{
+            width: "clamp(36px, 6vw, 56px)",
+            height: "clamp(36px, 6vw, 56px)",
+            background: D.bg,
+            border: `1px solid ${D.gold}`,
+            boxShadow: `0 0 0 4px ${D.bg}, 0 8px 24px -6px ${D.gold}66`,
+          }}
+        >
+          <span
+            className="text-[9px] sm:text-[10px] md:text-[11px] font-light uppercase"
+            style={{ color: D.gold, letterSpacing: "0.18em" }}
+          >
+            vs
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const LAUNCH_DATE = new Date("2026-06-16T20:00:00+02:00").getTime();
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
@@ -915,42 +1035,36 @@ const NexusPage = () => {
                           { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
                           { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
                           { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
-                          { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
+                          { type: "before-now" as const, alt: "RAJ NEXUS – Vorher vs. Jetzt" },
                           { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
-                        ].map((img, i) => (
+                        ].map((img, i) => {
+                          const isComponent = "type" in img && img.type === "before-now";
+                          const bg = isComponent ? D.bg : "#ffffff";
+                          return (
                           <CarouselItem key={i} className="pl-0 basis-full">
-                            <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden" style={{ background: "#ffffff" }}>
-                              <img
-                                src={img.src}
-                                alt={img.alt}
-                                loading={i === 0 ? "eager" : "lazy"}
-                                decoding="async"
-                                className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : i === 3 ? "object-contain" : "object-cover"} ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""}`}
-                              />
-                              {/* Subtle edge fades for seamless transitions */}
-                              <div
-                                className="absolute inset-x-0 top-0 h-[4%] pointer-events-none"
-                                style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }}
-                                aria-hidden
-                              />
-                              <div
-                                className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none"
-                                style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
-                                aria-hidden
-                              />
-                              <div
-                                className="absolute inset-y-0 left-0 w-[3%] pointer-events-none"
-                                style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
-                                aria-hidden
-                              />
-                              <div
-                                className="absolute inset-y-0 right-0 w-[3%] pointer-events-none"
-                                style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
-                                aria-hidden
-                              />
+                            <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden" style={{ background: bg }}>
+                              {isComponent ? (
+                                <BeforeNowSlide />
+                              ) : (
+                                <>
+                                  <img
+                                    src={(img as { src: string }).src}
+                                    alt={img.alt}
+                                    loading={i === 0 ? "eager" : "lazy"}
+                                    decoding="async"
+                                    className={`absolute inset-0 w-full h-full object-contain ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""} ${i === 4 ? "object-cover" : ""}`}
+                                  />
+                                  {/* Subtle edge fades for seamless transitions */}
+                                  <div className="absolute inset-x-0 top-0 h-[4%] pointer-events-none" style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }} aria-hidden />
+                                  <div className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none" style={{ background: "linear-gradient(to top, #ffffff, transparent)" }} aria-hidden />
+                                  <div className="absolute inset-y-0 left-0 w-[3%] pointer-events-none" style={{ background: "linear-gradient(to right, #ffffff, transparent)" }} aria-hidden />
+                                  <div className="absolute inset-y-0 right-0 w-[3%] pointer-events-none" style={{ background: "linear-gradient(to left, #ffffff, transparent)" }} aria-hidden />
+                                </>
+                              )}
                             </div>
                           </CarouselItem>
-                        ))}
+                          );
+                        })}
                       </CarouselContent>
                     </Carousel>
                   </div>
