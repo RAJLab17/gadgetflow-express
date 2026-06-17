@@ -193,13 +193,14 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
-            <CartDrawer />
+            <CartDrawer triggerClassName="!h-10 !w-10 !rounded-full !border-white/10 !bg-[rgba(10,10,10,0.55)] backdrop-blur-[8px] hover:!bg-[rgba(10,10,10,0.7)] [&_svg]:!text-[#E8DCC4]" />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-foreground hover:text-primary transition-colors"
+              className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-white/10 backdrop-blur-[8px] transition-colors"
+              style={{ background: "rgba(10,10,10,0.55)", color: "#E8DCC4" }}
               aria-label={isMenuOpen ? "Menü schliessen" : "Menü öffnen"}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5" style={{ color: "#E8DCC4" }} /> : <Menu className="h-5 w-5" style={{ color: "#E8DCC4" }} />}
             </button>
           </div>
         </div>
