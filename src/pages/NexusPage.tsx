@@ -120,7 +120,7 @@ function BeforeNowSlide() {
       <div className="relative w-1/2 h-full overflow-hidden">
         <img
           src={beforeCableImg}
-          alt="Vorher – Kabelchaos auf dem Nachttisch"
+          alt="Vorher – Smartphone, AirPods und Smartwatch mit mehreren Kabeln auf dem Tisch"
           loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
