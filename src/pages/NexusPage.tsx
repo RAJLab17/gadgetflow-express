@@ -812,7 +812,7 @@ const NexusPage = () => {
             <div className="text-center max-w-2xl mx-auto">
 
               {/* Product carousel */}
-              <div className="relative -mx-5 sm:-mx-10 mb-8 sm:mb-10">
+              <div className="relative -mx-5 sm:-mx-10 mb-5 sm:mb-6">
                 <Carousel
                   opts={{ loop: true, align: "center" }}
                   plugins={[Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]}
