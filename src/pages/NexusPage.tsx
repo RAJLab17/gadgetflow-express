@@ -767,7 +767,7 @@ const NexusPage = () => {
       <Header />
       <section
         id="mockup-signup"
-        className="relative overflow-hidden pt-20"
+        className="relative overflow-hidden pt-10 sm:pt-12"
         style={{ background: D.bg, color: D.beige }}
       >
         {/* Vignette bottom */}
