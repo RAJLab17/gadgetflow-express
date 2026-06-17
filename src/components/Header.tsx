@@ -227,7 +227,8 @@ const Header = () => {
                     <Link
                       to={item.to}
                       onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center justify-between py-4 border-b border-white/10 !text-white text-base font-light tracking-wide hover:!text-[#c8946b] transition-colors"
+                      className="flex items-center justify-between py-4 border-b border-white/10 font-light tracking-wide hover:!text-[#c8946b] transition-colors"
+                      style={{ color: "#E8DCC4", fontSize: "18px" }}
                     >
                       <span>{item.label}</span>
                       <span style={{ color: "#9b6b3f" }}>→</span>
