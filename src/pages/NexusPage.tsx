@@ -808,78 +808,46 @@ const NexusPage = () => {
           </div>
 
           {/* Lower content */}
-          <div className="relative px-5 sm:px-10 pb-8 sm:pb-12 max-w-5xl mx-auto">
-            <div className="text-center max-w-2xl mx-auto">
+          <div className="relative px-5 sm:px-10 pb-8 sm:pb-12 max-w-6xl mx-auto">
+            <div className="md:grid md:grid-cols-2 md:gap-16 md:items-center text-center md:text-left max-w-2xl md:max-w-none mx-auto">
 
-              {/* Product carousel */}
-              <div className="relative -mx-5 sm:-mx-10 mb-5 sm:mb-6">
-                <Carousel
-                  opts={{ loop: true, align: "center" }}
-                  plugins={[Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]}
-                  className="w-full"
+              {/* LEFT — Text + CTA (desktop only split) */}
+              <div className="hidden md:flex flex-col justify-center order-1">
+
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="w-6 h-px" style={{ background: D.gold }} />
+                  <span className="text-[10px] uppercase font-semibold" style={{ color: D.gold, letterSpacing: "0.32em" }}>
+                    Founder Edition — Nur 100 Stück
+                  </span>
+                </div>
+
+                <div
+                  className="text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-[-0.02em]"
+                  style={{ fontWeight: 100 }}
                 >
-                  <CarouselContent className="-ml-0">
-                    {[
-                      { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
-                      { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
-                      { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
-                      { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
-                      { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
-                    ].map((img, i) => (
-                      <CarouselItem key={i} className="pl-0 basis-full">
-                        <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#ffffff" }}>
-                          <img
-                            src={img.src}
-                            alt={img.alt}
-                            loading={i === 0 ? "eager" : "lazy"}
-                            decoding="async"
-                            className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : i === 3 ? "object-contain" : "object-cover"} ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""}`}
-                          />
-                          {/* Subtle edge fades for seamless transitions */}
-                          <div
-                            className="absolute inset-x-0 top-0 h-[4%] pointer-events-none"
-                            style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }}
-                            aria-hidden
-                          />
-                          <div
-                            className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none"
-                            style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
-                            aria-hidden
-                          />
-                          <div
-                            className="absolute inset-y-0 left-0 w-[3%] pointer-events-none"
-                            style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
-                            aria-hidden
-                          />
-                          <div
-                            className="absolute inset-y-0 right-0 w-[3%] pointer-events-none"
-                            style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
-                            aria-hidden
-                          />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                </Carousel>
-              </div>
+                  <span style={{ color: D.beige }}>RAJ</span>{" "}
+                  <span style={{ WebkitTextStroke: "1.5px #C9A876", color: "transparent" }}>NEXUS</span>
+                </div>
 
-              {/* Price */}
-              <div className="flex items-baseline justify-center gap-3 mb-4 sm:mb-5">
-                <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
-                  CHF 99.–
-                </span>
-                <span className="text-lg sm:text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>
-                  CHF 129.–
-                </span>
-              </div>
+                <p className="mt-5 text-lg lg:text-xl" style={{ color: D.muted, fontWeight: 300 }}>
+                  iPhone, Watch & AirPods. Geladen an einem Ort.
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: D.mutedDim }}>
+                  <li><span style={{ color: D.gold }}>✦</span> Qi 2.2, 25 Watt</li>
+                  <li><span style={{ color: D.gold }}>✦</span> Kompakt faltbar</li>
+                  <li><span style={{ color: D.gold }}>✦</span> 3 Jahre Garantie</li>
+                </ul>
 
-              {/* CTA */}
-              <div className="flex justify-center px-0">
+                <div className="flex items-baseline gap-3 mt-8 mb-6">
+                  <span className="text-5xl" style={{ color: D.beige, fontWeight: 300 }}>CHF 99.–</span>
+                  <span className="text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>CHF 129.–</span>
+                </div>
+
                 <button
                   type="button"
                   onClick={quickBuy}
                   disabled={buyProcessing}
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 py-5 px-12 sm:px-16 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group w-fit inline-flex items-center justify-center gap-2 py-5 px-12 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                   style={{
                     background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
                     color: "#0a0908",
@@ -888,24 +856,120 @@ const NexusPage = () => {
                     fontWeight: 700,
                     textTransform: "uppercase",
                     boxShadow: `0 20px 50px -10px rgba(201,168,118,0.6), 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
-                    whiteSpace: "nowrap",
                   }}
                 >
                   Jetzt kaufen
                   <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
                 </button>
+                <p className="mt-4 text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>
+                  Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+                </p>
+                <ul className="mt-5 flex flex-col gap-2 text-[11px]" style={{ color: D.muted }}>
+                  <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
+                </ul>
               </div>
 
-              <p
-                className="mt-4 text-[11px] sm:text-xs text-center"
-                style={{ color: D.muted, letterSpacing: "0.04em" }}
-              >
-                Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
-              </p>
+              {/* RIGHT — Carousel (always visible, full width on mobile) */}
+              <div className="order-2">
+                {/* Product carousel */}
+                <div className="relative -mx-5 sm:-mx-10 md:mx-0 mb-5 sm:mb-6 md:mb-0">
+                  <Carousel
+                    opts={{ loop: true, align: "center" }}
+                    plugins={[Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })]}
+                    className="w-full"
+                  >
+                    <CarouselContent className="-ml-0">
+                      {[
+                        { src: carousel1, alt: "RAJ NEXUS – Studio Produktansicht" },
+                        { src: carousel2, alt: "RAJ NEXUS – Topview iPhone, Watch & AirPods" },
+                        { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
+                        { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
+                        { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
+                      ].map((img, i) => (
+                        <CarouselItem key={i} className="pl-0 basis-full">
+                          <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#ffffff" }}>
+                            <img
+                              src={img.src}
+                              alt={img.alt}
+                              loading={i === 0 ? "eager" : "lazy"}
+                              decoding="async"
+                              className={`absolute inset-0 w-full h-full ${i < 3 ? "object-contain" : i === 3 ? "object-contain" : "object-cover"} ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""}`}
+                            />
+                            {/* Subtle edge fades for seamless transitions */}
+                            <div
+                              className="absolute inset-x-0 top-0 h-[4%] pointer-events-none"
+                              style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }}
+                              aria-hidden
+                            />
+                            <div
+                              className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none"
+                              style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
+                              aria-hidden
+                            />
+                            <div
+                              className="absolute inset-y-0 left-0 w-[3%] pointer-events-none"
+                              style={{ background: "linear-gradient(to right, #ffffff, transparent)" }}
+                              aria-hidden
+                            />
+                            <div
+                              className="absolute inset-y-0 right-0 w-[3%] pointer-events-none"
+                              style={{ background: "linear-gradient(to left, #ffffff, transparent)" }}
+                              aria-hidden
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                  </Carousel>
+                </div>
+              </div>
 
-              <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
-                <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
-              </ul>
+              {/* Mobile-only: price, CTA, trust (preserves exact mobile layout) */}
+              <div className="md:hidden contents">
+                {/* Price */}
+                <div className="flex items-baseline justify-center gap-3 mb-4 sm:mb-5">
+                  <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
+                    CHF 99.–
+                  </span>
+                  <span className="text-lg sm:text-xl line-through" style={{ color: D.mutedDim, fontWeight: 300 }}>
+                    CHF 129.–
+                  </span>
+                </div>
+
+                {/* CTA */}
+                <div className="flex justify-center px-0">
+                  <button
+                    type="button"
+                    onClick={quickBuy}
+                    disabled={buyProcessing}
+                    className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 py-5 px-12 sm:px-16 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                    style={{
+                      background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`,
+                      color: "#0a0908",
+                      letterSpacing: "0.2em",
+                      fontSize: "10px",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      boxShadow: `0 20px 50px -10px rgba(201,168,118,0.6), 0 8px 20px -8px ${D.gold}66, inset 0 1px 0 rgba(255,255,255,0.3)`,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Jetzt kaufen
+                    <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: "12px" }}>→</span>
+                  </button>
+                </div>
+
+                <p
+                  className="mt-4 text-[11px] sm:text-xs text-center"
+                  style={{ color: D.muted, letterSpacing: "0.04em" }}
+                >
+                  Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie
+                </p>
+
+                <ul className="mt-6 flex flex-col items-center gap-2 text-[11px]" style={{ color: D.muted }}>
+                  <li><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
