@@ -181,14 +181,6 @@ const Header = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <CartDrawer />
-            <Button
-              variant="hero"
-              size="default"
-              className="shadow-elegant"
-              onClick={quickBuy}
-            >
-              {t("header.buy")}
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -247,22 +239,6 @@ const Header = () => {
                 </div>
               ))}
 
-              <div className="pt-6 pb-2" style={{ animation: "raj-slide-from-left 400ms 300ms both" }}>
-                <button
-                  onClick={() => {
-                    setIsMenuOpen(false);
-                    quickBuy();
-                  }}
-                  className="w-full py-4 rounded-full text-[11px] uppercase font-medium tracking-[0.28em] transition-all"
-                  style={{
-                    background: "#9b6b3f",
-                    color: "#0a0908",
-                    boxShadow: "0 14px 40px -12px #9b6b3f",
-                  }}
-                >
-                  {t("header.buy")}
-                </button>
-              </div>
             </div>
           </div>
         )}
