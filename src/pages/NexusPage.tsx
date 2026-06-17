@@ -158,19 +158,19 @@ function BeforeNowSlide() {
       </div>
 
       {/* NOW — right half */}
-      <div className="relative w-1/2 h-full overflow-hidden" style={{ background: "#ffffff" }}>
+      <div className="relative w-1/2 h-full overflow-hidden" style={{ background: D.bg }}>
         <img
-          src={carousel1}
-          alt="Nachher – RAJ NEXUS, ein Objekt für alle Geräte"
+          src={nexusBedsideNight}
+          alt="Nachher – RAJ NEXUS am Nachttisch"
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-contain scale-[1.85]"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Subtle gold radial glow */}
+        {/* Warm vignette + bottom fade for caption legibility */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: `radial-gradient(ellipse at 50% 60%, ${D.gold}1a 0%, transparent 60%)`,
+            background: `radial-gradient(ellipse at 70% 50%, transparent 40%, ${D.bg}cc 100%), linear-gradient(to top, ${D.bg}ee 0%, transparent 35%)`,
           }}
           aria-hidden
         />
@@ -191,7 +191,7 @@ function BeforeNowSlide() {
         <div className="absolute bottom-4 right-4 left-2 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-10 text-right">
           <p
             className="text-[10px] sm:text-xs md:text-sm font-light leading-snug"
-            style={{ color: "#1A1A1A", letterSpacing: "0.04em" }}
+            style={{ color: D.beige, letterSpacing: "0.04em" }}
           >
             Ein Objekt.<br />Drei Geräte.<br />Null Kabel.
           </p>
