@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { useCartStore } from "@/stores/cartStore";
 import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
 
-export const CartDrawer = () => {
+export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const [isOpen, setIsOpen] = useState(false);
   const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
