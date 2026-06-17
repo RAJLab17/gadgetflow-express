@@ -39,7 +39,7 @@ import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
 import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.webp";
 import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
 import nexusNight from "@/assets/products/nexus-bedside-night.webp";
-import carousel1 from "@/assets/products/nexus-real-hero-floating-white.webp";
+const carousel1 = "/assets/products/nexus-real-hero-floating-white.webp";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.webp";
 import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
