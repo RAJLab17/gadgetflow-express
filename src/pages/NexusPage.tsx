@@ -44,6 +44,7 @@ import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.webp";
 import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
 import beforeCableImg from "@/assets/products/cable.jpg";
+import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
 
 const carousel5 = carousel5Asset.url;
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
