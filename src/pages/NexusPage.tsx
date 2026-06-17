@@ -42,7 +42,7 @@ import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 import carousel1 from "@/assets/products/nexus-real-hero-floating-white.webp";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.webp";
 import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
-import carousel4Asset from "@/assets/products/nexus-now-before-comparison-v3.webp.asset.json";
+import carousel4Asset from "@/assets/products/nexus-before-now-premium.webp.asset.json";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
 
 
