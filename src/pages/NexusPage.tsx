@@ -896,6 +896,16 @@ const NexusPage = () => {
     });
   }, [buyProcessing, quickBuy]);
 
+  // Fire Meta Pixel ViewContent for RAJ NEXUS (browser + CAPI)
+  useViewContent({
+    content_name: "RAJ NEXUS",
+    content_ids: ["RAJ-NEXUS-001"],
+    content_type: "product",
+    content_category: "Wireless Charger",
+    value: 99,
+    currency: "CHF",
+  });
+
   // Auto-open modal when arriving with ?buy=1 (e.g. from raj.ch hero CTA)
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -904,6 +914,7 @@ const NexusPage = () => {
       setBuyModalOpen(true);
     }
   }, []);
+
 
   return (
     <>
