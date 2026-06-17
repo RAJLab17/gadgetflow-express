@@ -235,8 +235,7 @@ const Header = () => {
                   ) : (
                     <button
                       onClick={item.action}
-                      className="flex items-center justify-between w-full py-4 border-b border-white/10 font-light tracking-wide hover:!text-[#c8946b] transition-colors text-left"
-                      style={{ color: "#E8DCC4", fontSize: "18px" }}
+                      className="flex items-center justify-between w-full py-4 border-b border-white/10 font-light tracking-wide [color:#E8DCC4!important] hover:[color:#c8946b!important] transition-colors text-left text-[18px]"
                     >
                       <span>{item.label}</span>
                       <span style={{ color: "#9b6b3f" }}>→</span>
