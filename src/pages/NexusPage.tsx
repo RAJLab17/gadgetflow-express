@@ -864,7 +864,7 @@ const NexusPage = () => {
               </div>
 
               {/* Price */}
-              <div className="flex items-baseline justify-center gap-3 mb-6 sm:mb-8">
+              <div className="flex items-baseline justify-center gap-3 mb-4 sm:mb-5">
                 <span className="text-4xl sm:text-5xl" style={{ color: D.beige, fontWeight: 300 }}>
                   CHF 99.–
                 </span>
