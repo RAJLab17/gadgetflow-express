@@ -118,9 +118,9 @@ function NexusCarousel() {
     { type: "before-now" as const, alt: "RAJ NEXUS – Vorher vs. Jetzt" },
     { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
   ];
-  const [api, setApi] = React.useState<import("embla-carousel-react").EmblaCarouselType | undefined>();
-  const [current, setCurrent] = React.useState(0);
-  React.useEffect(() => {
+  const [api, setApi] = useState<ReturnType<NonNullable<React.ComponentProps<typeof Carousel>["setApi"]>> extends void ? any : any>(undefined as any);
+  const [current, setCurrent] = useState(0);
+  useEffect(() => {
     if (!api) return;
     const onSelect = () => setCurrent(api.selectedScrollSnap());
     onSelect();
