@@ -808,7 +808,7 @@ const NexusPage = () => {
           </div>
 
           {/* Lower content */}
-          <div className="relative px-5 sm:px-10 pb-12 sm:pb-24 max-w-5xl mx-auto">
+          <div className="relative px-5 sm:px-10 pb-8 sm:pb-12 max-w-5xl mx-auto">
             <div className="text-center max-w-2xl mx-auto">
 
               {/* Product carousel */}
