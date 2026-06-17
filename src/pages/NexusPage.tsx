@@ -145,7 +145,7 @@ function NexusCarousel() {
             const bg = isComponent ? D.bg : "#ffffff";
             return (
               <CarouselItem key={i} className="pl-0 basis-full">
-                <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden" style={{ background: bg }}>
+                <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden rounded-2xl" style={{ background: bg, border: `2px solid ${D.gold}55` }}>
                   {isComponent ? (
                     <BeforeNowSlide />
                   ) : (
@@ -170,7 +170,7 @@ function NexusCarousel() {
         </CarouselContent>
       </Carousel>
       {/* Dash indicators */}
-      <div className="flex items-center justify-center gap-2 sm:gap-3 mt-4 sm:mt-5 md:mt-6 px-4">
+      <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 sm:mt-8 md:mt-10 px-4">
         {slides.map((_, i) => {
           const active = i === current;
           return (
@@ -1103,21 +1103,14 @@ const NexusPage = () => {
                     }}
                     aria-hidden
                   />
-                  <div
-                    className="relative -mx-5 sm:-mx-10 md:mx-0 mb-5 sm:mb-6 md:mb-0 md:rounded-2xl md:overflow-hidden"
-                    style={{
-                      boxShadow: "var(--tw-shadow, none)",
-                    }}
-                  >
-                    <div
-                      className="hidden md:block absolute inset-0 pointer-events-none z-10 rounded-2xl"
-                      style={{
-                        boxShadow: `0 40px 80px -20px rgba(0,0,0,0.7), 0 0 0 1px ${D.gold}33 inset`,
-                      }}
-                      aria-hidden
-                    />
-                    <NexusCarousel />
-                  </div>
+                <div
+                  className="relative -mx-5 sm:-mx-10 md:mx-0 mb-5 sm:mb-6 md:mb-0"
+                  style={{
+                    boxShadow: "var(--tw-shadow, none)",
+                  }}
+                >
+                  <NexusCarousel />
+                </div>
                 </div>
               </div>{/* end RIGHT col */}
 
