@@ -825,7 +825,6 @@ const NexusPage = () => {
                       { src: carousel3, alt: "RAJ NEXUS – Premium Detail & Hinge" },
                       { src: carousel4, alt: "RAJ NEXUS – Now vs Before Vergleich" },
                       { src: carousel5, alt: "RAJ NEXUS – Lifestyle Editorial" },
-                      { src: carousel6, alt: "RAJ NEXUS – Marmor Premium" },
                     ].map((img, i) => (
                       <CarouselItem key={i} className="pl-0 basis-full">
                         <div className="relative w-full aspect-[4/3] overflow-hidden" style={{ background: "#ffffff" }}>
