@@ -32,6 +32,7 @@ const ImpressumPage = () => {
       <div className="space-y-12 md:space-y-14">
         <Section title="Kontakt">
           <p>E-Mail: info@raj.ch</p>
+          <p>Telefon: +41 76 558 26 63</p>
         </Section>
 
         <Section title="Unternehmensangaben">
@@ -40,7 +41,7 @@ const ImpressumPage = () => {
         </Section>
 
         <Section title="Vertretungsberechtigte Person(en)">
-          <p>Stefan R., Verwaltungsrat / Geschäftsführer</p>
+          <p>Stefan Rajcic, Verwaltungsrat / Geschäftsführer</p>
         </Section>
 
         <Section title="Haftungsausschluss">
