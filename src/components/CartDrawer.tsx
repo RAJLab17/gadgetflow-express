@@ -47,7 +47,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
           )}
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-full sm:max-w-lg flex flex-col h-full">
+      <SheetContent className="w-full sm:max-w-lg flex flex-col h-full z-[80]">
         <SheetHeader className="flex-shrink-0">
           <SheetTitle>Warenkorb</SheetTitle>
           <SheetDescription>
