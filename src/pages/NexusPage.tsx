@@ -879,11 +879,7 @@ const NexusPage = () => {
     if (buyProcessing || pinnedBuyLock.current) return;
     pinnedBuyLock.current = true;
 
-    void quickBuy().finally(() => {
-      window.setTimeout(() => {
-        pinnedBuyLock.current = false;
-      }, 250);
-    });
+    quickBuy();
   }, [buyProcessing, quickBuy]);
 
   // Fire Meta Pixel ViewContent for RAJ NEXUS (browser + CAPI)
