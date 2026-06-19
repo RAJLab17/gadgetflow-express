@@ -15,6 +15,7 @@ const Index = lazy(() => import("./pages/Index"));
 const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const NexusPage = lazy(() => import("./pages/NexusPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
 const AGBPage = lazy(() => import("./pages/AGBPage"));
 const DatenschutzPage = lazy(() => import("./pages/DatenschutzPage"));
 const ImpressumPage = lazy(() => import("./pages/ImpressumPage"));
@@ -59,6 +60,7 @@ const App = () => (
                 <Route path="/shop" element={<ShopPreview />} />
                 <Route path="/nexus" element={<NexusPage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/kontakt" element={<ContactPage />} />
                 <Route path="/agb" element={<AGBPage />} />
                 <Route path="/datenschutz" element={<DatenschutzPage />} />
                 <Route path="/impressum" element={<ImpressumPage />} />
