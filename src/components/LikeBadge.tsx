@@ -31,6 +31,7 @@ const LikeBadge = ({ productId }: LikeBadgeProps) => {
     setLiked(localStorage.getItem(storageKey) === "true");
 
     const fetchCount = async () => {
+      const supabase = await getSupabase();
       const { count: total, error } = await supabase
         .from("product_likes")
         .select("*", { count: "exact", head: true })
