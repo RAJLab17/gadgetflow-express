@@ -54,7 +54,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
             {totalItems === 0 ? "Dein Warenkorb ist leer" : `${totalItems} Artikel im Warenkorb`}
           </SheetDescription>
         </SheetHeader>
-        <div className="flex flex-col flex-1 pt-6 min-h-0">
+        <div className="flex flex-col flex-1 pt-6 pb-16 min-h-0">
           {items.length === 0 ? (
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center">
