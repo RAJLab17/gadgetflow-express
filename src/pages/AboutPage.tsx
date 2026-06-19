@@ -80,7 +80,7 @@ const AboutPage = () => {
         <div className="space-y-6 max-w-3xl">
           <p className="text-xs tracking-[0.3em] uppercase text-primary font-medium">— Brand Story</p>
           <p className="text-lg md:text-xl font-light text-foreground/85 leading-relaxed">
-            RAJ ist eine Schweizer Consumer-Electronics-Marke mit Sitz im Kanton Thurgau. RAJ bringt Premium-Zubehör für das Apple-Ökosystem in die Schweiz – mit dem Anspruch an Schweizer Präzision, nachhaltige Qualität und kompromissloses Design.
+            RAJ ist eine Schweizer Consumer-Electronics-Marke mit Sitz im Kanton Thurgau, gegründet von einem Schweizer Unternehmer mit über 16 Jahren Erfahrung in der Präzisionsindustrie. RAJ bringt Premium-Zubehör für das Apple-Ökosystem in die Schweiz – mit dem Anspruch an Schweizer Präzision, nachhaltige Qualität und kompromissloses Design.
           </p>
           <p className="text-lg md:text-xl font-light text-muted-foreground leading-relaxed">
             Unser erstes Produkt, der <span className="text-foreground">RAJ NEXUS 3-in-1 Wireless Charger</span>, vereint Funktionalität und Ästhetik: Ein Ladegerät, ein Kabel, drei Geräte geladen. Qi2.2-zertifiziert, faltbar, verstellbar – Swiss Brand.
