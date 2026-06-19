@@ -22,7 +22,13 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
 
   const isNavigating = useRef(false);
 
-  const [tool_search_result]
+  const handleCheckout = () => {
+    if (isNavigating.current) return;
+
+    isNavigating.current = true;
+    setIsOpen(false);
+    window.location.href = "https://checkout.raj.ch/cart/57169031823685:1";
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
