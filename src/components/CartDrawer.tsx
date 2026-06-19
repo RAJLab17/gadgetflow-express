@@ -9,7 +9,7 @@ import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
 
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { items, isLoading, isSyncing, updateQuantity, removeItem, getCheckoutUrl, syncCart } = useCartStore();
+  const { items, isLoading, isSyncing, updateQuantity, removeItem, syncCart } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
 
@@ -22,19 +22,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
 
   const isNavigating = useRef(false);
 
-  const handleCheckout = () => {
-    if (isNavigating.current) return;
-
-    const url = getCheckoutUrl();
-    if (!url) {
-      toast.error("Checkout ist gerade nicht verfügbar.");
-      return;
-    }
-
-    isNavigating.current = true;
-    setIsOpen(false);
-    window.location.href = url;
-  };
+  const [tool_search_result]
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
