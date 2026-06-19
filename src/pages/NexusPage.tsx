@@ -1013,6 +1013,9 @@ const NexusPage = () => {
             <p className="mt-4 text-base sm:text-lg" style={{ color: D.muted, fontWeight: 300 }}>
               iPhone, Watch & AirPods. Geladen an einem Ort.
             </p>
+            <p className="mt-1 text-[11px] sm:text-xs text-center" style={{ color: D.gold }}>
+              🛡️ 30 Tage Geld-zurück-Garantie
+            </p>
             <ul className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[11px] sm:text-xs" style={{ color: D.mutedDim }}>
               <li><span style={{ color: D.gold }}>✦</span> Qi 2.2, 25 Watt</li>
               <li><span style={{ color: D.gold }}>✦</span> Kompakt faltbar</li>
