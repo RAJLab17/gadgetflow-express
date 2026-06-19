@@ -144,7 +144,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 // ---------------------------------------------------------------------------
 // STATIC URLS — non-blog pages that should be in the sitemap
 // ---------------------------------------------------------------------------
-const TODAY = "2026-05-04";
+const TODAY = "2026-06-19";
 
 export const STATIC_URLS: SitemapEntry[] = [
   // Hauptseite
@@ -257,6 +257,7 @@ export const STATIC_URLS: SitemapEntry[] = [
 
   // Info
   { path: "/about", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
+  { path: "/kontakt", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
   { path: "/faq", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
   { path: "/versand", lastmod: TODAY, changefreq: "monthly", priority: 0.6 },
 
