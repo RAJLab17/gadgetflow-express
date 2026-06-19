@@ -1018,7 +1018,7 @@ const NexusPage = () => {
             </p>
             <ul className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[11px] sm:text-xs" style={{ color: D.mutedDim }}>
               <li><span style={{ color: D.gold }}>✦</span> Qi 2.2, 25 Watt</li>
-              <li><span style={{ color: D.gold }}>✦</span> Kompakt faltbar</li>
+              <li><span style={{ color: D.gold }}>✦</span> Swiss Brand</li>
               <li><span style={{ color: D.gold }}>✦</span> 3 Jahre Garantie</li>
             </ul>
           </div>
