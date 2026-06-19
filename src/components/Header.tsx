@@ -176,6 +176,14 @@ const Header = () => {
               {t("header.about")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
+
+            <Link
+              to="/kontakt"
+              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+            >
+              Kontakt
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </Link>
           </nav>
 
           {/* Desktop CTA */}
@@ -213,6 +221,7 @@ const Header = () => {
                 { label: "Blog", to: "/blog" },
                 { label: "FAQ", to: "/faq" },
                 { label: t("header.about"), to: "/about" },
+                { label: "Kontakt", to: "/kontakt" },
               ].map((item, i) => (
                 <div
                   key={item.label}

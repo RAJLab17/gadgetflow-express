@@ -154,7 +154,8 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><Link to="/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link to="/versand" className="text-muted-foreground hover:text-primary transition-colors">Versand & Rückgabe</Link></li>
-              {["Kontakt", "Manuals & Downloads"].map((link) => (
+              <li><Link to="/kontakt" className="text-muted-foreground hover:text-primary transition-colors">Kontakt</Link></li>
+              {["Manuals & Downloads"].map((link) => (
                 <li key={link}>
                   <a href="#" className="text-muted-foreground hover:text-primary transition-colors">{link}</a>
                 </li>
