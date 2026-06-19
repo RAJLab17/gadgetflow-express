@@ -9,13 +9,14 @@ export const OPEN_CART_EVENT = "raj:open-cart";
  * hardcoded Shopify checkout URL with a debounce guard.
  */
 export function useQuickBuy() {
-  const isNavigating = useRef(false);
+  const lastClick = useRef(0);
 
   const quickBuy = useCallback(() => {
-    if (isNavigating.current) return;
-    isNavigating.current = true;
+    const now = Date.now();
+    if (now - lastClick.current < 1000) return;
+    lastClick.current = now;
     window.location.href = CHECKOUT_URL;
   }, []);
 
-  return { quickBuy, isProcessing: isNavigating.current };
+  return { quickBuy, isProcessing: false };
 }
