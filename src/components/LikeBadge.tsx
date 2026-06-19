@@ -51,6 +51,7 @@ const LikeBadge = ({ productId }: LikeBadgeProps) => {
     setTimeout(() => setBouncing(false), 600);
 
     const fingerprint = getFingerprint();
+    const supabase = await getSupabase();
     await supabase
       .from("product_likes")
       .insert({ product_id: productId, fingerprint });
