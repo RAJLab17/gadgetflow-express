@@ -20,13 +20,18 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     return () => window.removeEventListener(OPEN_CART_EVENT, open);
   }, []);
 
+  const isNavigating = useRef(false);
+
   const handleCheckout = () => {
+    if (isNavigating.current) return;
+
     const url = getCheckoutUrl();
     if (!url) {
       toast.error("Checkout ist gerade nicht verfügbar.");
       return;
     }
 
+    isNavigating.current = true;
     setIsOpen(false);
     window.location.href = url;
   };
