@@ -1,95 +1,21 @@
-import { useCallback, useState } from "react";
-import { toast } from "sonner";
-import { useCartStore } from "@/stores/cartStore";
-import { storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
+import { useCallback, useRef } from "react";
 
-const NEXUS_HANDLES = [
-  "raj-nexus-3in1-wireless-charger",
-  "raj-3-in-1-wireless-charger",
-];
-const FALLBACK_VARIANT_ID = "gid://shopify/ProductVariant/57169031823685";
-
-const PRODUCT_QUERY = `
-  query GetProduct($handle: String!) {
-    productByHandle(handle: $handle) {
-      id title description handle
-      priceRange { minVariantPrice { amount currencyCode } }
-      images(first: 5) { edges { node { url altText } } }
-      variants(first: 10) {
-        edges { node { id title availableForSale price { amount currencyCode } selectedOptions { name value } } }
-      }
-      options { name values }
-    }
-  }
-`;
-
-let cachedProduct: ShopifyProduct | null = null;
-
-async function loadNexusProduct(): Promise<ShopifyProduct | null> {
-  if (cachedProduct) return cachedProduct;
-  for (const handle of NEXUS_HANDLES) {
-    try {
-      const data = await storefrontApiRequest(PRODUCT_QUERY, { handle });
-      const node = data?.data?.productByHandle;
-      if (node) {
-        cachedProduct = { node };
-        return cachedProduct;
-      }
-    } catch (e) {
-      console.error("loadNexusProduct failed for", handle, e);
-    }
-  }
-  return null;
-}
+const CHECKOUT_URL = "https://checkout.raj.ch/cart/57169031823685:1";
 
 export const OPEN_CART_EVENT = "raj:open-cart";
 
 /**
- * One-click "Add to cart + open drawer" for the NEXUS product.
- * Falls back to direct checkout if product/variant cannot be loaded.
+ * Direct checkout redirect. No cart creation — goes straight to the
+ * hardcoded Shopify checkout URL with a debounce guard.
  */
 export function useQuickBuy() {
-  const [isProcessing, setIsProcessing] = useState(false);
-  const addItem = useCartStore((s) => s.addItem);
+  const isNavigating = useRef(false);
 
-  const quickBuy = useCallback(async () => {
-    if (isProcessing) return;
-    setIsProcessing(true);
-    if (typeof navigator !== "undefined" && "vibrate" in navigator) {
-      try { navigator.vibrate(15); } catch { /* noop */ }
-    }
+  const quickBuy = useCallback(() => {
+    if (isNavigating.current) return;
+    isNavigating.current = true;
+    window.location.href = CHECKOUT_URL;
+  }, []);
 
-    try {
-      const product = await loadNexusProduct();
-      const variant = product?.node.variants.edges[0]?.node;
-
-      if (!product || !variant) {
-        toast.error("Produkt konnte nicht geladen werden.");
-        return;
-      }
-
-      await addItem({
-        product,
-        variantId: variant.id,
-        variantTitle: variant.title || "Default",
-        price: variant.price || { amount: "99.00", currencyCode: "CHF" },
-        quantity: 1,
-        selectedOptions: variant.selectedOptions || [],
-      });
-
-      if (typeof window === "undefined") {
-        toast.error("Warenkorb konnte nicht geöffnet werden.");
-        return;
-      }
-
-      window.dispatchEvent(new CustomEvent(OPEN_CART_EVENT));
-    } catch (e) {
-      console.error("quickBuy failed:", e);
-      toast.error("Warenkorb konnte nicht geöffnet werden.");
-    } finally {
-      setIsProcessing(false);
-    }
-  }, [addItem, isProcessing]);
-
-  return { quickBuy, isProcessing };
+  return { quickBuy, isProcessing: isNavigating.current };
 }
