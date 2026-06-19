@@ -20,12 +20,12 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     return () => window.removeEventListener(OPEN_CART_EVENT, open);
   }, []);
 
-  const isNavigating = useRef(false);
+  const lastClick = useRef(0);
 
   const handleCheckout = () => {
-    if (isNavigating.current) return;
-
-    isNavigating.current = true;
+    const now = Date.now();
+    if (now - lastClick.current < 1000) return;
+    lastClick.current = now;
     setIsOpen(false);
     window.location.href = "https://checkout.raj.ch/cart/57169031823685:1";
   };
