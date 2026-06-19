@@ -26,8 +26,6 @@ import {
 } from "@/components/ui/breadcrumb";
 
 // Echte Shop-Bilder (1:1 mit raj.ch)
-import nexusHero from "@/assets/products/nexus-real-3quarter-white.jpg";
-import nexusHeroDark from "@/assets/products/nexus-real-night-city.webp";
 import nexusFolds from "@/assets/products/nexus-real-folds-text-800.webp";
 import nexusDesk from "@/assets/products/nexus-office-skyline.webp";
 import nexusDesk680 from "@/assets/products/nexus-office-skyline-680w.webp";
@@ -37,9 +35,6 @@ import nexusFeatures from "@/assets/products/nexus-desk-writing.webp";
 import nexusFeatures1000 from "@/assets/products/nexus-desk-writing-1000w.webp";
 import nexusFeatures1200 from "@/assets/products/nexus-desk-writing-1200w.webp";
 import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
-import nexusSofa from "@/assets/products/nexus-coffee-lifestyle.webp";
-import nexusFinalCta from "@/assets/products/nexus-real-lifestyle-sofa-800.webp";
-import nexusNight from "@/assets/products/nexus-bedside-night.webp";
 const carousel1 = "/assets/products/nexus-real-hero-floating-white.webp";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.webp";
 import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
@@ -51,8 +46,6 @@ const carousel5 = carousel5Asset.url;
 // Hero served from /public so URL is stable and matches <link rel="preload"> in index.html
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
 const nexusStoneHero1200 = "/assets/hero/nexus-hero-1200.webp";
-const nexusStoneHero = nexusStoneHero1200;
-import logo from "@/assets/logo-new.webp";
 import logoTransparent from "@/assets/logo-transparent.webp";
 import payVisa from "@/assets/payments/visa.webp";
 import payMastercard from "@/assets/payments/mastercard.png";
@@ -65,11 +58,8 @@ import payTwint from "@/assets/payments/twint.png";
 // Hero Carousel — premium product rotation (text-free images)
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
 const heroDesireSm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
-const heroStone = new URL("../assets/products/nexus-stone-hero.webp", import.meta.url).href;
-const heroIphoneWatchPods = new URL("../assets/hero-carousel/nexus-iphone-watch-airpods.png", import.meta.url).href;
-const heroEmptyQi2 = new URL("../assets/hero-carousel/nexus-empty-qi2.png", import.meta.url).href;
-const hero3in1Charging = new URL("../assets/hero-carousel/nexus-3in1-charging.png", import.meta.url).href;
-const heroFlatIphone = new URL("../assets/hero-carousel/nexus-flat-iphone.png", import.meta.url).href;
+
+
 
 const HERO_SLIDES = [
   { src: heroDesire, srcSm: heroDesireSm, eyebrow: "Form", caption: "Objekt, nicht Gerät." },
