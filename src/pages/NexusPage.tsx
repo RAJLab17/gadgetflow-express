@@ -941,7 +941,7 @@ const NexusPage = () => {
       {/* ===== STICKY MOBILE BOTTOM BAR ===== */}
       {!heroSubmitted && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-[70] backdrop-blur-md"
+          className="fixed bottom-0 left-0 right-0 z-30 backdrop-blur-md"
           style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40`, pointerEvents: "auto", transform: "translateZ(0)" }}
         >
           <div className="px-3 py-2.5 flex items-center gap-2">
