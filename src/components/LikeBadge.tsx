@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+
+// Lazy-load supabase to keep the vendor chunk out of the initial bundle.
+const getSupabase = () =>
+  import("@/integrations/supabase/client").then((m) => m.supabase);
 
 interface LikeBadgeProps {
   productId: string;
