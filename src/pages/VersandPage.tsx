@@ -33,7 +33,7 @@ const VersandPage = () => {
           </div>
           <ul>
             <Item icon={ShieldCheck} title="Kostenloser Versand" desc="In der gesamten Schweiz – ohne Mindestbestellwert." />
-            <Item icon={Clock} title="3–5 Werktage Lieferzeit" desc="Schnelle und zuverlässige Lieferung direkt zu dir." />
+            <Item icon={Clock} title="2–4 Werktage Lieferzeit" desc="Schnelle und zuverlässige Lieferung direkt zu dir." />
             <Item icon={Globe} title="Schweizer Markt im Fokus" desc="Internationaler Versand folgt zu einem späteren Zeitpunkt." />
           </ul>
         </div>
