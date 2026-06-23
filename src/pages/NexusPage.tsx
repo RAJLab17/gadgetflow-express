@@ -571,7 +571,7 @@ const NexusPage = () => {
             </button>
             <p style={{ marginTop: 16, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
 <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
- <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
+ <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap", background: "rgba(255,255,255,0.06)", borderRadius: 8, padding: "8px 12px" }}>
    {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
      <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain" }} />
    ))}
@@ -627,7 +627,7 @@ const NexusPage = () => {
           </button>
           <p className="text-center mt-3" style={{ fontSize: 10.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
 <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
- <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
+ <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap", background: "rgba(255,255,255,0.06)", borderRadius: 8, padding: "8px 12px" }}>
    {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
      <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain" }} />
    ))}
