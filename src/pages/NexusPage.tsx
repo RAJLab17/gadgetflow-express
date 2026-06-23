@@ -35,6 +35,8 @@ import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
 import beforeCableImg from "@/assets/products/nexus-before-cable-chaos.jpg";
 import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
+import nexusHero800 from "@/assets/products/nexus-hero-charging-800w.webp";
+import nexusHero1200 from "@/assets/products/nexus-hero-charging-1200w.webp";
 
 const carousel5 = carousel5Asset.url;
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
@@ -48,9 +50,9 @@ import payGooglePay from "@/assets/payments/google-pay.png";
 import payKlarna from "@/assets/payments/klarna.png";
 import payTwint from "@/assets/payments/twint.png";
 
-// ─── HERO FOTO — hier dein Wunschbild eintragen ───────────────────
-// z.B.: import nexusHeroImg from "@/assets/products/dein-foto.webp";
-const nexusHeroImg = nexusBedsideNight;
+// ─── HERO FOTO ────────────────────────────────────────────────────
+const nexusHeroImg = nexusHero1200;
+const nexusHeroImgSm = nexusHero800;
 // ─────────────────────────────────────────────────────────────────
 
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
@@ -575,7 +577,7 @@ const NexusPage = () => {
           <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 48px" }}>
             <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(201,168,118,.22), transparent 70%)", filter: "blur(30px)", transform: "translate(-50%,-50%)", animation: "raj-breathe 6s ease-in-out infinite", pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,118,.18)", animation: "raj-float 9s ease-in-out infinite" }}>
-              <img src={nexusHeroImg} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
+              <img src={nexusHeroImg} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="(max-width: 768px) 100vw, 600px" width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
             </div>
             <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
             <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "38%", right: "-4%" }} />
@@ -600,7 +602,7 @@ const NexusPage = () => {
           </div>
           <p className="text-center mb-4" style={{ fontSize: 16, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
           <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 28 }}>
-            <img src={nexusHeroImg} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" />
+            <img src={nexusHeroImgSm} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="100vw" width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" />
           </div>
           <div className="flex flex-wrap justify-center gap-2 mb-6">
             {["Qi2.2 · 25 W", "Swiss Brand", "3 Jahre Garantie"].map((b) => (
