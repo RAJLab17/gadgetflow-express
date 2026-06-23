@@ -575,7 +575,7 @@ const NexusPage = () => {
           </div>
 
           {/* RIGHT */}
-          <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 48px" }}>
+          <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 16px" }}>
             <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(201,168,118,.22), transparent 70%)", filter: "blur(30px)", transform: "translate(-50%,-50%)", animation: "raj-breathe 6s ease-in-out infinite", pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,118,.18)", animation: "raj-float 9s ease-in-out infinite" }}>
               <img src={nexusHeroImg} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="(max-width: 768px) 100vw, 600px" width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
