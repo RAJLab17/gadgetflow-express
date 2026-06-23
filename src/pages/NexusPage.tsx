@@ -570,7 +570,8 @@ const NexusPage = () => {
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </button>
             <p style={{ marginTop: 16, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
-<div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 20, flexWrap: "wrap" }}>
+<p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
+<div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
   {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
     <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", opacity: 0.7, filter: "brightness(0) invert(1)" }} />
   ))}
@@ -625,9 +626,10 @@ const NexusPage = () => {
             Jetzt kaufen →
           </button>
           <p className="text-center mt-3" style={{ fontSize: 10.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
-<div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 14, flexWrap: "wrap" }}>
+<p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
   {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
-    <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", opacity: 0.7, filter: "brightness(0) invert(1)" }} />
+    <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", opacity: 0.7, filter: "none" }} }} />
   ))}
 </div>
           <p className="text-center mt-1" style={{ fontSize: 10.5, color: D.muted }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
