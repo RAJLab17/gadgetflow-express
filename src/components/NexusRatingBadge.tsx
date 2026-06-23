@@ -36,13 +36,19 @@ const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "le
     };
   }, []);
 
-  if (!ready || total === 0) return null;
+  if (!ready) return null;
 
-  const rounded = Math.round(avg);
+  const hasReviews = total > 0;
+  const rounded = hasReviews ? Math.round(avg) : 0;
+
   return (
     <Link
       to="/reviews"
-      aria-label={`${avg.toFixed(1)} von 5 Sternen, ${total} Bewertungen lesen`}
+      aria-label={
+        hasReviews
+          ? `${avg.toFixed(1)} von 5 Sternen, ${total} Bewertungen lesen`
+          : "Sei der Erste, der den RAJ NEXUS bewertet"
+      }
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -59,19 +65,27 @@ const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "le
             strokeWidth={1.5}
             style={{
               color: gold,
-              fill: n <= rounded ? gold : "transparent",
+              fill: hasReviews && n <= rounded ? gold : "transparent",
+              opacity: hasReviews ? 1 : 0.85,
             }}
           />
         ))}
       </span>
       <span style={{ fontSize: size - 1, color: textColor, fontWeight: 400, letterSpacing: ".01em" }}>
-        <strong style={{ color: gold, fontWeight: 500 }}>{avg.toFixed(1)}</strong>
-        <span style={{ opacity: 0.7, marginLeft: 6 }}>
-          ({total} {total === 1 ? "Bewertung" : "Bewertungen"})
-        </span>
+        {hasReviews ? (
+          <>
+            <strong style={{ color: gold, fontWeight: 500 }}>{avg.toFixed(1)}</strong>
+            <span style={{ opacity: 0.7, marginLeft: 6 }}>
+              ({total} {total === 1 ? "Bewertung" : "Bewertungen"})
+            </span>
+          </>
+        ) : (
+          <span style={{ opacity: 0.85 }}>Sei der/die Erste, der bewertet →</span>
+        )}
       </span>
     </Link>
   );
 };
 
 export default NexusRatingBadge;
+
