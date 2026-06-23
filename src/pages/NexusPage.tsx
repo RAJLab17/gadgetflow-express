@@ -35,6 +35,8 @@ import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
 import beforeCableImg from "@/assets/products/nexus-before-cable-chaos.jpg";
 import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
+import nexusHero800 from "@/assets/products/nexus-hero-charging-800w.webp";
+import nexusHero1200 from "@/assets/products/nexus-hero-charging-1200w.webp";
 
 const carousel5 = carousel5Asset.url;
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
@@ -48,9 +50,9 @@ import payGooglePay from "@/assets/payments/google-pay.png";
 import payKlarna from "@/assets/payments/klarna.png";
 import payTwint from "@/assets/payments/twint.png";
 
-// ─── HERO FOTO — hier dein Wunschbild eintragen ───────────────────
-// z.B.: import nexusHeroImg from "@/assets/products/dein-foto.webp";
-const nexusHeroImg = nexusBedsideNight;
+// ─── HERO FOTO ────────────────────────────────────────────────────
+const nexusHeroImg = nexusHero1200;
+const nexusHeroImgSm = nexusHero800;
 // ─────────────────────────────────────────────────────────────────
 
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
