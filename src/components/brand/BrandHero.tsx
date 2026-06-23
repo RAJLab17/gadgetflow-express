@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BuyModal from "@/components/BuyModal";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
-import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
-import nexusSuite from "@/assets/lifestyle-nexus-suite.webp";
+const nexusLaptop = "/assets/hero/nexus-hero.webp";
+const nexusSuite = "/assets/hero/ecosystem.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
