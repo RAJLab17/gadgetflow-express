@@ -9,13 +9,15 @@ interface Props {
   textColor?: string;
   align?: "left" | "center";
   size?: number;
+  /** Nur Sterne, ohne Text/Anzahl */
+  starsOnly?: boolean;
 }
 
 /**
  * Mini-Bewertungs-Badge: ★★★★★ 4.8 (47 Bewertungen)
  * Lädt live aus der DB. Blendet sich aus wenn noch keine Bewertungen vorhanden.
  */
-const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "left", size = 14 }: Props) => {
+const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "left", size = 14, starsOnly = false }: Props) => {
   const [avg, setAvg] = useState(0);
   const [total, setTotal] = useState(0);
   const [ready, setReady] = useState(false);
@@ -71,21 +73,24 @@ const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "le
           />
         ))}
       </span>
-      <span style={{ fontSize: size - 1, color: textColor, fontWeight: 400, letterSpacing: ".01em" }}>
-        {hasReviews ? (
-          <>
-            <strong style={{ color: gold, fontWeight: 500 }}>{avg.toFixed(1)}</strong>
-            <span style={{ opacity: 0.7, marginLeft: 6 }}>
-              ({total} {total === 1 ? "Bewertung" : "Bewertungen"})
-            </span>
-          </>
-        ) : (
-          <span style={{ opacity: 0.85 }}>Sei der/die Erste, der bewertet →</span>
-        )}
-      </span>
+      {!starsOnly && (
+        <span style={{ fontSize: size - 1, color: textColor, fontWeight: 400, letterSpacing: ".01em" }}>
+          {hasReviews ? (
+            <>
+              <strong style={{ color: gold, fontWeight: 500 }}>{avg.toFixed(1)}</strong>
+              <span style={{ opacity: 0.7, marginLeft: 6 }}>
+                ({total} {total === 1 ? "Bewertung" : "Bewertungen"})
+              </span>
+            </>
+          ) : (
+            <span style={{ opacity: 0.85 }}>Sei der/die Erste, der bewertet →</span>
+          )}
+        </span>
+      )}
     </Link>
   );
 };
 
 export default NexusRatingBadge;
+
 
