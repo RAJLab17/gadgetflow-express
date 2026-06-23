@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BuyModal from "@/components/BuyModal";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
-import nexusLaptop from "@/assets/lifestyle-laptop-clean.webp";
+const nexusLaptop = "/assets/hero/nexus-hero.webp";
+import nexusSuiteOld from "@/assets/lifestyle-nexus-suite.webp";
 const nexusSuite = "/assets/hero/ecosystem.webp";
 
 const GOLD = "#9b6b3f";
@@ -17,7 +18,8 @@ const nexusSuiteMobile = "/assets/hero/mobile-suite.webp";
 const SLIDES = [
   { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%", mobilePosition: "center center" },
   { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "center center", mobilePosition: "center center" },
-  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "center center", mobilePosition: "center center" },
+  { src: nexusSuiteOld, mobileSrc: nexusSuiteOld, position: "center center", mobilePosition: "center center" },
+  { src: nexusSuite, mobileSrc: nexusSuite, position: "center center", mobilePosition: "center center" },
 ];
 
 
