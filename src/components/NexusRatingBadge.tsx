@@ -73,6 +73,12 @@ const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "le
           />
         ))}
       </span>
+      {starsOnly && hasReviews && (
+        <span style={{ fontSize: size - 2, color: textColor, fontWeight: 400, letterSpacing: ".02em", opacity: 0.85 }}>
+          <strong style={{ color: gold, fontWeight: 500 }}>{avg.toFixed(1)}</strong>
+          <span style={{ opacity: 0.6 }}>/5</span>
+        </span>
+      )}
       {!starsOnly && (
         <span style={{ fontSize: size - 1, color: textColor, fontWeight: 400, letterSpacing: ".01em" }}>
           {hasReviews ? (
