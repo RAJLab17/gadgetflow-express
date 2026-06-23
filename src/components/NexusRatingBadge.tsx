@@ -87,4 +87,10 @@ const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "le
           )}
         </span>
       )}
+    </Link>
+  );
+};
+
+export default NexusRatingBadge;
+
 
