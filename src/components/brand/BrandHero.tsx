@@ -13,13 +13,14 @@ const GOLD_SOFT = "#c8946b";
 const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
 const nexusBedroomMobile = "/assets/hero/mobile-bedside.webp";
 const nexusLaptopMobile = "/assets/hero/mobile-laptop.webp";
-const nexusSuiteMobile = "/assets/hero/mobile-suite.webp";
+const nexusSuiteMobile = "/assets/hero/mobile-ecosystem.webp";
+const nexusSuiteOldMobile = "/assets/hero/mobile-suite-old.webp";
 
 const SLIDES = [
   { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
-  { src: nexusSuiteOld, mobileSrc: nexusSuiteOld, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
-  { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "center center", mobilePosition: "center 45%", size: "contain", mobileSize: "82% auto" },
-  { src: nexusSuite, mobileSrc: nexusSuite, position: "center center", mobilePosition: "center 45%", size: "contain", mobileSize: "86% auto" },
+  { src: nexusSuiteOld, mobileSrc: nexusSuiteOldMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
+  { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
+  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
 ];
 
 
