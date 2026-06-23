@@ -234,9 +234,6 @@ function BeforeNowSlide() {
 const LAUNCH_DATE = new Date("2026-06-16T20:00:00+02:00").getTime();
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
-// ─────────────────────────────────────────────────────────────────
-// COUNTDOWN — unverändert
-// ─────────────────────────────────────────────────────────────────
 const Countdown = ({ dark = true }: { dark?: boolean }) => {
   const { t } = useLanguage();
   const [time, setTime] = useState({ d: 0, h: 0, m: 0, s: 0 });
@@ -264,9 +261,6 @@ const Countdown = ({ dark = true }: { dark?: boolean }) => {
   );
 };
 
-// ─────────────────────────────────────────────────────────────────
-// SIGNUP — unverändert
-// ─────────────────────────────────────────────────────────────────
 const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: () => void }) => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
@@ -319,9 +313,6 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
   );
 };
 
-// ─────────────────────────────────────────────────────────────────
-// BUY MODAL — unverändert
-// ─────────────────────────────────────────────────────────────────
 const BuyModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
   const [email, setEmail] = useState("");
   const [hp1, setHp1] = useState("");
@@ -389,9 +380,6 @@ const BuyModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => 
   );
 };
 
-// ─────────────────────────────────────────────────────────────────
-// SOCIAL PROOF POPUP — unverändert
-// ─────────────────────────────────────────────────────────────────
 const SocialProofPopup = ({ trigger, message }: { trigger: number; message: string }) => {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -414,9 +402,6 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
   );
 };
 
-// ─────────────────────────────────────────────────────────────────
-// SPLASH INTRO — unverändert
-// ─────────────────────────────────────────────────────────────────
 const SplashIntro = () => {
   const [phase, setPhase] = useState<"hidden" | "logo" | "split" | "done">("hidden");
   useEffect(() => {
@@ -451,9 +436,6 @@ const SplashIntro = () => {
   );
 };
 
-// ─────────────────────────────────────────────────────────────────
-// MAIN PAGE
-// ─────────────────────────────────────────────────────────────────
 const NexusPage = () => {
   const { t, lang, setLang } = useLanguage();
   const [popupTrigger, setPopupTrigger] = useState(0);
@@ -513,7 +495,6 @@ const NexusPage = () => {
 
       <SplashIntro />
 
-      {/* STICKY MOBILE BOTTOM BAR — unverändert */}
       {!heroSubmitted && (
         <div className="fixed bottom-0 left-0 right-0 z-30 backdrop-blur-md" style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40`, pointerEvents: "auto", transform: "translateZ(0)" }}>
           <div className="px-3 py-2.5 flex items-center gap-2">
@@ -528,7 +509,6 @@ const NexusPage = () => {
         </div>
       )}
 
-      {/* ═══ 1. HERO — NEU ═══ */}
       <Header />
       <section
         id="mockup-signup"
@@ -540,15 +520,22 @@ const NexusPage = () => {
 
         {/* DESKTOP */}
         <div className="hidden md:grid relative px-12 lg:px-16 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "1fr 1.18fr", gap: "clamp(32px,4.5vw,72px)", alignItems: "center" }}>
-          {/* LEFT */}
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "8px 16px 8px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.28)", background: "rgba(201,168,118,.06)", marginBottom: 30 }}>
-              <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
-                <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
-                <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: D.gold }} />
-              </span>
-              <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".24em" }}>Founder Edition — noch 37 von 100</span>
+
+            {/* Founder Badge + Ladebalken */}
+            <div>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "8px 16px 8px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.28)", background: "rgba(201,168,118,.06)", marginBottom: 8 }}>
+                <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
+                  <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
+                  <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: D.gold }} />
+                </span>
+                <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".24em" }}>Founder Edition — noch 37 von 100</span>
+              </div>
+              <div style={{ width: "100%", maxWidth: 260, height: 2, borderRadius: 2, background: "rgba(255,255,255,.08)", marginBottom: 22 }}>
+                <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})` }} />
+              </div>
             </div>
+
             <div style={{ fontSize: "clamp(44px,7vw,104px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
               <span style={{ color: D.beige }}>RAJ</span>{" "}
               <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
@@ -570,13 +557,13 @@ const NexusPage = () => {
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </button>
             <p style={{ marginTop: 16, fontSize: 12, color: D.beige, display: "flex", alignItems: "center", gap: 6 }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
-<p style={{ marginTop: 10, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
-<p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
- <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
-   {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
-     <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
-   ))}
- </div>
+            <p style={{ marginTop: 10, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
+            <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
+              {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
+                <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
+              ))}
+            </div>
             <div className="h-20" aria-hidden />
           </div>
 
@@ -594,13 +581,16 @@ const NexusPage = () => {
 
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pb-10" style={{ zIndex: 2 }}>
-          <div className="flex justify-center mb-6">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "7px 14px 7px 11px", borderRadius: 100, border: "1px solid rgba(201,168,118,.28)", background: "rgba(201,168,118,.06)" }}>
+          <div className="flex flex-col items-center mb-6">
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "7px 14px 7px 11px", borderRadius: 100, border: "1px solid rgba(201,168,118,.28)", background: "rgba(201,168,118,.06)", marginBottom: 8 }}>
               <span style={{ position: "relative", display: "flex", width: 6, height: 6 }}>
                 <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                 <span style={{ position: "relative", width: 6, height: 6, borderRadius: "50%", background: D.gold }} />
               </span>
               <span style={{ fontSize: 9, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".2em" }}>Founder Edition — noch 37 von 100</span>
+            </div>
+            <div style={{ width: 200, height: 2, borderRadius: 2, background: "rgba(255,255,255,.08)" }}>
+              <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})` }} />
             </div>
           </div>
           <div className="text-center mb-4" style={{ fontSize: "clamp(42px,11vw,64px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
@@ -626,19 +616,20 @@ const NexusPage = () => {
             Jetzt kaufen →
           </button>
           <p className="text-center" style={{ marginTop: 14, fontSize: 12, color: D.beige }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
-<p className="text-center mt-2" style={{ fontSize: 10.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
-<p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
- <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
-   {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
-     <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
-   ))}
- </div>
+          <p className="text-center mt-2" style={{ fontSize: 10.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
+          <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
+            {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
+              <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
+            ))}
+          </div>
+          <div className="h-20" aria-hidden />
         </div>
 
         <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
       </section>
 
-      {/* ═══ 2. TRUST — unverändert ═══ */}
+      {/* ═══ 2. TRUST ═══ */}
       <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
@@ -659,7 +650,7 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* ═══ 3. STORY — unverändert ═══ */}
+      {/* ═══ 3. STORY ═══ */}
       <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
         <div className="max-w-7xl mx-auto space-y-24 md:space-y-48">
           {[
@@ -684,7 +675,7 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* ═══ 4. SPECS — unverändert ═══ */}
+      {/* ═══ 4. SPECS ═══ */}
       <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
@@ -712,7 +703,7 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* ═══ 5. DETAILS / FAQ — unverändert ═══ */}
+      {/* ═══ 5. DETAILS / FAQ ═══ */}
       <section style={{ background: L.bg, color: L.text }}>
         <ProductDetailsAccordion />
       </section>
@@ -731,7 +722,7 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* ═══ 6. CTA — unverändert ═══ */}
+      {/* ═══ 6. CTA ═══ */}
       <section className="relative py-24 md:py-36 px-5" style={{ background: D.bg, color: D.beige }}>
         <div className="relative max-w-2xl mx-auto text-center">
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
@@ -744,7 +735,6 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* Footer — unverändert */}
       <footer style={{ background: D.bg, borderTop: `1px solid ${D.border}` }} className="py-10 px-5 text-center">
         <a href="https://raj.ch" aria-label="RAJ — Home" className="inline-flex items-center justify-center">
           <img src={logoTransparent} alt="RAJ" width={180} height={56} loading="lazy" decoding="async" className="h-12 w-auto" style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }} />
