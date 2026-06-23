@@ -372,15 +372,18 @@ const BrandHero = () => {
                 Manifest
               </p>
             </div>
-            {t("brand.hero.sub").split("\n").map((line, i, arr) => (
-              <p
-                key={i}
-                className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
-                style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)", marginBottom: i < arr.length - 1 ? "0.75rem" : 0 }}
-              >
-                {line}
-              </p>
-            ))}
+            <p
+              className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
+              style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)", marginBottom: "0.75rem" }}
+            >
+              Das Gewöhnliche überzeugt durch Lautstärke.
+            </p>
+            <p
+              className="text-base sm:text-xl text-white font-extralight leading-[1.55] sm:leading-[1.6] italic"
+              style={{ letterSpacing: "0.005em", textShadow: "0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7)" }}
+            >
+              Das Aussergewöhnliche durch Stille.
+            </p>
             <p className="mt-5 sm:mt-7 text-[9px] sm:text-[10px] uppercase font-normal" style={{ letterSpacing: "0.5em", color: GOLD_SOFT, textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}>
               — RAJ
             </p>
