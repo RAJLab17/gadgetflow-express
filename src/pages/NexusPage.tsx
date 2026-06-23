@@ -602,7 +602,7 @@ const NexusPage = () => {
             <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
           <p className="text-center mb-4" style={{ fontSize: 16, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 28 }}>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 14 }}>
             <img src={nexusHeroImgSm} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="100vw" width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" />
           </div>
           <div className="flex flex-wrap justify-center gap-1.5 mb-4">
