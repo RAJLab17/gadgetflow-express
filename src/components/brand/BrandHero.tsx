@@ -16,10 +16,10 @@ const nexusLaptopMobile = "/assets/hero/mobile-laptop.webp";
 const nexusSuiteMobile = "/assets/hero/mobile-suite.webp";
 
 const SLIDES = [
-  { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%", mobilePosition: "center center" },
-  { src: nexusSuiteOld, mobileSrc: nexusSuiteOld, position: "center center", mobilePosition: "center center" },
-  { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "center center", mobilePosition: "center center" },
-  { src: nexusSuite, mobileSrc: nexusSuite, position: "center center", mobilePosition: "center center" },
+  { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
+  { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
+  { src: nexusSuiteOld, mobileSrc: nexusSuiteOld, position: "center center", mobilePosition: "center 45%", size: "contain", mobileSize: "82% auto" },
+  { src: nexusSuite, mobileSrc: nexusSuite, position: "center center", mobilePosition: "center 45%", size: "contain", mobileSize: "86% auto" },
 ];
 
 
