@@ -524,7 +524,7 @@ const NexusPage = () => {
 
             {/* Founder Badge + Ladebalken */}
             <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "8px 16px 8px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.28)", background: "rgba(201,168,118,.06)", marginBottom: 8 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "10px 20px 10px 15px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 8, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
                 <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
                   <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                   <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: D.gold }} />
@@ -582,7 +582,7 @@ const NexusPage = () => {
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pb-10" style={{ zIndex: 2 }}>
           <div className="flex flex-col items-center mb-6">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "7px 14px 7px 11px", borderRadius: 100, border: "1px solid rgba(201,168,118,.28)", background: "rgba(201,168,118,.06)", marginBottom: 8 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "9px 18px 9px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 8, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
               <span style={{ position: "relative", display: "flex", width: 6, height: 6 }}>
                 <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                 <span style={{ position: "relative", width: 6, height: 6, borderRadius: "50%", background: D.gold }} />
