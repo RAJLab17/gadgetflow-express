@@ -79,6 +79,21 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
       toast({ title: "Fehler", description: error.message, variant: "destructive" });
       return;
     }
+    // Fire-and-forget Email-Benachrichtigung an Founder
+    supabase.functions
+      .invoke("notify-new-review", {
+        body: {
+          customer_name: parsed.data.customer_name,
+          customer_email: parsed.data.customer_email,
+          rating: parsed.data.rating,
+          title: parsed.data.title,
+          comment: parsed.data.comment,
+          product_id: productId,
+        },
+      })
+      .catch(() => {
+        /* nicht blockierend */
+      });
     toast({
       title: "Danke für deine Bewertung!",
       description: "Sie wird nach kurzer Prüfung veröffentlicht.",
