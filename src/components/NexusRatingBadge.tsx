@@ -9,13 +9,15 @@ interface Props {
   textColor?: string;
   align?: "left" | "center";
   size?: number;
+  /** Nur Sterne, ohne Text/Anzahl */
+  starsOnly?: boolean;
 }
 
 /**
  * Mini-Bewertungs-Badge: ★★★★★ 4.8 (47 Bewertungen)
  * Lädt live aus der DB. Blendet sich aus wenn noch keine Bewertungen vorhanden.
  */
-const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "left", size = 14 }: Props) => {
+const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "left", size = 14, starsOnly = false }: Props) => {
   const [avg, setAvg] = useState(0);
   const [total, setTotal] = useState(0);
   const [ready, setReady] = useState(false);
