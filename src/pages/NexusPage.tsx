@@ -612,15 +612,15 @@ const NexusPage = () => {
               </span>
             ))}
           </div>
-          <div className="flex items-baseline justify-center gap-3 mb-5">
+          <div className="flex items-baseline justify-center gap-3 mb-3">
             <span style={{ fontSize: 40, color: D.beige, fontWeight: 300 }}>CHF 99.-</span>
             <span style={{ fontSize: 16, textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.-</span>
           </div>
           <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "18px 24px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
           </button>
-          <p className="text-center mt-4" style={{ fontSize: 11, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
-          <p className="text-center mt-2" style={{ fontSize: 11, color: D.muted }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
+          <p className="text-center mt-3" style={{ fontSize: 11, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
+          <p className="text-center mt-1.5" style={{ fontSize: 11, color: D.muted }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
         </div>
 
         <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
