@@ -164,6 +164,57 @@ export type Database = {
         }
         Relationships: []
       }
+      reviews: {
+        Row: {
+          comment: string
+          created_at: string
+          customer_email: string
+          customer_name: string
+          founder_responded_at: string | null
+          founder_response: string | null
+          helpful_count: number
+          id: string
+          product_id: string
+          rating: number
+          status: string
+          title: string
+          updated_at: string
+          verified_purchase: boolean
+        }
+        Insert: {
+          comment: string
+          created_at?: string
+          customer_email: string
+          customer_name: string
+          founder_responded_at?: string | null
+          founder_response?: string | null
+          helpful_count?: number
+          id?: string
+          product_id?: string
+          rating: number
+          status?: string
+          title: string
+          updated_at?: string
+          verified_purchase?: boolean
+        }
+        Update: {
+          comment?: string
+          created_at?: string
+          customer_email?: string
+          customer_name?: string
+          founder_responded_at?: string | null
+          founder_response?: string | null
+          helpful_count?: number
+          id?: string
+          product_id?: string
+          rating?: number
+          status?: string
+          title?: string
+          updated_at?: string
+          verified_purchase?: boolean
+        }
+        Relationships: []
+      }
       unique_visitors: {
         Row: {
           id: string
@@ -211,11 +262,68 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      reviews_public: {
+        Row: {
+          comment: string | null
+          created_at: string | null
+          customer_name: string | null
+          founder_responded_at: string | null
+          founder_response: string | null
+          helpful_count: number | null
+          id: string | null
+          product_id: string | null
+          rating: number | null
+          title: string | null
+          verified_purchase: boolean | null
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string | null
+          customer_name?: string | null
+          founder_responded_at?: string | null
+          founder_response?: string | null
+          helpful_count?: number | null
+          id?: string | null
+          product_id?: string | null
+          rating?: number | null
+          title?: string | null
+          verified_purchase?: boolean | null
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string | null
+          customer_name?: string | null
+          founder_responded_at?: string | null
+          founder_response?: string | null
+          helpful_count?: number | null
+          id?: string | null
+          product_id?: string | null
+          rating?: number | null
+          title?: string | null
+          verified_purchase?: boolean | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       get_launch_signups_today_count: { Args: never; Returns: number }
       get_launch_signups_total: { Args: never; Returns: number }
+      get_review_stats: {
+        Args: { _product_id?: string }
+        Returns: {
+          average: number
+          c1: number
+          c2: number
+          c3: number
+          c4: number
+          c5: number
+          total: number
+        }[]
+      }
+      increment_review_helpful: {
+        Args: { _review_id: string }
+        Returns: number
+      }
       increment_visitor_count_v2: { Args: never; Returns: number }
     }
     Enums: {

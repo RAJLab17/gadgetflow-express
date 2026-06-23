@@ -34,6 +34,7 @@ const IphoneStandbyPage = lazy(() => import("./pages/IphoneStandbyPage"));
 const MagSafeLadestationPage = lazy(() => import("./pages/MagSafeLadestationPage"));
 const ThreeInOnePage = lazy(() => import("./pages/ThreeInOnePage"));
 const Beste3in1ChargerPage = lazy(() => import("./pages/Beste3in1ChargerPage"));
+const ReviewsPage = lazy(() => import("./pages/ReviewsPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -84,6 +85,8 @@ const App = () => (
                 <Route path="/3-in-1-ladestation-iphone-apple-watch-airpods" element={<ThreeInOnePage />} />
                 <Route path="/3in1-ladestation-iphone-apple-watch-airpods" element={<Navigate to="/3-in-1-ladestation-iphone-apple-watch-airpods" replace />} />
                 <Route path="/blog/bester-3in1-wireless-charger-schweiz-2026" element={<Beste3in1ChargerPage />} />
+                <Route path="/reviews" element={<ReviewsPage />} />
+                <Route path="/bewertungen" element={<Navigate to="/reviews" replace />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
