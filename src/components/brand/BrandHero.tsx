@@ -117,10 +117,11 @@ const BrandHero = () => {
           <div
             key={`d-${slide.src}`}
             aria-hidden={i !== index}
-            className="absolute inset-0 bg-cover transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] hidden lg:block"
+            className="absolute inset-0 bg-no-repeat transition-opacity duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] hidden lg:block"
             style={{
               backgroundImage: loaded.has(i) ? `url(${slide.src})` : undefined,
               backgroundPosition: slide.position,
+              backgroundSize: slide.size,
               opacity: i === index ? 1 : 0,
             }}
           />
@@ -138,10 +139,11 @@ const BrandHero = () => {
           >
             <div
               key={i === index ? `kb-${index}` : `kb-idle-${i}`}
-              className="absolute inset-0 bg-cover bg-no-repeat will-change-transform"
+              className="absolute inset-0 bg-no-repeat will-change-transform"
               style={{
                 backgroundImage: loaded.has(i) ? `url(${slide.mobileSrc})` : undefined,
                 backgroundPosition: slide.mobilePosition,
+                backgroundSize: slide.mobileSize,
                 animation: i === index ? "raj-ken-burns 9s ease-out both" : undefined,
                 transform: i === index ? undefined : "scale(1.04)",
               }}
