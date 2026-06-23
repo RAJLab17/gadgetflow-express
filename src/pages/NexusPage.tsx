@@ -532,8 +532,8 @@ const NexusPage = () => {
       <Header />
       <section
         id="mockup-signup"
-        className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
-        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(84px, 10vw, 116px)" }}
+        className="relative overflow-hidden md:flex md:flex-col md:justify-center"
+        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(64px, 7vw, 84px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(201,168,118,.12), transparent 70%)", filter: "blur(32px)", pointerEvents: "none", zIndex: 0 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${D.bg})`, pointerEvents: "none", zIndex: 3 }} />
@@ -571,6 +571,7 @@ const NexusPage = () => {
             </button>
             <p style={{ marginTop: 16, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie</p>
             <p style={{ marginTop: 10, fontSize: 11, color: D.muted }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
+            <div className="h-20" aria-hidden />
           </div>
 
           {/* RIGHT */}
