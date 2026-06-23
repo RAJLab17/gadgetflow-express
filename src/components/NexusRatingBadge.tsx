@@ -73,21 +73,18 @@ const NexusRatingBadge = ({ gold = "#c9a876", textColor = "#d9c9b0", align = "le
           />
         ))}
       </span>
-      <span style={{ fontSize: size - 1, color: textColor, fontWeight: 400, letterSpacing: ".01em" }}>
-        {hasReviews ? (
-          <>
-            <strong style={{ color: gold, fontWeight: 500 }}>{avg.toFixed(1)}</strong>
-            <span style={{ opacity: 0.7, marginLeft: 6 }}>
-              ({total} {total === 1 ? "Bewertung" : "Bewertungen"})
-            </span>
-          </>
-        ) : (
-          <span style={{ opacity: 0.85 }}>Sei der/die Erste, der bewertet →</span>
-        )}
-      </span>
-    </Link>
-  );
-};
-
-export default NexusRatingBadge;
+      {!starsOnly && (
+        <span style={{ fontSize: size - 1, color: textColor, fontWeight: 400, letterSpacing: ".01em" }}>
+          {hasReviews ? (
+            <>
+              <strong style={{ color: gold, fontWeight: 500 }}>{avg.toFixed(1)}</strong>
+              <span style={{ opacity: 0.7, marginLeft: 6 }}>
+                ({total} {total === 1 ? "Bewertung" : "Bewertungen"})
+              </span>
+            </>
+          ) : (
+            <span style={{ opacity: 0.85 }}>Sei der/die Erste, der bewertet →</span>
+          )}
+        </span>
+      )}
 
