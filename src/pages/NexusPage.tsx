@@ -49,6 +49,7 @@ import payApplePay from "@/assets/payments/apple-pay.png";
 import payGooglePay from "@/assets/payments/google-pay.png";
 import payKlarna from "@/assets/payments/klarna.png";
 import payTwint from "@/assets/payments/twint.png";
+import NexusRatingBadge from "@/components/NexusRatingBadge";
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
 const nexusHeroImg = nexusHero1200;
@@ -541,6 +542,9 @@ const NexusPage = () => {
               <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
             </div>
             <p style={{ marginTop: 22, fontSize: "clamp(17px,1.8vw,24px)", lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.</p>
+            <div style={{ marginTop: 16 }}>
+              <NexusRatingBadge gold={D.gold} textColor={D.beige} size={15} />
+            </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginTop: 24 }}>
               {["Qi2.2 · 25 W", "Swiss Brand", "3 Jahre Garantie"].map((b) => (
                 <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 12, color: D.beige }}>
@@ -598,6 +602,9 @@ const NexusPage = () => {
             <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
           <p className="text-center mb-4" style={{ fontSize: 16, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
+          <div className="flex justify-center mb-4">
+            <NexusRatingBadge gold={D.gold} textColor={D.beige} align="center" size={14} />
+          </div>
           <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 14 }}>
             <img src={nexusHeroImgSm} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="100vw" width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" />
           </div>
