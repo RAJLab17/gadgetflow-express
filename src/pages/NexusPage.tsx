@@ -571,11 +571,11 @@ const NexusPage = () => {
             </button>
             <p style={{ marginTop: 16, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
 <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
-<div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
-  {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
-    <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", opacity: 0.7, filter: "brightness(0) invert(1)" }} />
-  ))}
-</div>
+ <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
+   {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
+     <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain" }} />
+   ))}
+ </div>
             <p style={{ marginTop: 10, fontSize: 11, color: D.muted }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
             <div className="h-20" aria-hidden />
           </div>
