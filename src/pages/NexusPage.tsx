@@ -533,13 +533,13 @@ const NexusPage = () => {
       <section
         id="mockup-signup"
         className="relative overflow-hidden"
-        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(72px, 8vw, 90px)" }}
+        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(72px, 8vw, 90px)", paddingBottom: 0 }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(201,168,118,.12), transparent 70%)", filter: "blur(32px)", pointerEvents: "none", zIndex: 0 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${D.bg})`, pointerEvents: "none", zIndex: 3 }} />
 
         {/* DESKTOP */}
-        <div className="hidden md:grid relative px-12 lg:px-16 pb-16 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "1fr 1.18fr", gap: "clamp(32px,4.5vw,72px)", alignItems: "center" }}>
+        <div className="hidden md:grid relative px-12 lg:px-16 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "1fr 1.18fr", gap: "clamp(32px,4.5vw,72px)", alignItems: "center" }}>
           {/* LEFT */}
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "8px 16px 8px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.28)", background: "rgba(201,168,118,.06)", marginBottom: 30 }}>
