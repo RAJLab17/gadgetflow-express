@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BuyModal from "@/components/BuyModal";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
-const nexusLaptop = "/assets/hero/nexus-hero.webp";
-import nexusSuiteOld from "@/assets/lifestyle-nexus-suite.webp";
-const nexusSuite = "/assets/hero/ecosystem.webp";
+const nexusLaptop = "/assets/hero/desktop-nexus.webp";
+const nexusSuiteOld = "/assets/hero/desktop-suite-old.webp";
+const nexusSuite = "/assets/hero/desktop-ecosystem.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
