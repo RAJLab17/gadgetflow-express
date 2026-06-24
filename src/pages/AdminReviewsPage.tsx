@@ -15,7 +15,7 @@ interface AdminReview {
   id: string;
   product_id: string;
   customer_name: string;
-  customer_email: string;
+  customer_email: string | null;
   rating: number;
   title: string;
   comment: string;
@@ -114,7 +114,7 @@ const AdminReviewsPage = () => {
         header,
         ...rows.map(
           (r) =>
-            `"${String(r.customer_name).replace(/"/g, '""')}","${r.customer_email}",${r.rating},${r.status},${r.created_at}`
+            `"${String(r.customer_name).replace(/"/g, '""')}","${r.customer_email ?? ""}",${r.rating},${r.status},${r.created_at}`
         ),
       ].join("\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
@@ -230,7 +230,7 @@ const AdminReviewsPage = () => {
                     </div>
                     <h2 className="mt-1 font-medium text-stone-900">{r.title}</h2>
                     <p className="text-xs text-stone-500">
-                      {r.customer_name} · <span className="font-mono">{r.customer_email}</span> ·{" "}
+                      {r.customer_name}{r.customer_email ? <> · <span className="font-mono">{r.customer_email}</span></> : null} ·{" "}
                       {new Date(r.created_at).toLocaleString("de-CH")}
                     </p>
                   </div>
