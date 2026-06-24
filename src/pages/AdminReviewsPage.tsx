@@ -230,7 +230,7 @@ const AdminReviewsPage = () => {
                     </div>
                     <h2 className="mt-1 font-medium text-stone-900">{r.title}</h2>
                     <p className="text-xs text-stone-500">
-                      {r.customer_name} · <span className="font-mono">{r.customer_email}</span> ·{" "}
+                      {r.customer_name}{r.customer_email ? <> · <span className="font-mono">{r.customer_email}</span></> : null} ·{" "}
                       {new Date(r.created_at).toLocaleString("de-CH")}
                     </p>
                   </div>
