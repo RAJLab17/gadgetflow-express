@@ -154,11 +154,11 @@ const BrandHero = () => {
         ))}
       </div>
 
-      {/* Desktop overlays (heavier left gradient for text legibility) */}
-      <div className="absolute inset-0 hidden lg:block" style={{ background: "linear-gradient(180deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.55) 20%, rgba(10,9,8,0.45) 40%, rgba(10,9,8,0.80) 70%, rgba(10,9,8,0.98) 100%)" }} />
-      <div className="absolute inset-x-0 top-0 h-[55%] pointer-events-none hidden lg:block" style={{ background: "radial-gradient(ellipse 90% 70% at 30% 40%, rgba(10,9,8,0.65), transparent 70%)" }} />
-      <div className="absolute inset-0 hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.50) 40%, rgba(10,9,8,0.05) 70%)" }} />
-      <div className="absolute inset-0 mix-blend-overlay opacity-40 hidden lg:block" style={{ background: "radial-gradient(ellipse at 75% 35%, rgba(200,148,107,0.18), transparent 65%)" }} />
+      {/* Desktop overlays — lighter so hero imagery breathes; left side keeps enough contrast for headline */}
+      <div className="absolute inset-0 hidden lg:block" style={{ background: "linear-gradient(180deg, rgba(10,9,8,0.45) 0%, rgba(10,9,8,0.20) 25%, rgba(10,9,8,0.15) 50%, rgba(10,9,8,0.55) 80%, rgba(10,9,8,0.92) 100%)" }} />
+      <div className="absolute inset-x-0 top-0 h-[55%] pointer-events-none hidden lg:block" style={{ background: "radial-gradient(ellipse 80% 65% at 25% 40%, rgba(10,9,8,0.38), transparent 70%)" }} />
+      <div className="absolute inset-0 hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.65) 0%, rgba(10,9,8,0.20) 45%, rgba(10,9,8,0) 75%)" }} />
+      <div className="absolute inset-0 mix-blend-overlay opacity-50 hidden lg:block" style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(200,148,107,0.22), transparent 65%)" }} />
 
       {/* Mobile overlays — premium vignette: dark top for text, BRIGHT product center, soft bottom fade */}
       {/* 1) Top dimmer only for headline area */}
