@@ -28,22 +28,34 @@ Deno.serve(async (req) => {
       const status = url.searchParams.get('status') ?? 'pending'
       const { data, error } = await supabase
         .from('reviews')
-        .select('*')
+        .select('*, review_emails(email)')
         .eq('status', status)
         .order('created_at', { ascending: false })
         .limit(500)
       if (error) throw error
-      return json({ reviews: data ?? [] })
+      const reviews = (data ?? []).map((r: any) => ({
+        ...r,
+        customer_email: r.review_emails?.email ?? null,
+        review_emails: undefined,
+      }))
+      return json({ reviews })
     }
 
     if (req.method === 'GET' && action === 'emails') {
       const { data, error } = await supabase
         .from('reviews')
-        .select('customer_name, customer_email, rating, status, created_at')
+        .select('customer_name, rating, status, created_at, review_emails(email)')
         .order('created_at', { ascending: false })
         .limit(5000)
       if (error) throw error
-      return json({ emails: data ?? [] })
+      const emails = (data ?? []).map((r: any) => ({
+        customer_name: r.customer_name,
+        customer_email: r.review_emails?.email ?? null,
+        rating: r.rating,
+        status: r.status,
+        created_at: r.created_at,
+      }))
+      return json({ emails })
     }
 
     if (req.method === 'POST') {
