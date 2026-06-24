@@ -20,7 +20,10 @@ const SLIDES = [
   { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
   { src: nexusSuiteOld, mobileSrc: nexusSuiteOldMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
   { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
-  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
+  // Slide 4 — Ecosystem (cases, watches, AirPods, power bank). Wide landscape composition:
+  // use `contain` on desktop so the full symmetric arrangement stays visible; the dark
+  // letterboxing blends into the #0a0908 hero background.
+  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "center 60%", mobilePosition: "center center", size: "contain", mobileSize: "cover" },
 ];
 
 
