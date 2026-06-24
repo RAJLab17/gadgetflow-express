@@ -126,6 +126,7 @@ const BrandHero = () => {
               backgroundImage: loaded.has(i) ? `url(${slide.src})` : undefined,
               backgroundPosition: slide.position,
               backgroundSize: slide.size,
+              backgroundColor: slide.size === "contain" ? "#0a0908" : undefined,
               opacity: i === index ? 1 : 0,
             }}
           />
