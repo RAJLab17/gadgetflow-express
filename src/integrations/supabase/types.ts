@@ -164,11 +164,43 @@ export type Database = {
         }
         Relationships: []
       }
+      review_emails: {
+        Row: {
+          created_at: string
+          email: string
+          review_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          review_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          review_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "review_emails_review_id_fkey"
+            columns: ["review_id"]
+            isOneToOne: true
+            referencedRelation: "reviews"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "review_emails_review_id_fkey"
+            columns: ["review_id"]
+            isOneToOne: true
+            referencedRelation: "reviews_public"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       reviews: {
         Row: {
           comment: string
           created_at: string
-          customer_email: string
           customer_name: string
           founder_responded_at: string | null
           founder_response: string | null
@@ -184,7 +216,6 @@ export type Database = {
         Insert: {
           comment: string
           created_at?: string
-          customer_email: string
           customer_name: string
           founder_responded_at?: string | null
           founder_response?: string | null
@@ -200,7 +231,6 @@ export type Database = {
         Update: {
           comment?: string
           created_at?: string
-          customer_email?: string
           customer_name?: string
           founder_responded_at?: string | null
           founder_response?: string | null
