@@ -66,34 +66,22 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.from("reviews").insert({
-      product_id: productId,
-      customer_name: parsed.data.customer_name,
-      customer_email: parsed.data.customer_email,
-      rating: parsed.data.rating,
-      title: parsed.data.title,
-      comment: parsed.data.comment,
+    const { error } = await supabase.functions.invoke("submit-review", {
+      body: {
+        product_id: productId,
+        customer_name: parsed.data.customer_name,
+        customer_email: parsed.data.customer_email,
+        rating: parsed.data.rating,
+        title: parsed.data.title,
+        comment: parsed.data.comment,
+        website: parsed.data.website,
+      },
     });
     setSubmitting(false);
     if (error) {
       toast({ title: "Fehler", description: error.message, variant: "destructive" });
       return;
     }
-    // Fire-and-forget Email-Benachrichtigung an Founder
-    supabase.functions
-      .invoke("notify-new-review", {
-        body: {
-          customer_name: parsed.data.customer_name,
-          customer_email: parsed.data.customer_email,
-          rating: parsed.data.rating,
-          title: parsed.data.title,
-          comment: parsed.data.comment,
-          product_id: productId,
-        },
-      })
-      .catch(() => {
-        /* nicht blockierend */
-      });
     toast({
       title: "Danke für deine Bewertung!",
       description: "Sie wird nach kurzer Prüfung veröffentlicht.",
