@@ -16,6 +16,7 @@ import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import { CartDrawer } from "@/components/CartDrawer";
 import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
@@ -463,6 +464,53 @@ const NexusPage = () => {
     if (params.get("buy") === "1") setBuyModalOpen(true);
   }, []);
 
+  // Dynamic AggregateRating + Review for Product JSON-LD (from approved Supabase reviews)
+  const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>(null);
+  const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const [{ data: s }, { data: r }] = await Promise.all([
+        supabase.rpc("get_review_stats", { _product_id: "nexus" }),
+        supabase
+          .from("reviews_public")
+          .select("customer_name,created_at,comment,title,rating")
+          .eq("product_id", "nexus")
+          .order("created_at", { ascending: false })
+          .limit(10),
+      ]);
+      if (cancelled) return;
+      if (s && Array.isArray(s) && s.length > 0) {
+        const row = s[0] as { total: number; average: number };
+        setReviewStats({ total: Number(row.total) || 0, average: Number(row.average) || 0 });
+      }
+      setTopReviews((r ?? []) as typeof topReviews);
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  const productJsonLd = (reviewStats && reviewStats.total > 0)
+    ? {
+        ...PRODUCT_NEXUS_JSON_LD,
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: reviewStats.average,
+          reviewCount: reviewStats.total,
+          bestRating: 5,
+          worstRating: 1,
+        },
+        review: topReviews.map((r) => ({
+          "@type": "Review",
+          author: { "@type": "Person", name: r.customer_name },
+          datePublished: r.created_at,
+          reviewBody: r.comment,
+          name: r.title,
+          reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+        })),
+      }
+    : PRODUCT_NEXUS_JSON_LD;
+
   return (
     <>
       <Helmet>
@@ -482,7 +530,7 @@ const NexusPage = () => {
         <meta name="twitter:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
         <meta name="twitter:description" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
         <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
-        <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
+        <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd([{ name: "Home", url: "https://raj.ch/" }, { name: "RAJ NEXUS", url: "https://raj.ch/nexus" }]))}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
         <style>{`
