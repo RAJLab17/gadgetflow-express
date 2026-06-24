@@ -15,7 +15,7 @@ interface AdminReview {
   id: string;
   product_id: string;
   customer_name: string;
-  customer_email: string;
+  customer_email: string | null;
   rating: number;
   title: string;
   comment: string;
