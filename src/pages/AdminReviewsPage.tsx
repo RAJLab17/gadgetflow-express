@@ -114,7 +114,7 @@ const AdminReviewsPage = () => {
         header,
         ...rows.map(
           (r) =>
-            `"${String(r.customer_name).replace(/"/g, '""')}","${r.customer_email}",${r.rating},${r.status},${r.created_at}`
+            `"${String(r.customer_name).replace(/"/g, '""')}","${r.customer_email ?? ""}",${r.rating},${r.status},${r.created_at}`
         ),
       ].join("\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
