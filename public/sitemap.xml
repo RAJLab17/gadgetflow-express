@@ -134,6 +134,12 @@
     <priority>0.60</priority>
   </url>
   <url>
+    <loc>https://raj.ch/reviews</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
     <loc>https://raj.ch/blog</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
