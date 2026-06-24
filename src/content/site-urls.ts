@@ -260,6 +260,7 @@ export const STATIC_URLS: SitemapEntry[] = [
   { path: "/kontakt", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
   { path: "/faq", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
   { path: "/versand", lastmod: TODAY, changefreq: "monthly", priority: 0.6 },
+  { path: "/reviews", lastmod: TODAY, changefreq: "weekly", priority: 0.7 },
 
   // Blog index
   { path: "/blog", lastmod: TODAY, changefreq: "weekly", priority: 0.8 },
