@@ -1,0 +1,1 @@
+REVOKE SELECT (fingerprint) ON public.product_likes FROM anon, authenticated;

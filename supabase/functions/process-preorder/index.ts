@@ -51,18 +51,14 @@ serve(async (req) => {
       .eq('order_number', data.orderNumber)
       .single();
 
-    if (orderError || !orderRecord) {
-      console.error('Order not found:', data.orderNumber, orderError);
+    // Uniform 200 response to prevent order-number enumeration.
+    // Silently no-op when the order doesn't exist or was already processed.
+    if (orderError || !orderRecord || orderRecord.email_sent_at) {
+      if (orderError || !orderRecord) {
+        console.warn('process-preorder: order not found or unavailable', data.orderNumber);
+      }
       return new Response(
-        JSON.stringify({ error: 'Order not found' }),
-        { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Idempotency guard: don't reprocess an already-emailed order
-    if (orderRecord.email_sent_at) {
-      return new Response(
-        JSON.stringify({ success: true, alreadyProcessed: true }),
+        JSON.stringify({ success: true }),
         { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }

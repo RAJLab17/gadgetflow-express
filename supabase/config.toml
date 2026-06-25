@@ -11,6 +11,3 @@ verify_jwt = false
 
 [functions.meta-capi]
 verify_jwt = false
-
-[functions.meta-capi-status]
-verify_jwt = false
