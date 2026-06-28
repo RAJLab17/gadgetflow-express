@@ -192,8 +192,6 @@
 
         // Buffer fbq/gtag/clarity calls made before scripts arrive, so app code
         // (e.g. PageView, conversion events) doesn't break.
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
         window.fbq = window.fbq || function(){
           (window.fbq.q = window.fbq.q || []).push(arguments);
         };
@@ -207,15 +205,7 @@
           if (loaded) return;
           loaded = true;
 
-          // Google Analytics 4
-          var ga = document.createElement('script');
-          ga.async = true;
-          ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EST00HSY50';
-          ga.onload = function() {
-            window.gtag('js', new Date());
-            window.gtag('config', 'G-EST00HSY50');
-          };
-          document.head.appendChild(ga);
+
 
           // Meta Pixel — replay buffered queue
           !function(f,b,e,v,n,t,s)
