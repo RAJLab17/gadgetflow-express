@@ -578,7 +578,7 @@ const NexusPage = () => {
                   <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                   <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: D.gold }} />
                 </span>
-                <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".24em" }}>Founder Edition — noch 37 von 100</span>
+                <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert auf 100 Stück</span>
               </div>
               <div style={{ width: "100%", maxWidth: 260, height: 2, borderRadius: 2, background: "rgba(255,255,255,.08)", marginBottom: 22 }}>
                 <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})` }} />
@@ -639,7 +639,7 @@ const NexusPage = () => {
                 <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                 <span style={{ position: "relative", width: 6, height: 6, borderRadius: "50%", background: D.gold }} />
               </span>
-              <span style={{ fontSize: 9, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".2em" }}>Founder Edition — noch 37 von 100</span>
+              <span style={{ fontSize: 9, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".2em" }}>Founder Edition — limitiert auf 100 Stück</span>
             </div>
             <div style={{ width: 200, height: 2, borderRadius: 2, background: "rgba(255,255,255,.08)" }}>
               <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})` }} />
