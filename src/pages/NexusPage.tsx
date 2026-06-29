@@ -591,7 +591,7 @@ const NexusPage = () => {
             </div>
             <p style={{ marginTop: 22, fontSize: "clamp(17px,1.8vw,24px)", lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginTop: 24 }}>
-              {["Qi2.2 · 25 W", "Swiss Brand", "3 Jahre Garantie"].map((b) => (
+              {["Qi2.2 · 25 W", "3 Jahre Garantie", "CE zertifiziert"].map((b) => (
                 <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 12, color: D.beige }}>
                   <span style={{ color: D.gold }}>✓</span> {b}
                 </span>
