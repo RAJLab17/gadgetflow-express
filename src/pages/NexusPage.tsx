@@ -445,18 +445,52 @@ const NexusPage = () => {
   const [heroSubmitted, setHeroSubmitted] = useState(false);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const openBuyModal = useCallback(() => setBuyModalOpen(true), []);
-  const { quickBuy, isProcessing: buyProcessing } = useQuickBuy();
+  const { quickBuy: quickBuyRaw, isProcessing: buyProcessing } = useQuickBuy();
   const pinnedBuyLock = useRef(false);
+
+  const trackAddToCart = useCallback(() => {
+    if (typeof window === "undefined") return;
+    try {
+      (window as any).gtag?.("event", "add_to_cart", {
+        currency: "CHF",
+        value: 99.0,
+        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: 99.0, quantity: 1 }],
+      });
+      (window as any).fbq?.("track", "AddToCart", {
+        value: 99.0,
+        currency: "CHF",
+        content_ids: ["RAJ-NEX-T3-Q2-BLK"],
+        content_type: "product",
+      });
+    } catch {}
+  }, []);
+
+  const quickBuy = useCallback(() => {
+    trackAddToCart();
+    quickBuyRaw();
+  }, [trackAddToCart, quickBuyRaw]);
 
   const handlePinnedBuy = useCallback((event?: { preventDefault?: () => void; stopPropagation?: () => void }) => {
     event?.preventDefault?.();
     event?.stopPropagation?.();
     if (buyProcessing || pinnedBuyLock.current) return;
     pinnedBuyLock.current = true;
-    quickBuy();
-  }, [buyProcessing, quickBuy]);
+    trackAddToCart();
+    quickBuyRaw();
+  }, [buyProcessing, quickBuyRaw, trackAddToCart]);
 
   useViewContent({ content_name: "RAJ NEXUS", content_ids: ["RAJ-NEXUS-001"], content_type: "product", content_category: "Wireless Charger", value: 99, currency: "CHF" });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      (window as any).gtag?.("event", "view_item", {
+        currency: "CHF",
+        value: 99.0,
+        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: 99.0, quantity: 1 }],
+      });
+    } catch {}
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
