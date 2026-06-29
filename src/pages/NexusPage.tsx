@@ -645,8 +645,8 @@ const NexusPage = () => {
 
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pb-10" style={{ zIndex: 2 }}>
-          <div className="flex flex-col items-center mb-6">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "9px 18px 9px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 8, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
+          <div className="flex flex-col items-center mb-3">
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "7px 16px 7px 12px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 6, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
               <span style={{ position: "relative", display: "flex", width: 6, height: 6 }}>
                 <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                 <span style={{ position: "relative", width: 6, height: 6, borderRadius: "50%", background: D.gold }} />
@@ -657,42 +657,43 @@ const NexusPage = () => {
               <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})` }} />
             </div>
           </div>
-          <div className="text-center mb-4" style={{ fontSize: "clamp(42px,11vw,64px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
+          <div className="text-center mb-2" style={{ fontSize: "clamp(40px,10vw,60px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
             <span style={{ color: D.beige }}>RAJ</span>{" "}
             <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
-          <p className="text-center mb-4" style={{ fontSize: 16, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 14 }}>
+          <p className="text-center mb-3" style={{ fontSize: 14, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 10 }}>
             <img src={nexusHeroImgSm} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="100vw" width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" />
           </div>
-          <div className="flex flex-wrap justify-center gap-1.5 mb-4">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-2.5">
             {["Qi2.2 · 25 W", "Swiss Brand", "3 Jahre Garantie"].map((b) => (
-              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "5px 10px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
+              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
                 <span style={{ color: D.gold }}>✓</span> {b}
               </span>
             ))}
           </div>
-          <div className="flex items-baseline justify-center gap-3 mb-3">
-            <span style={{ fontSize: 32, color: D.beige, fontWeight: 300 }}>CHF 99.-</span>
-            <span style={{ fontSize: 14, textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.-</span>
+          <div className="flex items-baseline justify-center gap-3 mb-2">
+            <span style={{ fontSize: 30, color: D.beige, fontWeight: 300, lineHeight: 1 }}>CHF 99.-</span>
+            <span style={{ fontSize: 13, textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.-</span>
           </div>
-          <div className="flex flex-nowrap justify-center gap-1.5 mb-3 px-1">
+          <div className="flex flex-nowrap justify-center gap-1.5 mb-2 px-1">
             {[
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
               { i: <svg width="11" height="11" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 1.5, flexShrink: 0 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🚚</span>, t: "2–3 Werktage" },
             ].map((b) => (
-              <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "5px 8px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 9.5, color: D.beige, whiteSpace: "nowrap" }}>
+              <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 7px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 9.5, color: D.beige, whiteSpace: "nowrap" }}>
                 {b.i} {b.t}
               </span>
             ))}
           </div>
 
-          <div className="flex justify-center mb-4">
-            <NexusRatingBadge gold="#C9A876" textColor={D.beige} align="center" size={14} />
+          <div className="flex justify-center mb-2.5">
+            <NexusRatingBadge gold="#C9A876" textColor={D.beige} align="center" size={13} />
           </div>
-          <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "14px 22px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+          <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "13px 22px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
+
           </button>
           
           <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
