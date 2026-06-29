@@ -602,14 +602,21 @@ const NexusPage = () => {
               <span style={{ fontSize: "clamp(15px,1.5vw,19px)", textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.-</span>
               <span style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".16em", color: D.gold, fontWeight: 600, padding: "5px 11px", borderRadius: 100, background: "rgba(201,168,118,.1)" }}>-30.-</span>
             </div>
-            <div style={{ marginTop: -4, marginBottom: 18 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: -4, marginBottom: 14 }}>
+              {[{ i: "🔄", t: "30 Tage Rückgabe" }, { i: "🚚", t: "Lieferung in 2–3 Werktagen" }, { i: "🇨🇭", t: "Swiss Brand" }].map((b) => (
+                <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 11.5, color: D.beige }}>
+                  <span style={{ fontSize: 13, lineHeight: 1 }}>{b.i}</span> {b.t}
+                </span>
+              ))}
+            </div>
+            <div style={{ marginBottom: 18 }}>
               <NexusRatingBadge gold="#C9A876" textColor={D.beige} size={15} />
             </div>
             <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60" style={{ padding: "19px 54px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </button>
             
-            <p style={{ marginTop: 10, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
+
             <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
               {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
