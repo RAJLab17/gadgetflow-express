@@ -603,12 +603,17 @@ const NexusPage = () => {
               <span style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".16em", color: D.gold, fontWeight: 600, padding: "5px 11px", borderRadius: 100, background: "rgba(201,168,118,.1)" }}>-30.-</span>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: -4, marginBottom: 14 }}>
-              {[{ i: "🔄", t: "30 Tage Rückgabe" }, { i: "🚚", t: "Lieferung in 2–3 Werktagen" }, { i: "🇨🇭", t: "Swiss Brand" }].map((b) => (
+              {[
+                { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
+                { i: <svg width="14" height="14" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 2 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
+                { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–3 Werktagen" },
+              ].map((b) => (
                 <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 11.5, color: D.beige }}>
-                  <span style={{ fontSize: 13, lineHeight: 1 }}>{b.i}</span> {b.t}
+                  {b.i} {b.t}
                 </span>
               ))}
             </div>
+
             <div style={{ marginBottom: 18 }}>
               <NexusRatingBadge gold="#C9A876" textColor={D.beige} size={15} />
             </div>
@@ -671,13 +676,18 @@ const NexusPage = () => {
             <span style={{ fontSize: 32, color: D.beige, fontWeight: 300 }}>CHF 99.-</span>
             <span style={{ fontSize: 14, textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.-</span>
           </div>
-          <div className="flex flex-wrap justify-center gap-1.5 mb-3">
-            {[{ i: "🔄", t: "30 Tage Rückgabe" }, { i: "🚚", t: "Lieferung in 2–3 Werktagen" }, { i: "🇨🇭", t: "Swiss Brand" }].map((b) => (
-              <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "5px 10px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
-                <span style={{ fontSize: 11, lineHeight: 1 }}>{b.i}</span> {b.t}
+          <div className="flex flex-nowrap justify-center gap-1.5 mb-3 px-1">
+            {[
+              { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
+              { i: <svg width="11" height="11" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 1.5, flexShrink: 0 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
+              { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🚚</span>, t: "2–3 Werktage" },
+            ].map((b) => (
+              <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "5px 8px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 9.5, color: D.beige, whiteSpace: "nowrap" }}>
+                {b.i} {b.t}
               </span>
             ))}
           </div>
+
           <div className="flex justify-center mb-4">
             <NexusRatingBadge gold="#C9A876" textColor={D.beige} align="center" size={14} />
           </div>
