@@ -671,6 +671,13 @@ const NexusPage = () => {
             <span style={{ fontSize: 32, color: D.beige, fontWeight: 300 }}>CHF 99.-</span>
             <span style={{ fontSize: 14, textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.-</span>
           </div>
+          <div className="flex flex-wrap justify-center gap-1.5 mb-3">
+            {[{ i: "🔄", t: "30 Tage Rückgabe" }, { i: "🚚", t: "Lieferung in 2–3 Werktagen" }, { i: "🇨🇭", t: "Swiss Brand" }].map((b) => (
+              <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "5px 10px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
+                <span style={{ fontSize: 11, lineHeight: 1 }}>{b.i}</span> {b.t}
+              </span>
+            ))}
+          </div>
           <div className="flex justify-center mb-4">
             <NexusRatingBadge gold="#C9A876" textColor={D.beige} align="center" size={14} />
           </div>
@@ -678,8 +685,8 @@ const NexusPage = () => {
             Jetzt kaufen →
           </button>
           
-          <p className="text-center mt-2" style={{ fontSize: 10.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
           <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
+
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
             {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
               <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
