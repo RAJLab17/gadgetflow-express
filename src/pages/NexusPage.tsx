@@ -608,7 +608,7 @@ const NexusPage = () => {
             <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60" style={{ padding: "19px 54px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </button>
-            <p style={{ marginTop: 16, fontSize: 12, color: D.beige, display: "flex", alignItems: "center", gap: 6 }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
+            
             <p style={{ marginTop: 10, fontSize: 11.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
             <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
@@ -670,7 +670,7 @@ const NexusPage = () => {
           <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "14px 22px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
           </button>
-          <p className="text-center" style={{ marginTop: 14, fontSize: 12, color: D.beige }}><span style={{ color: D.gold }}>✦</span> Lebenslanger Early Access zu neuen RAJ Produkten</p>
+          
           <p className="text-center mt-2" style={{ fontSize: 10.5, color: D.muted, letterSpacing: ".04em" }}>Kostenloser Versand · 30 Tage Rückgabe</p>
           <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
