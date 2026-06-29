@@ -591,7 +591,7 @@ const NexusPage = () => {
             </div>
             <p style={{ marginTop: 22, fontSize: "clamp(17px,1.8vw,24px)", lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginTop: 24 }}>
-              {["Qi2.2 · 25 W", "3 Jahre Garantie", "CE zertifiziert"].map((b) => (
+              {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe kompatibel"].map((b) => (
                 <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 12, color: D.beige }}>
                   <span style={{ color: D.gold }}>✓</span> {b}
                 </span>
@@ -669,7 +669,7 @@ const NexusPage = () => {
             <span style={{ position: "absolute", bottom: 10, right: 10, zIndex: 3, display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 100, background: "rgba(22,163,74,.88)", color: "#fff", fontSize: 10, fontWeight: 600, letterSpacing: ".04em", backdropFilter: "blur(4px)", boxShadow: "0 4px 12px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.15) inset" }}>✓ WPC zertifiziert</span>
           </div>
           <div className="flex flex-wrap justify-center gap-1.5 mb-2.5">
-            {["Qi2.2 · 25 W", "3 Jahre Garantie", "CE zertifiziert"].map((b) => (
+            {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe kompatibel"].map((b) => (
               <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
                 <span style={{ color: D.gold }}>✓</span> {b}
               </span>
