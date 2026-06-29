@@ -404,39 +404,6 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
   );
 };
 
-const SplashIntro = () => {
-  const [phase, setPhase] = useState<"hidden" | "logo" | "split" | "done">("hidden");
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      if (sessionStorage.getItem("raj_intro_played") === "1") return;
-      sessionStorage.setItem("raj_intro_played", "1");
-    } catch { /* ignore */ }
-    setPhase("logo");
-    const t1 = setTimeout(() => setPhase("split"), 1100);
-    const t2 = setTimeout(() => setPhase("done"), 2300);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, []);
-  if (phase === "hidden" || phase === "done") return null;
-  const splitting = phase === "split";
-  return (
-    <div className="fixed inset-0 z-[100] pointer-events-none" aria-hidden>
-      <div className="absolute inset-x-0 top-0 h-1/2 transition-transform ease-[cubic-bezier(0.76,0,0.24,1)]" style={{ background: D.bg, transform: splitting ? "translateY(-100%)" : "translateY(0)", transitionDuration: "1100ms", borderBottom: splitting ? `1px solid ${D.gold}33` : "none" }} />
-      <div className="absolute inset-x-0 bottom-0 h-1/2 transition-transform ease-[cubic-bezier(0.76,0,0.24,1)]" style={{ background: D.bg, transform: splitting ? "translateY(100%)" : "translateY(0)", transitionDuration: "1100ms" }} />
-      <div className="absolute left-0 right-0 top-1/2 h-px transition-opacity" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: splitting ? 0 : 0.6, transform: "translateY(-0.5px)" }} />
-      <div className="absolute inset-0 flex items-center justify-center transition-opacity" style={{ opacity: splitting ? 0 : 1, transitionDuration: splitting ? "500ms" : "700ms" }}>
-        <img src={logoTransparent} alt="" className="w-28 sm:w-36 md:w-44 h-auto select-none" style={{ filter: `drop-shadow(0 0 22px ${D.gold}55) drop-shadow(0 6px 18px rgba(0,0,0,0.45))`, animation: "raj-logo-pulse 1100ms ease-out both" }} draggable={false} />
-      </div>
-      <style>{`
-        @keyframes raj-logo-pulse {
-          0% { opacity: 0; transform: scale(0.92); }
-          55% { opacity: 1; transform: scale(1.04); }
-          100% { opacity: 1; transform: scale(1); }
-        }
-      `}</style>
-    </div>
-  );
-};
 
 const NexusPage = () => {
   const { t, lang, setLang } = useLanguage();
@@ -576,7 +543,7 @@ const NexusPage = () => {
         `}</style>
       </Helmet>
 
-      <SplashIntro />
+      
 
       {!heroSubmitted && (
         <div className="fixed bottom-0 left-0 right-0 z-30 backdrop-blur-md" style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40`, pointerEvents: "auto", transform: "translateZ(0)" }}>
