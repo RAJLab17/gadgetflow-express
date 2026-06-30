@@ -1,0 +1,1 @@
+UPDATE public.reviews SET verified_purchase = true WHERE customer_name ILIKE 'Luka%';
