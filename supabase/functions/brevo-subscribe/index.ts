@@ -35,7 +35,7 @@ serve(async (req) => {
 
     const brevoBody = {
       email: cleanEmail,
-      listIds: [9],
+      listIds: [4],
       updateEnabled: true,
     };
 
