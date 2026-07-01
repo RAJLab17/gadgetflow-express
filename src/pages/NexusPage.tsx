@@ -16,7 +16,7 @@ const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAc
 
 import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
-import { supabase } from "@/integrations/supabase/client";
+
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
@@ -473,9 +473,10 @@ const NexusPage = () => {
   useEffect(() => {
     let cancelled = false;
     (async () => {
+      const sb = await getSupabase();
       const [{ data: s }, { data: r }] = await Promise.all([
-        supabase.rpc("get_review_stats", { _product_id: "nexus" }),
-        supabase
+        sb.rpc("get_review_stats", { _product_id: "nexus" }),
+        sb
           .from("reviews_public")
           .select("customer_name,created_at,comment,title,rating")
           .eq("product_id", "nexus")
