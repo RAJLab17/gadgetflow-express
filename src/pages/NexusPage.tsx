@@ -49,6 +49,7 @@ import payAmex from "@/assets/payments/amex.svg";
 import payApplePay from "@/assets/payments/apple-pay.svg";
 import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
+import payKlarna from "@/assets/payments/klarna.svg";
 import NexusRatingBadge from "@/components/NexusRatingBadge";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 
@@ -627,7 +628,7 @@ const NexusPage = () => {
 
             <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
-              {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
+              {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
                 <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
               ))}
             </div>
@@ -707,7 +708,7 @@ const NexusPage = () => {
 
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
-            {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint].map((src, i) => (
+            {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
               <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
             ))}
           </div>
