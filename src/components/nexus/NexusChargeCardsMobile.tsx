@@ -194,7 +194,7 @@ export default function NexusHeroChipsMobile() {
         startVal={71}
         phase={0.75}
         floatAnim="raj-float 6.5s"
-        style={{ bottom: "8%", left: "50%", transform: "translateX(-50%)" }}
+        style={{ bottom: "8%", left: "3%" }}
         active={visible}
       />
     </div>
