@@ -40,8 +40,9 @@ serve(async (req) => {
     const cleanMessage = message.trim();
 
     const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY');
-    if (!BREVO_API_KEY) {
-      console.error('BREVO_API_KEY secret is missing!');
+    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+    if (!BREVO_API_KEY || !LOVABLE_API_KEY) {
+      console.error('Missing BREVO_API_KEY or LOVABLE_API_KEY');
       return new Response(
         JSON.stringify({ error: 'Server-Konfigurationsfehler' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
