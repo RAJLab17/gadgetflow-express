@@ -21,8 +21,9 @@ serve(async (req) => {
     }
 
     const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY');
-    if (!BREVO_API_KEY) {
-      console.error('BREVO_API_KEY secret is missing!');
+    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+    if (!BREVO_API_KEY || !LOVABLE_API_KEY) {
+      console.error('Missing BREVO_API_KEY or LOVABLE_API_KEY');
       return new Response(
         JSON.stringify({ error: 'Server-Konfigurationsfehler' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -32,10 +33,7 @@ serve(async (req) => {
     const cleanEmail = email.trim().toLowerCase();
     console.log('Adding to RAJ Runde 2 waitlist:', cleanEmail);
 
-    // Use the existing "RAJ - Runde 2" list (ID 8) in Brevo
     const listId = 8;
-
-    // Add contact to the waitlist
     const brevoBody = {
       email: cleanEmail,
       listIds: [listId],
@@ -46,14 +44,13 @@ serve(async (req) => {
       },
     };
 
-    console.log('Sending to Brevo /v3/contacts:', JSON.stringify(brevoBody));
-
-    const response = await fetch('https://api.brevo.com/v3/contacts', {
+    const response = await fetch('https://connector-gateway.lovable.dev/brevo/contacts', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json',
-        'api-key': BREVO_API_KEY,
+        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+        'X-Connection-Api-Key': BREVO_API_KEY,
       },
       body: JSON.stringify(brevoBody),
     });
