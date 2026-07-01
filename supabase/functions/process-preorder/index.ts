@@ -136,12 +136,13 @@ serve(async (req) => {
         });
 
         // Send notification to RAJ team
-        await fetch('https://api.brevo.com/v3/smtp/email', {
+        await fetch('https://connector-gateway.lovable.dev/brevo/smtp/email', {
           method: 'POST',
           headers: {
             'accept': 'application/json',
             'content-type': 'application/json',
-            'api-key': BREVO_API_KEY,
+            'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+            'X-Connection-Api-Key': BREVO_API_KEY,
           },
           body: JSON.stringify({
             sender: { name: 'RAJ Shop', email: 'info@raj.ch' },
