@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CartDrawer } from "@/components/CartDrawer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
-import logo from "@/assets/logo-new.webp";
+import logo from "@/assets/logo-new-400w.webp";
 
 const Header = () => {
   const { quickBuy } = useQuickBuy();

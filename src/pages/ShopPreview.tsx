@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingBag, Loader2, Check, Truck, ShieldCheck, RotateCcw, FileText, Zap, Award } from "lucide-react";
-import logoMark from "@/assets/logo-new.webp";
+import logoMark from "@/assets/logo-new-400w.webp";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
