@@ -777,7 +777,7 @@ const NexusPage = () => {
           </div>
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="md:col-span-6">
-              <img src={nexusTopview} alt="RAJ NEXUS Top View" width={1200} height={1200} loading="lazy" decoding="async" className="w-full aspect-square object-cover rounded-sm" style={{ boxShadow: "0 30px 80px -30px rgba(26,26,26,0.25)" }} />
+              <img src={nexusTopview} srcSet={`${nexusTopview680} 680w, ${nexusTopview1200} 1200w`} sizes="(max-width: 768px) 100vw, 50vw" alt="RAJ NEXUS Top View" width={1200} height={1200} loading="lazy" decoding="async" className="w-full aspect-square object-cover rounded-sm" style={{ boxShadow: "0 30px 80px -30px rgba(26,26,26,0.25)" }} />
             </div>
             <div className="md:col-span-6">
               <dl className="space-y-0">
