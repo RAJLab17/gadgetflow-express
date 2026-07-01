@@ -76,14 +76,14 @@ function MiniChip({ label, icon, startVal, phase, floatAnim, style, active }: Ch
     <div
       style={{
         position: "absolute",
-        padding: "6px 9px",
+        padding: "6px 8px",
         borderRadius: 11,
         background: "rgba(18,17,16,.86)",
         backdropFilter: "blur(10px)",
         WebkitBackdropFilter: "blur(10px)",
         border: "1px solid rgba(201,168,118,.28)",
         boxShadow: "0 10px 22px rgba(0,0,0,.55)",
-        minWidth: 92,
+        minWidth: 78,
         animation: active ? `${floatAnim} ease-in-out infinite` : "none",
         zIndex: 5,
         contain: "layout paint",
