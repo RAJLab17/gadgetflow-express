@@ -793,7 +793,9 @@ const NexusPage = () => {
 
       {/* ═══ 5. DETAILS / FAQ ═══ */}
       <section style={{ background: L.bg, color: L.text }}>
-        <ProductDetailsAccordion />
+        <Suspense fallback={<div style={{ minHeight: 400 }} />}>
+          <ProductDetailsAccordion />
+        </Suspense>
       </section>
       <section id="faq" className="py-20 md:py-28 px-5" style={{ background: L.bg, color: L.text, borderTop: `1px solid ${L.border}` }} aria-labelledby="nexus-faq-heading">
         <div className="max-w-3xl mx-auto">
