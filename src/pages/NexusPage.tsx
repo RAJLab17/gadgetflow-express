@@ -49,6 +49,7 @@ import payAmex from "@/assets/payments/amex.svg";
 import payApplePay from "@/assets/payments/apple-pay.svg";
 import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
+import payKlarna from "@/assets/payments/klarna.svg";
 import NexusRatingBadge from "@/components/NexusRatingBadge";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 
