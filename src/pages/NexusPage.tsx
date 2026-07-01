@@ -16,7 +16,7 @@ const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAc
 
 import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
-import { supabase } from "@/integrations/supabase/client";
+
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
