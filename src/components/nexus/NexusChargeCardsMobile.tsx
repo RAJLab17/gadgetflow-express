@@ -185,7 +185,7 @@ export default function NexusHeroChipsMobile() {
         startVal={79}
         phase={0.4}
         floatAnim="raj-float2 7s"
-        style={{ top: "16%", right: "3%" }}
+        style={{ top: "22%", right: "3%" }}
         active={visible}
       />
       <MiniChip
@@ -194,7 +194,7 @@ export default function NexusHeroChipsMobile() {
         startVal={71}
         phase={0.75}
         floatAnim="raj-float 6.5s"
-        style={{ bottom: "8%", left: "3%" }}
+        style={{ bottom: "8%", left: "6%" }}
         active={visible}
       />
     </div>
