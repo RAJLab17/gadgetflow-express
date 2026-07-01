@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useReveal } from "@/lib/reveal";
-import logo from "@/assets/logo-new.webp";
+import logo from "@/assets/logo-new-400w.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

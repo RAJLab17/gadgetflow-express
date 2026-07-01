@@ -19,7 +19,7 @@ import storyNight from "@/assets/products/nexus-real-night-city.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
-import logo from "@/assets/logo-new.webp";
+import logo from "@/assets/logo-new-400w.webp";
 
 const LAUNCH_DATE = new Date("2026-05-06T20:00:00+02:00").getTime();
 const getSupabase = () =>
