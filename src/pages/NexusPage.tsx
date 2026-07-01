@@ -51,7 +51,6 @@ import payGooglePay from "@/assets/payments/google-pay.png";
 import payKlarna from "@/assets/payments/klarna.png";
 import payTwint from "@/assets/payments/twint.png";
 import NexusRatingBadge from "@/components/NexusRatingBadge";
-import NexusChargeCardsMobile from "@/components/nexus/NexusChargeCardsMobile";
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
 const nexusHeroImg = nexusHero1200;
