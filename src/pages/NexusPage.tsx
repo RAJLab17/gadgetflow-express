@@ -12,7 +12,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useViewContent } from "@/hooks/useViewContent";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
-import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
+const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAccordion"));
 
 import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
