@@ -92,15 +92,17 @@ serve(async (req) => {
 
     // 1. Send confirmation email via Brevo transactional
     const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY');
-    if (BREVO_API_KEY) {
+    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+    if (BREVO_API_KEY && LOVABLE_API_KEY) {
       try {
         // Send customer confirmation
-        const customerEmailRes = await fetch('https://api.brevo.com/v3/smtp/email', {
+        const customerEmailRes = await fetch('https://connector-gateway.lovable.dev/brevo/smtp/email', {
           method: 'POST',
           headers: {
             'accept': 'application/json',
             'content-type': 'application/json',
-            'api-key': BREVO_API_KEY,
+            'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+            'X-Connection-Api-Key': BREVO_API_KEY,
           },
           body: JSON.stringify({
             sender: { name: 'RAJ', email: 'info@raj.ch' },
@@ -134,12 +136,13 @@ serve(async (req) => {
         });
 
         // Send notification to RAJ team
-        await fetch('https://api.brevo.com/v3/smtp/email', {
+        await fetch('https://connector-gateway.lovable.dev/brevo/smtp/email', {
           method: 'POST',
           headers: {
             'accept': 'application/json',
             'content-type': 'application/json',
-            'api-key': BREVO_API_KEY,
+            'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+            'X-Connection-Api-Key': BREVO_API_KEY,
           },
           body: JSON.stringify({
             sender: { name: 'RAJ Shop', email: 'info@raj.ch' },
