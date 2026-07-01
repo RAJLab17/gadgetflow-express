@@ -30,6 +30,8 @@ import nexusFeatures from "@/assets/products/nexus-desk-writing.webp";
 import nexusFeatures1000 from "@/assets/products/nexus-desk-writing-1000w.webp";
 import nexusFeatures1200 from "@/assets/products/nexus-desk-writing-1200w.webp";
 import nexusWindow from "@/assets/products/nexus-sidetable-enjoy.webp";
+import nexusWindow680 from "@/assets/products/nexus-sidetable-enjoy-680w.webp";
+import nexusWindow1200 from "@/assets/products/nexus-sidetable-enjoy-1200w.webp";
 const carousel1 = "/assets/products/nexus-real-hero-floating-white.webp";
 import carousel2 from "@/assets/products/nexus-real-topview-qi2-white.webp";
 import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
