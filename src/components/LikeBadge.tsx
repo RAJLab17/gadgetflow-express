@@ -32,11 +32,9 @@ const LikeBadge = ({ productId }: LikeBadgeProps) => {
 
     const fetchCount = async () => {
       const supabase = await getSupabase();
-      const { count: total, error } = await supabase
-        .from("product_likes")
-        .select("*", { count: "exact", head: true })
-        .eq("product_id", productId);
-      if (!error && total !== null) setCount(total);
+      const { data, error } = await supabase
+        .rpc("get_product_like_count", { _product_id: productId });
+      if (!error && typeof data === "number") setCount(data);
     };
     fetchCount();
   }, [productId, storageKey]);
