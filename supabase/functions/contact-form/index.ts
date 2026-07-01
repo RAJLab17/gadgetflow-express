@@ -74,12 +74,13 @@ serve(async (req) => {
       `,
     };
 
-    const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+    const response = await fetch('https://connector-gateway.lovable.dev/brevo/smtp/email', {
       method: 'POST',
       headers: {
         'accept': 'application/json',
         'content-type': 'application/json',
-        'api-key': BREVO_API_KEY,
+        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+        'X-Connection-Api-Key': BREVO_API_KEY,
       },
       body: JSON.stringify(brevoBody),
     });
