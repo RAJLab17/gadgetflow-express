@@ -338,6 +338,7 @@ export type Database = {
     Functions: {
       get_launch_signups_today_count: { Args: never; Returns: number }
       get_launch_signups_total: { Args: never; Returns: number }
+      get_product_like_count: { Args: { _product_id: string }; Returns: number }
       get_review_stats: {
         Args: { _product_id?: string }
         Returns: {
