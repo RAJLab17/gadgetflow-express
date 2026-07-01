@@ -26,6 +26,8 @@ import nexusDesk from "@/assets/products/nexus-office-skyline.webp";
 import nexusDesk680 from "@/assets/products/nexus-office-skyline-680w.webp";
 import nexusDesk1200 from "@/assets/products/nexus-office-skyline-1200w.webp";
 import nexusTopview from "@/assets/products/nexus-real-topview-qi2.jpg";
+import nexusTopview680 from "@/assets/products/nexus-real-topview-qi2-680w.webp";
+import nexusTopview1200 from "@/assets/products/nexus-real-topview-qi2-1200w.webp";
 import nexusFeatures from "@/assets/products/nexus-desk-writing.webp";
 import nexusFeatures1000 from "@/assets/products/nexus-desk-writing-1000w.webp";
 import nexusFeatures1200 from "@/assets/products/nexus-desk-writing-1200w.webp";
