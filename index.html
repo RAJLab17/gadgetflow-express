@@ -71,9 +71,10 @@
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
     <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
 
-    <!-- Preload LCP hero image (Nexus page) — starts download in parallel with JS bundle,
-         instead of waiting for React to render the <img>. Path is the Vite-hashed build output. -->
-    <link rel="preload" as="image" href="/assets/nexus-hero-charging-1200w-ChHtw_f9.webp" imagesrcset="/assets/nexus-hero-charging-800w-mQME62Tn.webp 800w, /assets/nexus-hero-charging-1200w-ChHtw_f9.webp 1200w" imagesizes="(max-width: 768px) 100vw, 600px" fetchpriority="high" />
+    <!-- Preload LCP hero image (Nexus page). Injected by the raj-hero-preload Vite
+         plugin using the actual hashed build paths — do NOT hard-code paths here. -->
+    <!--HERO_PRELOAD-->
+
 
 
 
