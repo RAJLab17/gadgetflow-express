@@ -747,10 +747,10 @@ const NexusPage = () => {
       <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
         <div className="max-w-7xl mx-auto space-y-24 md:space-y-48">
           {[
-            { img: nexusFeatures, srcSet: `${nexusFeatures1000} 1000w, ${nexusFeatures1200} 1200w, ${nexusFeatures} 1600w`, sizes: "(max-width: 768px) 100vw, 50vw", alt: "100% in 1.5 Stunden", eyebrow: "Für die, die keine Zeit haben", title: "Vollgeladen, bevor der Kaffee fertig ist.", copy: "90 Minuten und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen." },
+            { img: nexusFeatures, srcSet: `${nexusFeatures1000} 1000w, ${nexusFeatures1200} 1200w, ${nexusFeatures} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "100% in 1.5 Stunden", eyebrow: "Für die, die keine Zeit haben", title: "Vollgeladen, bevor der Kaffee fertig ist.", copy: "90 Minuten und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen." },
             { img: nexusFolds, alt: "Faltbar wie eine Brieftasche", eyebrow: "Für die Vielreisenden", title: "Faltet sich wie eine Brieftasche.", copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig laden." },
-            { img: nexusDesk, srcSet: `${nexusDesk680} 680w, ${nexusDesk1200} 1200w, ${nexusDesk} 1600w`, sizes: "(max-width: 768px) 100vw, 50vw", alt: "Aufgeräumter Schreibtisch", eyebrow: "Für die, die Ordnung lieben", title: "Drei Kabel weg. Ein Objekt da.", copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Einfach hinlegen. Fertig." },
-            { img: nexusWindow, srcSet: `${nexusWindow680} 680w, ${nexusWindow1200} 1200w, ${nexusWindow} 1600w`, sizes: "(max-width: 768px) 100vw, 50vw", alt: "Material Detail im Licht", eyebrow: "Für die, die Qualität spüren", title: "Aluminium. Mattes Finish. Gewicht in der Hand.", copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Manche Dinge erklären sich von selbst." },
+            { img: nexusDesk, srcSet: `${nexusDesk680} 680w, ${nexusDesk1200} 1200w, ${nexusDesk} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "Aufgeräumter Schreibtisch", eyebrow: "Für die, die Ordnung lieben", title: "Drei Kabel weg. Ein Objekt da.", copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Einfach hinlegen. Fertig." },
+            { img: nexusWindow, srcSet: `${nexusWindow680} 680w, ${nexusWindow1200} 1200w, ${nexusWindow} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "Material Detail im Licht", eyebrow: "Für die, die Qualität spüren", title: "Aluminium. Mattes Finish. Gewicht in der Hand.", copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Manche Dinge erklären sich von selbst." },
           ].map((s: any, i) => {
             const imageRight = i % 2 === 1;
             return (
@@ -777,7 +777,7 @@ const NexusPage = () => {
           </div>
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="md:col-span-6">
-              <img src={nexusTopview} srcSet={`${nexusTopview680} 680w, ${nexusTopview1200} 1200w`} sizes="(max-width: 768px) 100vw, 50vw" alt="RAJ NEXUS Top View" width={1200} height={1200} loading="lazy" decoding="async" className="w-full aspect-square object-cover rounded-sm" style={{ boxShadow: "0 30px 80px -30px rgba(26,26,26,0.25)" }} />
+              <img src={nexusTopview} srcSet={`${nexusTopview680} 680w, ${nexusTopview1200} 1200w`} sizes="(max-width: 768px) 100vw, 650px" alt="RAJ NEXUS Top View" width={1200} height={1200} loading="lazy" decoding="async" className="w-full aspect-square object-cover rounded-sm" style={{ boxShadow: "0 30px 80px -30px rgba(26,26,26,0.25)" }} />
             </div>
             <div className="md:col-span-6">
               <dl className="space-y-0">
