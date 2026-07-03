@@ -651,7 +651,9 @@ const NexusPage = () => {
                 <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
                 <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
               </picture>
-              <span style={{ position: "absolute", bottom: 12, right: 12, zIndex: 3, display: "inline-flex", alignItems: "center", gap: 5, padding: "5px 10px", borderRadius: 100, background: "rgba(22,163,74,.88)", color: "#fff", fontSize: 11, fontWeight: 600, letterSpacing: ".04em", backdropFilter: "blur(4px)", boxShadow: "0 4px 12px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.15) inset" }}>✓ WPC zertifiziert</span>
+              <div style={{ position: "absolute", bottom: 12, right: 12, zIndex: 3 }}>
+                <Qi2CertifiedBadge size={40} gold={D.gold} />
+              </div>
             </div>
             <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
             <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "38%", right: "-4%" }} />
