@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import logo from "@/assets/logo-new-400w.webp";
 
-const Header = () => {
+const Header = ({ bottomSlot }: { bottomSlot?: React.ReactNode } = {}) => {
   const { quickBuy } = useQuickBuy();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -207,6 +207,14 @@ const Header = () => {
             </button>
           </div>
         </div>
+
+        {/* Optional bottom strip integrated inside the header chrome (e.g. trust ticker) */}
+        {bottomSlot && (
+          <div className="-mx-2 sm:-mx-4">
+            {bottomSlot}
+          </div>
+        )}
+
 
         {/* Mobile Menu — pure CSS expand */}
         {isMenuOpen && (
