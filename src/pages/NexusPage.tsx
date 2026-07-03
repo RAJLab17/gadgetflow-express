@@ -57,6 +57,7 @@ import payKlarna from "@/assets/payments/klarna.svg";
 import NexusRatingBadge from "@/components/NexusRatingBadge";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
+import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
 const nexusHeroImg = nexusHero1200;
