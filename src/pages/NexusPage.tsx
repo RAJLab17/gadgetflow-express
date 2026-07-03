@@ -651,8 +651,9 @@ const NexusPage = () => {
                 <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
                 <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
               </picture>
-              <div style={{ position: "absolute", bottom: 12, right: 12, zIndex: 3 }}>
-                <Qi2CertifiedBadge size={40} gold={D.gold} />
+              <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, filter: "drop-shadow(0 4px 10px rgba(0,0,0,.55))" }}>
+                <Qi2CertifiedBadge size={44} gold={D.gold} compact />
+                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6" }}>Zertifiziert</span>
               </div>
             </div>
             <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
@@ -683,8 +684,9 @@ const NexusPage = () => {
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
               <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
             </picture>
-            <div style={{ position: "absolute", bottom: 10, right: 10, zIndex: 3 }}>
-              <Qi2CertifiedBadge size={34} gold={D.gold} />
+            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, filter: "drop-shadow(0 4px 10px rgba(0,0,0,.55))" }}>
+              <Qi2CertifiedBadge size={36} gold={D.gold} compact />
+              <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6" }}>Zertifiziert</span>
             </div>
             <NexusHeroChipsMobile />
           </div>
