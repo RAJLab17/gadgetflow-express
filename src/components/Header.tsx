@@ -208,6 +208,14 @@ const Header = ({ bottomSlot }: { bottomSlot?: React.ReactNode } = {}) => {
           </div>
         </div>
 
+        {/* Optional bottom strip integrated inside the header chrome (e.g. trust ticker) */}
+        {bottomSlot && (
+          <div className="-mx-2 sm:-mx-4">
+            {bottomSlot}
+          </div>
+        )}
+
+
         {/* Mobile Menu — pure CSS expand */}
         {isMenuOpen && (
           <div
