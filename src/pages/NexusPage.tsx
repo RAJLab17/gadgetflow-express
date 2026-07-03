@@ -676,7 +676,11 @@ const NexusPage = () => {
           </div>
           <p className="text-center mb-3" style={{ fontSize: 14, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
           <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 10 }}>
-            <img src={nexusHeroImgSm} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="100vw" width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" />
+            <picture>
+              <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
+              <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
+              <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
+            </picture>
             <span style={{ position: "absolute", bottom: 10, right: 10, zIndex: 3, display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 100, background: "rgba(22,163,74,.88)", color: "#fff", fontSize: 10, fontWeight: 600, letterSpacing: ".04em", backdropFilter: "blur(4px)", boxShadow: "0 4px 12px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.15) inset" }}>✓ WPC zertifiziert</span>
             <NexusHeroChipsMobile />
           </div>
