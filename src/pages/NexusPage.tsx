@@ -570,6 +570,9 @@ const NexusPage = () => {
       )}
 
       <Header />
+      <div style={{ position: "fixed", top: "clamp(64px, 8vw, 88px)", left: 0, right: 0, zIndex: 40 }}>
+        <NexusTrustBar />
+      </div>
       <section
         id="mockup-signup"
         className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
