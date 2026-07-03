@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BuyModal from "@/components/BuyModal";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 const nexusLaptop = "/assets/hero/desktop-nexus.webp";
 const nexusSuiteOld = "/assets/hero/desktop-suite-old.webp";
 const nexusSuite = "/assets/hero/desktop-ecosystem.webp";
