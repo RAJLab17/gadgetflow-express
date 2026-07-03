@@ -1,21 +1,17 @@
 const GOLD = "#C9A876";
-const BEIGE = "#F5EFE6";
+const GOLD_SOFT = "#B8935A";
+const BEIGE = "#EDE4D3";
 const DARK = "#0a0908";
 
-/** Filled truck icon in gold, dark cut-outs for windows/wheels. */
-function TruckGold({ size = 22 }: { size?: number }) {
+function TruckGold({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-      {/* cargo box */}
       <rect x="1.5" y="6" width="11" height="10" rx="1.2" fill={GOLD} />
-      {/* cab */}
       <path
         d="M12.5 9h4.2c.4 0 .77.19 1 .52L21 13.2c.16.22.25.48.25.76V15.5c0 .55-.45 1-1 1H12.5V9z"
         fill={GOLD}
       />
-      {/* cab window */}
       <path d="M13.7 10.2h2.9l2.1 2.9h-5V10.2z" fill={DARK} />
-      {/* wheels */}
       <circle cx="6.5" cy="17.5" r="2.1" fill={GOLD} />
       <circle cx="6.5" cy="17.5" r="0.9" fill={DARK} />
       <circle cx="17" cy="17.5" r="2.1" fill={GOLD} />
@@ -24,8 +20,7 @@ function TruckGold({ size = 22 }: { size?: number }) {
   );
 }
 
-/** Shield with check, gold outline + subtle inner fill. */
-function ShieldCheckGold({ size = 22 }: { size?: number }) {
+function ShieldCheckGold({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
       <path
@@ -47,19 +42,10 @@ function ShieldCheckGold({ size = 22 }: { size?: number }) {
   );
 }
 
-/** Credit card with magnetic stripe + chip, gold outline. */
-function CardGold({ size = 22 }: { size?: number }) {
+function CardGold({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
-      <rect
-        x="2.5"
-        y="5.5"
-        width="19"
-        height="13"
-        rx="2"
-        stroke={GOLD}
-        strokeWidth="1.6"
-      />
+      <rect x="2.5" y="5.5" width="19" height="13" rx="2" stroke={GOLD} strokeWidth="1.6" />
       <rect x="2.5" y="8.5" width="19" height="2.2" fill={GOLD} fillOpacity="0.55" />
       <rect x="14.5" y="13.5" width="4.5" height="2.6" rx="0.4" fill={GOLD} fillOpacity="0.8" />
     </svg>
@@ -67,66 +53,137 @@ function CardGold({ size = 22 }: { size?: number }) {
 }
 
 const items = [
-  { Icon: TruckGold, label: "Gratis Versand CH" },
-  { Icon: ShieldCheckGold, label: "30 Tage testen" },
-  { Icon: CardGold, label: "TWINT & Apple Pay" },
+  { Icon: TruckGold, label: "Gratis Versand", labelLg: "Gratis Versand in CH" },
+  { Icon: ShieldCheckGold, label: "30 Tage testen", labelLg: "30 Tage testen" },
+  { Icon: CardGold, label: "TWINT · Apple Pay", labelLg: "TWINT & Apple Pay" },
 ];
 
 /**
- * Slim trust strip — sits directly under the header on /nexus.
- * Dark background, gold custom icons, beige text.
+ * Premium trust strip — sits directly under the header on /nexus.
+ * Mobile: 3-column grid, icons above compact labels, no scroll.
+ * Desktop: single centered row, generous spacing, hairline separators.
+ * Palette matches hero: obsidian gradient, gold accents, warm beige text.
  */
 export default function NexusTrustBar() {
   return (
     <div
       className="w-full"
       style={{
-        background: "linear-gradient(90deg, #050403 0%, #0a0908 50%, #050403 100%)",
-        borderTop: `1px solid ${GOLD}22`,
-        borderBottom: `1px solid ${GOLD}22`,
+        background:
+          "linear-gradient(180deg, #050403 0%, #0b0a08 55%, #050403 100%)",
+        borderTop: `1px solid ${GOLD}1f`,
+        borderBottom: `1px solid ${GOLD}1f`,
+        boxShadow: `inset 0 1px 0 0 ${GOLD}12`,
       }}
     >
+      {/* subtle top hairline glow */}
       <div
-        className="mx-auto flex items-center justify-center overflow-x-auto"
+        aria-hidden
         style={{
-          maxWidth: 1200,
-          padding: "12px 16px",
-          gap: 22,
-          scrollbarWidth: "none",
+          height: 1,
+          background: `linear-gradient(90deg, transparent 0%, ${GOLD_SOFT}55 50%, transparent 100%)`,
+        }}
+      />
+
+      {/* MOBILE: 3-column grid, stacked icon + label */}
+      <div
+        className="grid sm:hidden"
+        style={{
+          gridTemplateColumns: "1fr 1fr 1fr",
+          padding: "12px 12px",
+          alignItems: "center",
         }}
       >
         {items.map(({ Icon, label }, i) => (
-          <div key={label} className="flex items-center" style={{ gap: 22, flexShrink: 0 }}>
-            <div className="flex items-center" style={{ gap: 10 }}>
-              <Icon size={22} />
+          <div key={label} style={{ position: "relative" }}>
+            {i > 0 && (
+              <span
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  height: 24,
+                  width: 1,
+                  background: `linear-gradient(180deg, transparent, ${GOLD}55, transparent)`,
+                }}
+              />
+            )}
+            <div
+              className="flex flex-col items-center justify-center"
+              style={{ gap: 6, padding: "0 4px" }}
+            >
+              <Icon size={20} />
               <span
                 style={{
-                  fontSize: 13,
+                  fontSize: 10.5,
                   color: BEIGE,
-                  fontWeight: 400,
-                  letterSpacing: ".01em",
+                  letterSpacing: ".03em",
+                  fontWeight: 500,
+                  textAlign: "center",
+                  lineHeight: 1.2,
                   whiteSpace: "nowrap",
                 }}
               >
                 {label}
               </span>
             </div>
+          </div>
+        ))}
+      </div>
+
+      {/* DESKTOP / TABLET: single centered row */}
+      <div
+        className="hidden sm:flex items-center justify-center mx-auto"
+        style={{
+          maxWidth: 1200,
+          padding: "14px 24px",
+          gap: 40,
+        }}
+      >
+        {items.map(({ Icon, labelLg }, i) => (
+          <div key={labelLg} className="flex items-center" style={{ gap: 40 }}>
+            <div className="flex items-center" style={{ gap: 12 }}>
+              <Icon size={20} />
+              <span
+                style={{
+                  fontSize: 13.5,
+                  color: BEIGE,
+                  fontWeight: 400,
+                  letterSpacing: ".06em",
+                  textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {labelLg}
+              </span>
+            </div>
             {i < items.length - 1 && (
               <span
                 aria-hidden
                 style={{
-                  width: 3,
-                  height: 3,
+                  width: 4,
+                  height: 4,
                   borderRadius: "50%",
                   background: GOLD,
-                  opacity: 0.7,
-                  flexShrink: 0,
+                  opacity: 0.75,
+                  boxShadow: `0 0 6px ${GOLD}66`,
                 }}
               />
             )}
           </div>
         ))}
       </div>
+
+      {/* bottom hairline glow */}
+      <div
+        aria-hidden
+        style={{
+          height: 1,
+          background: `linear-gradient(90deg, transparent 0%, ${GOLD_SOFT}33 50%, transparent 100%)`,
+        }}
+      />
     </div>
   );
 }
