@@ -643,7 +643,11 @@ const NexusPage = () => {
           <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 48px" }}>
             <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(201,168,118,.22), transparent 70%)", filter: "blur(30px)", transform: "translate(-50%,-50%)", animation: "raj-breathe 6s ease-in-out infinite", pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,118,.18)", animation: "raj-float 9s ease-in-out infinite" }}>
-              <img src={nexusHeroImg} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="(max-width: 768px) 100vw, 600px" width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
+              <picture>
+                <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
+                <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
+                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
+              </picture>
               <span style={{ position: "absolute", bottom: 12, right: 12, zIndex: 3, display: "inline-flex", alignItems: "center", gap: 5, padding: "5px 10px", borderRadius: 100, background: "rgba(22,163,74,.88)", color: "#fff", fontSize: 11, fontWeight: 600, letterSpacing: ".04em", backdropFilter: "blur(4px)", boxShadow: "0 4px 12px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.15) inset" }}>✓ WPC zertifiziert</span>
             </div>
             <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
@@ -672,7 +676,11 @@ const NexusPage = () => {
           </div>
           <p className="text-center mb-3" style={{ fontSize: 14, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
           <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 10 }}>
-            <img src={nexusHeroImgSm} srcSet={`${nexusHeroImgSm} 800w, ${nexusHeroImg} 1200w`} sizes="100vw" width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" />
+            <picture>
+              <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
+              <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
+              <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
+            </picture>
             <span style={{ position: "absolute", bottom: 10, right: 10, zIndex: 3, display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 100, background: "rgba(22,163,74,.88)", color: "#fff", fontSize: 10, fontWeight: 600, letterSpacing: ".04em", backdropFilter: "blur(4px)", boxShadow: "0 4px 12px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.15) inset" }}>✓ WPC zertifiziert</span>
             <NexusHeroChipsMobile />
           </div>
