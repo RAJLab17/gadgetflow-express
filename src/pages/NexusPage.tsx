@@ -683,7 +683,9 @@ const NexusPage = () => {
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
               <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
             </picture>
-            <span style={{ position: "absolute", bottom: 10, right: 10, zIndex: 3, display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 8px", borderRadius: 100, background: "rgba(22,163,74,.88)", color: "#fff", fontSize: 10, fontWeight: 600, letterSpacing: ".04em", backdropFilter: "blur(4px)", boxShadow: "0 4px 12px rgba(0,0,0,.25), 0 0 0 1px rgba(255,255,255,.15) inset" }}>✓ WPC zertifiziert</span>
+            <div style={{ position: "absolute", bottom: 10, right: 10, zIndex: 3 }}>
+              <Qi2CertifiedBadge size={34} gold={D.gold} />
+            </div>
             <NexusHeroChipsMobile />
           </div>
           <div className="flex flex-wrap justify-center gap-1.5 mb-2.5">
