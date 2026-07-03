@@ -7,7 +7,7 @@ const LaunchFAQSection = lazy(() => import("@/components/launch/LaunchFAQSection
 const LaunchSecondCTA = lazy(() => import("@/components/launch/LaunchSecondCTA"));
 
 import { Helmet } from "react-helmet-async";
-import { PRODUCT_NEXUS_JSON_LD, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
+import { FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 // canvas-confetti is loaded lazily on first signup to keep the initial bundle small
 import HeroBadgesAndCTA from "@/components/HeroBadgesAndCTA";
 import SwissFlag from "@/components/SwissFlag";
