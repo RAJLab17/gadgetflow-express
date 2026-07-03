@@ -1,4 +1,4 @@
-import qi2Logo from "@/assets/badges/qi2-25w.webp.asset.json";
+import qi2Logo from "@/assets/badges/qi2-mark.webp.asset.json";
 
 interface Qi2CertifiedBadgeProps {
   size?: number;
@@ -31,7 +31,6 @@ export default function Qi2CertifiedBadge({
         height: size,
         objectFit: "contain",
         // Black-on-white source → invert to crisp white for the dark hero.
-        filter: "invert(1) brightness(1.05)",
       }}
     />
   );
