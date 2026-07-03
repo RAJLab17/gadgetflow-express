@@ -85,52 +85,70 @@ export default function NexusTrustBar() {
         }}
       />
 
-      {/* MOBILE: 3-column grid, stacked icon + label */}
+      {/* MOBILE: continuous marquee — premium single-line ticker */}
       <div
-        className="grid sm:hidden"
+        className="sm:hidden relative overflow-hidden"
         style={{
-          gridTemplateColumns: "1fr 1fr 1fr",
-          padding: "12px 12px",
-          alignItems: "center",
+          padding: "11px 0",
+          maskImage:
+            "linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)",
         }}
       >
-        {items.map(({ Icon, label }, i) => (
-          <div key={label} style={{ position: "relative" }}>
-            {i > 0 && (
+        <div
+          className="flex items-center"
+          style={{
+            gap: 28,
+            width: "max-content",
+            animation: "nexus-trust-marquee 22s linear infinite",
+          }}
+        >
+          {[...items, ...items, ...items].map(({ Icon, labelLg }, i) => (
+            <div
+              key={i}
+              className="flex items-center"
+              style={{ gap: 28, flexShrink: 0 }}
+            >
+              <div className="flex items-center" style={{ gap: 9 }}>
+                <Icon size={16} />
+                <span
+                  style={{
+                    fontSize: 11.5,
+                    color: BEIGE,
+                    fontWeight: 500,
+                    letterSpacing: ".08em",
+                    textTransform: "uppercase",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {labelLg}
+                </span>
+              </div>
               <span
                 aria-hidden
                 style={{
-                  position: "absolute",
-                  left: 0,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  height: 24,
-                  width: 1,
-                  background: `linear-gradient(180deg, transparent, ${GOLD}55, transparent)`,
+                  width: 3,
+                  height: 3,
+                  borderRadius: "50%",
+                  background: GOLD,
+                  opacity: 0.7,
+                  boxShadow: `0 0 4px ${GOLD}66`,
+                  flexShrink: 0,
                 }}
               />
-            )}
-            <div
-              className="flex flex-col items-center justify-center"
-              style={{ gap: 6, padding: "0 4px" }}
-            >
-              <Icon size={20} />
-              <span
-                style={{
-                  fontSize: 10.5,
-                  color: BEIGE,
-                  letterSpacing: ".03em",
-                  fontWeight: 500,
-                  textAlign: "center",
-                  lineHeight: 1.2,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {label}
-              </span>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <style>{`
+          @keyframes nexus-trust-marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(calc(-100% / 3)); }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            [style*="nexus-trust-marquee"] { animation: none !important; }
+          }
+        `}</style>
       </div>
 
       {/* DESKTOP / TABLET: single centered row */}
