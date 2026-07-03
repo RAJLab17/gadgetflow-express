@@ -31,7 +31,6 @@ export default function Qi2CertifiedBadge({
         height: size,
         objectFit: "contain",
         // Black-on-white source → invert to crisp white for the dark hero.
-        filter: "invert(1) brightness(1.05)",
       }}
     />
   );
