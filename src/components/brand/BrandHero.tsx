@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BuyModal from "@/components/BuyModal";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 const nexusLaptop = "/assets/hero/desktop-nexus.webp";
 const nexusSuiteOld = "/assets/hero/desktop-suite-old.webp";
 const nexusSuite = "/assets/hero/desktop-ecosystem.webp";
@@ -32,6 +33,19 @@ const SLIDE_DURATION = 6000;
 
 const BrandHero = () => {
   const { quickBuy } = useQuickBuy();
+  const handleBuyClick = useCallback(() => {
+    void trackMetaEvent("InitiateCheckout", {
+      customData: {
+        currency: "CHF",
+        value: 99,
+        content_ids: ["RAJ-NEXUS-001"],
+        content_type: "product",
+        content_name: "RAJ NEXUS",
+        num_items: 1,
+      },
+    });
+    quickBuy();
+  }, [quickBuy]);
   const ref = useRef<HTMLDivElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
@@ -201,7 +215,7 @@ const BrandHero = () => {
           </Link>
           <button
             type="button"
-            onClick={quickBuy}
+            onClick={handleBuyClick}
             className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full active:scale-[0.98] transition-all"
             style={{
               background: "rgba(201,168,118,0.07)",
@@ -325,7 +339,7 @@ const BrandHero = () => {
 
               <button
                 type="button"
-                onClick={quickBuy}
+                onClick={handleBuyClick}
                 className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.07)",
