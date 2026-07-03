@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import logo from "@/assets/logo-new-400w.webp";
 
-const Header = ({ bottomSlot }: { bottomSlot?: React.ReactNode } = {}) => {
+const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot?: React.ReactNode } = {}) => {
   const { quickBuy } = useQuickBuy();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
