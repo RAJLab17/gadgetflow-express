@@ -528,6 +528,8 @@ const NexusPage = () => {
         <meta property="og:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
         <meta property="og:description" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
         <meta property="og:type" content="product" />
+        <meta property="product:price:amount" content="99.00" />
+        <meta property="product:price:currency" content="CHF" />
         <meta property="og:site_name" content="RAJ" />
         <meta property="og:url" content="https://raj.ch/nexus" />
         <meta property="og:image" content="https://raj.ch/og-image.webp" />
