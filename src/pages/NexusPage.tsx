@@ -692,7 +692,7 @@ const NexusPage = () => {
             </div>
             <NexusHeroChipsMobile />
           </div>
-          <div className="flex flex-wrap justify-center gap-1.5 mb-2.5">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-3.5">
 
 
             {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
