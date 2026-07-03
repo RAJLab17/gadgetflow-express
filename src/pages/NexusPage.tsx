@@ -569,12 +569,8 @@ const NexusPage = () => {
         </div>
       )}
 
-      {/* Trust ticker fixed at very top; Header sits directly below it. */}
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 60 }}>
-        <NexusTrustBar />
-      </div>
-      <style>{`header.raj-slide-down{top:38px !important}@media(min-width:640px){header.raj-slide-down{top:46px !important}}`}</style>
-      <Header />
+      {/* Trust ticker integrated INSIDE the fixed Header chrome (bottom slot). */}
+      <Header bottomSlot={<NexusTrustBar />} />
       <section
         id="mockup-signup"
         className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
