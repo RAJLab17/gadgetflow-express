@@ -1,4 +1,4 @@
-import qi2Logo from "@/assets/badges/qi2-25w.webp.asset.json";
+import qi2Logo from "@/assets/badges/qi2-mark.webp.asset.json";
 
 interface Qi2CertifiedBadgeProps {
   size?: number;
