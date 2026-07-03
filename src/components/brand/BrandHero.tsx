@@ -33,6 +33,19 @@ const SLIDE_DURATION = 6000;
 
 const BrandHero = () => {
   const { quickBuy } = useQuickBuy();
+  const handleBuyClick = useCallback(() => {
+    void trackMetaEvent("InitiateCheckout", {
+      customData: {
+        currency: "CHF",
+        value: 99,
+        content_ids: ["RAJ-NEXUS-001"],
+        content_type: "product",
+        content_name: "RAJ NEXUS",
+        num_items: 1,
+      },
+    });
+    quickBuy();
+  }, [quickBuy]);
   const ref = useRef<HTMLDivElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
