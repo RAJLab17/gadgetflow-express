@@ -569,17 +569,16 @@ const NexusPage = () => {
         </div>
       )}
 
-      {/* Trust ticker above header */}
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 60 }}>
+      {/* Trust ticker sits at the very top, scrolls away naturally.
+          Header stays fixed and takes over as user scrolls. */}
+      <div style={{ position: "relative", zIndex: 40 }}>
         <NexusTrustBar />
       </div>
-      {/* Push fixed Header down by the trust-bar height */}
-      <style>{`header.raj-slide-down{top:40px !important}@media(min-width:640px){header.raj-slide-down{top:48px !important}}`}</style>
       <Header />
       <section
         id="mockup-signup"
         className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
-        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(124px, 12vw, 164px)" }}
+        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(40px, 5vw, 60px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(201,168,118,.12), transparent 70%)", filter: "blur(32px)", pointerEvents: "none", zIndex: 0 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${D.bg})`, pointerEvents: "none", zIndex: 3 }} />
