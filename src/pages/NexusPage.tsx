@@ -668,9 +668,6 @@ const NexusPage = () => {
               </span>
               <span style={{ fontSize: 9, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".2em" }}>Founder Edition — limitiert auf 100 Stück</span>
             </div>
-            <div style={{ width: 200, height: 2, borderRadius: 2, background: "rgba(255,255,255,.08)" }}>
-              <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})` }} />
-            </div>
           </div>
           <div className="text-center mb-2" style={{ fontSize: "clamp(40px,10vw,60px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
             <span style={{ color: D.beige }}>RAJ</span>{" "}
