@@ -570,7 +570,7 @@ const NexusPage = () => {
       )}
 
       {/* Trust ticker integrated INSIDE the fixed Header chrome (bottom slot). */}
-      <Header bottomSlot={<NexusTrustBar />} />
+      <Header topSlot={<NexusTrustBar />} />
       <section
         id="mockup-signup"
         className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
