@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import logo from "@/assets/logo-new-400w.webp";
 
-const Header = ({ bottomSlot }: { bottomSlot?: React.ReactNode } = {}) => {
+const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot?: React.ReactNode } = {}) => {
   const { quickBuy } = useQuickBuy();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -114,9 +114,11 @@ const Header = ({ bottomSlot }: { bottomSlot?: React.ReactNode } = {}) => {
           : "bg-transparent"
       } ${isDarkPage && !isScrolled ? "[&_*]:!text-white" : ""}`}
     >
-
+      {/* Optional top strip (e.g. trust ticker) — sits above the logo/nav row */}
+      {topSlot && <div className="w-full">{topSlot}</div>}
 
       <div className="w-full px-2 sm:px-4">
+
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="https://raj.ch" className="flex items-center gap-2 shrink-0 -ml-2 sm:-ml-1" aria-label="RAJ Home">
