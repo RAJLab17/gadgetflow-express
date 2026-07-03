@@ -49,7 +49,10 @@ const heroPreloadPlugin = (): PluginOption => ({
         }
       }
 
-      const tag = `<link rel="preload" as="image" href="${url1200}" imagesrcset="${url800} 800w, ${url1200} 1200w" imagesizes="(max-width: 768px) 100vw, 600px" fetchpriority="high" />`;
+      const tag = [
+        `<link rel="preload" as="image" href="${url800}" media="(max-width: 767px)" fetchpriority="high" />`,
+        `<link rel="preload" as="image" href="${url1200}" media="(min-width: 768px)" fetchpriority="high" />`,
+      ].join("\n    ");
       return html.replace("<!--HERO_PRELOAD-->", tag);
     },
   },
