@@ -679,8 +679,9 @@ const NexusPage = () => {
             <span style={{ color: D.beige }}>RAJ</span>{" "}
             <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
-          <p className="text-center mb-3" style={{ fontSize: 14, lineHeight: 1.35, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 10 }}>
+          <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 8 }}>
+
             <picture>
               <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
@@ -692,14 +693,15 @@ const NexusPage = () => {
             </div>
             <NexusHeroChipsMobile />
           </div>
-          <div className="flex flex-wrap justify-center gap-1.5 mb-2.5">
+          <div className="flex flex-wrap justify-center gap-1.5 mb-2">
             {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
               <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
                 <span style={{ color: D.gold }}>✓</span> {b}
               </span>
             ))}
           </div>
-          <div className="flex flex-col items-center text-center mb-3" style={{ borderTop: `1px solid ${D.muted}33`, borderBottom: `1px solid ${D.muted}33`, padding: "11px 0", gap: 7 }}>
+          <div className="flex flex-col items-center text-center mb-2.5" style={{ borderTop: `1px solid ${D.muted}33`, borderBottom: `1px solid ${D.muted}33`, padding: "8px 0", gap: 6 }}>
+
 
             {/* Scarcity */}
             <div className="flex items-center" style={{ gap: 8 }}>
