@@ -718,7 +718,7 @@ const NexusPage = () => {
               <span style={{ fontSize: 15, textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.–</span>
             </div>
             {/* Rating */}
-            <div className="flex items-center justify-center" style={{ gap: 8, paddingTop: 2 }}>
+            <Link to="/reviews" aria-label="5.0 von 5 Sternen, 8 Bewertungen lesen" className="flex items-center justify-center transition-opacity hover:opacity-80" style={{ gap: 8, paddingTop: 2 }}>
               <div className="flex" style={{ gap: 2 }}>
                 {[0,1,2,3,4].map((i) => (
                   <span key={i} style={{ color: D.gold, fontSize: 11, lineHeight: 1 }}>★</span>
@@ -727,7 +727,8 @@ const NexusPage = () => {
               <span style={{ fontSize: 11, letterSpacing: "0.02em", color: D.beige }}>
                 5.0 <span style={{ color: D.muted, margin: "0 4px" }}>|</span> 8 Bewertungen
               </span>
-            </div>
+            </Link>
+
           </div>
 
 
