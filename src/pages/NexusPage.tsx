@@ -708,6 +708,15 @@ const NexusPage = () => {
           <div className="flex justify-center mb-2.5">
             <NexusRatingBadge gold="#C9A876" textColor={D.beige} align="center" size={13} />
           </div>
+          <div className="flex justify-center mb-2.5">
+            <div className="inline-flex items-center gap-2" style={{ padding: "7px 14px", borderRadius: 100, background: "rgba(20,16,12,0.72)", border: `1px solid ${D.gold}33`, boxShadow: `inset 0 1px 0 rgba(255,255,255,0.04), 0 8px 24px -12px ${D.gold}55` }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={D.gold} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.2" fill={D.gold} stroke="none"/></svg>
+              <span style={{ fontSize: 11, letterSpacing: ".14em", textTransform: "uppercase", color: D.beige, fontWeight: 500 }}>
+                Noch <span style={{ color: D.gold, fontWeight: 700 }}>19</span> verfügbar
+              </span>
+            </div>
+          </div>
+
           <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "13px 22px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
 
