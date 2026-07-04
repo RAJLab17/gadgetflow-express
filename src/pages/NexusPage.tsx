@@ -665,7 +665,7 @@ const NexusPage = () => {
         </div>
 
         {/* MOBILE */}
-        <div className="md:hidden relative px-5 pb-10" style={{ zIndex: 2 }}>
+        <div className="md:hidden relative px-5 pt-3 pb-10" style={{ zIndex: 2 }}>
           <div className="flex flex-col items-center mb-2">
             <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "6px 14px 6px 10px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 4, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
               <span style={{ position: "relative", display: "flex", width: 6, height: 6 }}>
