@@ -666,8 +666,8 @@ const NexusPage = () => {
 
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pb-10" style={{ zIndex: 2 }}>
-          <div className="flex flex-col items-center mb-3">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "7px 16px 7px 12px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 6, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
+          <div className="flex flex-col items-center mb-2">
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "6px 14px 6px 10px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 4, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
               <span style={{ position: "relative", display: "flex", width: 6, height: 6 }}>
                 <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                 <span style={{ position: "relative", width: 6, height: 6, borderRadius: "50%", background: D.gold }} />
@@ -675,12 +675,12 @@ const NexusPage = () => {
               <span style={{ fontSize: 9, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".2em" }}>Founder Edition · Drop 01 — limitiert</span>
             </div>
           </div>
-          <div className="text-center mb-2" style={{ fontSize: "clamp(40px,10vw,60px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
+          <div className="text-center mb-1.5" style={{ fontSize: "clamp(40px,10vw,60px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
             <span style={{ color: D.beige }}>RAJ</span>{" "}
             <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
-          <p className="text-center mb-4" style={{ fontSize: 14, lineHeight: 1.35, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 14 }}>
+          <p className="text-center mb-3" style={{ fontSize: 14, lineHeight: 1.35, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 10 }}>
             <picture>
               <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
@@ -692,16 +692,15 @@ const NexusPage = () => {
             </div>
             <NexusHeroChipsMobile />
           </div>
-          <div className="flex flex-wrap justify-center gap-1.5 mb-3.5">
-
-
+          <div className="flex flex-wrap justify-center gap-1.5 mb-2.5">
             {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
               <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
                 <span style={{ color: D.gold }}>✓</span> {b}
               </span>
             ))}
           </div>
-          <div className="flex flex-col items-center text-center mb-4" style={{ borderTop: `1px solid ${D.muted}33`, borderBottom: `1px solid ${D.muted}33`, padding: "18px 0", gap: 10 }}>
+          <div className="flex flex-col items-center text-center mb-3" style={{ borderTop: `1px solid ${D.muted}33`, borderBottom: `1px solid ${D.muted}33`, padding: "11px 0", gap: 7 }}>
+
             {/* Scarcity */}
             <div className="flex items-center" style={{ gap: 8 }}>
               <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
