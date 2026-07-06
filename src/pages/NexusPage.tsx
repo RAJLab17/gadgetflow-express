@@ -16,6 +16,12 @@ const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAc
 
 import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
+import { fetchProductVariantInfo } from "@/lib/shopify";
+
+// Drop 01: 19 Einheiten allokiert. Baseline = Shopify-Bestand bei Drop-Start.
+// Anzeige = max(0, min(DROP_CAP, DROP_CAP - (BASELINE - currentQty))).
+const DROP_01_BASELINE_INVENTORY = 95;
+const DROP_01_CAP = 19;
 
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
@@ -499,6 +505,20 @@ const NexusPage = () => {
     return () => { cancelled = true; };
   }, []);
 
+  // Live Drop 01 Restbestand aus Shopify (Storefront API)
+  const [dropRemaining, setDropRemaining] = useState<number>(DROP_01_CAP);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const info = await fetchProductVariantInfo("raj-3-in-1-wireless-charger");
+      if (cancelled || !info) return;
+      const sold = Math.max(0, DROP_01_BASELINE_INVENTORY - info.quantityAvailable);
+      const remaining = Math.max(0, Math.min(DROP_01_CAP, DROP_01_CAP - sold));
+      setDropRemaining(remaining);
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
   const productJsonLd = (reviewStats && reviewStats.total > 0)
     ? {
         ...PRODUCT_NEXUS_JSON_LD,
@@ -710,7 +730,7 @@ const NexusPage = () => {
                 <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: D.gold }} />
               </span>
               <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: D.gold }}>
-                Noch 19 verfügbar
+                {dropRemaining > 0 ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
               </span>
             </div>
             {/* Price */}
