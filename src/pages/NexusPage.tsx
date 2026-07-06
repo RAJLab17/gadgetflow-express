@@ -726,8 +726,8 @@ const NexusPage = () => {
             {/* Scarcity */}
             <div className="flex items-center" style={{ gap: 8 }}>
               <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
-                <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: D.gold, opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
-                <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: D.gold }} />
+                <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#22c55e", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
+                <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
               </span>
               <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: D.gold }}>
                 {dropRemaining > 0 ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
