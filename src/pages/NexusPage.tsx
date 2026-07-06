@@ -730,7 +730,7 @@ const NexusPage = () => {
                 <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: D.gold }} />
               </span>
               <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: D.gold }}>
-                Noch 19 verfügbar
+                {dropRemaining > 0 ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
               </span>
             </div>
             {/* Price */}
