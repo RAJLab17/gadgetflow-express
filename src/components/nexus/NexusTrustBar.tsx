@@ -53,7 +53,7 @@ function CardGold({ size = 18 }: { size?: number }) {
 }
 
 const items = [
-  { Icon: TruckGold, label: "Gratis Versand", labelLg: "Gratis Versand in CH" },
+  { Icon: TruckGold, label: "Gratis Versand", labelLg: "Gratis Versand" },
   { Icon: ShieldCheckGold, label: "30 Tage testen", labelLg: "30 Tage testen" },
   { Icon: CardGold, label: "TWINT · Apple Pay", labelLg: "TWINT & Apple Pay" },
 ];
