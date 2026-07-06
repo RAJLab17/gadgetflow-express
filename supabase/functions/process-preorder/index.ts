@@ -69,6 +69,41 @@ serve(async (req) => {
       .update({ email_sent_at: new Date().toISOString() })
       .eq('order_number', data.orderNumber);
 
+    // Server-side abandoned-cart conversion (ownership verified via DB row above).
+    // Deletes the abandoned Shopify draft order and marks the cart converted.
+    // This logic used to live in a public 'convert' action on track-abandoned-cart
+    // but was moved here to eliminate an IDOR / enumeration oracle.
+    try {
+      const SHOPIFY_ACCESS_TOKEN = Deno.env.get('SHOPIFY_ACCESS_TOKEN');
+      const SHOPIFY_STORE = 'kcvjif-10.myshopify.com';
+      const { data: abandoned } = await supabase
+        .from('abandoned_carts')
+        .select('id, shopify_draft_order_id')
+        .eq('customer_email', orderRecord.customer_email)
+        .eq('product_name', orderRecord.product_name)
+        .eq('converted', false)
+        .maybeSingle();
+
+      if (abandoned) {
+        if (abandoned.shopify_draft_order_id && SHOPIFY_ACCESS_TOKEN) {
+          try {
+            await fetch(
+              `https://${SHOPIFY_STORE}/admin/api/2025-07/draft_orders/${abandoned.shopify_draft_order_id}.json`,
+              { method: 'DELETE', headers: { 'X-Shopify-Access-Token': SHOPIFY_ACCESS_TOKEN } }
+            );
+          } catch (e) {
+            console.error('Failed to delete abandoned draft order:', e);
+          }
+        }
+        await supabase
+          .from('abandoned_carts')
+          .update({ converted: true })
+          .eq('id', abandoned.id);
+      }
+    } catch (e) {
+      console.error('Abandoned cart conversion failed (non-fatal):', e);
+    }
+
     // Use server-side data from DB instead of client-provided data
     const safeData = {
       orderNumber: orderRecord.order_number,

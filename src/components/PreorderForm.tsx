@@ -113,10 +113,9 @@ const PreorderForm = ({
         description: `Deine Bestellnummer: ${insertedData.order_number}`,
       });
 
-      // Convert abandoned cart (delete Shopify abandoned draft order)
-      supabase.functions.invoke('track-abandoned-cart', {
-        body: { action: 'convert', email: data.customerEmail, productName },
-      }).catch(err => console.error('Abandoned cart convert failed:', err));
+      // Abandoned cart conversion is handled server-side by process-preorder
+      // (after DB-verified ownership) to prevent IDOR on the abandoned-cart endpoint.
+
 
       // Process order async (email + Shopify) - don't block UI
       supabase.functions.invoke('process-preorder', {
