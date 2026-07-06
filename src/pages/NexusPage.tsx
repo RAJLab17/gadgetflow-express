@@ -505,6 +505,20 @@ const NexusPage = () => {
     return () => { cancelled = true; };
   }, []);
 
+  // Live Drop 01 Restbestand aus Shopify (Storefront API)
+  const [dropRemaining, setDropRemaining] = useState<number>(DROP_01_CAP);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const info = await fetchProductVariantInfo("raj-3-in-1-wireless-charger");
+      if (cancelled || !info) return;
+      const sold = Math.max(0, DROP_01_BASELINE_INVENTORY - info.quantityAvailable);
+      const remaining = Math.max(0, Math.min(DROP_01_CAP, DROP_01_CAP - sold));
+      setDropRemaining(remaining);
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
   const productJsonLd = (reviewStats && reviewStats.total > 0)
     ? {
         ...PRODUCT_NEXUS_JSON_LD,
