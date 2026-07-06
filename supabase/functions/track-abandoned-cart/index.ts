@@ -113,59 +113,15 @@ serve(async (req) => {
       });
     }
 
-    // ACTION: convert - mark as converted + delete Shopify draft order
+    // ACTION: convert — REMOVED as a client-callable action.
+    // The abandoned-cart conversion (marking converted + deleting the Shopify
+    // draft order) is now performed exclusively from the process-preorder edge
+    // function after it has verified the preorder exists in the database.
+    // Exposing it as a public action allowed callers to (a) enumerate whether
+    // a given email had purchased a given product via the 403/200 response
+    // difference and (b) delete another customer's Shopify draft order and
+    // flip their abandoned_carts.converted flag without ownership proof.
     if (action === 'convert') {
-      if (!email || !productName) {
-        return new Response(JSON.stringify({ error: 'Missing fields' }), {
-          status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      // Only allow convert if a real preorder exists for this email+product
-      const { data: realOrder } = await supabase
-        .from('preorders')
-        .select('id')
-        .eq('customer_email', email)
-        .eq('product_name', productName)
-        .maybeSingle();
-      if (!realOrder) {
-        return new Response(JSON.stringify({ error: 'No matching order' }), {
-          status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
-      }
-
-      const { data: abandoned } = await supabase
-        .from('abandoned_carts')
-        .select('id, shopify_draft_order_id')
-        .eq('customer_email', email)
-        .eq('product_name', productName)
-        .eq('converted', false)
-        .maybeSingle();
-
-      if (abandoned) {
-        // Delete the abandoned Shopify draft order
-        if (abandoned.shopify_draft_order_id && SHOPIFY_ACCESS_TOKEN) {
-          try {
-            await fetch(
-              `https://${SHOPIFY_STORE}/admin/api/2025-07/draft_orders/${abandoned.shopify_draft_order_id}.json`,
-              {
-                method: 'DELETE',
-                headers: { 'X-Shopify-Access-Token': SHOPIFY_ACCESS_TOKEN },
-              }
-            );
-            console.log('Deleted abandoned Shopify draft order:', abandoned.shopify_draft_order_id);
-          } catch (e) {
-            console.error('Failed to delete abandoned draft order:', e);
-          }
-        }
-
-        // Mark as converted
-        await supabase
-          .from('abandoned_carts')
-          .update({ converted: true })
-          .eq('id', abandoned.id);
-      }
-
       return new Response(JSON.stringify({ success: true }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
