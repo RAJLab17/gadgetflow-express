@@ -16,6 +16,12 @@ const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAc
 
 import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
+import { fetchProductVariantInfo } from "@/lib/shopify";
+
+// Drop 01: 19 Einheiten allokiert. Baseline = Shopify-Bestand bei Drop-Start.
+// Anzeige = max(0, min(DROP_CAP, DROP_CAP - (BASELINE - currentQty))).
+const DROP_01_BASELINE_INVENTORY = 95;
+const DROP_01_CAP = 19;
 
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
