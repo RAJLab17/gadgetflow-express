@@ -1,0 +1,1 @@
+UPDATE public.reviews SET verified_purchase = true WHERE id IN ('b07bdabe-1ade-40ad-8578-3b5f83a31545','432d34f4-2d7c-4e98-9f38-ab019cbe2e08','8ae5dc39-72c1-4ee9-ad81-2183a926621e');
