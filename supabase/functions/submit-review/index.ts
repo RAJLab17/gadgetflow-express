@@ -17,6 +17,7 @@ const Schema = z.object({
   rating: z.number().int().min(1).max(5),
   title: z.string().trim().min(3).max(120),
   comment: z.string().trim().min(20).max(1500),
+  photo_path: z.string().trim().max(300).regex(/^pending\/[a-zA-Z0-9._-]+$/).optional().nullable(),
   website: z.string().max(0).optional(), // honeypot
 })
 
@@ -103,6 +104,7 @@ Deno.serve(async (req) => {
         comment: data.comment,
         status: 'pending',
         verified_purchase: verifiedPurchase,
+        photo_path: data.photo_path ?? null,
       })
       .select('id')
       .single()
