@@ -206,6 +206,8 @@ export type Database = {
           founder_response: string | null
           helpful_count: number
           id: string
+          photo_path: string | null
+          photo_url: string | null
           product_id: string
           rating: number
           status: string
@@ -221,6 +223,8 @@ export type Database = {
           founder_response?: string | null
           helpful_count?: number
           id?: string
+          photo_path?: string | null
+          photo_url?: string | null
           product_id?: string
           rating: number
           status?: string
@@ -236,6 +240,8 @@ export type Database = {
           founder_response?: string | null
           helpful_count?: number
           id?: string
+          photo_path?: string | null
+          photo_url?: string | null
           product_id?: string
           rating?: number
           status?: string
@@ -301,6 +307,7 @@ export type Database = {
           founder_response: string | null
           helpful_count: number | null
           id: string | null
+          photo_url: string | null
           product_id: string | null
           rating: number | null
           title: string | null
@@ -314,6 +321,7 @@ export type Database = {
           founder_response?: string | null
           helpful_count?: number | null
           id?: string | null
+          photo_url?: string | null
           product_id?: string | null
           rating?: number | null
           title?: string | null
@@ -327,6 +335,7 @@ export type Database = {
           founder_response?: string | null
           helpful_count?: number | null
           id?: string | null
+          photo_url?: string | null
           product_id?: string | null
           rating?: number | null
           title?: string | null

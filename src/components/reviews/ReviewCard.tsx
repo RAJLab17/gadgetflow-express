@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ShieldCheck, ThumbsUp } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ShieldCheck, ThumbsUp, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import StarRating from "./StarRating";
 
@@ -15,6 +15,7 @@ export interface PublicReview {
   founder_response: string | null;
   founder_responded_at: string | null;
   created_at: string;
+  photo_url?: string | null;
 }
 
 const initials = (name: string) =>
@@ -32,6 +33,19 @@ const formatDate = (iso: string) =>
 const ReviewCard = ({ review }: { review: PublicReview }) => {
   const [count, setCount] = useState(review.helpful_count);
   const [voted, setVoted] = useState(() => localStorage.getItem(`rev-helpful-${review.id}`) === "1");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxOpen(false); };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [lightboxOpen]);
 
   const vote = async () => {
     if (voted) return;
@@ -70,6 +84,22 @@ const ReviewCard = ({ review }: { review: PublicReview }) => {
           {review.comment}
         </p>
 
+        {review.photo_url && (
+          <button
+            type="button"
+            onClick={() => setLightboxOpen(true)}
+            className="group mt-4 block overflow-hidden rounded-lg border border-stone-200 transition hover:border-stone-400"
+            aria-label="Foto vergrössern"
+          >
+            <img
+              src={review.photo_url}
+              alt={`Foto zur Bewertung von ${review.customer_name}`}
+              loading="lazy"
+              className="h-32 w-32 object-cover transition group-hover:scale-105 sm:h-40 sm:w-40"
+            />
+          </button>
+        )}
+
         {review.founder_response && (
           <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 p-4">
             <div className="mb-1 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-stone-600">
@@ -90,6 +120,31 @@ const ReviewCard = ({ review }: { review: PublicReview }) => {
           Hilfreich {count > 0 && `(${count})`}
         </button>
       </div>
+
+      {lightboxOpen && review.photo_url && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Foto-Vorschau"
+          onClick={() => setLightboxOpen(false)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+        >
+          <button
+            type="button"
+            aria-label="Schliessen"
+            onClick={() => setLightboxOpen(false)}
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          >
+            <X size={20} />
+          </button>
+          <img
+            src={review.photo_url}
+            alt={`Foto zur Bewertung von ${review.customer_name}`}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain shadow-2xl"
+          />
+        </div>
+      )}
     </article>
   );
 };
