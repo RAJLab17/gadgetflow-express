@@ -24,6 +24,8 @@ interface AdminReview {
   helpful_count: number;
   founder_response: string | null;
   created_at: string;
+  photo_preview_url?: string | null;
+  photo_path?: string | null;
 }
 
 type Tab = "pending" | "approved" | "rejected";
@@ -252,6 +254,21 @@ const AdminReviewsPage = () => {
                 </div>
 
                 <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-stone-700">{r.comment}</p>
+
+                {r.photo_preview_url && (
+                  <a
+                    href={r.photo_preview_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-block overflow-hidden rounded-lg border border-stone-200 hover:border-stone-400"
+                  >
+                    <img
+                      src={r.photo_preview_url}
+                      alt="Kundenfoto"
+                      className="h-32 w-32 object-cover"
+                    />
+                  </a>
+                )}
 
                 {r.founder_response && (
                   <div className="mt-3 rounded-lg bg-stone-50 p-3 text-sm text-stone-700">
