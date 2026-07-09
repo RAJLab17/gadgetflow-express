@@ -9,6 +9,9 @@ const corsHeaders = {
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
 const SERVICE_ROLE = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
 const ADMIN_TOKEN = Deno.env.get('REVIEWS_ADMIN_TOKEN')!
+const BUCKET = 'review-photos'
+const APPROVED_URL_TTL = 60 * 60 * 24 * 365 * 10 // 10 years
+const ADMIN_URL_TTL = 60 * 15 // 15 minutes for admin previews
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -38,11 +41,24 @@ Deno.serve(async (req) => {
         .order('created_at', { ascending: false })
         .limit(500)
       if (error) throw error
-      const reviews = (data ?? []).map((r: any) => ({
-        ...r,
-        customer_email: r.review_emails?.email ?? null,
-        review_emails: undefined,
-      }))
+
+      const reviews = await Promise.all(
+        (data ?? []).map(async (r: any) => {
+          let preview_url: string | null = r.photo_url ?? null
+          if (r.photo_path && !preview_url) {
+            const { data: signed } = await supabase.storage
+              .from(BUCKET)
+              .createSignedUrl(r.photo_path, ADMIN_URL_TTL)
+            preview_url = signed?.signedUrl ?? null
+          }
+          return {
+            ...r,
+            customer_email: r.review_emails?.email ?? null,
+            photo_preview_url: preview_url,
+            review_emails: undefined,
+          }
+        })
+      )
       return json({ reviews })
     }
 
@@ -68,17 +84,45 @@ Deno.serve(async (req) => {
       const id = body.id as string | undefined
       if (!id) return json({ error: 'missing_id' }, 400)
 
+      // Load current photo info for actions that need it
+      const { data: current } = await supabase
+        .from('reviews')
+        .select('photo_path, photo_url')
+        .eq('id', id)
+        .maybeSingle()
+
       if (action === 'approve') {
-        const { error } = await supabase.from('reviews').update({ status: 'approved' }).eq('id', id)
+        const update: Record<string, unknown> = { status: 'approved' }
+        // Move pending photo to approved/ and store a long-lived signed URL
+        if (current?.photo_path && current.photo_path.startsWith('pending/')) {
+          const newPath = current.photo_path.replace(/^pending\//, 'approved/')
+          const { error: moveErr } = await supabase.storage.from(BUCKET).move(current.photo_path, newPath)
+          if (moveErr && !/exists/i.test(moveErr.message)) throw moveErr
+          const { data: signed, error: signErr } = await supabase.storage
+            .from(BUCKET)
+            .createSignedUrl(newPath, APPROVED_URL_TTL)
+          if (signErr) throw signErr
+          update.photo_path = newPath
+          update.photo_url = signed?.signedUrl ?? null
+        }
+        const { error } = await supabase.from('reviews').update(update).eq('id', id)
         if (error) throw error
         return json({ ok: true })
       }
       if (action === 'reject') {
-        const { error } = await supabase.from('reviews').update({ status: 'rejected' }).eq('id', id)
+        const update: Record<string, unknown> = { status: 'rejected', photo_url: null }
+        if (current?.photo_path) {
+          await supabase.storage.from(BUCKET).remove([current.photo_path]).catch(() => {})
+          update.photo_path = null
+        }
+        const { error } = await supabase.from('reviews').update(update).eq('id', id)
         if (error) throw error
         return json({ ok: true })
       }
       if (action === 'delete') {
+        if (current?.photo_path) {
+          await supabase.storage.from(BUCKET).remove([current.photo_path]).catch(() => {})
+        }
         const { error } = await supabase.from('reviews').delete().eq('id', id)
         if (error) throw error
         return json({ ok: true })
