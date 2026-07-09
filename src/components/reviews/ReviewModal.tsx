@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { z } from "zod";
+import { Camera, X, Image as ImageIcon } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,6 +9,9 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import StarRating from "./StarRating";
+
+const MAX_PHOTO_BYTES = 5 * 1024 * 1024; // 5 MB
+const ALLOWED_PHOTO_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 
 const schema = z.object({
   customer_name: z.string().trim().min(2, "Bitte deinen Namen eingeben").max(80),
@@ -25,6 +29,12 @@ interface ReviewModalProps {
   productId?: string;
 }
 
+const extFor = (type: string) => {
+  if (type === "image/png") return "png";
+  if (type === "image/webp") return "webp";
+  return "jpg";
+};
+
 const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus" }: ReviewModalProps) => {
   const [rating, setRating] = useState(initialRating);
   const [name, setName] = useState("");
@@ -33,10 +43,20 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
   const [comment, setComment] = useState("");
   const [website, setWebsite] = useState(""); // honeypot
   const [submitting, setSubmitting] = useState(false);
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const fileGalleryRef = useRef<HTMLInputElement>(null);
+  const fileCameraRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (open) setRating(initialRating || 5);
   }, [open, initialRating]);
+
+  useEffect(() => {
+    return () => {
+      if (photoPreview) URL.revokeObjectURL(photoPreview);
+    };
+  }, [photoPreview]);
 
   const reset = () => {
     setName("");
@@ -45,6 +65,44 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
     setComment("");
     setWebsite("");
     setRating(5);
+    clearPhoto();
+  };
+
+  const clearPhoto = () => {
+    if (photoPreview) URL.revokeObjectURL(photoPreview);
+    setPhotoPreview(null);
+    setPhotoFile(null);
+    if (fileGalleryRef.current) fileGalleryRef.current.value = "";
+    if (fileCameraRef.current) fileCameraRef.current.value = "";
+  };
+
+  const handlePhotoSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!ALLOWED_PHOTO_TYPES.includes(file.type)) {
+      toast({ title: "Ungültiges Format", description: "Nur JPG, PNG oder WEBP.", variant: "destructive" });
+      return;
+    }
+    if (file.size > MAX_PHOTO_BYTES) {
+      toast({ title: "Foto zu gross", description: "Maximale Grösse: 5 MB.", variant: "destructive" });
+      return;
+    }
+    if (photoPreview) URL.revokeObjectURL(photoPreview);
+    setPhotoFile(file);
+    setPhotoPreview(URL.createObjectURL(file));
+  };
+
+  const uploadPhoto = async (): Promise<string | null> => {
+    if (!photoFile) return null;
+    const ext = extFor(photoFile.type);
+    const path = `pending/${crypto.randomUUID()}.${ext}`;
+    const { error } = await supabase.storage.from("review-photos").upload(path, photoFile, {
+      cacheControl: "3600",
+      upsert: false,
+      contentType: photoFile.type,
+    });
+    if (error) throw new Error(`Foto-Upload fehlgeschlagen: ${error.message}`);
+    return path;
   };
 
   const submit = async (e: React.FormEvent) => {
@@ -66,33 +124,37 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.functions.invoke("submit-review", {
-      body: {
-        product_id: productId,
-        customer_name: parsed.data.customer_name,
-        customer_email: parsed.data.customer_email,
-        rating: parsed.data.rating,
-        title: parsed.data.title,
-        comment: parsed.data.comment,
-        website: parsed.data.website,
-      },
-    });
-    setSubmitting(false);
-    if (error) {
-      toast({ title: "Fehler", description: error.message, variant: "destructive" });
-      return;
+    try {
+      const photo_path = await uploadPhoto();
+      const { error } = await supabase.functions.invoke("submit-review", {
+        body: {
+          product_id: productId,
+          customer_name: parsed.data.customer_name,
+          customer_email: parsed.data.customer_email,
+          rating: parsed.data.rating,
+          title: parsed.data.title,
+          comment: parsed.data.comment,
+          website: parsed.data.website,
+          photo_path,
+        },
+      });
+      if (error) throw error;
+      toast({
+        title: "Danke für deine Bewertung!",
+        description: "Sie wird nach kurzer Prüfung veröffentlicht.",
+      });
+      reset();
+      onOpenChange(false);
+    } catch (err) {
+      toast({ title: "Fehler", description: (err as Error).message, variant: "destructive" });
+    } finally {
+      setSubmitting(false);
     }
-    toast({
-      title: "Danke für deine Bewertung!",
-      description: "Sie wird nach kurzer Prüfung veröffentlicht.",
-    });
-    reset();
-    onOpenChange(false);
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl">Bewertung schreiben</DialogTitle>
           <DialogDescription>
@@ -151,7 +213,64 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
             <p className="mt-1 text-[11px] text-stone-500">{comment.length} / 1500</p>
           </div>
 
-          {/* Honeypot — versteckt vor Menschen, Bots füllen es aus */}
+          {/* PHOTO UPLOAD (optional) */}
+          <div>
+            <Label className="mb-2 block">Foto hinzufügen (optional)</Label>
+            {photoPreview ? (
+              <div className="relative inline-block">
+                <img
+                  src={photoPreview}
+                  alt="Vorschau"
+                  className="h-32 w-32 rounded-lg border border-stone-200 object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={clearPhoto}
+                  aria-label="Foto entfernen"
+                  className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-stone-900 text-white shadow-md transition hover:bg-stone-700"
+                >
+                  <X size={12} />
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => fileGalleryRef.current?.click()}
+                  className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-700 transition hover:border-stone-900"
+                >
+                  <ImageIcon size={16} />
+                  Aus Galerie wählen
+                </button>
+                <button
+                  type="button"
+                  onClick={() => fileCameraRef.current?.click()}
+                  className="inline-flex items-center gap-2 rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-700 transition hover:border-stone-900 sm:hidden"
+                >
+                  <Camera size={16} />
+                  Foto aufnehmen
+                </button>
+              </div>
+            )}
+            <input
+              ref={fileGalleryRef}
+              type="file"
+              accept="image/jpeg,image/png,image/webp"
+              onChange={handlePhotoSelect}
+              className="hidden"
+            />
+            <input
+              ref={fileCameraRef}
+              type="file"
+              accept="image/*"
+              capture="environment"
+              onChange={handlePhotoSelect}
+              className="hidden"
+            />
+            <p className="mt-1 text-[11px] text-stone-500">JPG, PNG oder WEBP · max. 5 MB · 1 Foto</p>
+          </div>
+
+          {/* Honeypot */}
           <input
             type="text"
             tabIndex={-1}
