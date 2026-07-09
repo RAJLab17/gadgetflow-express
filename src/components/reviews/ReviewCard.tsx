@@ -120,6 +120,31 @@ const ReviewCard = ({ review }: { review: PublicReview }) => {
           Hilfreich {count > 0 && `(${count})`}
         </button>
       </div>
+
+      {lightboxOpen && review.photo_url && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Foto-Vorschau"
+          onClick={() => setLightboxOpen(false)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+        >
+          <button
+            type="button"
+            aria-label="Schliessen"
+            onClick={() => setLightboxOpen(false)}
+            className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          >
+            <X size={20} />
+          </button>
+          <img
+            src={review.photo_url}
+            alt={`Foto zur Bewertung von ${review.customer_name}`}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain shadow-2xl"
+          />
+        </div>
+      )}
     </article>
   );
 };
