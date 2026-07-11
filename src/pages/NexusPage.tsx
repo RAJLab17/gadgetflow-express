@@ -214,57 +214,49 @@ const LatestMarcelReview = ({
               «{excerpt}»
             </p>
           </div>
-          <motion.div
+          <div
             className="shrink-0 pl-1"
-            animate={{ rotate: expanded ? 180 : 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            style={{ color: D.gold, opacity: 0.7 }}
+            style={{ color: D.gold, opacity: 0.7, transform: expanded ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease" }}
           >
             <ChevronDown size={16} />
-          </motion.div>
+          </div>
         </div>
       </div>
-      <AnimatePresence initial={false}>
-        {expanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden rounded-b-xl border border-t-0"
-            style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(20,19,18,.55)" }}
-          >
-            <div className="px-3 py-3 sm:px-3.5 sm:py-4">
-              <p className="text-sm leading-relaxed italic" style={{ color: D.beige }}>
-                «{review.comment}»
-              </p>
-              {review.photo_url && (
-                <button
-                  type="button"
-                  onClick={() => onPhotoClick?.()}
-                  className="mt-3 w-full rounded-lg overflow-hidden border transition-opacity hover:opacity-90"
-                  style={{ borderColor: "rgba(201,168,118,.2)" }}
-                  aria-label="Foto vergrössern"
-                >
-                  <img src={review.photo_url} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
-                </button>
-              )}
-              <div className="mt-3 flex items-center justify-between">
-                <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold" style={{ color: D.gold }}>
-                  <ShieldCheck size={11} /> Verifizierter Kauf
-                </span>
-                <Link
-                  to="/reviews"
-                  className="text-[9px] sm:text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-                  style={{ color: D.muted }}
-                >
-                  Alle Bewertungen →
-                </Link>
-              </div>
+      {expanded && (
+        <div
+          className="rounded-b-xl border border-t-0"
+          style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(20,19,18,.55)" }}
+        >
+          <div className="px-3 py-3 sm:px-3.5 sm:py-4">
+            <p className="text-sm leading-relaxed italic" style={{ color: D.beige }}>
+              «{review.comment}»
+            </p>
+            {review.photo_url && (
+              <button
+                type="button"
+                onClick={() => onPhotoClick?.()}
+                className="mt-3 w-full rounded-lg overflow-hidden border transition-opacity hover:opacity-90"
+                style={{ borderColor: "rgba(201,168,118,.2)" }}
+                aria-label="Foto vergrössern"
+              >
+                <img src={review.photo_url} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+              </button>
+            )}
+            <div className="mt-3 flex items-center justify-between">
+              <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold" style={{ color: D.gold }}>
+                <ShieldCheck size={11} /> Verifizierter Kauf
+              </span>
+              <Link
+                to="/reviews"
+                className="text-[9px] sm:text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
+                style={{ color: D.muted }}
+              >
+                Alle Bewertungen →
+              </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
