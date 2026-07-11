@@ -1026,6 +1026,41 @@ const NexusPage = () => {
 
       <div className="h-16" aria-hidden style={{ background: D.bg }} />
       <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
+
+      <AnimatePresence>
+        {marcelLightboxOpen && latestMarcelReview?.photo_url && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+            style={{ background: "rgba(0,0,0,.92)", backdropFilter: "blur(8px)" }}
+            onClick={() => setMarcelLightboxOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Foto vergrössert"
+          >
+            <button
+              type="button"
+              onClick={() => setMarcelLightboxOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"
+              aria-label="Schliessen"
+            >
+              <X size={28} />
+            </button>
+            <motion.img
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              src={latestMarcelReview.photo_url}
+              alt={`Foto zur Bewertung von ${latestMarcelReview.customer_name}`}
+              className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
