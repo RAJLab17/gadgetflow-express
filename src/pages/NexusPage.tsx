@@ -964,9 +964,14 @@ const NexusPage = () => {
       </section>
 
       {/* ═══ 5. DETAILS / FAQ ═══ */}
-      <section style={{ background: L.bg, color: L.text }}>
+      <section ref={detailsSectionRef} style={{ background: L.bg, color: L.text }}>
         <Suspense fallback={<div style={{ minHeight: 400 }} />}>
-          <ProductDetailsAccordion />
+          <ProductDetailsAccordion
+            value={detailsAccordionValue}
+            onValueChange={setDetailsAccordionValue}
+            reviewStats={reviewStats}
+            topReviews={topReviews}
+          />
         </Suspense>
       </section>
       <section id="faq" className="py-20 md:py-28 px-5" style={{ background: L.bg, color: L.text, borderTop: `1px solid ${L.border}` }} aria-labelledby="nexus-faq-heading">
