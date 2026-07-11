@@ -1,17 +1,35 @@
 import { Link } from "react-router-dom";
-import { FileText } from "lucide-react";
+import { FileText, Star, MessageSquare } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const ProductDetailsAccordion = () => {
+type ReviewSummary = {
+  customer_name: string;
+  rating: number;
+  title: string;
+  comment: string;
+  created_at: string;
+};
+
+type ProductDetailsAccordionProps = {
+  value?: string;
+  onValueChange?: (value: string) => void;
+  reviewStats?: { total: number; average: number } | null;
+  topReviews?: ReviewSummary[];
+};
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("de-CH", { day: "2-digit", month: "long", year: "numeric" });
+
+const ProductDetailsAccordion = ({ value, onValueChange, reviewStats, topReviews }: ProductDetailsAccordionProps) => {
   return (
-    <section className="py-20 md:py-28 px-6 border-t border-border/60">
+    <section id="product-details" className="py-20 md:py-28 px-6 border-t border-border/60">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-xs tracking-[0.3em] uppercase text-primary">Alle Details</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Was du wissen musst.</h2>
         </div>
 
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible value={value} onValueChange={onValueChange} className="w-full">
           <AccordionItem value="specs" className="border-border/60">
             <AccordionTrigger className="text-base font-light hover:no-underline py-5">Technische Spezifikationen</AccordionTrigger>
             <AccordionContent className="text-muted-foreground font-light pb-6">
