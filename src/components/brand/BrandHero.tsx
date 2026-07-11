@@ -123,7 +123,7 @@ const BrandHero = () => {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
+      <div ref={parallaxRef} className="absolute inset-0 will-change-transform z-0">
         {/* Desktop slides */}
         {SLIDES.map((slide, i) => (
           <div
