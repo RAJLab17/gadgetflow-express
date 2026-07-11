@@ -5,23 +5,17 @@ import BuyModal from "@/components/BuyModal";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 const nexusLaptop = "/assets/hero/desktop-nexus.webp";
-const nexusSuiteOld = "/assets/hero/desktop-suite-old.webp";
 const nexusSuite = "/assets/hero/desktop-ecosystem.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
-const nexusBedroom = "/assets/hero/lifestyle-nexus-bedside.webp";
-const nexusBedroomMobile = "/assets/hero/mobile-bedside.webp";
 const nexusLaptopMobile = "/assets/hero/mobile-laptop.webp";
 const nexusSuiteMobile = "/assets/hero/mobile-ecosystem.webp";
-const nexusSuiteOldMobile = "/assets/hero/mobile-suite-old.webp";
 
 const SLIDES = [
-  { src: nexusBedroom, mobileSrc: nexusBedroomMobile, position: "center 30%", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
-  { src: nexusSuiteOld, mobileSrc: nexusSuiteOldMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
   { src: nexusLaptop, mobileSrc: nexusLaptopMobile, position: "center center", mobilePosition: "center center", size: "cover", mobileSize: "cover" },
-  // Slide 4 — Ecosystem (cases, watches, AirPods, power bank). Wide landscape composition:
+  // Slide 2 — Ecosystem (cases, watches, AirPods, power bank). Wide landscape composition:
   // use `contain` on desktop so the full symmetric arrangement stays visible; the dark
   // letterboxing blends into the #0a0908 hero background.
   { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "center 60%", mobilePosition: "center center", size: "contain", mobileSize: "cover" },
