@@ -554,6 +554,27 @@ const NexusPage = () => {
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
   const detailsSectionRef = useRef<HTMLDivElement | null>(null);
 
+  const expandReviewsSection = () => {
+    setDetailsAccordionValue("reviews");
+    setTimeout(() => {
+      detailsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
+
+  useEffect(() => {
+    if (!marcelLightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMarcelLightboxOpen(false); };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [marcelLightboxOpen]);
+  const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
+  const detailsSectionRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
