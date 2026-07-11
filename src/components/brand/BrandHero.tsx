@@ -305,7 +305,7 @@ const BrandHero = () => {
 
 
       {/* ===================== DESKTOP LAYOUT (unchanged, hidden on mobile) ===================== */}
-      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full hidden lg:block">
+      <div ref={fadeRef} className="relative z-20 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full hidden lg:block">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
