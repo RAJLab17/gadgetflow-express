@@ -809,7 +809,6 @@ const NexusPage = () => {
               <LatestMarcelReview
                 review={latestMarcelReview}
                 className="mt-4"
-                onExpand={expandReviewsSection}
                 onPhotoClick={() => setMarcelLightboxOpen(true)}
               />
             )}
