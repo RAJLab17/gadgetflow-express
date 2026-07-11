@@ -101,6 +101,55 @@ const ProductDetailsAccordion = ({ value, onValueChange, reviewStats, topReviews
             </AccordionContent>
           </AccordionItem>
 
+          <AccordionItem value="reviews" className="border-border/60">
+            <AccordionTrigger className="text-base font-light hover:no-underline py-5">
+              <span className="flex items-center gap-2">
+                <MessageSquare className="w-4 h-4" strokeWidth={1.5} />
+                Kundenbewertungen
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground font-light pb-6 text-sm space-y-5">
+              {reviewStats && reviewStats.total > 0 ? (
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <Star key={n} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <span className="text-foreground/80 font-medium">
+                    {reviewStats.average.toFixed(1)} / 5 · {reviewStats.total} {reviewStats.total === 1 ? "Bewertung" : "Bewertungen"}
+                  </span>
+                </div>
+              ) : (
+                <p className="text-foreground/80">Noch keine Bewertungen.</p>
+              )}
+
+              {topReviews && topReviews.length > 0 && (
+                <div className="space-y-4">
+                  {topReviews.slice(0, 3).map((r) => (
+                    <div key={r.customer_name + r.created_at} className="border-b border-border/40 pb-4 last:border-b-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-foreground/80 font-medium text-sm">{r.customer_name}</span>
+                        <div className="flex items-center gap-0.5">
+                          {[1, 2, 3, 4, 5].map((n) => (
+                            <Star key={n} className={`w-3 h-3 ${n <= r.rating ? "fill-primary text-primary" : "text-primary/30"}`} />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-xs text-foreground/60 mb-1">{formatDate(r.created_at)}</p>
+                      <p className="text-sm line-clamp-3">{r.comment}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <Link to="/reviews" className="inline-flex items-center gap-2 text-primary hover:underline">
+                <MessageSquare className="w-3.5 h-3.5" strokeWidth={1.5} />
+                Alle Bewertungen ansehen & Bewertung schreiben →
+              </Link>
+            </AccordionContent>
+          </AccordionItem>
+
           <AccordionItem value="docs" className="border-border/60">
             <AccordionTrigger className="text-base font-light hover:no-underline py-5">Dokumente & Rechtliches</AccordionTrigger>
             <AccordionContent className="text-muted-foreground font-light pb-6 text-sm">
