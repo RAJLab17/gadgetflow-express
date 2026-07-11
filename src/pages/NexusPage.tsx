@@ -550,6 +550,9 @@ const NexusPage = () => {
   const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>(null);
   const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
   const [latestMarcelReview, setLatestMarcelReview] = useState<HeroReview | null>(null);
+  const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
+  const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
+  const detailsSectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let cancelled = false;
