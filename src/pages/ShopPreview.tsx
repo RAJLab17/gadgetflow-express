@@ -183,7 +183,7 @@ const ShopPreview = () => {
                     width={800}
                     height={800}
                     loading={activeImg === 0 ? "eager" : "lazy"}
-                    fetchPriority={activeImg === 0 ? "high" : "auto"}
+                    fetchpriority={activeImg === 0 ? "high" : "auto"}
                     decoding="async"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

@@ -294,7 +294,7 @@ function NexusCarousel() {
                 <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden" style={{ background: bg }}>
                   {isComponent ? <BeforeNowSlide /> : (
                     <>
-                      <img src={(img as { src: string }).src} alt={img.alt} width={1200} height={900} loading={i === 0 ? "eager" : "lazy"} fetchPriority={i === 0 ? "high" : "auto"} decoding={i === 0 ? "sync" : "async"} className={`absolute inset-0 w-full h-full object-contain ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""} ${i === 4 ? "object-cover" : ""}`} />
+                      <img src={(img as { src: string }).src} alt={img.alt} width={1200} height={900} loading={i === 0 ? "eager" : "lazy"} fetchpriority={i === 0 ? "high" : "auto"} decoding={i === 0 ? "sync" : "async"} className={`absolute inset-0 w-full h-full object-contain ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""} ${i === 4 ? "object-cover" : ""}`} />
                       <div className="absolute inset-x-0 top-0 h-[4%] pointer-events-none" style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }} aria-hidden />
                       <div className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none" style={{ background: "linear-gradient(to top, #ffffff, transparent)" }} aria-hidden />
                       <div className="absolute inset-y-0 left-0 w-[3%] pointer-events-none" style={{ background: "linear-gradient(to right, #ffffff, transparent)" }} aria-hidden />
@@ -816,7 +816,7 @@ const NexusPage = () => {
               <picture>
                 <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
                 <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
-                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
+                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchpriority="high" decoding="async" />
               </picture>
               <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, filter: "drop-shadow(0 4px 10px rgba(0,0,0,.55))" }}>
                 <Qi2CertifiedBadge size={44} gold={D.gold} compact />
@@ -850,7 +850,7 @@ const NexusPage = () => {
             <picture>
               <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
-              <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchPriority="high" decoding="async" />
+              <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchpriority="high" decoding="async" />
             </picture>
             <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, filter: "drop-shadow(0 4px 10px rgba(0,0,0,.55))" }}>
               <Qi2CertifiedBadge size={36} gold={D.gold} compact />
