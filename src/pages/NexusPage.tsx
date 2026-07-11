@@ -148,6 +148,49 @@ const ChargeChip = ({ label, icon, startVal, phase, floatAnim, style }: ChargeCh
   );
 };
 
+// ─── Latest Marcel Review Snippet (Hero) ───────────────────────────
+type HeroReview = {
+  customer_name: string;
+  rating: number;
+  title: string;
+  comment: string;
+  photo_url: string | null;
+  verified_purchase: boolean;
+};
+
+const LatestMarcelReview = ({ review, className = "" }: { review: HeroReview; className?: string }) => {
+  const excerpt = review.comment.length > 90 ? review.comment.slice(0, 90) + "…" : review.comment;
+  return (
+    <Link to="/reviews" className={`group block transition-opacity hover:opacity-90 ${className}`}>
+      <div className="flex items-center gap-3 rounded-xl border px-3 py-2.5 sm:px-3.5 sm:py-3" style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(255,255,255,.03)" }}>
+        {review.photo_url && (
+          <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a]">
+            <img src={review.photo_url} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+          </div>
+        )}
+        <div className="min-w-0">
+          <div className="flex items-center gap-1.5 mb-0.5">
+            <span className="text-[11px] sm:text-xs font-medium" style={{ color: D.beige }}>{review.customer_name}</span>
+            {review.verified_purchase && (
+              <span className="inline-flex items-center gap-1 text-[8px] sm:text-[9px] text-emerald-500 uppercase tracking-wider font-semibold">
+                <ShieldCheck size={10} /> Verifizierter Kauf
+              </span>
+            )}
+          </div>
+          <div className="flex gap-0.5 mb-1">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <span key={n} className="text-[10px] leading-none" style={{ color: D.gold }}>★</span>
+            ))}
+          </div>
+          <p className="text-[10px] sm:text-[11px] leading-snug line-clamp-2" style={{ color: D.muted }}>
+            «{excerpt}»
+          </p>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
 // ─────────────────────────────────────────────────────────────────
 // PRODUCT CAROUSEL — unverändert
 // ─────────────────────────────────────────────────────────────────
