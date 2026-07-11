@@ -880,7 +880,14 @@ const NexusPage = () => {
               </span>
             ))}
           </div>
-          {latestMarcelReview && <LatestMarcelReview review={latestMarcelReview} className="mt-3" />}
+          {latestMarcelReview && (
+            <LatestMarcelReview
+              review={latestMarcelReview}
+              className="mt-3"
+              onExpand={expandReviewsSection}
+              onPhotoClick={() => setMarcelLightboxOpen(true)}
+            />
+          )}
 
           <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
 
