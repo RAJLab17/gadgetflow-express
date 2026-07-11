@@ -705,6 +705,7 @@ const NexusPage = () => {
                 </span>
               ))}
             </div>
+            {latestMarcelReview && <LatestMarcelReview review={latestMarcelReview} className="mt-4" />}
 
 
             
