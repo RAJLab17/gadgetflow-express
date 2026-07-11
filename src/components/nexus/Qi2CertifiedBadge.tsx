@@ -48,8 +48,6 @@ export default function Qi2CertifiedBadge({
         background: "linear-gradient(135deg, rgba(18,17,16,.92), rgba(28,25,22,.88))",
         border: `1px solid ${gold}55`,
         boxShadow: `0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 12px ${gold}22`,
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
       }}
     >
       {mark}

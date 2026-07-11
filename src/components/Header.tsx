@@ -108,7 +108,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
   return (
     <header
-      className={`raj-slide-down fixed top-0 left-0 right-0 z-50 ${
+      className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled
           ? isDarkPage
             ? "bg-[#0a0908] shadow-elegant border-b border-white/10"

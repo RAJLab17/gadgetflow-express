@@ -85,70 +85,25 @@ export default function NexusTrustBar() {
         }}
       />
 
-      {/* MOBILE: continuous marquee — premium single-line ticker */}
-      <div
-        className="sm:hidden relative overflow-hidden"
-        style={{
-          padding: "11px 0",
-          maskImage:
-            "linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)",
-        }}
-      >
-        <div
-          className="flex items-center"
-          style={{
-            gap: 28,
-            width: "max-content",
-            animation: "nexus-trust-marquee 22s linear infinite",
-          }}
-        >
-          {[...items, ...items, ...items].map(({ Icon, labelLg }, i) => (
-            <div
-              key={i}
-              className="flex items-center"
-              style={{ gap: 28, flexShrink: 0 }}
+      {/* MOBILE: static row — avoids Samsung Browser compositing glitches on pull-to-refresh. */}
+      <div className="sm:hidden grid grid-cols-3 items-center" style={{ padding: "9px 8px", gap: 4 }}>
+        {items.map(({ Icon, label }) => (
+          <div key={label} className="flex items-center justify-center min-w-0" style={{ gap: 5 }}>
+            <Icon size={14} />
+            <span
+              style={{
+                fontSize: 9.5,
+                color: BEIGE,
+                fontWeight: 600,
+                letterSpacing: ".04em",
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+              }}
             >
-              <div className="flex items-center" style={{ gap: 9 }}>
-                <Icon size={16} />
-                <span
-                  style={{
-                    fontSize: 11.5,
-                    color: BEIGE,
-                    fontWeight: 500,
-                    letterSpacing: ".08em",
-                    textTransform: "uppercase",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {labelLg}
-                </span>
-              </div>
-              <span
-                aria-hidden
-                style={{
-                  width: 3,
-                  height: 3,
-                  borderRadius: "50%",
-                  background: GOLD,
-                  opacity: 0.7,
-                  boxShadow: `0 0 4px ${GOLD}66`,
-                  flexShrink: 0,
-                }}
-              />
-            </div>
-          ))}
-        </div>
-        <style>{`
-          @keyframes nexus-trust-marquee {
-            from { transform: translateX(0); }
-            to   { transform: translateX(calc(-100% / 3)); }
-          }
-          @media (prefers-reduced-motion: reduce) {
-            [style*="nexus-trust-marquee"] { animation: none !important; }
-          }
-        `}</style>
+              {label}
+            </span>
+          </div>
+        ))}
       </div>
 
       {/* DESKTOP / TABLET: single centered row */}
