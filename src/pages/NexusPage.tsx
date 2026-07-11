@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
-  ShieldCheck, Truck, RotateCcw, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag,
+  ShieldCheck, Truck, RotateCcw, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag, X,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -158,15 +158,40 @@ type HeroReview = {
   verified_purchase: boolean;
 };
 
-const LatestMarcelReview = ({ review, className = "" }: { review: HeroReview; className?: string }) => {
+const LatestMarcelReview = ({
+  review,
+  className = "",
+  onPhotoClick,
+  onExpand,
+}: {
+  review: HeroReview;
+  className?: string;
+  onPhotoClick?: () => void;
+  onExpand?: () => void;
+}) => {
   const excerpt = review.comment.length > 90 ? review.comment.slice(0, 90) + "…" : review.comment;
   return (
-    <Link to="/reviews" className={`group block transition-opacity hover:opacity-90 ${className}`}>
+    <div
+      className={`group block cursor-pointer transition-opacity hover:opacity-90 ${className}`}
+      onClick={onExpand}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onExpand?.(); }}
+      aria-label={`Bewertung von ${review.customer_name} ansehen`}
+    >
       <div className="flex items-center gap-3 rounded-xl border px-3 py-2.5 sm:px-3.5 sm:py-3" style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(255,255,255,.03)" }}>
         {review.photo_url && (
-          <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a]">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onPhotoClick?.();
+            }}
+            className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a] hover:ring-2 hover:ring-[#C9A876]/50 transition"
+            aria-label="Foto vergrössern"
+          >
             <img src={review.photo_url} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-          </div>
+          </button>
         )}
         <div className="min-w-0">
           <div className="flex items-center gap-1.5 mb-0.5">
@@ -187,7 +212,7 @@ const LatestMarcelReview = ({ review, className = "" }: { review: HeroReview; cl
           </p>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
@@ -525,6 +550,28 @@ const NexusPage = () => {
   const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>(null);
   const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
   const [latestMarcelReview, setLatestMarcelReview] = useState<HeroReview | null>(null);
+  const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
+  const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
+  const detailsSectionRef = useRef<HTMLDivElement | null>(null);
+
+  const expandReviewsSection = () => {
+    setDetailsAccordionValue("reviews");
+    setTimeout(() => {
+      detailsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
+
+  useEffect(() => {
+    if (!marcelLightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMarcelLightboxOpen(false); };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [marcelLightboxOpen]);
 
   useEffect(() => {
     let cancelled = false;
@@ -705,7 +752,14 @@ const NexusPage = () => {
                 </span>
               ))}
             </div>
-            {latestMarcelReview && <LatestMarcelReview review={latestMarcelReview} className="mt-4" />}
+            {latestMarcelReview && (
+              <LatestMarcelReview
+                review={latestMarcelReview}
+                className="mt-4"
+                onExpand={expandReviewsSection}
+                onPhotoClick={() => setMarcelLightboxOpen(true)}
+              />
+            )}
 
 
             
@@ -826,7 +880,14 @@ const NexusPage = () => {
               </span>
             ))}
           </div>
-          {latestMarcelReview && <LatestMarcelReview review={latestMarcelReview} className="mt-3" />}
+          {latestMarcelReview && (
+            <LatestMarcelReview
+              review={latestMarcelReview}
+              className="mt-3"
+              onExpand={expandReviewsSection}
+              onPhotoClick={() => setMarcelLightboxOpen(true)}
+            />
+          )}
 
           <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
 
@@ -917,9 +978,14 @@ const NexusPage = () => {
       </section>
 
       {/* ═══ 5. DETAILS / FAQ ═══ */}
-      <section style={{ background: L.bg, color: L.text }}>
+      <section ref={detailsSectionRef} style={{ background: L.bg, color: L.text }}>
         <Suspense fallback={<div style={{ minHeight: 400 }} />}>
-          <ProductDetailsAccordion />
+          <ProductDetailsAccordion
+            value={detailsAccordionValue}
+            onValueChange={setDetailsAccordionValue}
+            reviewStats={reviewStats}
+            topReviews={topReviews}
+          />
         </Suspense>
       </section>
       <section id="faq" className="py-20 md:py-28 px-5" style={{ background: L.bg, color: L.text, borderTop: `1px solid ${L.border}` }} aria-labelledby="nexus-faq-heading">
@@ -960,6 +1026,41 @@ const NexusPage = () => {
 
       <div className="h-16" aria-hidden style={{ background: D.bg }} />
       <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
+
+      <AnimatePresence>
+        {marcelLightboxOpen && latestMarcelReview?.photo_url && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+            style={{ background: "rgba(0,0,0,.92)", backdropFilter: "blur(8px)" }}
+            onClick={() => setMarcelLightboxOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Foto vergrössert"
+          >
+            <button
+              type="button"
+              onClick={() => setMarcelLightboxOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"
+              aria-label="Schliessen"
+            >
+              <X size={28} />
+            </button>
+            <motion.img
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              src={latestMarcelReview.photo_url}
+              alt={`Foto zur Bewertung von ${latestMarcelReview.customer_name}`}
+              className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

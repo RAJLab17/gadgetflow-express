@@ -1,17 +1,35 @@
 import { Link } from "react-router-dom";
-import { FileText } from "lucide-react";
+import { FileText, Star, MessageSquare } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const ProductDetailsAccordion = () => {
+type ReviewSummary = {
+  customer_name: string;
+  rating: number;
+  title: string;
+  comment: string;
+  created_at: string;
+};
+
+type ProductDetailsAccordionProps = {
+  value?: string;
+  onValueChange?: (value: string) => void;
+  reviewStats?: { total: number; average: number } | null;
+  topReviews?: ReviewSummary[];
+};
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("de-CH", { day: "2-digit", month: "long", year: "numeric" });
+
+const ProductDetailsAccordion = ({ value, onValueChange, reviewStats, topReviews }: ProductDetailsAccordionProps) => {
   return (
-    <section className="py-20 md:py-28 px-6 border-t border-border/60">
+    <section id="product-details" className="py-20 md:py-28 px-6 border-t border-border/60">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-xs tracking-[0.3em] uppercase text-primary">Alle Details</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight mt-3">Was du wissen musst.</h2>
         </div>
 
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible value={value} onValueChange={onValueChange} className="w-full">
           <AccordionItem value="specs" className="border-border/60">
             <AccordionTrigger className="text-base font-light hover:no-underline py-5">Technische Spezifikationen</AccordionTrigger>
             <AccordionContent className="text-muted-foreground font-light pb-6">
@@ -80,6 +98,55 @@ const ProductDetailsAccordion = () => {
                 </div>
               ))}
               <Link to="/faq" className="inline-block text-primary hover:underline mt-2">Alle Fragen ansehen →</Link>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="reviews" className="border-border/60">
+            <AccordionTrigger className="text-base font-light hover:no-underline py-5">
+              <span className="flex items-center gap-2">
+                <MessageSquare className="w-4 h-4" strokeWidth={1.5} />
+                Kundenbewertungen
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="text-muted-foreground font-light pb-6 text-sm space-y-5">
+              {reviewStats && reviewStats.total > 0 ? (
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <Star key={n} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <span className="text-foreground/80 font-medium">
+                    {reviewStats.average.toFixed(1)} / 5 · {reviewStats.total} {reviewStats.total === 1 ? "Bewertung" : "Bewertungen"}
+                  </span>
+                </div>
+              ) : (
+                <p className="text-foreground/80">Noch keine Bewertungen.</p>
+              )}
+
+              {topReviews && topReviews.length > 0 && (
+                <div className="space-y-4">
+                  {topReviews.slice(0, 3).map((r) => (
+                    <div key={r.customer_name + r.created_at} className="border-b border-border/40 pb-4 last:border-b-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-foreground/80 font-medium text-sm">{r.customer_name}</span>
+                        <div className="flex items-center gap-0.5">
+                          {[1, 2, 3, 4, 5].map((n) => (
+                            <Star key={n} className={`w-3 h-3 ${n <= r.rating ? "fill-primary text-primary" : "text-primary/30"}`} />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-xs text-foreground/60 mb-1">{formatDate(r.created_at)}</p>
+                      <p className="text-sm line-clamp-3">{r.comment}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <Link to="/reviews" className="inline-flex items-center gap-2 text-primary hover:underline">
+                <MessageSquare className="w-3.5 h-3.5" strokeWidth={1.5} />
+                Alle Bewertungen ansehen & Bewertung schreiben →
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
