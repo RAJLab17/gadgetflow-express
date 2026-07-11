@@ -519,7 +519,7 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
   if (!show) return null;
   return (
     <div className="fixed bottom-24 sm:bottom-5 left-3 sm:left-5 z-40 max-w-[300px] animate-fade-in">
-      <div className="flex items-center gap-3 px-4 py-3 rounded-xl backdrop-blur-md" style={{ background: "rgba(20,19,18,0.92)", border: `1px solid ${D.gold}40`, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.6)" }}>
+      <div className="flex items-center gap-3 px-4 py-3 rounded-xl" style={{ background: "#141312", border: `1px solid ${D.gold}40`, boxShadow: "0 10px 30px -10px rgba(0,0,0,0.6)" }}>
         <span className="relative flex h-2 w-2 shrink-0">
           <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: D.gold }} />
           <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: D.gold }} />
