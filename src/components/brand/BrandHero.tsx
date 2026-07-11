@@ -231,10 +231,10 @@ const BrandHero = () => {
 
         {/* H1 — "Energie," 1 Zeile, "in Form gegossen" 1 Zeile */}
         <h1
-          className="raj-rise mt-6 text-left font-extralight text-white leading-[0.95] tracking-[-0.035em]"
-          style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s" }}
+          className="raj-rise mt-6 text-left font-extralight text-white leading-[1.02] tracking-[-0.035em]"
+          style={{ textShadow: "0 4px 40px rgba(0,0,0,0.75), 0 2px 12px rgba(0,0,0,0.6)", animationDuration: "1.4s", overflow: "visible" }}
         >
-          <span className="block text-[10vw]">{t("brand.hero.h1.line1")}</span>
+          <span className="block text-[10vw]" style={{ lineHeight: 1.02 }}>{t("brand.hero.h1.line1")}</span>
           <span
             className="italic font-light block text-[10vw] whitespace-nowrap"
             style={{
@@ -243,8 +243,12 @@ const BrandHero = () => {
               backgroundClip: "text",
               color: "transparent",
               WebkitTextFillColor: "transparent",
-              lineHeight: 1,
-              filter: `drop-shadow(0 2px 10px rgba(0,0,0,0.9)) drop-shadow(0 6px 28px rgba(0,0,0,0.7)) drop-shadow(0 0 18px ${GOLD}55)`,
+              lineHeight: 1.18,
+              paddingBottom: "0.14em",
+              marginBottom: "-0.14em",
+              overflow: "visible",
+              position: "relative",
+              zIndex: 2,
             }}
           >
             in Form gegossen
