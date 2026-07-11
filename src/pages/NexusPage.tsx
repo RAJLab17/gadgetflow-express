@@ -605,14 +605,6 @@ const NexusPage = () => {
   const [latestMarcelReview, setLatestMarcelReview] = useState<HeroReview | null>(null);
   const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
-  const detailsSectionRef = useRef<HTMLDivElement | null>(null);
-
-  const expandReviewsSection = () => {
-    setDetailsAccordionValue("reviews");
-    setTimeout(() => {
-      detailsSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 50);
-  };
 
   useEffect(() => {
     if (!marcelLightboxOpen) return;
