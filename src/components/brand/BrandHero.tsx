@@ -184,7 +184,7 @@ const BrandHero = () => {
 
 
       {/* ===================== MOBILE LAYOUT (lg:hidden, additive) ===================== */}
-      <div className="lg:hidden absolute inset-0 z-10 flex flex-col pt-[88px] pb-16 px-6">
+      <div className="lg:hidden absolute inset-0 z-30 flex flex-col pt-[88px] pb-16 px-6">
         {/* CTAs — ganz oben */}
         <div
           className="raj-rise-sm flex flex-row items-center justify-center gap-3"
