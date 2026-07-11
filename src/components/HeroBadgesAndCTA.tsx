@@ -253,7 +253,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                   alt="RAJ NEXUS auf dem Nachttisch – lädt iPhone, Apple Watch und AirPods über Nacht"
                   width={480}
                   height={480}
-                  fetchPriority="high"
+                  fetchpriority="high"
                   decoding="async"
                   className="w-full max-w-[260px] sm:max-w-none sm:w-auto max-h-[180px] sm:max-h-[320px] md:max-h-[400px] object-contain relative z-10"
                 />
