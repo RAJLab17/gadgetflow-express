@@ -1,3 +1,4 @@
+import { useState } from "react";
 import qi2Logo from "@/assets/badges/qi2-mark.webp.asset.json";
 
 interface Qi2CertifiedBadgeProps {
@@ -17,7 +18,28 @@ export default function Qi2CertifiedBadge({
   gold = "#C9A876",
   compact = false,
 }: Qi2CertifiedBadgeProps) {
-  const mark = (
+  const [imageFailed, setImageFailed] = useState(false);
+  const fallbackMark = (
+    <div
+      aria-label="Qi2 25W zertifiziert"
+      style={{
+        width: size,
+        height: size,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "#F5EFE6",
+        fontSize: Math.round(size * 0.44),
+        lineHeight: 1,
+        fontWeight: 700,
+        letterSpacing: "-0.06em",
+      }}
+    >
+      qi2
+    </div>
+  );
+
+  const mark = imageFailed ? fallbackMark : (
     <img
       src={qi2Logo.url}
       alt="Qi2 25W zertifiziert"
@@ -25,6 +47,7 @@ export default function Qi2CertifiedBadge({
       height={size}
       loading="lazy"
       decoding="async"
+      onError={() => setImageFailed(true)}
       style={{
         display: "block",
         width: size,

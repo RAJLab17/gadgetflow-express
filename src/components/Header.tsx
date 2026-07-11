@@ -131,7 +131,6 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
               height={56}
               decoding="async"
               className="h-8 sm:h-12 w-auto select-none"
-              style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
             <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">

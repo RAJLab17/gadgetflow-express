@@ -146,7 +146,6 @@ const HeroCarousel = () => {
             height={600}
             loading="eager"
             decoding="sync"
-            fetchPriority="high"
             className="absolute inset-0 w-full h-full"
             style={{ objectFit: "contain", backgroundColor: "#ffffff" }}
           />
