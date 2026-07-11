@@ -1021,7 +1021,7 @@ const NexusPage = () => {
       </section>
 
       {/* ═══ 5. DETAILS / FAQ ═══ */}
-      <section ref={detailsSectionRef} style={{ background: L.bg, color: L.text }}>
+      <section style={{ background: L.bg, color: L.text }}>
         <Suspense fallback={<div style={{ minHeight: 400 }} />}>
           <ProductDetailsAccordion
             value={detailsAccordionValue}
