@@ -43,7 +43,7 @@ interface ChipProps {
   active: boolean;
 }
 
-function MiniChip({ label, icon, startVal, phase, floatAnim, style, active }: ChipProps) {
+function MiniChip({ label, icon, startVal, phase, style, active }: ChipProps) {
   const [val, setVal] = useState(startVal);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ function MiniChip({ label, icon, startVal, phase, floatAnim, style, active }: Ch
         border: "1px solid rgba(201,168,118,.28)",
         boxShadow: "0 10px 22px rgba(0,0,0,.55)",
         minWidth: 78,
-        animation: active ? `${floatAnim} ease-in-out infinite` : "none",
+        animation: "none",
         zIndex: 5,
         contain: "layout paint",
         ...style,
