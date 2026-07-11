@@ -572,8 +572,6 @@ const NexusPage = () => {
       document.body.style.overflow = prev;
     };
   }, [marcelLightboxOpen]);
-  const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
-  const detailsSectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let cancelled = false;
