@@ -224,7 +224,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
         {isMenuOpen && (
           <div
             className="raj-fade md:hidden overflow-hidden border-t border-[#9b6b3f]/30 -mx-2 sm:-mx-4 px-6"
-            style={{ animationDuration: "300ms", background: "rgba(10,10,10,0.97)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}
+            style={{ animationDuration: "300ms", background: "#0a0a0a" }}
           >
             <div className="py-6 space-y-1">
               {[
