@@ -158,15 +158,40 @@ type HeroReview = {
   verified_purchase: boolean;
 };
 
-const LatestMarcelReview = ({ review, className = "" }: { review: HeroReview; className?: string }) => {
+const LatestMarcelReview = ({
+  review,
+  className = "",
+  onPhotoClick,
+  onExpand,
+}: {
+  review: HeroReview;
+  className?: string;
+  onPhotoClick?: () => void;
+  onExpand?: () => void;
+}) => {
   const excerpt = review.comment.length > 90 ? review.comment.slice(0, 90) + "…" : review.comment;
   return (
-    <Link to="/reviews" className={`group block transition-opacity hover:opacity-90 ${className}`}>
+    <div
+      className={`group block cursor-pointer transition-opacity hover:opacity-90 ${className}`}
+      onClick={onExpand}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onExpand?.(); }}
+      aria-label={`Bewertung von ${review.customer_name} ansehen`}
+    >
       <div className="flex items-center gap-3 rounded-xl border px-3 py-2.5 sm:px-3.5 sm:py-3" style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(255,255,255,.03)" }}>
         {review.photo_url && (
-          <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a]">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onPhotoClick?.();
+            }}
+            className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a] hover:ring-2 hover:ring-[#C9A876]/50 transition"
+            aria-label="Foto vergrössern"
+          >
             <img src={review.photo_url} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-          </div>
+          </button>
         )}
         <div className="min-w-0">
           <div className="flex items-center gap-1.5 mb-0.5">
@@ -187,7 +212,7 @@ const LatestMarcelReview = ({ review, className = "" }: { review: HeroReview; cl
           </p>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
