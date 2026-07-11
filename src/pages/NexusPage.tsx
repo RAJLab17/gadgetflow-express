@@ -722,7 +722,7 @@ const NexusPage = () => {
       
 
       {!heroSubmitted && (
-        <div className="fixed bottom-0 left-0 right-0 z-30 backdrop-blur-md" style={{ background: "rgba(10,10,10,0.95)", borderTop: `1px solid ${D.gold}40`, pointerEvents: "auto", transform: "translateZ(0)" }}>
+        <div className="fixed bottom-0 left-0 right-0 z-30" style={{ background: "#0a0a0a", borderTop: `1px solid ${D.gold}40`, pointerEvents: "auto" }}>
           <div className="px-3 py-2.5 flex items-center gap-2">
             <div className="flex-1 min-w-0">
               <p className="text-[10px] font-semibold uppercase tracking-wider leading-tight" style={{ color: D.gold }}>Edition 01 · Limitiert</p>
