@@ -123,7 +123,7 @@ const BrandHero = () => {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <div ref={parallaxRef} className="absolute inset-0 will-change-transform">
+      <div ref={parallaxRef} className="absolute inset-0 will-change-transform z-0">
         {/* Desktop slides */}
         {SLIDES.map((slide, i) => (
           <div
@@ -167,24 +167,24 @@ const BrandHero = () => {
       </div>
 
       {/* Desktop overlays — lighter so hero imagery breathes; left side keeps enough contrast for headline */}
-      <div className="absolute inset-0 hidden lg:block" style={{ background: "linear-gradient(180deg, rgba(10,9,8,0.45) 0%, rgba(10,9,8,0.20) 25%, rgba(10,9,8,0.15) 50%, rgba(10,9,8,0.55) 80%, rgba(10,9,8,0.92) 100%)" }} />
-      <div className="absolute inset-x-0 top-0 h-[55%] pointer-events-none hidden lg:block" style={{ background: "radial-gradient(ellipse 80% 65% at 25% 40%, rgba(10,9,8,0.38), transparent 70%)" }} />
-      <div className="absolute inset-0 hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.65) 0%, rgba(10,9,8,0.20) 45%, rgba(10,9,8,0) 75%)" }} />
-      <div className="absolute inset-0 mix-blend-overlay opacity-50 hidden lg:block" style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(200,148,107,0.22), transparent 65%)" }} />
+      <div className="absolute inset-0 z-10 hidden lg:block" style={{ background: "linear-gradient(180deg, rgba(10,9,8,0.45) 0%, rgba(10,9,8,0.20) 25%, rgba(10,9,8,0.15) 50%, rgba(10,9,8,0.55) 80%, rgba(10,9,8,0.92) 100%)" }} />
+      <div className="absolute inset-x-0 top-0 h-[55%] pointer-events-none z-10 hidden lg:block" style={{ background: "radial-gradient(ellipse 80% 65% at 25% 40%, rgba(10,9,8,0.38), transparent 70%)" }} />
+      <div className="absolute inset-0 z-10 hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(10,9,8,0.65) 0%, rgba(10,9,8,0.20) 45%, rgba(10,9,8,0) 75%)" }} />
+      <div className="absolute inset-0 z-10 mix-blend-overlay opacity-50 hidden lg:block" style={{ background: "radial-gradient(ellipse at 70% 40%, rgba(200,148,107,0.22), transparent 65%)" }} />
 
       {/* Mobile overlays — premium vignette: dark top for text, BRIGHT product center, soft bottom fade */}
       {/* 1) Top dimmer only for headline area */}
-      <div className="absolute inset-x-0 top-0 h-[42%] lg:hidden pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.65) 50%, rgba(10,9,8,0) 100%)" }} />
+      <div className="absolute inset-x-0 top-0 h-[42%] z-10 lg:hidden pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(10,9,8,0.88) 0%, rgba(10,9,8,0.65) 50%, rgba(10,9,8,0) 100%)" }} />
       {/* 2) Bottom fade for manifest readability */}
-      <div className="absolute inset-x-0 bottom-0 h-[32%] lg:hidden pointer-events-none" style={{ background: "linear-gradient(0deg, rgba(10,9,8,0.96) 0%, rgba(10,9,8,0.70) 45%, rgba(10,9,8,0) 100%)" }} />
+      <div className="absolute inset-x-0 bottom-0 h-[32%] z-10 lg:hidden pointer-events-none" style={{ background: "linear-gradient(0deg, rgba(10,9,8,0.96) 0%, rgba(10,9,8,0.70) 45%, rgba(10,9,8,0) 100%)" }} />
       {/* 3) Edge vignette — darkens corners, lets product center shine */}
-      <div className="absolute inset-0 lg:hidden pointer-events-none" style={{ background: "radial-gradient(ellipse 95% 70% at 50% 55%, transparent 35%, rgba(10,9,8,0.55) 90%)" }} />
+      <div className="absolute inset-0 z-10 lg:hidden pointer-events-none" style={{ background: "radial-gradient(ellipse 95% 70% at 50% 55%, transparent 35%, rgba(10,9,8,0.55) 90%)" }} />
       {/* 4) Subtle gold halo behind product */}
-      <div className="absolute inset-0 lg:hidden pointer-events-none mix-blend-overlay opacity-60" style={{ background: "radial-gradient(ellipse 60% 40% at 50% 55%, rgba(200,148,107,0.28), transparent 70%)" }} />
+      <div className="absolute inset-0 z-10 lg:hidden pointer-events-none mix-blend-overlay opacity-60" style={{ background: "radial-gradient(ellipse 60% 40% at 50% 55%, rgba(200,148,107,0.28), transparent 70%)" }} />
 
 
       {/* ===================== MOBILE LAYOUT (lg:hidden, additive) ===================== */}
-      <div className="lg:hidden absolute inset-0 z-10 flex flex-col pt-[88px] pb-16 px-6">
+      <div className="lg:hidden absolute inset-0 z-30 flex flex-col pt-[88px] pb-16 px-6">
         {/* CTAs — ganz oben */}
         <div
           className="raj-rise-sm flex flex-row items-center justify-center gap-3"
@@ -294,7 +294,7 @@ const BrandHero = () => {
 
       {/* Mobile-only Helligkeit: macht das Produkt-Bild besser sichtbar (überlagert nur die dunklen Overlays auf Mobile) */}
       <div
-        className="lg:hidden absolute inset-x-0 z-[5] pointer-events-none"
+        className="lg:hidden absolute inset-x-0 z-[15] pointer-events-none"
         style={{
           top: "30%",
           bottom: "30%",
@@ -305,7 +305,7 @@ const BrandHero = () => {
 
 
       {/* ===================== DESKTOP LAYOUT (unchanged, hidden on mobile) ===================== */}
-      <div ref={fadeRef} className="relative z-10 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full hidden lg:block">
+      <div ref={fadeRef} className="relative z-20 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full hidden lg:block">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
