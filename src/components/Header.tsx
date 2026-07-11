@@ -197,10 +197,10 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
-            <CartDrawer triggerClassName="!h-10 !w-10 !rounded-full !border-white/10 !bg-[rgba(10,10,10,0.55)] backdrop-blur-[8px] hover:!bg-[rgba(10,10,10,0.7)] [&_svg]:![color:#E8DCC4]" />
+            <CartDrawer triggerClassName="!h-10 !w-10 !rounded-full !border-white/10 !bg-[rgba(30,28,25,0.9)] hover:!bg-[rgba(40,38,35,0.95)] [&_svg]:![color:#E8DCC4]" />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-white/10 bg-[rgba(10,10,10,0.55)] backdrop-blur-[8px] transition-colors"
+              className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-white/10 bg-[rgba(30,28,25,0.9)] transition-colors"
               aria-label={isMenuOpen ? "Menü schliessen" : "Menü öffnen"}
             >
               {isMenuOpen ? (
