@@ -162,56 +162,109 @@ const LatestMarcelReview = ({
   review,
   className = "",
   onPhotoClick,
-  onExpand,
 }: {
   review: HeroReview;
   className?: string;
   onPhotoClick?: () => void;
-  onExpand?: () => void;
 }) => {
+  const [expanded, setExpanded] = useState(false);
   const excerpt = review.comment.length > 90 ? review.comment.slice(0, 90) + "…" : review.comment;
+  const toggle = () => setExpanded((v) => !v);
   return (
-    <div
-      className={`group block cursor-pointer transition-opacity hover:opacity-90 ${className}`}
-      onClick={onExpand}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onExpand?.(); }}
-      aria-label={`Bewertung von ${review.customer_name} ansehen`}
-    >
-      <div className="flex items-center gap-3 rounded-xl border px-3 py-2.5 sm:px-3.5 sm:py-3" style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(255,255,255,.03)" }}>
-        {review.photo_url && (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              onPhotoClick?.();
-            }}
-            className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a] hover:ring-2 hover:ring-[#C9A876]/50 transition"
-            aria-label="Foto vergrössern"
+    <div className={`${className}`}>
+      <div
+        className="group cursor-pointer rounded-t-xl border px-3 py-2.5 sm:px-3.5 sm:py-3 transition-all hover:opacity-95"
+        style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(255,255,255,.03)" }}
+        onClick={toggle}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } }}
+        aria-expanded={expanded}
+        aria-label={`Bewertung von ${review.customer_name} ${expanded ? "einklappen" : "ausklappen"}`}
+      >
+        <div className="flex items-center gap-3">
+          {review.photo_url && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onPhotoClick?.();
+              }}
+              className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a] hover:ring-2 hover:ring-[#C9A876]/50 transition"
+              aria-label="Foto vergrössern"
+            >
+              <img src={review.photo_url} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+            </button>
+          )}
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <span className="text-[11px] sm:text-xs font-medium" style={{ color: D.beige }}>{review.customer_name}</span>
+              {review.verified_purchase && (
+                <span className="inline-flex items-center gap-1 text-[8px] sm:text-[9px] text-emerald-500 uppercase tracking-wider font-semibold">
+                  <ShieldCheck size={10} /> Verifizierter Kauf
+                </span>
+              )}
+            </div>
+            <div className="flex gap-0.5 mb-1">
+              {[1, 2, 3, 4, 5].map((n) => (
+                <span key={n} className="text-[10px] leading-none" style={{ color: D.gold }}>★</span>
+              ))}
+            </div>
+            <p className="text-[10px] sm:text-[11px] leading-snug line-clamp-2" style={{ color: D.muted }}>
+              «{excerpt}»
+            </p>
+          </div>
+          <motion.div
+            className="shrink-0 pl-1"
+            animate={{ rotate: expanded ? 180 : 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            style={{ color: D.gold, opacity: 0.7 }}
           >
-            <img src={review.photo_url} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-          </button>
-        )}
-        <div className="min-w-0">
-          <div className="flex items-center gap-1.5 mb-0.5">
-            <span className="text-[11px] sm:text-xs font-medium" style={{ color: D.beige }}>{review.customer_name}</span>
-            {review.verified_purchase && (
-              <span className="inline-flex items-center gap-1 text-[8px] sm:text-[9px] text-emerald-500 uppercase tracking-wider font-semibold">
-                <ShieldCheck size={10} /> Verifizierter Kauf
-              </span>
-            )}
-          </div>
-          <div className="flex gap-0.5 mb-1">
-            {[1, 2, 3, 4, 5].map((n) => (
-              <span key={n} className="text-[10px] leading-none" style={{ color: D.gold }}>★</span>
-            ))}
-          </div>
-          <p className="text-[10px] sm:text-[11px] leading-snug line-clamp-2" style={{ color: D.muted }}>
-            «{excerpt}»
-          </p>
+            <ChevronDown size={16} />
+          </motion.div>
         </div>
       </div>
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden rounded-b-xl border border-t-0"
+            style={{ borderColor: "rgba(201,168,118,.2)", background: "rgba(20,19,18,.55)" }}
+          >
+            <div className="px-3 py-3 sm:px-3.5 sm:py-4">
+              <p className="text-sm leading-relaxed italic" style={{ color: D.beige }}>
+                «{review.comment}»
+              </p>
+              {review.photo_url && (
+                <button
+                  type="button"
+                  onClick={() => onPhotoClick?.()}
+                  className="mt-3 w-full rounded-lg overflow-hidden border transition-opacity hover:opacity-90"
+                  style={{ borderColor: "rgba(201,168,118,.2)" }}
+                  aria-label="Foto vergrössern"
+                >
+                  <img src={review.photo_url} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+                </button>
+              )}
+              <div className="mt-3 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold" style={{ color: D.gold }}>
+                  <ShieldCheck size={11} /> Verifizierter Kauf
+                </span>
+                <Link
+                  to="/reviews"
+                  className="text-[9px] sm:text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
+                  style={{ color: D.muted }}
+                >
+                  Alle Bewertungen →
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
