@@ -66,8 +66,9 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
   return (
     <div className="fixed bottom-20 sm:bottom-5 left-3 sm:left-5 z-40 max-w-[280px] sm:max-w-[300px] animate-fade-in">
       <div
-        className="flex items-center gap-3 px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-white/95 backdrop-blur-md border shadow-lg"
+        className="flex items-center gap-3 px-3 py-2.5 sm:px-4 sm:py-3 rounded-xl bg-white border shadow-lg"
         style={{ borderColor: "rgba(155,107,63,0.18)" }}
+
       >
         <span className="relative flex h-2 w-2 shrink-0">
           <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: GOLD }} />
@@ -184,8 +185,9 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
 
       {/* ===== STICKY MOBILE BOTTOM BAR — nur sichtbar wenn nicht submitted ===== */}
       {!submitted && (
-        <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden border-t border-[#9b6b3f]/25 backdrop-blur-md"
-             style={{ background: "rgba(255,255,255,0.96)" }}>
+        <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden border-t border-[#9b6b3f]/25"
+             style={{ background: "#ffffff" }}>
+
           <div className="px-3 py-2.5 flex items-center gap-2">
             <div className="flex-1 min-w-0">
               <p className="text-[10px] font-semibold uppercase tracking-wider text-[#9b6b3f] leading-tight">
