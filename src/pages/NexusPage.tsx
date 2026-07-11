@@ -132,7 +132,7 @@ const ChargeChip = ({ label, icon, startVal, phase, floatAnim, style }: ChargeCh
     return () => clearTimeout(t);
   }, [phase]);
   return (
-    <div style={{ position: "absolute", padding: "12px 15px", borderRadius: 15, background: "rgba(18,17,16,.82)", backdropFilter: "blur(14px)", border: "1px solid rgba(201,168,118,.26)", boxShadow: "0 18px 44px rgba(0,0,0,.55)", minWidth: 148, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
+    <div style={{ position: "absolute", padding: "12px 15px", borderRadius: 15, background: "#121110", border: "1px solid rgba(201,168,118,.26)", boxShadow: "0 18px 44px rgba(0,0,0,.55)", minWidth: 148, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
         <div style={{ width: 24, height: 24, borderRadius: 7, background: "rgba(201,168,118,.14)", display: "flex", alignItems: "center", justifyContent: "center" }}>{icon}</div>
         <span style={{ fontSize: 11.5, color: D.beige, fontWeight: 500 }}>{label}</span>
@@ -294,7 +294,7 @@ function NexusCarousel() {
                 <div className="relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden" style={{ background: bg }}>
                   {isComponent ? <BeforeNowSlide /> : (
                     <>
-                      <img src={(img as { src: string }).src} alt={img.alt} width={1200} height={900} loading={i === 0 ? "eager" : "lazy"} fetchpriority={i === 0 ? "high" : "auto"} decoding={i === 0 ? "sync" : "async"} className={`absolute inset-0 w-full h-full object-contain ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""} ${i === 4 ? "object-cover" : ""}`} />
+                      <img src={(img as { src: string }).src} alt={img.alt} width={1200} height={900} loading={i === 0 ? "eager" : "lazy"} decoding={i === 0 ? "sync" : "async"} className={`absolute inset-0 w-full h-full object-contain ${i === 0 ? "scale-[2.05]" : i === 2 ? "scale-[1.42]" : ""} ${i === 4 ? "object-cover" : ""}`} />
                       <div className="absolute inset-x-0 top-0 h-[4%] pointer-events-none" style={{ background: "linear-gradient(to bottom, #ffffff, transparent)" }} aria-hidden />
                       <div className="absolute inset-x-0 bottom-0 h-[5%] pointer-events-none" style={{ background: "linear-gradient(to top, #ffffff, transparent)" }} aria-hidden />
                       <div className="absolute inset-y-0 left-0 w-[3%] pointer-events-none" style={{ background: "linear-gradient(to right, #ffffff, transparent)" }} aria-hidden />
@@ -734,7 +734,7 @@ const NexusPage = () => {
         className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
         style={{ background: D.bg, color: D.beige, paddingTop: "clamp(92px, 10vw, 132px)" }}
       >
-        <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(201,168,118,.12), transparent 70%)", filter: "blur(32px)", pointerEvents: "none", zIndex: 0 }} />
+        <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(201,168,118,.12), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${D.bg})`, pointerEvents: "none", zIndex: 3 }} />
 
         {/* DESKTOP */}
@@ -811,14 +811,14 @@ const NexusPage = () => {
 
           {/* RIGHT */}
           <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 48px" }}>
-            <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(201,168,118,.22), transparent 70%)", filter: "blur(30px)", transform: "translate(-50%,-50%)", animation: "raj-breathe 6s ease-in-out infinite", pointerEvents: "none" }} />
-            <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,118,.18)", animation: "raj-float 9s ease-in-out infinite" }}>
+            <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(201,168,118,.16), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
+            <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,118,.18)" }}>
               <picture>
                 <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
                 <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
-                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" fetchpriority="high" decoding="async" />
+                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
               </picture>
-              <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, filter: "drop-shadow(0 4px 10px rgba(0,0,0,.55))" }}>
+              <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
                 <Qi2CertifiedBadge size={44} gold={D.gold} compact />
                 <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6" }}>Zertifiziert</span>
               </div>
@@ -850,9 +850,9 @@ const NexusPage = () => {
             <picture>
               <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
-              <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" fetchpriority="high" decoding="async" />
+              <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
             </picture>
-            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, filter: "drop-shadow(0 4px 10px rgba(0,0,0,.55))" }}>
+            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
               <Qi2CertifiedBadge size={36} gold={D.gold} compact />
               <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6" }}>Zertifiziert</span>
             </div>
@@ -1069,7 +1069,7 @@ const NexusPage = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
-            style={{ background: "rgba(0,0,0,.92)", backdropFilter: "blur(8px)" }}
+            style={{ background: "rgba(0,0,0,.92)" }}
             onClick={() => setMarcelLightboxOpen(false)}
             role="dialog"
             aria-modal="true"

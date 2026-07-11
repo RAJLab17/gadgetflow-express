@@ -108,7 +108,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
   return (
     <header
-      className={`raj-slide-down fixed top-0 left-0 right-0 z-50 ${
+      className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled
           ? isDarkPage
             ? "bg-[#0a0908] shadow-elegant border-b border-white/10"
@@ -131,7 +131,6 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
               height={56}
               decoding="async"
               className="h-8 sm:h-12 w-auto select-none"
-              style={{ filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.42))" }}
               draggable={false}
             />
             <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">

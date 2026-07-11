@@ -1,3 +1,4 @@
+import { useState } from "react";
 import qi2Logo from "@/assets/badges/qi2-mark.webp.asset.json";
 
 interface Qi2CertifiedBadgeProps {
@@ -17,7 +18,28 @@ export default function Qi2CertifiedBadge({
   gold = "#C9A876",
   compact = false,
 }: Qi2CertifiedBadgeProps) {
-  const mark = (
+  const [imageFailed, setImageFailed] = useState(false);
+  const fallbackMark = (
+    <div
+      aria-label="Qi2 25W zertifiziert"
+      style={{
+        width: size,
+        height: size,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "#F5EFE6",
+        fontSize: Math.round(size * 0.44),
+        lineHeight: 1,
+        fontWeight: 700,
+        letterSpacing: "-0.06em",
+      }}
+    >
+      qi2
+    </div>
+  );
+
+  const mark = imageFailed ? fallbackMark : (
     <img
       src={qi2Logo.url}
       alt="Qi2 25W zertifiziert"
@@ -25,6 +47,7 @@ export default function Qi2CertifiedBadge({
       height={size}
       loading="lazy"
       decoding="async"
+      onError={() => setImageFailed(true)}
       style={{
         display: "block",
         width: size,
@@ -48,8 +71,6 @@ export default function Qi2CertifiedBadge({
         background: "linear-gradient(135deg, rgba(18,17,16,.92), rgba(28,25,22,.88))",
         border: `1px solid ${gold}55`,
         boxShadow: `0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 12px ${gold}22`,
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
       }}
     >
       {mark}
