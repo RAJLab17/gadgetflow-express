@@ -826,6 +826,7 @@ const NexusPage = () => {
               </span>
             ))}
           </div>
+          {latestMarcelReview && <LatestMarcelReview review={latestMarcelReview} className="mt-3" />}
 
           <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
 
