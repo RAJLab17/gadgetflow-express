@@ -524,6 +524,7 @@ const NexusPage = () => {
   // Dynamic AggregateRating + Review for Product JSON-LD (from approved Supabase reviews)
   const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>(null);
   const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
+  const [latestMarcelReview, setLatestMarcelReview] = useState<HeroReview | null>(null);
 
   useEffect(() => {
     let cancelled = false;
