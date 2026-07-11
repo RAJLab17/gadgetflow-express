@@ -530,7 +530,7 @@ const NexusPage = () => {
     let cancelled = false;
     (async () => {
       const sb = await getSupabase();
-      const [{ data: s }, { data: r }] = await Promise.all([
+      const [{ data: s }, { data: r }, { data: marcel }] = await Promise.all([
         sb.rpc("get_review_stats", { _product_id: "nexus" }),
         sb
           .from("reviews_public")
@@ -538,6 +538,13 @@ const NexusPage = () => {
           .eq("product_id", "nexus")
           .order("created_at", { ascending: false })
           .limit(10),
+        sb
+          .from("reviews_public")
+          .select("customer_name,rating,title,comment,photo_url,verified_purchase,created_at")
+          .eq("product_id", "nexus")
+          .ilike("customer_name", "%Marcel%")
+          .order("created_at", { ascending: false })
+          .limit(1),
       ]);
       if (cancelled) return;
       if (s && Array.isArray(s) && s.length > 0) {
@@ -545,6 +552,9 @@ const NexusPage = () => {
         setReviewStats({ total: Number(row.total) || 0, average: Number(row.average) || 0 });
       }
       setTopReviews((r ?? []) as typeof topReviews);
+      if (marcel && marcel.length > 0) {
+        setLatestMarcelReview(marcel[0] as HeroReview);
+      }
     })();
     return () => { cancelled = true; };
   }, []);
