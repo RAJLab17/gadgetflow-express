@@ -936,7 +936,6 @@ const NexusPage = () => {
             <LatestMarcelReview
               review={latestMarcelReview}
               className="mt-3"
-              onExpand={expandReviewsSection}
               onPhotoClick={() => setMarcelLightboxOpen(true)}
             />
           )}
