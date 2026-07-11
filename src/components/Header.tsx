@@ -110,9 +110,11 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
     <header
       className={`raj-slide-down fixed top-0 left-0 right-0 z-50 ${
         isScrolled
-          ? "bg-background shadow-elegant border-b border-border/50"
+          ? isDarkPage
+            ? "bg-[#0a0908]/85 backdrop-blur-xl shadow-elegant border-b border-white/10"
+            : "bg-background shadow-elegant border-b border-border/50"
           : "bg-transparent"
-      } ${isDarkPage && !isScrolled ? "[&_*]:!text-white" : ""}`}
+      } ${isDarkPage ? "[&_*]:!text-white" : ""}`}
     >
       {/* Optional top strip (e.g. trust ticker) — sits above the logo/nav row */}
       {topSlot && <div className="w-full">{topSlot}</div>}
