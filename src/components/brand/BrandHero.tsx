@@ -294,7 +294,7 @@ const BrandHero = () => {
 
       {/* Mobile-only Helligkeit: macht das Produkt-Bild besser sichtbar (überlagert nur die dunklen Overlays auf Mobile) */}
       <div
-        className="lg:hidden absolute inset-x-0 z-[5] pointer-events-none"
+        className="lg:hidden absolute inset-x-0 z-[15] pointer-events-none"
         style={{
           top: "30%",
           bottom: "30%",
