@@ -710,7 +710,7 @@ const NexusPage = () => {
       <section
         id="mockup-signup"
         className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
-        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(92px, 10vw, 132px)" }}
+        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(201,168,118,.12), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${D.bg})`, pointerEvents: "none", zIndex: 3 }} />
