@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, FormEvent, lazy, Suspense, useRef } from "react";
+import { useEffect, useState, useCallback, FormEvent, lazy, Suspense } from "react";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, AnimatePresence } from "framer-motion";
