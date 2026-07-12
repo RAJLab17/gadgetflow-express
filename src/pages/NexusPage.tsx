@@ -808,8 +808,8 @@ const NexusPage = () => {
         </div>
 
         {/* MOBILE */}
-        <div className="md:hidden relative px-5 pt-3 pb-10" style={{ zIndex: 2 }}>
-          <div className="text-center mb-1.5" style={{ fontSize: "clamp(40px,10vw,60px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
+        <div className="md:hidden relative px-5 pt-1 pb-10" style={{ zIndex: 2 }}>
+          <div className="text-center mb-1" style={{ fontSize: "clamp(34px,9vw,48px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
             <span style={{ color: D.beige }}>RAJ</span>{" "}
             <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
