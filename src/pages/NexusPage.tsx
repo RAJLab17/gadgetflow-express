@@ -562,16 +562,8 @@ const NexusPage = () => {
     quickBuyRaw();
   }, [trackAddToCart, quickBuyRaw]);
 
-  const handlePinnedBuy = useCallback((event?: { preventDefault?: () => void; stopPropagation?: () => void }) => {
-    event?.preventDefault?.();
-    event?.stopPropagation?.();
-    if (buyProcessing || pinnedBuyLock.current) return;
-    pinnedBuyLock.current = true;
-    trackAddToCart();
-    quickBuyRaw();
-  }, [buyProcessing, quickBuyRaw, trackAddToCart]);
-
   useViewContent({ content_name: "RAJ NEXUS", content_ids: ["RAJ-NEXUS-001"], content_type: "product", content_category: "Wireless Charger", value: 99, currency: "CHF" });
+
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -712,21 +704,8 @@ const NexusPage = () => {
 
       
 
-      {!heroSubmitted && (
-        <div className="fixed bottom-0 left-0 right-0 z-30" style={{ background: "#0a0a0a", borderTop: `1px solid ${D.gold}40`, pointerEvents: "auto" }}>
-          <div className="px-3 py-2.5 flex items-center gap-2">
-            <div className="flex-1 min-w-0">
-              <p className="text-[10px] font-semibold uppercase tracking-wider leading-tight" style={{ color: D.gold }}>Edition 01 · Limitiert</p>
-              <p className="text-[11px] leading-tight" style={{ color: D.beige }}>CHF 99.-</p>
-            </div>
-            <button type="button" onClick={handlePinnedBuy} onTouchEnd={handlePinnedBuy} disabled={buyProcessing} className="shrink-0 px-4 py-2.5 rounded-full font-bold text-[12px] uppercase tracking-wider active:scale-[0.98] transition-all inline-flex items-center gap-1.5" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 8px 24px -8px ${D.gold}`, touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}>
-              Kaufen <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Trust ticker integrated INSIDE the fixed Header chrome (bottom slot). */}
+
       <Header topSlot={<NexusTrustBar />} />
       <section
         id="mockup-signup"
