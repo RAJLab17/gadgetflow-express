@@ -535,11 +535,10 @@ const NexusPage = () => {
   const { t, lang, setLang } = useLanguage();
   const [popupTrigger, setPopupTrigger] = useState(0);
   const [popupMessage, setPopupMessage] = useState("");
-  const [heroSubmitted, setHeroSubmitted] = useState(false);
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const openBuyModal = useCallback(() => setBuyModalOpen(true), []);
   const { quickBuy: quickBuyRaw, isProcessing: buyProcessing } = useQuickBuy();
-  const pinnedBuyLock = useRef(false);
+
 
   const trackAddToCart = useCallback(() => {
     if (typeof window === "undefined") return;
