@@ -733,7 +733,7 @@ const NexusPage = () => {
               </div>
             </div>
 
-            <div style={{ fontSize: "clamp(44px,7vw,104px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
+            <div style={{ fontSize: "clamp(40px,6vw,84px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
               <span style={{ color: D.beige }}>RAJ</span>{" "}
               <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
             </div>
