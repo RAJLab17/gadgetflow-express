@@ -710,7 +710,7 @@ const NexusPage = () => {
       <section
         id="mockup-signup"
         className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
-        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(92px, 10vw, 132px)" }}
+        style={{ background: D.bg, color: D.beige, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(201,168,118,.12), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${D.bg})`, pointerEvents: "none", zIndex: 3 }} />
@@ -733,7 +733,7 @@ const NexusPage = () => {
               </div>
             </div>
 
-            <div style={{ fontSize: "clamp(44px,7vw,104px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
+            <div style={{ fontSize: "clamp(40px,6vw,84px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
               <span style={{ color: D.beige }}>RAJ</span>{" "}
               <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
             </div>
@@ -808,8 +808,8 @@ const NexusPage = () => {
         </div>
 
         {/* MOBILE */}
-        <div className="md:hidden relative px-5 pt-3 pb-10" style={{ zIndex: 2 }}>
-          <div className="text-center mb-1.5" style={{ fontSize: "clamp(40px,10vw,60px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
+        <div className="md:hidden relative px-5 pt-1 pb-10" style={{ zIndex: 2 }}>
+          <div className="text-center mb-1" style={{ fontSize: "clamp(34px,9vw,48px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
             <span style={{ color: D.beige }}>RAJ</span>{" "}
             <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
