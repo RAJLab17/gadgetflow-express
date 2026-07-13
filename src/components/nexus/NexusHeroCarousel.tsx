@@ -63,7 +63,7 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     srcSet: `${s4_480.url} 480w, ${s4_900.url} 900w, ${s4_1400.url} 1400w`,
     thumb: t4.url,
     alt: "RAJ NEXUS 3-in-1 und Solo-Pad nebeneinander auf Schreibtisch",
-    fit: "contain",
+    fit: "cover",
     bg: "#f7f4ef",
   },
 ];
