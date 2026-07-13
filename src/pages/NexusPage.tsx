@@ -208,10 +208,10 @@ const LatestMarcelReview = ({
     ? { border: H.border, surface: H.surface, text: H.text, muted: H.textMuted, gold: H.gold, bg: "#FFFFFF" }
     : { border: "rgba(201,168,118,.2)", surface: "rgba(255,255,255,.03)", text: D.beige, muted: D.muted, gold: D.gold, bg: "rgba(20,19,18,.55)" };
   return (
-    <div className={`${className}`}>
+    <div className={`${className}`} style={{ position: "relative" }}>
       <div
         className="group cursor-pointer rounded-t-xl border px-3 py-2.5 sm:px-3.5 sm:py-3 transition-all hover:opacity-95"
-        style={{ borderColor: c.border, background: c.surface, boxShadow: isLight ? "0 2px 16px rgba(26,26,26,.04)" : undefined }}
+        style={{ borderColor: c.border, background: c.surface, boxShadow: isLight ? "0 2px 16px rgba(26,26,26,.04)" : undefined, borderBottomLeftRadius: expanded ? 0 : undefined, borderBottomRightRadius: expanded ? 0 : undefined }}
         onClick={toggle}
         role="button"
         tabIndex={0}
@@ -260,39 +260,65 @@ const LatestMarcelReview = ({
         </div>
       </div>
       {expanded && (
-        <div
-          className="rounded-b-xl border border-t-0"
-          style={{ borderColor: c.border, background: c.bg }}
-        >
-          <div className="px-3 py-3 sm:px-3.5 sm:py-4">
-            <p className="text-sm leading-relaxed italic" style={{ color: c.text }}>
-              «{review.comment}»
-            </p>
-            {review.photo_url && (
+        <>
+          {/* Backdrop for outside-click dismiss — doesn't shift layout */}
+          <div
+            aria-hidden
+            onClick={() => setExpanded(false)}
+            style={{ position: "fixed", inset: 0, zIndex: 40, background: "transparent" }}
+          />
+          <div
+            className="rounded-b-xl border border-t-0"
+            style={{
+              borderColor: c.border,
+              background: c.bg,
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              zIndex: 41,
+              boxShadow: isLight ? "0 24px 60px -20px rgba(26,26,26,.28)" : "0 24px 60px -20px rgba(0,0,0,.6)",
+            }}
+          >
+            <div className="px-3 py-3 sm:px-3.5 sm:py-4 relative">
               <button
                 type="button"
-                onClick={() => onPhotoClick?.()}
-                className="mt-3 w-full rounded-lg overflow-hidden border transition-opacity hover:opacity-90"
-                style={{ borderColor: c.border }}
-                aria-label="Foto vergrössern"
+                onClick={() => setExpanded(false)}
+                aria-label="Bewertung schliessen"
+                className="absolute top-2 right-2 rounded-full p-1 transition-opacity hover:opacity-70"
+                style={{ color: c.muted, background: "transparent", border: "none" }}
               >
-                <img src={supaThumb(review.photo_url, 720)} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+                <X size={14} />
               </button>
-            )}
-            <div className="mt-3 flex items-center justify-between">
-              <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold" style={{ color: c.gold }}>
-                <ShieldCheck size={11} /> Verifizierter Kauf
-              </span>
-              <Link
-                to="/reviews"
-                className="text-[9px] sm:text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-                style={{ color: c.muted }}
-              >
-                Alle Bewertungen →
-              </Link>
+              <p className="text-sm leading-relaxed italic pr-6" style={{ color: c.text }}>
+                «{review.comment}»
+              </p>
+              {review.photo_url && (
+                <button
+                  type="button"
+                  onClick={() => onPhotoClick?.()}
+                  className="mt-3 w-full rounded-lg overflow-hidden border transition-opacity hover:opacity-90"
+                  style={{ borderColor: c.border }}
+                  aria-label="Foto vergrössern"
+                >
+                  <img src={supaThumb(review.photo_url, 720)} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+                </button>
+              )}
+              <div className="mt-3 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold" style={{ color: c.gold }}>
+                  <ShieldCheck size={11} /> Verifizierter Kauf
+                </span>
+                <Link
+                  to="/reviews"
+                  className="text-[9px] sm:text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
+                  style={{ color: c.muted }}
+                >
+                  Alle Bewertungen →
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
@@ -843,6 +869,28 @@ const NexusPage = () => {
                 <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "46%", right: "4%" }} />
                 <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "5%", left: "4%" }} />
 
+                {/* Prev/next arrows — desktop hero */}
+                <button
+                  type="button"
+                  aria-label="Vorheriges Bild"
+                  onClick={() => setHeroSlideIdx((heroSlideIdx - 1 + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length)}
+                  style={{ position: "absolute", top: "50%", left: 14, transform: "translateY(-50%)", zIndex: 5, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,.92)", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 6px 20px rgba(0,0,0,.15)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#111", transition: "transform .18s ease, background .18s ease" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#fff"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.06)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,.92)"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)"; }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+                </button>
+                <button
+                  type="button"
+                  aria-label="Nächstes Bild"
+                  onClick={() => setHeroSlideIdx((heroSlideIdx + 1) % HERO_CAROUSEL_SLIDES.length)}
+                  style={{ position: "absolute", top: "50%", right: 14, transform: "translateY(-50%)", zIndex: 5, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,.92)", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 6px 20px rgba(0,0,0,.15)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#111", transition: "transform .18s ease, background .18s ease" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#fff"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.06)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,.92)"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)"; }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+
                 <div style={{ position: "absolute", bottom: 20, right: 22, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                   <Qi2CertifiedBadge size={50} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
@@ -856,7 +904,7 @@ const NexusPage = () => {
             className="hidden md:flex"
             style={{
               gridColumn: "1 / -1",
-              marginTop: "clamp(28px,3.2vw,48px)",
+              marginTop: "clamp(-460px, -26vw, -220px)",
               borderRadius: 20,
               background: "#0a0908",
               border: "1px solid rgba(155,107,63,.20)",
@@ -866,6 +914,8 @@ const NexusPage = () => {
               gap: 24,
               flexWrap: "wrap",
               boxShadow: "0 30px 80px -30px rgba(0,0,0,.35)",
+              position: "relative",
+              zIndex: 4,
             }}
           >
             <div>
