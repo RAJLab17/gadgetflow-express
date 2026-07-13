@@ -27,6 +27,8 @@ export type HeroSlide = {
   srcSet: string;
   thumb: string;
   alt: string;
+  fit?: "cover" | "contain";
+  bg?: string;
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
@@ -47,6 +49,8 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     srcSet: `${s2_480.url} 480w, ${s2_900.url} 900w, ${s2_1400.url} 1400w`,
     thumb: t2.url,
     alt: "Explosionsdarstellung – Qi2 25W, magnetische Ausrichtung, Coil-System",
+    fit: "contain",
+    bg: "#ffffff",
   },
   {
     src: s3_1400.url,
@@ -59,6 +63,8 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     srcSet: `${s4_480.url} 480w, ${s4_900.url} 900w, ${s4_1400.url} 1400w`,
     thumb: t4.url,
     alt: "RAJ NEXUS 3-in-1 und Solo-Pad nebeneinander auf Schreibtisch",
+    fit: "contain",
+    bg: "#f7f4ef",
   },
 ];
 
