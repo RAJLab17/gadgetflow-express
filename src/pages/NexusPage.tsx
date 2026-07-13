@@ -611,6 +611,7 @@ const NexusPage = () => {
   const [latestMarcelReview, setLatestMarcelReview] = useState<HeroReview | null>(null);
   const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
+  const [heroSlideIdx, setHeroSlideIdx] = useState(0);
 
   useEffect(() => {
     if (!marcelLightboxOpen) return;
