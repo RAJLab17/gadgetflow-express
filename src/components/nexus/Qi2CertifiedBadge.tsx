@@ -2,14 +2,17 @@ interface Qi2CertifiedBadgeProps {
   size?: number;
   /** Compact = mark only (no wordmark/pill). */
   compact?: boolean;
+  /** "dark" = black mark (default), "light" = white mark for dark backgrounds. */
+  variant?: "dark" | "light";
 }
 
 /**
- * Original Qi2 certification mark, forced to pure black.
+ * Original Qi2 certification mark. Dark (black) by default; light (white) inverts it.
  */
 export default function Qi2CertifiedBadge({
   size = 44,
   compact = false,
+  variant = "dark",
 }: Qi2CertifiedBadgeProps) {
   const mark = (
     <img
@@ -23,7 +26,7 @@ export default function Qi2CertifiedBadge({
         width: size,
         height: "auto",
         objectFit: "contain",
-        filter: "none",
+        filter: variant === "light" ? "invert(1) brightness(2)" : "none",
       }}
     />
   );
