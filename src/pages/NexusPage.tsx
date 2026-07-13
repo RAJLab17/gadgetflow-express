@@ -272,14 +272,15 @@ const LatestMarcelReview = ({
             style={{
               borderColor: c.border,
               background: c.bg,
-              position: "absolute",
-              top: "100%",
-              left: 0,
-              right: 0,
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              width: "min(520px, calc(100vw - 32px))",
               zIndex: 60,
-              maxHeight: "min(64vh, 620px)",
+              maxHeight: "min(78vh, 680px)",
               overflowY: "auto",
               WebkitOverflowScrolling: "touch",
+              transform: "translate(-50%, -50%)",
               boxShadow: isLight ? "0 24px 60px -20px rgba(26,26,26,.28)" : "0 24px 60px -20px rgba(0,0,0,.6)",
             }}
           >
