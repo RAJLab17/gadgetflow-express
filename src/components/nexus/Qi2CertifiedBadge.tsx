@@ -1,3 +1,5 @@
+import qi2Mark from "@/assets/badges/qi2-mark.webp.asset.json";
+
 interface Qi2CertifiedBadgeProps {
   size?: number;
   /** Compact = mark only (no wordmark/pill). */
@@ -5,51 +7,27 @@ interface Qi2CertifiedBadgeProps {
 }
 
 /**
- * Qi2 certification mark.
- * Rendered directly in pure black so it never falls back to a white CDN image.
+ * Original Qi2 certification mark, forced to pure black.
  */
 export default function Qi2CertifiedBadge({
   size = 44,
   compact = false,
 }: Qi2CertifiedBadgeProps) {
   const mark = (
-    <svg
+    <img
+      src={qi2Mark.url}
+      aria-label="Qi2 zertifiziert"
+      alt="Qi2 zertifiziert"
       width={size}
       height={Math.round(size * 0.62)}
-      viewBox="0 0 120 74"
-      role="img"
-      aria-label="Qi2 zertifiziert"
-      xmlns="http://www.w3.org/2000/svg"
       style={{
         display: "block",
         width: size,
-        height: Math.round(size * 0.62),
-        color: "#000000",
+        height: "auto",
+        objectFit: "contain",
+        filter: "brightness(0) saturate(100%)",
       }}
-    >
-      <text
-        x="2"
-        y="50"
-        fill="currentColor"
-        fontFamily="Arial, Helvetica, sans-serif"
-        fontSize="54"
-        fontWeight="800"
-        letterSpacing="-7"
-      >
-        Qi
-      </text>
-      <text
-        x="64"
-        y="50"
-        fill="currentColor"
-        fontFamily="Arial, Helvetica, sans-serif"
-        fontSize="44"
-        fontWeight="800"
-        letterSpacing="-4"
-      >
-        2
-      </text>
-    </svg>
+    />
   );
 
   if (compact) return mark;
