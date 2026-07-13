@@ -843,7 +843,7 @@ const NexusPage = () => {
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
               <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
             </picture>
-            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, padding: "6px 10px", borderRadius: 100, background: "#FFFFFF", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 4px 14px rgba(26,26,26,.08)" }}>
               <Qi2CertifiedBadge size={36} gold="#000000" compact />
               <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
             </div>
