@@ -51,6 +51,8 @@ export default function Qi2CertifiedBadge({
         width: size,
         height: size,
         objectFit: "contain",
+        filter: "brightness(0) saturate(100%)",
+        opacity: 1,
       }}
     />
   );
