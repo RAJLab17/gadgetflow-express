@@ -832,7 +832,7 @@ const NexusPage = () => {
         </div>
 
         {/* MOBILE */}
-        <div className="md:hidden relative px-5 pt-1 pb-10" style={{ zIndex: 2 }}>
+        <div className="md:hidden relative px-5 pt-1 pb-0" style={{ zIndex: 2 }}>
           <div className="text-center mb-1" style={{ fontSize: "clamp(30px,8vw,42px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
             <span style={{ color: H.text }}>RAJ</span>{" "}
             <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
