@@ -86,6 +86,18 @@ const L = {
   bg: "#FAF8F5", surface: "#FFFFFF", text: "#1A1A1A",
   textMuted: "#6B6358", textDim: "#9A9285", gold: "#9b6b3f", border: "#E8E2D6",
 };
+// Light hero theme — white background, premium dark-gold accents
+const H = {
+  bg: "#FFFFFF",
+  surface: "#FAF9F7",
+  text: "#1A1A1A",
+  textMuted: "#6B6358",
+  textDim: "#9A9285",
+  gold: "#9b6b3f",
+  goldLight: "#C9A876",
+  border: "#E8E2D6",
+  chipBg: "#121110",
+};
 
 // ─── Hero Icons ───────────────────────────────────────────────────
 const IconPhone = () => (
