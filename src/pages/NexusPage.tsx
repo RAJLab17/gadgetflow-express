@@ -747,54 +747,56 @@ const NexusPage = () => {
       <Header topSlot={<NexusTrustBar />} />
       <section
         id="mockup-signup"
-        className="relative overflow-hidden md:min-h-screen md:flex md:flex-col md:justify-center"
+        className="relative overflow-hidden"
         style={{ background: H.bg, color: H.text, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
         <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
 
         {/* DESKTOP */}
-        <div className="hidden md:grid relative px-12 lg:px-16 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "1fr 1.18fr", gap: "clamp(32px,4.5vw,72px)", alignItems: "center" }}>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className="hidden md:grid relative px-10 lg:px-14 xl:px-20 pb-16 max-w-[1360px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.05fr)", gap: "clamp(40px,5vw,88px)", alignItems: "start" }}>
+          {/* LEFT — product info */}
+          <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(8px,1.5vw,24px)" }}>
 
-            {/* Founder Badge + Ladebalken */}
-            <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "10px 20px 10px 15px", borderRadius: 100, border: `1px solid ${H.gold}55`, background: H.surface, marginBottom: 8, boxShadow: "0 4px 24px rgba(26,26,26,.06)" }}>
-                <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
-                  <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: H.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
-                  <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: H.gold }} />
-                </span>
-                <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert auf 100 Stück</span>
-              </div>
-              <div style={{ width: "100%", maxWidth: 260, height: 2, borderRadius: 2, background: "rgba(26,26,26,.08)", marginBottom: 22 }}>
-                <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${H.gold})` }} />
-              </div>
+            {/* Founder eyebrow */}
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "9px 18px 9px 14px", borderRadius: 100, border: `1px solid ${H.gold}44`, background: H.surface, marginBottom: 26, boxShadow: "0 4px 24px rgba(26,26,26,.05)" }}>
+              <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
+                <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: H.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
+                <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: H.gold }} />
+              </span>
+              <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert</span>
             </div>
 
-            <div style={{ fontSize: "clamp(30px,4.5vw,58px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
+            <h1 style={{ fontSize: "clamp(38px,5vw,68px)", lineHeight: .95, letterSpacing: "-.025em", fontWeight: 100, margin: 0 }}>
               <span style={{ color: H.text }}>RAJ</span>{" "}
               <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
-            </div>
-            <p style={{ marginTop: 22, fontSize: "clamp(17px,1.8vw,24px)", lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginTop: 24 }}>
+            </h1>
+            <p style={{ marginTop: 20, fontSize: "clamp(17px,1.55vw,22px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 460 }}>
+              iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.
+            </p>
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 22 }}>
               {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
-                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 100, border: "1px solid rgba(26,26,26,.12)", background: "#FFFFFF", fontSize: 12, color: H.text, boxShadow: "0 1px 8px rgba(26,26,26,.04)" }}>
+                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 11.5, color: H.text, boxShadow: "0 1px 6px rgba(26,26,26,.03)" }}>
                   <span style={{ color: H.gold }}>✓</span> {b}
                 </span>
               ))}
             </div>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 28, marginBottom: 18 }}>
-              <span style={{ fontSize: "clamp(19px,2.2vw,26px)", color: H.textMuted, fontWeight: 400 }}>CHF 99.-</span>
-              <span style={{ fontSize: "clamp(13px,1.2vw,16px)", textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
+
+            <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 30 }}>
+              <span style={{ fontSize: "clamp(20px,1.8vw,24px)", color: H.textMuted, fontWeight: 400, letterSpacing: "-.01em" }}>CHF 99.-</span>
+              <span style={{ fontSize: 14, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
               <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
             </div>
-            <div style={{ marginTop: -4, marginBottom: 18 }}>
-              <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={15} />
+            <div style={{ marginTop: 10 }}>
+              <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
             </div>
-            <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60" style={{ padding: "19px 54px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+
+            <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98] disabled:opacity-60" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </button>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14 }}>
               {[
                 { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
                 { i: <svg width="14" height="14" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 2 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
@@ -805,50 +807,52 @@ const NexusPage = () => {
                 </span>
               ))}
             </div>
+
             {latestMarcelReview && (
               <LatestMarcelReview
                 review={latestMarcelReview}
-                className="mt-4"
+                className="mt-6"
                 onPhotoClick={() => setMarcelLightboxOpen(true)}
                 theme="light"
               />
             )}
 
-
-            
-
-            <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: H.textDim }}>Sichere Zahlungsmethoden</p>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
-              {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: `1px solid ${H.border}` }} />
-              ))}
+            <div style={{ marginTop: 26, paddingTop: 20, borderTop: `1px solid ${H.border}` }}>
+              <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.textDim, marginBottom: 10 }}>Sichere Zahlungsmethoden</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: `1px solid ${H.border}` }} />
+                ))}
+              </div>
             </div>
-            <div className="h-20" aria-hidden />
           </div>
 
-          {/* RIGHT */}
-          <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 48px" }}>
-            <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.10), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
-            <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.22), 0 0 0 1px rgba(155,107,63,.15)" }}>
-              <HeroSwipeImage
-                slides={HERO_CAROUSEL_SLIDES}
-                index={heroSlideIdx}
-                onChange={setHeroSlideIdx}
-                sizes="(max-width: 767px) 100vw, 50vw"
-                priority
-                objectFit="cover"
-              />
-              <div style={{ position: "absolute", bottom: 16, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-                <Qi2CertifiedBadge size={46} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
-                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
+          {/* RIGHT — hero image */}
+          <div style={{ position: "sticky", top: 120, alignSelf: "start", width: "100%" }}>
+            <div style={{ position: "relative", width: "100%" }}>
+              <div style={{ position: "absolute", top: "50%", left: "50%", width: "88%", height: "88%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.12), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
+              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "1/1", borderRadius: 14, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
+                <HeroSwipeImage
+                  slides={HERO_CAROUSEL_SLIDES}
+                  index={heroSlideIdx}
+                  onChange={setHeroSlideIdx}
+                  sizes="(max-width: 767px) 100vw, 46vw"
+                  priority
+                  objectFit="cover"
+                />
+
+                {/* Overlays inside the frame */}
+                <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "6%", left: "4%" }} />
+                <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "44%", right: "4%" }} />
+                <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "6%", left: "4%" }} />
+
+                <div style={{ position: "absolute", bottom: 18, right: 20, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+                  <Qi2CertifiedBadge size={46} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
+                </div>
               </div>
 
-            </div>
-            <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
-            <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "38%", right: "-4%" }} />
-            <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "12%", left: "4%" }} />
-            <div style={{ width: "100%", marginTop: 14 }}>
-              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={58} />
+              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={60} />
             </div>
           </div>
         </div>
