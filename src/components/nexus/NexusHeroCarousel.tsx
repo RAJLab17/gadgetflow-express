@@ -150,21 +150,24 @@ export const HeroThumbs = ({
   onChange,
   size = 56,
   dark = false,
+  style,
 }: {
   slides: HeroSlide[];
   index: number;
   onChange: (i: number) => void;
   size?: number;
   dark?: boolean;
+  style?: React.CSSProperties;
 }) => {
   const bg = dark ? "#141312" : "#fff";
   const baseBorder = dark ? "rgba(255,255,255,.16)" : "rgba(26,26,26,.12)";
   const shadow = dark ? "0 1px 4px rgba(0,0,0,.35)" : "0 1px 4px rgba(0,0,0,.05)";
   return (
     <div
-      className="flex items-center justify-center gap-3 mt-5"
+      className="flex items-center justify-center gap-3"
       role="tablist"
       aria-label="Produktbilder"
+      style={{ marginTop: 20, ...style }}
     >
       {slides.map((s, i) => {
         const active = i === index;
