@@ -825,8 +825,8 @@ const NexusPage = () => {
                 objectFit="cover"
               />
               <div style={{ position: "absolute", bottom: 16, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-                <Qi2CertifiedBadge size={46} compact />
-                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
+                <Qi2CertifiedBadge size={46} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
+                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
               </div>
 
             </div>
