@@ -836,7 +836,7 @@ const NexusPage = () => {
             <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
           <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "86%", maxWidth: 340, margin: "0 auto", aspectRatio: "1/1", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.20), 0 0 0 1px rgba(155,107,63,.15)", marginBottom: 8 }}>
+          <div style={{ position: "relative", width: "80%", maxWidth: 300, margin: "0 auto", aspectRatio: "1/1", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.20), 0 0 0 1px rgba(155,107,63,.15)", marginBottom: 8 }}>
 
             <picture>
               <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
