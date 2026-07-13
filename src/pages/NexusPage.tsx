@@ -852,7 +852,7 @@ const NexusPage = () => {
           </div>
           <div className="flex flex-wrap justify-center gap-1.5 mb-2">
             {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
-              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 10, color: H.text, boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
+              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: "1px solid rgba(26,26,26,.12)", background: "#FFFFFF", fontSize: 10, color: H.text, boxShadow: "0 1px 8px rgba(26,26,26,.04)" }}>
                 <span style={{ color: H.gold }}>✓</span> {b}
               </span>
             ))}
