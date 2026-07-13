@@ -921,8 +921,22 @@ const NexusPage = () => {
                 </div>
               </div>
             </div>
-            {/* DESKTOP: product thumbnails stay centered under the hero image */}
-            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} style={{ marginTop: 16, justifyContent: "center" }} />
+            {/* DESKTOP: product thumbnails inside a matching dark bar (same look as payments on left) */}
+            <div
+              style={{
+                marginTop: 14,
+                borderRadius: 18,
+                background: "#0a0908",
+                border: "1px solid rgba(155,107,63,.20)",
+                padding: "16px 18px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 24px 70px -34px rgba(0,0,0,.42)",
+              }}
+            >
+              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} theme="dark" style={{ justifyContent: "center", margin: 0 }} />
+            </div>
           </div>
         </div>
 
