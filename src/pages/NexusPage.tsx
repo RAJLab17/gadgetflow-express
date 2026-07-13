@@ -208,7 +208,7 @@ const LatestMarcelReview = ({
     ? { border: H.border, surface: H.surface, text: H.text, muted: H.textMuted, gold: H.gold, bg: "#FFFFFF" }
     : { border: "rgba(201,168,118,.2)", surface: "rgba(255,255,255,.03)", text: D.beige, muted: D.muted, gold: D.gold, bg: "rgba(20,19,18,.55)" };
   return (
-    <div className={`${className}`} style={{ position: "relative" }}>
+    <div className={`${className}`} style={{ position: "relative", zIndex: expanded ? 80 : 1 }}>
       <div
         className="group cursor-pointer rounded-t-xl border px-3 py-2.5 sm:px-3.5 sm:py-3 transition-all hover:opacity-95"
         style={{ borderColor: c.border, background: c.surface, boxShadow: isLight ? "0 2px 16px rgba(26,26,26,.04)" : undefined, borderBottomLeftRadius: expanded ? 0 : undefined, borderBottomRightRadius: expanded ? 0 : undefined }}
@@ -277,6 +277,9 @@ const LatestMarcelReview = ({
               left: 0,
               right: 0,
               zIndex: 60,
+              maxHeight: "min(64vh, 620px)",
+              overflowY: "auto",
+              WebkitOverflowScrolling: "touch",
               boxShadow: isLight ? "0 24px 60px -20px rgba(26,26,26,.28)" : "0 24px 60px -20px rgba(0,0,0,.6)",
             }}
           >
@@ -777,10 +780,10 @@ const NexusPage = () => {
         style={{ background: H.bg, color: H.text, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
-        <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
+        <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 1 }} />
 
         {/* DESKTOP */}
-        <div className="hidden md:grid relative pl-10 lg:pl-14 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-16 max-w-[1520px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "minmax(0,0.92fr) minmax(0,1.38fr)", columnGap: "clamp(40px,4.5vw,80px)", rowGap: 0, alignItems: "start" }}>
+        <div className="hidden md:grid relative pl-10 lg:pl-14 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-16 max-w-[1520px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,0.92fr) minmax(0,1.38fr)", columnGap: "clamp(40px,4.5vw,80px)", rowGap: 0, alignItems: "start" }}>
           {/* LEFT — product info */}
           <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(4px,1vw,16px)" }}>
 
