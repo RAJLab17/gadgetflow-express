@@ -733,23 +733,23 @@ const NexusPage = () => {
 
             {/* Founder Badge + Ladebalken */}
             <div>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "10px 20px 10px 15px", borderRadius: 100, border: "1px solid rgba(201,168,118,.5)", background: "rgba(201,168,118,.12)", marginBottom: 8, boxShadow: "0 0 20px rgba(201,168,118,.15)" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "10px 20px 10px 15px", borderRadius: 100, border: `1px solid ${H.gold}55`, background: H.surface, marginBottom: 8, boxShadow: "0 4px 24px rgba(26,26,26,.06)" }}>
                 <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
-                  <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: D.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
-                  <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: D.gold }} />
+                  <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: H.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
+                  <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: H.gold }} />
                 </span>
-                <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: D.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert auf 100 Stück</span>
+                <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert auf 100 Stück</span>
               </div>
-              <div style={{ width: "100%", maxWidth: 260, height: 2, borderRadius: 2, background: "rgba(255,255,255,.08)", marginBottom: 22 }}>
-                <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})` }} />
+              <div style={{ width: "100%", maxWidth: 260, height: 2, borderRadius: 2, background: "rgba(26,26,26,.08)", marginBottom: 22 }}>
+                <div style={{ width: "63%", height: "100%", borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${H.gold})` }} />
               </div>
             </div>
 
             <div style={{ fontSize: "clamp(40px,6vw,84px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
-              <span style={{ color: D.beige }}>RAJ</span>{" "}
-              <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
+              <span style={{ color: H.text }}>RAJ</span>{" "}
+              <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
             </div>
-            <p style={{ marginTop: 22, fontSize: "clamp(17px,1.8vw,24px)", lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.</p>
+            <p style={{ marginTop: 22, fontSize: "clamp(17px,1.8vw,24px)", lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginTop: 24 }}>
               {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
                 <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 12, color: D.beige }}>
