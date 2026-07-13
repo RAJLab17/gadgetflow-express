@@ -149,52 +149,59 @@ export const HeroThumbs = ({
   index,
   onChange,
   size = 56,
+  dark = false,
 }: {
   slides: HeroSlide[];
   index: number;
   onChange: (i: number) => void;
   size?: number;
-}) => (
-  <div
-    className="flex items-center justify-center gap-3 mt-5"
-    role="tablist"
-    aria-label="Produktbilder"
-  >
-    {slides.map((s, i) => {
-      const active = i === index;
-      return (
-        <button
-          key={i}
-          type="button"
-          role="tab"
-          aria-selected={active}
-          aria-label={`Bild ${i + 1} anzeigen`}
-          onClick={() => onChange(i)}
-          style={{
-            width: size,
-            height: size,
-            borderRadius: 8,
-            overflow: "hidden",
-            padding: 0,
-            background: "#fff",
-            border: `1.5px solid ${active ? GOLD : "rgba(26,26,26,.12)"}`,
-            boxShadow: active ? `0 4px 14px ${GOLD}33` : "0 1px 4px rgba(0,0,0,.05)",
-            transition: "border-color .2s ease, box-shadow .2s ease, transform .2s ease",
-            transform: active ? "translateY(-1px)" : "none",
-            cursor: "pointer",
-          }}
-        >
-          <img
-            src={s.thumb}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            width={size}
-            height={size}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-          />
-        </button>
-      );
-    })}
-  </div>
-);
+  dark?: boolean;
+}) => {
+  const bg = dark ? "#141312" : "#fff";
+  const baseBorder = dark ? "rgba(255,255,255,.16)" : "rgba(26,26,26,.12)";
+  const shadow = dark ? "0 1px 4px rgba(0,0,0,.35)" : "0 1px 4px rgba(0,0,0,.05)";
+  return (
+    <div
+      className="flex items-center justify-center gap-3 mt-5"
+      role="tablist"
+      aria-label="Produktbilder"
+    >
+      {slides.map((s, i) => {
+        const active = i === index;
+        return (
+          <button
+            key={i}
+            type="button"
+            role="tab"
+            aria-selected={active}
+            aria-label={`Bild ${i + 1} anzeigen`}
+            onClick={() => onChange(i)}
+            style={{
+              width: size,
+              height: size,
+              borderRadius: 8,
+              overflow: "hidden",
+              padding: 0,
+              background: bg,
+              border: `1.5px solid ${active ? GOLD : baseBorder}`,
+              boxShadow: active ? `0 4px 14px ${GOLD}33` : shadow,
+              transition: "border-color .2s ease, box-shadow .2s ease, transform .2s ease",
+              transform: active ? "translateY(-1px)" : "none",
+              cursor: "pointer",
+            }}
+          >
+            <img
+              src={s.thumb}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              width={size}
+              height={size}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </button>
+        );
+      })}
+    </div>
+  );
+};
