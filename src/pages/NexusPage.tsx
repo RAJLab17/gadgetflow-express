@@ -46,9 +46,10 @@ import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
 import beforeCableImg from "@/assets/products/nexus-before-cable-chaos.jpg";
 import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
-import nexusHero800 from "@/assets/products/nexus-hero-charging-800w.webp";
-import nexusHero1200 from "@/assets/products/nexus-hero-charging-1200w.webp";
-import nexusHeroWhiteAsset from "@/assets/products/nexus-hero-chatgpt.png.asset.json";
+import nexusHeroFallbackAsset from "@/assets/products/nexus-hero-chatgpt.png.asset.json";
+import nexusHeroWebp400 from "@/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
+import nexusHeroWebp800 from "@/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
+import nexusHeroWebp1200 from "@/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
 
 const carousel5 = carousel5Asset.url;
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
@@ -67,8 +68,9 @@ import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
-const nexusHeroImg = nexusHeroWhiteAsset.url;
-const nexusHeroImgSm = nexusHeroWhiteAsset.url;
+const nexusHeroImg = nexusHeroFallbackAsset.url;
+const heroWebpSrcSet = `${nexusHeroWebp400.url} 400w, ${nexusHeroWebp800.url} 800w, ${nexusHeroWebp1200.url} 1200w`;
+const heroSizes = "(max-width: 767px) 100vw, 50vw";
 // ─────────────────────────────────────────────────────────────────
 
 
@@ -813,9 +815,9 @@ const NexusPage = () => {
             <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.10), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.22), 0 0 0 1px rgba(155,107,63,.15)" }}>
               <picture>
-                <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
-                <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
-                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
+                <source type="image/webp" media="(min-width: 768px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+                <source type="image/webp" media="(max-width: 767px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" fetchPriority="high" />
               </picture>
               <div style={{ position: "absolute", bottom: 16, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                 <Qi2CertifiedBadge size={46} compact />
@@ -839,9 +841,9 @@ const NexusPage = () => {
           <div style={{ position: "relative", width: "calc(100% + 40px)", maxWidth: "none", margin: "0 -20px 8px", aspectRatio: "1/1", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
 
             <picture>
-              <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
-              <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
-              <img src={nexusHeroImgSm} width={800} height={800} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
+              <source type="image/webp" media="(max-width: 767px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+              <source type="image/webp" media="(min-width: 768px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+              <img src={nexusHeroImg} width={800} height={800} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" fetchPriority="high" />
             </picture>
             <div style={{ position: "absolute", bottom: 18, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
               <Qi2CertifiedBadge size={38} compact />

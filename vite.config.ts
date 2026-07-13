@@ -4,6 +4,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
 import { generateSitemap } from "./scripts/generate-sitemap.mjs";
+import heroWebp800 from "./src/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
+import heroWebp1200 from "./src/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
 
 // Vite plugin: regenerates public/sitemap.xml from src/content/site-urls.ts
 // before every build, and once on dev server start.
@@ -21,33 +23,17 @@ const sitemapPlugin = (): PluginOption => ({
 });
 
 // Vite plugin: injects a <link rel="preload"> for the Nexus LCP hero image
-// into index.html, using the actual (hashed in production) built asset paths.
+// into index.html. The hero image is served from the Lovable CDN, so the URLs
+// are stable and can be imported directly from the asset pointer files.
 // Replaces the <!--HERO_PRELOAD--> marker in index.html.
 const heroPreloadPlugin = (): PluginOption => ({
   name: "raj-hero-preload",
   apply: () => true,
   transformIndexHtml: {
     order: "post",
-    handler(html, ctx) {
-      const src800 = "src/assets/products/nexus-hero-charging-800w.webp";
-      const src1200 = "src/assets/products/nexus-hero-charging-1200w.webp";
-
-      let url800 = "/" + src800;
-      let url1200 = "/" + src1200;
-
-      // In production, resolve to hashed filenames from the emitted bundle.
-      if (ctx.bundle) {
-        for (const [fileName, chunk] of Object.entries(ctx.bundle)) {
-          // @ts-expect-error - rollup asset shape
-          const origName: string | string[] | undefined = chunk.originalFileName ?? chunk.originalFileNames?.[0] ?? chunk.name;
-          const names = Array.isArray(origName) ? origName : [origName];
-          for (const n of names) {
-            if (!n) continue;
-            if (n.endsWith("nexus-hero-charging-800w.webp")) url800 = "/" + fileName;
-            if (n.endsWith("nexus-hero-charging-1200w.webp")) url1200 = "/" + fileName;
-          }
-        }
-      }
+    handler(html) {
+      const url800 = heroWebp800.url;
+      const url1200 = heroWebp1200.url;
 
       const tag = [
         `<link rel="preload" as="image" href="${url800}" media="(max-width: 767px)" fetchpriority="high" />`,
