@@ -276,7 +276,7 @@ const LatestMarcelReview = ({
               top: "100%",
               left: 0,
               right: 0,
-              zIndex: 41,
+              zIndex: 60,
               boxShadow: isLight ? "0 24px 60px -20px rgba(26,26,26,.28)" : "0 24px 60px -20px rgba(0,0,0,.6)",
             }}
           >
@@ -773,7 +773,7 @@ const NexusPage = () => {
       <Header topSlot={<NexusTrustBar />} />
       <section
         id="mockup-signup"
-        className="relative overflow-hidden"
+        className="relative overflow-x-hidden"
         style={{ background: H.bg, color: H.text, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
@@ -921,8 +921,22 @@ const NexusPage = () => {
                 </div>
               </div>
             </div>
-            {/* DESKTOP: product thumbnails stay centered under the hero image */}
-            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} style={{ marginTop: 16, justifyContent: "center" }} />
+            {/* DESKTOP: product thumbnails inside a matching dark bar (same look as payments on left) */}
+            <div
+              style={{
+                marginTop: 14,
+                borderRadius: 18,
+                background: "#0a0908",
+                border: "1px solid rgba(155,107,63,.20)",
+                padding: "16px 18px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 24px 70px -34px rgba(0,0,0,.42)",
+              }}
+            >
+              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} dark style={{ justifyContent: "center", margin: 0 }} />
+            </div>
           </div>
         </div>
 
