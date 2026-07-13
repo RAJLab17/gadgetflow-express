@@ -829,11 +829,11 @@ const NexusPage = () => {
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pt-1 pb-10" style={{ zIndex: 2 }}>
           <div className="text-center mb-1" style={{ fontSize: "clamp(34px,9vw,48px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
-            <span style={{ color: D.beige }}>RAJ</span>{" "}
-            <span style={{ WebkitTextStroke: `1.5px ${D.gold}`, color: "transparent" }}>NEXUS</span>
+            <span style={{ color: H.text }}>RAJ</span>{" "}
+            <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
-          <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: D.muted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(201,168,118,.18)", marginBottom: 8 }}>
+          <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
+          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.20), 0 0 0 1px rgba(155,107,63,.15)", marginBottom: 8 }}>
 
             <picture>
               <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
@@ -841,19 +841,19 @@ const NexusPage = () => {
               <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
             </picture>
             <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-              <Qi2CertifiedBadge size={36} gold={D.gold} compact />
-              <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6" }}>Zertifiziert</span>
+              <Qi2CertifiedBadge size={36} gold={H.gold} compact />
+              <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6", textShadow: "0 1px 6px rgba(0,0,0,.45)" }}>Zertifiziert</span>
             </div>
             <NexusHeroChipsMobile />
           </div>
           <div className="flex flex-wrap justify-center gap-1.5 mb-2">
             {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
-              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 10, color: D.beige }}>
-                <span style={{ color: D.gold }}>✓</span> {b}
+              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 10, color: H.text, boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
+                <span style={{ color: H.gold }}>✓</span> {b}
               </span>
             ))}
           </div>
-          <div className="flex flex-col items-center text-center mb-2.5" style={{ borderTop: `1px solid ${D.muted}33`, borderBottom: `1px solid ${D.muted}33`, padding: "8px 0", gap: 6 }}>
+          <div className="flex flex-col items-center text-center mb-2.5" style={{ borderTop: `1px solid ${H.border}`, borderBottom: `1px solid ${H.border}`, padding: "8px 0", gap: 6 }}>
 
 
             {/* Scarcity */}
@@ -862,25 +862,25 @@ const NexusPage = () => {
                 <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#22c55e", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
                 <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
               </span>
-              <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: D.gold }}>
+              <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
                 {dropRemaining > 0 ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
               </span>
             </div>
             {/* Price */}
             <div className="flex items-baseline justify-center" style={{ gap: 12 }}>
-              <span style={{ fontSize: 34, color: D.beige, fontWeight: 300, letterSpacing: "-0.02em", lineHeight: 1 }}>CHF 99.–</span>
-              <span style={{ fontSize: 15, textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.–</span>
+              <span style={{ fontSize: 34, color: H.text, fontWeight: 300, letterSpacing: "-0.02em", lineHeight: 1 }}>CHF 99.–</span>
+              <span style={{ fontSize: 15, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.–</span>
             </div>
             {/* Rating */}
             {reviewStats && reviewStats.total > 0 && (
               <Link to="/reviews" aria-label={`${reviewStats.average.toFixed(1)} von 5 Sternen, ${reviewStats.total} Bewertungen lesen`} className="flex items-center justify-center transition-opacity hover:opacity-80" style={{ gap: 8, paddingTop: 2 }}>
                 <div className="flex" style={{ gap: 2 }}>
                   {[0,1,2,3,4].map((i) => (
-                    <span key={i} style={{ color: D.gold, fontSize: 11, lineHeight: 1 }}>★</span>
+                    <span key={i} style={{ color: H.gold, fontSize: 11, lineHeight: 1 }}>★</span>
                   ))}
                 </div>
-                <span style={{ fontSize: 11, letterSpacing: "0.02em", color: D.beige }}>
-                  {reviewStats.average.toFixed(1)} <span style={{ color: D.muted, margin: "0 4px" }}>|</span> {reviewStats.total} {reviewStats.total === 1 ? "Bewertung" : "Bewertungen"}
+                <span style={{ fontSize: 11, letterSpacing: "0.02em", color: H.text }}>
+                  {reviewStats.average.toFixed(1)} <span style={{ color: H.textMuted, margin: "0 4px" }}>|</span> {reviewStats.total} {reviewStats.total === 1 ? "Bewertung" : "Bewertungen"}
                 </span>
               </Link>
             )}
@@ -889,7 +889,7 @@ const NexusPage = () => {
 
 
 
-          <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "13px 22px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+          <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "13px 22px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
 
           </button>
@@ -899,7 +899,7 @@ const NexusPage = () => {
               { i: <svg width="11" height="11" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 1.5, flexShrink: 0 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🚚</span>, t: "2–3 Werktage" },
             ].map((b) => (
-              <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 7px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 9.5, color: D.beige, whiteSpace: "nowrap" }}>
+              <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 7px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 9.5, color: H.text, whiteSpace: "nowrap", boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
                 {b.i} {b.t}
               </span>
             ))}
@@ -909,15 +909,16 @@ const NexusPage = () => {
               review={latestMarcelReview}
               className="mt-3"
               onPhotoClick={() => setMarcelLightboxOpen(true)}
+              theme="light"
             />
           )}
 
-          <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
+          <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: H.textDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
 
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
             {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-              <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
+              <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: `1px solid ${H.border}` }} />
             ))}
           </div>
           <div className="h-20" aria-hidden />
