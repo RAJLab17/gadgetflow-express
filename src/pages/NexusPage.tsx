@@ -230,7 +230,7 @@ const LatestMarcelReview = ({
               className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a] hover:ring-2 hover:ring-[#C9A876]/50 transition"
               aria-label="Foto vergrössern"
             >
-              <img src={review.photo_url} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src={supaThumb(review.photo_url, 96)} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" width={48} height={48} className="w-full h-full object-cover" />
             </button>
           )}
           <div className="min-w-0 flex-1">
