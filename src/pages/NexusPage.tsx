@@ -104,20 +104,20 @@ const H = {
 // ─── Hero Icons ───────────────────────────────────────────────────
 const IconPhone = () => (
   <svg width="11" height="17" viewBox="0 0 12 18" fill="none">
-    <rect x=".7" y=".7" width="10.6" height="16.6" rx="2.4" stroke={D.gold} strokeWidth="1.1" />
-    <rect x="4" y="2.4" width="4" height="1" rx=".5" fill={D.gold} />
+    <rect x=".7" y=".7" width="10.6" height="16.6" rx="2.4" stroke={H.gold} strokeWidth="1.1" />
+    <rect x="4" y="2.4" width="4" height="1" rx=".5" fill={H.gold} />
   </svg>
 );
 const IconWatch = () => (
   <svg width="13" height="15" viewBox="0 0 14 16" fill="none">
-    <rect x="3" y="3.6" width="8" height="8.8" rx="2.4" stroke={D.gold} strokeWidth="1.1" />
-    <path d="M5 3.6 5.4 1.4h3.2L9 3.6M5 12.4l.4 2.2h3.2l.4-2.2" stroke={D.gold} strokeWidth="1.1" />
+    <rect x="3" y="3.6" width="8" height="8.8" rx="2.4" stroke={H.gold} strokeWidth="1.1" />
+    <path d="M5 3.6 5.4 1.4h3.2L9 3.6M5 12.4l.4 2.2h3.2l.4-2.2" stroke={H.gold} strokeWidth="1.1" />
   </svg>
 );
 const IconPods = () => (
   <svg width="15" height="11" viewBox="0 0 16 12" fill="none">
-    <rect x="1.2" y="3" width="5" height="6" rx="2.3" stroke={D.gold} strokeWidth="1.1" />
-    <rect x="9.8" y="3" width="5" height="6" rx="2.3" stroke={D.gold} strokeWidth="1.1" />
+    <rect x="1.2" y="3" width="5" height="6" rx="2.3" stroke={H.gold} strokeWidth="1.1" />
+    <rect x="9.8" y="3" width="5" height="6" rx="2.3" stroke={H.gold} strokeWidth="1.1" />
   </svg>
 );
 
@@ -146,17 +146,17 @@ const ChargeChip = ({ label, icon, startVal, phase, floatAnim, style }: ChargeCh
     return () => clearTimeout(t);
   }, [phase]);
   return (
-    <div style={{ position: "absolute", padding: "12px 15px", borderRadius: 15, background: "#121110", border: "1px solid rgba(201,168,118,.26)", boxShadow: "0 18px 44px rgba(0,0,0,.55)", minWidth: 148, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
+    <div style={{ position: "absolute", padding: "12px 15px", borderRadius: 15, background: H.surface, border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 18px 44px rgba(26,26,26,.12)", minWidth: 148, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-        <div style={{ width: 24, height: 24, borderRadius: 7, background: "rgba(201,168,118,.14)", display: "flex", alignItems: "center", justifyContent: "center" }}>{icon}</div>
-        <span style={{ fontSize: 11.5, color: D.beige, fontWeight: 500 }}>{label}</span>
+        <div style={{ width: 24, height: 24, borderRadius: 7, background: "rgba(155,107,63,.10)", display: "flex", alignItems: "center", justifyContent: "center" }}>{icon}</div>
+        <span style={{ fontSize: 11.5, color: H.text, fontWeight: 500 }}>{label}</span>
       </div>
       <div style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
-        <span style={{ fontSize: 25, fontWeight: 300, fontVariantNumeric: "tabular-nums", color: D.beige }}>{val}</span>
-        <span style={{ fontSize: 13, color: D.mutedDim }}>%</span>
+        <span style={{ fontSize: 25, fontWeight: 300, fontVariantNumeric: "tabular-nums", color: H.text }}>{val}</span>
+        <span style={{ fontSize: 13, color: H.textDim }}>%</span>
       </div>
-      <div style={{ marginTop: 8, height: 2, borderRadius: 2, background: "rgba(255,255,255,.1)", overflow: "hidden" }}>
-        <div style={{ height: "100%", width: `${val}%`, borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})`, transition: "width 1s ease" }} />
+      <div style={{ marginTop: 8, height: 2, borderRadius: 2, background: "rgba(26,26,26,.08)", overflow: "hidden" }}>
+        <div style={{ height: "100%", width: `${val}%`, borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${H.gold})`, transition: "width 1s ease" }} />
       </div>
     </div>
   );
@@ -817,7 +817,7 @@ const NexusPage = () => {
                 <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
                 <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
               </picture>
-              <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+              <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, padding: "8px 12px", borderRadius: 100, background: "#FFFFFF", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 4px 16px rgba(26,26,26,.08)" }}>
                 <Qi2CertifiedBadge size={44} gold="#000000" compact />
                 <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
               </div>
@@ -843,7 +843,7 @@ const NexusPage = () => {
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
               <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
             </picture>
-            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, padding: "6px 10px", borderRadius: 100, background: "#FFFFFF", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 4px 14px rgba(26,26,26,.08)" }}>
               <Qi2CertifiedBadge size={36} gold="#000000" compact />
               <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
             </div>

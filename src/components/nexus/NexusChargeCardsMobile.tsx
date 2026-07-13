@@ -10,9 +10,11 @@ import { useEffect, useRef, useState } from "react";
  * - Respects prefers-reduced-motion
  */
 
-const GOLD = "#C9A876";
-const BEIGE = "#F5EFE6";
-const MUTED_DIM = "#6a625c";
+const GOLD = "#9b6b3f";
+const BEIGE = "#1A1A1A";
+const MUTED_DIM = "#9A9285";
+const WHITE = "#FFFFFF";
+const ICON_BG = "rgba(155,107,63,.10)";
 
 const IconPhone = () => (
   <svg width="10" height="14" viewBox="0 0 12 18" fill="none" aria-hidden>
@@ -78,9 +80,9 @@ function MiniChip({ label, icon, startVal, phase, style, active }: ChipProps) {
         position: "absolute",
         padding: "6px 8px",
         borderRadius: 11,
-        background: "#121110",
-        border: "1px solid rgba(201,168,118,.28)",
-        boxShadow: "0 10px 22px rgba(0,0,0,.55)",
+        background: WHITE,
+        border: "1px solid rgba(26,26,26,.12)",
+        boxShadow: "0 8px 20px rgba(26,26,26,.10)",
         minWidth: 78,
         animation: "none",
         zIndex: 5,
@@ -94,7 +96,7 @@ function MiniChip({ label, icon, startVal, phase, style, active }: ChipProps) {
             width: 16,
             height: 16,
             borderRadius: 5,
-            background: "rgba(201,168,118,.16)",
+            background: ICON_BG,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -123,7 +125,7 @@ function MiniChip({ label, icon, startVal, phase, style, active }: ChipProps) {
           marginTop: 4,
           height: 2,
           borderRadius: 2,
-          background: "rgba(255,255,255,.1)",
+          background: "rgba(26,26,26,.08)",
           overflow: "hidden",
         }}
       >
