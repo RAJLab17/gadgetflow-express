@@ -910,16 +910,15 @@ const NexusPage = () => {
               </span>
             ))}
           </div>
-          {latestMarcelReview && (
-            <LatestMarcelReview
-              review={latestMarcelReview}
-              className="mt-3"
-              onPhotoClick={() => setMarcelLightboxOpen(true)}
-              theme="dark"
-            />
-          )}
-
           <div className="mt-4 -mx-5 px-5 py-6 rounded-t-2xl" style={{ background: D.bg, color: D.beige }}>
+            {latestMarcelReview && (
+              <LatestMarcelReview
+                review={latestMarcelReview}
+                className="mb-5"
+                onPhotoClick={() => setMarcelLightboxOpen(true)}
+                theme="dark"
+              />
+            )}
             <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.beige, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
               {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
