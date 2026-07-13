@@ -904,7 +904,7 @@ const NexusPage = () => {
             className="hidden md:flex"
             style={{
               gridColumn: "1 / -1",
-              marginTop: "clamp(28px,3.2vw,48px)",
+              marginTop: "clamp(-460px, -26vw, -220px)",
               borderRadius: 20,
               background: "#0a0908",
               border: "1px solid rgba(155,107,63,.20)",
