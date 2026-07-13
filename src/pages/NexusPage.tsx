@@ -848,6 +848,30 @@ const NexusPage = () => {
               />
             )}
 
+            {/* DESKTOP: secure payments belong under Marcel review */}
+            <div
+              className="hidden md:flex"
+              style={{
+                marginTop: 14,
+                borderRadius: 18,
+                background: "#0a0908",
+                border: "1px solid rgba(155,107,63,.20)",
+                padding: "16px 18px",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 10,
+                boxShadow: "0 24px 70px -34px rgba(0,0,0,.42)",
+              }}
+            >
+              <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold }}>Sichere Zahlungsmethoden</p>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
+                {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.12)" }} />
+                ))}
+              </div>
+            </div>
+
           </div>
 
           {/* RIGHT — hero image */}
@@ -897,35 +921,8 @@ const NexusPage = () => {
                 </div>
               </div>
             </div>
-            {/* DESKTOP: black trust bar directly under hero image, thumbnails centered */}
-            <div
-              className="hidden md:flex"
-              style={{
-              marginTop: 14,
-              borderRadius: 20,
-              background: "#0a0908",
-              border: "1px solid rgba(155,107,63,.20)",
-              padding: "clamp(18px,2vw,26px) clamp(20px,2.4vw,36px)",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 16,
-              boxShadow: "0 30px 80px -30px rgba(0,0,0,.35)",
-              position: "relative",
-              zIndex: 4,
-            }}
-            >
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-                <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold }}>Sichere Zahlungsmethoden</p>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                  {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                    <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.12)" }} />
-                  ))}
-                </div>
-              </div>
-              <div style={{ width: "100%", height: 1, background: "rgba(155,107,63,.18)" }} />
-              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} dark style={{ marginTop: 0, justifyContent: "center" }} />
-            </div>
+            {/* DESKTOP: product thumbnails stay centered under the hero image */}
+            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} style={{ marginTop: 16, justifyContent: "center" }} />
           </div>
         </div>
 
