@@ -773,7 +773,7 @@ const NexusPage = () => {
       <Header topSlot={<NexusTrustBar />} />
       <section
         id="mockup-signup"
-        className="relative overflow-hidden"
+        className="relative overflow-x-hidden"
         style={{ background: H.bg, color: H.text, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
