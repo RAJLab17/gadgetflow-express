@@ -832,7 +832,7 @@ const NexusPage = () => {
           <div style={{ position: "sticky", top: 110, alignSelf: "start", width: "100%" }}>
             <div style={{ position: "relative", width: "100%" }}>
               <div style={{ position: "absolute", top: "50%", left: "50%", width: "92%", height: "92%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.14), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
-              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "4/5", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
+              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "1/1", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
                 <HeroSwipeImage
                   slides={HERO_CAROUSEL_SLIDES}
                   index={heroSlideIdx}
