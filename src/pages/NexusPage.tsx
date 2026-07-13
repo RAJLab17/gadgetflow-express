@@ -175,6 +175,20 @@ type HeroReview = {
   verified_purchase: boolean;
 };
 
+/**
+ * Transforms a Supabase signed object URL into a signed image-render URL
+ * with width/quality params so we don't ship 3+ MB originals to the client.
+ * Falls back to the original URL if it isn't a Supabase storage URL.
+ */
+const supaThumb = (url: string | null | undefined, width: number, quality = 72): string => {
+  if (!url) return "";
+  if (!url.includes("/storage/v1/object/")) return url;
+  const rendered = url.replace("/storage/v1/object/", "/storage/v1/render/image/");
+  const sep = rendered.includes("?") ? "&" : "?";
+  return `${rendered}${sep}width=${width}&quality=${quality}&resize=cover`;
+};
+
+
 const LatestMarcelReview = ({
   review,
   className = "",
@@ -216,7 +230,7 @@ const LatestMarcelReview = ({
               className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#1a1a1a] hover:ring-2 hover:ring-[#C9A876]/50 transition"
               aria-label="Foto vergrössern"
             >
-              <img src={review.photo_url} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src={supaThumb(review.photo_url, 96)} alt={`Foto von ${review.customer_name}`} loading="lazy" decoding="async" width={48} height={48} className="w-full h-full object-cover" />
             </button>
           )}
           <div className="min-w-0 flex-1">
@@ -262,7 +276,7 @@ const LatestMarcelReview = ({
                 style={{ borderColor: c.border }}
                 aria-label="Foto vergrössern"
               >
-                <img src={review.photo_url} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+                <img src={supaThumb(review.photo_url, 720)} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
               </button>
             )}
             <div className="mt-3 flex items-center justify-between">
@@ -1093,7 +1107,7 @@ const NexusPage = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              src={latestMarcelReview.photo_url}
+              src={supaThumb(latestMarcelReview.photo_url, 1400, 82)}
               alt={`Foto zur Bewertung von ${latestMarcelReview.customer_name}`}
               className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
