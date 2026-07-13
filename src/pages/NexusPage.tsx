@@ -860,9 +860,9 @@ const NexusPage = () => {
 
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pt-1 pb-0" style={{ zIndex: 2 }}>
-          <div className="text-center mb-1" style={{ fontSize: "clamp(26px,7vw,38px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
-            <span style={{ color: H.text }}>RAJ</span>{" "}
-            <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
+          <div className="text-center mb-1" style={{ fontSize: "clamp(28px,7.2vw,40px)", lineHeight: 1, letterSpacing: "-.02em", fontWeight: 200, whiteSpace: "nowrap" }}>
+            <span style={{ color: H.text, fontWeight: 200 }}>RAJ</span>{" "}
+            <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
           </div>
           <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
           <div style={{ position: "relative", width: "calc(100% + 40px)", maxWidth: "none", margin: "0 -20px 8px", aspectRatio: "1/1", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
