@@ -935,7 +935,7 @@ const NexusPage = () => {
                 boxShadow: "0 24px 70px -34px rgba(0,0,0,.42)",
               }}
             >
-              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} theme="dark" style={{ justifyContent: "center", margin: 0 }} />
+              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} dark style={{ justifyContent: "center", margin: 0 }} />
             </div>
           </div>
         </div>
