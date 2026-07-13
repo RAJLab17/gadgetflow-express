@@ -848,18 +848,22 @@ const NexusPage = () => {
           <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
           <div style={{ position: "relative", width: "calc(100% + 40px)", maxWidth: "none", margin: "0 -20px 8px", aspectRatio: "1/1", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
 
-            <picture>
-              <source type="image/webp" media="(max-width: 767px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
-              <source type="image/webp" media="(min-width: 768px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
-              <img src={nexusHeroImg} width={800} height={800} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" fetchPriority="high" />
-            </picture>
-            <div style={{ position: "absolute", bottom: 18, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+            <HeroSwipeImage
+              slides={HERO_CAROUSEL_SLIDES}
+              index={heroSlideIdx}
+              onChange={setHeroSlideIdx}
+              sizes="100vw"
+              priority
+              objectFit="cover"
+            />
+            <div style={{ position: "absolute", bottom: 18, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, pointerEvents: "none" }}>
               <Qi2CertifiedBadge size={38} compact />
               <span style={{ fontSize: 8, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
             </div>
 
             <NexusHeroChipsMobile />
           </div>
+          <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={52} />
           <div className="flex flex-wrap justify-center gap-1.5 mb-2">
             {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
               <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "4px 9px", borderRadius: 100, border: "1px solid rgba(26,26,26,.12)", background: "#FFFFFF", fontSize: 10, color: H.text, boxShadow: "0 1px 8px rgba(26,26,26,.04)" }}>
