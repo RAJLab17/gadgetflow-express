@@ -1,5 +1,3 @@
-import qi2Mark from "@/assets/badges/qi2-mark.webp.asset.json";
-
 interface Qi2CertifiedBadgeProps {
   size?: number;
   /** Compact = mark only (no wordmark/pill). */
@@ -15,17 +13,17 @@ export default function Qi2CertifiedBadge({
 }: Qi2CertifiedBadgeProps) {
   const mark = (
     <img
-      src={qi2Mark.url}
+      src="/qi2-logo-black.svg"
       aria-label="Qi2 zertifiziert"
       alt="Qi2 zertifiziert"
       width={size}
-      height={Math.round(size * 0.62)}
+      height={Math.round(size * 0.77)}
       style={{
         display: "block",
         width: size,
         height: "auto",
         objectFit: "contain",
-        filter: "brightness(0) saturate(100%)",
+        filter: "none",
       }}
     />
   );
