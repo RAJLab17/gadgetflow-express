@@ -784,6 +784,10 @@ const NexusPage = () => {
               ))}
             </div>
 
+            <p className="hidden md:block" style={{ marginTop: 24, maxWidth: 460, fontSize: "clamp(15px,1.15vw,18px)", lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>
+              Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch.
+            </p>
+
             <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 30 }}>
               <span style={{ fontSize: "clamp(20px,1.8vw,24px)", color: H.textMuted, fontWeight: 400, letterSpacing: "-.01em" }}>CHF 99.-</span>
               <span style={{ fontSize: 14, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
