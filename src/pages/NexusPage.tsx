@@ -46,9 +46,10 @@ import carousel3 from "@/assets/products/nexus-real-folds-white.webp";
 import carousel5Asset from "@/assets/products/nexus-carousel4-lifestyle.webp.asset.json";
 import beforeCableImg from "@/assets/products/nexus-before-cable-chaos.jpg";
 import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
-import nexusHero800 from "@/assets/products/nexus-hero-charging-800w.webp";
-import nexusHero1200 from "@/assets/products/nexus-hero-charging-1200w.webp";
-import nexusHeroWhiteAsset from "@/assets/products/nexus-hero-chatgpt.png.asset.json";
+import nexusHeroFallbackAsset from "@/assets/products/nexus-hero-chatgpt.png.asset.json";
+import nexusHeroWebp400 from "@/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
+import nexusHeroWebp800 from "@/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
+import nexusHeroWebp1200 from "@/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
 
 const carousel5 = carousel5Asset.url;
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
@@ -67,8 +68,9 @@ import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
-const nexusHeroImg = nexusHeroWhiteAsset.url;
-const nexusHeroImgSm = nexusHeroWhiteAsset.url;
+const nexusHeroImg = nexusHeroFallbackAsset.url;
+const heroWebpSrcSet = `${nexusHeroWebp400.url} 400w, ${nexusHeroWebp800.url} 800w, ${nexusHeroWebp1200.url} 1200w`;
+const heroSizes = "(max-width: 767px) 100vw, 50vw";
 // ─────────────────────────────────────────────────────────────────
 
 
