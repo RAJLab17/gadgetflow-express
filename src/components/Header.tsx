@@ -191,12 +191,12 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <CartDrawer />
+            <CartDrawer triggerClassName="!h-10 !w-10 !rounded-full !border-black/90 !bg-white hover:!bg-neutral-50 [&_svg]:![color:#111111] shadow-sm" />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
-            <CartDrawer triggerClassName="!h-10 !w-10 !rounded-full !border-white/10 !bg-[rgba(30,28,25,0.9)] hover:!bg-[rgba(40,38,35,0.95)] [&_svg]:![color:#E8DCC4]" />
+            <CartDrawer triggerClassName="!h-10 !w-10 !rounded-full !border-black/90 !bg-white hover:!bg-neutral-50 [&_svg]:![color:#111111] shadow-sm" />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-white/10 bg-[rgba(30,28,25,0.9)] transition-colors"
