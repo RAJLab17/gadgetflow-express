@@ -735,7 +735,7 @@ const NexusPage = () => {
         style={{ background: H.bg, color: H.text, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
+        <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
 
         {/* DESKTOP */}
         <div className="hidden md:grid relative px-12 lg:px-16 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "1fr 1.18fr", gap: "clamp(32px,4.5vw,72px)", alignItems: "center" }}>
