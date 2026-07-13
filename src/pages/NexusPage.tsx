@@ -822,14 +822,6 @@ const NexusPage = () => {
               />
             )}
 
-            <div style={{ marginTop: 26, paddingTop: 20, borderTop: `1px solid ${H.border}` }}>
-              <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.textDim, marginBottom: 10 }}>Sichere Zahlungsmethoden</p>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: `1px solid ${H.border}` }} />
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* RIGHT — hero image */}
@@ -856,9 +848,35 @@ const NexusPage = () => {
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
                 </div>
               </div>
-
-              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={66} />
             </div>
+          </div>
+
+          {/* DESKTOP: unified black trust bar with payment + thumbnails */}
+          <div
+            className="hidden md:flex"
+            style={{
+              gridColumn: "1 / -1",
+              marginTop: "clamp(28px,3.2vw,48px)",
+              borderRadius: 20,
+              background: "#0a0908",
+              border: "1px solid rgba(155,107,63,.20)",
+              padding: "clamp(18px,2.2vw,30px) clamp(24px,3vw,48px)",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 24,
+              flexWrap: "wrap",
+              boxShadow: "0 30px 80px -30px rgba(0,0,0,.35)",
+            }}
+          >
+            <div>
+              <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold, marginBottom: 12 }}>Sichere Zahlungsmethoden</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.12)" }} />
+                ))}
+              </div>
+            </div>
+            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={60} dark />
           </div>
         </div>
 
