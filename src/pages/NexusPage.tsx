@@ -66,6 +66,7 @@ import NexusRatingBadge from "@/components/NexusRatingBadge";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
+import { HERO_CAROUSEL_SLIDES, HeroSwipeImage, HeroThumbs } from "@/components/nexus/NexusHeroCarousel";
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
 const nexusHeroImg = nexusHeroFallbackAsset.url;
