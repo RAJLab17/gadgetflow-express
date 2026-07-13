@@ -914,6 +914,8 @@ const NexusPage = () => {
               gap: 24,
               flexWrap: "wrap",
               boxShadow: "0 30px 80px -30px rgba(0,0,0,.35)",
+              position: "relative",
+              zIndex: 4,
             }}
           >
             <div>
