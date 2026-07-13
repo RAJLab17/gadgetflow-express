@@ -828,31 +828,31 @@ const NexusPage = () => {
           </div>
 
           {/* RIGHT — hero image */}
-          <div style={{ position: "sticky", top: 120, alignSelf: "start", width: "100%" }}>
+          <div style={{ position: "sticky", top: 110, alignSelf: "start", width: "100%" }}>
             <div style={{ position: "relative", width: "100%" }}>
-              <div style={{ position: "absolute", top: "50%", left: "50%", width: "88%", height: "88%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.12), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
-              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "1/1", borderRadius: 14, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
+              <div style={{ position: "absolute", top: "50%", left: "50%", width: "92%", height: "92%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.14), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
+              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "4/5", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
                 <HeroSwipeImage
                   slides={HERO_CAROUSEL_SLIDES}
                   index={heroSlideIdx}
                   onChange={setHeroSlideIdx}
-                  sizes="(max-width: 767px) 100vw, 46vw"
+                  sizes="(max-width: 767px) 100vw, 52vw"
                   priority
                   objectFit="cover"
                 />
 
                 {/* Overlays inside the frame */}
-                <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "6%", left: "4%" }} />
-                <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "44%", right: "4%" }} />
-                <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "6%", left: "4%" }} />
+                <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "5%", left: "4%" }} />
+                <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "46%", right: "4%" }} />
+                <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "5%", left: "4%" }} />
 
-                <div style={{ position: "absolute", bottom: 18, right: 20, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-                  <Qi2CertifiedBadge size={46} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
+                <div style={{ position: "absolute", bottom: 20, right: 22, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+                  <Qi2CertifiedBadge size={50} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
                 </div>
               </div>
 
-              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={60} />
+              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={66} />
             </div>
           </div>
         </div>
