@@ -841,9 +841,9 @@ const NexusPage = () => {
           <div style={{ position: "relative", width: "calc(100% + 40px)", maxWidth: "none", margin: "0 -20px 8px", aspectRatio: "1/1", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
 
             <picture>
-              <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
-              <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
-              <img src={nexusHeroImgSm} width={800} height={800} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
+              <source type="image/webp" media="(max-width: 767px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+              <source type="image/webp" media="(min-width: 768px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+              <img src={nexusHeroImg} width={800} height={800} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" fetchPriority="high" />
             </picture>
             <div style={{ position: "absolute", bottom: 18, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
               <Qi2CertifiedBadge size={38} compact />
