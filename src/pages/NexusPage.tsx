@@ -915,17 +915,17 @@ const NexusPage = () => {
               review={latestMarcelReview}
               className="mt-3"
               onPhotoClick={() => setMarcelLightboxOpen(true)}
-              theme="light"
+              theme="dark"
             />
           )}
 
-          <p style={{ marginTop: 14, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: H.textDim, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
-
-
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
-            {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-              <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: `1px solid ${H.border}` }} />
-            ))}
+          <div className="mt-4 -mx-5 px-5 py-6 rounded-t-2xl" style={{ background: D.bg, color: D.beige }}>
+            <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.beige, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
+              {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+                <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.2)" }} />
+              ))}
+            </div>
           </div>
           <div className="h-20" aria-hidden />
         </div>
