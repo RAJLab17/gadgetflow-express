@@ -36,13 +36,21 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
           variant="outline"
           size="icon"
           className={`relative ${triggerClassName ?? ""}`}
-          style={{ backgroundColor: "#ffffff", borderColor: "#111111" }}
+          style={{ backgroundColor: "#ffffff", borderColor: "#111111", color: "#111111" }}
           aria-label="Warenkorb öffnen"
         >
-          <ShoppingCart
-            ref={(el) => el?.style.setProperty("color", "#111111", "important")}
-            className="h-5 w-5"
-          />
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 shrink-0"
+            style={{ color: "#111111", stroke: "#111111" }}
+          >
+            <path d="M6.5 6.5h14l-1.4 7.15a2 2 0 0 1-1.96 1.62H9.28a2 2 0 0 1-1.96-1.61L5.25 3.75H2.8" stroke="#111111" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="9.8" cy="20" r="1.35" fill="#111111" />
+            <circle cx="17.3" cy="20" r="1.35" fill="#111111" />
+          </svg>
           {totalItems > 0 && (
             <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-[#9b6b3f] text-white border border-[#9b6b3f]/40">
               {totalItems}
