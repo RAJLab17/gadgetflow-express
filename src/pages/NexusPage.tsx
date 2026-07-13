@@ -833,6 +833,11 @@ const NexusPage = () => {
             <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
             <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "38%", right: "-4%" }} />
             <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "12%", left: "4%" }} />
+            <div style={{ position: "absolute", left: 0, right: 0, bottom: 4, zIndex: 4, display: "flex", justifyContent: "center", pointerEvents: "none" }}>
+              <div style={{ pointerEvents: "auto" }}>
+                <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={54} />
+              </div>
+            </div>
           </div>
         </div>
 
