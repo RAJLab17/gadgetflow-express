@@ -28,7 +28,7 @@ export default function Qi2CertifiedBadge({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#F5EFE6",
+        color: "#000000",
         fontSize: Math.round(size * 0.44),
         lineHeight: 1,
         fontWeight: 700,

@@ -48,6 +48,7 @@ import beforeCableImg from "@/assets/products/nexus-before-cable-chaos.jpg";
 import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
 import nexusHero800 from "@/assets/products/nexus-hero-charging-800w.webp";
 import nexusHero1200 from "@/assets/products/nexus-hero-charging-1200w.webp";
+import nexusHeroWhiteAsset from "@/assets/products/nexus-hero-white.png.asset.json";
 
 const carousel5 = carousel5Asset.url;
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
@@ -66,9 +67,10 @@ import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
-const nexusHeroImg = nexusHero1200;
-const nexusHeroImgSm = nexusHero800;
+const nexusHeroImg = nexusHeroWhiteAsset.url;
+const nexusHeroImgSm = nexusHeroWhiteAsset.url;
 // ─────────────────────────────────────────────────────────────────
+
 
 const heroDesire = new URL("../assets/hero-carousel/slide-5-desire.webp", import.meta.url).href;
 const heroDesireSm = new URL("../assets/hero-carousel/slide-5-desire-480.webp", import.meta.url).href;
@@ -816,9 +818,10 @@ const NexusPage = () => {
                 <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
               </picture>
               <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-                <Qi2CertifiedBadge size={44} gold={H.gold} compact />
-                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6", textShadow: "0 1px 8px rgba(0,0,0,.45)" }}>Zertifiziert</span>
+                <Qi2CertifiedBadge size={44} gold="#000000" compact />
+                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
               </div>
+
             </div>
             <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
             <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "38%", right: "-4%" }} />
@@ -841,9 +844,10 @@ const NexusPage = () => {
               <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
             </picture>
             <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-              <Qi2CertifiedBadge size={36} gold={H.gold} compact />
-              <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6", textShadow: "0 1px 6px rgba(0,0,0,.45)" }}>Zertifiziert</span>
+              <Qi2CertifiedBadge size={36} gold="#000000" compact />
+              <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
             </div>
+
             <NexusHeroChipsMobile />
           </div>
           <div className="flex flex-wrap justify-center gap-1.5 mb-2">
