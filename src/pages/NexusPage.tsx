@@ -871,9 +871,9 @@ const NexusPage = () => {
               </span>
             </div>
             {/* Price */}
-            <div className="flex items-baseline justify-center" style={{ gap: 12 }}>
-              <span style={{ fontSize: 34, color: H.text, fontWeight: 300, letterSpacing: "-0.02em", lineHeight: 1 }}>CHF 99.–</span>
-              <span style={{ fontSize: 15, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.–</span>
+            <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
+              <span style={{ fontSize: 22, color: H.textMuted, fontWeight: 400, letterSpacing: "0", lineHeight: 1 }}>CHF 99.–</span>
+              <span style={{ fontSize: 13, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.–</span>
             </div>
             {/* Rating */}
             {reviewStats && reviewStats.total > 0 && (
