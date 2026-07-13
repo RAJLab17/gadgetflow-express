@@ -10,9 +10,11 @@ import { useEffect, useRef, useState } from "react";
  * - Respects prefers-reduced-motion
  */
 
-const GOLD = "#C9A876";
-const BEIGE = "#F5EFE6";
-const MUTED_DIM = "#6a625c";
+const GOLD = "#9b6b3f";
+const BEIGE = "#1A1A1A";
+const MUTED_DIM = "#9A9285";
+const WHITE = "#FFFFFF";
+const ICON_BG = "rgba(155,107,63,.10)";
 
 const IconPhone = () => (
   <svg width="10" height="14" viewBox="0 0 12 18" fill="none" aria-hidden>
