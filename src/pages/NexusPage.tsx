@@ -175,6 +175,20 @@ type HeroReview = {
   verified_purchase: boolean;
 };
 
+/**
+ * Transforms a Supabase signed object URL into a signed image-render URL
+ * with width/quality params so we don't ship 3+ MB originals to the client.
+ * Falls back to the original URL if it isn't a Supabase storage URL.
+ */
+const supaThumb = (url: string | null | undefined, width: number, quality = 72): string => {
+  if (!url) return "";
+  if (!url.includes("/storage/v1/object/")) return url;
+  const rendered = url.replace("/storage/v1/object/", "/storage/v1/render/image/");
+  const sep = rendered.includes("?") ? "&" : "?";
+  return `${rendered}${sep}width=${width}&quality=${quality}&resize=cover`;
+};
+
+
 const LatestMarcelReview = ({
   review,
   className = "",
