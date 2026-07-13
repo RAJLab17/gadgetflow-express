@@ -146,17 +146,17 @@ const ChargeChip = ({ label, icon, startVal, phase, floatAnim, style }: ChargeCh
     return () => clearTimeout(t);
   }, [phase]);
   return (
-    <div style={{ position: "absolute", padding: "12px 15px", borderRadius: 15, background: "#121110", border: "1px solid rgba(201,168,118,.26)", boxShadow: "0 18px 44px rgba(0,0,0,.55)", minWidth: 148, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
+    <div style={{ position: "absolute", padding: "12px 15px", borderRadius: 15, background: H.surface, border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 18px 44px rgba(26,26,26,.12)", minWidth: 148, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-        <div style={{ width: 24, height: 24, borderRadius: 7, background: "rgba(201,168,118,.14)", display: "flex", alignItems: "center", justifyContent: "center" }}>{icon}</div>
-        <span style={{ fontSize: 11.5, color: D.beige, fontWeight: 500 }}>{label}</span>
+        <div style={{ width: 24, height: 24, borderRadius: 7, background: "rgba(155,107,63,.10)", display: "flex", alignItems: "center", justifyContent: "center" }}>{icon}</div>
+        <span style={{ fontSize: 11.5, color: H.text, fontWeight: 500 }}>{label}</span>
       </div>
       <div style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
-        <span style={{ fontSize: 25, fontWeight: 300, fontVariantNumeric: "tabular-nums", color: D.beige }}>{val}</span>
-        <span style={{ fontSize: 13, color: D.mutedDim }}>%</span>
+        <span style={{ fontSize: 25, fontWeight: 300, fontVariantNumeric: "tabular-nums", color: H.text }}>{val}</span>
+        <span style={{ fontSize: 13, color: H.textDim }}>%</span>
       </div>
-      <div style={{ marginTop: 8, height: 2, borderRadius: 2, background: "rgba(255,255,255,.1)", overflow: "hidden" }}>
-        <div style={{ height: "100%", width: `${val}%`, borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${D.gold})`, transition: "width 1s ease" }} />
+      <div style={{ marginTop: 8, height: 2, borderRadius: 2, background: "rgba(26,26,26,.08)", overflow: "hidden" }}>
+        <div style={{ height: "100%", width: `${val}%`, borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${H.gold})`, transition: "width 1s ease" }} />
       </div>
     </div>
   );
