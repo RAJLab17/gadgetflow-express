@@ -815,9 +815,9 @@ const NexusPage = () => {
             <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.10), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.22), 0 0 0 1px rgba(155,107,63,.15)" }}>
               <picture>
-                <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
-                <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
-                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
+                <source type="image/webp" media="(min-width: 768px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+                <source type="image/webp" media="(max-width: 767px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
+                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" fetchpriority="high" />
               </picture>
               <div style={{ position: "absolute", bottom: 16, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                 <Qi2CertifiedBadge size={46} compact />
