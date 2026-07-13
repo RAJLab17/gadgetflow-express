@@ -767,9 +767,10 @@ const NexusPage = () => {
               <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert</span>
             </div>
 
-            <h1 style={{ fontSize: "clamp(56px,7.2vw,104px)", lineHeight: .92, letterSpacing: "-.035em", fontWeight: 200, margin: 0 }}>
-              <span style={{ display: "block", color: H.text, fontWeight: 200 }}>RAJ</span>
-              <span style={{ display: "block", background: `linear-gradient(120deg, #c8946b 0%, ${H.goldLight} 45%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.03em" }}>NEXUS</span>
+            <h1 style={{ fontSize: "clamp(48px,6.2vw,92px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
+              <span style={{ display: "inline", color: H.text, fontWeight: 200 }}>RAJ</span>
+              <span style={{ display: "inline", marginLeft: "0.12em" }} />
+              <span style={{ display: "inline", background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em", textShadow: "0 2px 24px rgba(155,107,63,.18)" }}>NEXUS</span>
             </h1>
             <p style={{ marginTop: 24, fontSize: "clamp(18px,1.6vw,24px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 480 }}>
               iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.
