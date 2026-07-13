@@ -156,7 +156,7 @@ export const HeroThumbs = ({
   size?: number;
 }) => (
   <div
-    className="flex items-center justify-center gap-2 mt-3"
+    className="flex items-center justify-center gap-3 mt-5"
     role="tablist"
     aria-label="Produktbilder"
   >
