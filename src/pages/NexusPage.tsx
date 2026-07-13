@@ -735,7 +735,7 @@ const NexusPage = () => {
         style={{ background: H.bg, color: H.text, paddingTop: "clamp(76px, 8vw, 112px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
+        <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
 
         {/* DESKTOP */}
         <div className="hidden md:grid relative px-12 lg:px-16 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "1fr 1.18fr", gap: "clamp(32px,4.5vw,72px)", alignItems: "center" }}>
@@ -832,7 +832,7 @@ const NexusPage = () => {
         </div>
 
         {/* MOBILE */}
-        <div className="md:hidden relative px-5 pt-1 pb-10" style={{ zIndex: 2 }}>
+        <div className="md:hidden relative px-5 pt-1 pb-0" style={{ zIndex: 2 }}>
           <div className="text-center mb-1" style={{ fontSize: "clamp(30px,8vw,42px)", lineHeight: .95, letterSpacing: "-.02em", fontWeight: 100, whiteSpace: "nowrap" }}>
             <span style={{ color: H.text }}>RAJ</span>{" "}
             <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
@@ -926,14 +926,13 @@ const NexusPage = () => {
               ))}
             </div>
           </div>
-          <div className="h-20" aria-hidden />
         </div>
 
-        <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
+        <div className="h-px w-full hidden md:block" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
       </section>
 
       {/* ═══ 2. TRUST ═══ */}
-      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
+      <section style={{ background: L.bg, color: L.text }} className="pt-0 pb-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>— Drei Geräte · Ein Ort</span>
