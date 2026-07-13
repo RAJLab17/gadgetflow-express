@@ -208,10 +208,10 @@ const LatestMarcelReview = ({
     ? { border: H.border, surface: H.surface, text: H.text, muted: H.textMuted, gold: H.gold, bg: "#FFFFFF" }
     : { border: "rgba(201,168,118,.2)", surface: "rgba(255,255,255,.03)", text: D.beige, muted: D.muted, gold: D.gold, bg: "rgba(20,19,18,.55)" };
   return (
-    <div className={`${className}`}>
+    <div className={`${className}`} style={{ position: "relative" }}>
       <div
         className="group cursor-pointer rounded-t-xl border px-3 py-2.5 sm:px-3.5 sm:py-3 transition-all hover:opacity-95"
-        style={{ borderColor: c.border, background: c.surface, boxShadow: isLight ? "0 2px 16px rgba(26,26,26,.04)" : undefined }}
+        style={{ borderColor: c.border, background: c.surface, boxShadow: isLight ? "0 2px 16px rgba(26,26,26,.04)" : undefined, borderBottomLeftRadius: expanded ? 0 : undefined, borderBottomRightRadius: expanded ? 0 : undefined }}
         onClick={toggle}
         role="button"
         tabIndex={0}
@@ -260,39 +260,65 @@ const LatestMarcelReview = ({
         </div>
       </div>
       {expanded && (
-        <div
-          className="rounded-b-xl border border-t-0"
-          style={{ borderColor: c.border, background: c.bg }}
-        >
-          <div className="px-3 py-3 sm:px-3.5 sm:py-4">
-            <p className="text-sm leading-relaxed italic" style={{ color: c.text }}>
-              «{review.comment}»
-            </p>
-            {review.photo_url && (
+        <>
+          {/* Backdrop for outside-click dismiss — doesn't shift layout */}
+          <div
+            aria-hidden
+            onClick={() => setExpanded(false)}
+            style={{ position: "fixed", inset: 0, zIndex: 40, background: "transparent" }}
+          />
+          <div
+            className="rounded-b-xl border border-t-0"
+            style={{
+              borderColor: c.border,
+              background: c.bg,
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              zIndex: 41,
+              boxShadow: isLight ? "0 24px 60px -20px rgba(26,26,26,.28)" : "0 24px 60px -20px rgba(0,0,0,.6)",
+            }}
+          >
+            <div className="px-3 py-3 sm:px-3.5 sm:py-4 relative">
               <button
                 type="button"
-                onClick={() => onPhotoClick?.()}
-                className="mt-3 w-full rounded-lg overflow-hidden border transition-opacity hover:opacity-90"
-                style={{ borderColor: c.border }}
-                aria-label="Foto vergrössern"
+                onClick={() => setExpanded(false)}
+                aria-label="Bewertung schliessen"
+                className="absolute top-2 right-2 rounded-full p-1 transition-opacity hover:opacity-70"
+                style={{ color: c.muted, background: "transparent", border: "none" }}
               >
-                <img src={supaThumb(review.photo_url, 720)} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+                <X size={14} />
               </button>
-            )}
-            <div className="mt-3 flex items-center justify-between">
-              <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold" style={{ color: c.gold }}>
-                <ShieldCheck size={11} /> Verifizierter Kauf
-              </span>
-              <Link
-                to="/reviews"
-                className="text-[9px] sm:text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-                style={{ color: c.muted }}
-              >
-                Alle Bewertungen →
-              </Link>
+              <p className="text-sm leading-relaxed italic pr-6" style={{ color: c.text }}>
+                «{review.comment}»
+              </p>
+              {review.photo_url && (
+                <button
+                  type="button"
+                  onClick={() => onPhotoClick?.()}
+                  className="mt-3 w-full rounded-lg overflow-hidden border transition-opacity hover:opacity-90"
+                  style={{ borderColor: c.border }}
+                  aria-label="Foto vergrössern"
+                >
+                  <img src={supaThumb(review.photo_url, 720)} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+                </button>
+              )}
+              <div className="mt-3 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold" style={{ color: c.gold }}>
+                  <ShieldCheck size={11} /> Verifizierter Kauf
+                </span>
+                <Link
+                  to="/reviews"
+                  className="text-[9px] sm:text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
+                  style={{ color: c.muted }}
+                >
+                  Alle Bewertungen →
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
