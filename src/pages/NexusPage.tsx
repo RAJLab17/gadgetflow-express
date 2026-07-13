@@ -932,7 +932,7 @@ const NexusPage = () => {
       </section>
 
       {/* ═══ 2. TRUST ═══ */}
-      <section style={{ background: L.bg, color: L.text }} className="pt-4 pb-24 md:py-44 px-5">
+      <section style={{ background: L.bg, color: L.text }} className="pt-0 pb-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>— Drei Geräte · Ein Ort</span>
