@@ -817,7 +817,7 @@ const NexusPage = () => {
               <picture>
                 <source type="image/webp" media="(min-width: 768px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
                 <source type="image/webp" media="(max-width: 767px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
-                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" fetchpriority="high" />
+                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" fetchPriority="high" />
               </picture>
               <div style={{ position: "absolute", bottom: 16, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                 <Qi2CertifiedBadge size={46} compact />
