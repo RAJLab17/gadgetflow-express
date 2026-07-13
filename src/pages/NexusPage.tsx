@@ -752,20 +752,20 @@ const NexusPage = () => {
             <p style={{ marginTop: 22, fontSize: "clamp(17px,1.8vw,24px)", lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 9, marginTop: 24 }}>
               {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
-                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 12, color: D.beige }}>
-                  <span style={{ color: D.gold }}>✓</span> {b}
+                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 12, color: H.text, boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
+                  <span style={{ color: H.gold }}>✓</span> {b}
                 </span>
               ))}
             </div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 32, marginBottom: 20 }}>
-              <span style={{ fontSize: "clamp(38px,4.8vw,58px)", color: D.beige, fontWeight: 300 }}>CHF 99.-</span>
-              <span style={{ fontSize: "clamp(15px,1.5vw,19px)", textDecoration: "line-through", color: D.mutedDim, fontWeight: 300 }}>CHF 129.-</span>
-              <span style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".16em", color: D.gold, fontWeight: 600, padding: "5px 11px", borderRadius: 100, background: "rgba(201,168,118,.1)" }}>-30.-</span>
+              <span style={{ fontSize: "clamp(38px,4.8vw,58px)", color: H.text, fontWeight: 300 }}>CHF 99.-</span>
+              <span style={{ fontSize: "clamp(15px,1.5vw,19px)", textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
+              <span style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".16em", color: H.gold, fontWeight: 600, padding: "5px 11px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
             </div>
             <div style={{ marginTop: -4, marginBottom: 18 }}>
-              <NexusRatingBadge gold="#C9A876" textColor={D.beige} size={15} />
+              <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={15} />
             </div>
-            <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60" style={{ padding: "19px 54px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${D.gold} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+            <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60" style={{ padding: "19px 54px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </button>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
@@ -774,7 +774,7 @@ const NexusPage = () => {
                 { i: <svg width="14" height="14" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 2 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
                 { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–3 Werktagen" },
               ].map((b) => (
-                <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: "1px solid rgba(201,168,118,.18)", background: "rgba(255,255,255,.02)", fontSize: 11.5, color: D.beige }}>
+                <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 11.5, color: H.text, boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
                   {b.i} {b.t}
                 </span>
               ))}
@@ -784,16 +784,17 @@ const NexusPage = () => {
                 review={latestMarcelReview}
                 className="mt-4"
                 onPhotoClick={() => setMarcelLightboxOpen(true)}
+                theme="light"
               />
             )}
 
 
             
 
-            <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.mutedDim }}>Sichere Zahlungsmethoden</p>
+            <p style={{ marginTop: 20, fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: H.textDim }}>Sichere Zahlungsmethoden</p>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 8, flexWrap: "wrap" }}>
               {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px" }} />
+                <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: `1px solid ${H.border}` }} />
               ))}
             </div>
             <div className="h-20" aria-hidden />
