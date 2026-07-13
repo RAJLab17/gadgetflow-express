@@ -1,6 +1,3 @@
-import { useState } from "react";
-import qi2Logo from "@/assets/badges/qi2-mark.webp.asset.json";
-
 interface Qi2CertifiedBadgeProps {
   size?: number;
   /** Compact = mark only (no wordmark/pill). */
@@ -8,51 +5,51 @@ interface Qi2CertifiedBadgeProps {
 }
 
 /**
- * Official Qi2 · 25W certification mark.
- * Kept strictly in black on the original white/desk hero imagery.
- * Small file (~5KB webp), cached on CDN, no perf hit.
+ * Qi2 certification mark.
+ * Rendered directly in pure black so it never falls back to a white CDN image.
  */
 export default function Qi2CertifiedBadge({
   size = 44,
   compact = false,
 }: Qi2CertifiedBadgeProps) {
-  const [imageFailed, setImageFailed] = useState(false);
-  const fallbackMark = (
-    <div
-      aria-label="Qi2 25W zertifiziert"
-      style={{
-        width: size,
-        height: size,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "#000000",
-        fontSize: Math.round(size * 0.44),
-        lineHeight: 1,
-        fontWeight: 700,
-        letterSpacing: "-0.06em",
-      }}
-    >
-      qi2
-    </div>
-  );
-
-  const mark = imageFailed ? fallbackMark : (
-    <img
-      src={qi2Logo.url}
-      alt="Qi2 25W zertifiziert"
+  const mark = (
+    <svg
       width={size}
-      height={size}
-      loading="lazy"
-      decoding="async"
-      onError={() => setImageFailed(true)}
+      height={Math.round(size * 0.62)}
+      viewBox="0 0 120 74"
+      role="img"
+      aria-label="Qi2 zertifiziert"
+      xmlns="http://www.w3.org/2000/svg"
       style={{
         display: "block",
         width: size,
-        height: size,
-        objectFit: "contain",
+        height: Math.round(size * 0.62),
+        color: "#000000",
       }}
-    />
+    >
+      <text
+        x="2"
+        y="50"
+        fill="currentColor"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontSize="54"
+        fontWeight="800"
+        letterSpacing="-7"
+      >
+        Qi
+      </text>
+      <text
+        x="64"
+        y="50"
+        fill="currentColor"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fontSize="44"
+        fontWeight="800"
+        letterSpacing="-4"
+      >
+        2
+      </text>
+    </svg>
   );
 
   if (compact) return mark;
