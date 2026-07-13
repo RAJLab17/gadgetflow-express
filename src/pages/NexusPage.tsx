@@ -276,7 +276,7 @@ const LatestMarcelReview = ({
               top: "100%",
               left: 0,
               right: 0,
-              zIndex: 41,
+              zIndex: 60,
               boxShadow: isLight ? "0 24px 60px -20px rgba(26,26,26,.28)" : "0 24px 60px -20px rgba(0,0,0,.6)",
             }}
           >
