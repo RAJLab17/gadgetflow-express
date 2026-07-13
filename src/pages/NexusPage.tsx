@@ -848,29 +848,6 @@ const NexusPage = () => {
               />
             )}
 
-            {/* DESKTOP: secure payments belong under Marcel review */}
-            <div
-              className="hidden md:flex"
-              style={{
-                marginTop: 14,
-                borderRadius: 18,
-                background: "#0a0908",
-                border: "1px solid rgba(155,107,63,.20)",
-                padding: "16px 18px",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 10,
-                boxShadow: "0 24px 70px -34px rgba(0,0,0,.42)",
-              }}
-            >
-              <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold }}>Sichere Zahlungsmethoden</p>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
-                {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.12)" }} />
-                ))}
-              </div>
-            </div>
 
           </div>
 
