@@ -2,6 +2,9 @@ import { useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Slide assets (optimised WebP served from Lovable CDN)
+import s0_400 from "@/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
+import s0_800 from "@/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
+import s0_1200 from "@/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
 import s1_480 from "@/assets/nexus-carousel/slide-1-480.webp.asset.json";
 import s1_900 from "@/assets/nexus-carousel/slide-1-900.webp.asset.json";
 import s1_1400 from "@/assets/nexus-carousel/slide-1-1400.webp.asset.json";
@@ -27,6 +30,12 @@ export type HeroSlide = {
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
+  {
+    src: s0_1200.url,
+    srcSet: `${s0_400.url} 400w, ${s0_800.url} 800w, ${s0_1200.url} 1200w`,
+    thumb: s0_400.url,
+    alt: "RAJ NEXUS 3-in-1 Wireless Charger – Studio-Aufnahme",
+  },
   {
     src: s1_1400.url,
     srcSet: `${s1_480.url} 480w, ${s1_900.url} 900w, ${s1_1400.url} 1400w`,
