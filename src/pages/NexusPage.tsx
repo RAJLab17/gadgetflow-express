@@ -765,10 +765,10 @@ const NexusPage = () => {
                 </span>
               ))}
             </div>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 32, marginBottom: 20 }}>
-              <span style={{ fontSize: "clamp(38px,4.8vw,58px)", color: H.text, fontWeight: 300 }}>CHF 99.-</span>
-              <span style={{ fontSize: "clamp(15px,1.5vw,19px)", textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
-              <span style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".16em", color: H.gold, fontWeight: 600, padding: "5px 11px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 28, marginBottom: 18 }}>
+              <span style={{ fontSize: "clamp(22px,2.6vw,30px)", color: H.textMuted, fontWeight: 400 }}>CHF 99.-</span>
+              <span style={{ fontSize: "clamp(14px,1.3vw,17px)", textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
+              <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
             </div>
             <div style={{ marginTop: -4, marginBottom: 18 }}>
               <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={15} />
