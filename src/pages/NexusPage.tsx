@@ -817,9 +817,9 @@ const NexusPage = () => {
                 <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
                 <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
               </picture>
-              <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, padding: "8px 12px", borderRadius: 100, background: "#FFFFFF", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 4px 16px rgba(26,26,26,.08)" }}>
-                <Qi2CertifiedBadge size={44} gold="#000000" compact />
-                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
+              <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, padding: "8px 12px", borderRadius: 100, background: "#000000", border: "1px solid rgba(255,255,255,.15)", boxShadow: "0 4px 16px rgba(0,0,0,.25)" }}>
+                <Qi2CertifiedBadge size={44} dark compact />
+                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#FFFFFF" }}>Zertifiziert</span>
               </div>
 
             </div>
@@ -836,16 +836,16 @@ const NexusPage = () => {
             <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
           </div>
           <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.20), 0 0 0 1px rgba(155,107,63,.15)", marginBottom: 8 }}>
+          <div style={{ position: "relative", width: "80%", maxWidth: 300, margin: "0 auto", aspectRatio: "1/1", borderRadius: 10, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.20), 0 0 0 1px rgba(155,107,63,.15)", marginBottom: 8 }}>
 
             <picture>
               <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
               <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
-              <img src={nexusHeroImgSm} width={800} height={533} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
+              <img src={nexusHeroImgSm} width={800} height={800} alt="RAJ NEXUS" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} loading="eager" decoding="async" />
             </picture>
-            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, padding: "6px 10px", borderRadius: 100, background: "#FFFFFF", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 4px 14px rgba(26,26,26,.08)" }}>
-              <Qi2CertifiedBadge size={36} gold="#000000" compact />
-              <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
+            <div style={{ position: "absolute", bottom: 10, right: 12, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, padding: "6px 10px", borderRadius: 100, background: "#000000", border: "1px solid rgba(255,255,255,.15)", boxShadow: "0 4px 14px rgba(0,0,0,.25)" }}>
+              <Qi2CertifiedBadge size={36} dark compact />
+              <span style={{ fontSize: 8, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#FFFFFF" }}>Zertifiziert</span>
             </div>
 
             <NexusHeroChipsMobile />

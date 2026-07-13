@@ -6,19 +6,23 @@ interface Qi2CertifiedBadgeProps {
   gold?: string;
   /** Compact = mark only (no wordmark/pill). */
   compact?: boolean;
+  /** Dark variant: white mark on black surfaces. */
+  dark?: boolean;
 }
 
 /**
  * Official Qi2 · 25W certification mark.
- * Uses the uploaded logo asset, inverted to white to sit on the dark hero.
- * Small file (~21KB webp), cached on CDN, no perf hit.
+ * Uses the uploaded logo asset; `dark` inverts it for crisp contrast on black.
+ * Small file (~5KB webp), cached on CDN, no perf hit.
  */
 export default function Qi2CertifiedBadge({
   size = 44,
   gold = "#C9A876",
   compact = false,
+  dark = false,
 }: Qi2CertifiedBadgeProps) {
   const [imageFailed, setImageFailed] = useState(false);
+  const markColor = dark ? "#FFFFFF" : "#000000";
   const fallbackMark = (
     <div
       aria-label="Qi2 25W zertifiziert"
@@ -28,7 +32,7 @@ export default function Qi2CertifiedBadge({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#000000",
+        color: markColor,
         fontSize: Math.round(size * 0.44),
         lineHeight: 1,
         fontWeight: 700,
@@ -53,7 +57,7 @@ export default function Qi2CertifiedBadge({
         width: size,
         height: size,
         objectFit: "contain",
-        // Black-on-white source → invert to crisp white for the dark hero.
+        filter: dark ? "invert(1)" : undefined,
       }}
     />
   );
@@ -68,9 +72,13 @@ export default function Qi2CertifiedBadge({
         gap: 10,
         padding: "6px 14px 6px 8px",
         borderRadius: 999,
-        background: "linear-gradient(135deg, rgba(18,17,16,.92), rgba(28,25,22,.88))",
-        border: `1px solid ${gold}55`,
-        boxShadow: `0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 12px ${gold}22`,
+        background: dark
+          ? "linear-gradient(135deg, #0a0a0a, #1a1a1a)"
+          : "linear-gradient(135deg, rgba(18,17,16,.92), rgba(28,25,22,.88))",
+        border: dark ? "1px solid rgba(255,255,255,.25)" : `1px solid ${gold}55`,
+        boxShadow: dark
+          ? "0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08) inset"
+          : `0 8px 24px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.04) inset, 0 0 12px ${gold}22`,
       }}
     >
       {mark}
@@ -78,7 +86,7 @@ export default function Qi2CertifiedBadge({
         style={{
           fontSize: Math.round(size * 0.22),
           fontWeight: 600,
-          color: gold,
+          color: dark ? "#FFFFFF" : gold,
           letterSpacing: ".22em",
           textTransform: "uppercase",
         }}
