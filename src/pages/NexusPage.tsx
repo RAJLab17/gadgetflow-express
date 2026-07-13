@@ -276,7 +276,7 @@ const LatestMarcelReview = ({
                 style={{ borderColor: c.border }}
                 aria-label="Foto vergrössern"
               >
-                <img src={review.photo_url} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
+                <img src={supaThumb(review.photo_url, 720)} alt={`Foto zur Bewertung von ${review.customer_name}`} loading="lazy" decoding="async" className="w-full h-36 sm:h-44 object-cover" />
               </button>
             )}
             <div className="mt-3 flex items-center justify-between">
