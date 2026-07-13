@@ -768,8 +768,8 @@ const NexusPage = () => {
               ))}
             </div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 28, marginBottom: 18 }}>
-              <span style={{ fontSize: "clamp(22px,2.6vw,30px)", color: H.textMuted, fontWeight: 400 }}>CHF 99.-</span>
-              <span style={{ fontSize: "clamp(14px,1.3vw,17px)", textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
+              <span style={{ fontSize: "clamp(20px,2.4vw,28px)", color: H.textMuted, fontWeight: 400 }}>CHF 99.-</span>
+              <span style={{ fontSize: "clamp(13px,1.2vw,16px)", textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
               <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
             </div>
             <div style={{ marginTop: -4, marginBottom: 18 }}>
@@ -874,8 +874,8 @@ const NexusPage = () => {
             </div>
             {/* Price */}
             <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
-              <span style={{ fontSize: 22, color: H.textMuted, fontWeight: 400, letterSpacing: "0", lineHeight: 1 }}>CHF 99.–</span>
-              <span style={{ fontSize: 13, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.–</span>
+              <span style={{ fontSize: 21, color: H.textMuted, fontWeight: 400, letterSpacing: "0", lineHeight: 1 }}>CHF 99.–</span>
+              <span style={{ fontSize: 12, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.–</span>
             </div>
             {/* Rating */}
             {reviewStats && reviewStats.total > 0 && (
