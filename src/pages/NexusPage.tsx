@@ -1107,7 +1107,7 @@ const NexusPage = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              src={latestMarcelReview.photo_url}
+              src={supaThumb(latestMarcelReview.photo_url, 1400, 82)}
               alt={`Foto zur Bewertung von ${latestMarcelReview.customer_name}`}
               className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
