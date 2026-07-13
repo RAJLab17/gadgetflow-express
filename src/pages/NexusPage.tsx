@@ -754,12 +754,12 @@ const NexusPage = () => {
         <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
 
         {/* DESKTOP */}
-        <div className="hidden md:grid relative px-10 lg:px-14 xl:px-20 pb-16 max-w-[1360px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.05fr)", gap: "clamp(40px,5vw,88px)", alignItems: "start" }}>
+        <div className="hidden md:grid relative px-10 lg:px-14 xl:px-20 pb-16 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", gap: "clamp(48px,5.5vw,96px)", alignItems: "start" }}>
           {/* LEFT — product info */}
-          <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(8px,1.5vw,24px)" }}>
+          <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(4px,1vw,16px)" }}>
 
             {/* Founder eyebrow */}
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "9px 18px 9px 14px", borderRadius: 100, border: `1px solid ${H.gold}44`, background: H.surface, marginBottom: 26, boxShadow: "0 4px 24px rgba(26,26,26,.05)" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "9px 18px 9px 14px", borderRadius: 100, border: `1px solid ${H.gold}44`, background: H.surface, marginBottom: 22, boxShadow: "0 4px 24px rgba(26,26,26,.05)" }}>
               <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
                 <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: H.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                 <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: H.gold }} />
@@ -767,11 +767,11 @@ const NexusPage = () => {
               <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert</span>
             </div>
 
-            <h1 style={{ fontSize: "clamp(38px,5vw,68px)", lineHeight: .95, letterSpacing: "-.025em", fontWeight: 100, margin: 0 }}>
-              <span style={{ color: H.text }}>RAJ</span>{" "}
-              <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
+            <h1 style={{ fontSize: "clamp(56px,7.2vw,104px)", lineHeight: .92, letterSpacing: "-.035em", fontWeight: 200, margin: 0 }}>
+              <span style={{ display: "block", color: H.text, fontWeight: 200 }}>RAJ</span>
+              <span style={{ display: "block", background: `linear-gradient(120deg, #c8946b 0%, ${H.goldLight} 45%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.03em" }}>NEXUS</span>
             </h1>
-            <p style={{ marginTop: 20, fontSize: "clamp(17px,1.55vw,22px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 460 }}>
+            <p style={{ marginTop: 24, fontSize: "clamp(18px,1.6vw,24px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 480 }}>
               iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.
             </p>
 
@@ -828,31 +828,31 @@ const NexusPage = () => {
           </div>
 
           {/* RIGHT — hero image */}
-          <div style={{ position: "sticky", top: 120, alignSelf: "start", width: "100%" }}>
+          <div style={{ position: "sticky", top: 110, alignSelf: "start", width: "100%" }}>
             <div style={{ position: "relative", width: "100%" }}>
-              <div style={{ position: "absolute", top: "50%", left: "50%", width: "88%", height: "88%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.12), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
-              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "1/1", borderRadius: 14, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
+              <div style={{ position: "absolute", top: "50%", left: "50%", width: "92%", height: "92%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.14), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
+              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "4/5", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
                 <HeroSwipeImage
                   slides={HERO_CAROUSEL_SLIDES}
                   index={heroSlideIdx}
                   onChange={setHeroSlideIdx}
-                  sizes="(max-width: 767px) 100vw, 46vw"
+                  sizes="(max-width: 767px) 100vw, 52vw"
                   priority
                   objectFit="cover"
                 />
 
                 {/* Overlays inside the frame */}
-                <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "6%", left: "4%" }} />
-                <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "44%", right: "4%" }} />
-                <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "6%", left: "4%" }} />
+                <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "5%", left: "4%" }} />
+                <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "46%", right: "4%" }} />
+                <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "5%", left: "4%" }} />
 
-                <div style={{ position: "absolute", bottom: 18, right: 20, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-                  <Qi2CertifiedBadge size={46} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
+                <div style={{ position: "absolute", bottom: 20, right: 22, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+                  <Qi2CertifiedBadge size={50} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
                 </div>
               </div>
 
-              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={60} />
+              <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={66} />
             </div>
           </div>
         </div>
