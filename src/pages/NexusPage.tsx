@@ -899,34 +899,35 @@ const NexusPage = () => {
             </div>
           </div>
 
-          {/* DESKTOP: unified black trust bar with payment + thumbnails */}
+          {/* DESKTOP: black trust bar directly under hero image, thumbnails centered */}
           <div
             className="hidden md:flex"
             style={{
-              gridColumn: "1 / -1",
-              marginTop: "clamp(-460px, -26vw, -220px)",
+              gridColumn: "2 / 3",
+              marginTop: 18,
               borderRadius: 20,
               background: "#0a0908",
               border: "1px solid rgba(155,107,63,.20)",
-              padding: "clamp(18px,2.2vw,30px) clamp(24px,3vw,48px)",
+              padding: "clamp(18px,2vw,26px) clamp(20px,2.4vw,36px)",
+              flexDirection: "column",
               alignItems: "center",
-              justifyContent: "space-between",
-              gap: 24,
-              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: 16,
               boxShadow: "0 30px 80px -30px rgba(0,0,0,.35)",
               position: "relative",
               zIndex: 4,
             }}
           >
-            <div>
-              <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold, marginBottom: 12 }}>Sichere Zahlungsmethoden</p>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
+              <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold }}>Sichere Zahlungsmethoden</p>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, flexWrap: "wrap" }}>
                 {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
                   <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.12)" }} />
                 ))}
               </div>
             </div>
-            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={60} dark style={{ marginTop: 0 }} />
+            <div style={{ width: "100%", height: 1, background: "rgba(155,107,63,.18)" }} />
+            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} dark style={{ marginTop: 0, justifyContent: "center" }} />
           </div>
         </div>
 
