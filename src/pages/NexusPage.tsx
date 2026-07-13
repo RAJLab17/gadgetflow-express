@@ -754,12 +754,12 @@ const NexusPage = () => {
         <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 3 }} />
 
         {/* DESKTOP */}
-        <div className="hidden md:grid relative px-10 lg:px-14 xl:px-20 pb-16 max-w-[1360px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.05fr)", gap: "clamp(40px,5vw,88px)", alignItems: "start" }}>
+        <div className="hidden md:grid relative px-10 lg:px-14 xl:px-20 pb-16 max-w-[1440px] mx-auto w-full" style={{ zIndex: 2, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", gap: "clamp(48px,5.5vw,96px)", alignItems: "start" }}>
           {/* LEFT — product info */}
-          <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(8px,1.5vw,24px)" }}>
+          <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(4px,1vw,16px)" }}>
 
             {/* Founder eyebrow */}
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "9px 18px 9px 14px", borderRadius: 100, border: `1px solid ${H.gold}44`, background: H.surface, marginBottom: 26, boxShadow: "0 4px 24px rgba(26,26,26,.05)" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "9px 18px 9px 14px", borderRadius: 100, border: `1px solid ${H.gold}44`, background: H.surface, marginBottom: 22, boxShadow: "0 4px 24px rgba(26,26,26,.05)" }}>
               <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
                 <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: H.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
                 <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: H.gold }} />
@@ -767,11 +767,11 @@ const NexusPage = () => {
               <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert</span>
             </div>
 
-            <h1 style={{ fontSize: "clamp(38px,5vw,68px)", lineHeight: .95, letterSpacing: "-.025em", fontWeight: 100, margin: 0 }}>
-              <span style={{ color: H.text }}>RAJ</span>{" "}
-              <span style={{ WebkitTextStroke: `1.5px ${H.gold}`, color: "transparent" }}>NEXUS</span>
+            <h1 style={{ fontSize: "clamp(56px,7.2vw,104px)", lineHeight: .92, letterSpacing: "-.035em", fontWeight: 200, margin: 0 }}>
+              <span style={{ display: "block", color: H.text, fontWeight: 200 }}>RAJ</span>
+              <span style={{ display: "block", background: `linear-gradient(120deg, #c8946b 0%, ${H.goldLight} 45%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.03em" }}>NEXUS</span>
             </h1>
-            <p style={{ marginTop: 20, fontSize: "clamp(17px,1.55vw,22px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 460 }}>
+            <p style={{ marginTop: 24, fontSize: "clamp(18px,1.6vw,24px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 480 }}>
               iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.
             </p>
 
