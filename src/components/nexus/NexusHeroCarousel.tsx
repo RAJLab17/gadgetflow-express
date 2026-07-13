@@ -102,10 +102,13 @@ export const HeroSwipeImage = ({
     else if (dx > 50 || info.velocity.x > 400) go(index - 1);
   };
 
+  const current = slides[index];
+  const fit = current.fit ?? objectFit;
+
   return (
     <motion.div
       className="absolute inset-0 select-none cursor-grab active:cursor-grabbing"
-      style={{ touchAction: "pan-y", zIndex: 1 }}
+      style={{ touchAction: "pan-y", zIndex: 1, background: current.bg ?? "transparent" }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.18}
@@ -114,10 +117,10 @@ export const HeroSwipeImage = ({
       <AnimatePresence initial={false} mode="wait">
         <motion.img
           key={index}
-          src={slides[index].src}
-          srcSet={slides[index].srcSet}
+          src={current.src}
+          srcSet={current.srcSet}
           sizes={sizes}
-          alt={slides[index].alt}
+          alt={current.alt}
           draggable={false}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -129,7 +132,7 @@ export const HeroSwipeImage = ({
           style={{
             width: "100%",
             height: "100%",
-            objectFit,
+            objectFit: fit,
             objectPosition: "center",
             display: "block",
             pointerEvents: "none",
