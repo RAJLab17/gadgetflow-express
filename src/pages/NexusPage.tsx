@@ -808,16 +808,16 @@ const NexusPage = () => {
 
           {/* RIGHT */}
           <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 48px" }}>
-            <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(201,168,118,.16), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
-            <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(201,168,118,.18)" }}>
+            <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.10), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
+            <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.22), 0 0 0 1px rgba(155,107,63,.15)" }}>
               <picture>
                 <source media="(min-width: 768px)" srcSet={nexusHeroImg} />
                 <source media="(max-width: 767px)" srcSet={nexusHeroImgSm} />
                 <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" />
               </picture>
               <div style={{ position: "absolute", bottom: 12, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-                <Qi2CertifiedBadge size={44} gold={D.gold} compact />
-                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6" }}>Zertifiziert</span>
+                <Qi2CertifiedBadge size={44} gold={H.gold} compact />
+                <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: ".22em", textTransform: "uppercase", color: "#F5EFE6", textShadow: "0 1px 8px rgba(0,0,0,.45)" }}>Zertifiziert</span>
               </div>
             </div>
             <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "4%", left: "-2%" }} />
