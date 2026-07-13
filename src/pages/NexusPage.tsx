@@ -926,14 +926,13 @@ const NexusPage = () => {
               ))}
             </div>
           </div>
-          <div className="h-20" aria-hidden />
         </div>
 
-        <div className="h-px w-full" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
+        <div className="h-px w-full hidden md:block" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
       </section>
 
       {/* ═══ 2. TRUST ═══ */}
-      <section style={{ background: L.bg, color: L.text }} className="py-24 md:py-44 px-5">
+      <section style={{ background: L.bg, color: L.text }} className="pt-4 pb-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 md:mb-20">
             <span className="text-[10px] uppercase" style={{ color: L.gold, letterSpacing: "0.32em" }}>— Drei Geräte · Ein Ort</span>
