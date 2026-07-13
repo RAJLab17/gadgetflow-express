@@ -104,20 +104,20 @@ const H = {
 // ─── Hero Icons ───────────────────────────────────────────────────
 const IconPhone = () => (
   <svg width="11" height="17" viewBox="0 0 12 18" fill="none">
-    <rect x=".7" y=".7" width="10.6" height="16.6" rx="2.4" stroke={D.gold} strokeWidth="1.1" />
-    <rect x="4" y="2.4" width="4" height="1" rx=".5" fill={D.gold} />
+    <rect x=".7" y=".7" width="10.6" height="16.6" rx="2.4" stroke={H.gold} strokeWidth="1.1" />
+    <rect x="4" y="2.4" width="4" height="1" rx=".5" fill={H.gold} />
   </svg>
 );
 const IconWatch = () => (
   <svg width="13" height="15" viewBox="0 0 14 16" fill="none">
-    <rect x="3" y="3.6" width="8" height="8.8" rx="2.4" stroke={D.gold} strokeWidth="1.1" />
-    <path d="M5 3.6 5.4 1.4h3.2L9 3.6M5 12.4l.4 2.2h3.2l.4-2.2" stroke={D.gold} strokeWidth="1.1" />
+    <rect x="3" y="3.6" width="8" height="8.8" rx="2.4" stroke={H.gold} strokeWidth="1.1" />
+    <path d="M5 3.6 5.4 1.4h3.2L9 3.6M5 12.4l.4 2.2h3.2l.4-2.2" stroke={H.gold} strokeWidth="1.1" />
   </svg>
 );
 const IconPods = () => (
   <svg width="15" height="11" viewBox="0 0 16 12" fill="none">
-    <rect x="1.2" y="3" width="5" height="6" rx="2.3" stroke={D.gold} strokeWidth="1.1" />
-    <rect x="9.8" y="3" width="5" height="6" rx="2.3" stroke={D.gold} strokeWidth="1.1" />
+    <rect x="1.2" y="3" width="5" height="6" rx="2.3" stroke={H.gold} strokeWidth="1.1" />
+    <rect x="9.8" y="3" width="5" height="6" rx="2.3" stroke={H.gold} strokeWidth="1.1" />
   </svg>
 );
 
