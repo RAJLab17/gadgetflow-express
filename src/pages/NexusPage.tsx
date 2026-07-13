@@ -48,7 +48,7 @@ import beforeCableImg from "@/assets/products/nexus-before-cable-chaos.jpg";
 import nexusBedsideNight from "@/assets/products/nexus-bedside-night.webp";
 import nexusHero800 from "@/assets/products/nexus-hero-charging-800w.webp";
 import nexusHero1200 from "@/assets/products/nexus-hero-charging-1200w.webp";
-import nexusHeroWhiteAsset from "@/assets/products/nexus-hero-white.png.asset.json";
+import nexusHeroWhiteAsset from "@/assets/products/nexus-hero-white.jpg.asset.json";
 
 const carousel5 = carousel5Asset.url;
 const nexusStoneHero600 = "/assets/hero/nexus-hero-600.webp";
