@@ -816,11 +816,14 @@ const NexusPage = () => {
           <div style={{ position: "relative", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px 0 48px" }}>
             <div style={{ position: "absolute", top: "50%", left: "50%", width: "82%", height: "82%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.10), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "3/2", borderRadius: 10, overflow: "hidden", boxShadow: "0 50px 120px -40px rgba(0,0,0,.22), 0 0 0 1px rgba(155,107,63,.15)" }}>
-              <picture>
-                <source type="image/webp" media="(min-width: 768px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
-                <source type="image/webp" media="(max-width: 767px)" srcSet={heroWebpSrcSet} sizes={heroSizes} />
-                <img src={nexusHeroImg} width={1200} height={800} alt="RAJ NEXUS – iPhone, Apple Watch und AirPods gleichzeitig geladen" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} loading="eager" decoding="async" fetchPriority="high" />
-              </picture>
+              <HeroSwipeImage
+                slides={HERO_CAROUSEL_SLIDES}
+                index={heroSlideIdx}
+                onChange={setHeroSlideIdx}
+                sizes="(max-width: 767px) 100vw, 50vw"
+                priority
+                objectFit="cover"
+              />
               <div style={{ position: "absolute", bottom: 16, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                 <Qi2CertifiedBadge size={46} compact />
                 <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: "#000000" }}>Zertifiziert</span>
