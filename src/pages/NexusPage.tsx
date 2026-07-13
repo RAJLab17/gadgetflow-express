@@ -869,6 +869,28 @@ const NexusPage = () => {
                 <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "46%", right: "4%" }} />
                 <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "5%", left: "4%" }} />
 
+                {/* Prev/next arrows — desktop hero */}
+                <button
+                  type="button"
+                  aria-label="Vorheriges Bild"
+                  onClick={() => setHeroSlideIdx((heroSlideIdx - 1 + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length)}
+                  style={{ position: "absolute", top: "50%", left: 14, transform: "translateY(-50%)", zIndex: 5, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,.92)", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 6px 20px rgba(0,0,0,.15)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#111", transition: "transform .18s ease, background .18s ease" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#fff"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.06)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,.92)"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)"; }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+                </button>
+                <button
+                  type="button"
+                  aria-label="Nächstes Bild"
+                  onClick={() => setHeroSlideIdx((heroSlideIdx + 1) % HERO_CAROUSEL_SLIDES.length)}
+                  style={{ position: "absolute", top: "50%", right: 14, transform: "translateY(-50%)", zIndex: 5, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,.92)", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 6px 20px rgba(0,0,0,.15)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#111", transition: "transform .18s ease, background .18s ease" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#fff"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1.06)"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,.92)"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-50%) scale(1)"; }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+
                 <div style={{ position: "absolute", bottom: 20, right: 22, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                   <Qi2CertifiedBadge size={50} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
