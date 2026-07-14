@@ -132,6 +132,42 @@
 
     <!-- FAQPage schema is injected per-page via Helmet (only on /, /faq, /nexus) -->
 
+    <!-- iOS In-App-Browser Safety Shim
+         Fix for "undefined is not an object (evaluating 'window.webkit.messageHandlers')"
+         Third-party scripts (Meta Pixel, TikTok, Clarity, GA) call
+         window.webkit.messageHandlers.<name>.postMessage() in Facebook/Instagram
+         in-app WebViews on iOS without checking existence. We install a safe
+         no-op Proxy ONLY when the property (or a nested handler) is missing,
+         so real native WebViews with real handlers are untouched. -->
+    <script>
+      (function () {
+        try {
+          var noop = function () {};
+          var handlerStub = { postMessage: noop };
+          var makeProxy = function () {
+            return new Proxy({}, {
+              get: function (target, prop) {
+                return prop in target ? target[prop] : handlerStub;
+              },
+              has: function () { return true; }
+            });
+          };
+          if (typeof window.webkit === 'undefined') {
+            try {
+              Object.defineProperty(window, 'webkit', {
+                value: { messageHandlers: makeProxy() },
+                writable: true, configurable: true
+              });
+            } catch (e) {
+              window.webkit = { messageHandlers: makeProxy() };
+            }
+          } else if (window.webkit && !window.webkit.messageHandlers) {
+            try { window.webkit.messageHandlers = makeProxy(); } catch (e) {}
+          }
+        } catch (e) { /* never break the page */ }
+      })();
+    </script>
+
   </head>
 
   <body>
