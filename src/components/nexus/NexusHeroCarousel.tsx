@@ -1,26 +1,26 @@
 import { useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Slide assets (optimised WebP served from Lovable CDN)
-import s0_400 from "@/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
-import s0_800 from "@/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
-import s0_1200 from "@/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
-import s1_480 from "@/assets/nexus-carousel/slide-1-480.webp.asset.json";
-import s1_900 from "@/assets/nexus-carousel/slide-1-900.webp.asset.json";
-import s1_1400 from "@/assets/nexus-carousel/slide-1-1400.webp.asset.json";
-import s2_480 from "@/assets/nexus-carousel/slide-2-480.webp.asset.json";
-import s2_900 from "@/assets/nexus-carousel/slide-2-900.webp.asset.json";
-import s2_1400 from "@/assets/nexus-carousel/slide-2-1400.webp.asset.json";
-import s3_480 from "@/assets/nexus-carousel/slide-3-480.webp.asset.json";
-import s3_900 from "@/assets/nexus-carousel/slide-3-900.webp.asset.json";
-import s3_1400 from "@/assets/nexus-carousel/slide-3-1400.webp.asset.json";
-import s4_480 from "@/assets/nexus-carousel/slide-4-480.webp.asset.json";
-import s4_900 from "@/assets/nexus-carousel/slide-4-900.webp.asset.json";
-import s4_1400 from "@/assets/nexus-carousel/slide-4-1400.webp.asset.json";
-import t1 from "@/assets/nexus-carousel/thumb-1.webp.asset.json";
-import t2 from "@/assets/nexus-carousel/thumb-2.webp.asset.json";
-import t3 from "@/assets/nexus-carousel/thumb-3.webp.asset.json";
-import t4 from "@/assets/nexus-carousel/thumb-4.webp.asset.json";
+// Slide assets bundled locally so the mobile hero never depends on CDN JSON paths.
+import s0_400 from "@/assets/products/nexus-hero-chatgpt-400w.webp";
+import s0_800 from "@/assets/products/nexus-hero-chatgpt-800w.webp";
+import s0_1200 from "@/assets/products/nexus-hero-chatgpt-1200w.webp";
+import s1_480 from "@/assets/nexus-carousel/slide-1-480.webp";
+import s1_900 from "@/assets/nexus-carousel/slide-1-900.webp";
+import s1_1400 from "@/assets/nexus-carousel/slide-1-1400.webp";
+import s2_480 from "@/assets/nexus-carousel/slide-2-480.webp";
+import s2_900 from "@/assets/nexus-carousel/slide-2-900.webp";
+import s2_1400 from "@/assets/nexus-carousel/slide-2-1400.webp";
+import s3_480 from "@/assets/nexus-carousel/slide-3-480.webp";
+import s3_900 from "@/assets/nexus-carousel/slide-3-900.webp";
+import s3_1400 from "@/assets/nexus-carousel/slide-3-1400.webp";
+import s4_480 from "@/assets/nexus-carousel/slide-4-480.webp";
+import s4_900 from "@/assets/nexus-carousel/slide-4-900.webp";
+import s4_1400 from "@/assets/nexus-carousel/slide-4-1400.webp";
+import t1 from "@/assets/nexus-carousel/thumb-1.webp";
+import t2 from "@/assets/nexus-carousel/thumb-2.webp";
+import t3 from "@/assets/nexus-carousel/thumb-3.webp";
+import t4 from "@/assets/nexus-carousel/thumb-4.webp";
 
 export type HeroSlide = {
   src: string;
@@ -33,35 +33,35 @@ export type HeroSlide = {
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
   {
-    src: s0_1200.url,
-    srcSet: `${s0_400.url} 400w, ${s0_800.url} 800w, ${s0_1200.url} 1200w`,
-    thumb: s0_400.url,
+    src: s0_1200,
+    srcSet: `${s0_400} 400w, ${s0_800} 800w, ${s0_1200} 1200w`,
+    thumb: s0_400,
     alt: "RAJ NEXUS 3-in-1 Wireless Charger – Studio-Aufnahme",
   },
   {
-    src: s1_1400.url,
-    srcSet: `${s1_480.url} 480w, ${s1_900.url} 900w, ${s1_1400.url} 1400w`,
-    thumb: t1.url,
+    src: s1_1400,
+    srcSet: `${s1_480} 480w, ${s1_900} 900w, ${s1_1400} 1400w`,
+    thumb: t1,
     alt: "RAJ NEXUS auf Schreibtisch neben MacBook, iPhone im StandBy-Modus",
   },
   {
-    src: s2_1400.url,
-    srcSet: `${s2_480.url} 480w, ${s2_900.url} 900w, ${s2_1400.url} 1400w`,
-    thumb: t2.url,
+    src: s2_1400,
+    srcSet: `${s2_480} 480w, ${s2_900} 900w, ${s2_1400} 1400w`,
+    thumb: t2,
     alt: "Explosionsdarstellung – Qi2 25W, magnetische Ausrichtung, Coil-System",
     fit: "contain",
     bg: "#ffffff",
   },
   {
-    src: s3_1400.url,
-    srcSet: `${s3_480.url} 480w, ${s3_900.url} 900w, ${s3_1400.url} 1400w`,
-    thumb: t3.url,
+    src: s3_1400,
+    srcSet: `${s3_480} 480w, ${s3_900} 900w, ${s3_1400} 1400w`,
+    thumb: t3,
     alt: "RAJ NEXUS am Nachttisch im StandBy-Modus über Nacht",
   },
   {
-    src: s4_1400.url,
-    srcSet: `${s4_480.url} 480w, ${s4_900.url} 900w, ${s4_1400.url} 1400w`,
-    thumb: t4.url,
+    src: s4_1400,
+    srcSet: `${s4_480} 480w, ${s4_900} 900w, ${s4_1400} 1400w`,
+    thumb: t4,
     alt: "RAJ NEXUS 3-in-1 und Solo-Pad nebeneinander auf Schreibtisch",
     fit: "cover",
     bg: "#f7f4ef",
