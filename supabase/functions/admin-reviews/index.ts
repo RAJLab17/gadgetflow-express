@@ -86,7 +86,7 @@ Deno.serve(async (req) => {
       return json({ emails })
     }
 
-    if (req.method === 'POST') {
+    if (req.method === 'POST' && action !== 'resign_approved') {
       const body = await req.json().catch(() => ({}))
       const id = body.id as string | undefined
       if (!id) return json({ error: 'missing_id' }, 400)
