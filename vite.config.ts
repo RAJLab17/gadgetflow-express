@@ -41,11 +41,22 @@ const heroPreloadPlugin = (): PluginOption => ({
       // Single responsive preload — matches the <img srcset/sizes> on the
       // Nexus hero exactly, so the preloaded resource is guaranteed to be
       // reused instead of triggering a second download.
-      const tag = `<link rel="preload" as="image" href="${url800}" imagesrcset="${srcset}" imagesizes="100vw" fetchpriority="high" />`;
-      return html.replace("<!--HERO_PRELOAD-->", tag);
+      const preloadTag = `<link rel="preload" as="image" href="${url800}" imagesrcset="${srcset}" imagesizes="100vw" fetchpriority="high" />`;
+
+      // Static LCP fallback: inject a real <img> into #root so the browser
+      // can paint the hero BEFORE React hydrates (~3s render-delay saved on
+      // mobile). Only rendered on /nexus and / (the two routes whose LCP is
+      // this image). React wipes #root's children on mount, so this is
+      // automatically removed once the SPA takes over.
+      const fallbackScript = `<script>(function(){try{var p=location.pathname;if(p!=='/nexus'&&p!=='/'&&p!=='/index')return;var r=document.getElementById('root');if(!r)return;var img=document.createElement('img');img.src=${JSON.stringify(url800)};img.srcset=${JSON.stringify(srcset)};img.sizes='100vw';img.alt='RAJ NEXUS 3-in-1 Wireless Charger';img.fetchPriority='high';img.decoding='sync';img.style.cssText='position:absolute;top:0;left:0;width:100%;height:auto;max-width:600px;left:50%;transform:translateX(-50%);z-index:0;pointer-events:none;object-fit:contain;';var w=document.createElement('div');w.id='__lcp_fallback';w.style.cssText='position:absolute;top:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;';w.appendChild(img);r.appendChild(w);}catch(e){}})();</script>`;
+
+      return html
+        .replace("<!--HERO_PRELOAD-->", preloadTag)
+        .replace("</body>", fallbackScript + "</body>");
     },
   },
 });
+
 
 
 // https://vitejs.dev/config/
