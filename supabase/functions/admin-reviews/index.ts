@@ -12,6 +12,9 @@ const ADMIN_TOKEN = Deno.env.get('REVIEWS_ADMIN_TOKEN')!
 const BUCKET = 'review-photos'
 const APPROVED_URL_TTL = 60 * 60 * 24 * 365 * 10 // 10 years
 const ADMIN_URL_TTL = 60 * 15 // 15 minutes for admin previews
+// Bake image transform into signed URL. 1000px @ q72 covers mobile lightbox
+// (~1050 CSS×DPR) while shrinking the image from ~460 KiB to ~40-60 KiB.
+const APPROVED_TRANSFORM = { width: 1000, quality: 72, resize: 'contain' as const }
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
