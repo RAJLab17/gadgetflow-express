@@ -4,6 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
 import { generateSitemap } from "./scripts/generate-sitemap.mjs";
+import heroWebp400 from "./src/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
 import heroWebp800 from "./src/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
 import heroWebp1200 from "./src/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
 
