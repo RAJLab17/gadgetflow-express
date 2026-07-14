@@ -1,10 +1,18 @@
 import { useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Slide assets bundled locally so the mobile hero never depends on CDN JSON paths.
-import s0_400 from "@/assets/products/nexus-hero-chatgpt-400w.webp";
-import s0_800 from "@/assets/products/nexus-hero-chatgpt-800w.webp";
-import s0_1200 from "@/assets/products/nexus-hero-chatgpt-1200w.webp";
+// LCP hero (slide 0): use the CDN pointer URLs so the src matches the
+// <link rel="preload"> injected by the raj-hero-preload Vite plugin 1:1.
+// If this ever falls back to bundled Vite hashes, the preload no-ops and
+// LCP jumps by 2-3 seconds on mobile.
+import s0_400_asset from "@/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
+import s0_800_asset from "@/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
+import s0_1200_asset from "@/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
+const s0_400 = s0_400_asset.url;
+const s0_800 = s0_800_asset.url;
+const s0_1200 = s0_1200_asset.url;
+
+// Non-LCP slides stay bundled (lazy-loaded, so no preload benefit).
 import s1_480 from "@/assets/nexus-carousel/slide-1-480.webp";
 import s1_900 from "@/assets/nexus-carousel/slide-1-900.webp";
 import s1_1400 from "@/assets/nexus-carousel/slide-1-1400.webp";
@@ -33,7 +41,7 @@ export type HeroSlide = {
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
   {
-    src: s0_1200,
+    src: s0_800,
     srcSet: `${s0_400} 400w, ${s0_800} 800w, ${s0_1200} 1200w`,
     thumb: s0_400,
     alt: "RAJ NEXUS 3-in-1 Wireless Charger – Studio-Aufnahme",
