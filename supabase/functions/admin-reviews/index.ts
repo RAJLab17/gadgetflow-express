@@ -36,8 +36,7 @@ Deno.serve(async (req) => {
   }
 
   const supabase = createClient(SUPABASE_URL, SERVICE_ROLE)
-  const url = new URL(req.url)
-  const action = url.searchParams.get('action') ?? 'list'
+  const action = actionEarly
 
   try {
     if (req.method === 'GET' && action === 'list') {
