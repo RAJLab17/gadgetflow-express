@@ -950,7 +950,7 @@ const NexusPage = () => {
               sizes="100vw"
               priority
               objectFit="cover"
-              objectPosition={heroSlideIdx === 0 ? "center top" : "center"}
+              objectPosition={heroSlideIdx === 0 ? "center 30%" : "center"}
             />
             <div style={{ position: "absolute", bottom: 18, right: 18, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, pointerEvents: "none" }}>
               <Qi2CertifiedBadge size={38} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
