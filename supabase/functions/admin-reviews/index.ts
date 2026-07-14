@@ -12,6 +12,9 @@ const ADMIN_TOKEN = Deno.env.get('REVIEWS_ADMIN_TOKEN')!
 const BUCKET = 'review-photos'
 const APPROVED_URL_TTL = 60 * 60 * 24 * 365 * 10 // 10 years
 const ADMIN_URL_TTL = 60 * 15 // 15 minutes for admin previews
+// Bake image transform into signed URL. 1000px @ q72 covers mobile lightbox
+// (~1050 CSS×DPR) while shrinking the image from ~460 KiB to ~40-60 KiB.
+const APPROVED_TRANSFORM = { width: 1000, quality: 72, resize: 'contain' as const }
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -22,14 +25,16 @@ const json = (body: unknown, status = 200) =>
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders })
 
+  const url = new URL(req.url)
+  const action = url.searchParams.get('action') ?? 'list'
   const token = req.headers.get('x-admin-token') ?? ''
   if (!ADMIN_TOKEN || token !== ADMIN_TOKEN) {
     return json({ error: 'unauthorized' }, 401)
   }
 
   const supabase = createClient(SUPABASE_URL, SERVICE_ROLE)
-  const url = new URL(req.url)
-  const action = url.searchParams.get('action') ?? 'list'
+
+
 
   try {
     if (req.method === 'GET' && action === 'list') {
@@ -79,7 +84,7 @@ Deno.serve(async (req) => {
       return json({ emails })
     }
 
-    if (req.method === 'POST') {
+    if (req.method === 'POST' && action !== 'resign_approved') {
       const body = await req.json().catch(() => ({}))
       const id = body.id as string | undefined
       if (!id) return json({ error: 'missing_id' }, 400)
@@ -100,7 +105,7 @@ Deno.serve(async (req) => {
           if (moveErr && !/exists/i.test(moveErr.message)) throw moveErr
           const { data: signed, error: signErr } = await supabase.storage
             .from(BUCKET)
-            .createSignedUrl(newPath, APPROVED_URL_TTL)
+            .createSignedUrl(newPath, APPROVED_URL_TTL, { transform: APPROVED_TRANSFORM })
           if (signErr) throw signErr
           update.photo_path = newPath
           update.photo_url = signed?.signedUrl ?? null
@@ -137,6 +142,29 @@ Deno.serve(async (req) => {
         if (error) throw error
         return json({ ok: true })
       }
+    }
+
+    // Re-sign all approved photos with the current transform. Idempotent.
+    if (req.method === 'POST' && action === 'resign_approved') {
+      const { data: rows, error } = await supabase
+        .from('reviews')
+        .select('id, photo_path')
+        .eq('status', 'approved')
+        .not('photo_path', 'is', null)
+      if (error) throw error
+      let updated = 0
+      for (const r of rows ?? []) {
+        const { data: signed, error: signErr } = await supabase.storage
+          .from(BUCKET)
+          .createSignedUrl(r.photo_path as string, APPROVED_URL_TTL, { transform: APPROVED_TRANSFORM })
+        if (signErr || !signed?.signedUrl) continue
+        const { error: upErr } = await supabase
+          .from('reviews')
+          .update({ photo_url: signed.signedUrl })
+          .eq('id', r.id)
+        if (!upErr) updated++
+      }
+      return json({ ok: true, updated, total: rows?.length ?? 0 })
     }
 
     return json({ error: 'unknown_action' }, 400)
