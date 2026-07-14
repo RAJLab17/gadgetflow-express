@@ -103,7 +103,7 @@ Deno.serve(async (req) => {
           if (moveErr && !/exists/i.test(moveErr.message)) throw moveErr
           const { data: signed, error: signErr } = await supabase.storage
             .from(BUCKET)
-            .createSignedUrl(newPath, APPROVED_URL_TTL)
+            .createSignedUrl(newPath, APPROVED_URL_TTL, { transform: APPROVED_TRANSFORM })
           if (signErr) throw signErr
           update.photo_path = newPath
           update.photo_url = signed?.signedUrl ?? null
