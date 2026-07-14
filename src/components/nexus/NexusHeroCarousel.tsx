@@ -83,6 +83,7 @@ export const HeroSwipeImage = ({
   sizes,
   priority = false,
   objectFit = "cover",
+  objectPosition = "center",
 }: {
   slides: HeroSlide[];
   index: number;
@@ -90,6 +91,7 @@ export const HeroSwipeImage = ({
   sizes: string;
   priority?: boolean;
   objectFit?: "cover" | "contain";
+  objectPosition?: string;
 }) => {
   const go = useCallback(
     (n: number) => onChange(((n % slides.length) + slides.length) % slides.length),
