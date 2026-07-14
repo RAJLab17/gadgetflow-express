@@ -26,12 +26,9 @@ Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders })
 
   const url = new URL(req.url)
-  const actionEarly = url.searchParams.get('action') ?? 'list'
+  const action = url.searchParams.get('action') ?? 'list'
   const token = req.headers.get('x-admin-token') ?? ''
-  // Temporary bootstrap: resign_approved may run without token so we can
-  // migrate existing signed URLs to include the transform. Safe/idempotent.
-  const isBootstrap = actionEarly === 'resign_approved'
-  if (!isBootstrap && (!ADMIN_TOKEN || token !== ADMIN_TOKEN)) {
+  if (!ADMIN_TOKEN || token !== ADMIN_TOKEN) {
     return json({ error: 'unauthorized' }, 401)
   }
 
