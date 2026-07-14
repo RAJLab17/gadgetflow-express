@@ -139,7 +139,31 @@ Deno.serve(async (req) => {
           .eq('id', id)
         if (error) throw error
         return json({ ok: true })
+        return json({ error: 'unknown_action' }, 400)
       }
+    }
+
+    // Re-sign all approved photos with the current transform. Idempotent.
+    if (req.method === 'POST' && action === 'resign_approved') {
+      const { data: rows, error } = await supabase
+        .from('reviews')
+        .select('id, photo_path')
+        .eq('status', 'approved')
+        .not('photo_path', 'is', null)
+      if (error) throw error
+      let updated = 0
+      for (const r of rows ?? []) {
+        const { data: signed, error: signErr } = await supabase.storage
+          .from(BUCKET)
+          .createSignedUrl(r.photo_path as string, APPROVED_URL_TTL, { transform: APPROVED_TRANSFORM })
+        if (signErr || !signed?.signedUrl) continue
+        const { error: upErr } = await supabase
+          .from('reviews')
+          .update({ photo_url: signed.signedUrl })
+          .eq('id', r.id)
+        if (!upErr) updated++
+      }
+      return json({ ok: true, updated, total: rows?.length ?? 0 })
     }
 
     return json({ error: 'unknown_action' }, 400)
