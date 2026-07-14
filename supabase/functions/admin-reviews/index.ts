@@ -143,7 +143,6 @@ Deno.serve(async (req) => {
           .eq('id', id)
         if (error) throw error
         return json({ ok: true })
-        return json({ error: 'unknown_action' }, 400)
       }
     }
 
