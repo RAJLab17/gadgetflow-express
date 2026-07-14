@@ -4,6 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
 import { generateSitemap } from "./scripts/generate-sitemap.mjs";
+import heroWebp400 from "./src/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
 import heroWebp800 from "./src/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
 import heroWebp1200 from "./src/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
 
@@ -32,13 +33,15 @@ const heroPreloadPlugin = (): PluginOption => ({
   transformIndexHtml: {
     order: "post",
     handler(html) {
+      const url400 = heroWebp400.url;
       const url800 = heroWebp800.url;
       const url1200 = heroWebp1200.url;
+      const srcset = `${url400} 400w, ${url800} 800w, ${url1200} 1200w`;
 
-      const tag = [
-        `<link rel="preload" as="image" href="${url800}" media="(max-width: 767px)" fetchpriority="high" />`,
-        `<link rel="preload" as="image" href="${url1200}" media="(min-width: 768px)" fetchpriority="high" />`,
-      ].join("\n    ");
+      // Single responsive preload — matches the <img srcset/sizes> on the
+      // Nexus hero exactly, so the preloaded resource is guaranteed to be
+      // reused instead of triggering a second download.
+      const tag = `<link rel="preload" as="image" href="${url800}" imagesrcset="${srcset}" imagesizes="100vw" fetchpriority="high" />`;
       return html.replace("<!--HERO_PRELOAD-->", tag);
     },
   },
