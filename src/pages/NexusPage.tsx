@@ -961,7 +961,7 @@ const NexusPage = () => {
               <span style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
             </div>
 
-            <NexusHeroChipsMobile />
+            {HERO_CAROUSEL_SLIDES[heroSlideIdx].showChips !== false && <NexusHeroChipsMobile />}
           </div>
           <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={48} />
           <div className="flex flex-wrap justify-center gap-2 mt-3 mb-2.5">
