@@ -11,7 +11,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useViewContent } from "@/hooks/useViewContent";
-import { useQuickBuy } from "@/hooks/useQuickBuy";
+import { useQuickBuy, CHECKOUT_URL } from "@/hooks/useQuickBuy";
 const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAccordion"));
 
 import Header from "@/components/Header";
@@ -827,9 +827,9 @@ const NexusPage = () => {
               <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
             </div>
 
-            <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98] disabled:opacity-60" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+            <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98]" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
-            </button>
+            </a>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14 }}>
               {[
@@ -859,7 +859,8 @@ const NexusPage = () => {
           <div style={{ alignSelf: "start", width: "100%" }}>
             <div style={{ position: "relative", width: "100%" }}>
               <div style={{ position: "absolute", top: "50%", left: "50%", width: "92%", height: "92%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.14), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
-              <div style={{ position: "relative", zIndex: 2, width: "100%", aspectRatio: "1/1", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
+              <div style={{ position: "relative", zIndex: 2, width: "100%", paddingBottom: "100%", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
+                <div style={{ position: "absolute", inset: 0 }}>
                 <HeroSwipeImage
                   slides={HERO_CAROUSEL_SLIDES}
                   index={heroSlideIdx}
@@ -904,6 +905,7 @@ const NexusPage = () => {
                   <Qi2CertifiedBadge size={50} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
                 </div>
+                </div>
               </div>
             </div>
           </div>
@@ -945,23 +947,24 @@ const NexusPage = () => {
             <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
           </div>
           <p className="text-center mb-1.5" style={{ fontSize: 13, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, aspectRatio: "1/1", maxHeight: "min(36vh, 300px)", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
+          <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, paddingBottom: "100%", maxHeight: 300, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
+            <div style={{ position: "absolute", inset: 0 }}>
+              <HeroSwipeImage
+                slides={HERO_CAROUSEL_SLIDES}
+                index={heroSlideIdx}
+                onChange={setHeroSlideIdx}
+                sizes="100vw"
+                priority
+                objectFit="cover"
+                objectPosition={heroSlideIdx === 0 ? "center 30%" : "center"}
+              />
+              <div style={{ position: "absolute", bottom: 14, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, pointerEvents: "none" }}>
+                <Qi2CertifiedBadge size={34} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
+                <span style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
+              </div>
 
-            <HeroSwipeImage
-              slides={HERO_CAROUSEL_SLIDES}
-              index={heroSlideIdx}
-              onChange={setHeroSlideIdx}
-              sizes="100vw"
-              priority
-              objectFit="cover"
-              objectPosition={heroSlideIdx === 0 ? "center 30%" : "center"}
-            />
-            <div style={{ position: "absolute", bottom: 14, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, pointerEvents: "none" }}>
-              <Qi2CertifiedBadge size={34} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
-              <span style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
+              {HERO_CAROUSEL_SLIDES[heroSlideIdx].showChips !== false && <NexusHeroChipsMobile />}
             </div>
-
-            {HERO_CAROUSEL_SLIDES[heroSlideIdx].showChips !== false && <NexusHeroChipsMobile />}
           </div>
           <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={48} />
           <div className="flex flex-wrap justify-center gap-2 mt-3 mb-2.5">
@@ -1007,10 +1010,9 @@ const NexusPage = () => {
 
 
 
-          <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+          <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
-
-          </button>
+          </a>
           <div className="flex flex-nowrap justify-center gap-1.5 mt-2 px-1">
             {[
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
@@ -1149,9 +1151,9 @@ const NexusPage = () => {
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
           <p className="text-base md:text-lg mt-6 mb-10" style={{ color: D.muted, fontWeight: 300 }}>CHF 99.- statt CHF 129.-</p>
-          <button type="button" onClick={quickBuy} disabled={buyProcessing} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}` }}>
+          <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
             Jetzt kaufen
-          </button>
+          </a>
           <p className="mt-6 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie</p>
         </div>
       </section>

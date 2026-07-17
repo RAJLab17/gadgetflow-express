@@ -1,6 +1,6 @@
 import { useCallback, useRef } from "react";
 
-const CHECKOUT_URL = "https://checkout.raj.ch/cart/57169031823685:1";
+export const CHECKOUT_URL = "https://checkout.raj.ch/cart/57169031823685:1";
 
 export const OPEN_CART_EVENT = "raj:open-cart";
 
