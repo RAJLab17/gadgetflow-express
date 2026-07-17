@@ -158,8 +158,11 @@ export const HeroSwipeImage = ({
           decoding="async"
           fetchPriority={priority && index === 0 ? "high" : "auto"}
           style={{
-            width: "100%",
-            height: "100%",
+            width: zoomSize,
+            height: zoomSize,
+            position: "absolute",
+            top: zoomOffset,
+            left: zoomOffset,
             objectFit: fit,
             objectPosition: position,
             display: "block",
