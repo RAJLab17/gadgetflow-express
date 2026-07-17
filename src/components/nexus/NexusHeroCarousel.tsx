@@ -91,6 +91,16 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     fit: "cover",
     bg: "#f7f4ef",
   },
+  {
+    src: s6_900,
+    srcSet: `${s6_480} 480w, ${s6_900} 900w, ${s6_1400} 1400w`,
+    thumb: t6,
+    alt: "RAJ NEXUS Kompatibilität – iPhone 25W, Apple Watch 5W, AirPods 5W",
+    fit: "contain",
+    bg: "#ffffff",
+    mobileFit: "contain",
+    mobileBg: "#ffffff",
+  },
 ];
 
 const GOLD = "#9b6b3f";
