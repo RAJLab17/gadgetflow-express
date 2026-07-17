@@ -116,6 +116,7 @@ export const HeroSwipeImage = ({
 
   const current = slides[index];
   const fit = current.fit ?? objectFit;
+  const position = current.position ?? objectPosition;
 
   return (
     <motion.div
