@@ -129,6 +129,10 @@ export const HeroSwipeImage = ({
   const position = (isMobile ? current.mobilePosition : current.position) ?? objectPosition;
   const bg = (isMobile ? current.mobileBg : current.bg) ?? current.bg ?? "transparent";
 
+  const zoom = isMobile ? current.mobileZoom : undefined;
+  const zoomSize = zoom ? `${100 / zoom}%` : "100%";
+  const zoomOffset = zoom ? `${(100 - 100 / zoom) / 2}%` : "0%";
+
   return (
     <motion.div
       className="absolute inset-0 select-none cursor-grab active:cursor-grabbing"
