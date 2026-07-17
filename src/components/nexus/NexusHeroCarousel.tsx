@@ -59,9 +59,9 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     thumb: t1,
     alt: "RAJ NEXUS auf Schreibtisch neben MacBook, iPhone im StandBy-Modus",
     position: "center 62%",
-    mobileFit: "contain",
-    mobilePosition: "center",
-    bg: "#ffffff",
+    mobileFit: "cover",
+    mobilePosition: "center 72%",
+    mobileZoom: 0.95,
   },
   {
     src: s2_1400,
