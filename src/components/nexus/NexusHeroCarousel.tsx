@@ -37,6 +37,7 @@ export type HeroSlide = {
   alt: string;
   fit?: "cover" | "contain";
   bg?: string;
+  position?: string;
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
@@ -59,6 +60,7 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     alt: "Explosionsdarstellung – Qi2 25W, magnetische Ausrichtung, Coil-System",
     fit: "contain",
     bg: "#ffffff",
+    position: "center 62%",
   },
   {
     src: s3_1400,
@@ -114,6 +116,7 @@ export const HeroSwipeImage = ({
 
   const current = slides[index];
   const fit = current.fit ?? objectFit;
+  const position = current.position ?? objectPosition;
 
   return (
     <motion.div
@@ -143,7 +146,7 @@ export const HeroSwipeImage = ({
             width: "100%",
             height: "100%",
             objectFit: fit,
-            objectPosition,
+            objectPosition: position,
             display: "block",
             pointerEvents: "none",
           }}
