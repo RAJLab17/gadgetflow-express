@@ -941,7 +941,7 @@ const NexusPage = () => {
             <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
           </div>
           <p className="text-center mb-2" style={{ fontSize: 14, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 8, aspectRatio: "1/1", maxHeight: "min(48vh, 400px)", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
+          <div style={{ position: "relative", width: "92%", marginLeft: "auto", marginRight: "auto", marginBottom: 8, aspectRatio: "1/1", maxHeight: "min(48vh, 400px)", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
 
             <HeroSwipeImage
               slides={HERO_CAROUSEL_SLIDES}
