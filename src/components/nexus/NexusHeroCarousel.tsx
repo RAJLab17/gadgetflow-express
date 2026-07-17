@@ -60,6 +60,7 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     alt: "Explosionsdarstellung – Qi2 25W, magnetische Ausrichtung, Coil-System",
     fit: "contain",
     bg: "#ffffff",
+    position: "center 62%",
   },
   {
     src: s3_1400,
