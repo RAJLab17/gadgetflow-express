@@ -947,23 +947,24 @@ const NexusPage = () => {
             <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
           </div>
           <p className="text-center mb-1.5" style={{ fontSize: 13, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, aspectRatio: "1/1", maxHeight: "min(36vh, 300px)", borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
+          <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, paddingBottom: "100%", maxHeight: 300, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
+            <div style={{ position: "absolute", inset: 0 }}>
+              <HeroSwipeImage
+                slides={HERO_CAROUSEL_SLIDES}
+                index={heroSlideIdx}
+                onChange={setHeroSlideIdx}
+                sizes="100vw"
+                priority
+                objectFit="cover"
+                objectPosition={heroSlideIdx === 0 ? "center 30%" : "center"}
+              />
+              <div style={{ position: "absolute", bottom: 14, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, pointerEvents: "none" }}>
+                <Qi2CertifiedBadge size={34} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
+                <span style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
+              </div>
 
-            <HeroSwipeImage
-              slides={HERO_CAROUSEL_SLIDES}
-              index={heroSlideIdx}
-              onChange={setHeroSlideIdx}
-              sizes="100vw"
-              priority
-              objectFit="cover"
-              objectPosition={heroSlideIdx === 0 ? "center 30%" : "center"}
-            />
-            <div style={{ position: "absolute", bottom: 14, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, pointerEvents: "none" }}>
-              <Qi2CertifiedBadge size={34} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
-              <span style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
+              {HERO_CAROUSEL_SLIDES[heroSlideIdx].showChips !== false && <NexusHeroChipsMobile />}
             </div>
-
-            {HERO_CAROUSEL_SLIDES[heroSlideIdx].showChips !== false && <NexusHeroChipsMobile />}
           </div>
           <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={48} />
           <div className="flex flex-wrap justify-center gap-2 mt-3 mb-2.5">
