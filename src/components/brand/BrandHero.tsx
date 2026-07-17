@@ -18,7 +18,7 @@ const SLIDES = [
   // Slide 2 — Ecosystem (cases, watches, AirPods, power bank). Wide landscape composition:
   // use `contain` on desktop so the full symmetric arrangement stays visible; the dark
   // letterboxing blends into the #0a0908 hero background.
-  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "center 60%", mobilePosition: "center center", size: "contain", mobileSize: "cover" },
+  { src: nexusSuite, mobileSrc: nexusSuiteMobile, position: "center 60%", mobilePosition: "center 62%", size: "contain", mobileSize: "contain" },
 ];
 
 
