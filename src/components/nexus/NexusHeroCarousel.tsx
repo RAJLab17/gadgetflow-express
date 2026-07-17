@@ -45,8 +45,6 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     srcSet: `${s0_400} 400w, ${s0_800} 800w, ${s0_1200} 1200w`,
     thumb: s0_400,
     alt: "RAJ NEXUS 3-in-1 Wireless Charger – Studio-Aufnahme",
-    fit: "contain",
-    bg: "#ffffff",
   },
   {
     src: s1_1400,
