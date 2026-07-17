@@ -11,7 +11,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useViewContent } from "@/hooks/useViewContent";
-import { useQuickBuy } from "@/hooks/useQuickBuy";
+import { useQuickBuy, CHECKOUT_URL } from "@/hooks/useQuickBuy";
 const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAccordion"));
 
 import Header from "@/components/Header";
