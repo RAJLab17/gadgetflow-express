@@ -52,6 +52,7 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     srcSet: `${s1_480} 480w, ${s1_900} 900w, ${s1_1400} 1400w`,
     thumb: t1,
     alt: "RAJ NEXUS auf Schreibtisch neben MacBook, iPhone im StandBy-Modus",
+    position: "center 62%",
   },
   {
     src: s2_1400,
@@ -60,7 +61,6 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     alt: "Explosionsdarstellung – Qi2 25W, magnetische Ausrichtung, Coil-System",
     fit: "contain",
     bg: "#ffffff",
-    position: "center 62%",
   },
   {
     src: s3_1400,
