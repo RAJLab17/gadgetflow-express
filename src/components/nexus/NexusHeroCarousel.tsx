@@ -146,7 +146,7 @@ export const HeroSwipeImage = ({
             width: "100%",
             height: "100%",
             objectFit: fit,
-            objectPosition,
+            objectPosition: position,
             display: "block",
             pointerEvents: "none",
           }}
