@@ -827,9 +827,9 @@ const NexusPage = () => {
               <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
             </div>
 
-            <button type="button" onClick={quickBuy} disabled={buyProcessing} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98] disabled:opacity-60" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+            <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98]" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
-            </button>
+            </a>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14 }}>
               {[
