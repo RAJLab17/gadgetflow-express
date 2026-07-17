@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 // <link rel="preload"> injected by the raj-hero-preload Vite plugin 1:1.
 // If this ever falls back to bundled Vite hashes, the preload no-ops and
 // LCP jumps by 2-3 seconds on mobile.
-import s0_400_asset from "@/assets/products/nexus-hero-chatgpt-400w.webp.asset.json";
-import s0_800_asset from "@/assets/products/nexus-hero-chatgpt-800w.webp.asset.json";
-import s0_1200_asset from "@/assets/products/nexus-hero-chatgpt-1200w.webp.asset.json";
+import s0_400_asset from "@/assets/products/nexus-hero-v2-400w.webp.asset.json";
+import s0_800_asset from "@/assets/products/nexus-hero-v2-800w.webp.asset.json";
+import s0_1200_asset from "@/assets/products/nexus-hero-v2-1200w.webp.asset.json";
 const s0_400 = s0_400_asset.url;
 const s0_800 = s0_800_asset.url;
 const s0_1200 = s0_1200_asset.url;
