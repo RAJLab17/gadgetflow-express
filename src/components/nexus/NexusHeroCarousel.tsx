@@ -122,13 +122,15 @@ export const HeroSwipeImage = ({
   };
 
   const current = slides[index];
-  const fit = current.fit ?? objectFit;
-  const position = current.position ?? objectPosition;
+  const isMobile = useIsMobile();
+  const fit = (isMobile ? current.mobileFit : current.fit) ?? objectFit;
+  const position = (isMobile ? current.mobilePosition : current.position) ?? objectPosition;
+  const bg = (isMobile ? current.mobileBg : current.bg) ?? current.bg ?? "transparent";
 
   return (
     <motion.div
       className="absolute inset-0 select-none cursor-grab active:cursor-grabbing"
-      style={{ touchAction: "pan-y", zIndex: 1, background: current.bg ?? "transparent" }}
+      style={{ touchAction: "pan-y", zIndex: 1, background: bg }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.18}
