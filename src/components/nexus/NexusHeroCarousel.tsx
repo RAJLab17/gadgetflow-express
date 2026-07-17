@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // LCP hero (slide 0): use the CDN pointer URLs so the src matches the
 // <link rel="preload"> injected by the raj-hero-preload Vite plugin 1:1.
