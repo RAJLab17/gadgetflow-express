@@ -30,6 +30,14 @@ import t1 from "@/assets/nexus-carousel/thumb-1.webp";
 import t2 from "@/assets/nexus-carousel/thumb-2.webp";
 import t3 from "@/assets/nexus-carousel/thumb-3.webp";
 import t4 from "@/assets/nexus-carousel/thumb-4.webp";
+import s6_480_asset from "@/assets/nexus-carousel/slide-6-480.webp.asset.json";
+import s6_900_asset from "@/assets/nexus-carousel/slide-6-900.webp.asset.json";
+import s6_1400_asset from "@/assets/nexus-carousel/slide-6-1400.webp.asset.json";
+import t6_asset from "@/assets/nexus-carousel/thumb-6.webp.asset.json";
+const s6_480 = s6_480_asset.url;
+const s6_900 = s6_900_asset.url;
+const s6_1400 = s6_1400_asset.url;
+const t6 = t6_asset.url;
 
 export type HeroSlide = {
   src: string;
