@@ -1010,10 +1010,9 @@ const NexusPage = () => {
 
 
 
-          <button type="button" onClick={quickBuy} disabled={buyProcessing} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98] disabled:opacity-60" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+          <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
-
-          </button>
+          </a>
           <div className="flex flex-nowrap justify-center gap-1.5 mt-2 px-1">
             {[
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
