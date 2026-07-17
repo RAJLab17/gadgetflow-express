@@ -42,6 +42,8 @@ export type HeroSlide = {
   mobileFit?: "cover" | "contain";
   mobilePosition?: string;
   mobileBg?: string;
+  /** 0.95 = 5% herauszoomen, bei cover → mehr vom Bild sichtbar, Container bleibt gefüllt. */
+  mobileZoom?: number;
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
@@ -57,9 +59,9 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     thumb: t1,
     alt: "RAJ NEXUS auf Schreibtisch neben MacBook, iPhone im StandBy-Modus",
     position: "center 62%",
-    mobileFit: "contain",
-    mobilePosition: "center",
-    bg: "#ffffff",
+    mobileFit: "cover",
+    mobilePosition: "center 72%",
+    mobileZoom: 0.95,
   },
   {
     src: s2_1400,
@@ -127,6 +129,10 @@ export const HeroSwipeImage = ({
   const position = (isMobile ? current.mobilePosition : current.position) ?? objectPosition;
   const bg = (isMobile ? current.mobileBg : current.bg) ?? current.bg ?? "transparent";
 
+  const zoom = isMobile ? current.mobileZoom : undefined;
+  const zoomSize = zoom ? `${100 / zoom}%` : "100%";
+  const zoomOffset = zoom ? `${(100 - 100 / zoom) / 2}%` : "0%";
+
   return (
     <motion.div
       className="absolute inset-0 select-none cursor-grab active:cursor-grabbing"
@@ -152,8 +158,11 @@ export const HeroSwipeImage = ({
           decoding="async"
           fetchPriority={priority && index === 0 ? "high" : "auto"}
           style={{
-            width: "100%",
-            height: "100%",
+            width: zoomSize,
+            height: zoomSize,
+            position: "absolute",
+            top: zoomOffset,
+            left: zoomOffset,
             objectFit: fit,
             objectPosition: position,
             display: "block",
