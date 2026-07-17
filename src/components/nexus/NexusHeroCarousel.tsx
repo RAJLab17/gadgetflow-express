@@ -102,6 +102,7 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     bg: "#ffffff",
     mobileFit: "contain",
     mobileBg: "#ffffff",
+    showChips: false,
   },
 ];
 
