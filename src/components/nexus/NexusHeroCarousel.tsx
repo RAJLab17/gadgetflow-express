@@ -39,6 +39,9 @@ export type HeroSlide = {
   fit?: "cover" | "contain";
   bg?: string;
   position?: string;
+  mobileFit?: "cover" | "contain";
+  mobilePosition?: string;
+  mobileBg?: string;
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
