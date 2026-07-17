@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // LCP hero (slide 0): use the CDN pointer URLs so the src matches the
 // <link rel="preload"> injected by the raj-hero-preload Vite plugin 1:1.
@@ -38,6 +39,9 @@ export type HeroSlide = {
   fit?: "cover" | "contain";
   bg?: string;
   position?: string;
+  mobileFit?: "cover" | "contain";
+  mobilePosition?: string;
+  mobileBg?: string;
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
@@ -53,6 +57,9 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     thumb: t1,
     alt: "RAJ NEXUS auf Schreibtisch neben MacBook, iPhone im StandBy-Modus",
     position: "center 62%",
+    mobileFit: "contain",
+    mobilePosition: "center",
+    bg: "#ffffff",
   },
   {
     src: s2_1400,
@@ -115,13 +122,15 @@ export const HeroSwipeImage = ({
   };
 
   const current = slides[index];
-  const fit = current.fit ?? objectFit;
-  const position = current.position ?? objectPosition;
+  const isMobile = useIsMobile();
+  const fit = (isMobile ? current.mobileFit : current.fit) ?? objectFit;
+  const position = (isMobile ? current.mobilePosition : current.position) ?? objectPosition;
+  const bg = (isMobile ? current.mobileBg : current.bg) ?? current.bg ?? "transparent";
 
   return (
     <motion.div
       className="absolute inset-0 select-none cursor-grab active:cursor-grabbing"
-      style={{ touchAction: "pan-y", zIndex: 1, background: current.bg ?? "transparent" }}
+      style={{ touchAction: "pan-y", zIndex: 1, background: bg }}
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.18}
