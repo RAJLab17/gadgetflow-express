@@ -30,6 +30,14 @@ import t1 from "@/assets/nexus-carousel/thumb-1.webp";
 import t2 from "@/assets/nexus-carousel/thumb-2.webp";
 import t3 from "@/assets/nexus-carousel/thumb-3.webp";
 import t4 from "@/assets/nexus-carousel/thumb-4.webp";
+import s6_480_asset from "@/assets/nexus-carousel/slide-6-480.webp.asset.json";
+import s6_900_asset from "@/assets/nexus-carousel/slide-6-900.webp.asset.json";
+import s6_1400_asset from "@/assets/nexus-carousel/slide-6-1400.webp.asset.json";
+import t6_asset from "@/assets/nexus-carousel/thumb-6.webp.asset.json";
+const s6_480 = s6_480_asset.url;
+const s6_900 = s6_900_asset.url;
+const s6_1400 = s6_1400_asset.url;
+const t6 = t6_asset.url;
 
 export type HeroSlide = {
   src: string;
@@ -82,6 +90,16 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     alt: "RAJ NEXUS 3-in-1 und Solo-Pad nebeneinander auf Schreibtisch",
     fit: "cover",
     bg: "#f7f4ef",
+  },
+  {
+    src: s6_900,
+    srcSet: `${s6_480} 480w, ${s6_900} 900w, ${s6_1400} 1400w`,
+    thumb: t6,
+    alt: "RAJ NEXUS Kompatibilität – iPhone 25W, Apple Watch 5W, AirPods 5W",
+    fit: "contain",
+    bg: "#ffffff",
+    mobileFit: "contain",
+    mobileBg: "#ffffff",
   },
 ];
 
