@@ -42,6 +42,8 @@ export type HeroSlide = {
   mobileFit?: "cover" | "contain";
   mobilePosition?: string;
   mobileBg?: string;
+  /** 0.95 = 5% herauszoomen, bei cover → mehr vom Bild sichtbar, Container bleibt gefüllt. */
+  mobileZoom?: number;
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
