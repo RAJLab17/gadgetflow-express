@@ -52,6 +52,8 @@ export type HeroSlide = {
   mobileBg?: string;
   /** 0.95 = 5% herauszoomen, bei cover → mehr vom Bild sichtbar, Container bleibt gefüllt. */
   mobileZoom?: number;
+  /** Lade-Chips (iPhone / Watch / AirPods) auf diesem Slide anzeigen? */
+  showChips?: boolean;
 };
 
 export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
@@ -100,6 +102,7 @@ export const HERO_CAROUSEL_SLIDES: HeroSlide[] = [
     bg: "#ffffff",
     mobileFit: "contain",
     mobileBg: "#ffffff",
+    showChips: false,
   },
 ];
 
