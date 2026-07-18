@@ -947,7 +947,7 @@ const NexusPage = () => {
             <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
           </div>
           <p className="text-center mb-1.5" style={{ fontSize: 13, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
-          <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, paddingBottom: "100%", maxHeight: 300, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
+          <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
               <HeroSwipeImage
                 slides={HERO_CAROUSEL_SLIDES}
@@ -966,17 +966,7 @@ const NexusPage = () => {
               {HERO_CAROUSEL_SLIDES[heroSlideIdx].showChips !== false && <NexusHeroChipsMobile />}
             </div>
           </div>
-          <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={48} />
-          <div className="flex flex-wrap justify-center gap-2 mt-3 mb-2.5">
-            {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
-              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 10px", borderRadius: 100, border: "1px solid rgba(26,26,26,.12)", background: "#FFFFFF", fontSize: 10, color: H.text, boxShadow: "0 1px 8px rgba(26,26,26,.04)" }}>
-                <span style={{ color: H.gold }}>✓</span> {b}
-              </span>
-            ))}
-          </div>
           <div className="flex flex-col items-center text-center mb-2" style={{ borderTop: `1px solid ${H.border}`, borderBottom: `1px solid ${H.border}`, padding: "6px 0", gap: 4 }}>
-
-
             {/* Scarcity */}
             <div className="flex items-center" style={{ gap: 8 }}>
               <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
@@ -1005,15 +995,11 @@ const NexusPage = () => {
                 </span>
               </Link>
             )}
-
           </div>
-
-
-
           <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
           </a>
-          <div className="flex flex-nowrap justify-center gap-1.5 mt-2 px-1">
+          <div className="flex flex-nowrap justify-center gap-1.5 mt-2 mb-2 px-1">
             {[
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
               { i: <svg width="11" height="11" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 1.5, flexShrink: 0 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
@@ -1021,6 +1007,14 @@ const NexusPage = () => {
             ].map((b) => (
               <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 7px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 9.5, color: H.text, whiteSpace: "nowrap", boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
                 {b.i} {b.t}
+              </span>
+            ))}
+          </div>
+          <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={48} />
+          <div className="flex flex-wrap justify-center gap-2 mt-3 mb-2.5">
+            {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
+              <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 10px", borderRadius: 100, border: "1px solid rgba(26,26,26,.12)", background: "#FFFFFF", fontSize: 10, color: H.text, boxShadow: "0 1px 8px rgba(26,26,26,.04)" }}>
+                <span style={{ color: H.gold }}>✓</span> {b}
               </span>
             ))}
           </div>
