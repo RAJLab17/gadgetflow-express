@@ -32,9 +32,26 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
 # LLM context file
 # https://raj.ch/llms.txt
 
-# Sitemaps — der Sitemap-Index referenziert sitemap.xml und sitemap-images.xml
+# Sitemap
 Sitemap: https://raj.ch/sitemap-index.xml
-Sitemap: https://raj.ch/sitemap.xml
