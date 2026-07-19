@@ -223,7 +223,7 @@ const rows: Row[] = [
     label: "Verfügbar auf Digitec/Galaxus",
     nexus: "Nein (nur raj.ch)",
     boost: "Ja",
-    ultra: "Ja (nur noch 4 Stk.)",
+    ultra: "Ja",
     anker: "Ja",
   },
 ];
