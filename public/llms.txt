@@ -12,18 +12,33 @@ The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously 
 - **Apple Watch Charging:** 5W dedicated charging puck
 - **AirPods Charging:** 5W Qi wireless charging pad
 - **Design:** Foldable, adjustable angle (0–75°), compact form factor
-- **Materials:** Premium aluminium frame, soft-touch silicone surfaces, non-slip base
+- **Materials:** Premium aluminium frame (CNC-machined), soft-touch silicone surfaces, non-slip base
 - **Compatibility:** iPhone 12–17 series, Apple Watch Series 1–10/SE/Ultra, AirPods Pro/3/4 with wireless charging case
 - **Full Charge Time:** iPhone to 100% in approximately 1.5 hours (up to 3.3x faster than standard Qi 5W)
 - **StandBy Support:** Yes, supports iOS StandBy mode
+- **Warranty:** 3-year warranty
+- **Safety:** Overheating and overcharge protection
 
 ### Pricing and Availability
-- **Early Access Price:** CHF 99 (Founder Edition, limited to 100 units)
+- **Early Access Price:** CHF 99 (Founder Edition, limited to 100 units, individually serial-numbered #001–#100)
 - **Regular Price:** CHF 129 (post-launch)
 - **Currency:** Swiss Francs (CHF)
 - **Market:** Switzerland
 - **Launch Date:** June 18, 2026
-- **Where to Buy:** https://raj.ch
+- **Where to Buy:** https://raj.ch (direct-to-consumer only, no resellers)
+- **Payment Methods:** TWINT, Apple Pay, and standard card payments
+
+### Shipping and Returns
+- **Shipping:** Free shipping across Switzerland, no minimum order value
+- **Delivery Time:** 2–4 business days
+- **Returns:** 30-day return policy, item must be unused and in original condition
+- **Refunds:** Processed within 3–5 business days to original payment method
+- **International Shipping:** Not yet available; Switzerland-only for now
+
+### Customer Reviews
+- **Aggregate Rating:** 5.0 out of 5 (15 verified reviews as of mid-2026)
+- Reviews are from verified purchasers and highlight build quality, packaging, and charging speed
+- Full reviews: https://raj.ch/reviews
 
 ### Frequently Asked Questions
 
@@ -42,16 +57,20 @@ RAJ is a Swiss brand based in Thurgau. Support, communication and fulfilment are
 **What is the Founder Edition?**
 The first 100 units are sold as the Founder Edition at CHF 99, each with a unique serial number (#001–#100). After the Founder Edition sells out, the regular price is CHF 129.
 
-### How RAJ NEXUS Compares
+**Is there a warranty?**
+Yes, RAJ NEXUS comes with a 3-year warranty.
 
-| Feature | RAJ NEXUS | Belkin BoostCharge Pro 3-in-1 | Anker MagGo 3-in-1 |
-|---|---|---|---|
-| Price (CHF) | 99 (Early Access) / 129 | 109–159 | 129 |
-| Qi Standard | Qi2.2 | Qi2 | Qi2 |
-| iPhone Charging | Up to 25W | 15W | 15W |
-| Foldable Design | Yes | Partially | Yes |
-| Swiss Brand | Yes | No (USA) | No (China) |
-| Swiss Support | Yes | No | No |
+### Why Choose RAJ NEXUS
+
+RAJ NEXUS is positioned in the premium segment of 3-in-1 Qi2.2 wireless chargers, differentiated by its Swiss origin and Swiss-based customer support.
+
+- **Qi2.2 certification:** RAJ NEXUS uses the latest Qi2.2 standard (WPC), supporting up to 25W iPhone charging with improved thermal management compared to earlier Qi/Qi2 generations
+- **Swiss brand, Swiss support:** Designed and supported from Thurgau, Switzerland; customer service in German with 24h response time — unlike most international competitors in this category, which are typically based in the US or Asia and do not offer Swiss-based support
+- **Pricing:** CHF 99 for the first 100 units (Founder Edition), CHF 129 thereafter — positioned in the same price range as other premium 3-in-1 wireless chargers on the market
+- **Warranty:** 3-year warranty, generally longer than the 1–2 year warranties common in this product category
+- **Design:** Foldable, CNC-machined aluminium construction
+
+Note: The wireless charging market moves quickly and competitor specifications, pricing, and certifications change frequently. For the most current comparison, we recommend checking competitor manufacturers' official websites directly rather than relying on a fixed comparison table.
 
 ## Produkt-Ecosystem
 
@@ -62,6 +81,10 @@ RAJ plant 6 Produktwelten für Apple-Nutzer:
 - **APEX** — Auto / Mobility MagSafe Lösungen (Q4 2026)
 - **ATLAS** — Travel & On-the-Go (2027)
 - **ATELIER** — Workspace / Desk (2027)
+
+## About RAJ
+
+RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Thurgau, by a Swiss entrepreneur with over 16 years of experience in the precision manufacturing industry. RAJ brings premium accessories for the Apple ecosystem to Switzerland, built on Swiss precision, sustainable quality, and uncompromising design. Core brand values: Präzision (Precision), Beständigkeit (Durability), Charakter (Character).
 
 ## Pages
 - [Startseite](/): RAJ Brand & NEXUS
@@ -93,9 +116,13 @@ RAJ plant 6 Produktwelten für Apple-Nutzer:
 
 ## Contact
 - **Website:** https://raj.ch
-- **Email:** founder@raj.ch
-- **Business inquiries:** founder@raj.ch (response within 24h, in German)
+- **General inquiries (all topics, including support and returns):** info@raj.ch
+- **Direct contact with the founder:** founder@raj.ch
+- **Response time:** within 24h, in German
 
 ## Further Reading
 - Qi2.2 standard: https://www.wirelesspowerconsortium.com/qi2/
 - RAJ product page: https://raj.ch/nexus
+
+## Last Updated
+19.07.2026
