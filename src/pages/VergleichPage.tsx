@@ -340,18 +340,6 @@ const VergleichPage = () => {
           Garantie.
         </P>
 
-        <H3>Belkin BoostCharge Pro / UltraCharge Pro 3-in-1</H3>
-        <P>
-          Belkin ist ein etablierter Name im Zubehörmarkt und aktuell mit zwei 3-in-1-Modellen auf dem
-          Schweizer Markt vertreten (Stand Juli 2026, digitec.ch/galaxus.ch). Das ältere BoostCharge Pro
-          3-in-1 Qi2 lädt das iPhone mit 15W und ist aktuell im Sale für CHF 39.– erhältlich (regulär
-          CHF 64.40). Das neuere UltraCharge Pro 3-in-1 Qi2 erreicht mit ChillBoost-Kühltechnologie bis zu
-          25W Ladeleistung und kostet CHF 90.90 – bei nur noch wenigen Stück an Lager. Belkin ist zudem
-          bekannt für seine Geräte-Versicherung bis 2500 USD bei Schäden durch die Ladestation.
-        </P>
-
-        <ImagePlaceholder label="Belkin BoostCharge Pro / UltraCharge Pro 3-in-1" />
-
         <H3>Anker MagGo 3-in-1</H3>
         <P>
           Anker ist bekannt für ein gutes Preis-Leistungs-Verhältnis. Die MagGo 3-in-1 Ladestation ist
