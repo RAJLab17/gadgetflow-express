@@ -778,7 +778,7 @@ const NexusPage = () => {
       <section
         id="mockup-signup"
         className="relative overflow-x-hidden"
-        style={{ background: H.bg, color: H.text, paddingTop: "clamp(72px, 6vw, 104px)" }}
+        style={{ background: H.bg, color: H.text, paddingTop: "clamp(52px, 4vw, 78px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
         <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 1 }} />
