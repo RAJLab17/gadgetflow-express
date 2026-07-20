@@ -784,7 +784,7 @@ const NexusPage = () => {
         <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 1 }} />
 
         {/* DESKTOP */}
-        <div className="hidden md:grid relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-16 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.22fr)", columnGap: "clamp(32px,3.5vw,72px)", rowGap: 0, alignItems: "start" }}>
+        <div className="hidden md:grid relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-10 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", columnGap: "clamp(24px,3vw,60px)", rowGap: 0, alignItems: "start" }}>
           {/* LEFT — product info */}
           <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(4px,1vw,16px)" }}>
 
