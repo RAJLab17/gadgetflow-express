@@ -935,7 +935,7 @@ const NexusPage = () => {
                 ))}
               </div>
             </div>
-            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} dark style={{ justifyContent: "flex-end", margin: 0, flexWrap: "wrap" }} />
+            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={52} dark style={{ justifyContent: "flex-end", margin: 0, flexWrap: "wrap" }} />
           </div>
         </div>
 
