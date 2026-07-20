@@ -797,28 +797,28 @@ const NexusPage = () => {
               <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert</span>
             </div>
 
-            <h1 style={{ fontSize: "clamp(44px,5.2vw,82px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
+            <h1 style={{ fontSize: "clamp(38px,4.4vw,68px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
               <span style={{ display: "inline", color: H.text, fontWeight: 200 }}>RAJ</span>
               <span style={{ display: "inline", marginLeft: "0.12em" }} />
               <span style={{ display: "inline", background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em", textShadow: "0 2px 24px rgba(155,107,63,.18)" }}>NEXUS</span>
             </h1>
-            <p style={{ marginTop: 22, fontSize: "clamp(17px,1.35vw,22px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 460 }}>
+            <p style={{ marginTop: 14, fontSize: "clamp(15px,1.15vw,19px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 460 }}>
               iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.
             </p>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 22 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
               {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
-                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 11.5, color: H.text, boxShadow: "0 1px 6px rgba(26,26,26,.03)" }}>
+                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 11px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 10.5, color: H.text, boxShadow: "0 1px 6px rgba(26,26,26,.03)" }}>
                   <span style={{ color: H.gold }}>✓</span> {b}
                 </span>
               ))}
             </div>
 
-            <p className="hidden md:block" style={{ marginTop: 22, maxWidth: 440, fontSize: "clamp(14px,0.98vw,17px)", lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>
+            <p className="hidden md:block" style={{ marginTop: 14, maxWidth: 440, fontSize: "clamp(13px,0.9vw,15px)", lineHeight: 1.5, color: H.textMuted, fontWeight: 300 }}>
               Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch oder deinen Bürotisch.
             </p>
 
-            <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 26 }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 16 }}>
               <span style={{ fontSize: "clamp(19px,1.45vw,22px)", color: H.textMuted, fontWeight: 400, letterSpacing: "-.01em" }}>CHF 99.-</span>
               <span style={{ fontSize: 13, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
               <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
