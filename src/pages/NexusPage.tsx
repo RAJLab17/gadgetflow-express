@@ -914,11 +914,11 @@ const NexusPage = () => {
           <div
             style={{
               gridColumn: "1 / -1",
-              marginTop: 18,
-              borderRadius: 18,
+              marginTop: 12,
+              borderRadius: 14,
               background: "#0a0908",
               border: "1px solid rgba(155,107,63,.20)",
-              padding: "16px 22px",
+              padding: "10px 16px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
