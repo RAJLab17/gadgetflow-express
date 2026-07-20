@@ -916,19 +916,20 @@ const NexusPage = () => {
           <div
             style={{
               gridColumn: "1 / -1",
-              marginTop: 12,
+              marginTop: 8,
               borderRadius: 14,
               background: "#0a0908",
               border: "1px solid rgba(155,107,63,.20)",
-              padding: "10px 16px",
+              padding: "8px 14px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              gap: 24,
+              gap: 20,
               boxShadow: "0 24px 70px -34px rgba(0,0,0,.42)",
               flexWrap: "wrap",
             }}
           >
+
             <div style={{ display: "flex", flexDirection: "column", gap: 8, minWidth: 0 }}>
               <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold }}>Sichere Zahlungsmethoden</p>
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
