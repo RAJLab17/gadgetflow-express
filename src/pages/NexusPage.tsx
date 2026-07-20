@@ -149,16 +149,16 @@ const ChargeChip = ({ label, icon, startVal, phase, floatAnim, style }: ChargeCh
     return () => clearTimeout(t);
   }, [phase]);
   return (
-    <div style={{ position: "absolute", padding: "12px 15px", borderRadius: 15, background: H.surface, border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 18px 44px rgba(26,26,26,.12)", minWidth: 148, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-        <div style={{ width: 24, height: 24, borderRadius: 7, background: "rgba(155,107,63,.10)", display: "flex", alignItems: "center", justifyContent: "center" }}>{icon}</div>
-        <span style={{ fontSize: 11.5, color: H.text, fontWeight: 500 }}>{label}</span>
+    <div style={{ position: "absolute", padding: "8px 11px", borderRadius: 12, background: H.surface, border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 14px 34px rgba(26,26,26,.12)", minWidth: 116, animation: `${floatAnim} ease-in-out infinite`, zIndex: 5, ...style }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 5 }}>
+        <div style={{ width: 18, height: 18, borderRadius: 6, background: "rgba(155,107,63,.10)", display: "flex", alignItems: "center", justifyContent: "center" }}>{icon}</div>
+        <span style={{ fontSize: 10, color: H.text, fontWeight: 500 }}>{label}</span>
       </div>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
-        <span style={{ fontSize: 25, fontWeight: 300, fontVariantNumeric: "tabular-nums", color: H.text }}>{val}</span>
-        <span style={{ fontSize: 13, color: H.textDim }}>%</span>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 2 }}>
+        <span style={{ fontSize: 18, fontWeight: 300, fontVariantNumeric: "tabular-nums", color: H.text, lineHeight: 1 }}>{val}</span>
+        <span style={{ fontSize: 10.5, color: H.textDim }}>%</span>
       </div>
-      <div style={{ marginTop: 8, height: 2, borderRadius: 2, background: "rgba(26,26,26,.08)", overflow: "hidden" }}>
+      <div style={{ marginTop: 5, height: 2, borderRadius: 2, background: "rgba(26,26,26,.08)", overflow: "hidden" }}>
         <div style={{ height: "100%", width: `${val}%`, borderRadius: 2, background: `linear-gradient(90deg, #7a4e2a, ${H.gold})`, transition: "width 1s ease" }} />
       </div>
     </div>
@@ -778,13 +778,13 @@ const NexusPage = () => {
       <section
         id="mockup-signup"
         className="relative overflow-x-hidden"
-        style={{ background: H.bg, color: H.text, paddingTop: "clamp(72px, 6vw, 104px)" }}
+        style={{ background: H.bg, color: H.text, paddingTop: "clamp(52px, 4vw, 78px)" }}
       >
         <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
         <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 1 }} />
 
         {/* DESKTOP */}
-        <div className="hidden md:grid relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-16 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.22fr)", columnGap: "clamp(32px,3.5vw,72px)", rowGap: 0, alignItems: "start" }}>
+        <div className="hidden md:grid relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-10 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", columnGap: "clamp(24px,3vw,60px)", rowGap: 0, alignItems: "start" }}>
           {/* LEFT — product info */}
           <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(4px,1vw,16px)" }}>
 
@@ -797,28 +797,28 @@ const NexusPage = () => {
               <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert</span>
             </div>
 
-            <h1 style={{ fontSize: "clamp(44px,5.2vw,82px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
+            <h1 style={{ fontSize: "clamp(38px,4.4vw,68px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
               <span style={{ display: "inline", color: H.text, fontWeight: 200 }}>RAJ</span>
               <span style={{ display: "inline", marginLeft: "0.12em" }} />
               <span style={{ display: "inline", background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em", textShadow: "0 2px 24px rgba(155,107,63,.18)" }}>NEXUS</span>
             </h1>
-            <p style={{ marginTop: 22, fontSize: "clamp(17px,1.35vw,22px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 460 }}>
+            <p style={{ marginTop: 14, fontSize: "clamp(15px,1.15vw,19px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, maxWidth: 460 }}>
               iPhone, Watch &amp; AirPods.<br />Geladen an einem Ort.
             </p>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 22 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
               {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
-                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 11.5, color: H.text, boxShadow: "0 1px 6px rgba(26,26,26,.03)" }}>
+                <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 11px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 10.5, color: H.text, boxShadow: "0 1px 6px rgba(26,26,26,.03)" }}>
                   <span style={{ color: H.gold }}>✓</span> {b}
                 </span>
               ))}
             </div>
 
-            <p className="hidden md:block" style={{ marginTop: 22, maxWidth: 440, fontSize: "clamp(14px,0.98vw,17px)", lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>
+            <p className="hidden md:block" style={{ marginTop: 14, maxWidth: 440, fontSize: "clamp(13px,0.9vw,15px)", lineHeight: 1.5, color: H.textMuted, fontWeight: 300 }}>
               Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch oder deinen Bürotisch.
             </p>
 
-            <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 26 }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 16 }}>
               <span style={{ fontSize: "clamp(19px,1.45vw,22px)", color: H.textMuted, fontWeight: 400, letterSpacing: "-.01em" }}>CHF 99.-</span>
               <span style={{ fontSize: 13, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
               <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
@@ -859,7 +859,7 @@ const NexusPage = () => {
           <div style={{ alignSelf: "start", width: "100%" }}>
             <div style={{ position: "relative", width: "100%" }}>
               <div style={{ position: "absolute", top: "50%", left: "50%", width: "92%", height: "92%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.14), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
-              <div style={{ position: "relative", zIndex: 2, width: "100%", paddingBottom: "100%", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
+              <div style={{ position: "relative", zIndex: 2, width: "100%", paddingBottom: "82%", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
                 <div style={{ position: "absolute", inset: 0 }}>
                 <HeroSwipeImage
                   slides={HERO_CAROUSEL_SLIDES}
@@ -914,11 +914,11 @@ const NexusPage = () => {
           <div
             style={{
               gridColumn: "1 / -1",
-              marginTop: 18,
-              borderRadius: 18,
+              marginTop: 12,
+              borderRadius: 14,
               background: "#0a0908",
               border: "1px solid rgba(155,107,63,.20)",
-              padding: "16px 22px",
+              padding: "10px 16px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -935,7 +935,7 @@ const NexusPage = () => {
                 ))}
               </div>
             </div>
-            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={64} dark style={{ justifyContent: "flex-end", margin: 0, flexWrap: "wrap" }} />
+            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={52} dark style={{ justifyContent: "flex-end", margin: 0, flexWrap: "wrap" }} />
           </div>
         </div>
 
