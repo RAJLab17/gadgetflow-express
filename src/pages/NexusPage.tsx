@@ -775,18 +775,19 @@ const NexusPage = () => {
       {/* Trust ticker integrated INSIDE the fixed Header chrome (bottom slot). */}
 
       <Header topSlot={<NexusTrustBar />} />
-      <section
-        id="mockup-signup"
-        className="relative overflow-x-hidden"
-        style={{ background: H.bg, color: H.text, paddingTop: "clamp(52px, 4vw, 78px)" }}
-      >
-        <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
-        <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 140, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 1 }} />
+        <section
+          id="mockup-signup"
+          className="relative overflow-x-hidden"
+          style={{ background: H.bg, color: H.text, paddingTop: "clamp(48px, 3.4vw, 66px)" }}
+        >
+          <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
+          <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 1 }} />
 
-        {/* DESKTOP */}
-        <div className="hidden md:grid relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-10 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", columnGap: "clamp(24px,3vw,60px)", rowGap: 0, alignItems: "start" }}>
-          {/* LEFT — product info */}
-          <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(4px,1vw,16px)" }}>
+          {/* DESKTOP */}
+          <div className="hidden md:grid relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", columnGap: "clamp(24px,3vw,60px)", rowGap: 0, alignItems: "start" }}>
+            {/* LEFT — product info */}
+            <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(0px, 0.6vw, 10px)" }}>
+
 
             {/* Founder eyebrow */}
             <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "9px 18px 9px 14px", borderRadius: 100, border: `1px solid ${H.gold}44`, background: H.surface, marginBottom: 22, boxShadow: "0 4px 24px rgba(26,26,26,.05)" }}>
@@ -857,10 +858,11 @@ const NexusPage = () => {
 
           {/* RIGHT — hero image */}
           <div style={{ alignSelf: "start", width: "100%" }}>
-            <div style={{ position: "relative", width: "100%" }}>
-              <div style={{ position: "absolute", top: "50%", left: "50%", width: "92%", height: "92%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.14), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
-              <div style={{ position: "relative", zIndex: 2, width: "100%", paddingBottom: "82%", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
+              <div style={{ position: "relative", width: "100%" }}>
+                <div style={{ position: "absolute", top: "50%", left: "50%", width: "92%", height: "92%", borderRadius: "50%", background: "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,.14), transparent 70%)", transform: "translate(-50%,-50%)", pointerEvents: "none", zIndex: 0 }} />
+                <div style={{ position: "relative", zIndex: 2, width: "100%", paddingBottom: "100%", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
                 <div style={{ position: "absolute", inset: 0 }}>
+
                 <HeroSwipeImage
                   slides={HERO_CAROUSEL_SLIDES}
                   index={heroSlideIdx}
@@ -914,19 +916,20 @@ const NexusPage = () => {
           <div
             style={{
               gridColumn: "1 / -1",
-              marginTop: 12,
+              marginTop: 8,
               borderRadius: 14,
               background: "#0a0908",
               border: "1px solid rgba(155,107,63,.20)",
-              padding: "10px 16px",
+              padding: "8px 14px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              gap: 24,
+              gap: 20,
               boxShadow: "0 24px 70px -34px rgba(0,0,0,.42)",
               flexWrap: "wrap",
             }}
           >
+
             <div style={{ display: "flex", flexDirection: "column", gap: 8, minWidth: 0 }}>
               <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold }}>Sichere Zahlungsmethoden</p>
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
