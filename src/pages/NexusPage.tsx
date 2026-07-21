@@ -1206,7 +1206,7 @@ const NexusPage = () => {
       <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
 
       <AnimatePresence>
-        {marcelLightboxOpen && latestMarcelReview?.photo_url && (
+        {marcelLightboxOpen && activeHeroReview?.photo_url && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -1231,8 +1231,8 @@ const NexusPage = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              src={supaThumb(latestMarcelReview.photo_url, 1400, 82)}
-              alt={`Foto zur Bewertung von ${latestMarcelReview.customer_name}`}
+              src={supaThumb(activeHeroReview.photo_url, 1400, 82)}
+              alt={`Foto zur Bewertung von ${activeHeroReview.customer_name}`}
               className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
