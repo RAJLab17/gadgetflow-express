@@ -664,10 +664,14 @@ const NexusPage = () => {
   // Dynamic AggregateRating + Review for Product JSON-LD (from approved Supabase reviews)
   const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>(null);
   const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
-  const [latestMarcelReview, setLatestMarcelReview] = useState<HeroReview | null>(null);
+  const [heroReviews, setHeroReviews] = useState<HeroReview[]>([]);
+  const [heroReviewIdx, setHeroReviewIdx] = useState(0);
+  const [heroReviewExpanded, setHeroReviewExpanded] = useState(false);
   const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
   const [heroSlideIdx, setHeroSlideIdx] = useState(0);
+
+  const activeHeroReview = heroReviews[heroReviewIdx] ?? null;
 
   useEffect(() => {
     if (!marcelLightboxOpen) return;
@@ -680,6 +684,17 @@ const NexusPage = () => {
       document.body.style.overflow = prev;
     };
   }, [marcelLightboxOpen]);
+
+  // Auto-rotate hero reviews every 6s. Paused when a review is expanded
+  // or when the photo lightbox is open. Skipped if there's only one review.
+  useEffect(() => {
+    if (heroReviews.length <= 1) return;
+    if (heroReviewExpanded || marcelLightboxOpen) return;
+    const id = window.setInterval(() => {
+      setHeroReviewIdx((i) => (i + 1) % heroReviews.length);
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [heroReviews.length, heroReviewExpanded, marcelLightboxOpen]);
 
   useEffect(() => {
     let cancelled = false;
