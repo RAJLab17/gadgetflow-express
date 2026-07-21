@@ -1059,12 +1059,14 @@ const NexusPage = () => {
             ))}
           </div>
           <div className="mt-4 -mx-5 px-5 py-6 rounded-t-2xl" style={{ background: D.bg, color: D.beige }}>
-            {latestMarcelReview && (
+            {activeHeroReview && (
               <LatestMarcelReview
-                review={latestMarcelReview}
-                className="mb-5"
+                key={`hero-rev-dark-${heroReviewIdx}`}
+                review={activeHeroReview}
+                className="mb-5 animate-fade-in"
                 onPhotoClick={() => setMarcelLightboxOpen(true)}
                 theme="dark"
+                onExpandChange={setHeroReviewExpanded}
               />
             )}
             <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.beige, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
