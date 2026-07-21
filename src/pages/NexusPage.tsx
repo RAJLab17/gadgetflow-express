@@ -194,15 +194,27 @@ const LatestMarcelReview = ({
   className = "",
   onPhotoClick,
   theme = "dark",
+  onExpandChange,
 }: {
   review: HeroReview;
   className?: string;
   onPhotoClick?: () => void;
   theme?: "light" | "dark";
+  onExpandChange?: (expanded: boolean) => void;
 }) => {
   const [expanded, setExpanded] = useState(false);
   const excerpt = review.comment.length > 90 ? review.comment.slice(0, 90) + "…" : review.comment;
-  const toggle = () => setExpanded((v) => !v);
+  const toggle = () => {
+    setExpanded((v) => {
+      const nv = !v;
+      onExpandChange?.(nv);
+      return nv;
+    });
+  };
+  const close = () => {
+    setExpanded(false);
+    onExpandChange?.(false);
+  };
   const isLight = theme === "light";
   const c = isLight
     ? { border: H.border, surface: H.surface, text: H.text, muted: H.textMuted, gold: H.gold, bg: "#FFFFFF" }
