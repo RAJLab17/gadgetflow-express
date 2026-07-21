@@ -879,12 +879,14 @@ const NexusPage = () => {
               ))}
             </div>
 
-            {latestMarcelReview && (
+            {activeHeroReview && (
               <LatestMarcelReview
-                review={latestMarcelReview}
-                className="mt-6"
+                key={`hero-rev-light-${heroReviewIdx}`}
+                review={activeHeroReview}
+                className="mt-6 animate-fade-in"
                 onPhotoClick={() => setMarcelLightboxOpen(true)}
                 theme="light"
+                onExpandChange={setHeroReviewExpanded}
               />
             )}
 
