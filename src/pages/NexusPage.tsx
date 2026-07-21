@@ -194,15 +194,27 @@ const LatestMarcelReview = ({
   className = "",
   onPhotoClick,
   theme = "dark",
+  onExpandChange,
 }: {
   review: HeroReview;
   className?: string;
   onPhotoClick?: () => void;
   theme?: "light" | "dark";
+  onExpandChange?: (expanded: boolean) => void;
 }) => {
   const [expanded, setExpanded] = useState(false);
   const excerpt = review.comment.length > 90 ? review.comment.slice(0, 90) + "…" : review.comment;
-  const toggle = () => setExpanded((v) => !v);
+  const toggle = () => {
+    setExpanded((v) => {
+      const nv = !v;
+      onExpandChange?.(nv);
+      return nv;
+    });
+  };
+  const close = () => {
+    setExpanded(false);
+    onExpandChange?.(false);
+  };
   const isLight = theme === "light";
   const c = isLight
     ? { border: H.border, surface: H.surface, text: H.text, muted: H.textMuted, gold: H.gold, bg: "#FFFFFF" }
@@ -264,7 +276,7 @@ const LatestMarcelReview = ({
           {/* Backdrop for outside-click dismiss — doesn't shift layout */}
           <div
             aria-hidden
-            onClick={() => setExpanded(false)}
+            onClick={close}
             style={{ position: "fixed", inset: 0, zIndex: 40, background: "transparent" }}
           />
           <div
@@ -287,7 +299,7 @@ const LatestMarcelReview = ({
             <div className="px-3 py-3 sm:px-3.5 sm:py-4 relative">
               <button
                 type="button"
-                onClick={() => setExpanded(false)}
+                onClick={close}
                 aria-label="Bewertung schliessen"
                 className="absolute top-2 right-2 rounded-full p-1 transition-opacity hover:opacity-70"
                 style={{ color: c.muted, background: "transparent", border: "none" }}
@@ -652,10 +664,14 @@ const NexusPage = () => {
   // Dynamic AggregateRating + Review for Product JSON-LD (from approved Supabase reviews)
   const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>(null);
   const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
-  const [latestMarcelReview, setLatestMarcelReview] = useState<HeroReview | null>(null);
+  const [heroReviews, setHeroReviews] = useState<HeroReview[]>([]);
+  const [heroReviewIdx, setHeroReviewIdx] = useState(0);
+  const [heroReviewExpanded, setHeroReviewExpanded] = useState(false);
   const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
   const [heroSlideIdx, setHeroSlideIdx] = useState(0);
+
+  const activeHeroReview = heroReviews[heroReviewIdx] ?? null;
 
   useEffect(() => {
     if (!marcelLightboxOpen) return;
@@ -669,11 +685,23 @@ const NexusPage = () => {
     };
   }, [marcelLightboxOpen]);
 
+  // Auto-rotate hero reviews every 6s. Paused when a review is expanded
+  // or when the photo lightbox is open. Skipped if there's only one review.
+  useEffect(() => {
+    if (heroReviews.length <= 1) return;
+    if (heroReviewExpanded || marcelLightboxOpen) return;
+    const id = window.setInterval(() => {
+      setHeroReviewIdx((i) => (i + 1) % heroReviews.length);
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [heroReviews.length, heroReviewExpanded, marcelLightboxOpen]);
+
   useEffect(() => {
     let cancelled = false;
+    const HERO_NAMES = ["Marcel", "Laura", "Aldin", "Jonas", "Maik"];
     (async () => {
       const sb = await getSupabase();
-      const [{ data: s }, { data: r }, { data: marcel }] = await Promise.all([
+      const [{ data: s }, { data: r }, { data: heroRows }] = await Promise.all([
         sb.rpc("get_review_stats", { _product_id: "nexus" }),
         sb
           .from("reviews_public")
@@ -685,9 +713,9 @@ const NexusPage = () => {
           .from("reviews_public")
           .select("customer_name,rating,title,comment,photo_url,verified_purchase,created_at")
           .eq("product_id", "nexus")
-          .ilike("customer_name", "%Marcel%")
+          .or(HERO_NAMES.map((n) => `customer_name.ilike.${n}%`).join(","))
           .order("created_at", { ascending: false })
-          .limit(1),
+          .limit(20),
       ]);
       if (cancelled) return;
       if (s && Array.isArray(s) && s.length > 0) {
@@ -695,8 +723,15 @@ const NexusPage = () => {
         setReviewStats({ total: Number(row.total) || 0, average: Number(row.average) || 0 });
       }
       setTopReviews((r ?? []) as typeof topReviews);
-      if (marcel && marcel.length > 0) {
-        setLatestMarcelReview(marcel[0] as HeroReview);
+      if (heroRows && heroRows.length > 0) {
+        // Keep only the latest review per first-name and order by HERO_NAMES.
+        const byName = new Map<string, HeroReview>();
+        for (const row of heroRows as HeroReview[]) {
+          const first = HERO_NAMES.find((n) => row.customer_name.toLowerCase().startsWith(n.toLowerCase()));
+          if (first && !byName.has(first)) byName.set(first, row);
+        }
+        const ordered = HERO_NAMES.map((n) => byName.get(n)).filter(Boolean) as HeroReview[];
+        setHeroReviews(ordered);
       }
     })();
     return () => { cancelled = true; };
@@ -844,12 +879,14 @@ const NexusPage = () => {
               ))}
             </div>
 
-            {latestMarcelReview && (
+            {activeHeroReview && (
               <LatestMarcelReview
-                review={latestMarcelReview}
-                className="mt-6"
+                key={`hero-rev-light-${heroReviewIdx}`}
+                review={activeHeroReview}
+                className="mt-6 animate-fade-in"
                 onPhotoClick={() => setMarcelLightboxOpen(true)}
                 theme="light"
+                onExpandChange={setHeroReviewExpanded}
               />
             )}
 
@@ -1022,12 +1059,14 @@ const NexusPage = () => {
             ))}
           </div>
           <div className="mt-4 -mx-5 px-5 py-6 rounded-t-2xl" style={{ background: D.bg, color: D.beige }}>
-            {latestMarcelReview && (
+            {activeHeroReview && (
               <LatestMarcelReview
-                review={latestMarcelReview}
-                className="mb-5"
+                key={`hero-rev-dark-${heroReviewIdx}`}
+                review={activeHeroReview}
+                className="mb-5 animate-fade-in"
                 onPhotoClick={() => setMarcelLightboxOpen(true)}
                 theme="dark"
+                onExpandChange={setHeroReviewExpanded}
               />
             )}
             <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.beige, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
@@ -1167,7 +1206,7 @@ const NexusPage = () => {
       <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
 
       <AnimatePresence>
-        {marcelLightboxOpen && latestMarcelReview?.photo_url && (
+        {marcelLightboxOpen && activeHeroReview?.photo_url && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -1192,8 +1231,8 @@ const NexusPage = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.94, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              src={supaThumb(latestMarcelReview.photo_url, 1400, 82)}
-              alt={`Foto zur Bewertung von ${latestMarcelReview.customer_name}`}
+              src={supaThumb(activeHeroReview.photo_url, 1400, 82)}
+              alt={`Foto zur Bewertung von ${activeHeroReview.customer_name}`}
               className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />
