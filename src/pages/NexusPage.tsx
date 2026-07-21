@@ -698,9 +698,10 @@ const NexusPage = () => {
 
   useEffect(() => {
     let cancelled = false;
+    const HERO_NAMES = ["Marcel", "Laura", "Aldin", "Jonas", "Maik"];
     (async () => {
       const sb = await getSupabase();
-      const [{ data: s }, { data: r }, { data: marcel }] = await Promise.all([
+      const [{ data: s }, { data: r }, { data: heroRows }] = await Promise.all([
         sb.rpc("get_review_stats", { _product_id: "nexus" }),
         sb
           .from("reviews_public")
@@ -712,9 +713,9 @@ const NexusPage = () => {
           .from("reviews_public")
           .select("customer_name,rating,title,comment,photo_url,verified_purchase,created_at")
           .eq("product_id", "nexus")
-          .ilike("customer_name", "%Marcel%")
+          .or(HERO_NAMES.map((n) => `customer_name.ilike.${n}%`).join(","))
           .order("created_at", { ascending: false })
-          .limit(1),
+          .limit(20),
       ]);
       if (cancelled) return;
       if (s && Array.isArray(s) && s.length > 0) {
@@ -722,8 +723,15 @@ const NexusPage = () => {
         setReviewStats({ total: Number(row.total) || 0, average: Number(row.average) || 0 });
       }
       setTopReviews((r ?? []) as typeof topReviews);
-      if (marcel && marcel.length > 0) {
-        setLatestMarcelReview(marcel[0] as HeroReview);
+      if (heroRows && heroRows.length > 0) {
+        // Keep only the latest review per first-name and order by HERO_NAMES.
+        const byName = new Map<string, HeroReview>();
+        for (const row of heroRows as HeroReview[]) {
+          const first = HERO_NAMES.find((n) => row.customer_name.toLowerCase().startsWith(n.toLowerCase()));
+          if (first && !byName.has(first)) byName.set(first, row);
+        }
+        const ordered = HERO_NAMES.map((n) => byName.get(n)).filter(Boolean) as HeroReview[];
+        setHeroReviews(ordered);
       }
     })();
     return () => { cancelled = true; };
