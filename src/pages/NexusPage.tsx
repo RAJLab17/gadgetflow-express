@@ -276,7 +276,7 @@ const LatestMarcelReview = ({
           {/* Backdrop for outside-click dismiss — doesn't shift layout */}
           <div
             aria-hidden
-            onClick={() => setExpanded(false)}
+            onClick={close}
             style={{ position: "fixed", inset: 0, zIndex: 40, background: "transparent" }}
           />
           <div
