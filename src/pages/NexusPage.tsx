@@ -299,7 +299,7 @@ const LatestMarcelReview = ({
             <div className="px-3 py-3 sm:px-3.5 sm:py-4 relative">
               <button
                 type="button"
-                onClick={() => setExpanded(false)}
+                onClick={close}
                 aria-label="Bewertung schliessen"
                 className="absolute top-2 right-2 rounded-full p-1 transition-opacity hover:opacity-70"
                 style={{ color: c.muted, background: "transparent", border: "none" }}
