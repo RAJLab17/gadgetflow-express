@@ -18,10 +18,10 @@ import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import { fetchProductVariantInfo } from "@/lib/shopify";
 
-// Drop 01: 4 Einheiten allokiert. Baseline = Shopify-Bestand bei Drop-Start.
+// Drop 01: 15 Einheiten allokiert. Baseline = Shopify-Bestand bei Drop-Start.
 // Anzeige = max(0, min(DROP_CAP, DROP_CAP - (BASELINE - currentQty))).
 const DROP_01_BASELINE_INVENTORY = 92;
-const DROP_01_CAP = 4;
+const DROP_01_CAP = 15;
 
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
@@ -1010,8 +1010,8 @@ const NexusPage = () => {
             {/* Scarcity */}
             <div className="flex items-center" style={{ gap: 8 }}>
               <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
-                <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#f97316", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
-                <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#f97316" }} />
+                <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#22c55e", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
+                <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
               </span>
               <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
                 {dropRemaining > 0 ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
