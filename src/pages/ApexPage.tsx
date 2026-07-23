@@ -298,7 +298,7 @@ const ApexPage = () => {
 
                 {/* Feature chips */}
                 <div className="flex flex-wrap gap-2 mb-5">
-                  {["Qi2 · 25 W", WARRANTY, "MagSafe"].map((b) => (
+                  {["Qi2 · 25 W", "Aktive Kühlung", "Saug + Lüftungsclip", WARRANTY].map((b) => (
                     <span key={b} className="text-xs font-medium px-3 py-1.5 rounded-full" style={{ background: "#FAF9F7", border: `1px solid ${H.border}`, color: H.text }}>
                       ✓ {b}
                     </span>
@@ -306,7 +306,7 @@ const ApexPage = () => {
                 </div>
 
                 <p className="text-sm mb-6" style={{ color: H.textMuted }}>
-                  {variant.mount}. RAJ APEX hält dein iPhone per MagSafe sicher am Platz und lädt es gleichzeitig mit bis zu 25W.
+                  Jede APEX kommt mit <strong>Saugmontage</strong> (Armaturenbrett & Scheibe, 360° drehbar) <strong>und Lüftungsclip mit Schnellverschluss</strong> im Lieferumfang. MagSafe-Halt, aktive Kühlung und bis zu 25W kabelloses Laden — für jedes Auto, jede Situation.
                 </p>
 
                 {/* Preis */}
