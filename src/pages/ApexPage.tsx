@@ -49,7 +49,7 @@ const APEX_VARIANTS: ApexVariant[] = [
     img900: apexDash900.url,
     img1400: apexDash1400.url,
     sku: "RAJ-APX-Q2-SLV",
-    price: 69,
+    price: 75,
     compareAt: 99,
   },
   {
