@@ -4,14 +4,6 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-import nexus480 from "@/assets/nexus-carousel/slide-1-480.webp.asset.json";
-import nexus900 from "@/assets/nexus-carousel/slide-1-900.webp.asset.json";
-import nexus1400 from "@/assets/nexus-carousel/slide-1-1400.webp.asset.json";
-
-import apexDash480 from "@/assets/products/apex-dash-480.webp.asset.json";
-import apexDash900 from "@/assets/products/apex-dash-900.webp.asset.json";
-import apexDash1400 from "@/assets/products/apex-dash-1400.webp.asset.json";
-
 const H = {
   gold: "#9b6b3f",
   goldLight: "#C9A876",
@@ -29,9 +21,7 @@ interface Product {
   price: string;
   status: string;
   link: string;
-  img480: string;
-  img900: string;
-  img1400: string;
+  img: string;
   imgAlt: string;
 }
 
@@ -45,9 +35,7 @@ const PRODUCTS: Product[] = [
     price: "CHF 99.–",
     status: "Jetzt verfügbar",
     link: "/nexus",
-    img480: nexus480.url,
-    img900: nexus900.url,
-    img1400: nexus1400.url,
+    img: "/assets/products/nexus-real-hero-floating-white.webp",
     imgAlt: "RAJ NEXUS 3-in-1 Wireless Charger auf hellem Hintergrund",
   },
   {
@@ -59,9 +47,7 @@ const PRODUCTS: Product[] = [
     price: "ab CHF 69.–",
     status: "Early Access",
     link: "/apex",
-    img480: apexDash480.url,
-    img900: apexDash900.url,
-    img1400: apexDash1400.url,
+    img: "/assets/products/apex-card-900.webp",
     imgAlt: "RAJ APEX MagSafe Auto-Ladehalterung in Silber",
   },
 ];
@@ -74,6 +60,7 @@ const ITEM_LIST_JSON_LD = {
     position: i + 1,
     name: p.name,
     url: `https://raj.ch${p.link}`,
+    image: `https://raj.ch${p.img}`,
   })),
 };
 
@@ -85,12 +72,10 @@ const ProductCard = ({ product }: { product: Product }) => (
   >
     <div className="relative aspect-[4/3] overflow-hidden" style={{ background: H.surface }}>
       <img
-        src={product.img900}
-        srcSet={`${product.img480} 480w, ${product.img900} 900w, ${product.img1400} 1400w`}
-        sizes="(max-width: 768px) 92vw, 44vw"
+        src={product.img}
         alt={product.imgAlt}
         width={900}
-        height={675}
+        height={900}
         loading={product.id === "nexus" ? "eager" : "lazy"}
         decoding="async"
         className="w-full h-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
