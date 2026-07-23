@@ -127,7 +127,7 @@ const FAQ_APEX_JSON_LD = {
       name: "Ist ein Ladekabel im Lieferumfang enthalten?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja, RAJ APEX wird inklusive USB-C Kabel geliefert.",
+        text: "Ja, RAJ APEX wird inklusive USB-C Kabel, Kfz-Ladeadapter, Saugmontage und Lüftungsclip mit Schnellverschluss geliefert.",
       },
     },
     {
