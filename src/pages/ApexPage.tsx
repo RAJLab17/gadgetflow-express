@@ -160,7 +160,7 @@ const WaitlistForm = ({ variant }: { variant: ApexVariant }) => {
       if (error) throw error;
       if (data?.success) {
         setDone(true);
-        trackMetaEvent("Lead", { email: email.trim(), content_name: variant.name });
+        trackMetaEvent("Lead", { email: email.trim(), customData: { content_name: variant.name } });
       }
     } catch (err) {
       console.error(err);
