@@ -62,6 +62,8 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/shop" element={<ShopPreview />} />
                 <Route path="/nexus" element={<NexusPage />} />
+                <Route path="/apex" element={<ApexPage />} />
+                <Route path="/auto" element={<ApexPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/kontakt" element={<ContactPage />} />
                 <Route path="/agb" element={<AGBPage />} />
