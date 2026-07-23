@@ -80,7 +80,7 @@ const APEX_JSON_LD = {
   "@type": "Product",
   name: "RAJ APEX — MagSafe Auto-Ladehalterung",
   description:
-    "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W, erhältlich als Dashboard- (APEX Dash) oder Lüftungsmontage (APEX Vent).",
+    "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe) UND Lüftungsclip mit Schnellverschluss — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
   brand: { "@type": "Brand", name: "RAJ" },
   image: `https://raj.ch${apexDash1400.url}`,
   offers: APEX_VARIANTS.map((v) => ({
@@ -100,10 +100,10 @@ const FAQ_APEX_JSON_LD = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Was ist der Unterschied zwischen APEX Dash und APEX Vent?",
+      name: "Was ist der Unterschied zwischen APEX Silver und APEX Black?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "APEX Dash wird per Klebe-/Saugmontage auf Armaturenbrett oder Windschutzscheibe befestigt und ist 360° drehbar. APEX Vent klemmt mit einem Schnellverschluss-Clip direkt an der Lüftungsdüse. Beide laden dein iPhone kabellos mit bis zu 25W.",
+        text: "Funktional sind beide Varianten identisch: Jede APEX kommt mit Saugmontage für Armaturenbrett und Windschutzscheibe UND einem Lüftungsclip mit Schnellverschluss im Lieferumfang. Beide laden dein iPhone kabellos mit bis zu 25W (Qi2), sind 360° drehbar und verfügen über aktive Kühlung. Der einzige Unterschied ist die Farbe: Silber oder Space Black.",
       },
     },
     {
