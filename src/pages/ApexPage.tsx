@@ -20,7 +20,7 @@ import apexVent1400 from "@/assets/products/apex-vent-1400.webp.asset.json";
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
 const IS_LIVE = false;
-const WARRANTY = "2 Jahre Garantie";
+const WARRANTY = "3 Jahre Garantie";
 
 type ApexVariantId = "dash" | "vent";
 
