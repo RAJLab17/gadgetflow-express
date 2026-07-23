@@ -15,6 +15,7 @@ const Index = lazy(() => import("./pages/Index"));
 const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const NexusPage = lazy(() => import("./pages/NexusPage"));
 const ApexPage = lazy(() => import("./pages/ApexPage"));
+const ProduktePage = lazy(() => import("./pages/ProduktePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const AGBPage = lazy(() => import("./pages/AGBPage"));
@@ -64,6 +65,7 @@ const App = () => (
                 <Route path="/nexus" element={<NexusPage />} />
                 <Route path="/apex" element={<ApexPage />} />
                 <Route path="/auto" element={<ApexPage />} />
+                <Route path="/produkte" element={<ProduktePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/kontakt" element={<ContactPage />} />
                 <Route path="/agb" element={<AGBPage />} />
