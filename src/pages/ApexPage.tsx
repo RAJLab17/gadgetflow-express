@@ -103,7 +103,7 @@ const FAQ_APEX_JSON_LD = {
       name: "Was ist der Unterschied zwischen APEX Silver und APEX Black?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Funktional sind beide Varianten identisch: Jede APEX kommt mit Saugmontage für Armaturenbrett und Windschutzscheibe UND einem Lüftungsclip mit Schnellverschluss im Lieferumfang. Beide laden dein iPhone kabellos mit bis zu 25W (Qi2), sind 360° drehbar und verfügen über aktive Kühlung. Der einzige Unterschied ist die Farbe: Silber oder Space Black.",
+        text: "Funktional sind beide Varianten identisch: Jede APEX kommt mit Saugmontage für Armaturenbrett und Windschutzscheibe, Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter. Beide laden dein iPhone kabellos mit bis zu 25W (Qi2), sind 360° drehbar und verfügen über aktive Kühlung. Der einzige Unterschied ist die Farbe: Silber oder Space Black.",
       },
     },
     {
