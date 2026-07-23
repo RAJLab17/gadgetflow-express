@@ -20,7 +20,7 @@ import apexVent1400 from "@/assets/products/apex-vent-1400.webp.asset.json";
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
 const IS_LIVE = false;
-const WARRANTY = "2 Jahre Garantie";
+const WARRANTY = "3 Jahre Garantie";
 
 type ApexVariantId = "dash" | "vent";
 
@@ -43,7 +43,7 @@ const APEX_VARIANTS: ApexVariant[] = [
     id: "dash",
     name: "APEX Silver",
     tagline: "Silber — dezent & elegant",
-    mount: "Saugmontage für Armaturenbrett & Scheibe + Lüftungsclip mit Schnellverschluss im Lieferumfang",
+    mount: "Saugmontage, Lüftungsclip, USB-C Kabel & Kfz-Ladeadapter im Lieferumfang",
     icon: <Car className="w-4 h-4" />,
     img480: apexDash480.url,
     img900: apexDash900.url,
@@ -56,7 +56,7 @@ const APEX_VARIANTS: ApexVariant[] = [
     id: "vent",
     name: "APEX Black",
     tagline: "Space Black — sportlich & matt",
-    mount: "Saugmontage für Armaturenbrett & Scheibe + Lüftungsclip mit Schnellverschluss im Lieferumfang",
+    mount: "Saugmontage, Lüftungsclip, USB-C Kabel & Kfz-Ladeadapter im Lieferumfang",
     icon: <Wind className="w-4 h-4" />,
     img480: apexVent480.url,
     img900: apexVent900.url,
@@ -80,7 +80,7 @@ const APEX_JSON_LD = {
   "@type": "Product",
   name: "RAJ APEX — MagSafe Auto-Ladehalterung",
   description:
-    "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe) UND Lüftungsclip mit Schnellverschluss — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
+    "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
   brand: { "@type": "Brand", name: "RAJ" },
   image: `https://raj.ch${apexDash1400.url}`,
   offers: APEX_VARIANTS.map((v) => ({
@@ -103,7 +103,7 @@ const FAQ_APEX_JSON_LD = {
       name: "Was ist der Unterschied zwischen APEX Silver und APEX Black?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Funktional sind beide Varianten identisch: Jede APEX kommt mit Saugmontage für Armaturenbrett und Windschutzscheibe UND einem Lüftungsclip mit Schnellverschluss im Lieferumfang. Beide laden dein iPhone kabellos mit bis zu 25W (Qi2), sind 360° drehbar und verfügen über aktive Kühlung. Der einzige Unterschied ist die Farbe: Silber oder Space Black.",
+        text: "Funktional sind beide Varianten identisch: Jede APEX kommt mit Saugmontage für Armaturenbrett und Windschutzscheibe, Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter. Beide laden dein iPhone kabellos mit bis zu 25W (Qi2), sind 360° drehbar und verfügen über aktive Kühlung. Der einzige Unterschied ist die Farbe: Silber oder Space Black.",
       },
     },
     {
@@ -127,7 +127,7 @@ const FAQ_APEX_JSON_LD = {
       name: "Ist ein Ladekabel im Lieferumfang enthalten?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja, RAJ APEX wird inklusive USB-C Kabel geliefert.",
+        text: "Ja, RAJ APEX wird inklusive USB-C Kabel, Kfz-Ladeadapter, Saugmontage und Lüftungsclip mit Schnellverschluss geliefert.",
       },
     },
     {
@@ -306,7 +306,7 @@ const ApexPage = () => {
                 </div>
 
                 <p className="text-sm mb-6" style={{ color: H.textMuted }}>
-                  Jede APEX kommt mit <strong>Saugmontage</strong> (Armaturenbrett & Scheibe, 360° drehbar) <strong>und Lüftungsclip mit Schnellverschluss</strong> im Lieferumfang. MagSafe-Halt, aktive Kühlung und bis zu 25W kabelloses Laden — für jedes Auto, jede Situation.
+                  Jede APEX kommt komplett im Lieferumfang: <strong>Saugmontage</strong> (Armaturenbrett & Scheibe, 360° drehbar), <strong>Lüftungsclip mit Schnellverschluss</strong>, <strong>USB-C Kabel</strong> und <strong>Kfz-Ladeadapter</strong>. MagSafe-Halt, aktive Kühlung und bis zu 25W kabelloses Laden — für jedes Auto, jede Situation.
                 </p>
 
                 {/* Preis */}
