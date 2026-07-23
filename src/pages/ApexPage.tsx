@@ -306,7 +306,7 @@ const ApexPage = () => {
                 </div>
 
                 <p className="text-sm mb-6" style={{ color: H.textMuted }}>
-                  Jede APEX kommt mit <strong>Saugmontage</strong> (Armaturenbrett & Scheibe, 360° drehbar) <strong>und Lüftungsclip mit Schnellverschluss</strong> im Lieferumfang. MagSafe-Halt, aktive Kühlung und bis zu 25W kabelloses Laden — für jedes Auto, jede Situation.
+                  Jede APEX kommt komplett im Lieferumfang: <strong>Saugmontage</strong> (Armaturenbrett & Scheibe, 360° drehbar), <strong>Lüftungsclip mit Schnellverschluss</strong>, <strong>USB-C Kabel</strong> und <strong>Kfz-Ladeadapter</strong>. MagSafe-Halt, aktive Kühlung und bis zu 25W kabelloses Laden — für jedes Auto, jede Situation.
                 </p>
 
                 {/* Preis */}
