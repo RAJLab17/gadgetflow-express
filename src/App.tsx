@@ -14,6 +14,7 @@ const LaunchPage = lazy(() => import("./pages/LaunchPage"));
 const Index = lazy(() => import("./pages/Index"));
 const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const NexusPage = lazy(() => import("./pages/NexusPage"));
+const ApexPage = lazy(() => import("./pages/ApexPage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const AGBPage = lazy(() => import("./pages/AGBPage"));
