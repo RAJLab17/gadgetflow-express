@@ -693,7 +693,9 @@ const NexusPage = () => {
     quickBuyRaw();
   }, [trackAddToCart, quickBuyRaw]);
 
-  useViewContent({ content_name: "RAJ NEXUS", content_ids: ["RAJ-NEXUS-001"], content_type: "product", content_category: "Wireless Charger", value: 99, currency: "CHF" });
+  const currentValue = PROMO_ACTIVE ? PROMO_PRICE : REGULAR_PRICE;
+
+  useViewContent({ content_name: "RAJ NEXUS", content_ids: ["RAJ-NEXUS-001"], content_type: "product", content_category: "Wireless Charger", value: currentValue, currency: "CHF" });
 
 
   useEffect(() => {
@@ -701,11 +703,12 @@ const NexusPage = () => {
     try {
       (window as any).gtag?.("event", "view_item", {
         currency: "CHF",
-        value: 99.0,
-        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: 99.0, quantity: 1 }],
+        value: currentValue,
+        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: currentValue, quantity: 1 }],
       });
     } catch {}
-  }, []);
+  }, [currentValue]);
+
 
   useEffect(() => {
     if (typeof window === "undefined") return;
