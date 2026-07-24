@@ -23,6 +23,15 @@ import { fetchProductVariantInfo } from "@/lib/shopify";
 const DROP_01_BASELINE_INVENTORY = 92;
 const DROP_01_CAP = 15;
 
+// ─── 48H FLASH DEAL CONFIG ───────────────────────────────────────
+// 48h-Preistest auf raj.ch/nexus. Enddatum anpassen, um den Test zu starten/beenden.
+const PROMO_END_DATE = new Date("2026-07-26T23:59:59+02:00");
+const PROMO_PRICE = 79;
+const REGULAR_PRICE = 99;
+const ORIGINAL_PRICE = 129;
+const PROMO_ACTIVE = PROMO_END_DATE.getTime() > Date.now();
+
+
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
