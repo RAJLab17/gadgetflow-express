@@ -543,11 +543,19 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
         <input value={hp1} onChange={(e) => setHp1(e.target.value)} tabIndex={-1} autoComplete="off" />
         <input value={hp2} onChange={(e) => setHp2(e.target.value)} tabIndex={-1} autoComplete="off" />
       </div>
-      <div className="flex items-baseline justify-center gap-3 mb-5">
-        <span className="text-4xl sm:text-5xl tracking-tight" style={{ color: dark ? D.beige : L.text, fontWeight: 300 }}>CHF 99<span style={{ fontSize: "0.6em" }}>.-</span></span>
-        <span className="text-lg line-through" style={{ color: dark ? D.mutedDim : L.textDim, fontWeight: 300 }}>CHF 129.-</span>
-        <span className="text-[10px] uppercase" style={{ color: dark ? D.mutedDim : L.textDim, letterSpacing: "0.2em" }}>inkl. MwSt</span>
+      <div className="flex flex-col items-center gap-1 mb-5">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-1 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Flash Deal</span>
+          <span className="text-[10px] uppercase tracking-widest" style={{ color: dark ? D.mutedDim : L.textDim }}>Endet in <FlashDealCountdown compact /></span>
+        </div>
+        <div className="flex items-baseline justify-center gap-3">
+          <span className="text-4xl sm:text-5xl tracking-tight" style={{ color: dark ? D.beige : L.text, fontWeight: 300 }}>CHF {PROMO_PRICE}<span style={{ fontSize: "0.6em" }}>.-</span></span>
+          <span className="text-lg line-through" style={{ color: dark ? D.mutedDim : L.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
+          <span className="text-xs line-through" style={{ color: dark ? "#6b5a48" : "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
+          <span className="text-[10px] uppercase" style={{ color: dark ? D.mutedDim : L.textDim, letterSpacing: "0.2em" }}>inkl. MwSt</span>
+        </div>
       </div>
+
       <div className="space-y-3">
         <div className="flex items-center gap-2 px-4 rounded-full" style={{ background: "#FFFFFF", border: `1px solid ${dark ? "rgba(0,0,0,0.1)" : L.border}` }}>
           <Mail className="w-4 h-4 shrink-0" style={{ color: "#8a8278" }} />
