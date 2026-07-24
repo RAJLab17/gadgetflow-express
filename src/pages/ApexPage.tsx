@@ -346,7 +346,7 @@ const ApexPage = () => {
               </div>
 
               {/* RIGHT — image */}
-              <div className="relative">
+              <div className="relative order-1 md:order-2">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={variant.id}
