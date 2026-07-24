@@ -136,16 +136,16 @@ const AboutPage = () => {
             </motion.p>
           </div>
 
-          <motion.div {...fade} className="mt-14 pt-10 border-t flex items-end gap-6" style={{ borderColor: L.border }}>
+          <motion.div {...fade} className="mt-16 pt-10 border-t" style={{ borderColor: L.border }}>
             <img
               src={founderSignature}
               alt="Unterschrift des Gründers"
-              className="h-14 w-auto"
+              className="h-24 md:h-28 w-auto -ml-2"
               style={{ color: L.text }}
             />
-            <div className="pb-1">
-              <p className="text-sm font-medium" style={{ color: L.text }}>Gründer, RAJ GmbH</p>
-              <p className="text-xs tracking-[0.2em] uppercase mt-1" style={{ color: L.textMuted }}>Weinfelden, Thurgau</p>
+            <div className="mt-4">
+              <p className="text-sm font-medium" style={{ color: L.text }}>S. Rajcic</p>
+              <p className="text-xs tracking-[0.2em] uppercase mt-1" style={{ color: L.textMuted }}>Gründer, RAJ GmbH · Weinfelden, Thurgau</p>
             </div>
           </motion.div>
         </div>
