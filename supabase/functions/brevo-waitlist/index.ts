@@ -11,7 +11,7 @@ serve(async (req) => {
   }
 
   try {
-    const { email } = await req.json();
+    const { email, product, variant } = await req.json();
 
     if (!email || typeof email !== 'string' || !email.includes('@')) {
       return new Response(
@@ -31,16 +31,19 @@ serve(async (req) => {
     }
 
     const cleanEmail = email.trim().toLowerCase();
-    console.log('Adding to RAJ Runde 2 waitlist:', cleanEmail);
+    const isApex = typeof product === 'string' && product.toLowerCase() === 'apex';
+    const listId = isApex ? 14 : 8;
+    const source = isApex ? 'RAJ APEX' : 'RAJ Runde 2';
+    console.log(`Adding to ${source} waitlist (list ${listId}):`, cleanEmail);
 
-    const listId = 8;
-    const brevoBody = {
+    const brevoBody: Record<string, unknown> = {
       email: cleanEmail,
       listIds: [listId],
       updateEnabled: true,
       attributes: {
-        WAITLIST_SOURCE: 'RAJ Runde 2',
+        WAITLIST_SOURCE: source,
         WAITLIST_DATE: new Date().toISOString(),
+        ...(isApex && variant ? { APEX_VARIANT: String(variant) } : {}),
       },
     };
 
