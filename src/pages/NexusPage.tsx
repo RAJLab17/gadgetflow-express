@@ -904,14 +904,22 @@ const NexusPage = () => {
               Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch oder deinen Bürotisch.
             </p>
 
-            <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 16 }}>
-              <span style={{ fontSize: "clamp(19px,1.45vw,22px)", color: H.textMuted, fontWeight: 400, letterSpacing: "-.01em" }}>CHF 99.-</span>
-              <span style={{ fontSize: 13, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
-              <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
+            <div className="flex flex-col gap-1" style={{ marginTop: 18 }}>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[10px] uppercase tracking-widest font-semibold px-2.5 py-1 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Flash Deal</span>
+                <span className="text-[10px] uppercase tracking-widest" style={{ color: H.textDim }}>Endet in <FlashDealCountdown compact /></span>
+              </div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
+                <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {PROMO_PRICE}.-</span>
+                <span style={{ fontSize: 14, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
+                <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
+                <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - PROMO_PRICE}.-</span>
+              </div>
             </div>
             <div style={{ marginTop: 10 }}>
               <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
             </div>
+
 
             <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98]" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
