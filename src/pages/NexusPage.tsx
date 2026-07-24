@@ -550,7 +550,6 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
         </div>
         <div className="flex items-baseline justify-center gap-3">
           <span className="text-4xl sm:text-5xl tracking-tight" style={{ color: dark ? D.beige : L.text, fontWeight: 300 }}>CHF {PROMO_PRICE}<span style={{ fontSize: "0.6em" }}>.-</span></span>
-          <span className="text-lg line-through" style={{ color: dark ? D.mutedDim : L.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
           <span className="text-xs line-through" style={{ color: dark ? "#6b5a48" : "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
           <span className="text-[10px] uppercase" style={{ color: dark ? D.mutedDim : L.textDim, letterSpacing: "0.2em" }}>inkl. MwSt</span>
         </div>
@@ -925,7 +924,6 @@ const NexusPage = () => {
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
                 <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {PROMO_PRICE}.-</span>
-                <span style={{ fontSize: 14, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
                 <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
                 <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - PROMO_PRICE}.-</span>
               </div>
@@ -1096,7 +1094,6 @@ const NexusPage = () => {
             </div>
             <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
               <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {PROMO_PRICE}.–</span>
-              <span style={{ fontSize: 12, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.–</span>
               <span style={{ fontSize: 10, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.–</span>
             </div>
 
@@ -1265,7 +1262,7 @@ const NexusPage = () => {
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
           <p className="text-base md:text-lg mt-6 mb-2" style={{ color: D.muted, fontWeight: 300 }}>
-            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {PROMO_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {REGULAR_PRICE}.-</span> / <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
+            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {PROMO_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
           </p>
           <p className="text-xs uppercase tracking-widest mb-8" style={{ color: D.gold }}>⚡ 48h Flash Deal · Nur begrenzt verfügbar</p>
           <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
