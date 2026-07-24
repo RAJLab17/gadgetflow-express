@@ -113,7 +113,7 @@ const AboutPage = () => {
               className="border-l-2 pl-6 my-12 italic text-2xl md:text-3xl font-light leading-snug"
               style={{ borderColor: L.gold, color: L.text }}
             >
-              Unsere Vision ist einfach: Power, die einfach da ist, wenn du sie brauchst 
+              Unsere Vision ist einfach: Power, die einfach da ist, wenn du sie brauchst,
               ohne Nachdenken, ohne Kompromiss.
             </motion.blockquote>
 
