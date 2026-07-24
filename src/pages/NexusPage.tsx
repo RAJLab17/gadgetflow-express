@@ -672,19 +672,21 @@ const NexusPage = () => {
   const trackAddToCart = useCallback(() => {
     if (typeof window === "undefined") return;
     try {
+      const value = PROMO_ACTIVE ? PROMO_PRICE : REGULAR_PRICE;
       (window as any).gtag?.("event", "add_to_cart", {
         currency: "CHF",
-        value: 99.0,
-        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: 99.0, quantity: 1 }],
+        value,
+        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: value, quantity: 1 }],
       });
       (window as any).fbq?.("track", "AddToCart", {
-        value: 99.0,
+        value,
         currency: "CHF",
         content_ids: ["RAJ-NEX-T3-Q2-BLK"],
         content_type: "product",
       });
     } catch {}
   }, []);
+
 
   const quickBuy = useCallback(() => {
     trackAddToCart();
