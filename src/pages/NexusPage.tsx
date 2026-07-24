@@ -550,7 +550,6 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
         </div>
         <div className="flex items-baseline justify-center gap-3">
           <span className="text-4xl sm:text-5xl tracking-tight" style={{ color: dark ? D.beige : L.text, fontWeight: 300 }}>CHF {PROMO_PRICE}<span style={{ fontSize: "0.6em" }}>.-</span></span>
-          <span className="text-lg line-through" style={{ color: dark ? D.mutedDim : L.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
           <span className="text-xs line-through" style={{ color: dark ? "#6b5a48" : "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
           <span className="text-[10px] uppercase" style={{ color: dark ? D.mutedDim : L.textDim, letterSpacing: "0.2em" }}>inkl. MwSt</span>
         </div>
