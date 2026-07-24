@@ -300,7 +300,7 @@ const BrandHero = () => {
             >
               <Link
                 to="/nexus"
-                className="group inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 py-3 px-5 sm:py-3.5 sm:px-7 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
                   color: "#0a0908",
@@ -318,7 +318,7 @@ const BrandHero = () => {
 
               <Link
                 to="/produkte"
-                className="inline-flex items-center justify-center gap-2 py-3.5 px-7 sm:py-4 sm:px-9 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 py-3 px-5 sm:py-3.5 sm:px-7 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.07)",
                   border: `1px solid ${GOLD_SOFT}80`,
