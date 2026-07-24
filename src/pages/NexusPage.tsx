@@ -837,7 +837,7 @@ const NexusPage = () => {
   return (
     <>
       <Helmet>
-        <title>RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz</title>
+        <title>{PROMO_ACTIVE ? "RAJ NEXUS – 48h Flash Deal CHF 79.-" : "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz"}</title>
         <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${PROMO_PRICE}.– statt CHF ${REGULAR_PRICE}.–.`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://raj.ch/nexus" />
