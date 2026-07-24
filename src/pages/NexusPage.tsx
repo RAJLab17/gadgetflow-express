@@ -1094,7 +1094,6 @@ const NexusPage = () => {
             </div>
             <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
               <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {PROMO_PRICE}.–</span>
-              <span style={{ fontSize: 12, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.–</span>
               <span style={{ fontSize: 10, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.–</span>
             </div>
 
