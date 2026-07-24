@@ -477,6 +477,39 @@ const Countdown = ({ dark = true }: { dark?: boolean }) => {
   );
 };
 
+/** Compact 48h-deal countdown for the NEXUS hero price block. */
+const FlashDealCountdown = ({ compact = false }: { compact?: boolean }) => {
+  const [time, setTime] = useState({ h: 0, m: 0, s: 0 });
+  useEffect(() => {
+    const tick = () => {
+      const diff = Math.max(0, PROMO_END_DATE.getTime() - Date.now());
+      setTime({ h: Math.floor(diff / 3600000), m: Math.floor((diff % 3600000) / 60000), s: Math.floor((diff % 60000) / 1000) });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+  const totalHours = String(time.h).padStart(2, "0");
+  const minutes = String(time.m).padStart(2, "0");
+  const seconds = String(time.s).padStart(2, "0");
+  if (compact) {
+    return (
+      <span className="tabular-nums tracking-tight" style={{ fontVariantNumeric: "tabular-nums" }}>
+        {totalHours}:{minutes}:{seconds}
+      </span>
+    );
+  }
+  return (
+    <div className="flex items-center gap-2 sm:gap-3">
+      <span className="text-[10px] uppercase tracking-widest" style={{ color: "#9a9285" }}>Endet in</span>
+      <span className="text-lg sm:text-xl tabular-nums font-light tracking-tight" style={{ color: H.gold, fontVariantNumeric: "tabular-nums" }}>
+        {totalHours}:{minutes}:{seconds}
+      </span>
+    </div>
+  );
+};
+
+
 const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: () => void }) => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
