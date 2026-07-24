@@ -144,8 +144,7 @@ const AboutPage = () => {
               style={{ color: L.text }}
             />
             <div className="mt-4">
-              <p className="text-sm font-medium" style={{ color: L.text }}>S. Rajcic</p>
-              <p className="text-xs tracking-[0.2em] uppercase mt-1" style={{ color: L.textMuted }}>Gründer, RAJ GmbH · Weinfelden, Thurgau</p>
+              <p className="text-xs tracking-[0.2em] uppercase" style={{ color: L.textMuted }}>Gründer, RAJ GmbH · Weinfelden, Thurgau</p>
             </div>
           </motion.div>
         </div>
