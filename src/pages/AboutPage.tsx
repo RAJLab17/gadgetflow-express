@@ -54,7 +54,7 @@ const AboutPage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-24 pb-20 md:pt-32 md:pb-28 grid md:grid-cols-12 gap-12 items-end">
           <motion.div {...fade} className="md:col-span-7">
             <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-8" style={{ color: L.gold }}>
-             , Über RAJ
+             Über RAJ
             </p>
             <h1 className="font-light tracking-tight leading-[0.95] text-[clamp(3rem,8vw,6.5rem)]">
               Schweizer
@@ -87,7 +87,7 @@ const AboutPage = () => {
       <section className="border-b" style={{ borderColor: L.border }}>
         <div className="mx-auto max-w-3xl px-6 lg:px-10 py-24 md:py-36">
           <motion.p {...fade} className="text-[11px] tracking-[0.32em] uppercase font-medium mb-6" style={{ color: L.gold }}>
-           , Ein Brief
+           Ein Brief
           </motion.p>
           <motion.h2 {...fade} className="text-4xl md:text-5xl font-light tracking-tight leading-tight mb-14">
             Warum RAJ existiert.
@@ -156,7 +156,7 @@ const AboutPage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-12 items-center">
           <motion.div {...fade} className="md:col-span-6 order-2 md:order-1">
             <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-6" style={{ color: L.gold }}>
-             , Ursprung
+             Ursprung
             </p>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight mb-8">
               Ein leiser Anfang im Thurgau.
@@ -188,7 +188,7 @@ const AboutPage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
           <motion.div {...fade} className="mb-16 md:mb-20">
             <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-4" style={{ color: L.gold }}>
-             , Was uns antreibt
+             Was uns antreibt
             </p>
             <h2 className="text-4xl md:text-5xl font-light tracking-tight">Unsere Grundsätze.</h2>
           </motion.div>
@@ -216,7 +216,7 @@ const AboutPage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
           <motion.div {...fade} className="mb-14 text-center">
             <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-4" style={{ color: L.gold }}>
-             , Herkunft
+             Herkunft
             </p>
             <h2 className="text-4xl md:text-5xl font-light tracking-tight">Von hier. Für die Welt.</h2>
           </motion.div>
