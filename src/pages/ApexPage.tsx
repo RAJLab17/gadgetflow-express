@@ -346,7 +346,7 @@ const ApexPage = () => {
               </div>
 
               {/* RIGHT — image */}
-              <div className="relative order-1 md:order-2">
+              <div className="relative order-1 md:order-2 mx-auto w-full max-w-[280px] md:max-w-none">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={variant.id}
@@ -354,7 +354,7 @@ const ApexPage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     transition={{ duration: 0.25 }}
-                    className="relative rounded-3xl overflow-hidden"
+                    className="relative rounded-2xl md:rounded-3xl overflow-hidden"
                     style={{
                       background: "linear-gradient(180deg, #FAF9F7 0%, #FFFFFF 100%)",
                       border: `1px solid ${H.border}`,
@@ -364,17 +364,17 @@ const ApexPage = () => {
                     <img
                       src={variant.img900}
                       srcSet={`${variant.img480} 480w, ${variant.img900} 900w, ${variant.img1400} 1400w`}
-                      sizes="(max-width: 768px) 92vw, 44vw"
+                      sizes="(max-width: 768px) 280px, 44vw"
                       alt={`${variant.name} — MagSafe Auto-Ladehalterung`}
                       width={900}
                       height={900}
                       loading="eager"
                       fetchPriority="high"
                       decoding="async"
-                      className="w-full h-full object-contain p-6"
+                      className="w-full h-full object-contain p-4 md:p-6"
                     />
-                    <div className="absolute bottom-4 left-4">
-                      <Qi2CertifiedBadge size={38} variant="dark" />
+                    <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4">
+                      <Qi2CertifiedBadge size={32} variant="dark" />
                     </div>
                   </motion.div>
                 </AnimatePresence>
