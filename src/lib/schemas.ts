@@ -53,12 +53,13 @@ export const PRODUCT_NEXUS_JSON_LD = {
     "@type": "Offer",
     url: "https://raj.ch/nexus",
     priceCurrency: "CHF",
-    price: "99.00",
-    priceValidUntil: "2026-12-31",
-    validFrom: "2026-05-02",
+    price: "79.00",
+    priceValidUntil: "2026-07-26",
+    validFrom: "2026-07-24",
     availability: "https://schema.org/InStock",
     itemCondition: "https://schema.org/NewCondition",
     seller: { "@type": "Organization", name: "RAJ GmbH" },
+
     hasMerchantReturnPolicy: {
       "@type": "MerchantReturnPolicy",
       applicableCountry: "CH",
