@@ -1262,7 +1262,7 @@ const NexusPage = () => {
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
           <p className="text-base md:text-lg mt-6 mb-2" style={{ color: D.muted, fontWeight: 300 }}>
-            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {PROMO_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {REGULAR_PRICE}.-</span> / <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
+            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {PROMO_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
           </p>
           <p className="text-xs uppercase tracking-widest mb-8" style={{ color: D.gold }}>⚡ 48h Flash Deal · Nur begrenzt verfügbar</p>
           <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
