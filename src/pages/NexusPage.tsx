@@ -1076,10 +1076,16 @@ const NexusPage = () => {
               </span>
             </div>
             {/* Price */}
-            <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
-              <span style={{ fontSize: 20, color: H.textMuted, fontWeight: 400, letterSpacing: "0", lineHeight: 1 }}>CHF 99.–</span>
-              <span style={{ fontSize: 12, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.–</span>
+            <div className="flex items-center justify-center gap-2 mb-0.5">
+              <span className="text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Deal</span>
+              <span className="text-[9px] uppercase tracking-widest" style={{ color: H.textDim }}>Endet <FlashDealCountdown compact /></span>
             </div>
+            <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
+              <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {PROMO_PRICE}.–</span>
+              <span style={{ fontSize: 12, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.–</span>
+              <span style={{ fontSize: 10, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.–</span>
+            </div>
+
             {/* Rating */}
             {reviewStats && reviewStats.total > 0 && (
               <Link to="/reviews" aria-label={`${reviewStats.average.toFixed(1)} von 5 Sternen, ${reviewStats.total} Bewertungen lesen`} className="flex items-center justify-center transition-opacity hover:opacity-80" style={{ gap: 8, paddingTop: 2 }}>
