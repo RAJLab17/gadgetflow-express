@@ -23,6 +23,15 @@ import { fetchProductVariantInfo } from "@/lib/shopify";
 const DROP_01_BASELINE_INVENTORY = 92;
 const DROP_01_CAP = 15;
 
+// ─── 48H FLASH DEAL CONFIG ───────────────────────────────────────
+// 48h-Preistest auf raj.ch/nexus. Enddatum anpassen, um den Test zu starten/beenden.
+const PROMO_END_DATE = new Date("2026-07-26T23:59:59+02:00");
+const PROMO_PRICE = 79;
+const REGULAR_PRICE = 99;
+const ORIGINAL_PRICE = 129;
+const PROMO_ACTIVE = PROMO_END_DATE.getTime() > Date.now();
+
+
 import {
   Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
@@ -468,6 +477,39 @@ const Countdown = ({ dark = true }: { dark?: boolean }) => {
   );
 };
 
+/** Compact 48h-deal countdown for the NEXUS hero price block. */
+const FlashDealCountdown = ({ compact = false }: { compact?: boolean }) => {
+  const [time, setTime] = useState({ h: 0, m: 0, s: 0 });
+  useEffect(() => {
+    const tick = () => {
+      const diff = Math.max(0, PROMO_END_DATE.getTime() - Date.now());
+      setTime({ h: Math.floor(diff / 3600000), m: Math.floor((diff % 3600000) / 60000), s: Math.floor((diff % 60000) / 1000) });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+  const totalHours = String(time.h).padStart(2, "0");
+  const minutes = String(time.m).padStart(2, "0");
+  const seconds = String(time.s).padStart(2, "0");
+  if (compact) {
+    return (
+      <span className="tabular-nums tracking-tight" style={{ fontVariantNumeric: "tabular-nums" }}>
+        {totalHours}:{minutes}:{seconds}
+      </span>
+    );
+  }
+  return (
+    <div className="flex items-center gap-2 sm:gap-3">
+      <span className="text-[10px] uppercase tracking-widest" style={{ color: "#9a9285" }}>Endet in</span>
+      <span className="text-lg sm:text-xl tabular-nums font-light tracking-tight" style={{ color: H.gold, fontVariantNumeric: "tabular-nums" }}>
+        {totalHours}:{minutes}:{seconds}
+      </span>
+    </div>
+  );
+};
+
+
 const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: () => void }) => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
@@ -501,11 +543,19 @@ const SignupForm = ({ dark = true, onSuccess }: { dark?: boolean; onSuccess?: ()
         <input value={hp1} onChange={(e) => setHp1(e.target.value)} tabIndex={-1} autoComplete="off" />
         <input value={hp2} onChange={(e) => setHp2(e.target.value)} tabIndex={-1} autoComplete="off" />
       </div>
-      <div className="flex items-baseline justify-center gap-3 mb-5">
-        <span className="text-4xl sm:text-5xl tracking-tight" style={{ color: dark ? D.beige : L.text, fontWeight: 300 }}>CHF 99<span style={{ fontSize: "0.6em" }}>.-</span></span>
-        <span className="text-lg line-through" style={{ color: dark ? D.mutedDim : L.textDim, fontWeight: 300 }}>CHF 129.-</span>
-        <span className="text-[10px] uppercase" style={{ color: dark ? D.mutedDim : L.textDim, letterSpacing: "0.2em" }}>inkl. MwSt</span>
+      <div className="flex flex-col items-center gap-1 mb-5">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-1 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Flash Deal</span>
+          <span className="text-[10px] uppercase tracking-widest" style={{ color: dark ? D.mutedDim : L.textDim }}>Endet in <FlashDealCountdown compact /></span>
+        </div>
+        <div className="flex items-baseline justify-center gap-3">
+          <span className="text-4xl sm:text-5xl tracking-tight" style={{ color: dark ? D.beige : L.text, fontWeight: 300 }}>CHF {PROMO_PRICE}<span style={{ fontSize: "0.6em" }}>.-</span></span>
+          <span className="text-lg line-through" style={{ color: dark ? D.mutedDim : L.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
+          <span className="text-xs line-through" style={{ color: dark ? "#6b5a48" : "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
+          <span className="text-[10px] uppercase" style={{ color: dark ? D.mutedDim : L.textDim, letterSpacing: "0.2em" }}>inkl. MwSt</span>
+        </div>
       </div>
+
       <div className="space-y-3">
         <div className="flex items-center gap-2 px-4 rounded-full" style={{ background: "#FFFFFF", border: `1px solid ${dark ? "rgba(0,0,0,0.1)" : L.border}` }}>
           <Mail className="w-4 h-4 shrink-0" style={{ color: "#8a8278" }} />
@@ -622,13 +672,14 @@ const NexusPage = () => {
   const trackAddToCart = useCallback(() => {
     if (typeof window === "undefined") return;
     try {
+      const value = PROMO_ACTIVE ? PROMO_PRICE : REGULAR_PRICE;
       (window as any).gtag?.("event", "add_to_cart", {
         currency: "CHF",
-        value: 99.0,
-        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: 99.0, quantity: 1 }],
+        value,
+        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: value, quantity: 1 }],
       });
       (window as any).fbq?.("track", "AddToCart", {
-        value: 99.0,
+        value,
         currency: "CHF",
         content_ids: ["RAJ-NEX-T3-Q2-BLK"],
         content_type: "product",
@@ -636,12 +687,15 @@ const NexusPage = () => {
     } catch {}
   }, []);
 
+
   const quickBuy = useCallback(() => {
     trackAddToCart();
     quickBuyRaw();
   }, [trackAddToCart, quickBuyRaw]);
 
-  useViewContent({ content_name: "RAJ NEXUS", content_ids: ["RAJ-NEXUS-001"], content_type: "product", content_category: "Wireless Charger", value: 99, currency: "CHF" });
+  const currentValue = PROMO_ACTIVE ? PROMO_PRICE : REGULAR_PRICE;
+
+  useViewContent({ content_name: "RAJ NEXUS", content_ids: ["RAJ-NEXUS-001"], content_type: "product", content_category: "Wireless Charger", value: currentValue, currency: "CHF" });
 
 
   useEffect(() => {
@@ -649,11 +703,12 @@ const NexusPage = () => {
     try {
       (window as any).gtag?.("event", "view_item", {
         currency: "CHF",
-        value: 99.0,
-        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: 99.0, quantity: 1 }],
+        value: currentValue,
+        items: [{ item_id: "RAJ-NEX-T3-Q2-BLK", item_name: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger", price: currentValue, quantity: 1 }],
       });
     } catch {}
-  }, []);
+  }, [currentValue]);
+
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -751,48 +806,57 @@ const NexusPage = () => {
     return () => { cancelled = true; };
   }, []);
 
-  const productJsonLd = (reviewStats && reviewStats.total > 0)
-    ? {
-        ...PRODUCT_NEXUS_JSON_LD,
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: reviewStats.average,
-          reviewCount: reviewStats.total,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        review: topReviews.map((r) => ({
-          "@type": "Review",
-          author: { "@type": "Person", name: r.customer_name },
-          datePublished: r.created_at,
-          reviewBody: r.comment,
-          name: r.title,
-          reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
-        })),
-      }
-    : PRODUCT_NEXUS_JSON_LD;
+  const productJsonLd = {
+    ...PRODUCT_NEXUS_JSON_LD,
+    offers: {
+      ...PRODUCT_NEXUS_JSON_LD.offers,
+      price: PROMO_ACTIVE ? `${PROMO_PRICE}.00` : `${REGULAR_PRICE}.00`,
+      priceValidUntil: "2026-07-26",
+      validFrom: "2026-07-24",
+    },
+    ...(reviewStats && reviewStats.total > 0 && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: reviewStats.average,
+        reviewCount: reviewStats.total,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      review: topReviews.map((r) => ({
+        "@type": "Review",
+        author: { "@type": "Person", name: r.customer_name },
+        datePublished: r.created_at,
+        reviewBody: r.comment,
+        name: r.title,
+        reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+      })),
+    }),
+  };
+
 
   return (
     <>
       <Helmet>
-        <title>RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz</title>
-        <meta name="description" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
+        <title>{PROMO_ACTIVE ? "RAJ NEXUS – 48h Flash Deal CHF 79.-" : "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz"}</title>
+        <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${PROMO_PRICE}.– statt CHF ${REGULAR_PRICE}.–.`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://raj.ch/nexus" />
-        <meta property="og:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
-        <meta property="og:description" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
+        <meta property="og:title" content="RAJ NEXUS – 48h Flash Deal | CHF 79.–" />
+        <meta property="og:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${PROMO_PRICE}.– statt CHF ${REGULAR_PRICE}.–, nur 48h.`} />
         <meta property="og:type" content="product" />
-        <meta property="product:price:amount" content="99.00" />
+        <meta property="product:price:amount" content={`${PROMO_PRICE}.00`} />
         <meta property="product:price:currency" content="CHF" />
+
         <meta property="og:site_name" content="RAJ" />
         <meta property="og:url" content="https://raj.ch/nexus" />
         <meta property="og:image" content="https://raj.ch/og-image.webp" />
         <meta property="og:locale" content="de_CH" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@raj_swiss_" />
-        <meta name="twitter:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
-        <meta name="twitter:description" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar, CHF 99." />
+        <meta name="twitter:title" content="RAJ NEXUS – 48h Flash Deal | CHF 79.–" />
+        <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${PROMO_PRICE}.– statt CHF ${REGULAR_PRICE}.–, nur 48h.`} />
         <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
+
         <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd([{ name: "Home", url: "https://raj.ch/" }, { name: "RAJ NEXUS", url: "https://raj.ch/nexus" }]))}</script>
         <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
@@ -854,14 +918,22 @@ const NexusPage = () => {
               Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch oder deinen Bürotisch.
             </p>
 
-            <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginTop: 16 }}>
-              <span style={{ fontSize: "clamp(19px,1.45vw,22px)", color: H.textMuted, fontWeight: 400, letterSpacing: "-.01em" }}>CHF 99.-</span>
-              <span style={{ fontSize: 13, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.-</span>
-              <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-30.-</span>
+            <div className="flex flex-col gap-1" style={{ marginTop: 18 }}>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[10px] uppercase tracking-widest font-semibold px-2.5 py-1 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Flash Deal</span>
+                <span className="text-[10px] uppercase tracking-widest" style={{ color: H.textDim }}>Endet in <FlashDealCountdown compact /></span>
+              </div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
+                <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {PROMO_PRICE}.-</span>
+                <span style={{ fontSize: 14, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
+                <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
+                <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - PROMO_PRICE}.-</span>
+              </div>
             </div>
             <div style={{ marginTop: 10 }}>
               <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
             </div>
+
 
             <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98]" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
@@ -1018,10 +1090,16 @@ const NexusPage = () => {
               </span>
             </div>
             {/* Price */}
-            <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
-              <span style={{ fontSize: 20, color: H.textMuted, fontWeight: 400, letterSpacing: "0", lineHeight: 1 }}>CHF 99.–</span>
-              <span style={{ fontSize: 12, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF 129.–</span>
+            <div className="flex items-center justify-center gap-2 mb-0.5">
+              <span className="text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Deal</span>
+              <span className="text-[9px] uppercase tracking-widest" style={{ color: H.textDim }}>Endet <FlashDealCountdown compact /></span>
             </div>
+            <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
+              <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {PROMO_PRICE}.–</span>
+              <span style={{ fontSize: 12, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.–</span>
+              <span style={{ fontSize: 10, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.–</span>
+            </div>
+
             {/* Rating */}
             {reviewStats && reviewStats.total > 0 && (
               <Link to="/reviews" aria-label={`${reviewStats.average.toFixed(1)} von 5 Sternen, ${reviewStats.total} Bewertungen lesen`} className="flex items-center justify-center transition-opacity hover:opacity-80" style={{ gap: 8, paddingTop: 2 }}>
@@ -1186,10 +1264,14 @@ const NexusPage = () => {
         <div className="relative max-w-2xl mx-auto text-center">
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
-          <p className="text-base md:text-lg mt-6 mb-10" style={{ color: D.muted, fontWeight: 300 }}>CHF 99.- statt CHF 129.-</p>
+          <p className="text-base md:text-lg mt-6 mb-2" style={{ color: D.muted, fontWeight: 300 }}>
+            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {PROMO_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {REGULAR_PRICE}.-</span> / <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
+          </p>
+          <p className="text-xs uppercase tracking-widest mb-8" style={{ color: D.gold }}>⚡ 48h Flash Deal · Nur begrenzt verfügbar</p>
           <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
-            Jetzt kaufen
+            Deal sichern
           </a>
+
           <p className="mt-6 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie</p>
         </div>
       </section>

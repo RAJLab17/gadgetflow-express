@@ -53,12 +53,13 @@ export const PRODUCT_NEXUS_JSON_LD = {
     "@type": "Offer",
     url: "https://raj.ch/nexus",
     priceCurrency: "CHF",
-    price: "99.00",
-    priceValidUntil: "2026-12-31",
-    validFrom: "2026-05-02",
+    price: "79.00",
+    priceValidUntil: "2026-07-26",
+    validFrom: "2026-07-24",
     availability: "https://schema.org/InStock",
     itemCondition: "https://schema.org/NewCondition",
     seller: { "@type": "Organization", name: "RAJ GmbH" },
+
     hasMerchantReturnPolicy: {
       "@type": "MerchantReturnPolicy",
       applicableCountry: "CH",
@@ -97,9 +98,10 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Was kostet der RAJ NEXUS in der Schweiz?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS kostet CHF 99 im Early Access (Founder Edition) und CHF 129 nach dem Launch. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.",
+        text: "Der RAJ NEXUS ist im 48h Flash Deal für CHF 79 erhältlich (statt CHF 99). Danach wieder CHF 99 im Early Access (Founder Edition) und CHF 129 nach dem Launch. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.",
       },
     },
+
     {
       "@type": "Question",
       name: "Was ist der Unterschied zwischen Qi2 und Qi2.2?",
