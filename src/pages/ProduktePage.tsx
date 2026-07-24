@@ -7,13 +7,13 @@ import nexusAsset from "@/assets/products/nexus-transparent.webp.asset.json";
 import apexAsset from "@/assets/products/apex-transparent.webp.asset.json";
 
 const H = {
-  bg: "#0a0908",
-  bgSoft: "#141210",
-  gold: "#c9a876",
-  goldDeep: "#9b6b3f",
-  line: "rgba(201,168,118,0.18)",
-  text: "#f5f1ea",
-  textMuted: "rgba(245,241,234,0.55)",
+  bg: "#faf9f7",
+  bgSoft: "#ffffff",
+  gold: "#9b6b3f",
+  goldDeep: "#7a5230",
+  line: "rgba(43,39,37,0.10)",
+  text: "#2b2725",
+  textMuted: "rgba(43,39,37,0.55)",
 };
 
 interface Product {
@@ -86,18 +86,18 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
     className="relative border-t"
     style={{ borderColor: H.line }}
   >
-    <div className="container mx-auto px-6 max-w-6xl py-16 md:py-28">
-      <div className={`grid md:grid-cols-12 gap-10 md:gap-16 items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
+    <div className="container mx-auto px-6 max-w-5xl py-14 md:py-24">
+      <div className={`grid md:grid-cols-12 gap-8 md:gap-12 items-center ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
         {/* Image column */}
-        <div className="md:col-span-7 relative">
-          <div className="relative aspect-[4/5] md:aspect-[5/6] flex items-center justify-center">
-            {/* Radial gold glow behind product */}
+        <div className="md:col-span-6 relative">
+          <div className="relative aspect-square max-w-[420px] md:max-w-[520px] mx-auto flex items-center justify-center">
+            {/* Subtle radial warm glow behind product */}
             <div
               aria-hidden
-              className="absolute inset-0 pointer-events-none"
+              className="absolute inset-0 pointer-events-none rounded-full"
               style={{
                 background:
-                  "radial-gradient(60% 55% at 50% 50%, rgba(201,168,118,0.22) 0%, rgba(201,168,118,0.06) 40%, rgba(10,9,8,0) 72%)",
+                  "radial-gradient(55% 55% at 50% 50%, rgba(155,107,63,0.10) 0%, rgba(155,107,63,0.03) 45%, rgba(250,249,247,0) 72%)",
               }}
             />
             {/* Faint horizon line */}
@@ -106,12 +106,12 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
               className="absolute left-0 right-0 top-[68%] h-px"
               style={{ background: `linear-gradient(90deg, transparent, ${H.line}, transparent)` }}
             />
-            {/* Giant index number */}
+            {/* Index number */}
             <span
               aria-hidden
-              className="absolute -top-2 md:-top-6 left-0 select-none font-light leading-none"
+              className="absolute -top-2 md:-top-4 left-0 select-none font-light leading-none"
               style={{
-                fontSize: "clamp(120px, 22vw, 260px)",
+                fontSize: "clamp(96px, 16vw, 200px)",
                 color: "transparent",
                 WebkitTextStroke: `1px ${H.line}`,
                 letterSpacing: "-0.04em",
@@ -123,18 +123,18 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
             <img
               src={product.img}
               alt={product.imgAlt}
-              width={900}
-              height={900}
+              width={720}
+              height={720}
               loading={product.id === "nexus" ? "eager" : "lazy"}
               decoding="async"
-              className="relative z-10 max-h-[78%] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-              style={{ filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.55))" }}
+              className="relative z-10 max-h-[72%] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+              style={{ filter: "drop-shadow(0 24px 40px rgba(43,39,37,0.18))" }}
             />
           </div>
         </div>
 
         {/* Text column */}
-        <div className="md:col-span-5">
+        <div className="md:col-span-6">
           <div className="flex items-center gap-3 mb-6">
             <span className="h-px w-8" style={{ background: H.gold }} />
             <span
@@ -147,7 +147,7 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
 
           <h2
             className="font-light leading-[0.95] tracking-tight mb-4"
-            style={{ fontSize: "clamp(48px, 6vw, 88px)", color: H.text, letterSpacing: "-0.02em" }}
+            style={{ fontSize: "clamp(44px, 5.5vw, 76px)", color: H.text, letterSpacing: "-0.02em" }}
           >
             {product.name}
           </h2>
@@ -196,7 +196,7 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
             </span>
             <Link
               to={product.link}
-              className="group/cta inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] font-medium border-b pb-1 transition-colors"
+              className="group/cta inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] font-medium border-b pb-1 transition-colors hover:opacity-80"
               style={{ color: H.gold, borderColor: H.gold }}
             >
               Entdecken
