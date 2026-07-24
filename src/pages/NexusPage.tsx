@@ -924,7 +924,6 @@ const NexusPage = () => {
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
                 <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {PROMO_PRICE}.-</span>
-                <span style={{ fontSize: 14, textDecoration: "line-through", color: H.textDim, fontWeight: 300 }}>CHF {REGULAR_PRICE}.-</span>
                 <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
                 <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - PROMO_PRICE}.-</span>
               </div>
