@@ -253,7 +253,7 @@ const ApexPage = () => {
           <div className="mx-auto max-w-6xl px-5">
             <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-center">
               {/* LEFT — content */}
-              <div>
+              <div className="order-2 md:order-1">
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] mb-5" style={{ color: H.gold }}>
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-70" style={{ background: H.goldLight }} />
@@ -346,7 +346,7 @@ const ApexPage = () => {
               </div>
 
               {/* RIGHT — image */}
-              <div className="relative">
+              <div className="relative order-1 md:order-2">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={variant.id}
