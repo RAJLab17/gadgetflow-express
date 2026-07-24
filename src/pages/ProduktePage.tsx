@@ -7,13 +7,13 @@ import nexusAsset from "@/assets/products/nexus-transparent.webp.asset.json";
 import apexAsset from "@/assets/products/apex-transparent.webp.asset.json";
 
 const H = {
-  bg: "#0a0908",
-  bgSoft: "#141210",
-  gold: "#c9a876",
-  goldDeep: "#9b6b3f",
-  line: "rgba(201,168,118,0.18)",
-  text: "#f5f1ea",
-  textMuted: "rgba(245,241,234,0.55)",
+  bg: "#faf9f7",
+  bgSoft: "#ffffff",
+  gold: "#9b6b3f",
+  goldDeep: "#7a5230",
+  line: "rgba(43,39,37,0.10)",
+  text: "#2b2725",
+  textMuted: "rgba(43,39,37,0.55)",
 };
 
 interface Product {
