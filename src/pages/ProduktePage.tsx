@@ -196,7 +196,7 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
             </span>
             <Link
               to={product.link}
-              className="group/cta inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] font-medium border-b pb-1 transition-colors"
+              className="group/cta inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] font-medium border-b pb-1 transition-colors hover:opacity-80"
               style={{ color: H.gold, borderColor: H.gold }}
             >
               Entdecken
