@@ -806,26 +806,33 @@ const NexusPage = () => {
     return () => { cancelled = true; };
   }, []);
 
-  const productJsonLd = (reviewStats && reviewStats.total > 0)
-    ? {
-        ...PRODUCT_NEXUS_JSON_LD,
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: reviewStats.average,
-          reviewCount: reviewStats.total,
-          bestRating: 5,
-          worstRating: 1,
-        },
-        review: topReviews.map((r) => ({
-          "@type": "Review",
-          author: { "@type": "Person", name: r.customer_name },
-          datePublished: r.created_at,
-          reviewBody: r.comment,
-          name: r.title,
-          reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
-        })),
-      }
-    : PRODUCT_NEXUS_JSON_LD;
+  const productJsonLd = {
+    ...PRODUCT_NEXUS_JSON_LD,
+    offers: {
+      ...PRODUCT_NEXUS_JSON_LD.offers,
+      price: PROMO_ACTIVE ? `${PROMO_PRICE}.00` : `${REGULAR_PRICE}.00`,
+      priceValidUntil: "2026-07-26",
+      validFrom: "2026-07-24",
+    },
+    ...(reviewStats && reviewStats.total > 0 && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: reviewStats.average,
+        reviewCount: reviewStats.total,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      review: topReviews.map((r) => ({
+        "@type": "Review",
+        author: { "@type": "Person", name: r.customer_name },
+        datePublished: r.created_at,
+        reviewBody: r.comment,
+        name: r.title,
+        reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+      })),
+    }),
+  };
+
 
   return (
     <>
