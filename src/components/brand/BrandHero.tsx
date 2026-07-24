@@ -169,12 +169,12 @@ const BrandHero = () => {
       <div className="lg:hidden absolute inset-0 z-30 flex flex-col pt-[88px] pb-16 px-6">
         {/* CTAs — ganz oben */}
         <div
-          className="raj-rise-sm flex flex-row items-center justify-center gap-3"
+          className="raj-rise-sm flex flex-row items-center justify-center gap-2"
           style={{ animationDelay: "0.2s", animationDuration: "1s" }}
         >
           <Link
             to="/nexus"
-            className="group inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full transition-all duration-500 active:scale-[0.98]"
+            className="group inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full transition-all duration-500 active:scale-[0.98]"
             style={{
               background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
               color: "#0a0908",
@@ -191,7 +191,7 @@ const BrandHero = () => {
           </Link>
           <Link
             to="/produkte"
-            className="inline-flex items-center justify-center gap-2 py-3.5 px-7 rounded-full active:scale-[0.98] transition-all"
+            className="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full active:scale-[0.98] transition-all"
             style={{
               background: "rgba(201,168,118,0.07)",
               border: `1px solid ${GOLD_SOFT}80`,
