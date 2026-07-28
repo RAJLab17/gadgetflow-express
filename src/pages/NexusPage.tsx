@@ -23,13 +23,9 @@ import { fetchProductVariantInfo } from "@/lib/shopify";
 const DROP_01_BASELINE_INVENTORY = 92;
 const DROP_01_CAP = 15;
 
-// ─── 48H FLASH DEAL CONFIG ───────────────────────────────────────
-// 48h-Preistest auf raj.ch/nexus. Enddatum anpassen, um den Test zu starten/beenden.
-const PROMO_END_DATE = new Date("2026-07-26T23:59:59+02:00");
-const PROMO_PRICE = 79;
+// ─── PREIS-KONFIGURATION ───────────────────────────────────────
 const REGULAR_PRICE = 99;
 const ORIGINAL_PRICE = 129;
-const PROMO_ACTIVE = PROMO_END_DATE.getTime() > Date.now();
 
 
 import {
@@ -671,7 +667,7 @@ const NexusPage = () => {
   const trackAddToCart = useCallback(() => {
     if (typeof window === "undefined") return;
     try {
-      const value = PROMO_ACTIVE ? PROMO_PRICE : REGULAR_PRICE;
+      const value = REGULAR_PRICE;
       (window as any).gtag?.("event", "add_to_cart", {
         currency: "CHF",
         value,
@@ -692,7 +688,7 @@ const NexusPage = () => {
     quickBuyRaw();
   }, [trackAddToCart, quickBuyRaw]);
 
-  const currentValue = PROMO_ACTIVE ? PROMO_PRICE : REGULAR_PRICE;
+  const currentValue = REGULAR_PRICE;
 
   useViewContent({ content_name: "RAJ NEXUS", content_ids: ["RAJ-NEXUS-001"], content_type: "product", content_category: "Wireless Charger", value: currentValue, currency: "CHF" });
 
@@ -809,9 +805,9 @@ const NexusPage = () => {
     ...PRODUCT_NEXUS_JSON_LD,
     offers: {
       ...PRODUCT_NEXUS_JSON_LD.offers,
-      price: PROMO_ACTIVE ? `${PROMO_PRICE}.00` : `${REGULAR_PRICE}.00`,
-      priceValidUntil: "2026-07-26",
-      validFrom: "2026-07-24",
+      price: `${REGULAR_PRICE}.00`,
+      priceValidUntil: "2026-12-31",
+      validFrom: "2026-01-01",
     },
     ...(reviewStats && reviewStats.total > 0 && {
       aggregateRating: {
@@ -836,14 +832,14 @@ const NexusPage = () => {
   return (
     <>
       <Helmet>
-        <title>{PROMO_ACTIVE ? "RAJ NEXUS – 48h Flash Deal CHF 79.-" : "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz"}</title>
-        <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${PROMO_PRICE}.– statt CHF ${REGULAR_PRICE}.–.`} />
+        <title>RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz</title>
+        <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${REGULAR_PRICE}.– statt CHF ${ORIGINAL_PRICE}.–.`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://raj.ch/nexus" />
-        <meta property="og:title" content="RAJ NEXUS – 48h Flash Deal | CHF 79.–" />
-        <meta property="og:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${PROMO_PRICE}.– statt CHF ${REGULAR_PRICE}.–, nur 48h.`} />
+        <meta property="og:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
+        <meta property="og:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.– statt CHF ${ORIGINAL_PRICE}.–.`} />
         <meta property="og:type" content="product" />
-        <meta property="product:price:amount" content={`${PROMO_PRICE}.00`} />
+        <meta property="product:price:amount" content={`${REGULAR_PRICE}.00`} />
         <meta property="product:price:currency" content="CHF" />
 
         <meta property="og:site_name" content="RAJ" />
@@ -852,8 +848,8 @@ const NexusPage = () => {
         <meta property="og:locale" content="de_CH" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@raj_swiss_" />
-        <meta name="twitter:title" content="RAJ NEXUS – 48h Flash Deal | CHF 79.–" />
-        <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${PROMO_PRICE}.– statt CHF ${REGULAR_PRICE}.–, nur 48h.`} />
+        <meta name="twitter:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
+        <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.– statt CHF ${ORIGINAL_PRICE}.–.`} />
         <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
 
         <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
@@ -918,12 +914,8 @@ const NexusPage = () => {
             </p>
 
             <div className="flex flex-col gap-1" style={{ marginTop: 18 }}>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-[10px] uppercase tracking-widest font-semibold px-2.5 py-1 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Flash Deal</span>
-                <span className="text-[10px] uppercase tracking-widest" style={{ color: H.textDim }}>Endet in <FlashDealCountdown compact /></span>
-              </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
-                <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {PROMO_PRICE}.-</span>
+                <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.-</span>
                 <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
                 <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - PROMO_PRICE}.-</span>
               </div>
@@ -1088,12 +1080,8 @@ const NexusPage = () => {
               </span>
             </div>
             {/* Price */}
-            <div className="flex items-center justify-center gap-2 mb-0.5">
-              <span className="text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded-full" style={{ color: "#7a3b1a", background: "linear-gradient(135deg, #ffecd2, #fcb69f)" }}>⚡ 48h Deal</span>
-              <span className="text-[9px] uppercase tracking-widest" style={{ color: H.textDim }}>Endet <FlashDealCountdown compact /></span>
-            </div>
             <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
-              <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {PROMO_PRICE}.–</span>
+              <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {REGULAR_PRICE}.–</span>
               <span style={{ fontSize: 10, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.–</span>
             </div>
 
@@ -1262,11 +1250,11 @@ const NexusPage = () => {
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
           <p className="text-base md:text-lg mt-6 mb-2" style={{ color: D.muted, fontWeight: 300 }}>
-            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {PROMO_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
+            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {REGULAR_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
           </p>
-          <p className="text-xs uppercase tracking-widest mb-8" style={{ color: D.gold }}>⚡ 48h Flash Deal · Nur begrenzt verfügbar</p>
+          <p className="text-xs uppercase tracking-widest mb-8" style={{ color: D.gold }}>Founder Edition · Limitiert auf 100</p>
           <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
-            Deal sichern
+            Jetzt kaufen
           </a>
 
           <p className="mt-6 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie</p>
