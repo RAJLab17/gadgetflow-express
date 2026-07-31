@@ -143,6 +143,30 @@ export type Database = {
         }
         Relationships: []
       }
+      product_catalog_prices: {
+        Row: {
+          created_at: string
+          min_final_price: number
+          original_price: number
+          product_name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          min_final_price: number
+          original_price: number
+          product_name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          min_final_price?: number
+          original_price?: number
+          product_name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       product_likes: {
         Row: {
           created_at: string
