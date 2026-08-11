@@ -160,7 +160,7 @@ const Hero = () => {
               {[
                 { value: "25W", label: "Schnellladen" },
                 { value: "3-in-1", label: "Multifunktional" },
-                { value: "2 Jahre", label: "Garantie" },
+                { value: "3 Jahre", label: "Garantie" },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}

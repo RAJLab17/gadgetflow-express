@@ -150,7 +150,7 @@ const UsbChargerProduct = () => {
               { label: "Abmessungen", value: "45 × 45 × 28mm" },
               { label: "Gewicht", value: "62g" },
               { label: "Sicherheitszertifikate", value: "CE, FCC, RoHS" },
-              { label: "Garantie", value: "24 Monate" },
+              { label: "Garantie", value: "3 Jahre" },
             ].map((spec, index) => (
               <div
                 key={index}

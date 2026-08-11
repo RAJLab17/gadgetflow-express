@@ -27,7 +27,7 @@ const faqData = [
   { question: "Unterstützt der RAJ NEXUS den iOS StandBy Modus?", answer: "Ja. Wenn du dein iPhone im Querformat auf den RAJ NEXUS legst, aktiviert sich automatisch der iOS StandBy Modus — mit Uhrzeit, Widgets oder Fotos auf dem Bildschirm." },
   { question: "Kann ich den RAJ NEXUS für mein Unternehmen bestellen?", answer: "Ja. Für Teams und Unternehmen bieten wir Mengenpreise an. Schreib uns direkt an founder@raj.ch — wir antworten innerhalb von 24 Stunden auf Deutsch." },
   { question: "Wohin wird der RAJ NEXUS geliefert?", answer: "Aktuell liefern wir innerhalb der Schweiz. Internationaler Versand ist für spätere Produktlinien geplant." },
-  { question: "Wie lange ist die Garantie?", answer: "Der RAJ NEXUS kommt mit 2 Jahren Garantie gemäss Schweizer Recht. Bei Fragen oder Defekten: founder@raj.ch." },
+  { question: "Wie lange ist die Garantie?", answer: "Der RAJ NEXUS kommt mit 3 Jahren Garantie gemäss Schweizer Recht. Bei Fragen oder Defekten: founder@raj.ch." },
 ];
 
 const faqJsonLd = {
