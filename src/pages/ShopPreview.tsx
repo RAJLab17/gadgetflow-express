@@ -485,8 +485,6 @@ const ShopPreview = () => {
                     ["Lädt es mein iPhone wirklich mit 25 W?", "Ja — sofern dein iPhone Qi2.2 unterstützt (iPhone 15 und neuer). Ältere Modelle laden mit 15 W (MagSafe-Geschwindigkeit)."],
                     ["Funktioniert es mit Hülle?", "Ja, mit MagSafe-kompatiblen Hüllen bis 3 mm Dicke."],
                     ["Wird es heiss?", "Nein. Aktive Temperatursteuerung hält das Gerät und dein iPhone im sicheren Bereich."],
-                    ["Kann ich es im Auto/Flugzeug benutzen?", "Ja, der Eingang ist USB-C PD — funktioniert mit jedem 30 W+ Adapter."],
-                    ["Ist ein Netzteil dabei?", "Nein, um Elektroschrott zu reduzieren. Jedes USB-C PD 30 W+ Netzteil funktioniert."],
                   ].map(([q, a]) => (
                     <div key={q}>
                       <p className="text-foreground/80 font-normal mb-1">{q}</p>
