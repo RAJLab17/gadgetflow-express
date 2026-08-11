@@ -56,7 +56,7 @@ const sections = [
     title: "8. Gewährleistung und Garantie",
     content: [
       "Es gelten die gesetzlichen Gewährleistungsbestimmungen des schweizerischen Rechts.",
-      "Sofern auf der Produktseite angegeben, gewährt die RAJ GmbH zusätzlich eine freiwillige Garantie von zwei Jahren ab Lieferdatum. Die Garantie deckt Material‑ und Herstellungsfehler ab.",
+      "Sofern auf der Produktseite angegeben, gewährt die RAJ GmbH zusätzlich eine freiwillige Garantie von drei Jahren ab Lieferdatum. Die Garantie deckt Material‑ und Herstellungsfehler ab.",
       "Von der Garantie ausgeschlossen sind insbesondere Schäden, die durch unsachgemässe Nutzung, normale Abnutzung, äussere Einwirkungen oder eigenmächtige Reparaturen entstehen.",
     ],
   },
