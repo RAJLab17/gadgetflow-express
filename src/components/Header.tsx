@@ -140,13 +140,13 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-10">
-            <button
-              onClick={() => handleNavClick("#products")}
+            <Link
+              to="/nexus"
               className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
               {t("header.product")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </button>
+            </Link>
 
             <button
               onClick={() => handleNavClick("#ecosystem")}
@@ -227,7 +227,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
           >
             <div className="py-6 space-y-1">
               {[
-                { label: t("header.product"), action: () => handleNavClick("#products") },
+                { label: t("header.product"), to: "/nexus" },
                 { label: "Ecosystem", action: () => handleNavClick("#ecosystem") },
                 { label: "Blog", to: "/blog" },
                 { label: "FAQ", to: "/faq" },
