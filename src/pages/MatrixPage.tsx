@@ -358,12 +358,12 @@ const MatrixPage = () => {
     name: "RAJ MATRIX Case",
     brand: { "@type": "Brand", name: "RAJ" },
     description:
-      "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
+      "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Titan-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
     url: "https://raj.ch/matrix",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "CHF",
-      lowPrice: 39,
+      lowPrice: 79,
       highPrice: 79,
       offerCount: CASE_FINISHES.length,
       availability: "https://schema.org/PreOrder",
@@ -376,13 +376,13 @@ const MatrixPage = () => {
         <title>RAJ MATRIX — MagSafe Cases für iPhone 17 & 18 Pro | RAJ</title>
         <meta
           name="description"
-          content="RAJ MATRIX Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Fünf Finishes, Qi2.2 mit 25 W, perfekt abgestimmt auf RAJ NEXUS und RAJ APEX."
+          content="RAJ MATRIX Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Zwei Carbon-Finishes mit goldenen Knöpfen, Qi2.2 mit 25 W, perfekt abgestimmt auf RAJ NEXUS und RAJ APEX."
         />
         <link rel="canonical" href="https://raj.ch/matrix" />
         <meta property="og:title" content="RAJ MATRIX — MagSafe Cases für iPhone 17 & 18 Pro" />
         <meta
           property="og:description"
-          content="Fünf Finishes, vier Modelle, ein System. Qi2.2 mit 25 W, abgestimmt auf RAJ NEXUS und RAJ APEX."
+          content="Zwei Carbon-Finishes, vier Modelle, ein System. Qi2.2 mit 25 W, abgestimmt auf RAJ NEXUS und RAJ APEX."
         />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/matrix" />
@@ -411,7 +411,7 @@ const MatrixPage = () => {
               Die Hülle als Teil des Systems.
             </p>
             <p className="mt-6 max-w-xl text-base leading-relaxed" style={{ color: H.textMuted }}>
-              Vier Modelle, fünf Finishes, ein Magnetring. Jede MATRIX-Hülle ist so vermessen, dass NEXUS und APEX
+              Vier Modelle, zwei Carbon-Finishes, ein Magnetring. Jede MATRIX-Hülle ist so vermessen, dass NEXUS und APEX
               magnetisch einrasten, als wäre nichts dazwischen. Die Farbe deines iPhones bleibt Teil des Objekts.
             </p>
           </section>
