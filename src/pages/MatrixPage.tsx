@@ -48,7 +48,7 @@ interface DeviceFinish {
 
 /** Gerätefarben nach Apple — sichtbar im Kameraplateau und in den Aussparungen. */
 const DEVICE_FINISHES: DeviceFinish[] = [
-  { id: "orange", name: "Cosmic Orange", body: "#e3651f", bodyEdge: "#b8460f", sheen: "#f79b५5".replace("५", "5"), gens: ["17", "18"] },
+  { id: "orange", name: "Cosmic Orange", body: "#e3651f", bodyEdge: "#b8460f", sheen: "#f79b55", gens: ["17", "18"] },
   { id: "blue", name: "Deep Blue", body: "#4a5a75", bodyEdge: "#2f3c53", sheen: "#8695ac", gens: ["17", "18"] },
   { id: "silver", name: "Silver", body: "#e4e5e7", bodyEdge: "#b6b8bb", sheen: "#ffffff", gens: ["17", "18"] },
   { id: "black", name: "Space Black", body: "#33333a", bodyEdge: "#141417", sheen: "#6e6e78", gens: ["18"] },
@@ -334,7 +334,7 @@ const DeviceMock = ({
 const MatrixPage = () => {
   const [modelId, setModelId] = useState<ModelId>("17promax");
   const [deviceId, setDeviceId] = useState("orange");
-  const [caseId, setCaseId] = useState("clear");
+  const [caseId, setCaseId] = useState("cherry");
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
@@ -431,7 +431,7 @@ const MatrixPage = () => {
                           "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,0.10) 0%, rgba(250,249,247,0) 70%)",
                       }}
                     />
-                    <DeviceMock device={device} caseFinish={caseFinish} scale={model.scale} />
+                    <DeviceMock device={device} caseFinish={caseFinish} model={model} />
                   </div>
                   <p
                     className="text-center mt-10 text-[10px] uppercase tracking-[0.28em]"
@@ -529,10 +529,7 @@ const MatrixPage = () => {
                             <span
                               className="w-6 h-6 rounded-full shrink-0"
                               style={{
-                                background:
-                                  c.clarity > 0.5
-                                    ? "linear-gradient(145deg, rgba(255,255,255,0.9), rgba(200,205,210,0.7))"
-                                    : c.tint,
+                                background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`,
                                 boxShadow: `0 0 0 1px ${H.lineStrong}`,
                               }}
                             />
@@ -583,10 +580,7 @@ const MatrixPage = () => {
                           <span
                             className="mx-auto mb-2 block w-5 h-5 rounded-full"
                             style={{
-                              background:
-                                c.clarity > 0.5
-                                  ? "linear-gradient(145deg, rgba(255,255,255,0.9), rgba(200,205,210,0.7))"
-                                  : c.tint,
+                              background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`,
                               boxShadow: `0 0 0 1px ${H.lineStrong}`,
                             }}
                           />
