@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import cherryOrange from "@/assets/matrix/cherry-orange.webp.asset.json";
+import cherryBlue from "@/assets/matrix/cherry-blue.webp.asset.json";
+import cherrySilver from "@/assets/matrix/cherry-silver.webp.asset.json";
+import cherryBlack from "@/assets/matrix/cherry-black.webp.asset.json";
+import onyxOrange from "@/assets/matrix/onyx-orange.webp.asset.json";
+import onyxBlue from "@/assets/matrix/onyx-blue.webp.asset.json";
+import onyxSilver from "@/assets/matrix/onyx-silver.webp.asset.json";
+import onyxBlack from "@/assets/matrix/onyx-black.webp.asset.json";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
