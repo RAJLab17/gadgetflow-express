@@ -24,16 +24,16 @@ interface Model {
   name: string;
   gen: "17" | "18";
   display: string;
-  /** relative visual size of the device mock */
-  scale: number;
+  /** echte Gehäusemasse in mm — Basis für die massstabsgetreue Darstellung */
+  mm: { w: number; h: number; d: number };
   status: string;
 }
 
 const MODELS: Model[] = [
-  { id: "17pro", short: "17 Pro", name: "iPhone 17 Pro", gen: "17", display: '6,3"', scale: 0.94, status: "Verfügbar" },
-  { id: "17promax", short: "17 Pro Max", name: "iPhone 17 Pro Max", gen: "17", display: '6,9"', scale: 1, status: "Verfügbar" },
-  { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", gen: "18", display: '6,3"', scale: 0.94, status: "Vorbestellung" },
-  { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", gen: "18", display: '6,9"', scale: 1, status: "Vorbestellung" },
+  { id: "17pro", short: "17 Pro", name: "iPhone 17 Pro", gen: "17", display: '6,3"', mm: { w: 71.9, h: 150.0, d: 8.75 }, status: "Verfügbar" },
+  { id: "17promax", short: "17 Pro Max", name: "iPhone 17 Pro Max", gen: "17", display: '6,9"', mm: { w: 78.0, h: 163.4, d: 8.75 }, status: "Verfügbar" },
+  { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", gen: "18", display: '6,3"', mm: { w: 71.9, h: 150.0, d: 8.75 }, status: "Vorbestellung" },
+  { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", gen: "18", display: '6,9"', mm: { w: 78.0, h: 163.4, d: 8.75 }, status: "Vorbestellung" },
 ];
 
 interface DeviceFinish {
@@ -41,37 +41,52 @@ interface DeviceFinish {
   name: string;
   body: string;
   bodyEdge: string;
+  /** Glanzlicht des eloxierten Aluminium-Unibody */
+  sheen: string;
   gens: ("17" | "18")[];
 }
 
-/** Gerätefarben — sichtbar durch die Aussparungen und die Rückseite der Hülle. */
+/** Gerätefarben nach Apple — sichtbar im Kameraplateau und in den Aussparungen. */
 const DEVICE_FINISHES: DeviceFinish[] = [
-  { id: "orange", name: "Cosmic Orange", body: "#d4622a", bodyEdge: "#a8481c", gens: ["17"] },
-  { id: "blue", name: "Deep Blue", body: "#33445f", bodyEdge: "#222f42", gens: ["17", "18"] },
-  { id: "silver", name: "Silver", body: "#d9dadc", bodyEdge: "#a9abae", gens: ["17", "18"] },
-  { id: "black", name: "Space Black", body: "#2a2a2c", bodyEdge: "#151516", gens: ["17", "18"] },
-  { id: "titan", name: "Natural Titanium", body: "#c2bcb2", bodyEdge: "#948d82", gens: ["18"] },
-  { id: "burgundy", name: "Burgundy", body: "#6d2434", bodyEdge: "#4a1723", gens: ["18"] },
+  { id: "orange", name: "Cosmic Orange", body: "#e3651f", bodyEdge: "#b8460f", sheen: "#f79b५5".replace("५", "5"), gens: ["17", "18"] },
+  { id: "blue", name: "Deep Blue", body: "#4a5a75", bodyEdge: "#2f3c53", sheen: "#8695ac", gens: ["17", "18"] },
+  { id: "silver", name: "Silver", body: "#e4e5e7", bodyEdge: "#b6b8bb", sheen: "#ffffff", gens: ["17", "18"] },
+  { id: "black", name: "Space Black", body: "#33333a", bodyEdge: "#141417", sheen: "#6e6e78", gens: ["18"] },
 ];
 
 interface CaseFinish {
   id: string;
   name: string;
   material: string;
-  /** 0 = vollständig deckend, 1 = vollkommen klar */
-  clarity: number;
-  tint: string;
-  ring: string;
+  /** Grundton des Carbon-Gewebes */
+  base: string;
+  weave: string;
+  edge: string;
   price: number;
 }
 
 const CASE_FINISHES: CaseFinish[] = [
-  { id: "clear", name: "Crystal", material: "Polycarbonat, klar", clarity: 0.88, tint: "rgba(255,255,255,0.10)", ring: "#cfd3d6", price: 39 },
-  { id: "onyx", name: "Onyx", material: "Silikon, matt", clarity: 0, tint: "#1d1c1b", ring: "#1d1c1b", price: 45 },
-  { id: "sand", name: "Sand", material: "Silikon, matt", clarity: 0, tint: "#d8cdbc", ring: "#d8cdbc", price: 45 },
-  { id: "cognac", name: "Cognac", material: "Leder, pflanzlich gegerbt", clarity: 0, tint: "#8a5a33", ring: "#8a5a33", price: 69 },
-  { id: "graphite", name: "Graphite", material: "Aramid, 0,9 mm", clarity: 0, tint: "#3a3d40", ring: "#3a3d40", price: 79 },
+  {
+    id: "cherry",
+    name: "Cherry Carbon",
+    material: "Aramid-Carbon, Cherry · Titan-Knöpfe in Gold",
+    base: "#6e1420",
+    weave: "#a3202f",
+    edge: "#420b13",
+    price: 79,
+  },
+  {
+    id: "onyx",
+    name: "Onyx Carbon",
+    material: "Aramid-Carbon, Schwarz · Titan-Knöpfe in Gold",
+    base: "#16171a",
+    weave: "#33363c",
+    edge: "#08090a",
+    price: 79,
+  },
 ];
+
+const GOLD_BTN = "linear-gradient(90deg, #6b4a22 0%, #c99a4e 28%, #f0d9a4 50%, #c99a4e 72%, #6b4a22 100%)";
 
 interface Row {
   label: string;
@@ -79,113 +94,233 @@ interface Row {
 }
 
 const MATRIX_ROWS: Row[] = [
-  { label: "MagSafe Magnetring (N52)", values: { clear: true, onyx: true, sand: true, cognac: true, graphite: true } },
-  { label: "Qi2.2 · 25 W ohne Verlust", values: { clear: true, onyx: true, sand: true, cognac: true, graphite: true } },
-  { label: "RAJ NEXUS kompatibel", values: { clear: true, onyx: true, sand: true, cognac: true, graphite: true } },
-  { label: "RAJ APEX kompatibel", values: { clear: true, onyx: true, sand: true, cognac: true, graphite: true } },
-  { label: "Materialstärke", values: { clear: "1,4 mm", onyx: "1,6 mm", sand: "1,6 mm", cognac: "1,5 mm", graphite: "0,9 mm" } },
-  { label: "Falltest", values: { clear: "2,5 m", onyx: "3 m", sand: "3 m", cognac: "2,5 m", graphite: "4 m" } },
-  { label: "Kameraring Metall", values: { clear: true, onyx: true, sand: true, cognac: true, graphite: true } },
-  { label: "Gerätefarbe sichtbar", values: { clear: true, onyx: false, sand: false, cognac: false, graphite: false } },
+  { label: "MagSafe Magnetring (N52)", values: { cherry: true, onyx: true } },
+  { label: "Qi2.2 · 25 W ohne Verlust", values: { cherry: true, onyx: true } },
+  { label: "RAJ NEXUS kompatibel", values: { cherry: true, onyx: true } },
+  { label: "RAJ APEX kompatibel", values: { cherry: true, onyx: true } },
+  { label: "Knöpfe", values: { cherry: "Titan, goldeloxiert", onyx: "Titan, goldeloxiert" } },
+  { label: "Materialstärke", values: { cherry: "0,9 mm", onyx: "0,9 mm" } },
+  { label: "Falltest", values: { cherry: "4 m", onyx: "4 m" } },
+  { label: "Kameraring Metall", values: { cherry: true, onyx: true } },
+  { label: "Gerätefarbe im Plateau sichtbar", values: { cherry: true, onyx: true } },
 ];
 
-/* ── Visual: Gerät in Hülle ───────────────────────────────────────────── */
+/* ── Visual: Gerät in Hülle (massstabsgetreu) ─────────────────────────── */
 const DeviceMock = ({
   device,
   caseFinish,
-  scale,
+  model,
 }: {
   device: DeviceFinish;
   caseFinish: CaseFinish;
-  scale: number;
+  model: Model;
 }) => {
-  const clear = caseFinish.clarity > 0.5;
+  /* Hülle = Gerät + ca. 2 mm Wandung ringsum */
+  const wMM = model.mm.w + 2.2;
+  const hMM = model.mm.h + 2.2;
+  const PX_PER_MM = 2.9;
+  const w = wMM * PX_PER_MM;
+  const h = hMM * PX_PER_MM;
+
+  /* Eckradius: iPhone Pro ≈ 12 mm */
+  const radius = 12.6 * PX_PER_MM;
+
+  /* Kameraplateau (iPhone 17 Pro): über die volle Breite, ca. 22 mm hoch */
+  const plateauTop = 7.4 * PX_PER_MM;
+  const plateauH = 22.4 * PX_PER_MM;
+  const plateauInset = 4.4 * PX_PER_MM;
+
+  const carbon = `
+    repeating-linear-gradient(45deg, ${caseFinish.weave}55 0px, ${caseFinish.weave}55 3px, transparent 3px, transparent 6px),
+    repeating-linear-gradient(-45deg, ${caseFinish.base}cc 0px, ${caseFinish.base}cc 3px, transparent 3px, transparent 6px),
+    linear-gradient(150deg, ${caseFinish.weave} 0%, ${caseFinish.base} 42%, ${caseFinish.edge} 100%)
+  `;
+
+  const Button = ({
+    top,
+    height,
+    side,
+  }: {
+    top: number;
+    height: number;
+    side: "left" | "right";
+  }) => (
+    <span
+      aria-hidden
+      className="absolute"
+      style={{
+        [side]: -3,
+        top,
+        width: 4,
+        height,
+        background: GOLD_BTN,
+        borderRadius: side === "left" ? "2px 0 0 2px" : "0 2px 2px 0",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.45)",
+      } as React.CSSProperties}
+    />
+  );
+
+  const lensSize = 12.6 * PX_PER_MM;
+
+  const Lens = ({ left, top }: { left: number; top: number }) => (
+    <span
+      className="absolute rounded-full"
+      style={{
+        left,
+        top,
+        width: lensSize,
+        height: lensSize,
+        background: `radial-gradient(circle at 50% 50%, #101114 0%, #17181c 46%, #3d4147 58%, #24262b 68%, ${device.bodyEdge} 78%, ${device.body} 100%)`,
+        boxShadow:
+          "inset 0 0 0 1px rgba(255,255,255,0.12), inset 0 2px 6px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.35)",
+      }}
+    >
+      {/* Glaslinse */}
+      <span
+        className="absolute rounded-full"
+        style={{
+          inset: "22%",
+          background:
+            "radial-gradient(circle at 34% 28%, rgba(120,150,190,0.55) 0%, rgba(20,24,32,0.9) 42%, #05060a 100%)",
+          boxShadow: "inset 0 0 4px rgba(255,255,255,0.25)",
+        }}
+      />
+      {/* Reflex */}
+      <span
+        className="absolute rounded-full"
+        style={{
+          left: "30%",
+          top: "24%",
+          width: "16%",
+          height: "12%",
+          background: "rgba(255,255,255,0.55)",
+          filter: "blur(0.6px)",
+        }}
+      />
+    </span>
+  );
+
   return (
     <div
       className="relative mx-auto transition-all duration-500 ease-out"
-      style={{ width: 232 * scale, height: 470 * scale }}
+      style={{ width: w, height: h }}
     >
-      {/* Schatten */}
+      {/* Bodenschatten */}
       <div
         aria-hidden
-        className="absolute left-1/2 -translate-x-1/2 bottom-[-26px] w-[70%] h-8 rounded-full"
-        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 70%)" }}
+        className="absolute left-1/2 -translate-x-1/2 bottom-[-30px] w-[78%] h-9 rounded-[50%]"
+        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.28), transparent 72%)" }}
       />
+
+      {/* Seitenknöpfe in Gold (Titan) */}
+      <Button side="left" top={h * 0.205} height={9.5 * PX_PER_MM} />{/* Action Button */}
+      <Button side="left" top={h * 0.30} height={12 * PX_PER_MM} />{/* Lauter */}
+      <Button side="left" top={h * 0.39} height={12 * PX_PER_MM} />{/* Leiser */}
+      <Button side="right" top={h * 0.27} height={17 * PX_PER_MM} />{/* Seitentaste */}
+      <Button side="right" top={h * 0.44} height={9 * PX_PER_MM} />{/* Camera Control */}
+
       {/* Hülle */}
       <div
-        className="absolute inset-0 rounded-[13%] transition-colors duration-500"
+        className="absolute inset-0 overflow-hidden transition-colors duration-500"
         style={{
-          background: clear ? device.body : caseFinish.tint,
-          boxShadow: `inset 0 0 0 1.5px rgba(255,255,255,0.14), 0 26px 50px -18px rgba(43,39,37,0.45)`,
+          borderRadius: radius,
+          background: carbon,
+          backgroundBlendMode: "overlay, overlay, normal",
+          boxShadow: `
+            inset 0 0 0 1px rgba(255,255,255,0.10),
+            inset 0 1px 0 rgba(255,255,255,0.18),
+            0 30px 60px -22px rgba(43,39,37,0.55)`,
         }}
       >
-        {/* Geräterückseite (durch klare Hülle sichtbar) */}
-        <div
-          className="absolute inset-[3%] rounded-[11%] transition-colors duration-500"
-          style={{
-            background: clear
-              ? `linear-gradient(150deg, ${device.body}, ${device.bodyEdge})`
-              : `linear-gradient(150deg, ${caseFinish.tint}, rgba(0,0,0,0.18))`,
-            opacity: clear ? 1 : 0.92,
-          }}
-        />
-        {/* Glanzkante */}
+        {/* seidiger Lichtverlauf über dem Gewebe */}
         <div
           aria-hidden
-          className="absolute inset-0 rounded-[13%] pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(115deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 32%, rgba(255,255,255,0) 68%, rgba(255,255,255,0.12) 100%)",
+              "linear-gradient(118deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.02) 26%, rgba(0,0,0,0.10) 58%, rgba(255,255,255,0.10) 100%)",
           }}
         />
 
-        {/* Kameraplateau — Gerätefarbe immer sichtbar */}
+        {/* Kameraplateau — Aussparung, Gerätefarbe sichtbar */}
         <div
-          className="absolute rounded-[22%] transition-colors duration-500"
+          className="absolute transition-colors duration-500"
           style={{
-            left: "7%",
-            top: "4.5%",
-            width: "48%",
-            height: "23%",
-            background: `linear-gradient(150deg, ${device.body}, ${device.bodyEdge})`,
-            boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.18), 0 6px 14px -6px rgba(0,0,0,0.5)",
+            left: plateauInset,
+            right: plateauInset,
+            top: plateauTop,
+            height: plateauH,
+            borderRadius: 7 * PX_PER_MM,
+            background: `linear-gradient(160deg, ${device.body} 0%, ${device.body} 46%, ${device.bodyEdge} 100%)`,
+            boxShadow: `
+              inset 0 1px 0 ${device.sheen}88,
+              inset 0 0 0 1px rgba(255,255,255,0.16),
+              0 0 0 2px rgba(0,0,0,0.35),
+              0 6px 16px -6px rgba(0,0,0,0.6)`,
           }}
         >
-          {[
-            { l: "10%", t: "16%" },
-            { l: "52%", t: "16%" },
-            { l: "10%", t: "56%" },
-          ].map((p) => (
-            <span
-              key={`${p.l}${p.t}`}
-              className="absolute rounded-full"
-              style={{
-                left: p.l,
-                top: p.t,
-                width: "38%",
-                aspectRatio: "1",
-                background: "radial-gradient(circle at 35% 30%, #4a4d52 0%, #17181a 55%, #0a0a0b 100%)",
-                boxShadow: "inset 0 0 0 2px rgba(255,255,255,0.16)",
-              }}
-            />
-          ))}
+          {/* Objektive: Dreieck links */}
+          <Lens left={plateauH * 0.09} top={plateauH * 0.08} />
+          <Lens left={plateauH * 0.09 + lensSize * 1.12} top={plateauH * 0.08} />
+          <Lens left={plateauH * 0.09} top={plateauH * 0.08 + lensSize * 1.12} />
+
+          {/* Blitz */}
+          <span
+            className="absolute rounded-full"
+            style={{
+              right: 6.4 * PX_PER_MM,
+              top: plateauH * 0.19,
+              width: 5.4 * PX_PER_MM,
+              height: 5.4 * PX_PER_MM,
+              background: "radial-gradient(circle at 40% 34%, #fff8e6 0%, #f0d9a4 45%, #b9a071 100%)",
+              boxShadow: "inset 0 0 0 1.5px rgba(0,0,0,0.35)",
+            }}
+          />
+          {/* Mikrofon */}
+          <span
+            className="absolute rounded-full"
+            style={{
+              right: 7.4 * PX_PER_MM,
+              top: plateauH * 0.52,
+              width: 2.2 * PX_PER_MM,
+              height: 2.2 * PX_PER_MM,
+              background: "#0b0c0e",
+              boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.18)",
+            }}
+          />
+          {/* LiDAR */}
+          <span
+            className="absolute rounded-full"
+            style={{
+              right: 5.2 * PX_PER_MM,
+              bottom: plateauH * 0.14,
+              width: 4.4 * PX_PER_MM,
+              height: 4.4 * PX_PER_MM,
+              background: "radial-gradient(circle at 40% 34%, #4d5158 0%, #191b1f 60%, #0a0b0d 100%)",
+              boxShadow: "inset 0 0 0 1.4px rgba(255,255,255,0.14)",
+            }}
+          />
         </div>
 
-        {/* MagSafe Ring */}
+        {/* MagSafe-Ring, dezent im Gewebe */}
         <div
           aria-hidden
           className="absolute left-1/2 -translate-x-1/2 rounded-full"
           style={{
-            top: "44%",
-            width: "42%",
-            aspectRatio: "1",
-            border: "1px dashed rgba(255,255,255,0.22)",
+            top: h * 0.44,
+            width: 56 * PX_PER_MM,
+            height: 56 * PX_PER_MM,
+            boxShadow:
+              "inset 0 0 0 1px rgba(255,255,255,0.10), 0 0 0 1px rgba(0,0,0,0.18)",
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.05) 62%, rgba(255,255,255,0.10) 63%, rgba(255,255,255,0) 72%)",
           }}
         />
+
         {/* Gravur */}
         <span
-          className="absolute left-1/2 -translate-x-1/2 bottom-[7%] text-[9px] tracking-[0.4em]"
-          style={{ color: clear ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.35)" }}
+          className="absolute left-1/2 -translate-x-1/2 text-[9px] tracking-[0.42em]"
+          style={{ bottom: h * 0.06, color: "rgba(240,217,164,0.7)" }}
         >
           RAJ
         </span>
@@ -193,6 +328,7 @@ const DeviceMock = ({
     </div>
   );
 };
+
 
 /* ── Page ─────────────────────────────────────────────────────────────── */
 const MatrixPage = () => {
