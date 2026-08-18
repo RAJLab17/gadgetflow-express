@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import cherryOrange from "@/assets/matrix/cherry-orange.webp.asset.json";
+import cherryBlue from "@/assets/matrix/cherry-blue.webp.asset.json";
+import cherrySilver from "@/assets/matrix/cherry-silver.webp.asset.json";
+import cherryBlack from "@/assets/matrix/cherry-black.webp.asset.json";
+import onyxOrange from "@/assets/matrix/onyx-orange.webp.asset.json";
+import onyxBlue from "@/assets/matrix/onyx-blue.webp.asset.json";
+import onyxSilver from "@/assets/matrix/onyx-silver.webp.asset.json";
+import onyxBlack from "@/assets/matrix/onyx-black.webp.asset.json";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -86,7 +94,6 @@ const CASE_FINISHES: CaseFinish[] = [
   },
 ];
 
-const GOLD_BTN = "linear-gradient(90deg, #6b4a22 0%, #c99a4e 28%, #f0d9a4 50%, #c99a4e 72%, #6b4a22 100%)";
 
 interface Row {
   label: string;
@@ -105,7 +112,18 @@ const MATRIX_ROWS: Row[] = [
   { label: "Gerätefarbe im Plateau sichtbar", values: { cherry: true, onyx: true } },
 ];
 
-/* ── Visual: Gerät in Hülle (massstabsgetreu) ─────────────────────────── */
+/* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
+const RENDERS: Record<string, { url: string }> = {
+  "cherry-orange": cherryOrange,
+  "cherry-blue": cherryBlue,
+  "cherry-silver": cherrySilver,
+  "cherry-black": cherryBlack,
+  "onyx-orange": onyxOrange,
+  "onyx-blue": onyxBlue,
+  "onyx-silver": onyxSilver,
+  "onyx-black": onyxBlack,
+};
+
 const DeviceMock = ({
   device,
   caseFinish,
@@ -115,217 +133,44 @@ const DeviceMock = ({
   caseFinish: CaseFinish;
   model: Model;
 }) => {
-  /* Hülle = Gerät + ca. 2 mm Wandung ringsum */
-  const wMM = model.mm.w + 2.2;
-  const hMM = model.mm.h + 2.2;
-  const PX_PER_MM = 2.9;
-  const w = wMM * PX_PER_MM;
-  const h = hMM * PX_PER_MM;
-
-  /* Eckradius: iPhone Pro ≈ 12 mm */
-  const radius = 12.6 * PX_PER_MM;
-
-  /* Kameraplateau (iPhone 17 Pro): über die volle Breite, ca. 22 mm hoch */
-  const plateauTop = 5.6 * PX_PER_MM;
-  const plateauH = 33 * PX_PER_MM;
-  const plateauInset = 3.6 * PX_PER_MM;
-
-  const carbon = `
-    repeating-linear-gradient(45deg, ${caseFinish.weave}55 0px, ${caseFinish.weave}55 3px, transparent 3px, transparent 6px),
-    repeating-linear-gradient(-45deg, ${caseFinish.base}cc 0px, ${caseFinish.base}cc 3px, transparent 3px, transparent 6px),
-    linear-gradient(150deg, ${caseFinish.weave} 0%, ${caseFinish.base} 42%, ${caseFinish.edge} 100%)
-  `;
-
-  const Button = ({
-    top,
-    height,
-    side,
-  }: {
-    top: number;
-    height: number;
-    side: "left" | "right";
-  }) => (
-    <span
-      aria-hidden
-      className="absolute"
-      style={{
-        [side]: -3,
-        top,
-        width: 4,
-        height,
-        background: GOLD_BTN,
-        borderRadius: side === "left" ? "2px 0 0 2px" : "0 2px 2px 0",
-        boxShadow: "0 1px 3px rgba(0,0,0,0.45)",
-      } as React.CSSProperties}
-    />
-  );
-
-  const lensSize = 12.2 * PX_PER_MM;
-
-  const Lens = ({ left, top }: { left: number; top: number }) => (
-    <span
-      className="absolute rounded-full"
-      style={{
-        left,
-        top,
-        width: lensSize,
-        height: lensSize,
-        background: `radial-gradient(circle at 50% 50%, #101114 0%, #17181c 46%, #3d4147 58%, #24262b 68%, ${device.bodyEdge} 78%, ${device.body} 100%)`,
-        boxShadow:
-          "inset 0 0 0 1px rgba(255,255,255,0.12), inset 0 2px 6px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.35)",
-      }}
-    >
-      {/* Glaslinse */}
-      <span
-        className="absolute rounded-full"
-        style={{
-          inset: "22%",
-          background:
-            "radial-gradient(circle at 34% 28%, rgba(120,150,190,0.55) 0%, rgba(20,24,32,0.9) 42%, #05060a 100%)",
-          boxShadow: "inset 0 0 4px rgba(255,255,255,0.25)",
-        }}
-      />
-      {/* Reflex */}
-      <span
-        className="absolute rounded-full"
-        style={{
-          left: "30%",
-          top: "24%",
-          width: "16%",
-          height: "12%",
-          background: "rgba(255,255,255,0.55)",
-          filter: "blur(0.6px)",
-        }}
-      />
-    </span>
-  );
+  /* Pro Max ist real ca. 8,5 % breiter — massstabsgetreue Skalierung */
+  const scale = model.mm.w / 71.9;
+  const src = RENDERS[`${caseFinish.id}-${device.id}`]?.url ?? RENDERS["onyx-black"].url;
 
   return (
     <div
       className="relative mx-auto transition-all duration-500 ease-out"
-      style={{ width: w, height: h }}
+      style={{ width: 300 * scale }}
     >
-      {/* Bodenschatten */}
       <div
         aria-hidden
-        className="absolute left-1/2 -translate-x-1/2 bottom-[-30px] w-[78%] h-9 rounded-[50%]"
-        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.28), transparent 72%)" }}
+        className="absolute left-1/2 -translate-x-1/2 bottom-[6%] w-[70%] h-8 rounded-[50%] pointer-events-none"
+        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)" }}
       />
-
-      {/* Seitenknöpfe in Gold (Titan) */}
-      <Button side="left" top={h * 0.205} height={9.5 * PX_PER_MM} />{/* Action Button */}
-      <Button side="left" top={h * 0.30} height={12 * PX_PER_MM} />{/* Lauter */}
-      <Button side="left" top={h * 0.39} height={12 * PX_PER_MM} />{/* Leiser */}
-      <Button side="right" top={h * 0.27} height={17 * PX_PER_MM} />{/* Seitentaste */}
-      <Button side="right" top={h * 0.44} height={9 * PX_PER_MM} />{/* Camera Control */}
-
-      {/* Hülle */}
-      <div
-        className="absolute inset-0 overflow-hidden transition-colors duration-500"
-        style={{
-          borderRadius: radius,
-          background: carbon,
-          backgroundBlendMode: "overlay, overlay, normal",
-          boxShadow: `
-            inset 0 0 0 1px rgba(255,255,255,0.10),
-            inset 0 1px 0 rgba(255,255,255,0.18),
-            0 30px 60px -22px rgba(43,39,37,0.55)`,
-        }}
-      >
-        {/* seidiger Lichtverlauf über dem Gewebe */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(118deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.02) 26%, rgba(0,0,0,0.10) 58%, rgba(255,255,255,0.10) 100%)",
-          }}
+      {Object.entries(RENDERS).map(([key, asset]) => (
+        <img
+          key={key}
+          src={asset.url}
+          alt={
+            key === `${caseFinish.id}-${device.id}`
+              ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
+              : ""
+          }
+          width={760}
+          height={760}
+          loading="lazy"
+          decoding="async"
+          aria-hidden={asset.url !== src}
+          className={`w-full h-auto transition-opacity duration-500 ${
+            asset.url === src ? "relative opacity-100" : "absolute inset-0 opacity-0 pointer-events-none"
+          }`}
+          style={{ mixBlendMode: "multiply" }}
         />
-
-        {/* Kameraplateau — Aussparung, Gerätefarbe sichtbar */}
-        <div
-          className="absolute transition-colors duration-500"
-          style={{
-            left: plateauInset,
-            right: plateauInset,
-            top: plateauTop,
-            height: plateauH,
-            borderRadius: 7 * PX_PER_MM,
-            background: `linear-gradient(160deg, ${device.body} 0%, ${device.body} 46%, ${device.bodyEdge} 100%)`,
-            boxShadow: `
-              inset 0 1px 0 ${device.sheen}88,
-              inset 0 0 0 1px rgba(255,255,255,0.16),
-              0 0 0 2px rgba(0,0,0,0.35),
-              0 6px 16px -6px rgba(0,0,0,0.6)`,
-          }}
-        >
-          {/* Objektive: Dreieck links */}
-          <Lens left={2.6 * PX_PER_MM} top={2.6 * PX_PER_MM} />
-          <Lens left={2.6 * PX_PER_MM + lensSize * 1.06} top={2.6 * PX_PER_MM} />
-          <Lens left={2.6 * PX_PER_MM} top={2.6 * PX_PER_MM + lensSize * 1.06} />
-
-          {/* Blitz */}
-          <span
-            className="absolute rounded-full"
-            style={{
-              right: 6.6 * PX_PER_MM,
-              top: 5 * PX_PER_MM,
-              width: 5.4 * PX_PER_MM,
-              height: 5.4 * PX_PER_MM,
-              background: "radial-gradient(circle at 40% 34%, #fff8e6 0%, #f0d9a4 45%, #b9a071 100%)",
-              boxShadow: "inset 0 0 0 1.5px rgba(0,0,0,0.35)",
-            }}
-          />
-          {/* Mikrofon */}
-          <span
-            className="absolute rounded-full"
-            style={{
-              right: 7.6 * PX_PER_MM,
-              top: 15.5 * PX_PER_MM,
-              width: 2.2 * PX_PER_MM,
-              height: 2.2 * PX_PER_MM,
-              background: "#0b0c0e",
-              boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.18)",
-            }}
-          />
-          {/* LiDAR */}
-          <span
-            className="absolute rounded-full"
-            style={{
-              right: 6.1 * PX_PER_MM,
-              bottom: 4.6 * PX_PER_MM,
-              width: 4.4 * PX_PER_MM,
-              height: 4.4 * PX_PER_MM,
-              background: "radial-gradient(circle at 40% 34%, #4d5158 0%, #191b1f 60%, #0a0b0d 100%)",
-              boxShadow: "inset 0 0 0 1.4px rgba(255,255,255,0.14)",
-            }}
-          />
-        </div>
-
-        {/* MagSafe-Ring, dezent im Gewebe */}
-        <div
-          aria-hidden
-          className="absolute left-1/2 -translate-x-1/2 rounded-full"
-          style={{
-            top: h * 0.45,
-            width: 55 * PX_PER_MM,
-            height: 55 * PX_PER_MM,
-            border: "1px solid rgba(255,255,255,0.07)",
-            boxShadow: "inset 0 0 12px rgba(255,255,255,0.04)",
-          }}
-        />
-
-        {/* Gravur */}
-        <span
-          className="absolute left-1/2 -translate-x-1/2 text-[9px] tracking-[0.42em]"
-          style={{ bottom: h * 0.06, color: "rgba(240,217,164,0.7)" }}
-        >
-          RAJ
-        </span>
-      </div>
+      ))}
     </div>
   );
 };
+
 
 
 /* ── Page ─────────────────────────────────────────────────────────────── */
