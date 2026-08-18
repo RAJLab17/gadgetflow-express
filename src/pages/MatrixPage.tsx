@@ -126,9 +126,9 @@ const DeviceMock = ({
   const radius = 12.6 * PX_PER_MM;
 
   /* Kameraplateau (iPhone 17 Pro): über die volle Breite, ca. 22 mm hoch */
-  const plateauTop = 7.4 * PX_PER_MM;
-  const plateauH = 22.4 * PX_PER_MM;
-  const plateauInset = 4.4 * PX_PER_MM;
+  const plateauTop = 5.6 * PX_PER_MM;
+  const plateauH = 33 * PX_PER_MM;
+  const plateauInset = 3.6 * PX_PER_MM;
 
   const carbon = `
     repeating-linear-gradient(45deg, ${caseFinish.weave}55 0px, ${caseFinish.weave}55 3px, transparent 3px, transparent 6px),
@@ -160,7 +160,7 @@ const DeviceMock = ({
     />
   );
 
-  const lensSize = 12.6 * PX_PER_MM;
+  const lensSize = 12.2 * PX_PER_MM;
 
   const Lens = ({ left, top }: { left: number; top: number }) => (
     <span
@@ -260,16 +260,16 @@ const DeviceMock = ({
           }}
         >
           {/* Objektive: Dreieck links */}
-          <Lens left={plateauH * 0.09} top={plateauH * 0.08} />
-          <Lens left={plateauH * 0.09 + lensSize * 1.12} top={plateauH * 0.08} />
-          <Lens left={plateauH * 0.09} top={plateauH * 0.08 + lensSize * 1.12} />
+          <Lens left={2.6 * PX_PER_MM} top={2.6 * PX_PER_MM} />
+          <Lens left={2.6 * PX_PER_MM + lensSize * 1.06} top={2.6 * PX_PER_MM} />
+          <Lens left={2.6 * PX_PER_MM} top={2.6 * PX_PER_MM + lensSize * 1.06} />
 
           {/* Blitz */}
           <span
             className="absolute rounded-full"
             style={{
-              right: 6.4 * PX_PER_MM,
-              top: plateauH * 0.19,
+              right: 6.6 * PX_PER_MM,
+              top: 5 * PX_PER_MM,
               width: 5.4 * PX_PER_MM,
               height: 5.4 * PX_PER_MM,
               background: "radial-gradient(circle at 40% 34%, #fff8e6 0%, #f0d9a4 45%, #b9a071 100%)",
@@ -280,8 +280,8 @@ const DeviceMock = ({
           <span
             className="absolute rounded-full"
             style={{
-              right: 7.4 * PX_PER_MM,
-              top: plateauH * 0.52,
+              right: 7.6 * PX_PER_MM,
+              top: 15.5 * PX_PER_MM,
               width: 2.2 * PX_PER_MM,
               height: 2.2 * PX_PER_MM,
               background: "#0b0c0e",
@@ -292,8 +292,8 @@ const DeviceMock = ({
           <span
             className="absolute rounded-full"
             style={{
-              right: 5.2 * PX_PER_MM,
-              bottom: plateauH * 0.14,
+              right: 6.1 * PX_PER_MM,
+              bottom: 4.6 * PX_PER_MM,
               width: 4.4 * PX_PER_MM,
               height: 4.4 * PX_PER_MM,
               background: "radial-gradient(circle at 40% 34%, #4d5158 0%, #191b1f 60%, #0a0b0d 100%)",
@@ -307,13 +307,11 @@ const DeviceMock = ({
           aria-hidden
           className="absolute left-1/2 -translate-x-1/2 rounded-full"
           style={{
-            top: h * 0.44,
-            width: 56 * PX_PER_MM,
-            height: 56 * PX_PER_MM,
-            boxShadow:
-              "inset 0 0 0 1px rgba(255,255,255,0.10), 0 0 0 1px rgba(0,0,0,0.18)",
-            background:
-              "radial-gradient(circle, rgba(255,255,255,0.05) 62%, rgba(255,255,255,0.10) 63%, rgba(255,255,255,0) 72%)",
+            top: h * 0.45,
+            width: 55 * PX_PER_MM,
+            height: 55 * PX_PER_MM,
+            border: "1px solid rgba(255,255,255,0.07)",
+            boxShadow: "inset 0 0 12px rgba(255,255,255,0.04)",
           }}
         />
 
