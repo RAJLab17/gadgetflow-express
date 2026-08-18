@@ -94,7 +94,6 @@ const CASE_FINISHES: CaseFinish[] = [
   },
 ];
 
-const GOLD_BTN = "linear-gradient(90deg, #6b4a22 0%, #c99a4e 28%, #f0d9a4 50%, #c99a4e 72%, #6b4a22 100%)";
 
 interface Row {
   label: string;
