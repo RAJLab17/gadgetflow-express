@@ -302,30 +302,65 @@ const MatrixPage = () => {
           {/* Konfigurator */}
           <section className="border-t" style={{ borderColor: H.line }}>
             <div className="container mx-auto px-6 max-w-5xl py-12 md:py-20">
-              <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
+              <div className="grid md:grid-cols-12 gap-12 md:gap-14 items-start">
                 {/* Bühne */}
-                <div className="md:col-span-5 md:sticky md:top-28">
-                  <div className="relative flex items-center justify-center py-8">
+                <div className="md:col-span-6 md:sticky md:top-28">
+                  <div
+                    className="relative overflow-hidden rounded-2xl"
+                    style={{
+                      background:
+                        "linear-gradient(165deg, #ffffff 0%, #fbfaf8 45%, #f2efea 100%)",
+                      border: `1px solid ${H.line}`,
+                      boxShadow:
+                        "0 1px 0 rgba(255,255,255,0.9) inset, 0 24px 60px -30px rgba(43,39,37,0.35)",
+                    }}
+                  >
+                    {/* Goldene Haarlinie oben */}
                     <div
                       aria-hidden
-                      className="absolute inset-0 rounded-full pointer-events-none"
+                      className="absolute top-0 left-0 right-0 h-px"
                       style={{
-                        background:
-                          "radial-gradient(50% 50% at 50% 50%, rgba(155,107,63,0.10) 0%, rgba(250,249,247,0) 70%)",
+                        background: `linear-gradient(90deg, transparent, ${H.gold}, transparent)`,
+                        opacity: 0.5,
                       }}
                     />
-                    <DeviceMock device={device} caseFinish={caseFinish} model={model} />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 pointer-events-none"
+                      style={{
+                        background:
+                          "radial-gradient(58% 46% at 50% 42%, rgba(155,107,63,0.13) 0%, rgba(250,249,247,0) 72%)",
+                      }}
+                    />
+                    <div className="relative flex items-center justify-center px-6 pt-10 pb-6 md:px-10 md:pt-14 md:pb-8">
+                      <DeviceMock device={device} caseFinish={caseFinish} model={model} />
+                    </div>
+                    {/* Plakette */}
+                    <div
+                      className="relative border-t px-6 py-5 md:px-10 flex items-center justify-between gap-4"
+                      style={{ borderColor: H.line, background: "rgba(255,255,255,0.55)" }}
+                    >
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.3em]" style={{ color: H.gold }}>
+                          {caseFinish.name}
+                        </p>
+                        <p className="mt-1.5 text-sm font-light" style={{ color: H.text }}>
+                          {model.name} · {device.name}
+                        </p>
+                      </div>
+                      <span
+                        className="text-[10px] uppercase tracking-[0.28em] whitespace-nowrap"
+                        style={{ color: H.textMuted }}
+                      >
+                        {model.display}
+                      </span>
+                    </div>
                   </div>
-                  <p
-                    className="text-center mt-10 text-[10px] uppercase tracking-[0.28em]"
-                    style={{ color: H.textMuted }}
-                  >
-                    {model.name} · {device.name} · {caseFinish.name}
-                  </p>
                 </div>
 
                 {/* Auswahl */}
-                <div className="md:col-span-7 space-y-10">
+                <div className="md:col-span-6 space-y-10">
+
                   {/* Modell */}
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.28em] mb-4" style={{ color: H.textMuted }}>
