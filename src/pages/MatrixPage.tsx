@@ -139,13 +139,13 @@ const DeviceMock = ({
 
   return (
     <div
-      className="relative mx-auto transition-all duration-500 ease-out"
-      style={{ width: 300 * scale }}
+      className="relative mx-auto transition-[width] duration-500 ease-out"
+      style={{ width: 300 * scale, aspectRatio: "1 / 1" }}
     >
       <div
         aria-hidden
-        className="absolute left-1/2 -translate-x-1/2 bottom-[6%] w-[70%] h-8 rounded-[50%] pointer-events-none"
-        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)" }}
+        className="absolute left-1/2 -translate-x-1/2 bottom-[4%] w-[62%] h-8 rounded-[50%] pointer-events-none"
+        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.18), transparent 72%)" }}
       />
       {Object.entries(RENDERS).map(([key, asset]) => (
         <img
@@ -156,18 +156,19 @@ const DeviceMock = ({
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
-          width={760}
-          height={760}
+          width={1024}
+          height={1024}
           loading="lazy"
           decoding="async"
           aria-hidden={asset.url !== src}
-          className={`w-full h-auto transition-opacity duration-500 ${
-            asset.url === src ? "relative opacity-100" : "absolute inset-0 opacity-0 pointer-events-none"
+          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+            asset.url === src ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
     </div>
+
   );
 };
 
