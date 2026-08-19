@@ -156,7 +156,10 @@ const DeviceMock = ({
 }) => {
   /* Pro Max ist real ca. 8,5 % breiter — massstabsgetreue Skalierung */
   const scale = model.mm.w / 71.9;
-  const src = RENDERS[`${caseFinish.id}-${device.id}`]?.url ?? RENDERS["onyx-black"].url;
+  const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
+  const src = RENDERS[renderKey]?.url ?? RENDERS[`${model.gen}-onyx-black`]?.url ?? Object.values(RENDERS)[0].url;
+  /* Nur die Render der aktuellen Generation laden */
+  const genRenders = Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`));
 
   return (
     <div
@@ -168,12 +171,12 @@ const DeviceMock = ({
         className="absolute left-1/2 -translate-x-1/2 bottom-[4%] w-[62%] h-8 rounded-[50%] pointer-events-none"
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.18), transparent 72%)" }}
       />
-      {Object.entries(RENDERS).map(([key, asset]) => (
+      {genRenders.map(([key, asset]) => (
         <img
           key={key}
           src={asset.url}
           alt={
-            key === `${caseFinish.id}-${device.id}`
+            key === renderKey
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
@@ -188,8 +191,23 @@ const DeviceMock = ({
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
+      {/* Goldener Blitz — Qi2.2 Schnellladung */}
+      <div
+        aria-hidden
+        className="absolute bottom-[6%] right-[10%] flex items-center justify-center rounded-full pointer-events-none"
+        style={{
+          width: 28 * scale,
+          height: 28 * scale,
+          background: "linear-gradient(145deg, #9b6b3f, #c08b5a)",
+          boxShadow: "0 2px 8px rgba(155,107,63,0.35), inset 0 1px 1px rgba(255,255,255,0.3)",
+        }}
+      >
+        <Zap
+          style={{ width: 16 * scale, height: 16 * scale, color: "#fff", fill: "rgba(255,255,255,0.85)" }}
+          strokeWidth={2.5}
+        />
+      </div>
     </div>
-
   );
 };
 
