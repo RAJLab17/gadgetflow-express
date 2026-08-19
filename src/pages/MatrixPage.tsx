@@ -125,14 +125,24 @@ const MATRIX_ROWS: Row[] = [
 
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
 const RENDERS: Record<string, { url: string }> = {
-  "cherry-orange": cherryOrange,
-  "cherry-blue": cherryBlue,
-  "cherry-silver": cherrySilver,
-  "cherry-black": cherryBlack,
-  "onyx-orange": onyxOrange,
-  "onyx-blue": onyxBlue,
-  "onyx-silver": onyxSilver,
-  "onyx-black": onyxBlack,
+  // Gen 17
+  "17-cherry-orange": cherryOrange,
+  "17-cherry-blue": cherryBlue,
+  "17-cherry-silver": cherrySilver,
+  "17-cherry-black": cherryBlack,
+  "17-onyx-orange": onyxOrange,
+  "17-onyx-blue": onyxBlue,
+  "17-onyx-silver": onyxSilver,
+  "17-onyx-black": onyxBlack,
+  // Gen 18
+  "18-cherry-darkcherry": cherryDarkcherry,
+  "18-cherry-darkgrey": cherryDarkgrey,
+  "18-cherry-skyblue": cherrySkyblue,
+  "18-cherry-silver": cherrySilver,
+  "18-onyx-darkcherry": onyxDarkcherry,
+  "18-onyx-darkgrey": onyxDarkgrey,
+  "18-onyx-skyblue": onyxSkyblue,
+  "18-onyx-silver": onyxSilver,
 };
 
 const DeviceMock = ({
