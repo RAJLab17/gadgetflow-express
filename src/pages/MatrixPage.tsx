@@ -164,7 +164,7 @@ const DeviceMock = ({
   return (
     <div
       className="relative mx-auto transition-[width] duration-500 ease-out"
-      style={{ width: 300 * scale, aspectRatio: "1 / 1" }}
+      style={{ width: `min(100%, ${380 * scale}px)`, aspectRatio: "1 / 1" }}
     >
       <div
         aria-hidden
