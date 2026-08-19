@@ -62,10 +62,15 @@ interface DeviceFinish {
 
 /** Gerätefarben nach Apple — sichtbar im Kameraplateau und in den Aussparungen. */
 const DEVICE_FINISHES: DeviceFinish[] = [
-  { id: "orange", name: "Cosmic Orange", body: "#e3651f", bodyEdge: "#b8460f", sheen: "#f79b55", gens: ["17", "18"] },
-  { id: "blue", name: "Deep Blue", body: "#4a5a75", bodyEdge: "#2f3c53", sheen: "#8695ac", gens: ["17", "18"] },
+  // iPhone 17 Pro
+  { id: "orange", name: "Cosmic Orange", body: "#e3651f", bodyEdge: "#b8460f", sheen: "#f79b55", gens: ["17"] },
+  { id: "blue", name: "Deep Blue", body: "#4a5a75", bodyEdge: "#2f3c53", sheen: "#8695ac", gens: ["17"] },
   { id: "silver", name: "Silver", body: "#e4e5e7", bodyEdge: "#b6b8bb", sheen: "#ffffff", gens: ["17", "18"] },
-  { id: "black", name: "Space Black", body: "#33333a", bodyEdge: "#141417", sheen: "#6e6e78", gens: ["18"] },
+  { id: "black", name: "Space Black", body: "#33333a", bodyEdge: "#141417", sheen: "#6e6e78", gens: ["17"] },
+  // iPhone 18 Pro
+  { id: "darkcherry", name: "Dark Cherry", body: "#64212c", bodyEdge: "#3d141b", sheen: "#8a2f3a", gens: ["18"] },
+  { id: "darkgrey", name: "Dark Grey", body: "#3e4143", bodyEdge: "#27292b", sheen: "#5a5d60", gens: ["18"] },
+  { id: "skyblue", name: "Sky Blue", body: "#a7c7e8", bodyEdge: "#7da5cc", sheen: "#c8ddf0", gens: ["18"] },
 ];
 
 interface CaseFinish {
