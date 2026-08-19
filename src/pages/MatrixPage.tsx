@@ -201,8 +201,7 @@ const DeviceMock = ({
           width: 20 * scale,
           height: 20 * scale,
           color: "#c9a227",
-          fill: "#e0bc4e",
-          filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.35))",
+          fill: "#c9a227",
         }}
         strokeWidth={1.2}
       />
