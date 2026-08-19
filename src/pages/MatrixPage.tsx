@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight } from "lucide-react";
+import { Check, Minus, ArrowUpRight, Zap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import cherryOrange from "@/assets/matrix/cherry-orange.webp.asset.json";
@@ -12,6 +12,12 @@ import onyxOrange from "@/assets/matrix/onyx-orange.webp.asset.json";
 import onyxBlue from "@/assets/matrix/onyx-blue.webp.asset.json";
 import onyxSilver from "@/assets/matrix/onyx-silver.webp.asset.json";
 import onyxBlack from "@/assets/matrix/onyx-black.webp.asset.json";
+import cherryDarkcherry from "@/assets/matrix/cherry-darkcherry.webp.asset.json";
+import cherryDarkgrey from "@/assets/matrix/cherry-darkgrey.webp.asset.json";
+import cherrySkyblue from "@/assets/matrix/cherry-skyblue.webp.asset.json";
+import onyxDarkcherry from "@/assets/matrix/onyx-darkcherry.webp.asset.json";
+import onyxDarkgrey from "@/assets/matrix/onyx-darkgrey.webp.asset.json";
+import onyxSkyblue from "@/assets/matrix/onyx-skyblue.webp.asset.json";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -56,10 +62,15 @@ interface DeviceFinish {
 
 /** Gerätefarben nach Apple — sichtbar im Kameraplateau und in den Aussparungen. */
 const DEVICE_FINISHES: DeviceFinish[] = [
-  { id: "orange", name: "Cosmic Orange", body: "#e3651f", bodyEdge: "#b8460f", sheen: "#f79b55", gens: ["17", "18"] },
-  { id: "blue", name: "Deep Blue", body: "#4a5a75", bodyEdge: "#2f3c53", sheen: "#8695ac", gens: ["17", "18"] },
+  // iPhone 17 Pro
+  { id: "orange", name: "Cosmic Orange", body: "#e3651f", bodyEdge: "#b8460f", sheen: "#f79b55", gens: ["17"] },
+  { id: "blue", name: "Deep Blue", body: "#4a5a75", bodyEdge: "#2f3c53", sheen: "#8695ac", gens: ["17"] },
   { id: "silver", name: "Silver", body: "#e4e5e7", bodyEdge: "#b6b8bb", sheen: "#ffffff", gens: ["17", "18"] },
-  { id: "black", name: "Space Black", body: "#33333a", bodyEdge: "#141417", sheen: "#6e6e78", gens: ["18"] },
+  { id: "black", name: "Space Black", body: "#33333a", bodyEdge: "#141417", sheen: "#6e6e78", gens: ["17"] },
+  // iPhone 18 Pro
+  { id: "darkcherry", name: "Dark Cherry", body: "#64212c", bodyEdge: "#3d141b", sheen: "#8a2f3a", gens: ["18"] },
+  { id: "darkgrey", name: "Dark Grey", body: "#3e4143", bodyEdge: "#27292b", sheen: "#5a5d60", gens: ["18"] },
+  { id: "skyblue", name: "Sky Blue", body: "#a7c7e8", bodyEdge: "#7da5cc", sheen: "#c8ddf0", gens: ["18"] },
 ];
 
 interface CaseFinish {
@@ -114,14 +125,24 @@ const MATRIX_ROWS: Row[] = [
 
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
 const RENDERS: Record<string, { url: string }> = {
-  "cherry-orange": cherryOrange,
-  "cherry-blue": cherryBlue,
-  "cherry-silver": cherrySilver,
-  "cherry-black": cherryBlack,
-  "onyx-orange": onyxOrange,
-  "onyx-blue": onyxBlue,
-  "onyx-silver": onyxSilver,
-  "onyx-black": onyxBlack,
+  // Gen 17
+  "17-cherry-orange": cherryOrange,
+  "17-cherry-blue": cherryBlue,
+  "17-cherry-silver": cherrySilver,
+  "17-cherry-black": cherryBlack,
+  "17-onyx-orange": onyxOrange,
+  "17-onyx-blue": onyxBlue,
+  "17-onyx-silver": onyxSilver,
+  "17-onyx-black": onyxBlack,
+  // Gen 18
+  "18-cherry-darkcherry": cherryDarkcherry,
+  "18-cherry-darkgrey": cherryDarkgrey,
+  "18-cherry-skyblue": cherrySkyblue,
+  "18-cherry-silver": cherrySilver,
+  "18-onyx-darkcherry": onyxDarkcherry,
+  "18-onyx-darkgrey": onyxDarkgrey,
+  "18-onyx-skyblue": onyxSkyblue,
+  "18-onyx-silver": onyxSilver,
 };
 
 const DeviceMock = ({
@@ -135,7 +156,10 @@ const DeviceMock = ({
 }) => {
   /* Pro Max ist real ca. 8,5 % breiter — massstabsgetreue Skalierung */
   const scale = model.mm.w / 71.9;
-  const src = RENDERS[`${caseFinish.id}-${device.id}`]?.url ?? RENDERS["onyx-black"].url;
+  const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
+  const src = RENDERS[renderKey]?.url ?? RENDERS[`${model.gen}-onyx-black`]?.url ?? Object.values(RENDERS)[0].url;
+  /* Nur die Render der aktuellen Generation laden */
+  const genRenders = Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`));
 
   return (
     <div
@@ -147,12 +171,12 @@ const DeviceMock = ({
         className="absolute left-1/2 -translate-x-1/2 bottom-[4%] w-[62%] h-8 rounded-[50%] pointer-events-none"
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.18), transparent 72%)" }}
       />
-      {Object.entries(RENDERS).map(([key, asset]) => (
+      {genRenders.map(([key, asset]) => (
         <img
           key={key}
           src={asset.url}
           alt={
-            key === `${caseFinish.id}-${device.id}`
+            key === renderKey
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
@@ -167,8 +191,23 @@ const DeviceMock = ({
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
+      {/* Goldener Blitz — Qi2.2 Schnellladung */}
+      <div
+        aria-hidden
+        className="absolute bottom-[6%] right-[10%] flex items-center justify-center rounded-full pointer-events-none"
+        style={{
+          width: 28 * scale,
+          height: 28 * scale,
+          background: "linear-gradient(145deg, #9b6b3f, #c08b5a)",
+          boxShadow: "0 2px 8px rgba(155,107,63,0.35), inset 0 1px 1px rgba(255,255,255,0.3)",
+        }}
+      >
+        <Zap
+          style={{ width: 16 * scale, height: 16 * scale, color: "#fff", fill: "rgba(255,255,255,0.85)" }}
+          strokeWidth={2.5}
+        />
+      </div>
     </div>
-
   );
 };
 
