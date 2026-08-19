@@ -191,22 +191,22 @@ const DeviceMock = ({
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
-      {/* Goldener Blitz — Qi2.2 Schnellladung */}
-      <div
+      {/* Goldener Blitz — auf dem Case unten links eingeprägt */}
+      <Zap
         aria-hidden
-        className="absolute bottom-[6%] right-[10%] flex items-center justify-center rounded-full pointer-events-none"
+        className="absolute pointer-events-none"
         style={{
-          width: 28 * scale,
-          height: 28 * scale,
-          background: "linear-gradient(145deg, #9b6b3f, #c08b5a)",
-          boxShadow: "0 2px 8px rgba(155,107,63,0.35), inset 0 1px 1px rgba(255,255,255,0.3)",
+          left: "34%",
+          bottom: "9%",
+          width: 20 * scale,
+          height: 20 * scale,
+          color: "#c9a227",
+          fill: "#e0bc4e",
+          filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.35))",
         }}
-      >
-        <Zap
-          style={{ width: 16 * scale, height: 16 * scale, color: "#fff", fill: "rgba(255,255,255,0.85)" }}
-          strokeWidth={2.5}
-        />
-      </div>
+        strokeWidth={1.2}
+      />
+
     </div>
   );
 };
