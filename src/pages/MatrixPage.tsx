@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight } from "lucide-react";
+import { Check, Minus, ArrowUpRight, Zap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import cherryOrange from "@/assets/matrix/cherry-orange.webp.asset.json";
@@ -12,6 +12,12 @@ import onyxOrange from "@/assets/matrix/onyx-orange.webp.asset.json";
 import onyxBlue from "@/assets/matrix/onyx-blue.webp.asset.json";
 import onyxSilver from "@/assets/matrix/onyx-silver.webp.asset.json";
 import onyxBlack from "@/assets/matrix/onyx-black.webp.asset.json";
+import cherryDarkcherry from "@/assets/matrix/cherry-darkcherry.webp.asset.json";
+import cherryDarkgrey from "@/assets/matrix/cherry-darkgrey.webp.asset.json";
+import cherrySkyblue from "@/assets/matrix/cherry-skyblue.webp.asset.json";
+import onyxDarkcherry from "@/assets/matrix/onyx-darkcherry.webp.asset.json";
+import onyxDarkgrey from "@/assets/matrix/onyx-darkgrey.webp.asset.json";
+import onyxSkyblue from "@/assets/matrix/onyx-skyblue.webp.asset.json";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
