@@ -94,7 +94,7 @@ const CASE_FINISHES: CaseFinish[] = [
     base: "#6e1420",
     weave: "#a3202f",
     edge: "#420b13",
-    price: 79,
+    price: 59,
   },
   {
     id: "onyx",
@@ -103,7 +103,7 @@ const CASE_FINISHES: CaseFinish[] = [
     base: "#16171a",
     weave: "#33363c",
     edge: "#08090a",
-    price: 79,
+    price: 59,
   },
 ];
 
@@ -116,12 +116,12 @@ interface AirpodsCase {
 }
 
 const AIRPODS_CASES: Record<string, AirpodsCase> = {
-  cherry: { id: "cherry", name: "MATRIX AirPods 4 · Cherry Carbon", image: airpodsCherry, price: 49 },
-  onyx: { id: "onyx", name: "MATRIX AirPods 4 · Onyx Carbon", image: airpodsOnyx, price: 49 },
+  cherry: { id: "cherry", name: "MATRIX AirPods 4 · Cherry Carbon", image: airpodsCherry, price: 35 },
+  onyx: { id: "onyx", name: "MATRIX AirPods 4 · Onyx Carbon", image: airpodsOnyx, price: 35 },
 };
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
-const BUNDLE_DISCOUNT = 19;
+const BUNDLE_DISCOUNT = 15;
 
 
 
@@ -275,9 +275,9 @@ const MatrixPage = () => {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "CHF",
-      lowPrice: 79,
-      highPrice: 79,
-      offerCount: CASE_FINISHES.length,
+      lowPrice: 35,
+      highPrice: 59,
+      offerCount: CASE_FINISHES.length + Object.keys(AIRPODS_CASES).length,
       availability: "https://schema.org/PreOrder",
     },
   };
