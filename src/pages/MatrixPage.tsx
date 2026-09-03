@@ -165,16 +165,19 @@ const RENDERS: Record<string, string> = {
   "18-onyx-silver": onyxSilver,
 };
 
-const GoldBolt = ({ scale }: { scale: number }) => (
+/* Goldener Blitz — Position/Grösse relativ zum Render, damit er auf jedem
+   Modell und jeder Viewport-Breite exakt gleich auf der Hülle sitzt. */
+const GoldBolt = () => (
   <svg
     aria-hidden="true"
     viewBox="0 0 68 101"
     className="absolute pointer-events-none"
     style={{
-      left: "34%",
+      left: "34.2%",
       bottom: "9%",
-      width: 22 * scale,
-      height: 33 * scale,
+      width: "5.8%",
+      height: "auto",
+      aspectRatio: "68 / 101",
     }}
   >
     <path
@@ -183,6 +186,7 @@ const GoldBolt = ({ scale }: { scale: number }) => (
     />
   </svg>
 );
+
 
 const DeviceMock = ({
   device,
