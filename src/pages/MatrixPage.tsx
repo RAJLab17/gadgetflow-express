@@ -1,23 +1,23 @@
 import { useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight, Zap } from "lucide-react";
+import { Check, Minus, ArrowUpRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import cherryOrange from "@/assets/matrix/cherry-orange.webp.asset.json";
-import cherryBlue from "@/assets/matrix/cherry-blue.webp.asset.json";
-import cherrySilver from "@/assets/matrix/cherry-silver.webp.asset.json";
-import cherryBlack from "@/assets/matrix/cherry-black.webp.asset.json";
-import onyxOrange from "@/assets/matrix/onyx-orange.webp.asset.json";
-import onyxBlue from "@/assets/matrix/onyx-blue.webp.asset.json";
-import onyxSilver from "@/assets/matrix/onyx-silver.webp.asset.json";
-import onyxBlack from "@/assets/matrix/onyx-black.webp.asset.json";
-import cherryDarkcherry from "@/assets/matrix/cherry-darkcherry.webp.asset.json";
-import cherryDarkgrey from "@/assets/matrix/cherry-darkgrey.webp.asset.json";
-import cherrySkyblue from "@/assets/matrix/cherry-skyblue.webp.asset.json";
-import onyxDarkcherry from "@/assets/matrix/onyx-darkcherry.webp.asset.json";
-import onyxDarkgrey from "@/assets/matrix/onyx-darkgrey.webp.asset.json";
-import onyxSkyblue from "@/assets/matrix/onyx-skyblue.webp.asset.json";
+import cherryOrange from "@/assets/matrix/cherry-orange.webp";
+import cherryBlue from "@/assets/matrix/cherry-blue.webp";
+import cherrySilver from "@/assets/matrix/cherry-silver.webp";
+import cherryBlack from "@/assets/matrix/cherry-black.webp";
+import onyxOrange from "@/assets/matrix/onyx-orange.webp";
+import onyxBlue from "@/assets/matrix/onyx-blue.webp";
+import onyxSilver from "@/assets/matrix/onyx-silver.webp";
+import onyxBlack from "@/assets/matrix/onyx-black.webp";
+import cherryDarkcherry from "@/assets/matrix/cherry-darkcherry.webp";
+import cherryDarkgrey from "@/assets/matrix/cherry-darkgrey.webp";
+import cherrySkyblue from "@/assets/matrix/cherry-skyblue.webp";
+import onyxDarkcherry from "@/assets/matrix/onyx-darkcherry.webp";
+import onyxDarkgrey from "@/assets/matrix/onyx-darkgrey.webp";
+import onyxSkyblue from "@/assets/matrix/onyx-skyblue.webp";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -124,7 +124,7 @@ const MATRIX_ROWS: Row[] = [
 ];
 
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
-const RENDERS: Record<string, { url: string }> = {
+const RENDERS: Record<string, string> = {
   // Gen 17
   "17-cherry-orange": cherryOrange,
   "17-cherry-blue": cherryBlue,
@@ -145,6 +145,25 @@ const RENDERS: Record<string, { url: string }> = {
   "18-onyx-silver": onyxSilver,
 };
 
+const GoldBolt = ({ scale }: { scale: number }) => (
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 68 101"
+    className="absolute pointer-events-none"
+    style={{
+      left: "34%",
+      bottom: "9%",
+      width: 22 * scale,
+      height: 33 * scale,
+    }}
+  >
+    <path
+      d="M67 0 37 0 0 49 25 49 2 101 68 37 39 37Z"
+      fill="#d7b34c"
+    />
+  </svg>
+);
+
 const DeviceMock = ({
   device,
   caseFinish,
@@ -157,7 +176,8 @@ const DeviceMock = ({
   /* Pro Max ist real ca. 8,5 % breiter — massstabsgetreue Skalierung */
   const scale = model.mm.w / 71.9;
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
-  const src = RENDERS[renderKey]?.url ?? RENDERS[`${model.gen}-onyx-black`]?.url ?? Object.values(RENDERS)[0].url;
+  const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
+  const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
   /* Nur die Render der aktuellen Generation laden */
   const genRenders = Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`));
 
@@ -174,38 +194,25 @@ const DeviceMock = ({
       {genRenders.map(([key, asset]) => (
         <img
           key={key}
-          src={asset.url}
+          src={asset}
           alt={
-            key === renderKey
+            asset === src
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
           width={1024}
           height={1024}
-          loading="lazy"
-          decoding="async"
-          aria-hidden={asset.url !== src}
+          loading={key === renderKey ? "eager" : "lazy"}
+          fetchPriority={key === renderKey ? "high" : "auto"}
+          decoding={key === renderKey ? "sync" : "async"}
+          aria-hidden={asset !== src}
           className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
-            asset.url === src ? "opacity-100" : "opacity-0 pointer-events-none"
+            asset === src ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
-      {/* Goldener Blitz — auf dem Case unten links eingeprägt */}
-      <Zap
-        aria-hidden
-        className="absolute pointer-events-none"
-        style={{
-          left: "34%",
-          bottom: "9%",
-          width: 20 * scale,
-          height: 20 * scale,
-          color: "#c9a227",
-          fill: "#c9a227",
-        }}
-        strokeWidth={1.2}
-      />
-
+      <GoldBolt scale={scale} />
     </div>
   );
 };
