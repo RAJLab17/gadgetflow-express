@@ -18,6 +18,8 @@ import cherrySkyblue from "@/assets/matrix/cherry-skyblue.webp";
 import onyxDarkcherry from "@/assets/matrix/onyx-darkcherry.webp";
 import onyxDarkgrey from "@/assets/matrix/onyx-darkgrey.webp";
 import onyxSkyblue from "@/assets/matrix/onyx-skyblue.webp";
+import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
+import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
