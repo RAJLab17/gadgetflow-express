@@ -236,7 +236,6 @@ const DeviceMock = ({
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
-      <GoldBolt scale={scale} />
     </div>
   );
 };
@@ -548,7 +547,6 @@ const MatrixPage = () => {
                           loading="lazy"
                           className="absolute inset-0 h-full w-full object-contain mix-blend-multiply"
                         />
-                        <GoldBolt scale={0.72} />
                       </div>
                       <span className="min-w-0 flex-1">
                         <span className="block text-sm font-medium">{airpodsCase.name}</span>
