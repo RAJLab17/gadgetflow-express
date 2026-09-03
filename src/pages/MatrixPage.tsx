@@ -107,6 +107,24 @@ const CASE_FINISHES: CaseFinish[] = [
   },
 ];
 
+/* ── AirPods 4 Cases — gleiche Finishes, gleicher Blitz ───────────────── */
+interface AirpodsCase {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+}
+
+const AIRPODS_CASES: Record<string, AirpodsCase> = {
+  cherry: { id: "cherry", name: "MATRIX AirPods 4 · Cherry Carbon", image: airpodsCherry, price: 49 },
+  onyx: { id: "onyx", name: "MATRIX AirPods 4 · Onyx Carbon", image: airpodsOnyx, price: 49 },
+};
+
+/** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
+const BUNDLE_DISCOUNT = 19;
+
+
+
 
 interface Row {
   label: string;
