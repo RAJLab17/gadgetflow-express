@@ -236,7 +236,9 @@ const DeviceMock = ({
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
+      <GoldBolt />
     </div>
+
   );
 };
 
