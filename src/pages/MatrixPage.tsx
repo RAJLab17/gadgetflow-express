@@ -244,6 +244,7 @@ const MatrixPage = () => {
   const [modelId, setModelId] = useState<ModelId>("17promax");
   const [deviceId, setDeviceId] = useState("orange");
   const [caseId, setCaseId] = useState("cherry");
+  const [airpodsSelected, setAirpodsSelected] = useState(false);
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
@@ -252,6 +253,8 @@ const MatrixPage = () => {
   );
   const device = finishes.find((f) => f.id === deviceId) ?? finishes[0];
   const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
+  const airpodsCase = AIRPODS_CASES[caseFinish.id];
+  const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
 
   const selectModel = (id: ModelId) => {
     setModelId(id);
@@ -500,6 +503,73 @@ const MatrixPage = () => {
                       Auf die Warteliste
                       <ArrowUpRight className="w-4 h-4" />
                     </Link>
+                  </div>
+
+                  {/* AirPods Ergänzung */}
+                  <div
+                    className="mt-8 border-t pt-8"
+                    style={{ borderColor: H.line }}
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-5">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>
+                          Ergänze dein Setup
+                        </p>
+                        <h3 className="mt-2 text-lg font-light">AirPods 4 Case</h3>
+                        <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                          {airpodsCase.name} · gleicher Carbon-Finish, goldener Blitz
+                        </p>
+                      </div>
+                      <span className="shrink-0 text-xs" style={{ color: H.textMuted }}>
+                        CHF {airpodsCase.price}.–
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setAirpodsSelected((selected) => !selected)}
+                      aria-pressed={airpodsSelected}
+                      className="w-full flex items-center gap-4 p-3 rounded-lg text-left transition-all duration-300"
+                      style={{
+                        border: `1px solid ${airpodsSelected ? H.gold : H.line}`,
+                        background: airpodsSelected ? "rgba(155,107,63,0.06)" : "transparent",
+                      }}
+                    >
+                      <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-md bg-white">
+                        <img
+                          src={airpodsCase.image}
+                          alt={`${airpodsCase.name} für AirPods 4`}
+                          width={1024}
+                          height={1024}
+                          loading="lazy"
+                          className="absolute inset-0 h-full w-full object-contain mix-blend-multiply"
+                        />
+                        <GoldBolt scale={0.72} />
+                      </div>
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-sm font-medium">{airpodsCase.name}</span>
+                        <span className="block mt-1 text-xs" style={{ color: H.textMuted }}>
+                          {airpodsSelected ? "Zum Bundle hinzugefügt" : "Zum iPhone Case hinzufügen"}
+                        </span>
+                      </span>
+                      <span
+                        className="h-5 w-5 shrink-0 rounded-full border flex items-center justify-center"
+                        style={{ borderColor: airpodsSelected ? H.gold : H.lineStrong }}
+                      >
+                        {airpodsSelected && <Check className="h-3 w-3" style={{ color: H.gold }} />}
+                      </span>
+                    </button>
+
+                    <div className="mt-4 flex items-center justify-between gap-4 text-xs">
+                      <span style={{ color: H.textMuted }}>
+                        {airpodsSelected ? `Bundlepreis · Du sparst CHF ${BUNDLE_DISCOUNT}.–` : `Zusammen ab CHF ${caseFinish.price + airpodsCase.price}.–`}
+                      </span>
+                      {airpodsSelected && (
+                        <span className="font-medium" style={{ color: H.gold }}>
+                          CHF {bundleTotal}.–
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
