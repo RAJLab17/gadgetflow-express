@@ -196,7 +196,7 @@ const DeviceMock = ({
           key={key}
           src={asset}
           alt={
-            key === renderKey
+            asset === src
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
