@@ -165,16 +165,19 @@ const RENDERS: Record<string, string> = {
   "18-onyx-silver": onyxSilver,
 };
 
-const GoldBolt = ({ scale }: { scale: number }) => (
+/* Goldener Blitz — Position/Grösse relativ zum Render, damit er auf jedem
+   Modell und jeder Viewport-Breite exakt gleich auf der Hülle sitzt. */
+const GoldBolt = () => (
   <svg
     aria-hidden="true"
     viewBox="0 0 68 101"
     className="absolute pointer-events-none"
     style={{
-      left: "34%",
+      left: "34.2%",
       bottom: "9%",
-      width: 22 * scale,
-      height: 33 * scale,
+      width: "5.8%",
+      height: "auto",
+      aspectRatio: "68 / 101",
     }}
   >
     <path
@@ -183,6 +186,7 @@ const GoldBolt = ({ scale }: { scale: number }) => (
     />
   </svg>
 );
+
 
 const DeviceMock = ({
   device,
@@ -232,8 +236,9 @@ const DeviceMock = ({
           style={{ mixBlendMode: "multiply" }}
         />
       ))}
-      <GoldBolt scale={scale} />
+      <GoldBolt />
     </div>
+
   );
 };
 
@@ -517,7 +522,7 @@ const MatrixPage = () => {
                         </p>
                         <h3 className="mt-2 text-lg font-light">AirPods 4 Case</h3>
                         <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
-                          {airpodsCase.name} · gleicher Carbon-Finish, goldener Blitz
+                          {airpodsCase.name} · gleicher Carbon-Finish, gleicher goldener Blitz
                         </p>
                       </div>
                       <span className="shrink-0 text-xs" style={{ color: H.textMuted }}>
@@ -544,7 +549,6 @@ const MatrixPage = () => {
                           loading="lazy"
                           className="absolute inset-0 h-full w-full object-contain mix-blend-multiply"
                         />
-                        <GoldBolt scale={0.72} />
                       </div>
                       <span className="min-w-0 flex-1">
                         <span className="block text-sm font-medium">{airpodsCase.name}</span>
