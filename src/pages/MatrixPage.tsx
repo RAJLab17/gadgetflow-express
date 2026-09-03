@@ -275,9 +275,9 @@ const MatrixPage = () => {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "CHF",
-      lowPrice: 79,
-      highPrice: 79,
-      offerCount: CASE_FINISHES.length,
+      lowPrice: 35,
+      highPrice: 59,
+      offerCount: CASE_FINISHES.length + Object.keys(AIRPODS_CASES).length,
       availability: "https://schema.org/PreOrder",
     },
   };
