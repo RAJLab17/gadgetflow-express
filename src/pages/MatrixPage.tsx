@@ -522,7 +522,7 @@ const MatrixPage = () => {
                         </p>
                         <h3 className="mt-2 text-lg font-light">AirPods 4 Case</h3>
                         <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
-                          {airpodsCase.name} · gleicher Carbon-Finish, goldener Blitz
+                          {airpodsCase.name} · gleicher Carbon-Finish, gleicher goldener Blitz
                         </p>
                       </div>
                       <span className="shrink-0 text-xs" style={{ color: H.textMuted }}>
