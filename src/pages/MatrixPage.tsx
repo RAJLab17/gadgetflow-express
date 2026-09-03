@@ -124,7 +124,7 @@ const MATRIX_ROWS: Row[] = [
 ];
 
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
-const RENDERS: Record<string, { url: string }> = {
+const RENDERS: Record<string, string> = {
   // Gen 17
   "17-cherry-orange": cherryOrange,
   "17-cherry-blue": cherryBlue,
