@@ -176,7 +176,8 @@ const DeviceMock = ({
   /* Pro Max ist real ca. 8,5 % breiter — massstabsgetreue Skalierung */
   const scale = model.mm.w / 71.9;
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
-  const src = RENDERS[renderKey] ?? RENDERS[`${model.gen}-onyx-black`] ?? Object.values(RENDERS)[0];
+  const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
+  const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
   /* Nur die Render der aktuellen Generation laden */
   const genRenders = Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`));
 
