@@ -259,7 +259,7 @@ const MatrixPage = () => {
   );
   const device = finishes.find((f) => f.id === deviceId) ?? finishes[0];
   const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
-  const airpodsCase = AIRPODS_CASES[caseFinish.id];
+  const airpodsCase = AIRPODS_CASES[airpodsColorId ?? caseFinish.id];
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
 
   const selectModel = (id: ModelId) => {
