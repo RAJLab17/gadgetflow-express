@@ -250,6 +250,7 @@ const MatrixPage = () => {
   const [deviceId, setDeviceId] = useState("orange");
   const [caseId, setCaseId] = useState("cherry");
   const [airpodsSelected, setAirpodsSelected] = useState(false);
+  const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
@@ -258,7 +259,7 @@ const MatrixPage = () => {
   );
   const device = finishes.find((f) => f.id === deviceId) ?? finishes[0];
   const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
-  const airpodsCase = AIRPODS_CASES[caseFinish.id];
+  const airpodsCase = AIRPODS_CASES[airpodsColorId ?? caseFinish.id];
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
 
   const selectModel = (id: ModelId) => {
@@ -572,6 +573,33 @@ const MatrixPage = () => {
                         {airpodsSelected && <Check className="h-3 w-3" style={{ color: H.gold }} />}
                       </span>
                     </button>
+
+                    {/* Finish-Wahl für das AirPods Case — unabhängig vom iPhone Case */}
+                    <div className="mt-3 flex items-center gap-2">
+                      <span className="text-[10px] uppercase tracking-[0.24em] mr-1" style={{ color: H.textMuted }}>
+                        Finish
+                      </span>
+                      {Object.values(AIRPODS_CASES).map((option) => {
+                        const isActive = option.id === airpodsCase.id;
+                        const label = option.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon";
+                        return (
+                          <button
+                            key={option.id}
+                            type="button"
+                            onClick={() => setAirpodsColorId(option.id)}
+                            aria-pressed={isActive}
+                            className="px-3 py-1.5 rounded-full text-[11px] transition-all duration-300"
+                            style={{
+                              border: `1px solid ${isActive ? H.gold : H.line}`,
+                              color: isActive ? H.gold : H.textMuted,
+                              background: isActive ? "rgba(155,107,63,0.08)" : "transparent",
+                            }}
+                          >
+                            {label}
+                          </button>
+                        );
+                      })}
+                    </div>
 
                     <div className="mt-4 flex items-center justify-between gap-4 text-xs">
                       <span style={{ color: H.textMuted }}>
