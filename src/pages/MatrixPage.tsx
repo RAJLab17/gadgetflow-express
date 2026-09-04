@@ -574,6 +574,33 @@ const MatrixPage = () => {
                       </span>
                     </button>
 
+                    {/* Finish-Wahl für das AirPods Case — unabhängig vom iPhone Case */}
+                    <div className="mt-3 flex items-center gap-2">
+                      <span className="text-[10px] uppercase tracking-[0.24em] mr-1" style={{ color: H.textMuted }}>
+                        Finish
+                      </span>
+                      {Object.values(AIRPODS_CASES).map((option) => {
+                        const isActive = option.id === airpodsCase.id;
+                        const label = option.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon";
+                        return (
+                          <button
+                            key={option.id}
+                            type="button"
+                            onClick={() => setAirpodsColorId(option.id)}
+                            aria-pressed={isActive}
+                            className="px-3 py-1.5 rounded-full text-[11px] transition-all duration-300"
+                            style={{
+                              border: `1px solid ${isActive ? H.gold : H.line}`,
+                              color: isActive ? H.gold : H.textMuted,
+                              background: isActive ? "rgba(155,107,63,0.08)" : "transparent",
+                            }}
+                          >
+                            {label}
+                          </button>
+                        );
+                      })}
+                    </div>
+
                     <div className="mt-4 flex items-center justify-between gap-4 text-xs">
                       <span style={{ color: H.textMuted }}>
                         {airpodsSelected ? `Bundlepreis · Du sparst CHF ${BUNDLE_DISCOUNT}.–` : `Zusammen ab CHF ${caseFinish.price + airpodsCase.price}.–`}
