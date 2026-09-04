@@ -250,6 +250,7 @@ const MatrixPage = () => {
   const [deviceId, setDeviceId] = useState("orange");
   const [caseId, setCaseId] = useState("cherry");
   const [airpodsSelected, setAirpodsSelected] = useState(false);
+  const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
