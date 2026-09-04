@@ -549,12 +549,12 @@ const MatrixPage = () => {
                           loading="lazy"
                           className="absolute inset-0 h-full w-full object-contain mix-blend-multiply"
                         />
-                        {/* Goldener Blitz — zentriert auf dem AirPods-Case */}
+                        {/* Goldener Blitz — dezent, zentriert auf dem AirPods-Case */}
                         <svg
                           aria-hidden="true"
                           viewBox="0 0 68 101"
                           className="absolute pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                          style={{ width: "18%", aspectRatio: "68 / 101" }}
+                          style={{ width: "9%", aspectRatio: "68 / 101" }}
                         >
                           <path d="M67 0 37 0 0 49 25 49 2 101 68 37 39 37Z" fill="#d7b34c" />
                         </svg>
