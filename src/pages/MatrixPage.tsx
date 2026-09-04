@@ -124,6 +124,8 @@ const AIRPODS_CASES: Record<string, AirpodsCase> = {
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
 const BUNDLE_DISCOUNT = 15;
+/** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
+const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
 
 /* ── Shopify Variant ID mapping ─────────────────────────────────────── */
 const CASE_VARIANT_IDS: Record<string, Record<string, string>> = {
