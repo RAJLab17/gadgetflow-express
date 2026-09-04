@@ -212,10 +212,10 @@ export interface CartItem {
   selectedOptions: Array<{ name: string; value: string }>;
 }
 
-export async function createShopifyCart(item: CartItem): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
-  const data = await storefrontApiRequest(CART_CREATE_MUTATION, {
-    input: { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] },
-  });
+export async function createShopifyCart(item: CartItem, discountCodes?: string[]): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
+  const input: Record<string, unknown> = { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] };
+  if (discountCodes?.length) input.discountCodes = discountCodes;
+  const data = await storefrontApiRequest(CART_CREATE_MUTATION, { input });
   if (data?.data?.cartCreate?.userErrors?.length > 0) {
     console.error('Cart creation failed:', data.data.cartCreate.userErrors);
     return null;

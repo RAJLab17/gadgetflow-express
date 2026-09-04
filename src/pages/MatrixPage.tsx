@@ -1,7 +1,9 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight } from "lucide-react";
+import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2 } from "lucide-react";
+import { createShopifyCart, addLineToShopifyCart, normalizeCheckoutUrl } from "@/lib/shopify";
+import type { CartItem } from "@/lib/shopify";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import cherryOrange from "@/assets/matrix/cherry-orange.webp";
@@ -122,6 +124,24 @@ const AIRPODS_CASES: Record<string, AirpodsCase> = {
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
 const BUNDLE_DISCOUNT = 15;
+/** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
+const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
+
+/* ── Shopify Variant ID mapping ─────────────────────────────────────── */
+const CASE_VARIANT_IDS: Record<string, Record<string, string>> = {
+  // modelId → caseId → gid
+  "17pro":    { cherry: "gid://shopify/ProductVariant/59116736545093", onyx: "gid://shopify/ProductVariant/59116736577861" },
+  "17promax": { cherry: "gid://shopify/ProductVariant/59116736610629", onyx: "gid://shopify/ProductVariant/59116736643397" },
+  "18pro":    { cherry: "gid://shopify/ProductVariant/59116736676165", onyx: "gid://shopify/ProductVariant/59116736708933" },
+  "18promax": { cherry: "gid://shopify/ProductVariant/59116736741701", onyx: "gid://shopify/ProductVariant/59116736774469" },
+};
+
+const AIRPODS_VARIANT_IDS: Record<string, string> = {
+  cherry: "gid://shopify/ProductVariant/59116737364293",
+  onyx:   "gid://shopify/ProductVariant/59116737397061",
+};
+
+
 
 
 
@@ -251,6 +271,7 @@ const MatrixPage = () => {
   const [caseId, setCaseId] = useState("cherry");
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
+  const [isBuying, setIsBuying] = useState(false);
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
@@ -261,6 +282,35 @@ const MatrixPage = () => {
   const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
   const airpodsCase = AIRPODS_CASES[airpodsColorId ?? caseFinish.id];
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
+
+  const handleBuy = useCallback(async () => {
+    if (isBuying) return;
+    setIsBuying(true);
+    try {
+      const caseVariantId = CASE_VARIANT_IDS[modelId]?.[caseId];
+      if (!caseVariantId) return;
+
+      const dummyProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
+      const caseItem: CartItem = { lineId: null, product: dummyProduct, variantId: caseVariantId, variantTitle: `${model.name} / ${caseFinish.name}`, price: { amount: String(caseFinish.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: caseFinish.name }] };
+
+      const cart = await createShopifyCart(caseItem, airpodsSelected ? [BUNDLE_DISCOUNT_CODE] : undefined);
+      if (!cart) return;
+
+      if (airpodsSelected) {
+        const apVariantId = AIRPODS_VARIANT_IDS[airpodsCase.id];
+        if (apVariantId) {
+          const apItem: CartItem = { lineId: null, product: { ...dummyProduct, node: { ...dummyProduct.node, title: "MATRIX AirPods 4 Case", handle: "raj-matrix-airpods-4-case" } }, variantId: apVariantId, variantTitle: airpodsCase.name, price: { amount: String(airpodsCase.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Finish", value: airpodsCase.name }] };
+          await addLineToShopifyCart(cart.cartId, apItem);
+        }
+      }
+
+      window.open(cart.checkoutUrl, "_blank");
+    } catch (err) {
+      console.error("Buy failed:", err);
+    } finally {
+      setIsBuying(false);
+    }
+  }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase]);
 
   const selectModel = (id: ModelId) => {
     setModelId(id);
@@ -497,18 +547,40 @@ const MatrixPage = () => {
                   </div>
 
                   {/* CTA */}
-                  <div className="pt-2 flex items-center justify-between gap-6 border-t" style={{ borderColor: H.line }}>
-                    <span className="pt-6 font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
-                      CHF {caseFinish.price}.–
-                    </span>
-                    <Link
-                      to="/kontakt"
-                      className="mt-6 inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] font-medium border-b pb-1 transition-opacity hover:opacity-70"
-                      style={{ color: H.gold, borderColor: H.gold }}
+                  <div className="pt-6 border-t" style={{ borderColor: H.line }}>
+                    <div className="flex items-baseline justify-between gap-4 mb-4">
+                      <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
+                        {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
+                      </span>
+                      {airpodsSelected && (
+                        <span className="text-xs line-through" style={{ color: H.textMuted }}>
+                          CHF {caseFinish.price + airpodsCase.price}.–
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleBuy}
+                      disabled={isBuying}
+                      className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold uppercase tracking-[0.15em] transition-all active:scale-[0.98]"
+                      style={{
+                        background: H.gold,
+                        color: "#fff",
+                        opacity: isBuying ? 0.7 : 1,
+                      }}
                     >
-                      Auf die Warteliste
-                      <ArrowUpRight className="w-4 h-4" />
-                    </Link>
+                      {isBuying ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <>
+                          <ShoppingBag className="w-4 h-4" />
+                          {airpodsSelected ? "Bundle jetzt kaufen" : "Jetzt kaufen"}
+                        </>
+                      )}
+                    </button>
+                    <p className="mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
+                      Sichere Bezahlung · Kostenloser Versand
+                    </p>
                   </div>
 
                   {/* AirPods Ergänzung */}
@@ -601,15 +673,10 @@ const MatrixPage = () => {
                       })}
                     </div>
 
-                    <div className="mt-4 flex items-center justify-between gap-4 text-xs">
-                      <span style={{ color: H.textMuted }}>
-                        {airpodsSelected ? `Bundlepreis · Du sparst CHF ${BUNDLE_DISCOUNT}.–` : `Zusammen ab CHF ${caseFinish.price + airpodsCase.price}.–`}
-                      </span>
-                      {airpodsSelected && (
-                        <span className="font-medium" style={{ color: H.gold }}>
-                          CHF {bundleTotal}.–
-                        </span>
-                      )}
+                    <div className="mt-3 text-xs" style={{ color: H.textMuted }}>
+                      {airpodsSelected
+                        ? `✓ Im Bundle · Du sparst CHF ${BUNDLE_DISCOUNT}.–`
+                        : `+ CHF ${airpodsCase.price}.– · zusammen CHF ${caseFinish.price + airpodsCase.price}.–`}
                     </div>
                   </div>
                 </div>
