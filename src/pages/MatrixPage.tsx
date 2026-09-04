@@ -291,7 +291,7 @@ const MatrixPage = () => {
       const dummyProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
       const caseItem: CartItem = { lineId: null, product: dummyProduct, variantId: caseVariantId, variantTitle: `${model.name} / ${caseFinish.name}`, price: { amount: String(caseFinish.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: caseFinish.name }] };
 
-      const cart = await createShopifyCart(caseItem);
+      const cart = await createShopifyCart(caseItem, airpodsSelected ? [BUNDLE_DISCOUNT_CODE] : undefined);
       if (!cart) return;
 
       if (airpodsSelected) {
