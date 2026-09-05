@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart, normalizeCheckoutUrl } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import Header from "@/components/Header";
@@ -286,15 +287,22 @@ const MatrixPage = () => {
   const handleBuy = useCallback(async () => {
     if (isBuying) return;
     setIsBuying(true);
+    // Open the tab synchronously inside the user gesture so popup blockers
+    // (esp. mobile Safari) can't suppress it; we navigate it once we have the URL.
+    const checkoutTab = window.open("", "_blank");
+    const fail = (message: string) => {
+      checkoutTab?.close();
+      toast.error("Kauf konnte nicht gestartet werden", { description: message });
+    };
     try {
       const caseVariantId = CASE_VARIANT_IDS[modelId]?.[caseId];
-      if (!caseVariantId) return;
+      if (!caseVariantId) { fail("Diese Variante ist derzeit nicht verfügbar."); return; }
 
       const dummyProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
       const caseItem: CartItem = { lineId: null, product: dummyProduct, variantId: caseVariantId, variantTitle: `${model.name} / ${caseFinish.name}`, price: { amount: String(caseFinish.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: caseFinish.name }] };
 
       const cart = await createShopifyCart(caseItem, airpodsSelected ? [BUNDLE_DISCOUNT_CODE] : undefined);
-      if (!cart) return;
+      if (!cart) { fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut."); return; }
 
       if (airpodsSelected) {
         const apVariantId = AIRPODS_VARIANT_IDS[airpodsCase.id];
@@ -304,9 +312,15 @@ const MatrixPage = () => {
         }
       }
 
-      window.open(cart.checkoutUrl, "_blank");
+      if (checkoutTab) {
+        checkoutTab.location.href = cart.checkoutUrl;
+      } else {
+        // Fallback if no tab could be opened at all
+        window.open(cart.checkoutUrl, "_blank");
+      }
     } catch (err) {
       console.error("Buy failed:", err);
+      fail("Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.");
     } finally {
       setIsBuying(false);
     }
