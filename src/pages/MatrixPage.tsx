@@ -582,6 +582,46 @@ const MatrixPage = () => {
 
                   {/* CTA */}
                   <div className="pt-6 border-t" style={{ borderColor: H.line }}>
+                    {confirmed && (
+                      <div
+                        className="relative mb-5 rounded-xl p-4"
+                        style={{ background: "rgba(155,107,63,0.08)", boxShadow: `0 0 0 1px ${H.lineStrong}` }}
+                      >
+                        <button
+                          type="button"
+                          onClick={dismissOrder}
+                          aria-label="Bestätigung schliessen"
+                          className="absolute top-3 right-3 opacity-50 hover:opacity-100 transition-opacity"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                        <div className="flex items-center gap-2">
+                          <Check className="w-4 h-4" style={{ color: H.gold }} />
+                          <p className="text-sm font-semibold">Bestellung eingegangen</p>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                          {confirmed.summary} · {confirmed.total}
+                        </p>
+                        <p className="mt-1 text-xs" style={{ color: H.textMuted }}>
+                          Referenz <span className="font-mono font-semibold" style={{ color: H.text }}>{confirmed.reference}</span> — dieselbe Referenz steht bei der Bestellung im Shopify Admin, die Bestellnummer und Bestätigung erhältst du per E-Mail.
+                        </p>
+                      </div>
+                    )}
+                    {pending && !confirmed && (
+                      <div
+                        className="mb-5 rounded-xl p-4 flex items-start gap-3"
+                        style={{ background: "rgba(43,39,37,0.04)", boxShadow: `0 0 0 1px ${H.line}` }}
+                      >
+                        <Loader2 className="w-4 h-4 mt-0.5 animate-spin" style={{ color: H.gold }} />
+                        <div>
+                          <p className="text-sm font-medium">Checkout läuft</p>
+                          <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                            Schliesse die Zahlung im Shopify-Tab ab. Sobald die Bestellung durch ist, erscheint hier die Bestätigung mit Referenz {pending.reference}.
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
                     <div className="flex items-baseline justify-between gap-4 mb-4">
                       <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
                         {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
