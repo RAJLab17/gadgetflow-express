@@ -298,10 +298,15 @@ const MatrixPage = () => {
       const caseVariantId = CASE_VARIANT_IDS[modelId]?.[caseId];
       if (!caseVariantId) { fail("Diese Variante ist derzeit nicht verfügbar."); return; }
 
+      const reference = makeOrderReference();
       const dummyProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
       const caseItem: CartItem = { lineId: null, product: dummyProduct, variantId: caseVariantId, variantTitle: `${model.name} / ${caseFinish.name}`, price: { amount: String(caseFinish.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: caseFinish.name }] };
 
-      const cart = await createShopifyCart(caseItem, airpodsSelected ? [BUNDLE_DISCOUNT_CODE] : undefined);
+      const cart = await createShopifyCart(
+        caseItem,
+        airpodsSelected ? [BUNDLE_DISCOUNT_CODE] : undefined,
+        [{ key: "RAJ Referenz", value: reference }, { key: "Quelle", value: "raj.ch/matrix" }],
+      );
       if (!cart) { fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut."); return; }
 
       if (airpodsSelected) {
@@ -311,6 +316,16 @@ const MatrixPage = () => {
           await addLineToShopifyCart(cart.cartId, apItem);
         }
       }
+
+      trackCheckout({
+        cartId: cart.cartId,
+        reference,
+        summary: airpodsSelected
+          ? `MATRIX Case ${model.name} · ${caseFinish.name} + AirPods 4 Case ${airpodsCase.name}`
+          : `MATRIX Case ${model.name} · ${caseFinish.name}`,
+        total: `CHF ${airpodsSelected ? bundleTotal : caseFinish.price}.–`,
+        startedAt: Date.now(),
+      });
 
       if (checkoutTab) {
         checkoutTab.location.href = cart.checkoutUrl;
@@ -324,7 +339,8 @@ const MatrixPage = () => {
     } finally {
       setIsBuying(false);
     }
-  }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase]);
+  }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase, bundleTotal, trackCheckout]);
+
 
   const selectModel = (id: ModelId) => {
     setModelId(id);
