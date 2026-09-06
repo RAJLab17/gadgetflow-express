@@ -1,10 +1,12 @@
 import { useCallback, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2 } from "lucide-react";
+import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart, normalizeCheckoutUrl } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
+import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import cherryOrange from "@/assets/matrix/cherry-orange.webp";
@@ -273,6 +275,8 @@ const MatrixPage = () => {
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
+  const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder } = usePendingCheckout();
+
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
@@ -298,10 +302,15 @@ const MatrixPage = () => {
       const caseVariantId = CASE_VARIANT_IDS[modelId]?.[caseId];
       if (!caseVariantId) { fail("Diese Variante ist derzeit nicht verfügbar."); return; }
 
+      const reference = makeOrderReference();
       const dummyProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
       const caseItem: CartItem = { lineId: null, product: dummyProduct, variantId: caseVariantId, variantTitle: `${model.name} / ${caseFinish.name}`, price: { amount: String(caseFinish.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: caseFinish.name }] };
 
-      const cart = await createShopifyCart(caseItem, airpodsSelected ? [BUNDLE_DISCOUNT_CODE] : undefined);
+      const cart = await createShopifyCart(
+        caseItem,
+        airpodsSelected ? [BUNDLE_DISCOUNT_CODE] : undefined,
+        [{ key: "RAJ Referenz", value: reference }, { key: "Quelle", value: "raj.ch/matrix" }],
+      );
       if (!cart) { fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut."); return; }
 
       if (airpodsSelected) {
@@ -311,6 +320,16 @@ const MatrixPage = () => {
           await addLineToShopifyCart(cart.cartId, apItem);
         }
       }
+
+      trackCheckout({
+        cartId: cart.cartId,
+        reference,
+        summary: airpodsSelected
+          ? `MATRIX Case ${model.name} · ${caseFinish.name} + AirPods 4 Case ${airpodsCase.name}`
+          : `MATRIX Case ${model.name} · ${caseFinish.name}`,
+        total: `CHF ${airpodsSelected ? bundleTotal : caseFinish.price}.–`,
+        startedAt: Date.now(),
+      });
 
       if (checkoutTab) {
         checkoutTab.location.href = cart.checkoutUrl;
@@ -324,7 +343,8 @@ const MatrixPage = () => {
     } finally {
       setIsBuying(false);
     }
-  }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase]);
+  }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase, bundleTotal, trackCheckout]);
+
 
   const selectModel = (id: ModelId) => {
     setModelId(id);
@@ -562,6 +582,46 @@ const MatrixPage = () => {
 
                   {/* CTA */}
                   <div className="pt-6 border-t" style={{ borderColor: H.line }}>
+                    {confirmed && (
+                      <div
+                        className="relative mb-5 rounded-xl p-4"
+                        style={{ background: "rgba(155,107,63,0.08)", boxShadow: `0 0 0 1px ${H.lineStrong}` }}
+                      >
+                        <button
+                          type="button"
+                          onClick={dismissOrder}
+                          aria-label="Bestätigung schliessen"
+                          className="absolute top-3 right-3 opacity-50 hover:opacity-100 transition-opacity"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                        <div className="flex items-center gap-2">
+                          <Check className="w-4 h-4" style={{ color: H.gold }} />
+                          <p className="text-sm font-semibold">Bestellung eingegangen</p>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                          {confirmed.summary} · {confirmed.total}
+                        </p>
+                        <p className="mt-1 text-xs" style={{ color: H.textMuted }}>
+                          Referenz <span className="font-mono font-semibold" style={{ color: H.text }}>{confirmed.reference}</span> — dieselbe Referenz steht bei der Bestellung im Shopify Admin, die Bestellnummer und Bestätigung erhältst du per E-Mail.
+                        </p>
+                      </div>
+                    )}
+                    {pending && !confirmed && (
+                      <div
+                        className="mb-5 rounded-xl p-4 flex items-start gap-3"
+                        style={{ background: "rgba(43,39,37,0.04)", boxShadow: `0 0 0 1px ${H.line}` }}
+                      >
+                        <Loader2 className="w-4 h-4 mt-0.5 animate-spin" style={{ color: H.gold }} />
+                        <div>
+                          <p className="text-sm font-medium">Checkout läuft</p>
+                          <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                            Schliesse die Zahlung im Shopify-Tab ab. Sobald die Bestellung durch ist, erscheint hier die Bestätigung mit Referenz {pending.reference}.
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
                     <div className="flex items-baseline justify-between gap-4 mb-4">
                       <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
                         {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
