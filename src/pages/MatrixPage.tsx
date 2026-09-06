@@ -1,10 +1,12 @@
 import { useCallback, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2 } from "lucide-react";
+import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart, normalizeCheckoutUrl } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
+import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import cherryOrange from "@/assets/matrix/cherry-orange.webp";
