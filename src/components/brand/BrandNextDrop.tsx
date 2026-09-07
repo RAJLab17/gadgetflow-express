@@ -18,6 +18,8 @@ const GOLD_SOFT = "#c8946b";
 const BrandNextDrop = () => {
   const headRef = useReveal<HTMLDivElement>();
   const nexusRef = useReveal<HTMLDivElement>();
+  const matrixRef = useReveal<HTMLDivElement>();
+  const apexRef = useReveal<HTMLDivElement>();
 
   return (
     <section
