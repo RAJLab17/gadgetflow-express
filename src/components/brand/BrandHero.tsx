@@ -108,20 +108,21 @@ const BrandHero = () => {
             </div>
 
             <h1
-              className="raj-rise text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5.5rem] font-extralight text-white leading-[0.95] tracking-[-0.035em]"
+              className="raj-rise text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5.5rem] font-extralight text-white leading-[1.05] tracking-[-0.035em]"
               style={{ animationDuration: "1.4s" }}
             >
-              <span className="block">{t("brand.hero.h1.line1")}</span>
+              <span className="block" style={{ paddingBottom: "0.08em" }}>{t("brand.hero.h1.line1")}</span>
               <span
                 className="font-serif italic font-light block"
                 style={{
-                  backgroundImage: `linear-gradient(180deg, #f0d9b8 0%, ${GOLD_SOFT} 55%, ${GOLD} 100%)`,
+                  backgroundImage: `linear-gradient(180deg, #f5dcb8 0%, ${GOLD_SOFT} 48%, ${GOLD} 100%)`,
                   WebkitBackgroundClip: "text",
                   backgroundClip: "text",
                   color: "transparent",
                   WebkitTextFillColor: "transparent",
-                  lineHeight: 1.1,
-                  marginTop: "0.04em",
+                  lineHeight: 1.35,
+                  paddingBottom: "0.16em",
+                  marginTop: "0.02em",
                 }}
               >
                 {t("brand.hero.h1.line2")}
