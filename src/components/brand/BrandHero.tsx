@@ -43,7 +43,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative h-[82svh] lg:h-[78svh] min-h-[560px] flex items-center overflow-hidden border-b"
+      className="relative h-[72svh] min-h-[540px] lg:h-[680px] lg:min-h-[680px] flex items-start pt-32 sm:pt-36 lg:pt-36 overflow-hidden border-b"
       style={{ background: "#0a0908", borderColor: "rgba(255,255,255,0.06)" }}
     >
       {/* Sanftes Gold-Licht oben rechts — Editorial-Stimmung */}
