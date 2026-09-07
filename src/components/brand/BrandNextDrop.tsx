@@ -11,262 +11,217 @@ const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
 
 /**
- * BrandNextDrop — "Die Objekte" als Editorial-Magazin (Swiss Luxury).
- * Asymmetrisches Raster: NEXUS als grosses Hauptobjekt (kaufbar),
- * MATRIX und APEX als zurückhaltende, seitliche Teaser.
+ * BrandNextDrop — "Die Objekte" als Editorial-Magazin.
+ * Warme Premium-Stillleben, versetztes Raster: NEXUS im Fokus (kaufbar),
+ * MATRIX als "Als Nächstes", APEX als "Early Access".
  */
 const BrandNextDrop = () => {
   const headRef = useReveal<HTMLDivElement>();
-  const nexusRef = useReveal<HTMLDivElement>();
-  const matrixRef = useReveal<HTMLDivElement>();
-  const apexRef = useReveal<HTMLDivElement>();
 
   return (
     <section
-      className="relative pb-20 md:pb-24 pt-0 -mt-16 md:-mt-24 lg:-mt-28 overflow-hidden z-20"
-      style={{ background: "linear-gradient(180deg, #0a0908 0%, #0c0b0a 100%)" }}
+      className="relative pt-0 pb-20 md:pb-28 -mt-24 md:-mt-32 lg:-mt-40 z-20 overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #0a0908 0%, #121009 100%)" }}
     >
       <div className="container mx-auto px-6 sm:px-10 max-w-[1240px] relative z-10">
-        {/* Header — Editorial Hairline */}
+        {/* Header — Editorial hairline */}
         <div
           ref={headRef}
-          className="reveal flex flex-col md:flex-row justify-between items-baseline border-b pb-6 mb-10 md:mb-14 gap-5"
-          style={{ borderColor: "rgba(255,255,255,0.07)" }}
+          className="reveal flex justify-between items-end border-b pb-5 mb-12 md:mb-16"
+          style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
-          <div className="space-y-2">
-            <span
-              className="text-[10px] uppercase font-light"
-              style={{ color: GOLD, letterSpacing: "0.5em" }}
-            >
-              Kollektion 2026
-            </span>
-            <h2 className="text-2xl md:text-4xl font-extralight tracking-tight text-white">
-              Die <span className="font-serif italic">Objekte</span>
-            </h2>
-          </div>
-          <p
-            className="max-w-xs text-[13px] font-light leading-relaxed text-right md:text-right"
-            style={{ color: "rgba(245,245,240,0.42)" }}
+          <span
+            className="text-[10px] uppercase font-light"
+            style={{ color: GOLD, letterSpacing: "0.5em" }}
           >
-            Eine Synthese aus Schweizer Präzision und puristischem Design.
-            Jedes Objekt eine Antwort auf die Komplexität des Alltags.
-          </p>
+            Kollektion 2026
+          </span>
+          <h2 className="text-2xl md:text-3xl font-extralight italic text-white tracking-tight">
+            Die Objekte
+          </h2>
         </div>
 
-        {/* Editorial Asymmetrisches Raster */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-10 lg:gap-x-12 gap-y-14 md:gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-10 gap-y-14 md:gap-y-20">
           {/* NEXUS — Hauptobjekt */}
-          <Link
-            to="/nexus"
-            ref={nexusRef as never}
-            className="reveal group block md:col-span-7"
-          >
-
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+          <Link to="/nexus" className="group block">
+            <div className="relative mb-6 overflow-hidden rounded-sm">
               <img
                 src={nexusImg}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger auf dem Nachttisch"
                 width={1200}
-                height={1500}
+                height={1200}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
+                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{ background: "linear-gradient(180deg, transparent 60%, rgba(10,9,8,0.4))" }}
-              />
-              <div className="absolute top-5 left-5">
+              <div className="absolute top-4 left-4">
                 <span
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[9px] uppercase font-bold"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] uppercase font-medium border"
                   style={{
                     letterSpacing: "0.25em",
-                    color: "#0a0908",
-                    background: `linear-gradient(160deg, ${GOLD_SOFT}, ${GOLD})`,
-                    boxShadow: `0 8px 24px -8px ${GOLD}aa`,
+                    color: "#f5f5f0",
+                    background: "rgba(10,9,8,0.45)",
+                    borderColor: "rgba(255,255,255,0.15)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
                   }}
                 >
-                  <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: "#0a0908" }} />
+                  <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: GOLD_SOFT }} />
                   Verfügbar
                 </span>
               </div>
             </div>
-            <div className="mt-6 flex justify-between items-start gap-4">
-              <div className="space-y-1.5">
-                <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">
+            <div className="flex justify-between items-end gap-4">
+              <div>
+                <h3 className="text-xl font-light text-white" style={{ letterSpacing: "0.14em" }}>
                   NEXUS
                 </h3>
-                <p
-                  className="text-[11px] uppercase font-medium"
-                  style={{ color: GOLD, letterSpacing: "0.2em" }}
-                >
-                  3-in-1 Qi2.2 Ladestation
+                <p className="text-[13px] font-light mt-1" style={{ color: "rgba(245,245,240,0.45)" }}>
+                  3-in-1 Qi2.2 Wireless Charger
                 </p>
               </div>
-              <div className="text-right space-y-3">
-                <p className="text-xl font-extralight tracking-tight text-white">
-                  CHF 99.–
-                </p>
-                <span
-                  className="inline-flex items-center gap-2 py-2.5 px-6 rounded-full text-[10px] uppercase font-bold transition-transform duration-300 group-hover:scale-[1.03]"
-                  style={{
-                    background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
-                    color: "#0a0908",
-                    letterSpacing: "0.2em",
-                    boxShadow: `0 12px 32px -10px ${GOLD}aa`,
-                  }}
-                >
-                  Kaufen
-                  <span style={{ fontSize: "12px" }}>→</span>
-                </span>
-              </div>
+              <span className="text-base font-extralight" style={{ color: GOLD_SOFT }}>
+                CHF 99.–
+              </span>
+            </div>
+            <div className="mt-4">
+              <span
+                className="inline-flex items-center gap-2 py-2.5 px-6 rounded-full text-[10px] uppercase font-bold transition-transform duration-300 group-hover:scale-[1.03]"
+                style={{
+                  background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
+                  color: "#0a0908",
+                  letterSpacing: "0.2em",
+                  boxShadow: `0 12px 32px -10px ${GOLD}aa`,
+                }}
+              >
+                Kaufen
+                <span style={{ fontSize: "12px" }}>→</span>
+              </span>
             </div>
           </Link>
 
-          {/* Seiten-Spalte: MATRIX & APEX als Teaser */}
-          <div className="md:col-span-5 flex flex-col gap-14 md:gap-16">
-            {/* MATRIX */}
-            <Link to="/matrix" ref={matrixRef as never} className="reveal group block md:mt-14">
-              <div className="relative aspect-[5/6] overflow-hidden rounded-sm">
-                <img
-                  src={matrixImg}
-                  alt="RAJ MATRIX Aramid Case in Cherry Carbon mit goldenem Blitz"
-                  width={600}
-                  height={720}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-all duration-[1200ms] ease-out group-hover:scale-[1.05]"
-                  style={{ filter: "grayscale(0.55) brightness(0.85)" }}
-                />
-                <div
-                  className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-0"
-                  style={{ background: "rgba(10,9,8,0.25)" }}
-                />
-                <div className="absolute top-5 left-5">
-                  <span
-                    className="px-3 py-1.5 rounded-full text-[9px] uppercase font-medium italic border"
-                    style={{
-                      letterSpacing: "0.25em",
-                      color: "#f0d9b8",
-                      background: "rgba(155,107,63,0.22)",
-                      borderColor: "rgba(200,148,107,0.35)",
-                      backdropFilter: "blur(8px)",
-                      WebkitBackdropFilter: "blur(8px)",
-                    }}
-                  >
-                    Als Nächstes
-                  </span>
-                </div>
-                {/* AirPods 4 Case — Inset neben dem iPhone-Case */}
-                <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1.5">
-                  <div
-                    className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden transition-transform duration-500 group-hover:scale-105"
-                    style={{
-                      boxShadow: "0 10px 30px -8px rgba(0,0,0,0.55)",
-                      border: `1px solid ${GOLD_SOFT}88`,
-                    }}
-                  >
-                    <img
-                      src={airpodsRender}
-                      alt="RAJ MATRIX AirPods 4 Case in Cherry Carbon"
-                      width={96}
-                      height={96}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span
-                    className="text-[8px] uppercase font-medium"
-                    style={{ color: "#f0d9b8", letterSpacing: "0.25em" }}
-                  >
-                    AirPods 4
-                  </span>
-                </div>
-              </div>
-              <div className="mt-6 flex justify-between items-end gap-4">
-                <div className="space-y-1">
-                  <h3 className="text-xl font-light tracking-tight text-white">
-                    MATRIX
-                  </h3>
-                  <p
-                    className="text-[10px] uppercase font-light"
-                    style={{ color: "rgba(245,245,240,0.4)", letterSpacing: "0.2em" }}
-                  >
-                    Aramid Schutzhüllen
-                  </p>
-                </div>
+          {/* MATRIX — Als Nächstes (versetzt) */}
+          <Link to="/matrix" className="group block md:mt-16">
+            <div className="relative mb-6 overflow-hidden rounded-sm">
+              <img
+                src={matrixImg}
+                alt="RAJ MATRIX Aramid Case in Cherry Carbon mit goldenem Blitz"
+                width={768}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+              />
+              <div className="absolute top-4 left-4">
                 <span
-                  className="inline-flex items-center gap-1.5 text-[10px] uppercase font-medium whitespace-nowrap"
-                  style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}
+                  className="px-3 py-1 rounded-full text-[9px] uppercase font-medium italic border"
+                  style={{
+                    letterSpacing: "0.25em",
+                    color: "#f0d9b8",
+                    background: "rgba(155,107,63,0.22)",
+                    borderColor: "rgba(200,148,107,0.35)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
+                  }}
                 >
-                  Vorschau
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  Als Nächstes
                 </span>
               </div>
-            </Link>
-
-            {/* APEX */}
-            <Link to="/apex" ref={apexRef as never} className="reveal group block">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-sm">
-                <img
-                  src={apexImg}
-                  alt="RAJ APEX MagSafe Auto-Ladehalterung"
-                  width={600}
-                  height={375}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-all duration-[1200ms] ease-out group-hover:scale-[1.05]"
-                  style={{ filter: "grayscale(0.55) brightness(0.85)" }}
-                />
+              {/* AirPods 4 Case — Inset neben dem iPhone-Case */}
+              <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1.5">
                 <div
-                  className="absolute inset-0 transition-opacity duration-700 group-hover:opacity-0"
-                  style={{ background: "rgba(10,9,8,0.25)" }}
-                />
-                <div className="absolute top-5 left-5">
-                  <span
-                    className="px-3 py-1.5 rounded-full text-[9px] uppercase font-medium border"
-                    style={{
-                      letterSpacing: "0.25em",
-                      color: "#f5f5f0",
-                      background: "rgba(10,9,8,0.5)",
-                      borderColor: "rgba(255,255,255,0.18)",
-                      backdropFilter: "blur(8px)",
-                      WebkitBackdropFilter: "blur(8px)",
-                    }}
-                  >
-                    Early Access
-                  </span>
-                </div>
-              </div>
-              <div className="mt-6 flex justify-between items-end gap-4">
-                <div className="space-y-1">
-                  <h3 className="text-xl font-light tracking-tight text-white">
-                    APEX
-                  </h3>
-                  <p
-                    className="text-[10px] uppercase font-light"
-                    style={{ color: "rgba(245,245,240,0.4)", letterSpacing: "0.2em" }}
-                  >
-                    MagSafe Auto-Halterung
-                  </p>
-                </div>
-                <span
-                  className="w-9 h-9 shrink-0 rounded-full border flex items-center justify-center transition-colors duration-300 group-hover:border-[rgba(200,148,107,0.5)]"
-                  style={{ borderColor: "rgba(255,255,255,0.2)" }}
+                  className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden"
+                  style={{
+                    boxShadow: "0 10px 30px -8px rgba(0,0,0,0.55)",
+                    border: `1px solid ${GOLD_SOFT}88`,
+                  }}
                 >
-                  <ArrowUpRight
-                    className="w-4 h-4 transition-colors duration-300"
-                    style={{ color: "rgba(255,255,255,0.5)" }}
+                  <img
+                    src={airpodsRender}
+                    alt="RAJ MATRIX AirPods 4 Case in Cherry Carbon"
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
                   />
+                </div>
+                <span
+                  className="text-[8px] uppercase font-medium"
+                  style={{ color: "#f0d9b8", letterSpacing: "0.25em" }}
+                >
+                  AirPods 4
                 </span>
               </div>
-            </Link>
-          </div>
+            </div>
+            <div className="flex justify-between items-end gap-4">
+              <div>
+                <h3 className="text-xl font-light text-white" style={{ letterSpacing: "0.14em" }}>
+                  MATRIX
+                </h3>
+                <p className="text-[13px] font-light mt-1" style={{ color: "rgba(245,245,240,0.45)" }}>
+                  Aramid-Cases für iPhone & AirPods
+                </p>
+              </div>
+              <span
+                className="inline-flex items-center gap-1.5 text-[9px] uppercase font-medium whitespace-nowrap"
+                style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}
+              >
+                Vorschau
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
+            </div>
+          </Link>
+
+          {/* APEX — Early Access (weiter versetzt) */}
+          <Link to="/apex" className="group block md:col-span-2 lg:col-span-1 lg:mt-32 md:max-w-[calc(50%-1rem)] lg:max-w-none">
+            <div className="relative mb-6 overflow-hidden rounded-sm">
+              <img
+                src={apexImg}
+                alt="RAJ APEX MagSafe Auto-Ladehalterung"
+                width={768}
+                height={1024}
+                loading="lazy"
+                decoding="async"
+                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+              />
+              <div className="absolute top-4 left-4">
+                <span
+                  className="px-3 py-1 rounded-full text-[9px] uppercase font-medium border"
+                  style={{
+                    letterSpacing: "0.25em",
+                    color: "#f5f5f0",
+                    background: "rgba(10,9,8,0.5)",
+                    borderColor: "rgba(255,255,255,0.18)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
+                  }}
+                >
+                  Early Access
+                </span>
+              </div>
+            </div>
+            <div className="flex justify-between items-end gap-4">
+              <div>
+                <h3 className="text-xl font-light text-white" style={{ letterSpacing: "0.14em" }}>
+                  APEX
+                </h3>
+                <p className="text-[13px] font-light mt-1" style={{ color: "rgba(245,245,240,0.45)" }}>
+                  MagSafe Auto-Ladehalterung
+                </p>
+              </div>
+              <span
+                className="w-9 h-9 shrink-0 rounded-full border flex items-center justify-center transition-colors duration-300"
+                style={{ borderColor: "rgba(255,255,255,0.2)" }}
+              >
+                <ArrowUpRight className="w-4 h-4 transition-colors duration-300" style={{ color: "rgba(255,255,255,0.5)" }} />
+              </span>
+            </div>
+          </Link>
         </div>
 
         {/* Ganze Kollektion */}
-        <div className="mt-12 md:mt-14 flex justify-center">
+        <div className="mt-14 md:mt-16 flex justify-center">
           <Link
             to="/produkte"
             className="group inline-flex items-center gap-2 text-[10px] uppercase font-medium tracking-[0.3em] pb-1 border-b transition-colors"
