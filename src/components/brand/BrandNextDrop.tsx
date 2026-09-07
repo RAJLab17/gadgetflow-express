@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
-import nexusImg from "@/assets/home/objekt-nexus.jpg";
-import matrixImg from "@/assets/home/objekt-matrix.jpg";
-import apexImg from "@/assets/home/objekt-apex.jpg";
+import matrixImg from "@/assets/matrix/cherry-black.webp";
+
+const nexusImg = "/assets/products/nexus-bedside-night.webp";
+const apexImg = "/assets/products/apex-card-900.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
@@ -45,9 +46,9 @@ const BrandNextDrop = () => {
             <div className="relative mb-7 overflow-hidden rounded-sm">
               <img
                 src={nexusImg}
-                alt="RAJ NEXUS 3-in-1 Wireless Charger in warmem Stillleben auf Nussbaumholz"
-                width={768}
-                height={1024}
+                alt="RAJ NEXUS 3-in-1 Wireless Charger auf dem Nachttisch"
+                width={1200}
+                height={1200}
                 loading="lazy"
                 decoding="async"
                 className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
@@ -104,11 +105,11 @@ const BrandNextDrop = () => {
               <img
                 src={matrixImg}
                 alt="RAJ MATRIX Aramid Case in Cherry Carbon mit goldenem Blitz"
-                width={768}
+                width={1024}
                 height={1024}
                 loading="lazy"
                 decoding="async"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                className="w-full aspect-[3/4] object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
               <div className="absolute top-4 left-4">
                 <span
@@ -150,12 +151,12 @@ const BrandNextDrop = () => {
             <div className="relative mb-7 overflow-hidden rounded-sm">
               <img
                 src={apexImg}
-                alt="RAJ APEX MagSafe Auto-Ladehalterung im warmen Morgenlicht"
-                width={768}
-                height={1024}
+                alt="RAJ APEX MagSafe Auto-Ladehalterung"
+                width={900}
+                height={900}
                 loading="lazy"
                 decoding="async"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                className="w-full aspect-[3/4] object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
               <div className="absolute top-4 left-4">
                 <span
