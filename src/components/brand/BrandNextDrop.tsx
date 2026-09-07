@@ -91,9 +91,9 @@ const BrandNextDrop = () => {
                 </span>
               </div>
             </div>
-            <div className="mt-8 flex justify-between items-start gap-4">
-              <div className="space-y-2">
-                <h3 className="text-2xl md:text-3xl font-light tracking-tight text-white">
+            <div className="mt-6 flex justify-between items-start gap-4">
+              <div className="space-y-1.5">
+                <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">
                   NEXUS
                 </h3>
                 <p
@@ -124,9 +124,9 @@ const BrandNextDrop = () => {
           </Link>
 
           {/* Seiten-Spalte: MATRIX & APEX als Teaser */}
-          <div className="md:col-span-5 flex flex-col gap-16 md:gap-24">
+          <div className="md:col-span-5 flex flex-col gap-14 md:gap-16">
             {/* MATRIX */}
-            <Link to="/matrix" ref={matrixRef as never} className="reveal group block md:mt-20">
+            <Link to="/matrix" ref={matrixRef as never} className="reveal group block md:mt-14">
               <div className="relative aspect-[5/6] overflow-hidden rounded-sm">
                 <img
                   src={matrixImg}
@@ -266,7 +266,7 @@ const BrandNextDrop = () => {
         </div>
 
         {/* Ganze Kollektion */}
-        <div className="mt-16 md:mt-20 flex justify-center">
+        <div className="mt-12 md:mt-14 flex justify-center">
           <Link
             to="/produkte"
             className="group inline-flex items-center gap-2 text-[10px] uppercase font-medium tracking-[0.3em] pb-1 border-b transition-colors"
