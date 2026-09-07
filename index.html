@@ -80,10 +80,16 @@
 
 
 
+    <!-- Serif accent (Playfair Display) for editorial italic headlines — loaded with display swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+
     <!-- System font stack — zero external requests, instant rendering, native look -->
     <style>
       :root {
         --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
       }
       html, body { font-family: var(--font-sans); }
     </style>
