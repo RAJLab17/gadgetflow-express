@@ -54,7 +54,7 @@ const BrandNextDrop = () => {
         </div>
 
         {/* Editorial Asymmetrisches Raster */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-10 lg:gap-x-12 gap-y-16 md:gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-10 lg:gap-x-12 gap-y-14 md:gap-y-16">
           {/* NEXUS — Hauptobjekt */}
           <Link
             to="/nexus"
