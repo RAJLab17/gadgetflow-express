@@ -275,7 +275,7 @@ const MatrixPage = () => {
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
-  const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder } = usePendingCheckout();
+  const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
 
   const model = MODELS.find((m) => m.id === modelId)!;
