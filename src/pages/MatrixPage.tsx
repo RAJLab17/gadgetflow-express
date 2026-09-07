@@ -196,11 +196,12 @@ const GoldBolt = () => (
     viewBox="0 0 68 101"
     className="absolute pointer-events-none"
     style={{
-      left: "34.2%",
-      bottom: "9%",
+      left: "50%",
+      top: "50%",
       width: "5.8%",
       height: "auto",
       aspectRatio: "68 / 101",
+      transform: "translate(-50%, -50%)",
     }}
   >
     <path
@@ -704,12 +705,18 @@ const MatrixPage = () => {
                           loading="lazy"
                           className="absolute inset-0 h-full w-full object-contain mix-blend-multiply"
                         />
-                        {/* Goldener Blitz — dezent, unten links auf dem AirPods-Case */}
+                        {/* Goldener Blitz — dezent, mittig auf dem AirPods-Case */}
                         <svg
                           aria-hidden="true"
                           viewBox="0 0 68 101"
                           className="absolute pointer-events-none"
-                          style={{ left: "13%", bottom: "13%", width: "9%", aspectRatio: "68 / 101" }}
+                          style={{
+                            left: "50%",
+                            top: "50%",
+                            width: "9%",
+                            aspectRatio: "68 / 101",
+                            transform: "translate(-50%, -50%)",
+                          }}
                         >
                           <path d="M67 0 37 0 0 49 25 49 2 101 68 37 39 37Z" fill="#d7b34c" />
                         </svg>
