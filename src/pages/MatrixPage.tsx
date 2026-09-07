@@ -196,12 +196,11 @@ const GoldBolt = () => (
     viewBox="0 0 68 101"
     className="absolute pointer-events-none"
     style={{
-      left: "50%",
-      top: "50%",
+      left: "34%",
+      bottom: "9%",
       width: "5.8%",
       height: "auto",
       aspectRatio: "68 / 101",
-      transform: "translate(-50%, -50%)",
     }}
   >
     <path
