@@ -162,9 +162,9 @@ const BrandNextDrop = () => {
                   className="px-3 py-1 rounded-full text-[9px] uppercase font-medium border"
                   style={{
                     letterSpacing: "0.25em",
-                    color: "rgba(245,245,240,0.75)",
-                    background: "rgba(255,255,255,0.08)",
-                    borderColor: "rgba(255,255,255,0.12)",
+                    color: "#f5f5f0",
+                    background: "rgba(10,9,8,0.5)",
+                    borderColor: "rgba(255,255,255,0.18)",
                     backdropFilter: "blur(8px)",
                     WebkitBackdropFilter: "blur(8px)",
                   }}
