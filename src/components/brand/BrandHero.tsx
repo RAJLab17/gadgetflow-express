@@ -1,8 +1,13 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import matrixImg from "@/assets/home/objekt-matrix-correct.jpg";
+import apexImg from "@/assets/home/objekt-apex-correct.jpg";
+import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
 const nexusLaptop = "/assets/hero/desktop-nexus.webp";
 const nexusSuite = "/assets/hero/desktop-ecosystem.webp";
+const nexusObjektImg = "/assets/products/nexus-bedside-night.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
@@ -98,7 +103,7 @@ const BrandHero = () => {
     <>
     <section
       ref={ref}
-      className="relative h-[88svh] lg:h-[72svh] min-h-[600px] lg:min-h-[560px] overflow-hidden flex items-center sm:items-center"
+      className="relative min-h-[100svh] overflow-hidden flex flex-col"
       style={{ background: "#0a0908" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -166,7 +171,7 @@ const BrandHero = () => {
 
 
       {/* ===================== MOBILE LAYOUT (lg:hidden, additive) ===================== */}
-      <div className="lg:hidden absolute inset-0 z-30 flex flex-col pt-[88px] pb-16 px-6">
+      <div className="lg:hidden relative z-30 flex flex-col flex-1 pt-[88px] pb-10 px-6 w-full">
         {/* CTAs — ganz oben */}
         <div
           className="raj-rise-sm flex flex-row items-center justify-center gap-2"
