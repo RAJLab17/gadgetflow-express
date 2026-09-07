@@ -23,29 +23,29 @@ const BrandNextDrop = () => {
 
   return (
     <section
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative pb-20 md:pb-24 pt-0 -mt-16 md:-mt-24 lg:-mt-28 overflow-hidden z-20"
       style={{ background: "linear-gradient(180deg, #0a0908 0%, #0c0b0a 100%)" }}
     >
       <div className="container mx-auto px-6 sm:px-10 max-w-[1240px] relative z-10">
         {/* Header — Editorial Hairline */}
         <div
           ref={headRef}
-          className="reveal flex flex-col md:flex-row justify-between items-baseline border-b pb-8 mb-16 md:mb-24 gap-6"
+          className="reveal flex flex-col md:flex-row justify-between items-baseline border-b pb-6 mb-10 md:mb-14 gap-5"
           style={{ borderColor: "rgba(255,255,255,0.07)" }}
         >
-          <div className="space-y-3">
+          <div className="space-y-2">
             <span
               className="text-[10px] uppercase font-light"
               style={{ color: GOLD, letterSpacing: "0.5em" }}
             >
               Kollektion 2026
             </span>
-            <h2 className="text-3xl md:text-5xl font-extralight tracking-tight text-white">
+            <h2 className="text-2xl md:text-4xl font-extralight tracking-tight text-white">
               Die <span className="font-serif italic">Objekte</span>
             </h2>
           </div>
           <p
-            className="max-w-sm text-sm font-light leading-relaxed text-right md:text-right"
+            className="max-w-xs text-[13px] font-light leading-relaxed text-right md:text-right"
             style={{ color: "rgba(245,245,240,0.42)" }}
           >
             Eine Synthese aus Schweizer Präzision und puristischem Design.
@@ -54,7 +54,7 @@ const BrandNextDrop = () => {
         </div>
 
         {/* Editorial Asymmetrisches Raster */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-10 lg:gap-x-12 gap-y-16 md:gap-y-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-10 lg:gap-x-12 gap-y-14 md:gap-y-16">
           {/* NEXUS — Hauptobjekt */}
           <Link
             to="/nexus"
@@ -91,9 +91,9 @@ const BrandNextDrop = () => {
                 </span>
               </div>
             </div>
-            <div className="mt-8 flex justify-between items-start gap-4">
-              <div className="space-y-2">
-                <h3 className="text-2xl md:text-3xl font-light tracking-tight text-white">
+            <div className="mt-6 flex justify-between items-start gap-4">
+              <div className="space-y-1.5">
+                <h3 className="text-xl md:text-2xl font-light tracking-tight text-white">
                   NEXUS
                 </h3>
                 <p
@@ -124,9 +124,9 @@ const BrandNextDrop = () => {
           </Link>
 
           {/* Seiten-Spalte: MATRIX & APEX als Teaser */}
-          <div className="md:col-span-5 flex flex-col gap-16 md:gap-24">
+          <div className="md:col-span-5 flex flex-col gap-14 md:gap-16">
             {/* MATRIX */}
-            <Link to="/matrix" ref={matrixRef as never} className="reveal group block md:mt-20">
+            <Link to="/matrix" ref={matrixRef as never} className="reveal group block md:mt-14">
               <div className="relative aspect-[5/6] overflow-hidden rounded-sm">
                 <img
                   src={matrixImg}
@@ -266,7 +266,7 @@ const BrandNextDrop = () => {
         </div>
 
         {/* Ganze Kollektion */}
-        <div className="mt-16 md:mt-20 flex justify-center">
+        <div className="mt-12 md:mt-14 flex justify-center">
           <Link
             to="/produkte"
             className="group inline-flex items-center gap-2 text-[10px] uppercase font-medium tracking-[0.3em] pb-1 border-b transition-colors"
