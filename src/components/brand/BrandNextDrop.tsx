@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
-import matrixImg from "@/assets/matrix/cherry-black.webp";
+import matrixImg from "@/assets/home/objekt-matrix-correct.jpg";
+import apexImg from "@/assets/home/objekt-apex-correct.jpg";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
-const apexImg = "/assets/products/apex-card-900.webp";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
@@ -105,11 +105,11 @@ const BrandNextDrop = () => {
               <img
                 src={matrixImg}
                 alt="RAJ MATRIX Aramid Case in Cherry Carbon mit goldenem Blitz"
-                width={1024}
+                width={768}
                 height={1024}
                 loading="lazy"
                 decoding="async"
-                className="w-full aspect-[3/4] object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
               <div className="absolute top-4 left-4">
                 <span
@@ -152,11 +152,11 @@ const BrandNextDrop = () => {
               <img
                 src={apexImg}
                 alt="RAJ APEX MagSafe Auto-Ladehalterung"
-                width={900}
-                height={900}
+                width={768}
+                height={1024}
                 loading="lazy"
                 decoding="async"
-                className="w-full aspect-[3/4] object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
               <div className="absolute top-4 left-4">
                 <span
