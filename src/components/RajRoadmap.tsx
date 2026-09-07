@@ -29,6 +29,8 @@ const GOLD_SOFT = "#c8946b";
 const Card = ({ m, index }: { m: Milestone; index: number }) => {
   const { t } = useLanguage();
   const isUnlocked = m.status === "unlocked";
+  const isNext = m.status === "next";
+  const isLinked = (isUnlocked || isNext) && m.href;
   const ref = useReveal<HTMLDivElement>({ rootMargin: "-50px" });
 
   const inner = (
@@ -99,6 +101,14 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
                 <span className="w-1 h-1 rounded-full bg-black/70 animate-pulse" />
                 {t("brand.road.unlocked")}
               </span>
+            ) : isNext ? (
+              <span
+                className="inline-flex items-center gap-1.5 text-[9px] font-medium uppercase px-2.5 py-1 rounded-full"
+                style={{ letterSpacing: "0.25em", color: GOLD_SOFT, border: `1px solid ${GOLD_SOFT}80`, background: "rgba(200,148,107,0.08)" }}
+              >
+                <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: GOLD_SOFT }} />
+                Als Nächstes
+              </span>
             ) : (
               <Lock className="w-3.5 h-3.5" style={{ color: GOLD_SOFT, opacity: 0.85 }} />
             )}
@@ -131,7 +141,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
               >
                 {t(m.etaKey)}
               </p>
-              {isUnlocked && (
+              {isLinked && (
                 <ArrowUpRight
                   className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
                   style={{ color: GOLD }}
@@ -144,7 +154,7 @@ const Card = ({ m, index }: { m: Milestone; index: number }) => {
     </div>
   );
 
-  if (isUnlocked && m.href) {
+  if (isLinked) {
     return (
       <Link to={m.href} aria-label={`${m.name} — ${t(m.etaKey)}`} className="block h-full">
         {inner}
