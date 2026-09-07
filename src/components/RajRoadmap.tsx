@@ -8,14 +8,14 @@ import { useState, useRef } from "react";
 type Milestone = {
   name: string;
   taglineKey: string;
-  status: "unlocked" | "locked";
+  status: "unlocked" | "next" | "locked";
   etaKey: string;
   href?: string;
 };
 
 const milestones: Milestone[] = [
   { name: "RAJ NEXUS",  taglineKey: "brand.road.tagline.nexus",  status: "unlocked", etaKey: "brand.road.eta.now",  href: "/nexus" },
-  { name: "RAJ MATRIX", taglineKey: "brand.road.tagline.matrix", status: "locked",   etaKey: "brand.road.eta.2026" },
+  { name: "RAJ MATRIX", taglineKey: "brand.road.tagline.matrix", status: "next",     etaKey: "brand.road.eta.2026", href: "/matrix" },
   { name: "RAJ AURORA", taglineKey: "brand.road.tagline.aurora", status: "locked",   etaKey: "brand.road.eta.2026" },
   { name: "RAJ APEX",  taglineKey: "brand.road.tagline.drive",  status: "locked",   etaKey: "brand.road.eta.2027" },
   { name: "RAJ ATLAS",  taglineKey: "brand.road.tagline.nomad",  status: "locked",   etaKey: "brand.road.eta.2027" },
