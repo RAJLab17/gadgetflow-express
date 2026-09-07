@@ -188,8 +188,8 @@ const RENDERS: Record<string, string> = {
   "18-onyx-silver": onyxSilver,
 };
 
-/* Goldener Blitz — Position/Grösse relativ zum Render, damit er auf jedem
-   Modell und jeder Viewport-Breite exakt gleich auf der Hülle sitzt. */
+/* Goldener Blitz — dezent, eingeprägt in den Carbon-Finish. Kleiner,
+   gedeckter Goldton statt grellem Gelb, feine Haarlinie als Prägung. */
 const GoldBolt = () => (
   <svg
     aria-hidden="true"
@@ -198,14 +198,15 @@ const GoldBolt = () => (
     style={{
       left: "34%",
       bottom: "9%",
-      width: "5.8%",
+      width: "4.2%",
       height: "auto",
       aspectRatio: "68 / 101",
+      opacity: 0.82,
     }}
   >
     <path
       d="M67 0 37 0 0 49 25 49 2 101 68 37 39 37Z"
-      fill="#d7b34c"
+      fill="#a87f3a"
     />
   </svg>
 );
