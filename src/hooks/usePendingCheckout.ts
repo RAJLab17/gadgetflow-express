@@ -125,5 +125,5 @@ export function usePendingCheckout() {
     };
   }, [pending, check]);
 
-  return { pending, confirmed, track, dismiss, check };
+  return { pending, confirmed, track, dismiss, dismissPending, check };
 }
