@@ -188,8 +188,8 @@ const RENDERS: Record<string, string> = {
   "18-onyx-silver": onyxSilver,
 };
 
-/* Goldener Blitz — dezent, eingeprägt in den Carbon-Finish. Kleiner,
-   gedeckter Goldton statt grellem Gelb, feine Haarlinie als Prägung. */
+/* Goldener Blitz — dezent, eingeprägt in den Carbon-Finish. Sehr klein,
+   gedeckter Goldton statt grellem Gelb. */
 const GoldBolt = () => (
   <svg
     aria-hidden="true"
@@ -198,10 +198,10 @@ const GoldBolt = () => (
     style={{
       left: "34%",
       bottom: "9%",
-      width: "4.2%",
+      width: "2.2%",
       height: "auto",
       aspectRatio: "68 / 101",
-      opacity: 0.82,
+      opacity: 0.8,
     }}
   >
     <path
@@ -713,10 +713,10 @@ const MatrixPage = () => {
                           style={{
                             left: "50%",
                             top: "50%",
-                            width: "6.5%",
+                            width: "4%",
                             aspectRatio: "68 / 101",
                             transform: "translate(-50%, -50%)",
-                            opacity: 0.82,
+                            opacity: 0.8,
                           }}
                         >
                           <path d="M67 0 37 0 0 49 25 49 2 101 68 37 39 37Z" fill="#a87f3a" />
