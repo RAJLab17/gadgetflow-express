@@ -98,7 +98,7 @@ const BrandHero = () => {
     <>
     <section
       ref={ref}
-      className="relative h-[100svh] min-h-[640px] overflow-hidden flex items-center sm:items-center"
+      className="relative h-[88svh] lg:h-[72svh] min-h-[600px] lg:min-h-[560px] overflow-hidden flex items-center sm:items-center"
       style={{ background: "#0a0908" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
