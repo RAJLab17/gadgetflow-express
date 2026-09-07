@@ -275,7 +275,7 @@ const MatrixPage = () => {
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
-  const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder } = usePendingCheckout();
+  const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
 
   const model = MODELS.find((m) => m.id === modelId)!;
@@ -609,11 +609,19 @@ const MatrixPage = () => {
                     )}
                     {pending && !confirmed && (
                       <div
-                        className="mb-5 rounded-xl p-4 flex items-start gap-3"
+                        className="relative mb-5 rounded-xl p-4 flex items-start gap-3"
                         style={{ background: "rgba(43,39,37,0.04)", boxShadow: `0 0 0 1px ${H.line}` }}
                       >
+                        <button
+                          type="button"
+                          onClick={dismissPending}
+                          aria-label="Hinweis schliessen"
+                          className="absolute top-3 right-3 opacity-50 hover:opacity-100 transition-opacity"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
                         <Loader2 className="w-4 h-4 mt-0.5 animate-spin" style={{ color: H.gold }} />
-                        <div>
+                        <div className="pr-6">
                           <p className="text-sm font-medium">Checkout läuft</p>
                           <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
                             Schliesse die Zahlung im Shopify-Tab ab. Sobald die Bestellung durch ist, erscheint hier die Bestätigung mit Referenz {pending.reference}.

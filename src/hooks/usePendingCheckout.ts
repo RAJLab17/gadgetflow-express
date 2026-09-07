@@ -4,6 +4,10 @@ import { storefrontApiRequest, CART_QUERY } from "@/lib/shopify";
 const STORAGE_KEY = "raj-pending-checkout";
 const CONFIRMED_KEY = "raj-last-order";
 const MAX_AGE_MS = 6 * 60 * 60 * 1000; // 6h
+// Only treat a vanished cart as a completed order within this window.
+// Shopify removes the cart immediately after payment; an abandoned cart
+// expiring hours later must NOT be shown as "Bestellung eingegangen".
+const CONFIRM_WINDOW_MS = 30 * 60 * 1000; // 30min
 
 export interface PendingCheckout {
   cartId: string;
@@ -60,6 +64,11 @@ export function usePendingCheckout() {
     setConfirmed(null);
   }, []);
 
+  const dismissPending = useCallback(() => {
+    localStorage.removeItem(STORAGE_KEY);
+    setPending(null);
+  }, []);
+
   const check = useCallback(async () => {
     const current = read<PendingCheckout>(STORAGE_KEY);
     if (!current || checking.current) return;
@@ -73,8 +82,15 @@ export function usePendingCheckout() {
       const data = await storefrontApiRequest(CART_QUERY, { id: current.cartId });
       if (!data) return; // API error – keep waiting
       const cart = data?.data?.cart;
-      // Cart gone (or emptied) => checkout completed
+      // Cart gone (or emptied) => checkout completed, but only within the
+      // confirmation window. An abandoned cart that Shopify later expires
+      // must not surface as a fake order.
       if (cart === null || cart?.totalQuantity === 0) {
+        if (Date.now() - current.startedAt > CONFIRM_WINDOW_MS) {
+          localStorage.removeItem(STORAGE_KEY);
+          setPending(null);
+          return;
+        }
         const order: ConfirmedOrder = {
           reference: current.reference,
           summary: current.summary,
@@ -109,5 +125,5 @@ export function usePendingCheckout() {
     };
   }, [pending, check]);
 
-  return { pending, confirmed, track, dismiss, check };
+  return { pending, confirmed, track, dismiss, dismissPending, check };
 }
