@@ -82,8 +82,15 @@ export function usePendingCheckout() {
       const data = await storefrontApiRequest(CART_QUERY, { id: current.cartId });
       if (!data) return; // API error – keep waiting
       const cart = data?.data?.cart;
-      // Cart gone (or emptied) => checkout completed
+      // Cart gone (or emptied) => checkout completed, but only within the
+      // confirmation window. An abandoned cart that Shopify later expires
+      // must not surface as a fake order.
       if (cart === null || cart?.totalQuantity === 0) {
+        if (Date.now() - current.startedAt > CONFIRM_WINDOW_MS) {
+          localStorage.removeItem(STORAGE_KEY);
+          setPending(null);
+          return;
+        }
         const order: ConfirmedOrder = {
           reference: current.reference,
           summary: current.summary,
