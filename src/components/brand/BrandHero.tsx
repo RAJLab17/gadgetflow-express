@@ -98,7 +98,7 @@ const BrandHero = () => {
     <>
     <section
       ref={ref}
-      className="relative h-[88svh] lg:h-[68svh] min-h-[600px] lg:min-h-[520px] overflow-hidden flex items-center sm:items-center"
+      className="relative h-[80svh] lg:h-[50svh] min-h-[540px] lg:min-h-[400px] overflow-hidden flex items-center sm:items-center"
       style={{ background: "#0a0908" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -290,7 +290,7 @@ const BrandHero = () => {
 
 
       {/* ===================== DESKTOP LAYOUT (unchanged, hidden on mobile) ===================== */}
-      <div ref={fadeRef} className="relative z-20 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full hidden lg:block">
+      <div ref={fadeRef} className="relative z-20 container mx-auto px-6 sm:px-10 pt-20 sm:pt-20 pb-12 w-full hidden lg:block">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
