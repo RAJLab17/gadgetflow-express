@@ -126,7 +126,7 @@ const BrandNextDrop = () => {
           {/* Seiten-Spalte: MATRIX & APEX als Teaser */}
           <div className="md:col-span-5 flex flex-col gap-16 md:gap-24">
             {/* MATRIX */}
-            <Link to="/matrix" className="reveal group block md:mt-20">
+            <Link to="/matrix" ref={matrixRef as never} className="reveal group block md:mt-20">
               <div className="relative aspect-[5/6] overflow-hidden rounded-sm">
                 <img
                   src={matrixImg}
@@ -207,7 +207,7 @@ const BrandNextDrop = () => {
             </Link>
 
             {/* APEX */}
-            <Link to="/apex" className="reveal group block">
+            <Link to="/apex" ref={apexRef as never} className="reveal group block">
               <div className="relative aspect-[16/10] overflow-hidden rounded-sm">
                 <img
                   src={apexImg}
