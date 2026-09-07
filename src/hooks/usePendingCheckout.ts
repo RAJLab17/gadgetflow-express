@@ -64,6 +64,11 @@ export function usePendingCheckout() {
     setConfirmed(null);
   }, []);
 
+  const dismissPending = useCallback(() => {
+    localStorage.removeItem(STORAGE_KEY);
+    setPending(null);
+  }, []);
+
   const check = useCallback(async () => {
     const current = read<PendingCheckout>(STORAGE_KEY);
     if (!current || checking.current) return;
