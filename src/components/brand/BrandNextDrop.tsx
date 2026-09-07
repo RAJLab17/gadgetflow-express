@@ -61,6 +61,7 @@ const BrandNextDrop = () => {
             ref={nexusRef as never}
             className="reveal group block md:col-span-7"
           >
+
             <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
               <img
                 src={nexusImg}
