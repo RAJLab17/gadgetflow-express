@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImg from "@/assets/home/objekt-matrix-correct.jpg";
 import apexImg from "@/assets/home/objekt-apex-correct.jpg";
+import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
 
@@ -124,6 +125,32 @@ const BrandNextDrop = () => {
                   }}
                 >
                   Als Nächstes
+                </span>
+              </div>
+              {/* AirPods 4 Case — Inset neben dem iPhone-Case */}
+              <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1.5">
+                <div
+                  className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden"
+                  style={{
+                    boxShadow: "0 10px 30px -8px rgba(0,0,0,0.55)",
+                    border: `1px solid ${GOLD_SOFT}88`,
+                  }}
+                >
+                  <img
+                    src={airpodsRender}
+                    alt="RAJ MATRIX AirPods 4 Case in Cherry Carbon"
+                    width={96}
+                    height={96}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <span
+                  className="text-[8px] uppercase font-medium"
+                  style={{ color: "#f0d9b8", letterSpacing: "0.25em" }}
+                >
+                  AirPods 4
                 </span>
               </div>
             </div>
