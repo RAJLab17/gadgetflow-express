@@ -366,7 +366,7 @@ const BrandHero = () => {
 
 
       {/* ===================== DESKTOP LAYOUT (unchanged, hidden on mobile) ===================== */}
-      <div ref={fadeRef} className="relative z-20 container mx-auto px-6 sm:px-10 pt-28 sm:pt-28 pb-20 w-full hidden lg:block">
+      <div ref={fadeRef} className="relative z-20 container mx-auto px-6 sm:px-10 pt-24 pb-12 w-full hidden lg:flex lg:flex-col lg:flex-1 lg:justify-center max-w-[1400px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-8 items-end">
           <div className="lg:col-span-7 flex flex-col items-start text-left">
 
@@ -466,10 +466,93 @@ const BrandHero = () => {
             </p>
           </aside>
         </div>
-      </div>
 
-      <div className="raj-fade absolute bottom-6 left-1/2 -translate-x-1/2 z-10" style={{ animationDelay: "1.5s", animationDuration: "1s" }}>
-        <div className="w-px h-10 animate-float-slow" style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }} />
+        {/* ===================== DESKTOP: Die Objekte — kompakte Reihe im Hero ===================== */}
+        <div className="raj-rise mt-12" style={{ animationDelay: "1.1s", animationDuration: "1.2s" }}>
+          <div className="flex items-center gap-4 mb-5">
+            <span className="text-[9px] uppercase font-light" style={{ color: GOLD, letterSpacing: "0.5em" }}>
+              Kollektion 2026
+            </span>
+            <span className="h-px flex-1" style={{ background: "rgba(255,255,255,0.1)" }} />
+            <span className="text-[9px] uppercase font-light italic" style={{ color: "rgba(245,245,240,0.5)", letterSpacing: "0.3em" }}>
+              Die Objekte
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-5">
+            {/* NEXUS */}
+            <Link
+              to="/nexus"
+              className="group flex items-center gap-4 p-4 rounded-md transition-colors duration-500"
+              style={{ background: "rgba(10,9,8,0.55)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)" }}
+            >
+              <div className="relative w-20 shrink-0 overflow-hidden rounded-sm">
+                <img src={nexusObjektImg} alt="RAJ NEXUS 3-in-1 Wireless Charger" width={1200} height={1200} loading="lazy" decoding="async" className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="inline-flex items-center gap-1.5 text-[8px] uppercase font-medium" style={{ letterSpacing: "0.25em", color: "#f5f5f0" }}>
+                  <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: GOLD_SOFT }} />
+                  Verfügbar
+                </span>
+                <h3 className="text-lg font-light text-white mt-1" style={{ letterSpacing: "0.14em" }}>NEXUS</h3>
+                <p className="text-[11px] font-light truncate" style={{ color: "rgba(245,245,240,0.45)" }}>3-in-1 Qi2.2 Wireless Charger</p>
+                <div className="mt-2 flex items-center gap-3">
+                  <span className="text-sm font-extralight" style={{ color: GOLD_SOFT }}>CHF 99.–</span>
+                  <span
+                    className="inline-flex items-center gap-1 py-1.5 px-4 rounded-full text-[8px] uppercase font-bold transition-transform duration-300 group-hover:scale-[1.04]"
+                    style={{ background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: "0.2em", boxShadow: `0 8px 20px -8px ${GOLD}aa` }}
+                  >
+                    Kaufen →
+                  </span>
+                </div>
+              </div>
+            </Link>
+            {/* MATRIX */}
+            <Link
+              to="/matrix"
+              className="group flex items-center gap-4 p-4 rounded-md transition-colors duration-500"
+              style={{ background: "rgba(10,9,8,0.55)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)" }}
+            >
+              <div className="relative w-20 shrink-0 overflow-hidden rounded-sm">
+                <img src={matrixImg} alt="RAJ MATRIX Aramid Case in Cherry Carbon" width={768} height={1024} loading="lazy" decoding="async" className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]" />
+                <div className="absolute -bottom-1 -right-1 w-9 h-9 rounded-full overflow-hidden" style={{ border: `1px solid ${GOLD_SOFT}88`, boxShadow: "0 6px 16px -6px rgba(0,0,0,0.55)" }}>
+                  <img src={airpodsRender} alt="RAJ MATRIX AirPods 4 Case" width={96} height={96} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="text-[8px] uppercase font-medium italic" style={{ letterSpacing: "0.25em", color: "#f0d9b8" }}>
+                  Als Nächstes
+                </span>
+                <h3 className="text-lg font-light text-white mt-1" style={{ letterSpacing: "0.14em" }}>MATRIX</h3>
+                <p className="text-[11px] font-light truncate" style={{ color: "rgba(245,245,240,0.45)" }}>Aramid-Cases für iPhone & AirPods</p>
+                <span className="mt-2 inline-flex items-center gap-1.5 text-[8px] uppercase font-medium" style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}>
+                  Vorschau
+                  <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </div>
+            </Link>
+            {/* APEX */}
+            <Link
+              to="/apex"
+              className="group flex items-center gap-4 p-4 rounded-md transition-colors duration-500"
+              style={{ background: "rgba(10,9,8,0.55)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(14px)", WebkitBackdropFilter: "blur(14px)" }}
+            >
+              <div className="relative w-20 shrink-0 overflow-hidden rounded-sm">
+                <img src={apexImg} alt="RAJ APEX MagSafe Auto-Ladehalterung" width={768} height={1024} loading="lazy" decoding="async" className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <span className="text-[8px] uppercase font-medium" style={{ letterSpacing: "0.25em", color: "#f5f5f0" }}>
+                  Early Access
+                </span>
+                <h3 className="text-lg font-light text-white mt-1" style={{ letterSpacing: "0.14em" }}>APEX</h3>
+                <p className="text-[11px] font-light truncate" style={{ color: "rgba(245,245,240,0.45)" }}>MagSafe Auto-Ladehalterung</p>
+                <span className="mt-2 inline-flex items-center gap-1.5 text-[8px] uppercase font-medium" style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "0.25em" }}>
+                  Entdecken
+                  <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
     </>
