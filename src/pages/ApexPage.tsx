@@ -249,11 +249,68 @@ const ApexPage = () => {
 
       <main style={{ background: "#FFFFFF", color: H.text }}>
         {/* HERO */}
-        <section className="pt-[86px] md:pt-[64px] pb-10 md:pb-16">
-          <div className="mx-auto max-w-6xl px-5">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-center">
-              {/* LEFT — content */}
-              <div className="order-2 md:order-1">
+        <section className="pt-[86px] md:pt-[72px] pb-12 md:pb-20">
+          <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+              {/* LEFT — image (sticky on desktop) */}
+              <div className="relative order-1 lg:col-span-6 mx-auto w-full max-w-[340px] sm:max-w-[420px] lg:max-w-none lg:sticky lg:top-24">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={variant.id}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.25 }}
+                    className="relative rounded-2xl md:rounded-[28px] overflow-hidden"
+                    style={{
+                      background: "linear-gradient(180deg, #FAF9F7 0%, #FFFFFF 100%)",
+                      border: `1px solid ${H.border}`,
+                      aspectRatio: "1 / 1",
+                    }}
+                  >
+                    <img
+                      src={variant.img900}
+                      srcSet={`${variant.img480} 480w, ${variant.img900} 900w, ${variant.img1400} 1400w`}
+                      sizes="(max-width: 1024px) 90vw, 46vw"
+                      alt={`${variant.name} — MagSafe Auto-Ladehalterung`}
+                      width={900}
+                      height={900}
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                      className="w-full h-full object-contain p-5 md:p-10"
+                    />
+                    <div className="absolute bottom-3 left-3 md:bottom-5 md:left-5">
+                      <Qi2CertifiedBadge size={32} variant="dark" />
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Variant thumbs — desktop */}
+                <div className="hidden lg:flex gap-3 mt-4">
+                  {APEX_VARIANTS.map((v) => {
+                    const active = v.id === selected;
+                    return (
+                      <button
+                        key={v.id}
+                        onClick={() => setSelected(v.id)}
+                        aria-label={v.name}
+                        className="w-20 h-20 rounded-2xl overflow-hidden transition-all"
+                        style={{
+                          border: active ? `1.5px solid ${H.gold}` : `1px solid ${H.border}`,
+                          background: "#FAF9F7",
+                          opacity: active ? 1 : 0.65,
+                        }}
+                      >
+                        <img src={v.img480} alt="" className="w-full h-full object-contain p-1.5" loading="lazy" />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* RIGHT — content */}
+              <div className="order-2 lg:col-span-6">
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] mb-5" style={{ color: H.gold }}>
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-70" style={{ background: H.goldLight }} />
@@ -262,25 +319,25 @@ const ApexPage = () => {
                   Bald verfügbar — Early Access
                 </div>
 
-                <h1 className="font-bold leading-[0.95] mb-3" style={{ fontSize: "clamp(2.4rem, 6vw, 4.2rem)", letterSpacing: "-0.02em" }}>
+                <h1 className="font-bold leading-[0.95] mb-3" style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}>
                   RAJ <span style={{ background: `linear-gradient(90deg, ${H.gold}, ${H.goldLight})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>APEX</span>
                 </h1>
 
-                <p className="text-lg md:text-xl mb-6" style={{ color: H.textMuted }}>
+                <p className="text-lg md:text-xl mb-7" style={{ color: H.textMuted }}>
                   Dein iPhone. Sicher am Ort.<br />Egal welches Auto.
                 </p>
 
                 {/* Variant selector */}
-                <div className="flex gap-3 mb-5">
+                <div className="grid grid-cols-2 gap-3 mb-5">
                   {APEX_VARIANTS.map((v) => {
                     const active = v.id === selected;
                     return (
                       <button
                         key={v.id}
                         onClick={() => setSelected(v.id)}
-                        className="flex-1 text-left transition-all"
+                        className="text-left transition-all"
                         style={{
-                          padding: "12px 16px",
+                          padding: "14px 16px",
                           borderRadius: 14,
                           border: active ? `1.5px solid ${H.gold}` : `1px solid ${H.border}`,
                           background: active ? "rgba(155,107,63,.06)" : "#FFFFFF",
@@ -290,7 +347,8 @@ const ApexPage = () => {
                         <div className="flex items-center gap-2 font-semibold text-sm" style={{ color: H.text }}>
                           {v.icon} {v.name}
                         </div>
-                        <div className="text-xs mt-1" style={{ color: H.textMuted }}>{v.tagline}</div>
+                        <div className="text-xs mt-1 leading-snug" style={{ color: H.textMuted }}>{v.tagline}</div>
+                        <div className="text-xs mt-2 font-semibold" style={{ color: H.gold }}>CHF {v.price}.–</div>
                       </button>
                     );
                   })}
@@ -305,34 +363,36 @@ const ApexPage = () => {
                   ))}
                 </div>
 
-                <p className="text-sm mb-6" style={{ color: H.textMuted }}>
+                <p className="text-sm leading-relaxed mb-7" style={{ color: H.textMuted }}>
                   Jede APEX kommt komplett im Lieferumfang: <strong>Saugmontage</strong> (Armaturenbrett & Scheibe, 360° drehbar), <strong>Lüftungsclip mit Schnellverschluss</strong>, <strong>USB-C Kabel</strong> und <strong>Kfz-Ladeadapter</strong>. MagSafe-Halt, aktive Kühlung und bis zu 25W kabelloses Laden — für jedes Auto, jede Situation.
                 </p>
 
-                {/* Preis */}
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span className="text-2xl md:text-3xl font-bold" style={{ color: H.text }}>
-                    Early Access CHF {variant.price}.–
-                  </span>
-                  <span className="text-sm line-through" style={{ color: H.textMuted }}>
-                    CHF {variant.compareAt}.–
-                  </span>
+                {/* Preis + Warteliste */}
+                <div className="rounded-2xl border p-5" style={{ borderColor: H.border, background: "#FAF9F7" }}>
+                  <div className="flex items-baseline gap-3 mb-4">
+                    <span className="text-2xl md:text-3xl font-bold" style={{ color: H.text }}>
+                      Early Access CHF {variant.price}.–
+                    </span>
+                    <span className="text-sm line-through" style={{ color: H.textMuted }}>
+                      CHF {variant.compareAt}.–
+                    </span>
+                  </div>
+
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={variant.id}
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <WaitlistForm variant={variant} />
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={variant.id}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <WaitlistForm variant={variant} />
-                  </motion.div>
-                </AnimatePresence>
-
                 {/* Trust badges */}
-                <div className="flex flex-wrap gap-4 mt-6 text-xs" style={{ color: H.textMuted }}>
+                <div className="flex flex-wrap gap-x-5 gap-y-3 mt-6 text-xs" style={{ color: H.textMuted }}>
                   {[
                     { i: <RotateCcw className="w-3.5 h-3.5" />, t: "30 Tage Rückgabe" },
                     { i: <img src={logoTransparent} alt="" className="w-4 h-4 object-contain" />, t: "Swiss Brand" },
@@ -344,44 +404,30 @@ const ApexPage = () => {
                   ))}
                 </div>
               </div>
-
-              {/* RIGHT — image */}
-              <div className="relative order-1 md:order-2 mx-auto w-full max-w-[280px] md:max-w-none">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={variant.id}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.25 }}
-                    className="relative rounded-2xl md:rounded-3xl overflow-hidden"
-                    style={{
-                      background: "linear-gradient(180deg, #FAF9F7 0%, #FFFFFF 100%)",
-                      border: `1px solid ${H.border}`,
-                      aspectRatio: "1 / 1",
-                    }}
-                  >
-                    <img
-                      src={variant.img900}
-                      srcSet={`${variant.img480} 480w, ${variant.img900} 900w, ${variant.img1400} 1400w`}
-                      sizes="(max-width: 768px) 280px, 44vw"
-                      alt={`${variant.name} — MagSafe Auto-Ladehalterung`}
-                      width={900}
-                      height={900}
-                      loading="eager"
-                      fetchPriority="high"
-                      decoding="async"
-                      className="w-full h-full object-contain p-4 md:p-6"
-                    />
-                    <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4">
-                      <Qi2CertifiedBadge size={32} variant="dark" />
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
             </div>
           </div>
         </section>
+
+        {/* SPECS / ÜBERSICHT */}
+        <section className="py-14 md:py-20 border-t" style={{ borderColor: H.border }}>
+          <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8" style={{ color: H.text }}>Auf einen Blick</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { t: "Qi2 · bis 25 W", d: "Kabelloses Schnellladen mit magnetischer MagSafe-Ausrichtung." },
+                { t: "Zwei Montagen", d: "Saugmontage für Armaturenbrett & Scheibe plus Lüftungsclip." },
+                { t: "Aktive Kühlung", d: "Leiser Lüfter hält die Ladeleistung auch im Sommer stabil." },
+                { t: "iPhone 12–17", d: "Kompatibel inkl. Pro & Pro Max und offiziellen MagSafe-Hüllen." },
+              ].map((s) => (
+                <div key={s.t} className="rounded-2xl border p-5 h-full" style={{ borderColor: H.border, background: "#FAF9F7" }}>
+                  <div className="font-semibold mb-1.5" style={{ color: H.text }}>{s.t}</div>
+                  <p className="text-sm leading-relaxed" style={{ color: H.textMuted }}>{s.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* FAQ */}
         <section className="py-16 border-t" style={{ borderColor: H.border, background: "#FAF9F7" }}>
