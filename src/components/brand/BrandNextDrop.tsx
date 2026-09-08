@@ -20,7 +20,7 @@ const BrandNextDrop = () => {
 
   return (
     <section
-      className="relative pt-10 md:pt-0 pb-20 md:pb-28 mt-0 md:-mt-36 lg:-mt-44 z-20 overflow-hidden"
+      className="relative pt-10 md:pt-0 pb-12 md:pb-16 mt-0 md:-mt-48 lg:-mt-[200px] z-20 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #0a0908 0%, #121009 100%)" }}
     >
       <div className="container mx-auto px-6 sm:px-10 max-w-[1240px] relative z-10">
