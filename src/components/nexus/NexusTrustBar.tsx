@@ -86,18 +86,19 @@ export default function NexusTrustBar() {
       />
 
       {/* MOBILE: static row — avoids Samsung Browser compositing glitches on pull-to-refresh. */}
-      <div className="sm:hidden grid grid-cols-3 items-center" style={{ padding: "9px 8px", gap: 4 }}>
+      <div className="sm:hidden grid grid-cols-3 items-center" style={{ padding: "8px 6px", gap: 2 }}>
         {items.map(({ Icon, label }) => (
-          <div key={label} className="flex items-center justify-center min-w-0" style={{ gap: 5 }}>
-            <Icon size={14} />
+          <div key={label} className="flex items-center justify-center min-w-0" style={{ gap: 4 }}>
+            <span className="shrink-0"><Icon size={13} /></span>
             <span
+              className="min-w-0 text-center"
               style={{
-                fontSize: 9.5,
+                fontSize: "clamp(7.5px, 2.35vw, 9.5px)",
                 color: BEIGE,
                 fontWeight: 600,
-                letterSpacing: ".04em",
+                letterSpacing: ".02em",
+                lineHeight: 1.15,
                 textTransform: "uppercase",
-                whiteSpace: "nowrap",
               }}
             >
               {label}

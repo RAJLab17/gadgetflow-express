@@ -185,21 +185,21 @@ const WaitlistForm = ({ variant }: { variant: ApexVariant }) => {
   return (
     <form onSubmit={submit} className="space-y-2">
       <input type="text" value={hp} onChange={(e) => setHp(e.target.value)} tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px" }} aria-hidden />
-      <div className="flex items-center gap-2 rounded-2xl border p-1 pl-3" style={{ borderColor: H.border, background: "#FFFFFF" }}>
-        <Mail className="w-4 h-4" style={{ color: H.textMuted }} />
+      <div className="flex w-full min-w-0 items-center gap-2 rounded-2xl border p-1 pl-3" style={{ borderColor: H.border, background: "#FFFFFF" }}>
+        <Mail className="w-4 h-4 shrink-0" style={{ color: H.textMuted }} />
         <input
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="deine@email.ch"
-          className="flex-1 bg-transparent outline-none px-1 py-3 text-sm"
+          className="flex-1 min-w-0 w-full bg-transparent outline-none px-1 py-3 text-sm"
           style={{ color: H.text }}
         />
         <button
           type="submit"
           disabled={busy}
-          className="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-transform active:scale-95"
+          className="inline-flex shrink-0 items-center gap-2 rounded-xl px-3 sm:px-4 py-2.5 text-sm font-semibold transition-transform active:scale-95"
           style={{ background: H.gold, color: "white" }}
         >
           {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : (<>Vormerken <ArrowRight className="w-4 h-4" /></>)}
@@ -244,8 +244,7 @@ const ApexPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
 
-      <Header />
-      <NexusTrustBar />
+      <Header topSlot={<NexusTrustBar />} />
 
       <main style={{ background: "#FFFFFF", color: H.text }}>
         {/* HERO */}
@@ -253,7 +252,7 @@ const ApexPage = () => {
           <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
               {/* LEFT — image (sticky on desktop) */}
-              <div className="relative order-1 lg:col-span-6 mx-auto w-full max-w-[340px] sm:max-w-[420px] lg:max-w-none lg:sticky lg:top-24">
+              <div className="relative order-1 lg:col-span-6 min-w-0 mx-auto w-full max-w-[340px] sm:max-w-[420px] lg:max-w-none lg:sticky lg:top-24">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={variant.id}
@@ -310,7 +309,7 @@ const ApexPage = () => {
               </div>
 
               {/* RIGHT — content */}
-              <div className="order-2 lg:col-span-6">
+              <div className="order-2 lg:col-span-6 min-w-0">
                 <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] mb-5" style={{ color: H.gold }}>
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-70" style={{ background: H.goldLight }} />
@@ -328,14 +327,14 @@ const ApexPage = () => {
                 </p>
 
                 {/* Variant selector */}
-                <div className="grid grid-cols-2 gap-3 mb-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
                   {APEX_VARIANTS.map((v) => {
                     const active = v.id === selected;
                     return (
                       <button
                         key={v.id}
                         onClick={() => setSelected(v.id)}
-                        className="text-left transition-all"
+                        className="text-left transition-all min-w-0"
                         style={{
                           padding: "14px 16px",
                           borderRadius: 14,
@@ -369,8 +368,8 @@ const ApexPage = () => {
 
                 {/* Preis + Warteliste */}
                 <div className="rounded-2xl border p-5" style={{ borderColor: H.border, background: "#FAF9F7" }}>
-                  <div className="flex items-baseline gap-3 mb-4">
-                    <span className="text-2xl md:text-3xl font-bold" style={{ color: H.text }}>
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4">
+                    <span className="text-xl sm:text-2xl md:text-3xl font-bold" style={{ color: H.text }}>
                       Early Access CHF {variant.price}.–
                     </span>
                     <span className="text-sm line-through" style={{ color: H.textMuted }}>
