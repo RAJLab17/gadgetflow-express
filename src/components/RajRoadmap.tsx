@@ -1,382 +1,171 @@
+import { ArrowUpRight, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Lock, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useReveal } from "@/lib/reveal";
-import nexusLifestyle from "@/assets/lifestyle-laptop-clean.webp";
-import { useState, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import nexusImage from "@/assets/home/objekt-nexus.jpg";
+import matrixImage from "@/assets/home/objekt-matrix-premium.webp";
+import apexImage from "@/assets/home/objekt-apex-correct.jpg";
 
 type Milestone = {
   name: string;
-  taglineKey: string;
-  status: "unlocked" | "next" | "locked";
+  status: "available" | "next" | "early" | "locked";
   etaKey: string;
   href?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 const milestones: Milestone[] = [
-  { name: "RAJ NEXUS",  taglineKey: "brand.road.tagline.nexus",  status: "unlocked", etaKey: "brand.road.eta.now",  href: "/nexus" },
-  { name: "RAJ MATRIX", taglineKey: "brand.road.tagline.matrix", status: "next",     etaKey: "brand.road.eta.2026", href: "/matrix" },
-  { name: "RAJ AURORA", taglineKey: "brand.road.tagline.aurora", status: "locked",   etaKey: "brand.road.eta.2026" },
-  { name: "RAJ APEX",  taglineKey: "brand.road.tagline.drive",  status: "locked",   etaKey: "brand.road.eta.2027" },
-  { name: "RAJ ATLAS",  taglineKey: "brand.road.tagline.nomad",  status: "locked",   etaKey: "brand.road.eta.2027" },
-  { name: "RAJ ATELIER", taglineKey: "brand.road.tagline.studio", status: "locked",   etaKey: "brand.road.eta.2027" },
-  { name: "RAJ ELITE",  taglineKey: "brand.road.tagline.elite",  status: "locked",   etaKey: "brand.road.eta.soon" },
+  {
+    name: "RAJ NEXUS",
+    status: "available",
+    etaKey: "brand.road.eta.now",
+    href: "/nexus",
+    image: nexusImage,
+    imageAlt: "RAJ NEXUS 3-in-1 Wireless Charger",
+  },
+  {
+    name: "RAJ MATRIX",
+    status: "next",
+    etaKey: "brand.road.eta.2026",
+    href: "/matrix",
+    image: matrixImage,
+    imageAlt: "RAJ MATRIX Carbon-Case in Cherry Carbon",
+  },
+  {
+    name: "RAJ APEX",
+    status: "early",
+    etaKey: "brand.road.eta.2027",
+    href: "/apex",
+    image: apexImage,
+    imageAlt: "RAJ APEX MagSafe Auto-Ladehalterung",
+  },
+  { name: "RAJ AURORA", status: "locked", etaKey: "brand.road.eta.2026" },
+  { name: "RAJ ATLAS", status: "locked", etaKey: "brand.road.eta.2027" },
+  { name: "RAJ ATELIER", status: "locked", etaKey: "brand.road.eta.2027" },
+  { name: "RAJ ELITE", status: "locked", etaKey: "brand.road.eta.soon" },
 ];
 
-const GOLD = "#9b6b3f";
-const GOLD_SOFT = "#c8946b";
+const statusLabel = (status: Milestone["status"], availableLabel: string) => {
+  if (status === "available") return availableLabel;
+  if (status === "next") return "Als Nächstes";
+  if (status === "early") return "Early Access";
+  return null;
+};
 
-const Card = ({ m, index }: { m: Milestone; index: number }) => {
+const CollectionCard = ({ milestone, index }: { milestone: Milestone; index: number }) => {
   const { t } = useLanguage();
-  const isUnlocked = m.status === "unlocked";
-  const isNext = m.status === "next";
-  const isLinked = (isUnlocked || isNext) && m.href;
-  const ref = useReveal<HTMLDivElement>({ rootMargin: "-50px" });
-
-  const inner = (
-    <div
-      ref={ref}
-      className="reveal group relative h-full snap-center shrink-0 w-[78vw] sm:w-[46vw] md:w-auto md:shrink transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.03]"
-      style={{ transitionDelay: `${index * 70}ms` }}
+  const label = statusLabel(milestone.status, t("brand.road.unlocked"));
+  const isAvailable = milestone.status === "available";
+  const content = (
+    <article
+      className={`group relative h-[330px] min-w-[210px] overflow-hidden rounded-md border bg-card transition-all duration-500 md:min-w-0 ${
+        isAvailable
+          ? "border-primary/70 shadow-[0_18px_60px_-30px_hsl(var(--primary)/0.8)]"
+          : "border-border hover:border-primary/50"
+      }`}
     >
-      <div
-        className={`relative h-full rounded-2xl overflow-hidden transition-all duration-500 ${
-          isUnlocked
-            ? "border border-[#9b6b3f]/70 shadow-[0_0_60px_-15px_rgba(155,107,63,0.55)] group-hover:shadow-[0_0_80px_-10px_rgba(155,107,63,0.85)] group-hover:border-[#9b6b3f]"
-            : "border border-white/15 group-hover:border-[#9b6b3f]/60 group-hover:shadow-[0_0_60px_-20px_rgba(155,107,63,0.5)]"
-        }`}
-        style={{
-          background: isUnlocked
-            ? "linear-gradient(165deg, #2a2320 0%, #161310 60%, #100e0c 100%)"
-            : "linear-gradient(165deg, #242220 0%, #17150f 100%)",
-          minHeight: "320px",
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(115deg, transparent 30%, rgba(200,148,107,0.08) 50%, transparent 70%)",
-            backgroundSize: "200% 100%",
-            animation: "shimmer 2.5s linear infinite",
-          }}
-        />
+      {milestone.image && (
+        <>
+          <img
+            src={milestone.image}
+            alt={milestone.imageAlt ?? ""}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/95" />
+        </>
+      )}
 
-        {isUnlocked && (
-          <>
-            <div
-              className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-55 group-hover:opacity-70 transition-opacity duration-700"
-              style={{ backgroundImage: `url(${nexusLifestyle})` }}
-            />
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.7) 55%, rgba(10,10,10,0.95) 100%)",
-              }}
-            />
-            <div
-              className="absolute inset-0 opacity-40 pointer-events-none animate-pulse"
-              style={{ background: `radial-gradient(circle at 50% 100%, ${GOLD}40, transparent 65%)` }}
-            />
-          </>
-        )}
-
-        <div className="relative z-10 flex flex-col justify-between h-full p-7 sm:p-8" style={{ minHeight: "320px" }}>
-          <div className="flex items-start justify-between">
+      <div className="relative z-10 flex h-full flex-col justify-between p-5">
+        <div className="flex items-start justify-between gap-3">
+          <span className="text-[10px] font-medium text-muted-foreground">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          {label ? (
             <span
-              className="text-[10px] font-light"
-              style={{
-                color: isUnlocked ? GOLD_SOFT : "rgba(255,255,255,0.55)",
-                letterSpacing: "0.3em",
-              }}
+              className={`inline-flex min-h-6 items-center rounded-full border px-2.5 text-[9px] font-semibold uppercase ${
+                isAvailable
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-primary/55 bg-background/65 text-primary backdrop-blur-md"
+              }`}
             >
-              {String(index + 1).padStart(2, "0")}
+              {label}
             </span>
-            {isUnlocked ? (
-              <span
-                className="inline-flex items-center gap-1.5 text-[9px] font-medium uppercase px-2.5 py-1 rounded-full"
-                style={{ letterSpacing: "0.25em", color: "#0a0a0a", background: GOLD }}
-              >
-                <span className="w-1 h-1 rounded-full bg-black/70 animate-pulse" />
-                {t("brand.road.unlocked")}
-              </span>
-            ) : isNext ? (
-              <span
-                className="inline-flex items-center gap-1.5 text-[9px] font-medium uppercase px-2.5 py-1 rounded-full"
-                style={{ letterSpacing: "0.25em", color: GOLD_SOFT, border: `1px solid ${GOLD_SOFT}80`, background: "rgba(200,148,107,0.08)" }}
-              >
-                <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: GOLD_SOFT }} />
-                Als Nächstes
-              </span>
-            ) : (
-              <Lock className="w-3.5 h-3.5" style={{ color: GOLD_SOFT, opacity: 0.85 }} />
-            )}
-          </div>
+          ) : (
+            <Lock className="h-3.5 w-3.5 text-primary/75" aria-label="Noch nicht verfügbar" />
+          )}
+        </div>
 
-          <div>
-            <h3
-              className={`text-xl sm:text-2xl font-extralight mb-3 transition-colors duration-500 ${
-                isUnlocked ? "text-white" : "text-white/90 group-hover:text-white"
-              }`}
-              style={{ letterSpacing: "0.18em" }}
-            >
-              {m.name}
-            </h3>
-            <p
-              className={`text-sm font-light italic mb-6 transition-colors duration-500 ${
-                isUnlocked ? "text-white/80" : "text-white/65 group-hover:text-white/80"
-              }`}
-              style={{ letterSpacing: "0.02em" }}
-            >
-              {t(m.taglineKey)}
-            </p>
-            <div className="flex items-center justify-between">
-              <p
-                className="text-[10px] font-light uppercase"
-                style={{
-                  color: isUnlocked ? GOLD_SOFT : "rgba(200,148,107,0.75)",
-                  letterSpacing: "0.25em",
-                }}
-              >
-                {t(m.etaKey)}
-              </p>
-              {isLinked && (
-                <ArrowUpRight
-                  className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
-                  style={{ color: GOLD }}
-                />
-              )}
-            </div>
+        <div>
+          <h3 className="max-w-[8ch] text-[19px] font-normal leading-[1.28] text-foreground">
+            {milestone.name.replace("RAJ ", "RAJ\n").split("\n").map((line, lineIndex) => (
+              <span key={line} className="block">
+                {lineIndex === 0 ? line : line}
+              </span>
+            ))}
+          </h3>
+          {isAvailable && (
+            <p className="mt-2 font-serif text-sm italic text-foreground/80">Hier beginnt es.</p>
+          )}
+          <div className="mt-7 flex items-end justify-between gap-2">
+            <span className="text-[9px] font-semibold uppercase text-primary">{t(milestone.etaKey)}</span>
+            {milestone.href && (
+              <ArrowUpRight className="h-3.5 w-3.5 text-primary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 
-  if (isLinked) {
-    return (
-      <Link to={m.href} aria-label={`${m.name} — ${t(m.etaKey)}`} className="block h-full">
-        {inner}
-      </Link>
-    );
-  }
-  return <div aria-disabled className="h-full">{inner}</div>;
-};
-
-const CoverflowCarousel = ({ milestones }: { milestones: Milestone[] }) => {
-  const [active, setActive] = useState(0);
-  const startX = useRef<number | null>(null);
-  const len = milestones.length;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    startX.current = e.touches[0].clientX;
-  };
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (startX.current === null) return;
-    const dx = e.changedTouches[0].clientX - startX.current;
-    if (Math.abs(dx) > 40) {
-      setActive((p) => (dx < 0 ? (p + 1) % len : (p - 1 + len) % len));
-    }
-    startX.current = null;
-  };
-
-  const getOffset = (i: number) => {
-    let d = i - active;
-    if (d > len / 2) d -= len;
-    if (d < -len / 2) d += len;
-    return d;
-  };
-
-  return (
-    <div
-      className="relative h-[420px] w-full overflow-hidden"
-      style={{ perspective: "1200px" }}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
-      <div
-        className="relative w-full h-full"
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {milestones.map((m, i) => {
-          const offset = getOffset(i);
-          const abs = Math.abs(offset);
-          if (abs > 2) {
-            return null;
-          }
-          const translateX = offset * 55;
-          const rotateY = offset * -40;
-          const scale = abs === 0 ? 1 : abs === 1 ? 0.75 : 0.5;
-          const opacity = abs === 0 ? 1 : abs === 1 ? 0.6 : 0.3;
-          const z = 100 - abs * 10;
-
-          return (
-            <div
-              key={m.name}
-              onClick={() => setActive(i)}
-              className="absolute top-1/2 left-1/2 w-[70vw] max-w-[320px] transition-all duration-500 ease-out"
-              style={{
-                transform: `translate(-50%, -50%) translateX(${translateX}%) rotateY(${rotateY}deg) scale(${scale})`,
-                opacity,
-                zIndex: z,
-                transformStyle: "preserve-3d",
-              }}
-            >
-              <Card m={m} index={i} />
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Dots */}
-      <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-2 z-50">
-        {milestones.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className="w-1.5 h-1.5 rounded-full transition-all"
-            style={{
-              background: i === active ? GOLD : "rgba(255,255,255,0.25)",
-              transform: i === active ? "scale(1.4)" : "scale(1)",
-            }}
-          />
-        ))}
-      </div>
-    </div>
+  return milestone.href ? (
+    <Link to={milestone.href} aria-label={`${milestone.name} — ${t(milestone.etaKey)}`}>
+      {content}
+    </Link>
+  ) : (
+    <div aria-disabled="true">{content}</div>
   );
 };
 
 const RajRoadmap = () => {
   const { t } = useLanguage();
+
   return (
-    <section
-      id="ecosystem"
-      className="relative py-24 sm:py-32 md:py-40 overflow-hidden scroll-mt-24"
-      style={{
-        background:
-          "linear-gradient(180deg, #050505 0%, #0a0a0a 40%, #14100d 100%)",
-      }}
-    >
-      {/* Ambient gold glow */}
-      <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full pointer-events-none opacity-30 animate-blob-a"
-        style={{
-          background: `radial-gradient(circle, ${GOLD}25, transparent 60%)`,
-          filter: "blur(80px)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none opacity-20 animate-blob-b"
-        style={{
-          background: `radial-gradient(circle, ${GOLD}30, transparent 70%)`,
-          filter: "blur(100px)",
-        }}
-      />
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Header */}
-        <div className="max-w-4xl mb-16 sm:mb-24">
-          <p
-            className="raj-rise-sm text-[10px] sm:text-xs font-light uppercase mb-6"
-            style={{ color: GOLD, letterSpacing: "0.5em" }}
-          >
-            {t("brand.road.eyebrow")}
+    <section id="ecosystem" className="dark relative overflow-hidden bg-background py-20 text-foreground scroll-mt-24 md:py-28">
+      <div className="mx-auto max-w-[1500px] px-6 sm:px-10">
+        <div className="mb-10 flex flex-col gap-5 border-b border-border pb-6 md:mb-12 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-4 text-[10px] font-semibold uppercase text-primary">{t("brand.road.eyebrow")}</p>
+            <h2 className="max-w-2xl text-3xl font-normal leading-tight text-foreground sm:text-4xl md:text-5xl">
+              {t("brand.road.headline.l1")} <span className="font-serif italic text-primary">{t("brand.road.headline.l2")}</span>
+            </h2>
+          </div>
+          <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+            Von heute bis morgen. Eine Kollektion, die mit jedem Objekt weiterwächst.
           </p>
-          <h2
-            className="raj-rise text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extralight text-white mb-8 leading-[0.95]"
-            style={{ letterSpacing: "-0.02em", animationDelay: "100ms" }}
-          >
-            {t("brand.road.headline.l1")}{" "}
-            <span className="italic font-thin" style={{ color: GOLD_SOFT }}>
-              {t("brand.road.headline.l2")}
-            </span>
-          </h2>
         </div>
 
-        {/* Mobile: 3D coverflow carousel */}
-        <div className="md:hidden">
-          <CoverflowCarousel milestones={milestones} />
-        </div>
-
-        {/* Desktop: grid */}
-        <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-5">
-          {milestones.map((m, i) => (
-            <Card key={m.name} m={m} index={i} />
-          ))}
-        </div>
-
-        {/* Progress line */}
-        <div className="raj-fade hidden md:block mt-16 px-2" style={{ animationDelay: "400ms", animationDuration: "1s" }}>
-          <div className="relative">
-            <div
-              className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(155,107,63,0.8) 0%, rgba(155,107,63,0.15) 14%, rgba(255,255,255,0.06) 100%)",
-              }}
-            />
-            <div className="relative grid grid-cols-7 gap-5">
-              {milestones.map((m, i) => (
-                <div key={m.name} className="flex justify-center">
-                  <div
-                    className="reveal-scale reveal-in relative"
-                    style={{ transitionDelay: `${500 + i * 80}ms` }}
-                  >
-                    {i === 0 && (
-                      <span
-                        className="absolute inset-0 rounded-full animate-ping"
-                        style={{ background: GOLD, opacity: 0.5 }}
-                      />
-                    )}
-                    <span
-                      className="relative block w-2.5 h-2.5 rounded-full"
-                      style={{
-                        background: i === 0 ? GOLD : "#2a2520",
-                        boxShadow: i === 0 ? `0 0 16px ${GOLD}` : "none",
-                        border: i === 0 ? "none" : "1px solid rgba(255,255,255,0.1)",
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="scrollbar-hide -mx-6 overflow-x-auto px-6 pb-4 sm:-mx-10 sm:px-10 xl:mx-0 xl:overflow-visible xl:px-0">
+          <div className="grid w-max grid-cols-7 gap-4 xl:w-full">
+            {milestones.map((milestone, index) => (
+              <CollectionCard key={milestone.name} milestone={milestone} index={index} />
+            ))}
           </div>
         </div>
 
-        {/* Scarcity line */}
-        <div className="raj-rise-sm mt-20 sm:mt-28 text-center max-w-2xl mx-auto" style={{ animationDelay: "300ms" }}>
-          <div className="w-12 h-px mx-auto mb-8" style={{ background: GOLD }} />
-          <p
-            className="text-base sm:text-lg md:text-xl font-extralight text-white/80 leading-relaxed"
-            style={{ letterSpacing: "0.02em" }}
-          >
-            {t("brand.road.scarcity.l1")}{" "}
-            <span style={{ color: GOLD_SOFT }} className="italic">
-              RAJ NEXUS
-            </span>
-            .
-            <br />
-            <span className="text-white/45">{t("brand.road.scarcity.l2")}</span>
+        <div className="mt-10 flex flex-col gap-7 border-t border-border pt-7 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+            <span className="text-foreground">{t("brand.road.scarcity.l1")} RAJ NEXUS.</span>{" "}
+            {t("brand.road.scarcity.l2")}
           </p>
-
-          <Link
-            to="/nexus"
-            className="inline-flex items-center gap-3 mt-10 px-8 py-4 rounded-full transition-all duration-500 hover:gap-5 group"
-            style={{
-              background: GOLD,
-              color: "#0a0a0a",
-              letterSpacing: "0.25em",
-              fontSize: "11px",
-              fontWeight: 500,
-              textTransform: "uppercase",
-              boxShadow: `0 10px 40px -10px ${GOLD}`,
-            }}
-          >
-            {t("brand.road.cta")}
-            <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          <Button asChild size="sm" className="w-fit rounded-full px-6 text-[10px] uppercase">
+            <Link to="/nexus">
+              {t("brand.road.cta")}
+              <ArrowUpRight />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
