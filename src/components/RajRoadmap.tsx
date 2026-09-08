@@ -2,7 +2,6 @@ import { ArrowUpRight, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import nexusImage from "@/assets/home/objekt-nexus.jpg";
 import matrixImage from "@/assets/home/objekt-matrix-premium.webp";
 import apexImage from "@/assets/home/objekt-apex-correct.jpg";
 
@@ -21,7 +20,7 @@ const milestones: Milestone[] = [
     status: "available",
     etaKey: "brand.road.eta.now",
     href: "/nexus",
-    image: nexusImage,
+    image: "/assets/products/nexus-bedside-night.webp",
     imageAlt: "RAJ NEXUS 3-in-1 Wireless Charger",
   },
   {
