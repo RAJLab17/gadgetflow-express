@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import workshopDetail from "@/assets/about/workshop-detail.jpg";
 import precisionCraft from "@/assets/about/precision-craft.jpg";
-import thurgauMap from "@/assets/about-thurgau-clean.png";
+import thurgauMap from "@/assets/about-thurgau-clean.webp";
 import founderSignature from "@/assets/about/founder-signature.png";
 
 const L = {

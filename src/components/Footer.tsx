@@ -141,12 +141,19 @@ const Footer = () => {
           <div ref={navRef} className="reveal" style={{ transitionDelay: "100ms" }}>
             <h4 className="font-semibold mb-6 text-foreground">Navigation</h4>
             <ul className="space-y-3">
-              {["Produkt", "Über uns"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">{link}</a>
+              {[
+                { label: "RAJ NEXUS", href: "/nexus" },
+                { label: "RAJ MATRIX", href: "/matrix" },
+                { label: "RAJ APEX", href: "/apex" },
+                { label: "Alle Produkte", href: "/produkte" },
+                { label: "Über uns", href: "/about" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link to={link.href} className="text-muted-foreground hover:text-primary transition-colors">{link.label}</Link>
                 </li>
               ))}
             </ul>
+
           </div>
 
           <div ref={supportRef} className="reveal" style={{ transitionDelay: "200ms" }}>
@@ -155,11 +162,9 @@ const Footer = () => {
               <li><Link to="/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link to="/versand" className="text-muted-foreground hover:text-primary transition-colors">Versand & Rückgabe</Link></li>
               <li><Link to="/kontakt" className="text-muted-foreground hover:text-primary transition-colors">Kontakt</Link></li>
-              {["Manuals & Downloads"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">{link}</a>
-                </li>
-              ))}
+              <li><Link to="/dokumente" className="text-muted-foreground hover:text-primary transition-colors">Manuals & Downloads</Link></li>
+              <li><Link to="/reviews" className="text-muted-foreground hover:text-primary transition-colors">Bewertungen</Link></li>
+
             </ul>
           </div>
 

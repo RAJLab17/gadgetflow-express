@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import nexusAsset from "@/assets/products/nexus-transparent.webp.asset.json";
 import apexAsset from "@/assets/products/apex-transparent.webp.asset.json";
+import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
+
 
 const H = {
   bg: "#faf9f7",
@@ -51,6 +53,24 @@ const PRODUCTS: Product[] = [
   },
   {
     index: "02",
+    id: "matrix",
+    name: "MATRIX",
+    tagline: "Schutz mit Charakter.",
+    description:
+      "Carbon-Cases für iPhone und AirPods. Cherry Carbon oder Schwarz Carbon, goldene Knöpfe, MagSafe-kompatibel. Leicht, präzise, unverwechselbar.",
+    price: "ab CHF 49.–",
+    status: "Als Nächstes",
+    link: "/matrix",
+    img: matrixImg,
+    imgAlt: "RAJ MATRIX Carbon-Case für iPhone in Cherry Carbon",
+    specs: [
+      { label: "Material", value: "Carbon" },
+      { label: "Geräte", value: "iPhone 17/18 Pro · AirPods 4" },
+      { label: "Magnet", value: "MagSafe-kompatibel" },
+    ],
+  },
+  {
+    index: "03",
     id: "apex",
     name: "APEX",
     tagline: "Halt im Bewegten.",
@@ -68,6 +88,7 @@ const PRODUCTS: Product[] = [
     ],
   },
 ];
+
 
 const ITEM_LIST_JSON_LD = {
   "@context": "https://schema.org",
@@ -212,14 +233,14 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
 const ProduktePage = () => (
   <>
     <Helmet>
-      <title>Kollektion — NEXUS & APEX | RAJ</title>
+      <title>Kollektion — NEXUS, MATRIX & APEX | RAJ</title>
       <meta
         name="description"
-        content="Die RAJ Kollektion: NEXUS 3-in-1 Wireless Charger und APEX MagSafe Auto-Ladehalterung. Premium-Objekte, Swiss Brand, Qi2, 25 W."
+        content="Die RAJ Kollektion: NEXUS 3-in-1 Wireless Charger, MATRIX Carbon-Cases und APEX MagSafe Auto-Ladehalterung. Premium-Objekte, Swiss Brand."
       />
       <link rel="canonical" href="https://raj.ch/produkte" />
-      <meta property="og:title" content="Kollektion — NEXUS & APEX | RAJ" />
-      <meta property="og:description" content="Premium-Objekte mit Substanz: NEXUS und APEX." />
+      <meta property="og:title" content="Kollektion — NEXUS, MATRIX & APEX | RAJ" />
+      <meta property="og:description" content="Premium-Objekte mit Substanz: NEXUS, MATRIX und APEX." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://raj.ch/produkte" />
       <meta name="twitter:card" content="summary_large_image" />
