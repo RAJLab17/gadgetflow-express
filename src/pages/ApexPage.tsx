@@ -10,12 +10,12 @@ import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import { breadcrumbJsonLd } from "@/lib/schemas";
 import logoTransparent from "@/assets/logo-transparent.webp";
 
-import apexDash480 from "@/assets/products/apex-dash-480.webp.asset.json";
-import apexDash900 from "@/assets/products/apex-dash-900.webp.asset.json";
-import apexDash1400 from "@/assets/products/apex-dash-1400.webp.asset.json";
-import apexVent480 from "@/assets/products/apex-vent-480.webp.asset.json";
-import apexVent900 from "@/assets/products/apex-vent-900.webp.asset.json";
-import apexVent1400 from "@/assets/products/apex-vent-1400.webp.asset.json";
+import apexDash480 from "@/assets/products/apex-dash-480.webp";
+import apexDash900 from "@/assets/products/apex-dash-900.webp";
+import apexDash1400 from "@/assets/products/apex-dash-1400.webp";
+import apexVent480 from "@/assets/products/apex-vent-480.webp";
+import apexVent900 from "@/assets/products/apex-vent-900.webp";
+import apexVent1400 from "@/assets/products/apex-vent-1400.webp";
 
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
