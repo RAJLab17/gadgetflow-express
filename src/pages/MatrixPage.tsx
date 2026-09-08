@@ -8,6 +8,7 @@ import type { CartItem } from "@/lib/shopify";
 import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
 
 import Header from "@/components/Header";
+import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
 import cherryOrange from "@/assets/matrix/cherry-orange.webp";
 import cherryBlue from "@/assets/matrix/cherry-blue.webp";
@@ -393,6 +394,7 @@ const MatrixPage = () => {
 
       <div style={{ background: H.bg, color: H.text }} className="min-h-screen">
         <Header />
+        <NexusTrustBar />
 
         <main className="pt-24 md:pt-28">
           {/* Intro */}
