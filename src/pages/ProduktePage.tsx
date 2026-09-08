@@ -233,14 +233,14 @@ const Chapter = ({ product, reverse }: { product: Product; reverse: boolean }) =
 const ProduktePage = () => (
   <>
     <Helmet>
-      <title>Kollektion — NEXUS & APEX | RAJ</title>
+      <title>Kollektion — NEXUS, MATRIX & APEX | RAJ</title>
       <meta
         name="description"
-        content="Die RAJ Kollektion: NEXUS 3-in-1 Wireless Charger und APEX MagSafe Auto-Ladehalterung. Premium-Objekte, Swiss Brand, Qi2, 25 W."
+        content="Die RAJ Kollektion: NEXUS 3-in-1 Wireless Charger, MATRIX Carbon-Cases und APEX MagSafe Auto-Ladehalterung. Premium-Objekte, Swiss Brand."
       />
       <link rel="canonical" href="https://raj.ch/produkte" />
-      <meta property="og:title" content="Kollektion — NEXUS & APEX | RAJ" />
-      <meta property="og:description" content="Premium-Objekte mit Substanz: NEXUS und APEX." />
+      <meta property="og:title" content="Kollektion — NEXUS, MATRIX & APEX | RAJ" />
+      <meta property="og:description" content="Premium-Objekte mit Substanz: NEXUS, MATRIX und APEX." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://raj.ch/produkte" />
       <meta name="twitter:card" content="summary_large_image" />
