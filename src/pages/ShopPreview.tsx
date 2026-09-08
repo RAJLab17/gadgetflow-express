@@ -109,9 +109,9 @@ const ShopPreview = () => {
       size={size}
       onClick={openCheckout}
         disabled={adding || buyNowProcessing}
-      className={className}
+      className={`max-w-full whitespace-normal text-center px-4 sm:px-8 ${className}`}
     >
-        {adding || buyNowProcessing ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <ShoppingBag className="w-5 h-5 mr-2" />}
+        {adding || buyNowProcessing ? <Loader2 className="w-5 h-5 mr-2 shrink-0 animate-spin" /> : <ShoppingBag className="w-5 h-5 mr-2 shrink-0" />}
         Jetzt kaufen — {priceLabel}
     </Button>
   );
@@ -158,7 +158,7 @@ const ShopPreview = () => {
         <section className="max-w-7xl mx-auto px-6 pt-2 md:pt-4 pb-16 md:pb-24">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Gallery */}
-            <div className="md:sticky md:top-8 md:max-w-[32rem] xl:max-w-[34rem] md:mx-auto w-full">
+            <div className="md:sticky md:top-8 md:max-w-[32rem] xl:max-w-[34rem] md:mx-auto w-full min-w-0">
               <motion.div
                 className={`aspect-square w-full rounded-2xl overflow-hidden flex items-center justify-center cursor-grab active:cursor-grabbing touch-pan-y ${
                   activeImg === 0 ? "" : "bg-white"
@@ -228,7 +228,7 @@ const ShopPreview = () => {
             </div>
 
             {/* Buy column */}
-            <div className="space-y-6">
+            <div className="space-y-6 min-w-0">
               <div>
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] tracking-[0.25em] uppercase font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
@@ -236,7 +236,7 @@ const ShopPreview = () => {
                 </span>
                 <span className="block text-xs tracking-[0.3em] uppercase text-muted-foreground mt-4">3-in-1 Wireless Charger</span>
                 <h1 className="text-4xl md:text-5xl font-light tracking-tight mt-2">RAJ NEXUS</h1>
-                <p className="text-base md:text-lg text-muted-foreground mt-3 font-light whitespace-nowrap">
+                <p className="text-base md:text-lg text-muted-foreground mt-3 font-light lg:whitespace-nowrap">
                   iPhone, Apple Watch &amp; AirPods gleichzeitig laden.
                 </p>
               </div>
