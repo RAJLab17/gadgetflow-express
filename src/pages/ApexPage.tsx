@@ -244,8 +244,7 @@ const ApexPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
 
-      <Header />
-      <NexusTrustBar />
+      <Header topSlot={<NexusTrustBar />} />
 
       <main style={{ background: "#FFFFFF", color: H.text }}>
         {/* HERO */}

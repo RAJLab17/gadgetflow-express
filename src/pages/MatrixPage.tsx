@@ -393,8 +393,7 @@ const MatrixPage = () => {
       </Helmet>
 
       <div style={{ background: H.bg, color: H.text }} className="min-h-screen">
-        <Header />
-        <NexusTrustBar />
+        <Header topSlot={<NexusTrustBar />} />
 
         <main className="pt-24 md:pt-28">
           {/* Intro */}
