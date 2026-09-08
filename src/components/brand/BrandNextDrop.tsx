@@ -8,7 +8,7 @@ import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
 
 const GOLD = "#9b6b3f";
-const GOLD_SOFT = "#c8946b";
+const GOLD_SOFT = "#d7ad82";
 
 /**
  * BrandNextDrop — "Die Objekte" als Editorial-Magazin.
@@ -31,12 +31,12 @@ const BrandNextDrop = () => {
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
           <span
-            className="text-[10px] uppercase font-light"
-            style={{ color: GOLD, letterSpacing: "0.5em" }}
+             className="text-[11px] uppercase font-semibold"
+             style={{ color: GOLD_SOFT, letterSpacing: "0.2em" }}
           >
             Kollektion 2026
           </span>
-          <h2 className="text-2xl md:text-3xl font-extralight italic text-white tracking-tight">
+           <h2 className="text-2xl md:text-3xl font-normal italic text-white tracking-normal">
             Die Kollektion
           </h2>
         </div>
@@ -56,9 +56,9 @@ const BrandNextDrop = () => {
               />
               <div className="absolute top-4 left-4">
                 <span
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[9px] uppercase font-medium border"
+                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"
                   style={{
-                    letterSpacing: "0.25em",
+                     letterSpacing: "0.12em",
                     color: "#f5f5f0",
                     background: "rgba(10,9,8,0.45)",
                     borderColor: "rgba(255,255,255,0.15)",
@@ -73,14 +73,14 @@ const BrandNextDrop = () => {
             </div>
             <div className="flex justify-between items-end gap-4">
               <div>
-                <h3 className="text-xl font-light text-white" style={{ letterSpacing: "0.14em" }}>
+                 <h3 className="text-xl font-medium text-white" style={{ letterSpacing: "0.08em" }}>
                   NEXUS
                 </h3>
-                <p className="text-[13px] font-light mt-1" style={{ color: "rgba(245,245,240,0.45)" }}>
+                 <p className="text-sm font-normal mt-1" style={{ color: "rgba(245,245,240,0.76)" }}>
                   3-in-1 Qi2.2 Wireless Charger
                 </p>
               </div>
-              <span className="text-base font-extralight" style={{ color: GOLD_SOFT }}>
+               <span className="text-base font-medium" style={{ color: GOLD_SOFT }}>
                 CHF 99.–
               </span>
             </div>
@@ -114,9 +114,9 @@ const BrandNextDrop = () => {
               />
               <div className="absolute top-4 left-4">
                 <span
-                  className="px-3 py-1 rounded-full text-[9px] uppercase font-medium italic border"
+                   className="px-3 py-1 rounded-full text-[10px] uppercase font-semibold italic border"
                   style={{
-                    letterSpacing: "0.25em",
+                     letterSpacing: "0.12em",
                     color: "#f0d9b8",
                     background: "rgba(155,107,63,0.22)",
                     borderColor: "rgba(200,148,107,0.35)",
@@ -147,8 +147,8 @@ const BrandNextDrop = () => {
                   />
                 </div>
                 <span
-                  className="text-[8px] uppercase font-medium"
-                  style={{ color: "#f0d9b8", letterSpacing: "0.25em" }}
+                   className="text-[10px] uppercase font-semibold"
+                   style={{ color: "#f0d9b8", letterSpacing: "0.12em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
                 >
                   AirPods 4
                 </span>
@@ -156,16 +156,16 @@ const BrandNextDrop = () => {
             </div>
             <div className="flex justify-between items-end gap-4">
               <div>
-                <h3 className="text-xl font-light text-white" style={{ letterSpacing: "0.14em" }}>
+                 <h3 className="text-xl font-medium text-white" style={{ letterSpacing: "0.08em" }}>
                   MATRIX
                 </h3>
-                <p className="text-[13px] font-light mt-1" style={{ color: "rgba(245,245,240,0.45)" }}>
+                 <p className="text-sm font-normal mt-1" style={{ color: "rgba(245,245,240,0.76)" }}>
                   Aramid-Cases für iPhone & AirPods
                 </p>
               </div>
               <span
-                className="inline-flex items-center gap-1.5 text-[9px] uppercase font-medium whitespace-nowrap"
-                style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}
+                 className="inline-flex items-center gap-1.5 text-[10px] uppercase font-semibold whitespace-nowrap"
+                 style={{ color: GOLD_SOFT, letterSpacing: "0.12em" }}
               >
                 Vorschau
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -187,9 +187,9 @@ const BrandNextDrop = () => {
               />
               <div className="absolute top-4 left-4">
                 <span
-                  className="px-3 py-1 rounded-full text-[9px] uppercase font-medium border"
+                   className="px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"
                   style={{
-                    letterSpacing: "0.25em",
+                     letterSpacing: "0.12em",
                     color: "#f5f5f0",
                     background: "rgba(10,9,8,0.5)",
                     borderColor: "rgba(255,255,255,0.18)",
@@ -203,10 +203,10 @@ const BrandNextDrop = () => {
             </div>
             <div className="flex justify-between items-end gap-4">
               <div>
-                <h3 className="text-xl font-light text-white" style={{ letterSpacing: "0.14em" }}>
+                 <h3 className="text-xl font-medium text-white" style={{ letterSpacing: "0.08em" }}>
                   APEX
                 </h3>
-                <p className="text-[13px] font-light mt-1" style={{ color: "rgba(245,245,240,0.45)" }}>
+                 <p className="text-sm font-normal mt-1" style={{ color: "rgba(245,245,240,0.76)" }}>
                   MagSafe Auto-Ladehalterung
                 </p>
               </div>
@@ -224,7 +224,7 @@ const BrandNextDrop = () => {
         <div className="mt-14 md:mt-16 flex justify-center">
           <Link
             to="/produkte"
-            className="group inline-flex items-center gap-2 text-[10px] uppercase font-medium tracking-[0.3em] pb-1 border-b transition-colors"
+             className="group inline-flex items-center gap-2 text-[11px] uppercase font-semibold tracking-[0.14em] pb-1 border-b transition-colors"
             style={{ color: GOLD_SOFT, borderColor: `${GOLD_SOFT}55` }}
           >
             Ganze Kollektion
