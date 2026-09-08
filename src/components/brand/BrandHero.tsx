@@ -43,7 +43,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-[72svh] pb-28 lg:pb-0 lg:h-[680px] lg:min-h-[680px] flex items-start pt-32 sm:pt-36 lg:pt-36 overflow-visible lg:overflow-hidden border-b"
+      className="relative min-h-[72svh] pb-28 lg:pb-0 lg:h-[440px] lg:min-h-[440px] flex items-start pt-32 sm:pt-36 lg:pt-8 overflow-visible border-b"
       style={{ background: "#0a0908", borderColor: "rgba(255,255,255,0.06)" }}
     >
       {/* Sanftes Gold-Licht oben rechts — Editorial-Stimmung */}
@@ -63,7 +63,7 @@ const BrandHero = () => {
         ref={fadeRef}
         className="relative z-10 container mx-auto px-6 sm:px-10 lg:px-20 w-full"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Headline + CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <div
@@ -108,7 +108,7 @@ const BrandHero = () => {
             </div>
 
             <h1
-               className="raj-rise text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5.5rem] font-normal text-white leading-[1.05] tracking-normal"
+               className="raj-rise text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[4.5vw] xl:text-[3.5rem] font-normal text-white leading-[1.05] tracking-normal"
               style={{ animationDuration: "1.4s" }}
             >
               <span className="block" style={{ paddingBottom: "0.08em" }}>{t("brand.hero.h1.line1")}</span>

@@ -20,14 +20,14 @@ const BrandNextDrop = () => {
 
   return (
     <section
-      className="relative pt-10 md:pt-0 pb-20 md:pb-28 mt-0 md:-mt-36 lg:-mt-44 z-20 overflow-hidden"
+      className="relative pt-10 md:pt-0 pb-12 md:pb-16 mt-0 md:-mt-48 lg:-mt-[210px] z-20 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #0a0908 0%, #121009 100%)" }}
     >
       <div className="container mx-auto px-6 sm:px-10 max-w-[1240px] relative z-10">
         {/* Header — Editorial hairline */}
         <div
           ref={headRef}
-          className="reveal flex justify-between items-end border-b pb-5 mb-12 md:mb-16"
+          className="reveal flex justify-between items-end border-b pb-4 mb-10 md:mb-12"
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
           <span
@@ -221,7 +221,7 @@ const BrandNextDrop = () => {
         </div>
 
         {/* Ganze Kollektion */}
-        <div className="mt-14 md:mt-16 flex justify-center">
+        <div className="mt-10 md:mt-12 flex justify-center">
           <Link
             to="/produkte"
              className="group inline-flex items-center gap-2 text-[11px] uppercase font-semibold tracking-[0.14em] pb-1 border-b transition-colors"
