@@ -203,9 +203,10 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
               aria-label={isMenuOpen ? "Menü schliessen" : "Menü öffnen"}
             >
               {isMenuOpen ? (
-                <X ref={(el) => el?.style.setProperty("color", "#E8DCC4", "important")} className="h-5 w-5" />
+                <X className="h-5 w-5" style={{ color: "#E8DCC4" }} />
               ) : (
-                <Menu ref={(el) => el?.style.setProperty("color", "#E8DCC4", "important")} className="h-5 w-5" />
+                <Menu className="h-5 w-5" style={{ color: "#E8DCC4" }} />
+
               )}
             </button>
           </div>
