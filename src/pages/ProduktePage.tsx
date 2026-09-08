@@ -51,6 +51,24 @@ const PRODUCTS: Product[] = [
   },
   {
     index: "02",
+    id: "matrix",
+    name: "MATRIX",
+    tagline: "Schutz mit Charakter.",
+    description:
+      "Carbon-Cases für iPhone und AirPods. Cherry Carbon oder Schwarz Carbon, goldene Knöpfe, MagSafe-kompatibel. Leicht, präzise, unverwechselbar.",
+    price: "ab CHF 49.–",
+    status: "Als Nächstes",
+    link: "/matrix",
+    img: matrixImg,
+    imgAlt: "RAJ MATRIX Carbon-Case für iPhone in Cherry Carbon",
+    specs: [
+      { label: "Material", value: "Carbon" },
+      { label: "Geräte", value: "iPhone 17/18 Pro · AirPods 4" },
+      { label: "Magnet", value: "MagSafe-kompatibel" },
+    ],
+  },
+  {
+    index: "03",
     id: "apex",
     name: "APEX",
     tagline: "Halt im Bewegten.",
@@ -68,6 +86,7 @@ const PRODUCTS: Product[] = [
     ],
   },
 ];
+
 
 const ITEM_LIST_JSON_LD = {
   "@context": "https://schema.org",
