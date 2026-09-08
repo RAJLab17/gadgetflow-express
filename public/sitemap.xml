@@ -43,7 +43,19 @@
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://raj.ch/?mode=shop</loc>
+    <loc>https://raj.ch/produkte</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://raj.ch/matrix</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://raj.ch/apex</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
