@@ -82,7 +82,7 @@ const APEX_JSON_LD = {
   description:
     "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
   brand: { "@type": "Brand", name: "RAJ" },
-  image: `https://raj.ch${apexDash1400.url}`,
+  image: `https://raj.ch${apexDash1400}`,
   offers: APEX_VARIANTS.map((v) => ({
     "@type": "Offer",
     sku: v.sku,
