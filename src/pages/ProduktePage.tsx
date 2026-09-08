@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import nexusAsset from "@/assets/products/nexus-transparent.webp.asset.json";
 import apexAsset from "@/assets/products/apex-transparent.webp.asset.json";
+import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
+
 
 const H = {
   bg: "#faf9f7",
