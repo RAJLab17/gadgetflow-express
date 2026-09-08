@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
-import matrixImg from "@/assets/home/objekt-matrix-sharp.webp";
+import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
 import apexImg from "@/assets/home/objekt-apex-correct.jpg";
 import airpodsRender from "@/assets/matrix/airpods-cherry-bolt.webp";
 
@@ -105,9 +105,9 @@ const BrandNextDrop = () => {
             <div className="relative mb-6 overflow-hidden rounded-sm">
               <img
                 src={matrixImg}
-                alt="RAJ MATRIX Aramid Case in Cherry Carbon mit goldenem Blitz"
-                width={768}
-                height={1024}
+                alt="RAJ MATRIX Carbon-Case in Cherry Carbon mit goldenem Blitz"
+                width={1344}
+                height={1800}
                 loading="lazy"
                 decoding="async"
                 className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
@@ -160,7 +160,7 @@ const BrandNextDrop = () => {
                   MATRIX
                 </h3>
                  <p className="text-sm font-normal mt-1" style={{ color: "rgba(245,245,240,0.76)" }}>
-                  Aramid-Cases für iPhone & AirPods
+                  Carbon-Cases für iPhone & AirPods
                 </p>
               </div>
               <span
