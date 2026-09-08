@@ -108,7 +108,7 @@ const BrandHero = () => {
             </div>
 
             <h1
-               className="raj-rise text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[5vw] xl:text-[4rem] font-normal text-white leading-[1.05] tracking-normal"
+               className="raj-rise text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[4.5vw] xl:text-[3.5rem] font-normal text-white leading-[1.05] tracking-normal"
               style={{ animationDuration: "1.4s" }}
             >
               <span className="block" style={{ paddingBottom: "0.08em" }}>{t("brand.hero.h1.line1")}</span>
