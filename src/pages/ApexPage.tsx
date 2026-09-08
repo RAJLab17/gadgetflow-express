@@ -10,12 +10,12 @@ import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import { breadcrumbJsonLd } from "@/lib/schemas";
 import logoTransparent from "@/assets/logo-transparent.webp";
 
-import apexDash480 from "@/assets/products/apex-dash-480.webp.asset.json";
-import apexDash900 from "@/assets/products/apex-dash-900.webp.asset.json";
-import apexDash1400 from "@/assets/products/apex-dash-1400.webp.asset.json";
-import apexVent480 from "@/assets/products/apex-vent-480.webp.asset.json";
-import apexVent900 from "@/assets/products/apex-vent-900.webp.asset.json";
-import apexVent1400 from "@/assets/products/apex-vent-1400.webp.asset.json";
+import apexDash480 from "@/assets/products/apex-dash-480.webp";
+import apexDash900 from "@/assets/products/apex-dash-900.webp";
+import apexDash1400 from "@/assets/products/apex-dash-1400.webp";
+import apexVent480 from "@/assets/products/apex-vent-480.webp";
+import apexVent900 from "@/assets/products/apex-vent-900.webp";
+import apexVent1400 from "@/assets/products/apex-vent-1400.webp";
 
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
@@ -45,9 +45,9 @@ const APEX_VARIANTS: ApexVariant[] = [
     tagline: "Silber — dezent & elegant",
     mount: "Saugmontage, Lüftungsclip, USB-C Kabel & Kfz-Ladeadapter im Lieferumfang",
     icon: <Car className="w-4 h-4" />,
-    img480: apexDash480.url,
-    img900: apexDash900.url,
-    img1400: apexDash1400.url,
+    img480: apexDash480,
+    img900: apexDash900,
+    img1400: apexDash1400,
     sku: "RAJ-APX-Q2-SLV",
     price: 75,
     compareAt: 99,
@@ -58,9 +58,9 @@ const APEX_VARIANTS: ApexVariant[] = [
     tagline: "Space Black — sportlich & matt",
     mount: "Saugmontage, Lüftungsclip, USB-C Kabel & Kfz-Ladeadapter im Lieferumfang",
     icon: <Wind className="w-4 h-4" />,
-    img480: apexVent480.url,
-    img900: apexVent900.url,
-    img1400: apexVent1400.url,
+    img480: apexVent480,
+    img900: apexVent900,
+    img1400: apexVent1400,
     sku: "RAJ-APX-Q2-BLK",
     price: 69,
     compareAt: 99,
@@ -82,7 +82,7 @@ const APEX_JSON_LD = {
   description:
     "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
   brand: { "@type": "Brand", name: "RAJ" },
-  image: `https://raj.ch${apexDash1400.url}`,
+  image: `https://raj.ch${apexDash1400}`,
   offers: APEX_VARIANTS.map((v) => ({
     "@type": "Offer",
     sku: v.sku,
@@ -248,7 +248,7 @@ const ApexPage = () => {
 
       <main style={{ background: "#FFFFFF", color: H.text }}>
         {/* HERO */}
-        <section className="pt-[86px] md:pt-[72px] pb-12 md:pb-20">
+        <section className="pt-[120px] md:pt-[152px] pb-12 md:pb-20">
           <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
               {/* LEFT — image (sticky on desktop) */}
