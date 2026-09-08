@@ -43,7 +43,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative h-[72svh] min-h-[540px] lg:h-[680px] lg:min-h-[680px] flex items-start pt-32 sm:pt-36 lg:pt-36 overflow-hidden border-b"
+      className="relative min-h-[72svh] pb-28 lg:pb-0 lg:h-[680px] lg:min-h-[680px] flex items-start pt-32 sm:pt-36 lg:pt-36 overflow-visible lg:overflow-hidden border-b"
       style={{ background: "#0a0908", borderColor: "rgba(255,255,255,0.06)" }}
     >
       {/* Sanftes Gold-Licht oben rechts — Editorial-Stimmung */}
@@ -67,7 +67,7 @@ const BrandHero = () => {
           {/* Headline + CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <div
-              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row items-center justify-start gap-3"
+              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row flex-wrap items-center justify-start gap-3"
               style={{ animationDelay: "0.2s", animationDuration: "1s" }}
             >
               <Link

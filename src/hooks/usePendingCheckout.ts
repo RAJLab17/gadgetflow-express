@@ -7,7 +7,7 @@ const MAX_AGE_MS = 6 * 60 * 60 * 1000; // 6h
 // Only treat a vanished cart as a completed order within this window.
 // Shopify removes the cart immediately after payment; an abandoned cart
 // expiring hours later must NOT be shown as "Bestellung eingegangen".
-const CONFIRM_WINDOW_MS = 30 * 60 * 1000; // 30min
+const CONFIRM_WINDOW_MS = MAX_AGE_MS; // 6h – same as tracking window
 
 export interface PendingCheckout {
   cartId: string;
