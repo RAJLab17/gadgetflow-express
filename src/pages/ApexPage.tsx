@@ -119,7 +119,7 @@ const FAQ_APEX_JSON_LD = {
       name: "Ist RAJ APEX mit meinem iPhone kompatibel?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja. RAJ APEX ist mit iPhone 12–17 (inkl. Pro und Pro Max) sowie allen offiziellen MagSafe-Hüllen kompatibel.",
+        text: "Ja. RAJ APEX ist mit iPhone 12–18 (inkl. Pro und Pro Max) sowie allen offiziellen MagSafe-Hüllen kompatibel.",
       },
     },
     {
@@ -417,7 +417,7 @@ const ApexPage = () => {
                 { t: "Qi2 · bis 25 W", d: "Kabelloses Schnellladen mit magnetischer MagSafe-Ausrichtung." },
                 { t: "Zwei Montagen", d: "Saugmontage für Armaturenbrett & Scheibe plus Lüftungsclip." },
                 { t: "Aktive Kühlung", d: "Leiser Lüfter hält die Ladeleistung auch im Sommer stabil." },
-                { t: "iPhone 12–17", d: "Kompatibel inkl. Pro & Pro Max und offiziellen MagSafe-Hüllen." },
+                { t: "iPhone 12–18", d: "Kompatibel inkl. Pro & Pro Max und offiziellen MagSafe-Hüllen." },
               ].map((s) => (
                 <div key={s.t} className="rounded-2xl border p-5 h-full" style={{ borderColor: H.border, background: "#FAF9F7" }}>
                   <div className="font-semibold mb-1.5" style={{ color: H.text }}>{s.t}</div>
