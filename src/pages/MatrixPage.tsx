@@ -95,7 +95,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "cherry",
     name: "Cherry Carbon",
-    material: "Aramid-Carbon, Cherry · Titan-Knöpfe in Gold",
+    material: "Carbon, Cherry · Titan-Knöpfe in Gold",
     base: "#6e1420",
     weave: "#a3202f",
     edge: "#420b13",
@@ -104,7 +104,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "onyx",
     name: "Onyx Carbon",
-    material: "Aramid-Carbon, Schwarz · Titan-Knöpfe in Gold",
+    material: "Carbon, Schwarz · Titan-Knöpfe in Gold",
     base: "#16171a",
     weave: "#33363c",
     edge: "#08090a",
