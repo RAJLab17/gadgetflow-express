@@ -248,7 +248,7 @@ const ApexPage = () => {
 
       <main style={{ background: "#FFFFFF", color: H.text }}>
         {/* HERO */}
-        <section className="pt-[86px] md:pt-[72px] pb-12 md:pb-20">
+        <section className="pt-[120px] md:pt-[152px] pb-12 md:pb-20">
           <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
               {/* LEFT — image (sticky on desktop) */}
