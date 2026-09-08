@@ -143,7 +143,7 @@ const BrandNextDrop = () => {
                     height={96}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain p-1"
                   />
                 </div>
                 <span
