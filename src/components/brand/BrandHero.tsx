@@ -144,8 +144,8 @@ const BrandHero = () => {
               </p>
             </div>
             <p
-               className="text-base sm:text-xl text-white font-normal leading-[1.45] sm:leading-[1.55] italic font-serif"
-               style={{ letterSpacing: "0", marginBottom: "0.45rem", textShadow: "0 1px 14px rgba(0,0,0,0.28)" }}
+               className="mb-[0.45rem] text-base sm:mb-3 sm:text-xl text-white font-normal leading-[1.45] sm:leading-[1.55] italic font-serif"
+               style={{ letterSpacing: "0", textShadow: "0 1px 14px rgba(0,0,0,0.28)" }}
             >
               Das Gewöhnliche überzeugt durch Lautstärke.
             </p>
