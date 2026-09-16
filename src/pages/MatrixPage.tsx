@@ -231,7 +231,7 @@ const DeviceMock = ({
 
   return (
     <div
-      className="relative mx-auto transition-[width] duration-500 ease-out"
+      className="relative mx-auto max-w-[220px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: `min(100%, ${380 * scale}px)`, aspectRatio: "1 / 1" }}
     >
       <div
@@ -397,23 +397,23 @@ const MatrixPage = () => {
 
         <main className="pt-24 md:pt-28">
           {/* Intro */}
-          <section className="container mx-auto px-6 max-w-5xl pt-6 pb-10 md:pb-14">
-            <div className="flex items-center gap-3 mb-6">
+          <section className="container mx-auto px-4 md:px-6 max-w-5xl pt-2 md:pt-6 pb-5 md:pb-14">
+            <div className="flex items-center gap-2.5 mb-3 md:gap-3 md:mb-6">
               <span className="h-px w-8" style={{ background: H.gold }} />
               <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
                 03 · Matrix
               </span>
             </div>
             <h1
-              className="font-light leading-[0.95] tracking-tight"
-              style={{ fontSize: "clamp(42px, 6vw, 84px)", letterSpacing: "-0.02em" }}
+              className="font-light text-[38px] leading-[0.95] tracking-tight md:text-[clamp(42px,6vw,84px)]"
+              style={{ letterSpacing: "-0.02em" }}
             >
               MATRIX
             </h1>
-            <p className="italic mt-4" style={{ color: H.gold, fontSize: "clamp(18px,1.6vw,22px)" }}>
+            <p className="italic mt-2 text-base md:mt-4 md:text-[clamp(18px,1.6vw,22px)]" style={{ color: H.gold }}>
               Die Hülle als Teil des Systems.
             </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed" style={{ color: H.textMuted }}>
+            <p className="hidden md:block mt-6 max-w-xl text-base leading-relaxed" style={{ color: H.textMuted }}>
               Vier Modelle, zwei Carbon-Finishes, ein Magnetring. Jede MATRIX-Hülle ist so vermessen, dass NEXUS und APEX
               magnetisch einrasten, als wäre nichts dazwischen. Die Farbe deines iPhones bleibt Teil des Objekts.
             </p>
@@ -421,12 +421,12 @@ const MatrixPage = () => {
 
           {/* Konfigurator */}
           <section className="border-t" style={{ borderColor: H.line }}>
-            <div className="container mx-auto px-6 max-w-5xl py-12 md:py-20">
-              <div className="grid md:grid-cols-12 gap-12 md:gap-14 items-start">
+            <div className="container mx-auto px-4 md:px-6 max-w-5xl py-5 md:py-20">
+              <div className="grid md:grid-cols-12 gap-5 md:gap-14 items-start">
                 {/* Bühne */}
                 <div className="md:col-span-6 md:sticky md:top-28">
                   <div
-                    className="relative overflow-hidden rounded-2xl"
+                    className="relative overflow-hidden rounded-xl md:rounded-2xl"
                     style={{
                       background:
                         "linear-gradient(165deg, #ffffff 0%, #fbfaf8 45%, #f2efea 100%)",
@@ -452,19 +452,19 @@ const MatrixPage = () => {
                           "radial-gradient(58% 46% at 50% 42%, rgba(155,107,63,0.13) 0%, rgba(250,249,247,0) 72%)",
                       }}
                     />
-                    <div className="relative flex items-center justify-center px-6 pt-10 pb-6 md:px-10 md:pt-14 md:pb-8">
+                    <div className="relative flex items-center justify-center px-3 pt-2 pb-0 md:px-10 md:pt-14 md:pb-8">
                       <DeviceMock device={device} caseFinish={caseFinish} model={model} />
                     </div>
                     {/* Plakette */}
                     <div
-                      className="relative border-t px-6 py-5 md:px-10 flex items-center justify-between gap-4"
+                      className="relative border-t px-4 py-2.5 md:px-10 md:py-5 flex items-center justify-between gap-3 md:gap-4"
                       style={{ borderColor: H.line, background: "rgba(255,255,255,0.55)" }}
                     >
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.3em]" style={{ color: H.gold }}>
                           {caseFinish.name}
                         </p>
-                        <p className="mt-1.5 text-sm font-light" style={{ color: H.text }}>
+                        <p className="mt-1 text-xs font-light md:mt-1.5 md:text-sm" style={{ color: H.text }}>
                           {model.name} · {device.name}
                         </p>
                       </div>
@@ -479,11 +479,11 @@ const MatrixPage = () => {
                 </div>
 
                 {/* Auswahl */}
-                <div className="md:col-span-6 space-y-10">
+                <div className="md:col-span-6 space-y-5 md:space-y-10">
 
                   {/* Modell */}
                   <div>
-                    <p className="text-[10px] uppercase tracking-[0.28em] mb-4" style={{ color: H.textMuted }}>
+                    <p className="text-[10px] uppercase tracking-[0.28em] mb-2 md:mb-4" style={{ color: H.textMuted }}>
                       Modell
                     </p>
                     <div className="grid grid-cols-2 gap-2">
@@ -494,14 +494,14 @@ const MatrixPage = () => {
                             key={m.id}
                             onClick={() => selectModel(m.id)}
                             aria-pressed={active}
-                            className="text-left px-4 py-3 rounded-lg transition-all duration-300"
+                            className="text-left px-2.5 py-2 rounded-lg transition-all duration-300 md:px-4 md:py-3"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
                             }}
                           >
-                            <span className="block text-sm font-medium">iPhone {m.short}</span>
-                            <span className="block text-[11px] mt-0.5" style={{ color: H.textMuted }}>
+                            <span className="block text-xs font-medium md:text-sm">iPhone {m.short}</span>
+                            <span className="block text-[10px] mt-0.5 md:text-[11px]" style={{ color: H.textMuted }}>
                               {m.display} · {m.status}
                             </span>
                           </button>
@@ -512,13 +512,13 @@ const MatrixPage = () => {
 
                   {/* Gerätefarbe */}
                   <div>
-                    <div className="flex items-baseline justify-between mb-4">
+                    <div className="flex items-baseline justify-between mb-2 md:mb-4">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
                         Gerätefarbe
                       </p>
                       <p className="text-xs" style={{ color: H.text }}>{device.name}</p>
                     </div>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-3 md:gap-3">
                       {finishes.map((f) => {
                         const active = f.id === device.id;
                         return (
@@ -527,7 +527,7 @@ const MatrixPage = () => {
                             onClick={() => setDeviceId(f.id)}
                             aria-label={f.name}
                             aria-pressed={active}
-                            className="relative w-9 h-9 rounded-full transition-transform duration-300 hover:scale-105"
+                            className="relative w-8 h-8 rounded-full transition-transform duration-300 hover:scale-105 md:w-9 md:h-9"
                             style={{
                               background: `linear-gradient(145deg, ${f.body}, ${f.bodyEdge})`,
                               boxShadow: active
@@ -542,15 +542,15 @@ const MatrixPage = () => {
 
                   {/* Hüllenfinish */}
                   <div>
-                    <div className="flex items-baseline justify-between mb-4">
+                    <div className="flex items-baseline justify-between mb-2 md:mb-4">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
                         Finish
                       </p>
-                      <p className="text-xs" style={{ color: H.text }}>
+                      <p className="hidden text-xs md:block" style={{ color: H.text }}>
                         {caseFinish.material}
                       </p>
                     </div>
-                    <div className="space-y-2">
+                    <div className="grid grid-cols-2 gap-2 md:block md:space-y-2">
                       {CASE_FINISHES.map((c) => {
                         const active = c.id === caseId;
                         return (
@@ -558,21 +558,21 @@ const MatrixPage = () => {
                             key={c.id}
                             onClick={() => setCaseId(c.id)}
                             aria-pressed={active}
-                            className="w-full flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-300"
+                            className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg transition-all duration-300 md:gap-4 md:px-4 md:py-3"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
                             }}
                           >
                             <span
-                              className="w-6 h-6 rounded-full shrink-0"
+                              className="w-5 h-5 rounded-full shrink-0 md:w-6 md:h-6"
                               style={{
                                 background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`,
                                 boxShadow: `0 0 0 1px ${H.lineStrong}`,
                               }}
                             />
-                            <span className="flex-1 text-left text-sm font-medium">{c.name}</span>
-                            <span className="text-xs" style={{ color: H.textMuted }}>
+                            <span className="min-w-0 flex-1 text-left text-xs font-medium md:text-sm">{c.name}</span>
+                            <span className="hidden text-xs md:inline" style={{ color: H.textMuted }}>
                               CHF {c.price}.–
                             </span>
                           </button>
@@ -582,7 +582,7 @@ const MatrixPage = () => {
                   </div>
 
                   {/* CTA */}
-                  <div className="pt-6 border-t" style={{ borderColor: H.line }}>
+                  <div className="pt-4 border-t md:pt-6" style={{ borderColor: H.line }}>
                     {confirmed && (
                       <div
                         className="relative mb-5 rounded-xl p-4"
@@ -631,7 +631,7 @@ const MatrixPage = () => {
                       </div>
                     )}
 
-                    <div className="flex items-baseline justify-between gap-4 mb-4">
+                    <div className="flex items-baseline justify-between gap-4 mb-2.5 md:mb-4">
                       <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
                         {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
                       </span>
@@ -645,7 +645,7 @@ const MatrixPage = () => {
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
-                      className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl text-sm font-semibold uppercase tracking-[0.15em] transition-all active:scale-[0.98]"
+                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-xs font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:py-3.5 md:text-sm md:tracking-[0.15em]"
                       style={{
                         background: H.gold,
                         color: "#fff",
@@ -668,16 +668,16 @@ const MatrixPage = () => {
 
                   {/* AirPods Ergänzung */}
                   <div
-                    className="mt-8 border-t pt-8"
+                    className="mt-5 border-t pt-5 md:mt-8 md:pt-8"
                     style={{ borderColor: H.line }}
                   >
-                    <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="flex items-start justify-between gap-3 mb-3 md:gap-4 md:mb-5">
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>
                           Ergänze dein Setup
                         </p>
-                        <h3 className="mt-2 text-lg font-light">AirPods 4 Case</h3>
-                        <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                        <h3 className="mt-1 text-base font-light md:mt-2 md:text-lg">AirPods 4 Case</h3>
+                        <p className="hidden mt-1 text-xs leading-relaxed md:block" style={{ color: H.textMuted }}>
                           {airpodsCase.name} · gleicher Carbon-Finish, gleicher goldener Blitz
                         </p>
                       </div>
@@ -690,13 +690,13 @@ const MatrixPage = () => {
                       type="button"
                       onClick={() => setAirpodsSelected((selected) => !selected)}
                       aria-pressed={airpodsSelected}
-                      className="w-full flex items-center gap-4 p-3 rounded-lg text-left transition-all duration-300"
+                       className="w-full flex items-center gap-3 p-2 rounded-lg text-left transition-all duration-300 md:gap-4 md:p-3"
                       style={{
                         border: `1px solid ${airpodsSelected ? H.gold : H.line}`,
                         background: airpodsSelected ? "rgba(155,107,63,0.06)" : "transparent",
                       }}
                     >
-                      <div className="relative w-24 h-24 shrink-0 overflow-hidden rounded-md bg-white">
+                      <div className="relative w-16 h-16 shrink-0 overflow-hidden rounded-md bg-white md:w-24 md:h-24">
                         <img
                           src={airpodsCase.image}
                           alt={`${airpodsCase.name} für AirPods 4`}
