@@ -231,7 +231,7 @@ const DeviceMock = ({
 
   return (
     <div
-      className="relative mx-auto max-w-[220px] md:max-w-none transition-[width] duration-500 ease-out"
+      className="relative mx-auto max-w-[180px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: `min(100%, ${380 * scale}px)`, aspectRatio: "1 / 1" }}
     >
       <div
@@ -501,7 +501,7 @@ const MatrixPage = () => {
                             }}
                           >
                             <span className="block text-xs font-medium md:text-sm">iPhone {m.short}</span>
-                            <span className="block text-[10px] mt-0.5 md:text-[11px]" style={{ color: H.textMuted }}>
+                            <span className="hidden mt-0.5 text-[11px] md:block" style={{ color: H.textMuted }}>
                               {m.display} · {m.status}
                             </span>
                           </button>
@@ -518,7 +518,7 @@ const MatrixPage = () => {
                       </p>
                       <p className="text-xs" style={{ color: H.text }}>{device.name}</p>
                     </div>
-                    <div className="flex flex-wrap gap-3 md:gap-3">
+                    <div className="flex flex-wrap gap-2.5 md:gap-3">
                       {finishes.map((f) => {
                         const active = f.id === device.id;
                         return (
@@ -582,7 +582,7 @@ const MatrixPage = () => {
                   </div>
 
                   {/* CTA */}
-                  <div className="pt-4 border-t md:pt-6" style={{ borderColor: H.line }}>
+                  <div className="pt-3 border-t md:pt-6" style={{ borderColor: H.line }}>
                     {confirmed && (
                       <div
                         className="relative mb-5 rounded-xl p-4"
