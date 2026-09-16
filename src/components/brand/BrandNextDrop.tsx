@@ -27,7 +27,7 @@ const BrandNextDrop = () => {
         {/* Header — Editorial hairline */}
         <div
           ref={headRef}
-          className="reveal flex justify-between items-end border-b pb-4 mb-10 md:mb-12"
+          className="reveal flex justify-between items-end border-b pb-3 md:pb-4 mb-8 md:mb-12"
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
           <span
@@ -41,7 +41,7 @@ const BrandNextDrop = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-10 gap-y-14 md:gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-10 gap-y-10 md:gap-y-20">
           {/* NEXUS — Hauptobjekt */}
           <Link to="/nexus" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
