@@ -67,7 +67,7 @@ const BrandHero = () => {
           {/* Headline + CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <div
-              className="raj-rise-sm mb-8 sm:mb-10 flex flex-row flex-wrap items-center justify-start gap-3"
+              className="raj-rise-sm mb-6 sm:mb-10 flex flex-row flex-wrap items-center justify-start gap-2.5 sm:gap-3"
               style={{ animationDelay: "0.2s", animationDuration: "1s" }}
             >
               <Link
@@ -108,7 +108,7 @@ const BrandHero = () => {
             </div>
 
             <h1
-               className="raj-rise text-[14vw] sm:text-[10vw] md:text-[8vw] lg:text-[4.5vw] xl:text-[3.5rem] font-normal text-white leading-[1.05] tracking-normal"
+               className="raj-rise text-[12.5vw] sm:text-[10vw] md:text-[8vw] lg:text-[4.5vw] xl:text-[3.5rem] font-normal text-white leading-[1.05] tracking-normal"
               style={{ animationDuration: "1.4s" }}
             >
               <span className="block" style={{ paddingBottom: "0.08em" }}>{t("brand.hero.h1.line1")}</span>
@@ -133,7 +133,7 @@ const BrandHero = () => {
 
           {/* Manifest */}
           <aside
-            className="raj-fade lg:col-span-5 lg:pl-8 lg:border-l lg:max-w-md lg:ml-auto"
+            className="raj-fade pl-4 border-l lg:col-span-5 lg:self-end lg:pl-8 lg:pb-2 lg:border-l lg:max-w-md lg:ml-auto"
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
             <div className="flex items-center gap-3 mb-4 sm:mb-5">
@@ -172,7 +172,7 @@ const BrandHero = () => {
 
       {/* Scroll-Indikator */}
       <div
-        className="raj-fade absolute bottom-6 left-6 lg:left-20 flex items-center gap-4 z-10"
+        className="raj-fade absolute bottom-5 left-6 flex lg:hidden items-center gap-4 z-10"
         style={{ animationDelay: "1.5s", animationDuration: "1s" }}
       >
         <div className="w-px h-12 animate-float-slow" style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }} />
