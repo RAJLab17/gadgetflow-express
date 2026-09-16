@@ -43,7 +43,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-[58svh] pb-14 sm:pb-20 lg:min-h-0 lg:h-auto lg:pb-12 flex items-start pt-28 sm:pt-32 lg:pt-28 overflow-visible border-b"
+      className="relative min-h-[54svh] pb-10 sm:min-h-[58svh] sm:pb-20 lg:min-h-0 lg:h-auto lg:pb-12 flex items-start pt-20 sm:pt-32 lg:pt-28 overflow-visible border-b"
       style={{ background: "#0a0908", borderColor: "rgba(255,255,255,0.06)" }}
     >
       {/* Sanftes Gold-Licht oben rechts — Editorial-Stimmung */}
@@ -61,23 +61,22 @@ const BrandHero = () => {
 
       <div
         ref={fadeRef}
-        className="relative z-10 container mx-auto px-6 sm:px-10 lg:px-20 w-full"
+        className="relative z-10 container mx-auto px-4 sm:px-10 lg:px-20 w-full"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 sm:gap-10 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-12 items-start">
           {/* Headline + CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <div
-              className="raj-rise-sm mb-6 sm:mb-10 flex flex-row flex-wrap items-center justify-start gap-2.5 sm:gap-3"
+              className="raj-rise-sm mb-4 sm:mb-10 flex w-full flex-row flex-nowrap items-center justify-start gap-1.5 sm:w-auto sm:gap-3"
               style={{ animationDelay: "0.2s", animationDuration: "1s" }}
             >
               <Link
                 to="/nexus"
-                className="group inline-flex items-center justify-center gap-2 py-3 px-5 sm:py-3.5 sm:px-7 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex min-w-0 items-center justify-center gap-1.5 px-3 py-2.5 text-[8px] sm:gap-2 sm:px-7 sm:py-3.5 sm:text-[11px] rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
                   color: "#0a0908",
                   letterSpacing: "0.12em",
-                  fontSize: "11px",
                   fontWeight: 700,
                   textTransform: "uppercase",
                   boxShadow: `0 20px 50px -12px ${GOLD}aa, inset 0 1px 0 rgba(255,255,255,0.3)`,
@@ -89,7 +88,7 @@ const BrandHero = () => {
               </Link>
               <Link
                 to="/produkte"
-                className="inline-flex items-center justify-center gap-2 py-3 px-5 sm:py-3.5 sm:px-7 rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex min-w-0 items-center justify-center gap-1.5 px-3 py-2.5 text-[8px] sm:gap-2 sm:px-7 sm:py-3.5 sm:text-[11px] rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "rgba(201,168,118,0.05)",
                   border: `1px solid ${GOLD_SOFT}55`,
@@ -97,7 +96,6 @@ const BrandHero = () => {
                   backdropFilter: "blur(16px)",
                   WebkitBackdropFilter: "blur(16px)",
                   letterSpacing: "0.12em",
-                  fontSize: "11px",
                   fontWeight: 700,
                   textTransform: "uppercase",
                   whiteSpace: "nowrap",
@@ -108,7 +106,7 @@ const BrandHero = () => {
             </div>
 
             <h1
-               className="raj-rise text-[12.5vw] sm:text-[10vw] md:text-[8vw] lg:text-[4.5vw] xl:text-[3.5rem] font-normal text-white leading-[1.05] tracking-normal"
+               className="raj-rise text-[11.5vw] sm:text-[10vw] md:text-[8vw] lg:text-[4.5vw] xl:text-[3.5rem] font-normal text-white leading-[1.03] sm:leading-[1.05] tracking-normal"
               style={{ animationDuration: "1.4s" }}
             >
               <span className="block" style={{ paddingBottom: "0.08em" }}>{t("brand.hero.h1.line1")}</span>
@@ -133,10 +131,10 @@ const BrandHero = () => {
 
           {/* Manifest */}
           <aside
-            className="raj-fade pl-4 border-l lg:col-span-5 lg:self-end lg:pl-8 lg:pb-2 lg:border-l lg:max-w-md lg:ml-auto"
+            className="raj-fade pl-3 border-l lg:col-span-5 lg:self-end lg:pl-8 lg:pb-2 lg:border-l lg:max-w-md lg:ml-auto"
             style={{ animationDelay: "0.9s", animationDuration: "1.2s", borderColor: `${GOLD_SOFT}40` }}
           >
-            <div className="flex items-center gap-3 mb-4 sm:mb-5">
+            <div className="flex items-center gap-3 mb-2.5 sm:mb-5">
               <span className="h-px w-8 sm:w-10" style={{ background: `linear-gradient(90deg, ${GOLD_SOFT}, transparent)` }} />
               <p
                  className="text-[11px] uppercase font-semibold"
@@ -146,18 +144,18 @@ const BrandHero = () => {
               </p>
             </div>
             <p
-               className="text-lg sm:text-xl text-white font-normal leading-[1.55] italic font-serif"
-               style={{ letterSpacing: "0", marginBottom: "0.75rem", textShadow: "0 1px 14px rgba(0,0,0,0.28)" }}
+               className="mb-[0.45rem] text-base sm:mb-3 sm:text-xl text-white font-normal leading-[1.45] sm:leading-[1.55] italic font-serif"
+               style={{ letterSpacing: "0", textShadow: "0 1px 14px rgba(0,0,0,0.28)" }}
             >
               Das Gewöhnliche überzeugt durch Lautstärke.
             </p>
             <p
-               className="text-lg sm:text-xl text-white font-normal leading-[1.55] italic font-serif"
+               className="text-base sm:text-xl text-white font-normal leading-[1.45] sm:leading-[1.55] italic font-serif"
                style={{ letterSpacing: "0", textShadow: "0 1px 14px rgba(0,0,0,0.28)" }}
             >
               Das Aussergewöhnliche durch Stille.
             </p>
-            <div className="mt-6 flex items-center gap-4">
+            <div className="mt-3.5 sm:mt-6 flex items-center gap-4">
               <span className="h-px w-12" style={{ background: `${GOLD_SOFT}55` }} />
               <p
                  className="text-[10px] sm:text-[11px] uppercase font-semibold"
