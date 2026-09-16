@@ -231,7 +231,7 @@ const DeviceMock = ({
 
   return (
     <div
-      className="relative mx-auto max-w-[230px] md:max-w-none transition-[width] duration-500 ease-out"
+      className="relative mx-auto max-w-[256px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: `min(100%, ${380 * scale}px)`, aspectRatio: "1 / 1" }}
     >
 
