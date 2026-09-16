@@ -27,16 +27,10 @@ const BrandNextDrop = () => {
         {/* Header — Editorial hairline */}
         <div
           ref={headRef}
-          className="reveal flex justify-between items-end border-b pb-3 md:pb-4 mb-8 md:mb-12"
+          className="reveal border-b pb-3 md:pb-4 mb-8 md:mb-12"
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
-          <span
-             className="text-[11px] uppercase font-semibold"
-             style={{ color: GOLD_SOFT, letterSpacing: "0.2em" }}
-          >
-            Kollektion 2026
-          </span>
-           <h2 className="text-2xl md:text-3xl font-normal italic text-white tracking-normal">
+          <h2 className="text-2xl md:text-3xl font-normal italic text-white tracking-normal">
             Die Kollektion
           </h2>
         </div>
