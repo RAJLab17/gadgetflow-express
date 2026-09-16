@@ -231,9 +231,10 @@ const DeviceMock = ({
 
   return (
     <div
-      className="relative mx-auto max-w-[180px] md:max-w-none transition-[width] duration-500 ease-out"
+      className="relative mx-auto max-w-[230px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: `min(100%, ${380 * scale}px)`, aspectRatio: "1 / 1" }}
     >
+
       <div
         aria-hidden
         className="absolute left-1/2 -translate-x-1/2 bottom-[4%] w-[62%] h-8 rounded-[50%] pointer-events-none"
