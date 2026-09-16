@@ -53,6 +53,16 @@ export interface BlogArticle {
 // ---------------------------------------------------------------------------
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
+    slug: "matrix-iphone-18-case",
+    path: "/blog/matrix-iphone-18-case",
+    title: "MATRIX Carbon-Hülle iPhone 18 Pro & Pro Max – MagSafe",
+    excerpt:
+      "Schlanker Carbon-Look, MagSafe-kompatibel, präzise Passform. Die MATRIX Hülle für iPhone 18 Pro und Pro Max.",
+    date: "19.06.2026",
+    dateISO: "2026-06-19",
+    priority: 0.85,
+  },
+  {
     slug: "bester-3in1-wireless-charger-schweiz-2026",
     path: "/blog/bester-3in1-wireless-charger-schweiz-2026",
     title: "Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich",
