@@ -43,7 +43,7 @@ const BrandHero = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-[54svh] pb-10 sm:min-h-[58svh] sm:pb-20 lg:min-h-0 lg:h-auto lg:pb-12 flex items-start pt-20 sm:pt-32 lg:pt-28 overflow-visible border-b"
+      className="relative min-h-[54svh] pb-8 sm:min-h-[58svh] sm:pb-20 lg:min-h-0 lg:h-auto lg:pb-12 block pt-20 sm:pt-32 lg:pt-28 overflow-visible border-b"
       style={{ background: "#0a0908", borderColor: "rgba(255,255,255,0.06)" }}
     >
       {/* Sanftes Gold-Licht oben rechts — Editorial-Stimmung */}
@@ -166,12 +166,12 @@ const BrandHero = () => {
         </div>
       </div>
 
-      {/* Scroll-Indikator */}
+      {/* Scroll-Indikator — auf Mobile unter dem Manifest, nie darüber */}
       <div
-        className="raj-fade absolute bottom-5 left-6 flex lg:hidden items-center gap-4 z-10"
+        className="raj-fade mt-5 mb-1 px-4 sm:px-10 lg:hidden flex items-center gap-4 relative z-10"
         style={{ animationDelay: "1.5s", animationDuration: "1s" }}
       >
-        <div className="w-px h-12 animate-float-slow" style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }} />
+        <div className="w-px h-8 animate-float-slow" style={{ background: `linear-gradient(180deg, transparent, ${GOLD_SOFT})` }} />
          <span className="text-[10px] uppercase font-medium" style={{ letterSpacing: "0.18em", color: "rgba(255,255,255,0.62)" }}>
           Scrollen
         </span>
