@@ -72,11 +72,10 @@ const BrandHero = () => {
             >
               <Link
                 to="/nexus"
-                className="group inline-flex min-w-0 items-center justify-center gap-1.5 px-3 py-2.5 text-[8px] sm:gap-2 sm:px-7 sm:py-3.5 sm:text-[11px] rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                className="group inline-flex min-w-0 items-center justify-center gap-1.5 px-3 py-2.5 text-[10px] tracking-[0.08em] sm:gap-2 sm:px-7 sm:py-3.5 sm:text-[11px] sm:tracking-[0.12em] rounded-full transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
                   color: "#0a0908",
-                  letterSpacing: "0.12em",
                   fontWeight: 700,
                   textTransform: "uppercase",
                   boxShadow: `0 20px 50px -12px ${GOLD}aa, inset 0 1px 0 rgba(255,255,255,0.3)`,
