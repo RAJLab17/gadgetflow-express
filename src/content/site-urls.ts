@@ -53,6 +53,16 @@ export interface BlogArticle {
 // ---------------------------------------------------------------------------
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
+    slug: "nexus-iphone-18-ladegeraet",
+    path: "/blog/nexus-iphone-18-ladegeraet",
+    title: "RAJ NEXUS – 3-in-1 Ladestation fürs iPhone 18 (Qi2.2, 25W)",
+    excerpt:
+      "Die RAJ NEXUS lädt iPhone 18, Apple Watch und AirPods gleichzeitig – Qi2.2 mit bis zu 25W, MagSafe-fest, Schweizer Marke.",
+    date: "17.09.2026",
+    dateISO: "2026-09-17",
+    priority: 0.85,
+  },
+  {
     slug: "matrix-iphone-18-case",
     path: "/blog/matrix-iphone-18-case",
     title: "MATRIX Carbon-Hülle iPhone 18 Pro & Pro Max – MagSafe",

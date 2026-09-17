@@ -39,6 +39,7 @@ const MagSafeLadestationPage = lazy(() => import("./pages/MagSafeLadestationPage
 const ThreeInOnePage = lazy(() => import("./pages/ThreeInOnePage"));
 const Beste3in1ChargerPage = lazy(() => import("./pages/Beste3in1ChargerPage"));
 const MatrixBlogPage = lazy(() => import("./pages/MatrixBlogPage"));
+const NexusBlogPage = lazy(() => import("./pages/NexusBlogPage"));
 const ReviewsPage = lazy(() => import("./pages/ReviewsPage"));
 const AdminReviewsPage = lazy(() => import("./pages/AdminReviewsPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -97,6 +98,7 @@ const App = () => (
                 <Route path="/3in1-ladestation-iphone-apple-watch-airpods" element={<Navigate to="/3-in-1-ladestation-iphone-apple-watch-airpods" replace />} />
                 <Route path="/blog/bester-3in1-wireless-charger-schweiz-2026" element={<Beste3in1ChargerPage />} />
                 <Route path="/blog/matrix-iphone-18-case" element={<MatrixBlogPage />} />
+                <Route path="/blog/nexus-iphone-18-ladegeraet" element={<NexusBlogPage />} />
                 <Route path="/reviews" element={<ReviewsPage />} />
                 <Route path="/bewertungen" element={<Navigate to="/reviews" replace />} />
                 <Route path="/admin/reviews" element={<AdminReviewsPage />} />
