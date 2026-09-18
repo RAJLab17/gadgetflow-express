@@ -9,6 +9,12 @@ import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import { breadcrumbJsonLd } from "@/lib/schemas";
 import logoTransparent from "@/assets/logo-transparent.webp";
+import apexSilver480 from "@/assets/products/apex-dash-480.webp";
+import apexSilver900 from "@/assets/products/apex-dash-900.webp";
+import apexSilver1400 from "@/assets/products/apex-dash-1400.webp";
+import apexBlack480 from "@/assets/products/apex-vent-480.webp";
+import apexBlack900 from "@/assets/products/apex-vent-900.webp";
+import apexBlack1400 from "@/assets/products/apex-vent-1400.webp";
 
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
@@ -26,6 +32,9 @@ interface ApexVariant {
   sku: string;
   price: number;
   compareAt: number;
+  img480: string;
+  img900: string;
+  img1400: string;
 }
 
 const APEX_VARIANTS: ApexVariant[] = [
@@ -38,6 +47,9 @@ const APEX_VARIANTS: ApexVariant[] = [
     sku: "RAJ-APX-Q2-SLV",
     price: 75,
     compareAt: 99,
+    img480: apexSilver480,
+    img900: apexSilver900,
+    img1400: apexSilver1400,
   },
   {
     id: "vent",
@@ -48,6 +60,9 @@ const APEX_VARIANTS: ApexVariant[] = [
     sku: "RAJ-APX-Q2-BLK",
     price: 69,
     compareAt: 99,
+    img480: apexBlack480,
+    img900: apexBlack900,
+    img1400: apexBlack1400,
   }
 ];
 
@@ -195,7 +210,9 @@ const WaitlistForm = ({ variant }: { variant: ApexVariant }) => {
 
 const ApexPage = () => {
   const [selected, setSelected] = useState<ApexVariantId>("dash");
-  const variant = APEX_VARIANTS.find((v) => v.id === selected)!;
+  const variant = APEX_VARIANTS.find((v) => v.id === selected) ?? APEX_VARIANTS[0];
+
+  if (!variant) return null;
 
   useViewContent({
     content_name: variant.name,
@@ -250,17 +267,21 @@ const ApexPage = () => {
                       aspectRatio: "1 / 1",
                     }}
                   >
-                    <div className="flex h-full w-full items-center justify-center text-center">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: H.gold }}>
-                          Early Access
-                        </p>
-                        <p className="mt-5 text-5xl font-light tracking-[0.08em] md:text-7xl" style={{ color: H.text }}>
-                          APEX
-                        </p>
-                        <div className="mx-auto mt-6 h-px w-14" style={{ background: H.gold }} />
-                      </div>
-                    </div>
+                    <picture className="block h-full w-full">
+                      <source media="(max-width: 639px)" srcSet={variant.img480} />
+                      <source media="(max-width: 1279px)" srcSet={variant.img900} />
+                      <img
+                        src={variant.img1400}
+                        srcSet={`${variant.img900} 900w, ${variant.img1400} 1400w`}
+                        sizes="(max-width: 1023px) min(100vw - 40px, 420px), 560px"
+                        width={1400}
+                        height={1400}
+                        alt={`${variant.name} MagSafe Auto-Ladehalterung`}
+                        className="h-full w-full object-contain p-4 sm:p-6 md:p-8"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    </picture>
                     <div className="absolute bottom-3 left-3 md:bottom-5 md:left-5">
                       <Qi2CertifiedBadge size={32} variant="dark" />
                     </div>
