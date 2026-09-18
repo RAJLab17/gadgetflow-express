@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
-import apexImg from "@/assets/products/apex-transparent.webp";
 import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
@@ -169,16 +168,14 @@ const BrandNextDrop = () => {
 
           {/* APEX — Early Access (weiter versetzt) */}
           <Link to="/apex" className="group block md:col-span-2 lg:col-span-1 lg:mt-32 md:max-w-[calc(50%-1rem)] lg:max-w-none">
-            <div className="relative mb-6 overflow-hidden rounded-sm">
-              <img
-                src={apexImg}
-                alt="RAJ APEX MagSafe Auto-Ladehalterung"
-                width={768}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
-              />
+            <div className="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-sm border border-white/10 bg-white/[0.025]">
+              <div className="text-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: GOLD_SOFT }}>
+                  Unterwegs
+                </p>
+                <p className="mt-4 text-4xl font-light tracking-[0.08em] text-white">APEX</p>
+                <div className="mx-auto mt-5 h-px w-12" style={{ background: GOLD }} />
+              </div>
               <div className="absolute top-4 left-4">
                 <span
                    className="px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"

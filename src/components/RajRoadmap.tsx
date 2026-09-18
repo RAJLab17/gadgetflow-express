@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import matrixImage from "@/assets/home/objekt-matrix-premium.webp";
-import apexImage from "@/assets/products/apex-transparent.webp";
 
 type Milestone = {
   name: string;
@@ -36,8 +35,6 @@ const milestones: Milestone[] = [
     status: "early",
     etaKey: "brand.road.eta.2027",
     href: "/apex",
-    image: apexImage,
-    imageAlt: "RAJ APEX MagSafe Auto-Ladehalterung",
   },
   { name: "RAJ AURORA", status: "locked", etaKey: "brand.road.eta.2026" },
   { name: "RAJ ATLAS", status: "locked", etaKey: "brand.road.eta.2027" },
@@ -77,6 +74,15 @@ const CollectionCard = ({ milestone, index }: { milestone: Milestone; index: num
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/95" />
         </>
+      )}
+
+      {!milestone.image && milestone.status !== "locked" && (
+        <div className="absolute inset-0 flex items-center justify-center bg-card">
+          <div className="text-center">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-primary">Unterwegs</p>
+            <p className="mt-3 text-2xl font-light tracking-[0.08em] text-foreground">APEX</p>
+          </div>
+        </div>
       )}
 
       <div className="relative z-10 flex h-full flex-col justify-between p-5">
