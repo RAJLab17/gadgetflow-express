@@ -9,7 +9,6 @@ import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import { breadcrumbJsonLd } from "@/lib/schemas";
 import logoTransparent from "@/assets/logo-transparent.webp";
-import apexProduct from "@/assets/products/apex-transparent.webp";
 
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
@@ -67,7 +66,6 @@ const APEX_JSON_LD = {
   description:
     "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
   brand: { "@type": "Brand", name: "RAJ" },
-  image: "https://raj.ch/assets/products/apex-card-900.webp",
   offers: APEX_VARIANTS.map((v) => ({
     "@type": "Offer",
     sku: v.sku,
@@ -252,17 +250,17 @@ const ApexPage = () => {
                       aspectRatio: "1 / 1",
                     }}
                   >
-                    <img
-                      src={apexProduct}
-                      sizes="(max-width: 1024px) 90vw, 46vw"
-                      alt={`${variant.name} — MagSafe Auto-Ladehalterung`}
-                      width={900}
-                      height={900}
-                      loading="eager"
-                      fetchPriority="high"
-                      decoding="async"
-                      className="w-full h-full object-contain p-5 md:p-10"
-                    />
+                    <div className="flex h-full w-full items-center justify-center text-center">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: H.gold }}>
+                          Early Access
+                        </p>
+                        <p className="mt-5 text-5xl font-light tracking-[0.08em] md:text-7xl" style={{ color: H.text }}>
+                          APEX
+                        </p>
+                        <div className="mx-auto mt-6 h-px w-14" style={{ background: H.gold }} />
+                      </div>
+                    </div>
                     <div className="absolute bottom-3 left-3 md:bottom-5 md:left-5">
                       <Qi2CertifiedBadge size={32} variant="dark" />
                     </div>
