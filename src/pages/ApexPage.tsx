@@ -9,13 +9,7 @@ import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import { breadcrumbJsonLd } from "@/lib/schemas";
 import logoTransparent from "@/assets/logo-transparent.webp";
-
-import apexDash480 from "@/assets/products/apex-dash-480.webp";
-import apexDash900 from "@/assets/products/apex-dash-900.webp";
-import apexDash1400 from "@/assets/products/apex-dash-1400.webp";
-import apexVent480 from "@/assets/products/apex-vent-480.webp";
-import apexVent900 from "@/assets/products/apex-vent-900.webp";
-import apexVent1400 from "@/assets/products/apex-vent-1400.webp";
+import apexProduct from "@/assets/products/apex-transparent.webp.asset.json";
 
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
@@ -30,9 +24,6 @@ interface ApexVariant {
   tagline: string;
   mount: string;
   icon: React.ReactNode;
-  img480: string;
-  img900: string;
-  img1400: string;
   sku: string;
   price: number;
   compareAt: number;
@@ -45,9 +36,6 @@ const APEX_VARIANTS: ApexVariant[] = [
     tagline: "Silber — dezent & elegant",
     mount: "Saugmontage, Lüftungsclip, USB-C Kabel & Kfz-Ladeadapter im Lieferumfang",
     icon: <Car className="w-4 h-4" />,
-    img480: apexDash480,
-    img900: apexDash900,
-    img1400: apexDash1400,
     sku: "RAJ-APX-Q2-SLV",
     price: 75,
     compareAt: 99,
@@ -58,9 +46,6 @@ const APEX_VARIANTS: ApexVariant[] = [
     tagline: "Space Black — sportlich & matt",
     mount: "Saugmontage, Lüftungsclip, USB-C Kabel & Kfz-Ladeadapter im Lieferumfang",
     icon: <Wind className="w-4 h-4" />,
-    img480: apexVent480,
-    img900: apexVent900,
-    img1400: apexVent1400,
     sku: "RAJ-APX-Q2-BLK",
     price: 69,
     compareAt: 99,
@@ -82,7 +67,7 @@ const APEX_JSON_LD = {
   description:
     "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
   brand: { "@type": "Brand", name: "RAJ" },
-  image: `https://raj.ch${apexDash1400}`,
+  image: `https://raj.ch${apexProduct.url}`,
   offers: APEX_VARIANTS.map((v) => ({
     "@type": "Offer",
     sku: v.sku,
@@ -268,8 +253,7 @@ const ApexPage = () => {
                     }}
                   >
                     <img
-                      src={variant.img900}
-                      srcSet={`${variant.img480} 480w, ${variant.img900} 900w, ${variant.img1400} 1400w`}
+                      src={apexProduct.url}
                       sizes="(max-width: 1024px) 90vw, 46vw"
                       alt={`${variant.name} — MagSafe Auto-Ladehalterung`}
                       width={900}
@@ -285,27 +269,6 @@ const ApexPage = () => {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Variant thumbs — desktop */}
-                <div className="hidden lg:flex gap-3 mt-4">
-                  {APEX_VARIANTS.map((v) => {
-                    const active = v.id === selected;
-                    return (
-                      <button
-                        key={v.id}
-                        onClick={() => setSelected(v.id)}
-                        aria-label={v.name}
-                        className="w-20 h-20 rounded-2xl overflow-hidden transition-all"
-                        style={{
-                          border: active ? `1.5px solid ${H.gold}` : `1px solid ${H.border}`,
-                          background: "#FAF9F7",
-                          opacity: active ? 1 : 0.65,
-                        }}
-                      >
-                        <img src={v.img480} alt="" className="w-full h-full object-contain p-1.5" loading="lazy" />
-                      </button>
-                    );
-                  })}
-                </div>
               </div>
 
               {/* RIGHT — content */}
