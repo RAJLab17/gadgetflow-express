@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
 import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
+import apexCarImg from "@/assets/products/apex-dash-900.webp";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
 
@@ -45,7 +46,7 @@ const BrandNextDrop = () => {
                 height={1200}
                 loading="lazy"
                 decoding="async"
-                className="w-full aspect-[3/4] bg-white object-contain p-8 transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
               />
               <div className="absolute top-4 left-4">
                 <span
@@ -168,14 +169,17 @@ const BrandNextDrop = () => {
 
           {/* APEX — Early Access (weiter versetzt) */}
           <Link to="/apex" className="group block md:col-span-2 lg:col-span-1 lg:mt-32 md:max-w-[calc(50%-1rem)] lg:max-w-none">
-            <div className="relative mb-6 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-sm border border-white/10 bg-white/[0.025]">
-              <div className="text-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em]" style={{ color: GOLD_SOFT }}>
-                  Unterwegs
-                </p>
-                <p className="mt-4 text-4xl font-light tracking-[0.08em] text-white">APEX</p>
-                <div className="mx-auto mt-5 h-px w-12" style={{ background: GOLD }} />
-              </div>
+            <div className="relative mb-6 aspect-[3/4] overflow-hidden rounded-sm">
+              <img
+                src={apexCarImg}
+                alt="RAJ APEX MagSafe Auto-Ladehalterung im Fahrzeug"
+                width={900}
+                height={1200}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/25" />
               <div className="absolute top-4 left-4">
                 <span
                    className="px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"
