@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import matrixImage from "@/assets/home/objekt-matrix-premium.webp";
-import apexImage from "@/assets/home/objekt-apex-correct.jpg";
+import apexImage from "@/assets/products/apex-transparent.webp";
 
 type Milestone = {
   name: string;
@@ -71,7 +71,9 @@ const CollectionCard = ({ milestone, index }: { milestone: Milestone; index: num
             alt={milestone.imageAlt ?? ""}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
+            className={`absolute inset-0 h-full w-full transition-transform duration-1000 ease-out group-hover:scale-[1.035] ${
+              milestone.name === "RAJ APEX" ? "bg-white object-contain p-6" : "object-cover"
+            }`}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/95" />
         </>
