@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
-import apexProduct from "@/assets/products/apex-transparent.webp.asset.json";
+import apexProduct from "@/assets/products/apex-transparent.webp";
 
 interface Product {
   index: string;
@@ -62,7 +62,7 @@ const products: Product[] = [
     price: "ab CHF 69.–",
     status: "Early Access",
     link: "/apex",
-    img: apexProduct.url,
+    img: apexProduct,
     imgAlt: "RAJ APEX MagSafe Auto-Ladehalterung in Silber",
     specs: [
       { label: "Standard", value: "Qi2 · 25 W" },
@@ -171,7 +171,7 @@ const ProduktePage = () => {
                     height={1376}
                     loading="eager"
                     decoding="async"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                   />
                   <span className="absolute bottom-5 left-5 bg-background/90 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm md:bottom-8 md:left-8">
                     01 / Das Original
