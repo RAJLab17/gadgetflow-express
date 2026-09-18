@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
-import apexImg from "@/assets/home/objekt-apex-correct.jpg";
+import apexImg from "@/assets/products/apex-transparent.webp";
 import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
@@ -46,7 +46,7 @@ const BrandNextDrop = () => {
                 height={1200}
                 loading="lazy"
                 decoding="async"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                className="w-full aspect-[3/4] bg-white object-contain p-8 transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
               />
               <div className="absolute top-4 left-4">
                 <span

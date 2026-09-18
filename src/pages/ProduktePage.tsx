@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
+import apexProduct from "@/assets/products/apex-transparent.webp";
 
 interface Product {
   index: string;
@@ -29,8 +30,8 @@ const products: Product[] = [
     price: "CHF 99.–",
     status: "Verfügbar",
     link: "/nexus",
-    img: "/assets/products/nexus-real-hero-floating-white.webp",
-    imgAlt: "RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, Apple Watch und AirPods",
+    img: "/assets/products/nexus-bedside-night.webp",
+    imgAlt: "RAJ NEXUS 3-in-1 Wireless Charger auf einem Nachttisch",
     specs: [
       { label: "Standard", value: "Qi2.2 · 25 W" },
       { label: "Geräte", value: "iPhone · Watch · AirPods" },
@@ -61,7 +62,7 @@ const products: Product[] = [
     price: "ab CHF 69.–",
     status: "Early Access",
     link: "/apex",
-    img: "/assets/products/apex-card-900.webp",
+    img: apexProduct,
     imgAlt: "RAJ APEX MagSafe Auto-Ladehalterung in Silber",
     specs: [
       { label: "Standard", value: "Qi2 · 25 W" },
@@ -212,7 +213,7 @@ const ProduktePage = () => {
                     height={900}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-contain p-8 transition-transform duration-700 ease-out group-hover:scale-[1.025] md:p-12"
+                    className="h-full w-full object-contain p-10 transition-transform duration-700 ease-out group-hover:scale-[1.025] md:p-16"
                   />
                   <span className="absolute bottom-5 left-5 bg-background/90 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm md:bottom-8 md:left-8">
                     03 / Unterwegs
