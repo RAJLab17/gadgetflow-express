@@ -190,17 +190,19 @@ const RENDERS: Record<string, string> = {
 
 /* Goldener Blitz — Position/Grösse relativ zum Render, damit er auf jedem
    Modell und jeder Viewport-Breite exakt gleich auf der Hülle sitzt. */
-const GoldBolt = () => (
+const GoldBolt = ({ airpods = false }: { airpods?: boolean }) => (
   <svg
     aria-hidden="true"
-    viewBox="0 0 70 92"
+    viewBox="0 0 49 84"
     className="absolute pointer-events-none"
     style={{
-      left: "33.5%",
-      bottom: "9%",
-      width: "6.2%",
+      left: airpods ? "50%" : "33.5%",
+      top: airpods ? "50%" : undefined,
+      bottom: airpods ? undefined : "9%",
+      width: airpods ? "7%" : "5.2%",
       height: "auto",
-      aspectRatio: "70 / 92",
+      aspectRatio: "49 / 84",
+      transform: airpods ? "translate(-50%, -50%)" : undefined,
     }}
   >
     <defs>
@@ -211,7 +213,7 @@ const GoldBolt = () => (
       </linearGradient>
     </defs>
     <path
-      d="M56 1 H42 L24 42 H32 L16 91 L58 32 H44 Z"
+      d="M20 0H49L31 29H45L0 84L18 41H4L20 0Z"
       fill="url(#raj-bolt-gold)"
     />
   </svg>
@@ -779,21 +781,8 @@ const MatrixPage = () => {
                           loading="lazy"
                           className="absolute inset-0 h-full w-full object-contain mix-blend-multiply"
                         />
-                        {/* Goldener Blitz — dezent, mittig auf dem AirPods-Case */}
-                        <svg
-                          aria-hidden="true"
-                          viewBox="0 0 68 101"
-                          className="absolute pointer-events-none"
-                          style={{
-                            left: "50%",
-                            top: "50%",
-                            width: "9%",
-                            aspectRatio: "68 / 101",
-                            transform: "translate(-50%, -50%)",
-                          }}
-                        >
-                          <path d="M67 0 37 0 0 49 25 49 2 101 68 37 39 37Z" fill="#d7b34c" />
-                        </svg>
+                        {/* Exakt dieselbe schlanke Blitzform wie auf dem Originalprodukt. */}
+                        <GoldBolt airpods />
                       </div>
                       <span className="min-w-0 flex-1">
                         <span className="block text-sm font-medium">{airpodsCase.name}</span>
