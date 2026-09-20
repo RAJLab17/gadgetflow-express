@@ -14,7 +14,7 @@ interface Product {
   price: string;
   status: string;
   link: string;
-  img?: string;
+  img: string;
   imgAlt: string;
   specs: { label: string; value: string }[];
 }
@@ -61,6 +61,7 @@ const products: Product[] = [
     price: "ab CHF 69.–",
     status: "Early Access",
     link: "/apex",
+    img: "/assets/products/apex-card-900.webp",
     imgAlt: "RAJ APEX MagSafe Auto-Ladehalterung in Silber",
     specs: [
       { label: "Standard", value: "Qi2 · 25 W" },
@@ -204,13 +205,15 @@ const ProduktePage = () => {
               <Link to={apex.link} className="block" aria-label="RAJ APEX entdecken">
                 <div className="relative aspect-[4/3] overflow-hidden bg-card md:aspect-[16/8]">
                   <div className="absolute inset-5 border border-border md:inset-8" aria-hidden />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center transition-transform duration-700 ease-out group-hover:scale-[1.025]">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">Unterwegs</p>
-                      <p className="mt-5 text-5xl font-light tracking-[0.08em] text-foreground md:text-7xl">APEX</p>
-                      <div className="mx-auto mt-6 h-px w-14 bg-primary" />
-                    </div>
-                  </div>
+                  <img
+                    src={apex.img}
+                    alt={apex.imgAlt}
+                    width={900}
+                    height={900}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-contain p-7 transition-transform duration-700 ease-out group-hover:scale-[1.025] md:p-10"
+                  />
                   <span className="absolute bottom-5 left-5 bg-background/90 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm md:bottom-8 md:left-8">
                     03 / Unterwegs
                   </span>
