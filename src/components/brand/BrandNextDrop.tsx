@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
-import matrixImgAsset from "@/assets/home/matrix-cherry-original.png.asset.json";
+import matrixImg from "@/assets/home/objekt-matrix-cherry-reference.webp";
 import airpodsRender from "@/assets/matrix/airpods-cherry-bolt.webp";
 import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
-const matrixImg = matrixImgAsset.url;
-
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#d7ad82";
 
