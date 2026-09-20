@@ -26,6 +26,7 @@ import onyxDarkgrey from "@/assets/matrix/onyx-darkgrey.webp";
 import onyxSkyblue from "@/assets/matrix/onyx-skyblue.webp";
 import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
+import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -188,35 +189,23 @@ const RENDERS: Record<string, string> = {
   "18-onyx-silver": onyxSilver,
 };
 
-/* Goldener Blitz — Position/Grösse relativ zum Render, damit er auf jedem
-   Modell und jeder Viewport-Breite exakt gleich auf der Hülle sitzt. */
+/* Originalkontur des goldenen MATRIX-Emblems, direkt aus dem Produktfoto. */
 const GoldBolt = ({ airpods = false }: { airpods?: boolean }) => (
-  <svg
+  <img
     aria-hidden="true"
-    viewBox="0 0 49 84"
+    src={rajBoltOriginal}
+    alt=""
     className="absolute pointer-events-none"
     style={{
-      left: airpods ? "50%" : "33.5%",
-      top: airpods ? "50%" : undefined,
-      bottom: airpods ? undefined : "9%",
-      width: airpods ? "6%" : "3.8%",
+      left: airpods ? "50%" : "31.6%",
+      top: airpods ? "52%" : undefined,
+      bottom: airpods ? undefined : "8.4%",
+      width: airpods ? "4.7%" : "3.15%",
       height: "auto",
-      aspectRatio: "49 / 84",
       transform: airpods ? "translate(-50%, -50%)" : undefined,
+      filter: "drop-shadow(0 0.5px 0.5px rgba(91, 58, 15, 0.28))",
     }}
-  >
-    <defs>
-      <linearGradient id="raj-bolt-gold" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#f6e6ae" />
-        <stop offset="45%" stopColor="#e0bb5c" />
-        <stop offset="100%" stopColor="#b8892a" />
-      </linearGradient>
-    </defs>
-    <path
-      d="M20 0H49L31 29H45L0 84L18 41H4L20 0Z"
-      fill="url(#raj-bolt-gold)"
-    />
-  </svg>
+  />
 );
 
 
