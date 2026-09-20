@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
-import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
-import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
+import matrixImg from "@/assets/home/objekt-matrix-cherry.webp";
+import airpodsRender from "@/assets/matrix/airpods-cherry-bolt.webp";
 import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";

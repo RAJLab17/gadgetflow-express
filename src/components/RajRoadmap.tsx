@@ -2,7 +2,7 @@ import { ArrowUpRight, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import matrixImage from "@/assets/home/objekt-matrix-premium.webp";
+import matrixImage from "@/assets/home/objekt-matrix-cherry.webp";
 import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
 
 type Milestone = {
