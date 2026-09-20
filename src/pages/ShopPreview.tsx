@@ -52,7 +52,6 @@ const ShopPreview = () => {
   const { quickBuy, isProcessing: buyNowProcessing } = useQuickBuy();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [available, setAvailable] = useState(true);
-  const [inventory, setInventory] = useState<number>(FOUNDER_TOTAL);
   const [adding, setAdding] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
 
@@ -71,15 +70,11 @@ const ShopPreview = () => {
         const info = await fetchProductVariantInfo(NEXUS_HANDLE);
         if (info) {
           setAvailable(info.availableForSale);
-          // Cap to FOUNDER_TOTAL so the counter never shows more than 100 left
-          setInventory(Math.min(info.quantityAvailable, FOUNDER_TOTAL));
         }
       } catch (e) { console.error("Failed to load NEXUS:", e); }
     })();
   }, []);
 
-  const sold = Math.max(0, FOUNDER_TOTAL - inventory);
-  const progressPct = Math.min(100, Math.round((sold / FOUNDER_TOTAL) * 100));
   const priceLabel = FOUNDER_PRICE;
 
   const handleBuyNow = async () => {
