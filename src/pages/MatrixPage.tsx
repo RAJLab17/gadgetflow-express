@@ -193,26 +193,19 @@ const RENDERS: Record<string, string> = {
 const GoldBolt = () => (
   <svg
     aria-hidden="true"
-    viewBox="0 0 62 82"
+    viewBox="0 0 68 101"
     className="absolute pointer-events-none"
     style={{
-      left: "32.6%",
-      bottom: "9.5%",
-      width: "5.5%",
+      left: "34%",
+      bottom: "9%",
+      width: "5.8%",
       height: "auto",
-      aspectRatio: "62 / 82",
+      aspectRatio: "68 / 101",
     }}
   >
-    <defs>
-      <linearGradient id="raj-bolt-gold" x1="0.15" y1="0" x2="0.85" y2="1">
-        <stop offset="0%" stopColor="#f4e2a4" />
-        <stop offset="40%" stopColor="#d9b459" />
-        <stop offset="100%" stopColor="#a87f1f" />
-      </linearGradient>
-    </defs>
     <path
-      d="M59 0 41 0 25 24 37 24 0 82 62 27 46 27Z"
-      fill="url(#raj-bolt-gold)"
+      d="M67 0 37 0 0 49 25 49 2 101 68 37 39 37Z"
+      fill="#d7b34c"
     />
   </svg>
 );
