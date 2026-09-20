@@ -3,7 +3,7 @@ import { toast } from "sonner";
 const SHOPIFY_API_VERSION = '2025-07';
 const SHOPIFY_STORE_PERMANENT_DOMAIN = 'kcvjif-10.myshopify.com';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = '092c456726eda2661e65a3c66615f2fd';
+const SHOPIFY_STOREFRONT_TOKEN = '647b7b3c3f87465056274c4546111d38';
 
 export interface ShopifyProduct {
   node: {
@@ -277,7 +277,6 @@ const PRODUCT_BY_HANDLE_QUERY = `
         edges {
           node {
             id
-            quantityAvailable
             availableForSale
           }
         }
@@ -288,7 +287,6 @@ const PRODUCT_BY_HANDLE_QUERY = `
 
 export interface ProductVariantInfo {
   variantId: string;
-  quantityAvailable: number;
   availableForSale: boolean;
 }
 
@@ -299,7 +297,6 @@ export async function fetchProductVariantInfo(handle: string): Promise<ProductVa
     if (!variant) return null;
     return {
       variantId: variant.id,
-      quantityAvailable: typeof variant.quantityAvailable === 'number' ? variant.quantityAvailable : 100,
       availableForSale: variant.availableForSale ?? true,
     };
   } catch (error) {

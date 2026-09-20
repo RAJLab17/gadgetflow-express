@@ -11,17 +11,12 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useViewContent } from "@/hooks/useViewContent";
-import { useQuickBuy, CHECKOUT_URL } from "@/hooks/useQuickBuy";
+import { useQuickBuy } from "@/hooks/useQuickBuy";
 const ProductDetailsAccordion = lazy(() => import("@/components/ProductDetailsAccordion"));
 
 import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import { fetchProductVariantInfo } from "@/lib/shopify";
-
-// Drop 01: 15 Einheiten allokiert. Baseline = Shopify-Bestand bei Drop-Start.
-// Anzeige = max(0, min(DROP_CAP, DROP_CAP - (BASELINE - currentQty))).
-const DROP_01_BASELINE_INVENTORY = 92;
-const DROP_01_CAP = 15;
 
 // ─── PREIS-KONFIGURATION ───────────────────────────────────────
 const REGULAR_PRICE = 99;
@@ -697,15 +692,13 @@ const NexusPage = () => {
   }, []);
 
   // Live Drop 01 Restbestand aus Shopify (Storefront API)
-  const [dropRemaining, setDropRemaining] = useState<number>(DROP_01_CAP);
+  const [nexusAvailable, setNexusAvailable] = useState(true);
   useEffect(() => {
     let cancelled = false;
     (async () => {
       const info = await fetchProductVariantInfo("raj-3-in-1-wireless-charger");
       if (cancelled || !info) return;
-      const sold = Math.max(0, DROP_01_BASELINE_INVENTORY - info.quantityAvailable);
-      const remaining = Math.max(0, Math.min(DROP_01_CAP, DROP_01_CAP - sold));
-      setDropRemaining(remaining);
+      setNexusAvailable(info.availableForSale);
     })();
     return () => { cancelled = true; };
   }, []);
@@ -830,7 +823,7 @@ const NexusPage = () => {
                   <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
                 </span>
                 <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
-                  {dropRemaining > 0 ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
+                  {nexusAvailable ? "Verfügbar" : "Drop 01 ausverkauft"}
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
@@ -844,7 +837,7 @@ const NexusPage = () => {
             </div>
 
 
-            <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98]" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+            <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98]" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </a>
 
@@ -995,7 +988,7 @@ const NexusPage = () => {
                 <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
               </span>
               <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
-                {dropRemaining > 0 ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
+                {nexusAvailable ? "Verfügbar" : "Drop 01 ausverkauft"}
               </span>
             </div>
             {/* Price */}
@@ -1018,7 +1011,7 @@ const NexusPage = () => {
               </Link>
             )}
           </div>
-          <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+          <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
           </a>
           <div className="flex flex-nowrap justify-center gap-1.5 mt-2 mb-2 px-1">
@@ -1172,7 +1165,7 @@ const NexusPage = () => {
             <span style={{ color: D.gold, fontWeight: 500 }}>CHF {REGULAR_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
           </p>
           <p className="text-xs uppercase tracking-widest mb-8" style={{ color: D.gold }}>Founder Edition · Limitiert auf 100</p>
-          <a href={CHECKOUT_URL} onClick={(e) => { if (buyProcessing) { e.preventDefault(); return; } quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
+          <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
             Jetzt kaufen
           </a>
 

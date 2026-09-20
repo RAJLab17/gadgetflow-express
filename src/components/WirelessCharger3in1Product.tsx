@@ -33,17 +33,15 @@ const NEXUS_HANDLE = "raj-3-in-1-wireless-charger";
 const WirelessCharger3in1Product = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
-  const [inventory, setInventory] = useState<number>(100);
   const [availableForSale, setAvailableForSale] = useState<boolean>(true);
   const [variantId, setVariantId] = useState<string>("gid://shopify/ProductVariant/57169031823685");
   const { quickBuy, isProcessing } = useQuickBuy();
 
-  // Fetch variant ID + inventory dynamically from Shopify
+  // Fetch the current Storefront variant and availability dynamically.
   useEffect(() => {
     fetchProductVariantInfo(NEXUS_HANDLE).then(info => {
       if (info) {
         setVariantId(info.variantId);
-        setInventory(info.quantityAvailable);
         setAvailableForSale(info.availableForSale);
       }
     });
@@ -127,20 +125,15 @@ const WirelessCharger3in1Product = () => {
 
             <div className="border-t border-border pt-4 mb-6">
               <p className="text-base text-muted-foreground">
-                Erste Serie · Die ersten {inventory} Exemplare
+                Founder Edition · Limitierte erste Serie
               </p>
-              {inventory > 0 && inventory <= 10 && (
-                <p className="text-sm font-semibold text-destructive mt-2 animate-pulse">
-                  ⚠️ Nur noch {inventory} Stück verfügbar!
-                </p>
-              )}
             </div>
 
             <p className="text-4xl md:text-5xl font-bold text-primary mb-6">
               CHF 99.–
             </p>
 
-            {availableForSale && inventory > 0 ? (
+            {availableForSale ? (
               <button
                 onClick={quickBuy}
                 disabled={isProcessing}
@@ -247,9 +240,9 @@ const WirelessCharger3in1Product = () => {
                 Erste Serie · Limitierte Verfügbarkeit
               </h3>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary rounded-lg border border-border">
-                <span className="text-4xl font-bold text-primary">{inventory}</span>
+                <span className="text-lg font-bold text-primary">{availableForSale ? "Verfügbar" : "Ausverkauft"}</span>
                 <span className="text-sm text-muted-foreground">
-                  Exemplaren verfügbar
+                  im Shopify-Shop
                 </span>
               </div>
             </div>
@@ -288,7 +281,7 @@ const WirelessCharger3in1Product = () => {
               price="CHF 99.–"
               originalPrice="CHF 129.–"
               discountLabel="-23% Einführungspreis"
-              soldOut={!availableForSale || inventory <= 0}
+              soldOut={!availableForSale}
             />
 
             {/* Lieferumfang */}
@@ -321,7 +314,7 @@ const WirelessCharger3in1Product = () => {
       </div>
 
       {/* Mobile-only sticky bottom buy bar — fastest path to checkout */}
-      {availableForSale && inventory > 0 && <StickyBuyBar />}
+      {availableForSale && <StickyBuyBar />}
     </section>
   );
 };

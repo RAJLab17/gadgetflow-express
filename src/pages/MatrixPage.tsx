@@ -318,10 +318,11 @@ const MatrixPage = () => {
 
       if (airpodsSelected) {
         const apVariantId = AIRPODS_VARIANT_IDS[airpodsCase.id];
-        if (apVariantId) {
-          const apItem: CartItem = { lineId: null, product: { ...dummyProduct, node: { ...dummyProduct.node, title: "MATRIX AirPods 4 Case", handle: "raj-matrix-airpods-4-case" } }, variantId: apVariantId, variantTitle: airpodsCase.name, price: { amount: String(airpodsCase.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Finish", value: airpodsCase.name }] };
-          await addLineToShopifyCart(cart.cartId, apItem);
-        }
+        if (!apVariantId) { fail("Das gewählte AirPods Case ist derzeit nicht verfügbar."); return; }
+        const apItem: CartItem = { lineId: null, product: { ...dummyProduct, node: { ...dummyProduct.node, title: "MATRIX AirPods 4 Case", handle: "raj-matrix-airpods-4-case" } }, variantId: apVariantId, variantTitle: airpodsCase.name, price: { amount: String(airpodsCase.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Finish", value: airpodsCase.name }] };
+        const added = await addLineToShopifyCart(cart.cartId, apItem);
+        if (!added.success) { fail("Das AirPods Case konnte nicht zum Bundle hinzugefügt werden. Bitte versuche es erneut."); return; }
+        if (added.checkoutUrl) cart.checkoutUrl = added.checkoutUrl;
       }
 
       trackCheckout({

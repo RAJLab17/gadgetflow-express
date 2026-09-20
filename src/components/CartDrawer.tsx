@@ -8,7 +8,7 @@ import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
 
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { items, isLoading, isSyncing, updateQuantity, removeItem, syncCart } = useCartStore();
+  const { items, isLoading, isSyncing, updateQuantity, removeItem, syncCart, getCheckoutUrl } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
 
@@ -25,8 +25,10 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     const now = Date.now();
     if (now - lastClick.current < 1000) return;
     lastClick.current = now;
+    const checkoutUrl = getCheckoutUrl();
+    if (!checkoutUrl) return;
     setIsOpen(false);
-    window.location.href = "https://checkout.raj.ch/cart/57169031823685:1";
+    window.open(checkoutUrl, "_blank");
   };
 
   return (
