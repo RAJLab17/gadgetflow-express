@@ -18,11 +18,6 @@ import Header from "@/components/Header";
 import { PRODUCT_NEXUS_JSON_LD, breadcrumbJsonLd, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
 import { fetchProductVariantInfo } from "@/lib/shopify";
 
-// Drop 01: 15 Einheiten allokiert. Baseline = Shopify-Bestand bei Drop-Start.
-// Anzeige = max(0, min(DROP_CAP, DROP_CAP - (BASELINE - currentQty))).
-const DROP_01_BASELINE_INVENTORY = 92;
-const DROP_01_CAP = 15;
-
 // ─── PREIS-KONFIGURATION ───────────────────────────────────────
 const REGULAR_PRICE = 99;
 const ORIGINAL_PRICE = 129;
