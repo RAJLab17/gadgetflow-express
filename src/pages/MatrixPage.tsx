@@ -211,7 +211,7 @@ const GoldBolt = () => (
       </linearGradient>
     </defs>
     <path
-      d="M64 1 H35 L12 41 H23 L1 91 L61 27 H44 Z"
+      d="M56 1 H42 L24 42 H32 L16 91 L58 32 H44 Z"
       fill="url(#raj-bolt-gold)"
     />
   </svg>
