@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
-import { createShopifyCart, addLineToShopifyCart, normalizeCheckoutUrl } from "@/lib/shopify";
+import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
 
@@ -277,6 +277,7 @@ const MatrixPage = () => {
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
+  const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
 
@@ -346,6 +347,71 @@ const MatrixPage = () => {
       setIsBuying(false);
     }
   }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase, bundleTotal, trackCheckout]);
+
+  const handleAirpodsBuy = useCallback(async () => {
+    if (isBuyingAirpods) return;
+    setIsBuyingAirpods(true);
+    const checkoutTab = window.open("", "_blank");
+    const fail = (message: string) => {
+      checkoutTab?.close();
+      toast.error("Kauf konnte nicht gestartet werden", { description: message });
+    };
+
+    try {
+      const variantId = AIRPODS_VARIANT_IDS[airpodsCase.id];
+      if (!variantId) {
+        fail("Dieses Finish ist derzeit nicht verfügbar.");
+        return;
+      }
+
+      const reference = makeOrderReference();
+      const product = {
+        node: {
+          id: "gid://shopify/Product/16139790549317",
+          title: "RAJ MATRIX AirPods 4 Case",
+          description: "Aramid-Carbon Case für AirPods 4.",
+          handle: "raj-matrix-airpods-4-case",
+          priceRange: { minVariantPrice: { amount: String(airpodsCase.price), currencyCode: "CHF" } },
+          images: { edges: [] },
+          variants: { edges: [] },
+          options: [{ name: "Finish", values: Object.values(AIRPODS_CASES).map((item) => item.name) }],
+        },
+      };
+      const item: CartItem = {
+        lineId: null,
+        product,
+        variantId,
+        variantTitle: airpodsCase.name,
+        price: { amount: String(airpodsCase.price), currencyCode: "CHF" },
+        quantity: 1,
+        selectedOptions: [{ name: "Finish", value: airpodsCase.name }],
+      };
+      const cart = await createShopifyCart(item, undefined, [
+        { key: "RAJ Referenz", value: reference },
+        { key: "Quelle", value: "raj.ch/matrix-airpods-einzelkauf" },
+      ]);
+      if (!cart) {
+        fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut.");
+        return;
+      }
+
+      trackCheckout({
+        cartId: cart.cartId,
+        reference,
+        summary: airpodsCase.name,
+        total: `CHF ${airpodsCase.price}.–`,
+        startedAt: Date.now(),
+      });
+
+      if (checkoutTab) checkoutTab.location.href = cart.checkoutUrl;
+      else window.open(cart.checkoutUrl, "_blank");
+    } catch (error) {
+      console.error("AirPods Case purchase failed:", error);
+      fail("Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.");
+    } finally {
+      setIsBuyingAirpods(false);
+    }
+  }, [airpodsCase, isBuyingAirpods, trackCheckout]);
 
 
   const selectModel = (id: ModelId) => {
@@ -768,6 +834,24 @@ const MatrixPage = () => {
                         ? `✓ Im Bundle · Du sparst CHF ${BUNDLE_DISCOUNT}.–`
                         : `+ CHF ${airpodsCase.price}.– · zusammen CHF ${caseFinish.price + airpodsCase.price}.–`}
                     </div>
+                    <button
+                      type="button"
+                      onClick={handleAirpodsBuy}
+                      disabled={isBuyingAirpods}
+                      className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:mt-4 md:py-3 md:text-xs"
+                      style={{
+                        borderColor: H.gold,
+                        color: H.gold,
+                        opacity: isBuyingAirpods ? 0.7 : 1,
+                      }}
+                    >
+                      {isBuyingAirpods ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <ShoppingBag className="h-4 w-4" />
+                      )}
+                      AirPods Case einzeln kaufen · CHF {airpodsCase.price}.–
+                    </button>
                   </div>
                 </div>
               </div>
