@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import matrixImage from "@/assets/home/objekt-matrix-premium.webp";
-import apexCarAsset from "@/assets/home/objekt-apex-correct.jpg.asset.json";
+import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
 
 type Milestone = {
   name: string;
@@ -36,7 +36,7 @@ const milestones: Milestone[] = [
     status: "early",
     etaKey: "brand.road.eta.2027",
     href: "/apex",
-    image: apexCarAsset.url,
+    image: apexCarImage,
     imageAlt: "RAJ APEX MagSafe Auto-Ladehalterung im Fahrzeug",
   },
   { name: "RAJ AURORA", status: "locked", etaKey: "brand.road.eta.2026" },

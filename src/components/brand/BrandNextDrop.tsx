@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
 import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
-import apexCarAsset from "@/assets/home/objekt-apex-correct.jpg.asset.json";
+import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
 
@@ -171,7 +171,7 @@ const BrandNextDrop = () => {
           <Link to="/apex" className="group block md:col-span-2 lg:col-span-1 lg:mt-32 md:max-w-[calc(50%-1rem)] lg:max-w-none">
             <div className="relative mb-6 aspect-[3/4] overflow-hidden rounded-sm">
               <img
-                src={apexCarAsset.url}
+                src={apexCarImg}
                 alt="RAJ APEX MagSafe Auto-Ladehalterung im Fahrzeug"
                 width={900}
                 height={1200}
