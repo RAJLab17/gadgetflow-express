@@ -203,7 +203,10 @@ const GoldBolt = ({ airpods = false }: { airpods?: boolean }) => (
       width: airpods ? "5.5%" : "5.3%",
       height: "auto",
       transform: airpods ? "translate(-50%, -50%)" : undefined,
-      filter: "drop-shadow(0 0.5px 0.5px rgba(91, 58, 15, 0.28))",
+      opacity: 0.92,
+      mixBlendMode: "multiply",
+      filter:
+        "saturate(0.88) contrast(1.08) drop-shadow(-0.35px -0.35px 0.25px rgba(43, 25, 13, 0.48)) drop-shadow(0.45px 0.55px 0.35px rgba(255, 235, 176, 0.72)) drop-shadow(0 0.8px 0.7px rgba(75, 44, 17, 0.22))",
     }}
   />
 );
