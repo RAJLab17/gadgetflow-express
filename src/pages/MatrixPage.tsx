@@ -10,20 +10,18 @@ import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingChecko
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
-import cherryOrange from "@/assets/matrix/cherry-orange.webp";
-import cherryBlue from "@/assets/matrix/cherry-blue.webp";
-import cherrySilver from "@/assets/matrix/cherry-silver.webp";
-import cherryBlack from "@/assets/matrix/cherry-black.webp";
-import onyxOrange from "@/assets/matrix/onyx-orange.webp";
-import onyxBlue from "@/assets/matrix/onyx-blue.webp";
-import onyxSilver from "@/assets/matrix/onyx-silver.webp";
-import onyxBlack from "@/assets/matrix/onyx-black.webp";
-import cherryDarkcherry from "@/assets/matrix/cherry-darkcherry.webp";
-import cherryDarkgrey from "@/assets/matrix/cherry-darkgrey.webp";
-import cherrySkyblue from "@/assets/matrix/cherry-skyblue.webp";
-import onyxDarkcherry from "@/assets/matrix/onyx-darkcherry.webp";
-import onyxDarkgrey from "@/assets/matrix/onyx-darkgrey.webp";
-import onyxSkyblue from "@/assets/matrix/onyx-skyblue.webp";
+import cherryOrange from "@/assets/matrix/hq-webp/cherry-orange.webp";
+import cherryBlue from "@/assets/matrix/hq-webp/cherry-blue.webp";
+import cherrySilver from "@/assets/matrix/hq-webp/cherry-silver.webp";
+import onyxOrange from "@/assets/matrix/hq-webp/onyx-orange.webp";
+import onyxBlue from "@/assets/matrix/hq-webp/onyx-blue.webp";
+import onyxSilver from "@/assets/matrix/hq-webp/onyx-silver.webp";
+import cherryDarkcherry from "@/assets/matrix/hq-webp/cherry-darkcherry.webp";
+import cherryDarkgrey from "@/assets/matrix/hq-webp/cherry-darkgrey.webp";
+import cherrySkyblue from "@/assets/matrix/hq-webp/cherry-skyblue.webp";
+import onyxDarkcherry from "@/assets/matrix/hq-webp/onyx-darkcherry.webp";
+import onyxDarkgrey from "@/assets/matrix/hq-webp/onyx-darkgrey.webp";
+import onyxSkyblue from "@/assets/matrix/hq-webp/onyx-skyblue.webp";
 import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
@@ -175,11 +173,9 @@ const RENDERS: Record<string, string> = {
   "17-cherry-orange": cherryOrange,
   "17-cherry-blue": cherryBlue,
   "17-cherry-silver": cherrySilver,
-  "17-cherry-black": cherryBlack,
   "17-onyx-orange": onyxOrange,
   "17-onyx-blue": onyxBlue,
   "17-onyx-silver": onyxSilver,
-  "17-onyx-black": onyxBlack,
   // Gen 18
   "18-cherry-darkcherry": cherryDarkcherry,
   "18-cherry-darkgrey": cherryDarkgrey,
@@ -251,8 +247,8 @@ const DeviceMock = ({
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
-          width={1024}
-          height={1024}
+          width={1200}
+          height={1200}
           loading={key === renderKey ? "eager" : "lazy"}
           fetchPriority={key === renderKey ? "high" : "auto"}
           decoding={key === renderKey ? "sync" : "async"}
@@ -260,10 +256,9 @@ const DeviceMock = ({
           className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
             asset === src ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
-          style={{ filter: asset === src ? "contrast(1.035) saturate(1.035)" : undefined }}
+          style={{ filter: asset === src ? "contrast(1.015) saturate(1.015)" : undefined }}
         />
       ))}
-      <GoldBolt />
     </div>
 
   );
