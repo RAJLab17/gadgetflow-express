@@ -199,7 +199,7 @@ const GoldBolt = ({ airpods = false }: { airpods?: boolean }) => (
       left: airpods ? "50%" : "33.5%",
       top: airpods ? "50%" : undefined,
       bottom: airpods ? undefined : "9%",
-      width: airpods ? "7%" : "5.2%",
+      width: airpods ? "6%" : "3.8%",
       height: "auto",
       aspectRatio: "49 / 84",
       transform: airpods ? "translate(-50%, -50%)" : undefined,
