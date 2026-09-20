@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
 import airpodsRender from "@/assets/matrix/airpods-cherry.webp";
-import apexCarImg from "@/assets/products/apex-dash-900.webp";
+import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
 

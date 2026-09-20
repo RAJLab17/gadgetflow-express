@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import matrixImage from "@/assets/home/objekt-matrix-premium.webp";
-import apexCarImage from "@/assets/products/apex-dash-900.webp";
+import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
 
 type Milestone = {
   name: string;
