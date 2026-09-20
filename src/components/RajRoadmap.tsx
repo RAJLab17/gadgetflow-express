@@ -2,8 +2,10 @@ import { ArrowUpRight, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
-import matrixImage from "@/assets/home/objekt-matrix-cherry-reference.webp";
+import matrixImageAsset from "@/assets/home/matrix-cherry-original.png.asset.json";
 import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
+
+const matrixImage = matrixImageAsset.url;
 
 type Milestone = {
   name: string;

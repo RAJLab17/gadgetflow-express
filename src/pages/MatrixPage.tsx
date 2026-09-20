@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -32,6 +32,8 @@ import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
 const H = {
   bg: "#faf9f7",
   gold: "#9b6b3f",
+  goldLight: "#e0bd79",
+  cherry: "#764556",
   line: "rgba(43,39,37,0.10)",
   lineStrong: "rgba(43,39,37,0.22)",
   text: "#2b2725",
@@ -97,9 +99,9 @@ const CASE_FINISHES: CaseFinish[] = [
     id: "cherry",
     name: "Cherry Carbon",
     material: "Carbon, Cherry · Titan-Knöpfe in Gold",
-    base: "#7d4a5c",
-    weave: "#9b6076",
-    edge: "#4d2b36",
+    base: "#764556",
+    weave: "#a36a7d",
+    edge: "#452631",
     price: 59,
   },
   {
@@ -190,8 +192,9 @@ const RENDERS: Record<string, string> = {
 };
 
 /* Originalkontur des goldenen MATRIX-Emblems, direkt aus dem Produktfoto. */
-const GoldBolt = ({ airpods = false }: { airpods?: boolean }) => (
+const GoldBolt = forwardRef<HTMLImageElement, { airpods?: boolean }>(({ airpods = false }, ref) => (
   <img
+    ref={ref}
     aria-hidden="true"
     src={rajBoltOriginal}
     alt=""
@@ -200,14 +203,16 @@ const GoldBolt = ({ airpods = false }: { airpods?: boolean }) => (
       left: airpods ? "50%" : "34.5%",
       top: airpods ? "52%" : undefined,
       bottom: airpods ? undefined : "12.5%",
-      width: airpods ? "5.5%" : "5.3%",
+      width: airpods ? "5.2%" : "4.15%",
       height: "auto",
       transform: airpods ? "translate(-50%, -50%)" : undefined,
       opacity: 1,
       mixBlendMode: "normal",
+      filter: "drop-shadow(0 0.5px 0 rgba(255,248,214,0.95)) drop-shadow(0 1px 1px rgba(92,53,16,0.3))",
     }}
   />
-);
+));
+GoldBolt.displayName = "GoldBolt";
 
 
 const DeviceMock = ({
@@ -229,14 +234,13 @@ const DeviceMock = ({
 
   return (
     <div
-      className="relative mx-auto max-w-[256px] md:max-w-none transition-[width] duration-500 ease-out"
+      className="relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: `min(100%, ${380 * scale}px)`, aspectRatio: "1 / 1" }}
     >
-
       <div
         aria-hidden
-        className="absolute left-1/2 -translate-x-1/2 bottom-[4%] w-[62%] h-8 rounded-[50%] pointer-events-none"
-        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.18), transparent 72%)" }}
+        className="absolute left-1/2 -translate-x-1/2 bottom-[3%] w-[58%] h-8 rounded-[50%] pointer-events-none"
+        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
       />
       {genRenders.map(([key, asset]) => (
         <img
@@ -256,7 +260,7 @@ const DeviceMock = ({
           className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
             asset === src ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
-          style={{ mixBlendMode: "multiply" }}
+          style={{ filter: asset === src ? "contrast(1.035) saturate(1.035)" : undefined }}
         />
       ))}
       <GoldBolt />
@@ -492,13 +496,15 @@ const MatrixPage = () => {
                 {/* Bühne */}
                 <div className="md:col-span-6 md:sticky md:top-28">
                   <div
-                    className="relative overflow-hidden rounded-xl md:rounded-2xl"
+                    className="relative overflow-hidden rounded-md md:rounded-lg"
                     style={{
                       background:
-                        "linear-gradient(165deg, #ffffff 0%, #fbfaf8 45%, #f2efea 100%)",
+                        caseFinish.id === "cherry"
+                          ? "linear-gradient(155deg, #fff 0%, #faf6f7 52%, #eee5e7 100%)"
+                          : "linear-gradient(155deg, #fff 0%, #f7f6f4 52%, #e9e7e3 100%)",
                       border: `1px solid ${H.line}`,
                       boxShadow:
-                        "0 1px 0 rgba(255,255,255,0.9) inset, 0 24px 60px -30px rgba(43,39,37,0.35)",
+                        "0 1px 0 rgba(255,255,255,0.95) inset, 0 28px 70px -36px rgba(43,39,37,0.34)",
                     }}
                   >
                     {/* Goldene Haarlinie oben */}
@@ -515,10 +521,12 @@ const MatrixPage = () => {
                       className="absolute inset-0 pointer-events-none"
                       style={{
                         background:
-                          "radial-gradient(58% 46% at 50% 42%, rgba(155,107,63,0.13) 0%, rgba(250,249,247,0) 72%)",
+                          caseFinish.id === "cherry"
+                            ? "radial-gradient(60% 48% at 50% 43%, rgba(118,69,86,0.13) 0%, rgba(250,249,247,0) 72%)"
+                            : "radial-gradient(60% 48% at 50% 43%, rgba(155,107,63,0.12) 0%, rgba(250,249,247,0) 72%)",
                       }}
                     />
-                    <div className="relative flex items-center justify-center px-3 pt-2 pb-0 md:px-10 md:pt-14 md:pb-8">
+                    <div className="relative flex items-center justify-center px-1 pt-0 pb-0 md:px-10 md:pt-14 md:pb-8">
                       <DeviceMock device={device} caseFinish={caseFinish} model={model} />
                     </div>
                     {/* Plakette */}
@@ -631,12 +639,18 @@ const MatrixPage = () => {
                             }}
                           >
                             <span
-                              className="w-5 h-5 rounded-full shrink-0 md:w-6 md:h-6"
+                              className="relative w-5 h-5 rounded-full shrink-0 overflow-hidden md:w-6 md:h-6"
                               style={{
                                 background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`,
                                 boxShadow: `0 0 0 1px ${H.lineStrong}`,
                               }}
-                            />
+                            >
+                              <span
+                                aria-hidden
+                                className="absolute inset-0 opacity-35"
+                                style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent 0 2px, rgba(255,255,255,.35) 2px 3px, rgba(0,0,0,.18) 3px 4px)" }}
+                              />
+                            </span>
                             <span className="min-w-0 flex-1 text-left text-xs font-medium md:text-sm">{c.name}</span>
                             <span className="hidden text-xs md:inline" style={{ color: H.textMuted }}>
                               CHF {c.price}.–
