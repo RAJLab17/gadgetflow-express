@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import matrixImageAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
+import matrixFallback from "@/assets/home/objekt-matrix-premium.webp";
 import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
 
 const matrixImg = matrixImageAsset.url;
@@ -193,6 +194,9 @@ const ProduktePage = () => {
                     height={1406}
                     loading="lazy"
                     decoding="async"
+                    onError={(event) => {
+                      if (event.currentTarget.src !== matrixFallback) event.currentTarget.src = matrixFallback;
+                    }}
                     className="h-full w-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/35 via-transparent to-transparent" aria-hidden />
