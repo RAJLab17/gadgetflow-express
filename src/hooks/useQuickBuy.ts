@@ -16,7 +16,7 @@ export function useQuickBuy() {
     if (now - lastClick.current < 1000 || isProcessing) return;
     lastClick.current = now;
     setIsProcessing(true);
-    const checkoutTab = window.open("", "_blank");
+    const checkoutTab = openCheckoutTab();
     try {
       const variant = await fetchProductVariantInfo("raj-3-in-1-wireless-charger");
       if (!variant?.availableForSale) {
