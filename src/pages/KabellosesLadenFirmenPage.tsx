@@ -36,7 +36,7 @@ const KabellosesLadenFirmenPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
     <PremiumPageLayout
-      title="Kabelloses Laden für Unternehmen Schweiz – Sicher und ohne Kabelsalat | RAJ"
+      title="Kabelloses Laden für Schweizer Unternehmen | RAJ"
       metaDescription="Mitarbeitende bringen eigene Ladekabel mit – ein unterschätztes Risiko im Schweizer Büroalltag. Wie KMUs das eleganter lösen."
       canonical="https://raj.ch/kabelloses-laden-firmen-schweiz"
       eyebrow="Business"

@@ -444,7 +444,7 @@ const MatrixPage = () => {
         <title>RAJ MATRIX — MagSafe Cases für iPhone 17 & 18 Pro | RAJ</title>
         <meta
           name="description"
-          content="RAJ MATRIX Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Zwei Carbon-Finishes mit goldenen Knöpfen, Qi2.2 mit 25 W, perfekt abgestimmt auf RAJ NEXUS und RAJ APEX."
+          content="RAJ MATRIX Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Zwei Carbon-Finishes mit goldenen Knöpfen und Qi2.2 mit 25 W."
         />
         <link rel="canonical" href="https://raj.ch/matrix" />
         <meta property="og:title" content="RAJ MATRIX — MagSafe Cases für iPhone 17 & 18 Pro" />

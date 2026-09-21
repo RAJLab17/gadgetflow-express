@@ -88,8 +88,8 @@ const ContactPage = () => {
 
   return (
     <PremiumPageLayout
-      title="Kontakt – RAJ"
-      metaDescription="Kontaktieren Sie RAJ. Wir freuen uns auf Ihre Nachricht."
+      title="Kontakt zu RAJ – Beratung & Support Schweiz"
+      metaDescription="Kontaktieren Sie RAJ bei Fragen zu NEXUS, MATRIX, APEX, Bestellung oder Versand. Persönliche Beratung und Support aus der Schweiz."
       canonical="https://raj.ch/kontakt"
       eyebrow="Kontakt"
       heading={

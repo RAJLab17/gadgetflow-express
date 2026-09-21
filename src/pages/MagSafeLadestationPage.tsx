@@ -31,7 +31,7 @@ const MagSafeLadestationPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
     <PremiumPageLayout
-      title="MagSafe kompatible Ladestation Schweiz – Was du wissen musst | RAJ"
+      title="MagSafe Ladestation Schweiz – Kaufberatung | RAJ"
       metaDescription="MagSafe Ladestation für iPhone, Apple Watch und AirPods in der Schweiz. Was MagSafe-kompatibel bedeutet und welche Ladestation wirklich passt."
       canonical="https://raj.ch/magsafe-ladestation-schweiz"
       eyebrow="Guide"

@@ -358,12 +358,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [lang, setLangState] = useState<Language>(() => {
     const stored = localStorage.getItem("raj_lang");
     if (stored === "de" || stored === "fr" || stored === "it" || stored === "en") return stored;
-
-    const browserLang = navigator.language?.toLowerCase() || "";
-    if (browserLang.startsWith("fr")) return "fr";
-    if (browserLang.startsWith("it")) return "it";
-    if (browserLang.startsWith("en")) return "en";
-
     return "de";
   });
 
