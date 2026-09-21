@@ -21,7 +21,8 @@ export interface SitemapImage {
 export interface SitemapEntry {
   /** Absolute path beginning with "/" */
   path: string;
-  lastmod: string; // YYYY-MM-DD
+  /** Only set from an authoritative, page-specific content date. */
+  lastmod?: string; // YYYY-MM-DD
   changefreq?:
     | "always"
     | "hourly"
@@ -164,13 +165,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 // ---------------------------------------------------------------------------
 // STATIC URLS — non-blog pages that should be in the sitemap
 // ---------------------------------------------------------------------------
-const TODAY = "2026-06-19";
-
 export const STATIC_URLS: SitemapEntry[] = [
   // Hauptseite
   {
     path: "/",
-    lastmod: TODAY,
     changefreq: "daily",
     priority: 1.0,
     images: [
@@ -203,14 +201,24 @@ export const STATIC_URLS: SitemapEntry[] = [
       },
     ],
   },
-  { path: "/shop", lastmod: TODAY, changefreq: "daily", priority: 0.9 },
-  { path: "/produkte", lastmod: TODAY, changefreq: "weekly", priority: 0.9 },
-  { path: "/matrix", lastmod: TODAY, changefreq: "weekly", priority: 0.85 },
-  { path: "/apex", lastmod: TODAY, changefreq: "weekly", priority: 0.8 },
+  { path: "/shop", changefreq: "daily", priority: 0.9 },
+  { path: "/produkte", changefreq: "weekly", priority: 0.9 },
+  { path: "/matrix", changefreq: "weekly", priority: 0.85 },
+  {
+    path: "/apex",
+    changefreq: "weekly",
+    priority: 0.8,
+    images: [
+      {
+        loc: `${SITE_URL}/assets/products/apex-card-900.webp`,
+        title: "RAJ APEX MagSafe Auto-Ladehalterung",
+        caption: "RAJ APEX Auto-Ladehalterung mit Qi2 und bis zu 25 Watt",
+      },
+    ],
+  },
 
   {
     path: "/nexus",
-    lastmod: TODAY,
     changefreq: "weekly",
     priority: 0.95,
     images: [
@@ -279,23 +287,21 @@ export const STATIC_URLS: SitemapEntry[] = [
   // Andere /product/* Routen sind als noindex markiert und nicht in der Sitemap.
 
   // Info
-  { path: "/about", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
-  { path: "/kontakt", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
-  { path: "/faq", lastmod: TODAY, changefreq: "monthly", priority: 0.7 },
-  { path: "/versand", lastmod: TODAY, changefreq: "monthly", priority: 0.6 },
-  { path: "/reviews", lastmod: TODAY, changefreq: "weekly", priority: 0.7 },
+  { path: "/about", changefreq: "monthly", priority: 0.7 },
+  { path: "/kontakt", changefreq: "monthly", priority: 0.7 },
+  { path: "/faq", changefreq: "monthly", priority: 0.7 },
+  { path: "/versand", changefreq: "monthly", priority: 0.6 },
+  { path: "/reviews", changefreq: "weekly", priority: 0.7 },
 
   // Blog index
-  { path: "/blog", lastmod: TODAY, changefreq: "weekly", priority: 0.8 },
+  { path: "/blog", changefreq: "weekly", priority: 0.8 },
 
-  // Dokumente
-  { path: "/dokumente", lastmod: TODAY, changefreq: "monthly", priority: 0.6 },
-  { path: "/manuals", lastmod: TODAY, changefreq: "monthly", priority: 0.6 },
+  // /dokumente and /manuals intentionally omitted: the page is noindex.
 
   // Rechtliches
-  { path: "/agb", lastmod: TODAY, changefreq: "yearly", priority: 0.3 },
-  { path: "/datenschutz", lastmod: TODAY, changefreq: "yearly", priority: 0.3 },
-  { path: "/impressum", lastmod: TODAY, changefreq: "yearly", priority: 0.3 },
+  { path: "/agb", changefreq: "yearly", priority: 0.3 },
+  { path: "/datenschutz", changefreq: "yearly", priority: 0.3 },
+  { path: "/impressum", changefreq: "yearly", priority: 0.3 },
 ];
 
 /**
