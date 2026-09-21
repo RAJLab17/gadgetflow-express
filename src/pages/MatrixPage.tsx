@@ -255,7 +255,7 @@ const DeviceMock = ({
           fetchPriority={key === renderKey ? "high" : "auto"}
           decoding={key === renderKey ? "sync" : "async"}
           aria-hidden={asset !== src}
-          className={`absolute inset-0 w-full h-full object-contain transition-[opacity,transform] duration-500 ${
+          className={`absolute inset-0 w-full h-full object-contain scale-x-[0.91] transition-[opacity,transform] duration-500 ${
             asset === src ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           style={{
