@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useMemo, useState } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -225,8 +225,14 @@ const DeviceMock = ({
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
   const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
-  /* Nur die Render der aktuellen Generation laden */
-  const genRenders = Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`));
+  /* Nur bereits gewählte Varianten im DOM halten — spart Ladegewicht beim ersten Aufruf */
+  const [mountedKeys, setMountedKeys] = useState<string[]>([renderKey]);
+  useEffect(() => {
+    setMountedKeys((prev) => (prev.includes(renderKey) ? prev : [...prev, renderKey]));
+  }, [renderKey]);
+  const genRenders = Object.entries(RENDERS).filter(
+    ([key]) => key.startsWith(`${model.gen}-`) && mountedKeys.includes(key),
+  );
 
   return (
     <div
@@ -247,8 +253,8 @@ const DeviceMock = ({
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
-          width={1200}
-          height={1200}
+          width={900}
+          height={1080}
           loading={key === renderKey ? "eager" : "lazy"}
           fetchPriority={key === renderKey ? "high" : "auto"}
           decoding={key === renderKey ? "sync" : "async"}
