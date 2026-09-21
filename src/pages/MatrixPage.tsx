@@ -247,8 +247,8 @@ const DeviceMock = ({
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
-          width={1200}
-          height={1200}
+          width={900}
+          height={1080}
           loading={key === renderKey ? "eager" : "lazy"}
           fetchPriority={key === renderKey ? "high" : "auto"}
           decoding={key === renderKey ? "sync" : "async"}
