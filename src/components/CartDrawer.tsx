@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
+import { goToCheckout } from "@/lib/checkout";
 
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     const checkoutUrl = getCheckoutUrl();
     if (!checkoutUrl) return;
     setIsOpen(false);
-    window.open(checkoutUrl, "_blank");
+    goToCheckout(null, checkoutUrl);
   };
 
   return (

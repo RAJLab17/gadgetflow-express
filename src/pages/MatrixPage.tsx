@@ -299,7 +299,7 @@ const MatrixPage = () => {
     setIsBuying(true);
     // Open the tab synchronously inside the user gesture so popup blockers
     // (esp. mobile Safari) can't suppress it; we navigate it once we have the URL.
-    const checkoutTab = window.open("", "_blank");
+    const checkoutTab = openCheckoutTab();
     const fail = (message: string) => {
       checkoutTab?.close();
       toast.error("Kauf konnte nicht gestartet werden", { description: message });
@@ -338,12 +338,7 @@ const MatrixPage = () => {
         startedAt: Date.now(),
       });
 
-      if (checkoutTab) {
-        checkoutTab.location.href = cart.checkoutUrl;
-      } else {
-        // Fallback if no tab could be opened at all
-        window.open(cart.checkoutUrl, "_blank");
-      }
+      goToCheckout(checkoutTab, cart.checkoutUrl);
     } catch (err) {
       console.error("Buy failed:", err);
       fail("Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.");
@@ -355,7 +350,7 @@ const MatrixPage = () => {
   const handleAirpodsBuy = useCallback(async () => {
     if (isBuyingAirpods) return;
     setIsBuyingAirpods(true);
-    const checkoutTab = window.open("", "_blank");
+    const checkoutTab = openCheckoutTab();
     const fail = (message: string) => {
       checkoutTab?.close();
       toast.error("Kauf konnte nicht gestartet werden", { description: message });
@@ -407,8 +402,7 @@ const MatrixPage = () => {
         startedAt: Date.now(),
       });
 
-      if (checkoutTab) checkoutTab.location.href = cart.checkoutUrl;
-      else window.open(cart.checkoutUrl, "_blank");
+      goToCheckout(checkoutTab, cart.checkoutUrl);
     } catch (error) {
       console.error("AirPods Case purchase failed:", error);
       fail("Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.");
