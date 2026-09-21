@@ -11,15 +11,15 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
-import cherryOrange from "@/assets/matrix/hq-webp-premium/cherry-orange.webp";
-import cherryBlue from "@/assets/matrix/hq-webp-premium/cherry-blue.webp";
-import cherrySilver from "@/assets/matrix/hq-webp-premium/cherry-silver.webp";
+import cherryOrange from "@/assets/matrix/hq-reference-webp/cherry-orange.webp";
+import cherryBlue from "@/assets/matrix/hq-reference-webp/cherry-blue.webp";
+import cherrySilver from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
 import onyxOrange from "@/assets/matrix/hq-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-webp/onyx-blue.webp";
 import onyxSilver from "@/assets/matrix/hq-webp/onyx-silver.webp";
-import cherryDarkcherry from "@/assets/matrix/hq-webp-premium/cherry-darkcherry.webp";
-import cherryDarkgrey from "@/assets/matrix/hq-webp-premium/cherry-darkgrey.webp";
-import cherrySkyblue from "@/assets/matrix/hq-webp-premium/cherry-skyblue.webp";
+import cherryDarkcherry from "@/assets/matrix/hq-reference-webp/cherry-darkcherry.webp";
+import cherryDarkgrey from "@/assets/matrix/hq-reference-webp/cherry-darkgrey.webp";
+import cherrySkyblue from "@/assets/matrix/hq-reference-webp/cherry-skyblue.webp";
 import onyxDarkcherry from "@/assets/matrix/hq-webp/onyx-darkcherry.webp";
 import onyxDarkgrey from "@/assets/matrix/hq-webp/onyx-darkgrey.webp";
 import onyxSkyblue from "@/assets/matrix/hq-webp/onyx-skyblue.webp";
@@ -249,13 +249,13 @@ const DeviceMock = ({
               ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
               : ""
           }
-          width={900}
-          height={1080}
+          width={928}
+          height={1152}
           loading={key === renderKey ? "eager" : "lazy"}
           fetchPriority={key === renderKey ? "high" : "auto"}
           decoding={key === renderKey ? "sync" : "async"}
           aria-hidden={asset !== src}
-          className={`absolute inset-0 w-full h-full object-contain scale-x-[0.91] transition-[opacity,transform] duration-500 ${
+          className={`absolute inset-0 w-full h-full object-contain transition-[opacity,transform] duration-500 ${
             asset === src ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           style={{
