@@ -225,8 +225,14 @@ const DeviceMock = ({
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
   const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
-  /* Nur die Render der aktuellen Generation laden */
-  const genRenders = Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`));
+  /* Nur bereits gewählte Varianten im DOM halten — spart Ladegewicht beim ersten Aufruf */
+  const [mountedKeys, setMountedKeys] = useState<string[]>([renderKey]);
+  useEffect(() => {
+    setMountedKeys((prev) => (prev.includes(renderKey) ? prev : [...prev, renderKey]));
+  }, [renderKey]);
+  const genRenders = Object.entries(RENDERS).filter(
+    ([key]) => key.startsWith(`${model.gen}-`) && mountedKeys.includes(key),
+  );
 
   return (
     <div
