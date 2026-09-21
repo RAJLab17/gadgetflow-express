@@ -4,7 +4,10 @@ import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import matrixImg from "@/assets/home/objekt-matrix-premium.webp";
+import matrixImageAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
+import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
+
+const matrixImg = matrixImageAsset.url;
 
 interface Product {
   index: string;
@@ -46,7 +49,7 @@ const products: Product[] = [
     status: "Als Nächstes",
     link: "/matrix",
     img: matrixImg,
-    imgAlt: "RAJ MATRIX Carbon-Case in Cherry Carbon mit goldenen Details",
+    imgAlt: "RAJ MATRIX Carbon-Case in Cherry Carbon mit goldenen Details auf einem Podest",
     specs: [
       { label: "Material", value: "Carbon" },
       { label: "Modelle", value: "iPhone 17/18 Pro" },
@@ -61,8 +64,8 @@ const products: Product[] = [
     price: "ab CHF 69.–",
     status: "Early Access",
     link: "/apex",
-    img: "/assets/products/apex-card-900.webp",
-    imgAlt: "RAJ APEX MagSafe Auto-Ladehalterung in Silber",
+    img: apexCarImage,
+    imgAlt: "RAJ APEX MagSafe Auto-Ladehalterung im Fahrzeug",
     specs: [
       { label: "Standard", value: "Qi2 · 25 W" },
       { label: "Montage", value: "Saugnapf · Lüftung" },
@@ -70,18 +73,19 @@ const products: Product[] = [
   },
 ];
 
-const ProductDetails = ({ product, compact = false }: { product: Product; compact?: boolean }) => (
-  <div className={compact ? "pt-6" : "pt-7 md:pt-8"}>
-    <div className="mb-5 flex items-center gap-3">
-      <span className="h-px w-8 bg-primary" aria-hidden />
+const ProductDetails = ({ product }: { product: Product }) => (
+  <div className="px-1 pt-6 text-center md:px-3 md:pt-8">
+    <div className="mb-4 flex items-center justify-center gap-3">
+      <span className="h-px w-7 bg-primary" aria-hidden />
       <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
         {product.index} / {product.status}
       </span>
+      <span className="h-px w-7 bg-primary" aria-hidden />
     </div>
 
-    <h2 className="text-4xl font-light leading-none text-foreground md:text-5xl">{product.name}</h2>
+    <h2 className="text-3xl font-light leading-none text-foreground md:text-4xl">{product.name}</h2>
     <p className="mt-3 text-sm font-medium text-primary">{product.tagline}</p>
-    <p className="mt-5 max-w-md text-sm font-light leading-7 text-muted-foreground">
+    <p className="mx-auto mt-5 max-w-sm text-sm font-light leading-7 text-muted-foreground">
       {product.description}
     </p>
 
@@ -158,11 +162,10 @@ const ProduktePage = () => {
             </p>
           </header>
 
-          <section className="mx-auto mt-20 grid max-w-6xl grid-cols-1 gap-x-12 gap-y-20 px-5 sm:px-8 md:mt-32 md:grid-cols-12 md:gap-y-32">
-            <article className="group md:col-span-7">
+          <section className="mx-auto mt-20 grid max-w-6xl grid-cols-1 gap-x-8 gap-y-20 px-5 sm:px-8 md:mt-28 md:grid-cols-3 lg:gap-x-12">
+            <article className="group">
               <Link to={nexus.link} className="block" aria-label="RAJ NEXUS entdecken">
-                <div className="relative aspect-[4/5] overflow-hidden bg-card">
-                  <div className="absolute inset-5 border border-border md:inset-8" aria-hidden />
+                <div className="relative aspect-[3/4] overflow-hidden bg-card">
                   <img
                     src={nexus.img}
                     alt={nexus.imgAlt}
@@ -170,17 +173,17 @@ const ProduktePage = () => {
                     height={1376}
                     loading="eager"
                     decoding="async"
-                    className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    className="h-full w-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
                   />
-                  <span className="absolute bottom-5 left-5 bg-background/90 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm md:bottom-8 md:left-8">
-                    01 / Das Original
+                  <span className="absolute left-5 top-5 bg-background/90 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm">
+                    Das Original
                   </span>
                 </div>
               </Link>
               <ProductDetails product={nexus} />
             </article>
 
-            <article className="group md:col-span-5 md:mt-40">
+            <article className="group">
               <Link to={matrix.link} className="block" aria-label="RAJ MATRIX entdecken">
                 <div className="relative aspect-[3/4] overflow-hidden bg-card">
                   <img
@@ -190,21 +193,20 @@ const ProduktePage = () => {
                     height={1406}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                    className="h-full w-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/35 via-transparent to-transparent" aria-hidden />
-                  <span className="absolute bottom-5 left-5 border border-background/30 bg-foreground/70 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-background backdrop-blur-sm md:bottom-8 md:left-8">
-                    02 / Als Nächstes
+                  <span className="absolute left-5 top-5 border border-background/30 bg-foreground/70 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-background backdrop-blur-sm">
+                    Als Nächstes
                   </span>
                 </div>
               </Link>
-              <ProductDetails product={matrix} compact />
+              <ProductDetails product={matrix} />
             </article>
 
-            <article className="group md:col-span-8 md:col-start-3">
+            <article className="group">
               <Link to={apex.link} className="block" aria-label="RAJ APEX entdecken">
-                <div className="relative aspect-[4/3] overflow-hidden bg-card md:aspect-[16/8]">
-                  <div className="absolute inset-5 border border-border md:inset-8" aria-hidden />
+                <div className="relative aspect-[3/4] overflow-hidden bg-card">
                   <img
                     src={apex.img}
                     alt={apex.imgAlt}
@@ -212,21 +214,14 @@ const ProduktePage = () => {
                     height={900}
                     loading="lazy"
                     decoding="async"
-                    className="h-full w-full object-contain p-7 transition-transform duration-700 ease-out group-hover:scale-[1.025] md:p-10"
+                    className="h-full w-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
                   />
-                  <span className="absolute bottom-5 left-5 bg-background/90 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm md:bottom-8 md:left-8">
-                    03 / Unterwegs
+                  <span className="absolute left-5 top-5 bg-background/90 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm">
+                    Unterwegs
                   </span>
                 </div>
               </Link>
-              <div className="md:grid md:grid-cols-2 md:gap-16">
-                <ProductDetails product={apex} />
-                <div className="mt-9 hidden items-end border-l border-border pl-10 md:flex">
-                  <p className="max-w-xs text-sm font-light leading-7 text-muted-foreground">
-                    Vom Nachttisch bis ins Auto: Jedes RAJ Objekt folgt derselben Haltung — weniger Ablenkung, mehr Substanz.
-                  </p>
-                </div>
-              </div>
+              <ProductDetails product={apex} />
             </article>
           </section>
 
