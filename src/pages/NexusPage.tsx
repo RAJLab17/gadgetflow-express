@@ -825,7 +825,7 @@ const NexusPage = () => {
                   <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
                 </span>
                 <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
-                  {nexusAvailable ? "Verfügbar" : "Drop 01 ausverkauft"}
+                  {nexusAvailable ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
@@ -990,7 +990,7 @@ const NexusPage = () => {
                 <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
               </span>
               <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
-                {nexusAvailable ? "Verfügbar" : "Drop 01 ausverkauft"}
+                {nexusAvailable ? `Noch ${dropRemaining} verfügbar` : "Drop 01 ausverkauft"}
               </span>
             </div>
             {/* Price */}
