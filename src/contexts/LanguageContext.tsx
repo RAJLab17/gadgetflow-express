@@ -361,6 +361,16 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return "de";
   });
 
+  // First-time visitors: adopt the browser language after mount.
+  // Initial render stays "de" so crawlers always index the German default.
+  useEffect(() => {
+    if (localStorage.getItem("raj_lang")) return;
+    const nav = (navigator.language || "").toLowerCase();
+    if (nav.startsWith("fr")) setLangState("fr");
+    else if (nav.startsWith("it")) setLangState("it");
+    else if (nav.startsWith("en")) setLangState("en");
+  }, []);
+
   const setLang = useCallback((newLang: Language) => {
     setLangState(newLang);
     localStorage.setItem("raj_lang", newLang);
