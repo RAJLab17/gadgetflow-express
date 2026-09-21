@@ -47,17 +47,14 @@ interface Model {
   short: string;
   name: string;
   gen: "17" | "18";
-  display: string;
-  /** echte Gehäusemasse in mm — Basis für die massstabsgetreue Darstellung */
-  mm: { w: number; h: number; d: number };
   status: string;
 }
 
 const MODELS: Model[] = [
-  { id: "17pro", short: "17 Pro", name: "iPhone 17 Pro", gen: "17", display: '6,3"', mm: { w: 71.9, h: 150.0, d: 8.75 }, status: "Verfügbar" },
-  { id: "17promax", short: "17 Pro Max", name: "iPhone 17 Pro Max", gen: "17", display: '6,9"', mm: { w: 78.0, h: 163.4, d: 8.75 }, status: "Verfügbar" },
-  { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", gen: "18", display: '6,3"', mm: { w: 71.9, h: 150.0, d: 8.75 }, status: "Vorbestellung" },
-  { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", gen: "18", display: '6,9"', mm: { w: 78.0, h: 163.4, d: 8.75 }, status: "Vorbestellung" },
+  { id: "17pro", short: "17 Pro", name: "iPhone 17 Pro", gen: "17", status: "Verfügbar" },
+  { id: "17promax", short: "17 Pro Max", name: "iPhone 17 Pro Max", gen: "17", status: "Verfügbar" },
+  { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", gen: "18", status: "Vorbestellung" },
+  { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", gen: "18", status: "Vorbestellung" },
 ];
 
 interface DeviceFinish {
@@ -221,10 +218,6 @@ const DeviceMock = ({
   caseFinish: CaseFinish;
   model: Model;
 }) => {
-  /* Die Renderdatei ist optisch schmaler als das echte Gehäuse. Pro Max auf
-     das reale Verhältnis 78 × 163,4 mm korrigieren, ohne die Höhe zu strecken. */
-  const isProMax = model.id.endsWith("promax");
-  const displayWidthScale = isProMax ? 1.11 : 1;
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
   const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
@@ -267,7 +260,6 @@ const DeviceMock = ({
           }`}
           style={{
             filter: asset === src ? "contrast(1.015) saturate(1.015)" : undefined,
-            transform: `scaleX(${displayWidthScale})`,
           }}
         />
       ))}
@@ -543,12 +535,6 @@ const MatrixPage = () => {
                           {model.name} · {device.name}
                         </p>
                       </div>
-                      <span
-                        className="text-[10px] uppercase tracking-[0.28em] whitespace-nowrap"
-                        style={{ color: H.textMuted }}
-                      >
-                        {model.display}
-                      </span>
                     </div>
                   </div>
                 </div>
@@ -577,7 +563,7 @@ const MatrixPage = () => {
                           >
                             <span className="block text-xs font-medium md:text-sm">iPhone {m.short}</span>
                             <span className="hidden mt-0.5 text-[11px] md:block" style={{ color: H.textMuted }}>
-                              {m.display} · {m.status}
+                              {m.status}
                             </span>
                           </button>
                         );
