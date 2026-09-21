@@ -7,7 +7,6 @@
 
   <url>
     <loc>https://raj.ch/</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
     <image:image>
@@ -38,31 +37,31 @@
   </url>
   <url>
     <loc>https://raj.ch/shop</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://raj.ch/produkte</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
     <loc>https://raj.ch/matrix</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://raj.ch/apex</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://raj.ch/assets/products/apex-card-900.webp</image:loc>
+      <image:title>RAJ APEX MagSafe Auto-Ladehalterung</image:title>
+      <image:caption>RAJ APEX Auto-Ladehalterung mit Qi2 und bis zu 25 Watt</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/nexus</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -123,67 +122,46 @@
   </url>
   <url>
     <loc>https://raj.ch/about</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://raj.ch/kontakt</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://raj.ch/faq</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://raj.ch/versand</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.60</priority>
   </url>
   <url>
     <loc>https://raj.ch/reviews</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.70</priority>
   </url>
   <url>
     <loc>https://raj.ch/blog</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://raj.ch/dokumente</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
-    <loc>https://raj.ch/manuals</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-  <url>
     <loc>https://raj.ch/agb</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://raj.ch/datenschutz</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
   <url>
     <loc>https://raj.ch/impressum</loc>
-    <lastmod>2026-06-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
   </url>
