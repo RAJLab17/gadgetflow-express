@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from "react";
 import { toast } from "sonner";
 import { CartItem, createShopifyCart, fetchProductVariantInfo } from "@/lib/shopify";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
+import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 
 export const OPEN_CART_EVENT = "raj:open-cart";
 
@@ -15,7 +16,7 @@ export function useQuickBuy() {
     if (now - lastClick.current < 1000 || isProcessing) return;
     lastClick.current = now;
     setIsProcessing(true);
-    const checkoutTab = window.open("", "_blank");
+    const checkoutTab = openCheckoutTab();
     try {
       const variant = await fetchProductVariantInfo("raj-3-in-1-wireless-charger");
       if (!variant?.availableForSale) {
@@ -54,8 +55,7 @@ export function useQuickBuy() {
         return;
       }
       track({ cartId: cart.cartId, reference, summary: "RAJ NEXUS", total: "CHF 99.–", startedAt: Date.now() });
-      if (checkoutTab) checkoutTab.location.href = cart.checkoutUrl;
-      else window.open(cart.checkoutUrl, "_blank");
+      goToCheckout(checkoutTab, cart.checkoutUrl);
     } catch (error) {
       checkoutTab?.close();
       console.error("NEXUS checkout failed:", error);
