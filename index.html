@@ -234,8 +234,14 @@
           ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EST00HSY50';
           ga.onload = function() {
             window.gtag('js', new Date());
-            window.gtag('config', 'G-EST00HSY50');
+            window.gtag('config', 'G-EST00HSY50', {
+              linker: {
+                domains: ['raj.ch', 'www.raj.ch', 'checkout.raj.ch', 'kcvjif-10.myshopify.com'],
+                accept_incoming: true
+              }
+            });
           };
+
           document.head.appendChild(ga);
 
           // Meta Pixel — replay buffered queue
@@ -264,10 +270,11 @@
         // Schedule strictly AFTER window 'load' (i.e. after LCP / above-the-fold paint).
         function schedule() {
           if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadTracking, { timeout: 3000 });
+            requestIdleCallback(loadTracking, { timeout: 1200 });
           } else {
-            setTimeout(loadTracking, 1500);
+            setTimeout(loadTracking, 600);
           }
+
         }
         if (document.readyState === 'complete') {
           schedule();
