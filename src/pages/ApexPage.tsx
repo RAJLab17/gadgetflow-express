@@ -74,12 +74,34 @@ const H = {
   textMuted: "#6B6358",
 };
 
+const APEX_RETURN_POLICY = {
+  "@type": "MerchantReturnPolicy",
+  applicableCountry: "CH",
+  returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+  merchantReturnDays: 30,
+  returnMethod: "https://schema.org/ReturnByMail",
+  returnFees: "https://schema.org/FreeReturn",
+};
+
+const APEX_SHIPPING_DETAILS = {
+  "@type": "OfferShippingDetails",
+  shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "CHF" },
+  shippingDestination: { "@type": "DefinedRegion", addressCountry: "CH" },
+  deliveryTime: {
+    "@type": "ShippingDeliveryTime",
+    handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "d" },
+    transitTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 4, unitCode: "d" },
+  },
+};
+
 const APEX_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Product",
   name: "RAJ APEX — MagSafe Auto-Ladehalterung",
   description:
     "RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.",
+  image: ["https://raj.ch/assets/products/apex-card-900.webp"],
+  sku: "RAJ-APX-Q2",
   brand: { "@type": "Brand", name: "RAJ" },
   offers: APEX_VARIANTS.map((v) => ({
     "@type": "Offer",
@@ -87,8 +109,12 @@ const APEX_JSON_LD = {
     name: v.name,
     priceCurrency: "CHF",
     price: v.price,
+    itemCondition: "https://schema.org/NewCondition",
     availability: IS_LIVE ? "https://schema.org/InStock" : "https://schema.org/PreOrder",
     url: "https://raj.ch/apex",
+    seller: { "@type": "Organization", name: "RAJ GmbH" },
+    hasMerchantReturnPolicy: APEX_RETURN_POLICY,
+    shippingDetails: APEX_SHIPPING_DETAILS,
   })),
 };
 
