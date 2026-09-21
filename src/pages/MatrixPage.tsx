@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
+import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
