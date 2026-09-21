@@ -55,8 +55,7 @@ export function useQuickBuy() {
         return;
       }
       track({ cartId: cart.cartId, reference, summary: "RAJ NEXUS", total: "CHF 99.–", startedAt: Date.now() });
-      if (checkoutTab) checkoutTab.location.href = cart.checkoutUrl;
-      else window.open(cart.checkoutUrl, "_blank");
+      goToCheckout(checkoutTab, cart.checkoutUrl);
     } catch (error) {
       checkoutTab?.close();
       console.error("NEXUS checkout failed:", error);
