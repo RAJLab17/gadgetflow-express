@@ -693,6 +693,8 @@ const NexusPage = () => {
 
   // Live Drop 01 Restbestand aus Shopify (Storefront API)
   const [nexusAvailable, setNexusAvailable] = useState(true);
+  const DROP_01_REMAINING = 15;
+  const [dropRemaining] = useState<number>(DROP_01_REMAINING);
   useEffect(() => {
     let cancelled = false;
     (async () => {
