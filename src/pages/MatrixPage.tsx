@@ -12,7 +12,7 @@ import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
 import cherryOrange from "@/assets/matrix/hq-reference-webp/cherry-orange.webp";
-import cherryBlue from "@/assets/matrix/hq-reference-webp/cherry-blue.webp";
+import cherryBlue from "@/assets/matrix/hq-reference-webp/cherry-blue-clean.png";
 import cherrySilver from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
 import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
