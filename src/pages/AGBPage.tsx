@@ -105,8 +105,8 @@ const sections = [
 const AGBPage = () => {
   return (
     <PremiumPageLayout
-      title="AGB – RAJ"
-      metaDescription="Allgemeine Geschäftsbedingungen von RAJ."
+      title="Allgemeine Geschäftsbedingungen (AGB) | RAJ Schweiz"
+      metaDescription="Allgemeine Geschäftsbedingungen der RAJ GmbH für Bestellungen, Bezahlung, Lieferung, Rückgabe und Garantie im Schweizer Onlineshop."
       canonical="https://raj.ch/agb"
       jsonLd={webPageJsonLd({ name: "AGB – RAJ", description: "Allgemeine Geschäftsbedingungen von RAJ.", url: "https://raj.ch/agb" })}
       eyebrow="Rechtliches"

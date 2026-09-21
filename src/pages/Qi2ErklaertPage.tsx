@@ -37,7 +37,7 @@ const Qi2ErklaertPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
     <PremiumPageLayout
-      title="Qi2 vs. Qi2.2: Was bedeutet der neue Wireless-Charging-Standard für dein iPhone?"
+      title="Qi2 vs. Qi2.2 erklärt – Unterschiede fürs iPhone | RAJ"
       metaDescription="Qi2 vs. Qi2.2 erklärt: Unterschiede, Vorteile und worauf du beim Kauf eines kabellosen Ladegeräts achten solltest. Stand April 2026."
       canonical="https://raj.ch/qi2-erklaert"
       eyebrow="Wissen"

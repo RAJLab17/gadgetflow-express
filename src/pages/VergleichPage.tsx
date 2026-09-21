@@ -16,7 +16,7 @@ const DETAIL_IMAGE =
   "https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp";
 
 const PAGE_TITLE =
-  "3-in-1 Wireless Charger Vergleich Schweiz 2026: RAJ NEXUS vs. Belkin vs. Anker";
+  "3-in-1 Charger Vergleich 2026: NEXUS, Belkin & Anker | RAJ";
 const PAGE_DESC =
   "RAJ NEXUS, Belkin UltraCharge Pro und Anker MagGo im direkten Vergleich: Preis, Qi2.2-Standard, Ladeleistung und Verfügbarkeit in der Schweiz – aktualisiert Juli 2026.";
 const CANONICAL = "https://raj.ch/vergleich";
