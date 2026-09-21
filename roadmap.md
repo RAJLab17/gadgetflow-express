@@ -3,3 +3,4 @@
 - [x] Aktualisierte Produktbilder und übrige Produktdaten kontrollieren
 - [x] Ausschliesslich den Cherry-Carbon-Farbton der MATRIX-Case-Bilder edler und präsenter abstimmen
 - [x] Cherry-Darstellung auf Desktop und Mobile kontrollieren, ohne Seitenänderungen
+- [x] Cherry-Farbe und Case-Proportionen anhand der echten Produktreferenzen korrigieren
