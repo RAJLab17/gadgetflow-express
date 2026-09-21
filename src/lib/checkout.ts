@@ -1,44 +1,21 @@
 /**
  * Robust checkout navigation.
  *
- * Some mobile browsers (Edge mobile, Samsung Internet) do not reliably hand a
- * pre-opened blank tab over to an external origin: the tab stays on an empty
- * about:blank page and renders "connection refused" for the target host.
- * On those browsers we simply navigate the current tab to the Shopify checkout,
- * which always works. Desktop keeps the pre-opened-tab behaviour.
+ * Shopify checkout must be loaded as a top-level page. Reusing a pre-opened
+ * blank tab can leave checkout in a blocked browsing context on both desktop
+ * and mobile browsers, so every purchase now replaces the current page.
  */
 
 export function prefersSameTabCheckout(): boolean {
-  if (typeof navigator === "undefined") return false;
-  const ua = navigator.userAgent;
-  const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-  const isFragile = /EdgA?\/|SamsungBrowser|OPR\//i.test(ua);
-  return isMobile || isFragile;
+  return true;
 }
 
-/** Pre-open a blank tab during the user gesture (desktop only). */
+/** Kept for checkout callers; no separate browsing context is created. */
 export function openCheckoutTab(): Window | null {
-  if (prefersSameTabCheckout()) return null;
-  try {
-    return window.open("", "_blank");
-  } catch {
-    return null;
-  }
+  return null;
 }
 
-/** Send the user to the checkout URL, with a same-tab fallback. */
-export function goToCheckout(tab: Window | null, url: string): void {
-  if (tab && !tab.closed) {
-    try {
-      tab.location.href = url;
-      return;
-    } catch {
-      /* fall through */
-    }
-  }
-  if (!prefersSameTabCheckout()) {
-    const opened = window.open(url, "_blank");
-    if (opened) return;
-  }
+/** Send the user directly to Shopify checkout in the current tab. */
+export function goToCheckout(_tab: Window | null, url: string): void {
   window.location.assign(url);
 }
