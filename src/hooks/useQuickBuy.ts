@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from "react";
 import { toast } from "sonner";
 import { CartItem, createShopifyCart, fetchProductVariantInfo } from "@/lib/shopify";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
+import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 
 export const OPEN_CART_EVENT = "raj:open-cart";
 
