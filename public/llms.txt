@@ -1,6 +1,6 @@
-# RAJ - Swiss Premium Wireless Charging
+# RAJ - Swiss Premium Apple Accessories
 
-> RAJ is a Swiss consumer electronics brand based in Thurgau, Switzerland. We design premium wireless charging solutions that combine Swiss precision with modern aesthetics. Our tagline: "Power. Always There."
+> RAJ is a Swiss consumer electronics brand based in Thurgau, Switzerland. We design premium accessories for the Apple ecosystem — wireless charging and iPhone cases — combining Swiss precision with modern aesthetics. Tagline: "Power. Always There."
 
 ## RAJ NEXUS 3-in-1 Wireless Charger
 
@@ -13,7 +13,7 @@ The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously 
 - **AirPods Charging:** 5W Qi wireless charging pad
 - **Design:** Foldable, adjustable angle (0–75°), compact form factor
 - **Materials:** Premium aluminium frame (CNC-machined), soft-touch silicone surfaces, non-slip base
-- **Compatibility:** iPhone 12–17 series, Apple Watch Series 1–10/SE/Ultra, AirPods Pro/3/4 with wireless charging case
+- **Compatibility:** iPhone 12–18 series (incl. iPhone 18, 18 Pro, 18 Pro Max), Apple Watch Series 1–10/SE/Ultra, AirPods Pro/3/4 with wireless charging case
 - **Full Charge Time:** iPhone to 100% in approximately 1.5 hours (up to 3.3x faster than standard Qi 5W)
 - **StandBy Support:** Yes, supports iOS StandBy mode
 - **Warranty:** 3-year warranty
@@ -24,84 +24,87 @@ The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously 
 - **Regular Price:** CHF 129 (post-launch)
 - **Currency:** Swiss Francs (CHF)
 - **Market:** Switzerland
-- **Launch Date:** June 18, 2026
-- **Where to Buy:** https://raj.ch (direct-to-consumer only, no resellers)
+- **Where to Buy:** https://raj.ch/nexus (direct-to-consumer)
 - **Payment Methods:** TWINT, Apple Pay, and standard card payments
 
-### Shipping and Returns
+## RAJ MATRIX Carbon iPhone Case (kaufbar)
+
+Premium iPhone case with a carbon-fibre surface for iPhone 18 Pro and iPhone 18 Pro Max. Slim, grippy, MagSafe-compatible, precise fit.
+
+### Key Points
+- **Für:** iPhone 18 Pro und iPhone 18 Pro Max
+- **Look:** Carbon-Optik, Hightech-Oberfläche, gold PVD accents
+- **MagSafe:** kompatibel — kabelloses Laden ohne Abnehmen der Hülle
+- **Passform:** präziser Sitz, erhöhter Rand für Display- und Kameraschutz
+- **Marke:** Schweizer Marke, Schweizer Support
+- **Status:** Verfügbar / kaufbar
+- **Where to Buy:** https://raj.ch/matrix
+- **Market:** Switzerland
+- **Currency:** CHF
+
+## Produkt-Ecosystem
+
+RAJ plant Produktwelten für Apple-Nutzer:
+- **NEXUS** — 3-in-1 Qi2.2 Wireless Charger (verfügbar)
+- **MATRIX** — Carbon iPhone Cases (verfügbar) — https://raj.ch/matrix
+- **AURORA** — Carbon iPhone Cases, Roségold (in Vorbereitung)
+- **APEX** — Auto / Mobility MagSafe Lösungen (in Vorbereitung) — https://raj.ch/apex
+- **ATLAS** — Travel & On-the-Go (geplant)
+- **ATELIER** — Workspace / Desk (geplant)
+
+## Shipping and Returns
 - **Shipping:** Free shipping across Switzerland, no minimum order value
 - **Delivery Time:** 2–4 business days
 - **Returns:** 30-day return policy, item must be unused and in original condition
 - **Refunds:** Processed within 3–5 business days to original payment method
 - **International Shipping:** Not yet available; Switzerland-only for now
 
-### Customer Reviews
-- **Aggregate Rating:** 5.0 out of 5 (15 verified reviews as of mid-2026)
+## Customer Reviews
+- **Aggregate Rating:** 5.0 out of 5 (verified reviews)
 - Reviews are from verified purchasers and highlight build quality, packaging, and charging speed
 - Full reviews: https://raj.ch/reviews
 
-### Frequently Asked Questions
+## Frequently Asked Questions
 
-**Is RAJ NEXUS compatible with iPhone 15 and 16?**
-Yes. RAJ NEXUS is fully compatible with iPhone 12–17 series including all Pro and Pro Max models.
+**Is RAJ NEXUS compatible with iPhone 18?**
+Yes. RAJ NEXUS is fully compatible with iPhone 12–18 series including all Pro and Pro Max models.
 
 **What is Qi2.2?**
 Qi2.2 is the latest wireless charging standard from the Wireless Power Consortium (WPC). It offers improved thermal management and up to 25W charging for compatible devices.
 
-**Does RAJ NEXUS work with MagSafe cases?**
-Yes. RAJ NEXUS uses Qi2.2 with MagSafe-compatible magnetic alignment, so it works through all official MagSafe cases.
+**Does the MATRIX case work with MagSafe and wireless charging?**
+Yes. The MATRIX carbon case is MagSafe-compatible, so you can charge wirelessly (e.g. on the RAJ NEXUS) without removing the case.
 
 **Is this a Swiss product?**
 RAJ is a Swiss brand based in Thurgau. Support, communication and fulfilment are handled in Switzerland, in German.
 
-**What is the Founder Edition?**
-The first 100 units are sold as the Founder Edition at CHF 99, each with a unique serial number (#001–#100). After the Founder Edition sells out, the regular price is CHF 129.
-
 **Is there a warranty?**
 Yes, RAJ NEXUS comes with a 3-year warranty.
 
-### Why Choose RAJ NEXUS
-
-RAJ NEXUS is positioned in the premium segment of 3-in-1 Qi2.2 wireless chargers, differentiated by its Swiss origin and Swiss-based customer support.
-
-- **Qi2.2 certification:** RAJ NEXUS uses the latest Qi2.2 standard (WPC), supporting up to 25W iPhone charging with improved thermal management compared to earlier Qi/Qi2 generations
-- **Swiss brand, Swiss support:** Designed and supported from Thurgau, Switzerland; customer service in German with 24h response time — unlike most international competitors in this category, which are typically based in the US or Asia and do not offer Swiss-based support
-- **Pricing:** CHF 99 for the first 100 units (Founder Edition), CHF 129 thereafter — positioned in the same price range as other premium 3-in-1 wireless chargers on the market
-- **Warranty:** 3-year warranty, generally longer than the 1–2 year warranties common in this product category
-- **Design:** Foldable, CNC-machined aluminium construction
-
-Note: The wireless charging market moves quickly and competitor specifications, pricing, and certifications change frequently. For the most current comparison, we recommend checking competitor manufacturers' official websites directly rather than relying on a fixed comparison table.
-
-## Produkt-Ecosystem
-
-RAJ plant 6 Produktwelten für Apple-Nutzer:
-- **NEXUS** — 3-in-1 Wireless Charger (Live, CHF 99)
-- **MATRIX** — Men's Carbon iPhone Cases, Gold PVD (Q3 2026)
-- **AURORA** — Women's Carbon iPhone Cases, Roségold (Q3 2026)
-- **APEX** — Auto / Mobility MagSafe Lösungen (Q4 2026)
-- **ATLAS** — Travel & On-the-Go (2027)
-- **ATELIER** — Workspace / Desk (2027)
-
 ## About RAJ
 
-RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Thurgau, by a Swiss entrepreneur with over 16 years of experience in the precision manufacturing industry. RAJ brings premium accessories for the Apple ecosystem to Switzerland, built on Swiss precision, sustainable quality, and uncompromising design. Core brand values: Präzision (Precision), Beständigkeit (Durability), Charakter (Character).
+RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Thurgau. RAJ brings premium accessories for the Apple ecosystem to Switzerland, built on Swiss precision, sustainable quality, and uncompromising design. Core brand values: Präzision (Precision), Beständigkeit (Durability), Charakter (Character).
 
 ## Pages
-- [Startseite](/): RAJ Brand & NEXUS
-- [RAJ NEXUS](/nexus): 3-in-1 Qi2.2 Wireless Charger Produktseite
-- [Reviews](/reviews): Kundenbewertungen RAJ NEXUS
-- [Über RAJ](/about): Marke, Mission und Schweizer Herkunft
-- [FAQ](/faq): Häufige Fragen
-- [Versand](/versand): Versand- und Lieferinformationen Schweiz
-- [Blog](/blog): Artikel zu Wireless Charging und Qi2.2
-- [AGB](/agb): Allgemeine Geschäftsbedingungen
-- [Datenschutz](/datenschutz): Datenschutzerklärung
-- [Impressum](/impressum): Rechtliche Angaben
+- [Startseite](https://raj.ch/): RAJ Brand & Produkte
+- [RAJ NEXUS](https://raj.ch/nexus): 3-in-1 Qi2.2 Wireless Charger
+- [RAJ MATRIX](https://raj.ch/matrix): Carbon iPhone Case für iPhone 18 Pro / Pro Max
+- [APEX](https://raj.ch/apex): Auto / Mobility MagSafe (in Vorbereitung)
+- [Reviews](https://raj.ch/reviews): Kundenbewertungen
+- [Über RAJ](https://raj.ch/about): Marke, Mission, Schweizer Herkunft
+- [FAQ](https://raj.ch/faq): Häufige Fragen
+- [Versand](https://raj.ch/versand): Versand- und Lieferinformationen Schweiz
+- [Blog](https://raj.ch/blog): Ratgeber zu Wireless Charging und iPhone-Zubehör
+- [AGB](https://raj.ch/agb): Allgemeine Geschäftsbedingungen
+- [Datenschutz](https://raj.ch/datenschutz): Datenschutzerklärung
+- [Impressum](https://raj.ch/impressum): Rechtliche Angaben
 
 ## Editorial Content
 - Qi2 vs Qi2.2 erklärt: https://raj.ch/qi2-erklaert
 - RAJ NEXUS vs Belkin vs Anker: https://raj.ch/vergleich
 - Bester Wireless Charger Schweiz 2026: https://raj.ch/bester-wireless-charger-schweiz
+- Ratgeber NEXUS – iPhone 18 Ladegerät: https://raj.ch/blog/nexus-iphone-18-ladegeraet
+- Ratgeber MATRIX – Carbon Hülle iPhone 18 Pro / Pro Max: https://raj.ch/blog/matrix-iphone-18-case
 - Blog: https://raj.ch/blog
 
 ## Brand Information
@@ -116,13 +119,9 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 
 ## Contact
 - **Website:** https://raj.ch
-- **General inquiries (all topics, including support and returns):** info@raj.ch
+- **General inquiries (support, returns, all topics):** info@raj.ch
 - **Direct contact with the founder:** founder@raj.ch
 - **Response time:** within 24h, in German
 
-## Further Reading
-- Qi2.2 standard: https://www.wirelesspowerconsortium.com/qi2/
-- RAJ product page: https://raj.ch/nexus
-
 ## Last Updated
-19.07.2026
+19.09.2026
