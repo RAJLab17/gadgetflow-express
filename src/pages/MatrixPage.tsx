@@ -221,8 +221,10 @@ const DeviceMock = ({
   caseFinish: CaseFinish;
   model: Model;
 }) => {
-  /* Pro Max ist real ca. 8,5 % breiter — massstabsgetreue Skalierung */
-  const scale = model.mm.w / 71.9;
+  /* Die Renderdatei ist optisch schmaler als das echte Gehäuse. Pro Max auf
+     das reale Verhältnis 78 × 163,4 mm korrigieren, ohne die Höhe zu strecken. */
+  const isProMax = model.id.endsWith("promax");
+  const displayWidthScale = isProMax ? 1.11 : 1;
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
   const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
@@ -238,7 +240,7 @@ const DeviceMock = ({
   return (
     <div
       className="relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
-      style={{ width: `min(100%, ${380 * scale}px)`, aspectRatio: "1 / 1" }}
+      style={{ width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
     >
       <div
         aria-hidden
@@ -260,10 +262,13 @@ const DeviceMock = ({
           fetchPriority={key === renderKey ? "high" : "auto"}
           decoding={key === renderKey ? "sync" : "async"}
           aria-hidden={asset !== src}
-          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+          className={`absolute inset-0 w-full h-full object-contain transition-[opacity,transform] duration-500 ${
             asset === src ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
-          style={{ filter: asset === src ? "contrast(1.015) saturate(1.015)" : undefined }}
+          style={{
+            filter: asset === src ? "contrast(1.015) saturate(1.015)" : undefined,
+            transform: `scaleX(${displayWidthScale})`,
+          }}
         />
       ))}
     </div>
