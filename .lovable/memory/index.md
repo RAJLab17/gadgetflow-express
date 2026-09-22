@@ -21,3 +21,4 @@ Routing: `/` is Launch Page. `/shop` or `?mode=shop` for shop view.
 - [Tech Stack & Security](mem://technical/setup) — Database policies, deployment, analytics, and SEO
 - [Page Specifics](mem://features/pages) — Content rules for About, FAQ, and Shipping pages
 - [MATRIX Shop & Bundle](mem://features/matrix-shop) — MATRIX Shopify products, prices and MATRIXBUNDLE discount logic
+- [Founder-Bestand NEXUS](mem://features/founder-stock) — Echter Countdown: founder_stock Tabelle, zählt bei Kauf runter (Start 6)
