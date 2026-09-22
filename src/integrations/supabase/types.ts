@@ -50,6 +50,24 @@ export type Database = {
         }
         Relationships: []
       }
+      founder_stock: {
+        Row: {
+          id: number
+          remaining: number
+          updated_at: string
+        }
+        Insert: {
+          id: number
+          remaining: number
+          updated_at?: string
+        }
+        Update: {
+          id?: number
+          remaining?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       launch_signups: {
         Row: {
           created_at: string
@@ -369,6 +387,7 @@ export type Database = {
       }
     }
     Functions: {
+      decrement_founder_stock: { Args: { _units?: number }; Returns: number }
       get_launch_signups_today_count: { Args: never; Returns: number }
       get_launch_signups_total: { Args: never; Returns: number }
       get_product_like_count: { Args: { _product_id: string }; Returns: number }
