@@ -221,14 +221,6 @@ const DeviceMock = ({
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
   const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
-  /* Nur bereits gewählte Varianten im DOM halten — spart Ladegewicht beim ersten Aufruf */
-  const [mountedKeys, setMountedKeys] = useState<string[]>([renderKey]);
-  useEffect(() => {
-    setMountedKeys((prev) => (prev.includes(renderKey) ? prev : [...prev, renderKey]));
-  }, [renderKey]);
-  const genRenders = Object.entries(RENDERS).filter(
-    ([key]) => key.startsWith(`${model.gen}-`) && mountedKeys.includes(key),
-  );
 
   return (
     <div
@@ -240,29 +232,18 @@ const DeviceMock = ({
         className="absolute left-1/2 -translate-x-1/2 bottom-[3%] w-[58%] h-8 rounded-[50%] pointer-events-none"
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
       />
-      {genRenders.map(([key, asset]) => (
-        <img
-          key={key}
-          src={asset}
-          alt={
-            asset === src
-              ? `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`
-              : ""
-          }
-          width={928}
-          height={1152}
-          loading={key === renderKey ? "eager" : "lazy"}
-          fetchPriority={key === renderKey ? "high" : "auto"}
-          decoding={key === renderKey ? "sync" : "async"}
-          aria-hidden={asset !== src}
-          className={`absolute inset-0 w-full h-full object-contain transition-[opacity,transform] duration-500 ${
-            asset === src ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-          style={{
-            filter: asset === src ? "contrast(1.015) saturate(1.015)" : undefined,
-          }}
-        />
-      ))}
+      <img
+        key={renderKey}
+        src={src}
+        alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`}
+        width={928}
+        height={1152}
+        loading="eager"
+        fetchPriority="high"
+        decoding="sync"
+        className="absolute inset-0 h-full w-full object-contain"
+        style={{ filter: "contrast(1.015) saturate(1.015)" }}
+      />
     </div>
 
   );
