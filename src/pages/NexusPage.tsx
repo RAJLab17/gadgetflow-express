@@ -709,8 +709,9 @@ const NexusPage = () => {
     let cancelled = false;
     (async () => {
       const { supabase } = await import("@/integrations/supabase/client");
-      const { data } = await supabase.from("founder_stock" as never).select("remaining").eq("id", 1).maybeSingle();
-      const row = data as unknown as { remaining: number } | null;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const { data } = await (supabase as any).from("founder_stock").select("remaining").eq("id", 1).maybeSingle();
+      const row = data as { remaining: number } | null;
       if (!cancelled && row && typeof row.remaining === "number") setFounderRemaining(row.remaining);
     })();
     return () => { cancelled = true; };

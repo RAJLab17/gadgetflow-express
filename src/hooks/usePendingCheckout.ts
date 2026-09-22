@@ -104,7 +104,8 @@ export function usePendingCheckout() {
         // Bestätigter NEXUS-Kauf: echten Founder-Bestand um 1 senken (fire & forget)
         if (current.summary.includes("NEXUS")) {
           void import("@/integrations/supabase/client").then(({ supabase }) =>
-            supabase.rpc("decrement_founder_stock" as never, { _units: 1 } as never)
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (supabase as any).rpc("decrement_founder_stock", { _units: 1 })
           );
         }
       }
