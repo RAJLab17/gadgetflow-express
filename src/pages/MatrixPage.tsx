@@ -11,7 +11,7 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
-import cherryOrange from "@/assets/matrix/hq-reference-webp/cherry-orange.webp";
+import cherryOrange from "@/assets/matrix/camera-inset-preview/cherry-orange.png";
 import cherryBlue from "@/assets/matrix/hq-reference-webp/cherry-blue-clean.png";
 import cherrySilver from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
 import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
