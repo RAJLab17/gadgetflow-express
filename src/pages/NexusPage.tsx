@@ -703,6 +703,24 @@ const NexusPage = () => {
     return () => { cancelled = true; };
   }, []);
 
+  // Echter Founder-Bestand aus der Datenbank (zählt bei jedem Kauf runter)
+  const [founderRemaining, setFounderRemaining] = useState<number | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const { supabase } = await import("@/integrations/supabase/client");
+      const { data } = await supabase.from("founder_stock").select("remaining").eq("id", 1).maybeSingle();
+      if (!cancelled && data && typeof data.remaining === "number") setFounderRemaining(data.remaining);
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  const availabilityLabel = !nexusAvailable || founderRemaining === 0
+    ? "Drop 01 ausverkauft"
+    : founderRemaining !== null
+      ? `Noch ${founderRemaining} verfügbar`
+      : "Verfügbar";
+
   const productJsonLd = {
     ...PRODUCT_NEXUS_JSON_LD,
     offers: {
