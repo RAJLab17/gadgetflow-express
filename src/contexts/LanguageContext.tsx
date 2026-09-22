@@ -368,7 +368,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const nav = (navigator.language || "").toLowerCase();
     if (nav.startsWith("fr")) setLangState("fr");
     else if (nav.startsWith("it")) setLangState("it");
-    else if (nav.startsWith("en")) setLangState("en");
   }, []);
 
   const setLang = useCallback((newLang: Language) => {
