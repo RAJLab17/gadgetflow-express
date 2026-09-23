@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import cherryOrangeAsset from "@/assets/matrix/cherry-17-first/cherry-cosmic-orange.webp.asset.json";
 import cherryBlueAsset from "@/assets/matrix/cherry-17-first/cherry-deep-blue.webp.asset.json";
 import cherrySilverAsset from "@/assets/matrix/cherry-17-first/cherry-silver.webp.asset.json";
+import cherrySilver18 from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
 import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
 import onyxSilver from "@/assets/matrix/hq-reference-webp/onyx-silver.webp";
@@ -178,7 +179,7 @@ const RENDERS: Record<string, string> = {
   "18-cherry-darkcherry": cherryDarkcherry,
   "18-cherry-darkgrey": cherryDarkgrey,
   "18-cherry-skyblue": cherrySkyblue,
-  "18-cherry-silver": cherrySilverAsset.url,
+  "18-cherry-silver": cherrySilver18,
   "18-onyx-darkcherry": onyxDarkcherry,
   "18-onyx-darkgrey": onyxDarkgrey,
   "18-onyx-skyblue": onyxSkyblue,
