@@ -14,13 +14,13 @@ import Footer from "@/components/Footer";
 import cherryOrangeAsset from "@/assets/matrix/cherry-17-transparent/cherry-cosmic-orange.png.asset.json";
 import cherryBlueAsset from "@/assets/matrix/cherry-17-transparent/cherry-deep-blue.png.asset.json";
 import cherrySilverAsset from "@/assets/matrix/cherry-17-transparent/cherry-silver.png.asset.json";
-import cherrySilver18 from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
+import cherryDarkcherry18Asset from "@/assets/matrix/cherry-18-transparent/cherry-darkcherry.png.asset.json";
+import cherryDarkgrey18Asset from "@/assets/matrix/cherry-18-transparent/cherry-darkgrey.png.asset.json";
+import cherrySilver18Asset from "@/assets/matrix/cherry-18-transparent/cherry-silver.png.asset.json";
+import cherrySkyblue18Asset from "@/assets/matrix/cherry-18-transparent/cherry-skyblue.png.asset.json";
 import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
 import onyxSilver from "@/assets/matrix/hq-reference-webp/onyx-silver.webp";
-import cherryDarkcherry from "@/assets/matrix/hq-reference-webp/cherry-darkcherry.webp";
-import cherryDarkgrey from "@/assets/matrix/hq-reference-webp/cherry-darkgrey.webp";
-import cherrySkyblue from "@/assets/matrix/hq-reference-webp/cherry-skyblue.webp";
 import onyxDarkcherry from "@/assets/matrix/hq-reference-webp/onyx-darkcherry.webp";
 import onyxDarkgrey from "@/assets/matrix/hq-reference-webp/onyx-darkgrey.webp";
 import onyxSkyblue from "@/assets/matrix/hq-reference-webp/onyx-skyblue.webp";
@@ -176,10 +176,10 @@ const RENDERS: Record<string, string> = {
   "17-onyx-blue": onyxBlue,
   "17-onyx-silver": onyxSilver,
   // Gen 18
-  "18-cherry-darkcherry": cherryDarkcherry,
-  "18-cherry-darkgrey": cherryDarkgrey,
-  "18-cherry-skyblue": cherrySkyblue,
-  "18-cherry-silver": cherrySilver18,
+  "18-cherry-darkcherry": cherryDarkcherry18Asset.url,
+  "18-cherry-darkgrey": cherryDarkgrey18Asset.url,
+  "18-cherry-skyblue": cherrySkyblue18Asset.url,
+  "18-cherry-silver": cherrySilver18Asset.url,
   "18-onyx-darkcherry": onyxDarkcherry,
   "18-onyx-darkgrey": onyxDarkgrey,
   "18-onyx-skyblue": onyxSkyblue,
