@@ -11,9 +11,9 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
-import cherryOrangeAsset from "@/assets/matrix/cherry-17-correct/cherry-cosmic-orange.png.asset.json";
-import cherryBlueAsset from "@/assets/matrix/cherry-17-correct/cherry-deep-blue.png.asset.json";
-import cherrySilverAsset from "@/assets/matrix/cherry-17-correct/cherry-silver.png.asset.json";
+import cherryOrangeAsset from "@/assets/matrix/cherry-17-transparent/cherry-cosmic-orange.png.asset.json";
+import cherryBlueAsset from "@/assets/matrix/cherry-17-transparent/cherry-deep-blue.png.asset.json";
+import cherrySilverAsset from "@/assets/matrix/cherry-17-transparent/cherry-silver.png.asset.json";
 import cherrySilver18 from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
 import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
@@ -222,6 +222,7 @@ const DeviceMock = ({
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
   const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
+  const preloadedSources = Object.values(RENDERS);
 
   return (
     <div
@@ -234,7 +235,6 @@ const DeviceMock = ({
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
       />
       <img
-        key={renderKey}
         src={src}
         alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`}
         width={928}
@@ -245,6 +245,11 @@ const DeviceMock = ({
         className="absolute inset-0 h-full w-full object-contain"
         style={{ filter: "contrast(1.015) saturate(1.015)" }}
       />
+      <div aria-hidden className="hidden">
+        {preloadedSources.map((preloadSrc) => (
+          <img key={preloadSrc} src={preloadSrc} alt="" />
+        ))}
+      </div>
     </div>
 
   );
