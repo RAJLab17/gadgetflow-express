@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
+import { forwardRef, memo, useCallback, useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -210,7 +210,7 @@ const GoldBolt = forwardRef<HTMLImageElement, { airpods?: boolean }>(({ airpods 
 GoldBolt.displayName = "GoldBolt";
 
 
-const DeviceMock = ({
+const DeviceMock = memo(({
   device,
   caseFinish,
   model,
@@ -220,9 +220,13 @@ const DeviceMock = ({
   model: Model;
 }) => {
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
-  const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
+  const generationRenders = useMemo(
+    () => Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`)),
+    [model.gen],
+  );
+  const generationFallback = generationRenders[0]?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
-  const preloadedSources = Object.values(RENDERS);
+  const preloadedSources = generationRenders.map(([, renderSrc]) => renderSrc).filter((renderSrc) => renderSrc !== src);
 
   return (
     <div
@@ -241,19 +245,20 @@ const DeviceMock = ({
         height={1152}
         loading="eager"
         fetchPriority="high"
-        decoding="sync"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-contain"
         style={{ filter: "contrast(1.015) saturate(1.015)" }}
       />
       <div aria-hidden className="hidden">
         {preloadedSources.map((preloadSrc) => (
-          <img key={preloadSrc} src={preloadSrc} alt="" />
+          <img key={preloadSrc} src={preloadSrc} alt="" decoding="async" />
         ))}
       </div>
     </div>
 
   );
-};
+});
+DeviceMock.displayName = "DeviceMock";
 
 
 
