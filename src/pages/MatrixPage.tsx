@@ -11,9 +11,10 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
-import cherryOrange from "@/assets/matrix/hq-reference-webp/cherry-orange.webp";
-import cherryBlue from "@/assets/matrix/hq-reference-webp/cherry-blue-clean.png";
-import cherrySilver from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
+import cherryOrangeAsset from "@/assets/matrix/cherry-17-first/cherry-cosmic-orange.webp.asset.json";
+import cherryBlueAsset from "@/assets/matrix/cherry-17-first/cherry-deep-blue.webp.asset.json";
+import cherrySilverAsset from "@/assets/matrix/cherry-17-first/cherry-silver.webp.asset.json";
+import cherrySilver18 from "@/assets/matrix/hq-reference-webp/cherry-silver.webp";
 import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
 import onyxSilver from "@/assets/matrix/hq-reference-webp/onyx-silver.webp";
@@ -168,9 +169,9 @@ const MATRIX_ROWS: Row[] = [
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
 const RENDERS: Record<string, string> = {
   // Gen 17
-  "17-cherry-orange": cherryOrange,
-  "17-cherry-blue": cherryBlue,
-  "17-cherry-silver": cherrySilver,
+  "17-cherry-orange": cherryOrangeAsset.url,
+  "17-cherry-blue": cherryBlueAsset.url,
+  "17-cherry-silver": cherrySilverAsset.url,
   "17-onyx-orange": onyxOrange,
   "17-onyx-blue": onyxBlue,
   "17-onyx-silver": onyxSilver,
@@ -178,7 +179,7 @@ const RENDERS: Record<string, string> = {
   "18-cherry-darkcherry": cherryDarkcherry,
   "18-cherry-darkgrey": cherryDarkgrey,
   "18-cherry-skyblue": cherrySkyblue,
-  "18-cherry-silver": cherrySilver,
+  "18-cherry-silver": cherrySilver18,
   "18-onyx-darkcherry": onyxDarkcherry,
   "18-onyx-darkgrey": onyxDarkgrey,
   "18-onyx-skyblue": onyxSkyblue,
