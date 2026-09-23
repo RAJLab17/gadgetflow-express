@@ -22,8 +22,8 @@ import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
 import onyxSilver from "@/assets/matrix/hq-reference-webp/onyx-silver.webp";
 import onyxDarkcherry from "@/assets/matrix/hq-reference-webp/onyx-darkcherry.webp";
-import onyxDarkgrey from "@/assets/matrix/hq-reference-webp/onyx-darkgrey.webp";
-import onyxSkyblue from "@/assets/matrix/hq-reference-webp/onyx-skyblue.webp";
+import onyxDarkgrey18Asset from "@/assets/matrix/onyx-18-transparent/onyx-darkgrey.png.asset.json";
+import onyxSkyblue18Asset from "@/assets/matrix/onyx-18-transparent/onyx-skyblue.png.asset.json";
 import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
@@ -181,8 +181,8 @@ const RENDERS: Record<string, string> = {
   "18-cherry-skyblue": cherrySkyblue18Asset.url,
   "18-cherry-silver": cherrySilver18Asset.url,
   "18-onyx-darkcherry": onyxDarkcherry,
-  "18-onyx-darkgrey": onyxDarkgrey,
-  "18-onyx-skyblue": onyxSkyblue,
+  "18-onyx-darkgrey": onyxDarkgrey18Asset.url,
+  "18-onyx-skyblue": onyxSkyblue18Asset.url,
   "18-onyx-silver": onyxSilver,
 };
 
