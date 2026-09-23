@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
+import { forwardRef, memo, useCallback, useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -11,19 +11,19 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
-import cherryOrangeAsset from "@/assets/matrix/cherry-17-transparent/cherry-cosmic-orange.png.asset.json";
-import cherryBlueAsset from "@/assets/matrix/cherry-17-transparent/cherry-deep-blue.png.asset.json";
-import cherrySilverAsset from "@/assets/matrix/cherry-17-transparent/cherry-silver.png.asset.json";
-import cherryDarkcherry18Asset from "@/assets/matrix/cherry-18-transparent/cherry-darkcherry.png.asset.json";
-import cherryDarkgrey18Asset from "@/assets/matrix/cherry-18-transparent/cherry-darkgrey.png.asset.json";
-import cherrySilver18Asset from "@/assets/matrix/cherry-18-transparent/cherry-silver.png.asset.json";
-import cherrySkyblue18Asset from "@/assets/matrix/cherry-18-transparent/cherry-skyblue.png.asset.json";
+import cherryOrangeAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-cosmic-orange.webp.asset.json";
+import cherryBlueAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-deep-blue.webp.asset.json";
+import cherrySilverAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-silver.webp.asset.json";
+import cherryDarkcherry18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-darkcherry.webp.asset.json";
+import cherryDarkgrey18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-darkgrey.webp.asset.json";
+import cherrySilver18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-silver.webp.asset.json";
+import cherrySkyblue18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-skyblue.webp.asset.json";
 import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
 import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
 import onyxSilver from "@/assets/matrix/hq-reference-webp/onyx-silver.webp";
 import onyxDarkcherry from "@/assets/matrix/hq-reference-webp/onyx-darkcherry.webp";
-import onyxDarkgrey18Asset from "@/assets/matrix/onyx-18-transparent/onyx-darkgrey.png.asset.json";
-import onyxSkyblue18Asset from "@/assets/matrix/onyx-18-transparent/onyx-skyblue.png.asset.json";
+import onyxDarkgrey18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-darkgrey.webp.asset.json";
+import onyxSkyblue18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-skyblue.webp.asset.json";
 import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
@@ -210,7 +210,7 @@ const GoldBolt = forwardRef<HTMLImageElement, { airpods?: boolean }>(({ airpods 
 GoldBolt.displayName = "GoldBolt";
 
 
-const DeviceMock = ({
+const DeviceMock = memo(({
   device,
   caseFinish,
   model,
@@ -220,9 +220,13 @@ const DeviceMock = ({
   model: Model;
 }) => {
   const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
-  const generationFallback = Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-`))?.[1];
+  const generationRenders = useMemo(
+    () => Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`)),
+    [model.gen],
+  );
+  const generationFallback = generationRenders[0]?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
-  const preloadedSources = Object.values(RENDERS);
+  const preloadedSources = generationRenders.map(([, renderSrc]) => renderSrc).filter((renderSrc) => renderSrc !== src);
 
   return (
     <div
@@ -241,19 +245,20 @@ const DeviceMock = ({
         height={1152}
         loading="eager"
         fetchPriority="high"
-        decoding="sync"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-contain"
         style={{ filter: "contrast(1.015) saturate(1.015)" }}
       />
       <div aria-hidden className="hidden">
         {preloadedSources.map((preloadSrc) => (
-          <img key={preloadSrc} src={preloadSrc} alt="" />
+          <img key={preloadSrc} src={preloadSrc} alt="" decoding="async" />
         ))}
       </div>
     </div>
 
   );
-};
+});
+DeviceMock.displayName = "DeviceMock";
 
 
 
