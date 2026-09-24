@@ -451,36 +451,9 @@ const MatrixPage = () => {
         <Header topSlot={<NexusTrustBar />} />
 
         <main className="pt-24 md:pt-28">
-          {/* Intro */}
-          <section className="container mx-auto px-4 md:px-6 max-w-5xl pt-2 md:pt-6 pb-5 md:pb-14">
-            <div className="md:flex md:justify-end">
-              <div className="md:text-right">
-                <div className="flex items-center gap-2.5 mb-3 md:gap-3 md:mb-6 md:flex-row-reverse">
-                  <span className="h-px w-8" style={{ background: H.gold }} />
-                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
-                    03 · Matrix
-                  </span>
-                </div>
-                <h1
-                  className="font-light text-[38px] leading-[0.95] tracking-tight md:text-[clamp(42px,6vw,84px)]"
-                  style={{ letterSpacing: "-0.02em" }}
-                >
-                  MATRIX
-                </h1>
-                <p className="italic mt-2 text-base md:mt-4 md:text-[clamp(18px,1.6vw,22px)]" style={{ color: H.gold }}>
-                  Die Hülle als Teil des Systems.
-                </p>
-                <p className="hidden md:block mt-6 max-w-xl text-base leading-relaxed md:ml-auto" style={{ color: H.textMuted }}>
-                  Vier Modelle, zwei Carbon-Finishes, ein Magnetring. Jede MATRIX-Hülle ist so vermessen, dass NEXUS und APEX
-                  magnetisch einrasten, als wäre nichts dazwischen. Die Farbe deines iPhones bleibt Teil des Objekts.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Konfigurator */}
-          <section className="border-t" style={{ borderColor: H.line }}>
-            <div className="container mx-auto px-4 md:px-6 max-w-5xl py-5 md:py-20">
+          {/* Hero + Konfigurator */}
+          <section>
+            <div className="container mx-auto px-4 md:px-6 max-w-5xl pt-2 md:pt-8 pb-5 md:pb-16">
               <div className="grid md:grid-cols-12 gap-5 md:gap-14 items-start">
                 {/* Bühne */}
                 <div className="md:col-span-6 md:sticky md:top-28">
