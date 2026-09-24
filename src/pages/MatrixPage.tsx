@@ -455,8 +455,30 @@ const MatrixPage = () => {
           <section>
             <div className="container mx-auto px-4 md:px-6 max-w-5xl pt-2 md:pt-8 pb-5 md:pb-16">
               <div className="grid md:grid-cols-12 gap-5 md:gap-14 items-start">
-                {/* Bühne */}
-                <div className="md:col-span-6 md:sticky md:top-28">
+                {/* Linke Spalte: Text + Handy */}
+                <div className="md:col-span-6">
+                  {/* Intro */}
+                  <div className="mb-4 md:mb-6">
+                    <div className="flex items-center gap-2.5 mb-1.5 md:gap-3 md:mb-2">
+                      <span className="h-px w-8" style={{ background: H.gold }} />
+                      <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
+                        03 · Matrix
+                      </span>
+                    </div>
+                    <h1
+                      className="font-light leading-[0.95] tracking-tight text-[34px] md:text-[clamp(40px,4.2vw,60px)]"
+                      style={{ letterSpacing: "-0.02em" }}
+                    >
+                      MATRIX
+                    </h1>
+                    <p className="italic mt-1.5 text-sm md:mt-2 md:text-lg" style={{ color: H.gold }}>
+                      Die Hülle als Teil des Systems.
+                    </p>
+                    <p className="hidden md:block mt-3 max-w-md text-sm leading-relaxed" style={{ color: H.textMuted }}>
+                      Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
+                    </p>
+                  </div>
+                  {/* Bühne */}
                   <div
                     className="relative overflow-hidden rounded-md md:rounded-lg"
                     style={{
@@ -510,28 +532,6 @@ const MatrixPage = () => {
 
                 {/* Auswahl */}
                 <div className="md:col-span-6 space-y-4 md:space-y-6">
-
-                  {/* Intro */}
-                  <div className="mb-1 md:mb-3">
-                    <div className="flex items-center gap-2.5 mb-1.5 md:gap-3 md:mb-2">
-                      <span className="h-px w-8" style={{ background: H.gold }} />
-                      <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
-                        03 · Matrix
-                      </span>
-                    </div>
-                    <h1
-                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(36px,3.8vw,52px)]"
-                      style={{ letterSpacing: "-0.02em" }}
-                    >
-                      MATRIX
-                    </h1>
-                    <p className="italic mt-1 text-sm md:mt-1.5 md:text-base" style={{ color: H.gold }}>
-                      Die Hülle als Teil des Systems.
-                    </p>
-                    <p className="hidden md:block mt-2 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
-                      Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
-                    </p>
-                  </div>
 
                   {/* Modell */}
                   <div>
