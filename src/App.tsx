@@ -18,6 +18,7 @@ const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const NexusPage = lazy(() => import("./pages/NexusPage"));
 const ApexPage = lazy(() => import("./pages/ApexPage"));
 const MatrixPage = lazy(() => import("./pages/MatrixPage"));
+const AirpodsPage = lazy(() => import("./pages/AirpodsPage"));
 const ProduktePage = lazy(() => import("./pages/ProduktePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
@@ -73,6 +74,8 @@ const App = () => (
                 <Route path="/auto" element={<ApexPage />} />
                 <Route path="/matrix" element={<MatrixPage />} />
                 <Route path="/cases" element={<Navigate to="/matrix" replace />} />
+                <Route path="/airpods-case" element={<AirpodsPage />} />
+                <Route path="/airpods" element={<Navigate to="/airpods-case" replace />} />
                 <Route path="/produkte" element={<ProduktePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/kontakt" element={<ContactPage />} />
