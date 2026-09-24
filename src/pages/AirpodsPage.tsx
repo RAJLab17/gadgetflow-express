@@ -15,6 +15,8 @@ import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingChecko
 
 import airpodsCherry from "@/assets/matrix/airpods-cherry.png";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.png";
+import matrixCaseCherry from "@/assets/matrix/cherry-darkcherry.webp";
+import matrixCaseOnyx from "@/assets/matrix/onyx-darkgrey.webp";
 import payVisa from "@/assets/payments/visa.svg";
 import payMastercard from "@/assets/payments/mastercard.svg";
 import payAmex from "@/assets/payments/amex.svg";
@@ -39,6 +41,7 @@ interface Finish {
   id: FinishId;
   name: string;
   image: string;
+  matrixImage: string;
   base: string;
   weave: string;
   edge: string;
@@ -52,6 +55,7 @@ const FINISHES: Finish[] = [
     id: "cherry",
     name: "Cherry Carbon",
     image: airpodsCherry,
+    matrixImage: matrixCaseCherry,
     base: "#7b4b60",
     weave: "#a66f83",
     edge: "#4f2b3a",
@@ -63,6 +67,7 @@ const FINISHES: Finish[] = [
     id: "onyx",
     name: "Onyx Carbon",
     image: airpodsOnyx,
+    matrixImage: matrixCaseOnyx,
     base: "#16171a",
     weave: "#33363c",
     edge: "#08090a",
@@ -338,41 +343,59 @@ const AirpodsPage = () => {
                   </div>
 
                   <div className="mt-5 border-t pt-5 md:mt-8 md:pt-8" style={{ borderColor: H.line }}>
-                    <div className="mb-4 flex items-start justify-between gap-4">
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>Ergänze dein Setup</p>
-                        <h2 className="mt-1 text-base font-light md:mt-2 md:text-lg">MATRIX iPhone Case</h2>
-                        <p className="mt-1 text-xs" style={{ color: H.textMuted }}>MagSafe-kompatibel · CHF 59.–</p>
+                    <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>Ergänze dein Setup</p>
+                    <h2 className="mt-1 text-base font-light md:mt-2 md:text-lg">MATRIX iPhone Case</h2>
+
+                    <div className="mt-4 grid grid-cols-[auto_1fr] gap-4 md:grid-cols-[140px_1fr] md:gap-5">
+                      <div
+                        className="relative aspect-[3/4] overflow-hidden rounded-xl"
+                        style={{
+                          background:
+                            matrixFinish.id === "cherry"
+                              ? "linear-gradient(155deg, #faf3eb 0%, #efe9e3 50%, #e4ddd7 100%)"
+                              : "linear-gradient(155deg, #f9f2ea 0%, #efe8e2 50%, #e3ddd6 100%)",
+                          boxShadow: `inset 0 0 0 1px ${H.lineStrong}`,
+                        }}
+                      >
+                        <img
+                          src={matrixFinish.matrixImage}
+                          alt={`MATRIX iPhone Case in ${matrixFinish.name}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                      </div>
+
+                      <div className="flex flex-col justify-center">
+                        <p className="text-xs" style={{ color: H.textMuted }}>MagSafe-kompatibel · CHF 59.–</p>
+                        <div className="mt-3 space-y-2">
+                          {FINISHES.map((item) => {
+                            const active = matrixFinish.id === item.id;
+                            return (
+                              <Button
+                                key={item.id}
+                                type="button"
+                                variant="outline"
+                                onClick={() => setMatrixFinishId(item.id)}
+                                aria-pressed={active}
+                                className="h-auto w-full justify-start gap-3 rounded-lg px-3 py-2.5"
+                                style={{ borderColor: active ? H.gold : H.line, background: active ? "rgba(155,107,63,0.06)" : "transparent" }}
+                              >
+                                <span className="h-5 w-5 rounded-full" style={{ background: `linear-gradient(145deg, ${item.weave}, ${item.base} 55%, ${item.edge})`, boxShadow: `0 0 0 1px ${H.lineStrong}` }} />
+                                <span className="flex-1 text-left text-xs">{item.name}</span>
+                                <span className="text-xs font-normal" style={{ color: H.textMuted }}>CHF 59.–</span>
+                              </Button>
+                            );
+                          })}
+                        </div>
+                        <p className="mt-3 text-xs" style={{ color: H.textMuted }}>
+                          Zusammen im Bundle — <span className="font-semibold" style={{ color: H.gold }}>CHF 15.– sparen</span>
+                        </p>
+                        <Button asChild variant="outline" className="mt-3 w-full border-primary text-xs uppercase tracking-[0.12em] text-primary">
+                          <Link to="/matrix">MATRIX iPhone Case ansehen</Link>
+                        </Button>
                       </div>
                     </div>
-
-                    <div className="space-y-2">
-                      {FINISHES.map((item) => {
-                        const active = matrixFinish.id === item.id;
-                        return (
-                          <Button
-                            key={item.id}
-                            type="button"
-                            variant="outline"
-                            onClick={() => setMatrixFinishId(item.id)}
-                            aria-pressed={active}
-                            className="h-auto w-full justify-start gap-3 rounded-lg px-3 py-2.5"
-                            style={{ borderColor: active ? H.gold : H.line, background: active ? "rgba(155,107,63,0.06)" : "transparent" }}
-                          >
-                            <span className="h-5 w-5 rounded-full" style={{ background: `linear-gradient(145deg, ${item.weave}, ${item.base} 55%, ${item.edge})`, boxShadow: `0 0 0 1px ${H.lineStrong}` }} />
-                            <span className="flex-1 text-left text-xs">{item.name}</span>
-                            <span className="text-xs font-normal" style={{ color: H.textMuted }}>CHF 59.–</span>
-                          </Button>
-                        );
-                      })}
-                    </div>
-
-                    <p className="mt-3 text-xs" style={{ color: H.textMuted }}>
-                      Zusammen im Bundle — <span className="font-semibold" style={{ color: H.gold }}>CHF 15.– sparen</span>
-                    </p>
-                    <Button asChild variant="outline" className="mt-3 w-full border-primary text-xs uppercase tracking-[0.12em] text-primary md:mt-4">
-                      <Link to="/matrix">MATRIX iPhone Case ansehen</Link>
-                    </Button>
                   </div>
 
                   <div className="mt-5 flex flex-wrap items-center justify-center gap-3 rounded-xl border bg-foreground px-3.5 py-2.5 md:gap-4" style={{ borderColor: "rgba(155,107,63,.20)" }}>
