@@ -814,25 +814,13 @@ const MatrixPage = () => {
                       })}
                     </div>
 
-                    <div
-                      className="mt-3 flex items-center gap-2.5 rounded-lg px-3 py-2.5"
-                      style={{
-                        background: airpodsSelected ? "rgba(155,107,63,0.10)" : "rgba(155,107,63,0.06)",
-                        border: `1px solid ${airpodsSelected ? H.gold : H.line}`,
-                      }}
-                    >
-                      <span
-                        className="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-[0.1em]"
-                        style={{ background: H.gold, color: "#fff" }}
-                      >
-                        {airpodsSelected ? "Gespart" : "Spar CHF 15.–"}
-                      </span>
-                      <span className="text-[11px] leading-snug" style={{ color: H.textMuted }}>
-                        {airpodsSelected
-                          ? "Du sparst CHF 15.– mit dem Bundle"
-                          : "+ CHF 35.– · Bundle = CHF 79.– statt 94.–"}
-                      </span>
-                    </div>
+                    <p className="mt-3 text-xs" style={{ color: H.textMuted }}>
+                      {airpodsSelected ? (
+                        <>✓ Im Bundle — <span className="font-semibold" style={{ color: H.gold }}>Du sparst CHF 15.–</span></>
+                      ) : (
+                        <>+ CHF 35.— <span className="font-semibold" style={{ color: H.gold }}>im Bundle CHF 15.– sparen</span></>
+                      )}
+                    </p>
                     <button
                       type="button"
                       onClick={handleAirpodsBuy}
