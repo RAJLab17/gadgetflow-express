@@ -121,7 +121,7 @@ const BrandNextDrop = () => {
                   Als Nächstes
                 </span>
               </div>
-              {/* AirPods 4 Case — Inset neben dem iPhone-Case */}
+              {/* AirPods 4 & 5 Case — Inset neben dem iPhone-Case */}
               <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1.5">
                 <div
                   className="relative w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden"
@@ -132,7 +132,7 @@ const BrandNextDrop = () => {
                 >
                   <img
                     src={airpodsRender}
-                    alt="RAJ MATRIX AirPods 4 Case in Cherry Carbon"
+                    alt="RAJ MATRIX AirPods 4 & 5 Case in Cherry Carbon"
                     width={96}
                     height={96}
                     loading="lazy"
@@ -144,7 +144,7 @@ const BrandNextDrop = () => {
                    className="text-[10px] uppercase font-semibold"
                    style={{ color: "#f0d9b8", letterSpacing: "0.12em", textShadow: "0 1px 8px rgba(0,0,0,0.8)" }}
                 >
-                  AirPods 4
+                  AirPods 4 &amp; 5
                 </span>
               </div>
             </div>

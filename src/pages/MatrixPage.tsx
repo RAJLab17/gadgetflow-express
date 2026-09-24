@@ -119,7 +119,7 @@ const CASE_FINISHES: CaseFinish[] = [
   },
 ];
 
-/* ── AirPods 4 Cases — gleiche Finishes, gleicher Blitz ───────────────── */
+/* ── AirPods 4 & 5 Cases — gleiche Finishes, gleicher Blitz ──────────── */
 interface AirpodsCase {
   id: string;
   name: string;
@@ -128,8 +128,8 @@ interface AirpodsCase {
 }
 
 const AIRPODS_CASES: Record<string, AirpodsCase> = {
-  cherry: { id: "cherry", name: "MATRIX AirPods 4 · Cherry Carbon", image: airpodsCherry, price: 35 },
-  onyx: { id: "onyx", name: "MATRIX AirPods 4 · Onyx Carbon", image: airpodsOnyx, price: 35 },
+  cherry: { id: "cherry", name: "MATRIX AirPods 4 & 5 · Cherry Carbon", image: airpodsCherry, price: 35 },
+  onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, price: 35 },
 };
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
@@ -319,7 +319,7 @@ const MatrixPage = () => {
       if (airpodsSelected) {
         const apVariantId = AIRPODS_VARIANT_IDS[airpodsCase.id];
         if (!apVariantId) { fail("Das gewählte AirPods Case ist derzeit nicht verfügbar."); return; }
-        const apItem: CartItem = { lineId: null, product: { ...dummyProduct, node: { ...dummyProduct.node, title: "MATRIX AirPods 4 Case", handle: "raj-matrix-airpods-4-case" } }, variantId: apVariantId, variantTitle: airpodsCase.name, price: { amount: String(airpodsCase.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Finish", value: airpodsCase.name }] };
+        const apItem: CartItem = { lineId: null, product: { ...dummyProduct, node: { ...dummyProduct.node, title: "MATRIX AirPods 4 & 5 Case", handle: "raj-matrix-airpods-4-case" } }, variantId: apVariantId, variantTitle: airpodsCase.name, price: { amount: String(airpodsCase.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Finish", value: airpodsCase.name }] };
         const added = await addLineToShopifyCart(cart.cartId, apItem);
         if (!added.success) { fail("Das AirPods Case konnte nicht zum Bundle hinzugefügt werden. Bitte versuche es erneut."); return; }
         if (added.checkoutUrl) cart.checkoutUrl = added.checkoutUrl;
@@ -329,7 +329,7 @@ const MatrixPage = () => {
         cartId: cart.cartId,
         reference,
         summary: airpodsSelected
-          ? `MATRIX Case ${model.name} · ${caseFinish.name} + AirPods 4 Case ${airpodsCase.name}`
+          ? `MATRIX Case ${model.name} · ${caseFinish.name} + AirPods 4 & 5 Case ${airpodsCase.name}`
           : `MATRIX Case ${model.name} · ${caseFinish.name}`,
         total: `CHF ${airpodsSelected ? bundleTotal : caseFinish.price}.–`,
         startedAt: Date.now(),
@@ -364,8 +364,8 @@ const MatrixPage = () => {
       const product = {
         node: {
           id: "gid://shopify/Product/16139790549317",
-          title: "RAJ MATRIX AirPods 4 Case",
-          description: "Aramid-Carbon Case für AirPods 4.",
+          title: "RAJ MATRIX AirPods 4 & 5 Case",
+          description: "Aramid-Carbon Case für AirPods 4 und AirPods 5.",
           handle: "raj-matrix-airpods-4-case",
           priceRange: { minVariantPrice: { amount: String(airpodsCase.price), currencyCode: "CHF" } },
           images: { edges: [] },
@@ -735,7 +735,7 @@ const MatrixPage = () => {
                         <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>
                           Ergänze dein Setup
                         </p>
-                        <h3 className="mt-1 text-base font-light md:mt-2 md:text-lg">AirPods 4 Case</h3>
+                        <h3 className="mt-1 text-base font-light md:mt-2 md:text-lg">AirPods 4 &amp; 5 Case</h3>
                         <p className="hidden mt-1 text-xs leading-relaxed md:block" style={{ color: H.textMuted }}>
                           {airpodsCase.name} · gleicher Carbon-Finish, gleicher goldener Blitz
                         </p>
@@ -758,7 +758,7 @@ const MatrixPage = () => {
                       <div className="relative w-16 h-16 shrink-0 overflow-hidden rounded-md bg-white md:w-24 md:h-24">
                         <img
                           src={airpodsCase.image}
-                          alt={`${airpodsCase.name} für AirPods 4`}
+                          alt={`${airpodsCase.name} für AirPods 4 und AirPods 5`}
                           width={1024}
                           height={1024}
                           loading="lazy"
@@ -831,7 +831,7 @@ const MatrixPage = () => {
                       ) : (
                         <ShoppingBag className="h-4 w-4" />
                       )}
-                      AirPods Case einzeln kaufen · CHF {airpodsCase.price}.–
+                      AirPods 4 &amp; 5 Case einzeln kaufen · CHF {airpodsCase.price}.–
                     </button>
                     {/* Zahlungsmethoden */}
                     <div
