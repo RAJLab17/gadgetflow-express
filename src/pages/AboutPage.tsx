@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 import workshopDetail from "@/assets/about/workshop-detail.jpg";
 import precisionCraft from "@/assets/about/precision-craft.jpg";
 import thurgauMap from "@/assets/about-thurgau-clean.webp";
-import founderSignature from "@/assets/about/founder-signature.png";
 
 const L = {
   bg: "#FAF8F5",
@@ -132,14 +131,11 @@ const AboutPage = () => {
           </div>
 
           <motion.div {...fade} className="mt-16 pt-10 border-t" style={{ borderColor: L.border }}>
-            <img
-              src={founderSignature}
-              alt="Unterschrift des Gründers"
-              className="h-24 md:h-28 w-auto -ml-2"
-              style={{ color: L.text }}
-            />
+            <p className="text-2xl md:text-3xl font-light tracking-tight" style={{ color: L.text }}>
+              TEAM RAJ GMBH
+            </p>
             <div className="mt-4">
-              <p className="text-xs tracking-[0.2em] uppercase" style={{ color: L.textMuted }}>Gründer, RAJ GmbH · Weinfelden, Thurgau</p>
+              <p className="text-xs tracking-[0.2em] uppercase" style={{ color: L.textMuted }}>Weinfelden, Thurgau</p>
             </div>
           </motion.div>
         </div>
