@@ -41,6 +41,7 @@ interface Finish {
   id: FinishId;
   name: string;
   image: string;
+  matrixImage: string;
   base: string;
   weave: string;
   edge: string;
