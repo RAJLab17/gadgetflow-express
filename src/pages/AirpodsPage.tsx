@@ -208,7 +208,7 @@ const AirpodsPage = () => {
                       className="pointer-events-none absolute inset-0"
                       style={{ boxShadow: "inset 0 0 120px 10px rgba(43,39,37,0.10)" }}
                     />
-                    <div className="relative flex aspect-square items-center justify-center p-5 md:p-10">
+                    <div className="relative aspect-square">
                       <img
                         src={finish.image}
                         alt={`MATRIX AirPods 4 & 5 Case in ${finish.name}`}
@@ -217,7 +217,7 @@ const AirpodsPage = () => {
                         loading="eager"
                         fetchPriority="high"
                         decoding="async"
-                        className="h-full w-full object-cover"
+                        className="absolute inset-0 h-full w-full object-cover"
                       />
                     </div>
                     <div
