@@ -516,10 +516,10 @@ const MatrixPage = () => {
                 </div>
 
                 {/* Auswahl */}
-                <div className="md:col-span-6 space-y-4 md:space-y-6">
+                <div className="md:col-span-6 space-y-4 md:space-y-3">
 
                   {/* Intro */}
-                  <div className="mb-1 md:mb-3">
+                  <div className="mb-1 md:mb-1">
                     <div className="flex items-center gap-2.5 mb-1.5 md:gap-3 md:mb-2">
                       <span className="h-px w-8" style={{ background: H.gold }} />
                       <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
@@ -527,22 +527,22 @@ const MatrixPage = () => {
                       </span>
                     </div>
                     <h1
-                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(36px,3.8vw,52px)]"
+                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(32px,3.2vw,44px)]"
                       style={{ letterSpacing: "-0.02em" }}
                     >
                       MATRIX
                     </h1>
-                    <p className="italic mt-1 text-sm md:mt-1.5 md:text-base" style={{ color: H.gold }}>
+                    <p className="italic mt-1 text-sm md:mt-1 md:text-sm" style={{ color: H.gold }}>
                       Die Hülle als Teil des Systems.
                     </p>
-                    <p className="hidden md:block mt-2 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                    <p className="hidden md:block mt-1.5 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
                       Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
                     </p>
                   </div>
 
                   {/* Modell */}
                   <div>
-                    <p className="text-[10px] uppercase tracking-[0.28em] mb-2 md:mb-4" style={{ color: H.textMuted }}>
+                    <p className="text-[10px] uppercase tracking-[0.28em] mb-2 md:mb-3" style={{ color: H.textMuted }}>
                       Modell
                     </p>
                     <div className="grid grid-cols-2 gap-2">
@@ -553,7 +553,7 @@ const MatrixPage = () => {
                             key={m.id}
                             onClick={() => selectModel(m.id)}
                             aria-pressed={active}
-                            className="text-left px-2.5 py-2 rounded-lg transition-all duration-300 md:px-4 md:py-3"
+                            className="text-left px-2.5 py-2 rounded-lg transition-all duration-300 md:px-4 md:py-2.5"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
@@ -571,7 +571,7 @@ const MatrixPage = () => {
 
                   {/* Gerätefarbe */}
                   <div>
-                    <div className="flex items-baseline justify-between mb-2 md:mb-4">
+                    <div className="flex items-baseline justify-between mb-2 md:mb-3">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
                         Gerätefarbe
                       </p>
@@ -601,7 +601,7 @@ const MatrixPage = () => {
 
                   {/* Hüllenfinish */}
                   <div>
-                    <div className="flex items-baseline justify-between mb-2 md:mb-4">
+                    <div className="flex items-baseline justify-between mb-2 md:mb-3">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
                         Finish
                       </p>
@@ -617,7 +617,7 @@ const MatrixPage = () => {
                             key={c.id}
                             onClick={() => setCaseId(c.id)}
                             aria-pressed={active}
-                            className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg transition-all duration-300 md:gap-4 md:px-4 md:py-3"
+                            className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg transition-all duration-300 md:gap-4 md:px-4 md:py-2.5"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
@@ -647,7 +647,7 @@ const MatrixPage = () => {
                   </div>
 
                   {/* CTA */}
-                  <div className="pt-3 border-t md:pt-6" style={{ borderColor: H.line }}>
+                  <div className="pt-3 border-t md:pt-4" style={{ borderColor: H.line }}>
                     {confirmed && (
                       <div
                         className="relative mb-5 rounded-xl p-4"
