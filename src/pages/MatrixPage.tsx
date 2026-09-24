@@ -509,7 +509,7 @@ const MatrixPage = () => {
                 </div>
 
                 {/* Auswahl */}
-                <div className="md:col-span-6 space-y-5 md:space-y-10">
+                <div className="md:col-span-6 space-y-4 md:space-y-6">
 
                   {/* Intro */}
                   <div className="mb-2 md:mb-4">
