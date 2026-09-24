@@ -264,8 +264,8 @@ DeviceMock.displayName = "DeviceMock";
 
 /* ── Page ─────────────────────────────────────────────────────────────── */
 const MatrixPage = () => {
-  const [modelId, setModelId] = useState<ModelId>("17promax");
-  const [deviceId, setDeviceId] = useState("orange");
+  const [modelId, setModelId] = useState<ModelId>("18pro");
+  const [deviceId, setDeviceId] = useState("darkcherry");
   const [caseId, setCaseId] = useState("cherry");
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
