@@ -27,6 +27,13 @@ import onyxSkyblue18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-s
 import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
+import payVisa from "@/assets/payments/visa.svg";
+import payMastercard from "@/assets/payments/mastercard.svg";
+import payAmex from "@/assets/payments/amex.svg";
+import payApplePay from "@/assets/payments/apple-pay.svg";
+import payGooglePay from "@/assets/payments/google-pay.svg";
+import payTwint from "@/assets/payments/twint.png";
+import payKlarna from "@/assets/payments/klarna.svg";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
