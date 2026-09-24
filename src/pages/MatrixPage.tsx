@@ -729,6 +729,39 @@ const MatrixPage = () => {
                     <p className="mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
                       Sichere Bezahlung · Kostenloser Versand
                     </p>
+                    {/* Zahlungsmethoden */}
+                    <div
+                      className="mt-4 rounded-xl flex items-center gap-3 md:gap-4 flex-wrap justify-center"
+                      style={{
+                        background: "#0a0908",
+                        border: "1px solid rgba(155,107,63,.20)",
+                        padding: "10px 14px",
+                      }}
+                    >
+                      <p className="text-[10px] uppercase tracking-[0.22em] w-full text-center md:w-auto md:text-left" style={{ color: H.gold }}>
+                        Sichere Zahlungsmethoden
+                      </p>
+                      <div className="flex items-center gap-2 flex-wrap justify-center">
+                        {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+                          <img
+                            key={i}
+                            src={src}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            style={{
+                              height: 22,
+                              width: "auto",
+                              objectFit: "contain",
+                              background: "white",
+                              borderRadius: 4,
+                              padding: "2px 5px",
+                              border: "1px solid rgba(255,255,255,.12)",
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
                   {/* AirPods Ergänzung */}
