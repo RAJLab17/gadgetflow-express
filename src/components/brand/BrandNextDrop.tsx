@@ -3,7 +3,6 @@ import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImgAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
 import airpodsRender from "@/assets/matrix/airpods-cherry-bolt.webp";
-import airpodsPhoto from "@/assets/matrix/airpods-cherry.png";
 import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
 
 const nexusImg = "/assets/products/nexus-bedside-night.webp";
@@ -162,65 +161,30 @@ const BrandNextDrop = () => {
                 CHF 59.–
               </span>
             </div>
+            {/* AirPods Case — Link unter dem MATRIX-Bild */}
+            <Link
+              to="/airpods-case"
+              className="mt-3 flex items-center gap-2 text-[11px] uppercase font-semibold tracking-[0.12em] transition-colors group/airpods"
+              style={{ color: GOLD_SOFT }}
+            >
+              <span
+                className="w-6 h-6 rounded-md overflow-hidden shrink-0 border"
+                style={{ borderColor: `${GOLD_SOFT}55`, background: "rgba(10,9,8,0.4)" }}
+              >
+                <img
+                  src={airpodsRender}
+                  alt=""
+                  width={24}
+                  height={24}
+                  loading="lazy"
+                  className="w-full h-full object-contain"
+                />
+              </span>
+              AirPods 4 & 5 Case — CHF 35.-
+              <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover/airpods:translate-x-0.5 group-hover/airpods:-translate-y-0.5" />
+            </Link>
           </Link>
 
-          {/* MATRIX AirPods Case */}
-          <Link to="/airpods-case" className="group block lg:mt-24">
-            <div className="relative mb-6 overflow-hidden rounded-sm">
-              <img
-                src={airpodsPhoto}
-                alt="RAJ MATRIX AirPods 4 & 5 Case in Cherry Carbon mit goldenem Blitz"
-                width={1448}
-                height={1086}
-                loading="lazy"
-                decoding="async"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
-              />
-              <div className="absolute top-4 left-4">
-                <span
-                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"
-                  style={{
-                     letterSpacing: "0.12em",
-                    color: "#f5f5f0",
-                    background: "rgba(10,9,8,0.45)",
-                    borderColor: "rgba(255,255,255,0.15)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                  }}
-                >
-                  <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: GOLD_SOFT }} />
-                  Verfügbar
-                </span>
-              </div>
-            </div>
-            <div className="flex justify-between items-end gap-4">
-              <div>
-                 <h3 className="text-xl font-medium text-white" style={{ letterSpacing: "0.08em" }}>
-                  MATRIX
-                </h3>
-                 <p className="text-sm font-normal mt-1" style={{ color: "rgba(245,245,240,0.76)" }}>
-                  AirPods 4 &amp; 5 Case
-                </p>
-              </div>
-               <span className="text-base font-medium" style={{ color: GOLD_SOFT }}>
-                CHF 35.–
-              </span>
-            </div>
-            <div className="mt-4">
-              <span
-                className="inline-flex items-center gap-2 py-2.5 px-6 rounded-full text-[10px] uppercase font-bold transition-transform duration-300 group-hover:scale-[1.03]"
-                style={{
-                  background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
-                  color: "#0a0908",
-                  letterSpacing: "0.2em",
-                  boxShadow: `0 12px 32px -10px ${GOLD}aa`,
-                }}
-              >
-                Kaufen
-                <span style={{ fontSize: "12px" }}>→</span>
-              </span>
-            </div>
-          </Link>
 
           {/* APEX — Early Access (weiter versetzt) */}
           <Link to="/apex" className="group block lg:mt-32">
