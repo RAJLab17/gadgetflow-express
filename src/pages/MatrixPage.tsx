@@ -27,6 +27,13 @@ import onyxSkyblue18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-s
 import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
+import payVisa from "@/assets/payments/visa.svg";
+import payMastercard from "@/assets/payments/mastercard.svg";
+import payAmex from "@/assets/payments/amex.svg";
+import payApplePay from "@/assets/payments/apple-pay.svg";
+import payGooglePay from "@/assets/payments/google-pay.svg";
+import payTwint from "@/assets/payments/twint.png";
+import payKlarna from "@/assets/payments/klarna.svg";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -455,30 +462,8 @@ const MatrixPage = () => {
           <section>
             <div className="container mx-auto px-4 md:px-6 max-w-5xl pt-2 md:pt-8 pb-5 md:pb-16">
               <div className="grid md:grid-cols-12 gap-5 md:gap-14 items-start">
-                {/* Linke Spalte: Text + Handy */}
-                <div className="md:col-span-6">
-                  {/* Intro */}
-                  <div className="mb-4 md:mb-6">
-                    <div className="flex items-center gap-2.5 mb-1.5 md:gap-3 md:mb-2">
-                      <span className="h-px w-8" style={{ background: H.gold }} />
-                      <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
-                        03 · Matrix
-                      </span>
-                    </div>
-                    <h1
-                      className="font-light leading-[0.95] tracking-tight text-[34px] md:text-[clamp(40px,4.2vw,60px)]"
-                      style={{ letterSpacing: "-0.02em" }}
-                    >
-                      MATRIX
-                    </h1>
-                    <p className="italic mt-1.5 text-sm md:mt-2 md:text-lg" style={{ color: H.gold }}>
-                      Die Hülle als Teil des Systems.
-                    </p>
-                    <p className="hidden md:block mt-3 max-w-md text-sm leading-relaxed" style={{ color: H.textMuted }}>
-                      Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
-                    </p>
-                  </div>
-                  {/* Bühne */}
+                {/* Bühne */}
+                <div className="md:col-span-6 md:sticky md:top-28">
                   <div
                     className="relative overflow-hidden rounded-md md:rounded-lg"
                     style={{
@@ -532,6 +517,28 @@ const MatrixPage = () => {
 
                 {/* Auswahl */}
                 <div className="md:col-span-6 space-y-4 md:space-y-6">
+
+                  {/* Intro */}
+                  <div className="mb-1 md:mb-3">
+                    <div className="flex items-center gap-2.5 mb-1.5 md:gap-3 md:mb-2">
+                      <span className="h-px w-8" style={{ background: H.gold }} />
+                      <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
+                        03 · Matrix
+                      </span>
+                    </div>
+                    <h1
+                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(36px,3.8vw,52px)]"
+                      style={{ letterSpacing: "-0.02em" }}
+                    >
+                      MATRIX
+                    </h1>
+                    <p className="italic mt-1 text-sm md:mt-1.5 md:text-base" style={{ color: H.gold }}>
+                      Die Hülle als Teil des Systems.
+                    </p>
+                    <p className="hidden md:block mt-2 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                      Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
+                    </p>
+                  </div>
 
                   {/* Modell */}
                   <div>
@@ -722,6 +729,39 @@ const MatrixPage = () => {
                     <p className="mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
                       Sichere Bezahlung · Kostenloser Versand
                     </p>
+                    {/* Zahlungsmethoden */}
+                    <div
+                      className="mt-4 rounded-xl flex items-center gap-3 md:gap-4 flex-wrap justify-center"
+                      style={{
+                        background: "#0a0908",
+                        border: "1px solid rgba(155,107,63,.20)",
+                        padding: "10px 14px",
+                      }}
+                    >
+                      <p className="text-[10px] uppercase tracking-[0.22em] w-full text-center md:w-auto md:text-left" style={{ color: H.gold }}>
+                        Sichere Zahlungsmethoden
+                      </p>
+                      <div className="flex items-center gap-2 flex-wrap justify-center">
+                        {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+                          <img
+                            key={i}
+                            src={src}
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                            style={{
+                              height: 22,
+                              width: "auto",
+                              objectFit: "contain",
+                              background: "white",
+                              borderRadius: 4,
+                              padding: "2px 5px",
+                              border: "1px solid rgba(255,255,255,.12)",
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
                   {/* AirPods Ergänzung */}
