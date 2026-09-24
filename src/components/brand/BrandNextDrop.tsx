@@ -223,7 +223,7 @@ const BrandNextDrop = () => {
           </Link>
 
           {/* APEX — Early Access (weiter versetzt) */}
-          <Link to="/apex" className="group block md:col-span-2 lg:col-span-1 lg:mt-32 md:max-w-[calc(50%-1rem)] lg:max-w-none">
+          <Link to="/apex" className="group block lg:mt-32">
             <div className="relative mb-6 aspect-[3/4] overflow-hidden rounded-sm">
               <img
                 src={apexCarImg}
