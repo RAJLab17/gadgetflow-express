@@ -817,7 +817,7 @@ const MatrixPage = () => {
                     <div className="mt-3 text-xs" style={{ color: H.textMuted }}>
                       {airpodsSelected
                         ? `✓ Im Bundle · Du sparst CHF ${BUNDLE_DISCOUNT}.–`
-                        : `+ CHF ${airpodsCase.price}.– · zusammen CHF ${caseFinish.price + airpodsCase.price}.–`}
+                        : `+ CHF ${airpodsCase.price}.– · im Bundle Du sparst CHF ${BUNDLE_DISCOUNT}.–`}
                     </div>
                     <button
                       type="button"
