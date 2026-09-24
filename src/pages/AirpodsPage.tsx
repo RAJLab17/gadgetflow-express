@@ -193,8 +193,8 @@ const AirpodsPage = () => {
                       borderColor: H.line,
                       background:
                         finish.id === "cherry"
-                          ? "radial-gradient(120% 120% at 50% 38%, #f5f1ee 0%, #efeae5 55%, #e6ded7 100%)"
-                          : "radial-gradient(120% 120% at 50% 38%, #f4f2ef 0%, #edebe7 55%, #e3e0db 100%)",
+                          ? "linear-gradient(155deg, #faf3eb 0%, #efe9e3 50%, #e4ddd7 100%)"
+                          : "linear-gradient(155deg, #f9f2ea 0%, #efe8e2 50%, #e3ddd6 100%)",
                       boxShadow: "0 1px 0 rgba(255,255,255,0.95) inset, 0 28px 70px -36px rgba(43,39,37,0.34)",
                     }}
                   >
