@@ -95,17 +95,18 @@ const AboutPage = () => {
 
           <div className="space-y-8 text-lg md:text-xl leading-[1.75]" style={{ color: L.textMuted }}>
             <motion.p {...fade}>
-              Ich habe 16 Jahre lang Präzisionsteile für andere gebaut, Toleranzen im
-              Hundertstel-Millimeter-Bereich, für Produkte, die niemand je mit meinem Namen
-              in Verbindung bringen würde. Ich habe gelernt, was ein Detail wert ist, das
-              niemand sieht, aber jeder spürt, wenn es fehlt.
+              16 Jahre lang habe ich Präzisionsteile für andere gebaut. Toleranzen im
+              Hundertstel-Millimeter, für Produkte, die niemand je mit meinem Namen in
+              Verbindung gebracht hat. In dieser Zeit habe ich gelernt, was ein Detail wert
+              ist, das niemand sieht — aber jeder spürt, sobald es fehlt.
             </motion.p>
 
             <motion.p {...fade}>
-              Was mich dabei immer gestört hat: die meisten Alltagsprodukte, die uns umgeben,
-              sind genau andersherum gebaut. Laut im Auftritt, dünn in der Substanz. Ein
-              Ladegerät, das nach drei Monaten wackelt. Ein Kabel, das man täglich sucht.
-              Technik, die sich anfühlt, als müsste man sich für sie entschuldigen.
+              Die meisten Dinge, die uns täglich umgeben, sind genau andersherum gebaut.
+              Laut im Auftritt, dünn in der Substanz. Das Ladegerät, das nach drei Monaten
+              wackelt. Das Kabel, das man jeden Morgen sucht. Die Hülle, die aussieht wie
+              Carbon und sich anfühlt wie Verpackung. Technik, für die man sich fast
+              entschuldigen möchte.
             </motion.p>
 
             <motion.blockquote
@@ -113,26 +114,20 @@ const AboutPage = () => {
               className="border-l-2 pl-6 my-12 italic text-2xl md:text-3xl font-light leading-snug"
               style={{ borderColor: L.gold, color: L.text }}
             >
-              Unsere Vision ist einfach: Power, die einfach da ist, wenn du sie brauchst,
-              ohne Nachdenken, ohne Kompromiss.
+              RAJ ist die Gegenbewegung. Unsere Vision ist einfach: Dinge, die einfach da
+              sind, wenn du sie brauchst. Ohne Nachdenken, ohne Ausrede.
             </motion.blockquote>
 
             <motion.p {...fade}>
               Deshalb baue ich RAJ nach denselben Massstäben, die ich 16 Jahre lang für andere
-              angewendet habe, nur jetzt für Menschen, die das direkt in der Hand spüren.
-              Unsere Mission ist entsprechend konkret: Energie mit Substanz. Klar im Design,
-              ehrlich in der Leistung, ohne versteckte Kompromisse im Material oder im Preis.
+              angewendet habe — nur diesmal für Menschen, die das direkt in der Hand halten.
+              Klar im Design, ehrlich im Material, ohne versteckte Abstriche im Preis.
             </motion.p>
 
             <motion.p {...fade}>
-              Das heisst auch: RAJ wird nie 20 Produkte gleichzeitig haben, nur damit das
-              Sortiment grösser aussieht. Lieber wenige Dinge, die wir vollständig verstehen
-              und verantworten, bevor das nächste entsteht.
-            </motion.p>
-
-            <motion.p {...fade}>
-              Ich trete bewusst nicht mit Gesicht auf, noch nicht. Was zählt, ist, was wir
-              bauen, nicht wer davorsteht.
+              Das heisst auch: RAJ wird nie 20 Produkte gleichzeitig führen, nur damit das
+              Sortiment grösser wirkt. Lieber wenige Dinge, die wir vollständig verstehen und
+              für die wir geradestehen, bevor das nächste entsteht.
             </motion.p>
           </div>
 
