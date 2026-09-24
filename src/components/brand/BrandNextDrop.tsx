@@ -36,7 +36,7 @@ const BrandNextDrop = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-10 gap-y-10 md:gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 lg:gap-x-8 gap-y-10 md:gap-y-20">
           {/* NEXUS — Hauptobjekt */}
           <Link to="/nexus" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
