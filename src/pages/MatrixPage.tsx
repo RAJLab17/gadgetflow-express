@@ -519,15 +519,9 @@ const MatrixPage = () => {
                 <div className="md:col-span-6 space-y-4 md:space-y-3">
 
                   {/* Intro */}
-                  <div className="mb-1 md:mb-1">
-                    <div className="flex items-center gap-2.5 mb-1.5 md:gap-3 md:mb-2">
-                      <span className="h-px w-8" style={{ background: H.gold }} />
-                      <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
-                        03 · Matrix
-                      </span>
-                    </div>
+                  <div className="mb-0.5 md:mb-0.5">
                     <h1
-                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(32px,3.2vw,44px)]"
+                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(30px,3vw,42px)]"
                       style={{ letterSpacing: "-0.02em" }}
                     >
                       MATRIX
@@ -535,7 +529,7 @@ const MatrixPage = () => {
                     <p className="italic mt-1 text-sm md:mt-1 md:text-sm" style={{ color: H.gold }}>
                       Die Hülle als Teil des Systems.
                     </p>
-                    <p className="hidden md:block mt-1.5 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                    <p className="hidden md:block mt-1 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
                       Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
                     </p>
                   </div>
@@ -646,8 +640,8 @@ const MatrixPage = () => {
                     </div>
                   </div>
 
-                  {/* CTA */}
-                  <div className="pt-3 border-t md:pt-4" style={{ borderColor: H.line }}>
+                    {/* CTA */}
+                  <div className="pt-2 border-t md:pt-3" style={{ borderColor: H.line }}>
                     {confirmed && (
                       <div
                         className="relative mb-5 rounded-xl p-4"
@@ -696,7 +690,7 @@ const MatrixPage = () => {
                       </div>
                     )}
 
-                    <div className="flex items-baseline justify-between gap-4 mb-2.5 md:mb-4">
+                    <div className="flex items-baseline justify-between gap-4 mb-1.5 md:mb-2.5">
                       <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
                         {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
                       </span>
@@ -710,7 +704,7 @@ const MatrixPage = () => {
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
-                      className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-xs font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:py-3.5 md:text-sm md:tracking-[0.15em]"
+                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-xl text-xs font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:py-3 md:text-sm md:tracking-[0.15em]"
                       style={{
                         background: H.gold,
                         color: "#fff",
