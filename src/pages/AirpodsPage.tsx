@@ -193,8 +193,8 @@ const AirpodsPage = () => {
                       borderColor: H.line,
                       background:
                         finish.id === "cherry"
-                          ? "linear-gradient(155deg, #fff 0%, #faf6f7 52%, #eee5e7 100%)"
-                          : "linear-gradient(155deg, #fff 0%, #f7f6f4 52%, #e9e7e3 100%)",
+                          ? "radial-gradient(120% 120% at 50% 35%, #f6f3f0 0%, #efeae6 60%, #e4ddd7 100%)"
+                          : "radial-gradient(120% 120% at 50% 35%, #f5f3f0 0%, #ecebe8 60%, #e2e0dc 100%)",
                       boxShadow: "0 1px 0 rgba(255,255,255,0.95) inset, 0 28px 70px -36px rgba(43,39,37,0.34)",
                     }}
                   >
@@ -202,6 +202,11 @@ const AirpodsPage = () => {
                       aria-hidden
                       className="absolute inset-x-0 top-0 h-px"
                       style={{ background: `linear-gradient(90deg, transparent, ${H.gold}, transparent)`, opacity: 0.5 }}
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0"
+                      style={{ boxShadow: "inset 0 0 120px 10px rgba(43,39,37,0.10)" }}
                     />
                     <div className="relative flex aspect-square items-center justify-center p-5 md:p-10">
                       <img
@@ -212,7 +217,7 @@ const AirpodsPage = () => {
                         loading="eager"
                         fetchPriority="high"
                         decoding="async"
-                        className="h-full w-full object-contain mix-blend-multiply"
+                        className="h-full w-full object-cover"
                       />
                     </div>
                     <div
