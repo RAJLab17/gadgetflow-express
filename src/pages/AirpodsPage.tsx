@@ -193,8 +193,8 @@ const AirpodsPage = () => {
                       borderColor: H.line,
                       background:
                         finish.id === "cherry"
-                          ? "linear-gradient(155deg, #fff 0%, #faf6f7 52%, #eee5e7 100%)"
-                          : "linear-gradient(155deg, #fff 0%, #f7f6f4 52%, #e9e7e3 100%)",
+                          ? "linear-gradient(155deg, #faf3eb 0%, #efe9e3 50%, #e4ddd7 100%)"
+                          : "linear-gradient(155deg, #f9f2ea 0%, #efe8e2 50%, #e3ddd6 100%)",
                       boxShadow: "0 1px 0 rgba(255,255,255,0.95) inset, 0 28px 70px -36px rgba(43,39,37,0.34)",
                     }}
                   >
@@ -203,16 +203,21 @@ const AirpodsPage = () => {
                       className="absolute inset-x-0 top-0 h-px"
                       style={{ background: `linear-gradient(90deg, transparent, ${H.gold}, transparent)`, opacity: 0.5 }}
                     />
-                    <div className="relative flex aspect-square items-center justify-center p-5 md:p-10">
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0"
+                      style={{ boxShadow: "inset 0 0 140px 20px rgba(43,39,37,0.12)" }}
+                    />
+                    <div className="relative aspect-[4/3]">
                       <img
                         src={finish.image}
                         alt={`MATRIX AirPods 4 & 5 Case in ${finish.name}`}
                         width={768}
-                        height={768}
+                        height={576}
                         loading="eager"
                         fetchPriority="high"
                         decoding="async"
-                        className="h-full w-full object-contain mix-blend-multiply"
+                        className="absolute inset-0 h-full w-full object-cover"
                       />
                     </div>
                     <div
