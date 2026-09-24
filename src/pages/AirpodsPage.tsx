@@ -117,7 +117,7 @@ const AirpodsPage = () => {
       };
       const cart = await createShopifyCart(item, undefined, [
         { key: "RAJ Referenz", value: reference },
-        { key: "Quelle", value: "raj.ch/airpods" },
+        { key: "Quelle", value: "raj.ch/airpods-case" },
       ]);
       if (!cart) {
         fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut.");
@@ -147,7 +147,7 @@ const AirpodsPage = () => {
     brand: { "@type": "Brand", name: "RAJ" },
     description: "Carbon Case für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.",
     sku: finish?.sku,
-    url: "https://raj.ch/airpods",
+    url: "https://raj.ch/airpods-case",
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "CHF",
@@ -168,14 +168,14 @@ const AirpodsPage = () => {
           name="description"
           content="MATRIX Carbon Case für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon mit goldenem Blitz. Kostenloser Versand in der Schweiz."
         />
-        <link rel="canonical" href="https://raj.ch/airpods" />
+        <link rel="canonical" href="https://raj.ch/airpods-case" />
         <meta property="og:title" content="MATRIX AirPods 4 & 5 Case – Carbon | RAJ" />
         <meta
           property="og:description"
           content="Carbon-Schutz für AirPods 4 & 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz."
         />
         <meta property="og:type" content="product" />
-        <meta property="og:url" content="https://raj.ch/airpods" />
+        <meta property="og:url" content="https://raj.ch/airpods-case" />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

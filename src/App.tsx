@@ -73,7 +73,8 @@ const App = () => (
                 <Route path="/apex" element={<ApexPage />} />
                 <Route path="/auto" element={<ApexPage />} />
                 <Route path="/matrix" element={<MatrixPage />} />
-                <Route path="/airpods" element={<AirpodsPage />} />
+                <Route path="/airpods-case" element={<AirpodsPage />} />
+                <Route path="/airpods" element={<Navigate to="/airpods-case" replace />} />
                 <Route path="/cases" element={<Navigate to="/matrix" replace />} />
                 <Route path="/produkte" element={<ProduktePage />} />
                 <Route path="/about" element={<AboutPage />} />
