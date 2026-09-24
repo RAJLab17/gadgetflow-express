@@ -511,6 +511,28 @@ const MatrixPage = () => {
                 {/* Auswahl */}
                 <div className="md:col-span-6 space-y-4 md:space-y-6">
 
+                  {/* Intro */}
+                  <div className="mb-1 md:mb-3">
+                    <div className="flex items-center gap-2.5 mb-1.5 md:gap-3 md:mb-2">
+                      <span className="h-px w-8" style={{ background: H.gold }} />
+                      <span className="text-[10px] uppercase tracking-[0.3em] font-medium" style={{ color: H.gold }}>
+                        03 · Matrix
+                      </span>
+                    </div>
+                    <h1
+                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(36px,3.8vw,52px)]"
+                      style={{ letterSpacing: "-0.02em" }}
+                    >
+                      MATRIX
+                    </h1>
+                    <p className="italic mt-1 text-sm md:mt-1.5 md:text-base" style={{ color: H.gold }}>
+                      Die Hülle als Teil des Systems.
+                    </p>
+                    <p className="hidden md:block mt-2 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
+                      Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
+                    </p>
+                  </div>
+
                   {/* Modell */}
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.28em] mb-2 md:mb-4" style={{ color: H.textMuted }}>
