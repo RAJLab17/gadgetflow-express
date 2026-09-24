@@ -18,6 +18,7 @@ const ShopPreview = lazy(() => import("./pages/ShopPreview"));
 const NexusPage = lazy(() => import("./pages/NexusPage"));
 const ApexPage = lazy(() => import("./pages/ApexPage"));
 const MatrixPage = lazy(() => import("./pages/MatrixPage"));
+const AirpodsPage = lazy(() => import("./pages/AirpodsPage"));
 const ProduktePage = lazy(() => import("./pages/ProduktePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
