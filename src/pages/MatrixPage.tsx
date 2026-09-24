@@ -599,17 +599,17 @@ const MatrixPage = () => {
                     </div>
                   </div>
 
-                  {/* Hüllenfinish */}
+                  {/* Hüllenfinish — zwei Carbon-Modelle */}
                   <div>
                     <div className="flex items-baseline justify-between mb-2 md:mb-4">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
-                        Finish
+                        Finish · 2 Carbon-Modelle
                       </p>
                       <p className="hidden text-xs md:block" style={{ color: H.text }}>
                         {caseFinish.material}
                       </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-2 md:block md:space-y-2">
+                    <div className="grid grid-cols-2 gap-2 md:gap-3">
                       {CASE_FINISHES.map((c) => {
                         const active = c.id === caseId;
                         return (
@@ -617,14 +617,14 @@ const MatrixPage = () => {
                             key={c.id}
                             onClick={() => setCaseId(c.id)}
                             aria-pressed={active}
-                            className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg transition-all duration-300 md:gap-4 md:px-4 md:py-3"
+                            className="flex flex-col items-center gap-2 px-3 py-3 rounded-xl transition-all duration-300 md:gap-3 md:px-4 md:py-4"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
                             }}
                           >
                             <span
-                              className="relative w-5 h-5 rounded-full shrink-0 overflow-hidden md:w-6 md:h-6"
+                              className="relative w-12 h-12 rounded-full shrink-0 overflow-hidden md:w-14 md:h-14"
                               style={{
                                 background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`,
                                 boxShadow: `0 0 0 1px ${H.lineStrong}`,
@@ -636,8 +636,8 @@ const MatrixPage = () => {
                                 style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent 0 2px, rgba(255,255,255,.35) 2px 3px, rgba(0,0,0,.18) 3px 4px)" }}
                               />
                             </span>
-                            <span className="min-w-0 flex-1 text-left text-xs font-medium md:text-sm">{c.name}</span>
-                            <span className="hidden text-xs md:inline" style={{ color: H.textMuted }}>
+                            <span className="text-center text-xs font-medium md:text-sm">{c.name}</span>
+                            <span className="text-[10px] md:text-[11px]" style={{ color: H.textMuted }}>
                               CHF {c.price}.–
                             </span>
                           </button>
@@ -700,12 +700,33 @@ const MatrixPage = () => {
                       <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
                         {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
                       </span>
-                      {airpodsSelected && (
-                        <span className="text-xs line-through" style={{ color: H.textMuted }}>
-                          CHF {caseFinish.price + airpodsCase.price}.–
-                        </span>
-                      )}
+                      <div className="flex items-center gap-2">
+                        {airpodsSelected && (
+                          <span className="text-xs line-through" style={{ color: H.textMuted }}>
+                            CHF {caseFinish.price + airpodsCase.price}.–
+                          </span>
+                        )}
+                        {airpodsSelected && (
+                          <span
+                            className="px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-[0.1em]"
+                            style={{ background: "rgba(155,107,63,0.15)", color: H.gold }}
+                          >
+                            −CHF {BUNDLE_DISCOUNT}.–
+                          </span>
+                        )}
+                      </div>
                     </div>
+                    {!airpodsSelected && (
+                      <div
+                        className="mb-3 -mt-1 flex items-center gap-2 rounded-lg px-3 py-2"
+                        style={{ background: "rgba(155,107,63,0.06)", border: `1px solid ${H.line}` }}
+                      >
+                        <span className="text-[11px] font-medium" style={{ color: H.gold }}>Bundle-Tipp:</span>
+                        <span className="text-[11px]" style={{ color: H.textMuted }}>
+                          + AirPods Case → CHF 79.– statt 94.– · spare CHF 15.–
+                        </span>
+                      </div>
+                    )}
                     <button
                       type="button"
                       onClick={handleBuy}
@@ -814,10 +835,27 @@ const MatrixPage = () => {
                       })}
                     </div>
 
-                    <div className="mt-3 text-xs" style={{ color: H.textMuted }}>
-                      {airpodsSelected
-                        ? `✓ Im Bundle · Du sparst CHF ${BUNDLE_DISCOUNT}.–`
-                        : `+ CHF ${airpodsCase.price}.– · zusammen CHF ${caseFinish.price + airpodsCase.price}.–`}
+                    <div
+                      className="mt-3 flex items-center justify-between gap-3 rounded-lg px-3 py-2.5"
+                      style={{
+                        background: airpodsSelected ? "rgba(155,107,63,0.08)" : "rgba(43,39,37,0.03)",
+                        border: `1px solid ${airpodsSelected ? H.gold : H.line}`,
+                      }}
+                    >
+                      <span className="text-xs" style={{ color: H.textMuted }}>
+                        {airpodsSelected
+                          ? "Im Bundle enthalten"
+                          : `Einzelpreis CHF ${caseFinish.price + airpodsCase.price}.–`}
+                      </span>
+                      {airpodsSelected ? (
+                        <span className="text-xs font-semibold" style={{ color: H.gold }}>
+                          Du sparst CHF {BUNDLE_DISCOUNT}.–
+                        </span>
+                      ) : (
+                        <span className="text-xs font-semibold" style={{ color: H.text }}>
+                          Bundle: CHF {bundleTotal}.–
+                        </span>
+                      )}
                     </div>
                     <button
                       type="button"
