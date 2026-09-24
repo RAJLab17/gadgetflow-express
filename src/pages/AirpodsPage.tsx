@@ -13,8 +13,8 @@ import type { CartItem } from "@/lib/shopify";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
 
-import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
-import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
+import airpodsCherry from "@/assets/matrix/airpods-cherry.png";
+import airpodsOnyx from "@/assets/matrix/airpods-onyx.png";
 import payVisa from "@/assets/payments/visa.svg";
 import payMastercard from "@/assets/payments/mastercard.svg";
 import payAmex from "@/assets/payments/amex.svg";
