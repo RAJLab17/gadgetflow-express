@@ -15,8 +15,10 @@ import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingChecko
 
 import airpodsCherry from "@/assets/matrix/airpods-cherry.png";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.png";
-import matrixCaseCherry from "@/assets/matrix/cherry-darkcherry.webp";
-import matrixCaseOnyx from "@/assets/matrix/onyx-darkgrey.webp";
+import cherryHqAsset from "@/assets/matrix/optimized-renders/18-cherry-cherry-darkcherry.webp.asset.json";
+import onyxHqAsset from "@/assets/matrix/optimized-renders/18-onyx-onyx-darkgrey.webp.asset.json";
+const matrixCaseCherry = cherryHqAsset.url;
+const matrixCaseOnyx = onyxHqAsset.url;
 import payVisa from "@/assets/payments/visa.svg";
 import payMastercard from "@/assets/payments/mastercard.svg";
 import payAmex from "@/assets/payments/amex.svg";
