@@ -45,7 +45,7 @@ const products: Product[] = [
     name: "MATRIX",
     tagline: "Schutz mit Charakter.",
     description:
-      "Carbon-Cases für iPhone und AirPods. Cherry Carbon oder Schwarz Carbon, goldene Knöpfe, MagSafe-kompatibel.",
+      "Carbon-Cases für iPhone sowie AirPods 4 & 5. Cherry Carbon oder Schwarz Carbon, goldene Knöpfe, MagSafe-kompatibel.",
     price: "ab CHF 59.–",
     status: "Als Nächstes",
     link: "/matrix",
