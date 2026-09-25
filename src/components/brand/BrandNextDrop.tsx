@@ -96,7 +96,8 @@ const BrandNextDrop = () => {
           </Link>
 
           {/* MATRIX — Als Nächstes (versetzt) */}
-          <Link to="/matrix" className="group block md:mt-16">
+          <div className="md:mt-16">
+          <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
               <img
                 src={matrixImg}
