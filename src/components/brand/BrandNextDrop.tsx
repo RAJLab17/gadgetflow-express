@@ -96,7 +96,8 @@ const BrandNextDrop = () => {
           </Link>
 
           {/* MATRIX — Als Nächstes (versetzt) */}
-          <Link to="/matrix" className="group block md:mt-16">
+          <div className="md:mt-16">
+          <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
               <img
                 src={matrixImg}
@@ -162,7 +163,8 @@ const BrandNextDrop = () => {
                 CHF 59.–
               </span>
             </div>
-            {/* AirPods Case — Link unter dem MATRIX-Bild */}
+            </Link>
+            {/* AirPods Case — Link unter dem MATRIX-Bild (ausserhalb des MATRIX-Links, damit die Route stimmt) */}
             <Link
               to="/airpods-case"
               className="mt-3 flex items-center gap-2 text-[11px] uppercase font-semibold tracking-[0.12em] transition-colors group/airpods"
@@ -184,7 +186,7 @@ const BrandNextDrop = () => {
               AirPods 4 & 5 Case — CHF 35.-
               <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover/airpods:translate-x-0.5 group-hover/airpods:-translate-y-0.5" />
             </Link>
-          </Link>
+          </div>
 
 
           {/* APEX — Early Access (weiter versetzt) */}
