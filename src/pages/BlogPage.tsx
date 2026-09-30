@@ -42,6 +42,51 @@ const BlogPage = () => {
             </article>
           </Link>
         ))}
+
+        {/* Weiterführende Ratgeber – interne Verlinkung mit sprechendem Ankertext */}
+        <div className="border border-border/60 bg-background p-6 md:p-8 mt-10">
+          <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-medium mb-5">
+            Weiterführende Ratgeber
+          </p>
+          <ul className="space-y-4">
+            <li>
+              <Link
+                to="/blog/nexus-iphone-18-ladegeraet"
+                className="inline-flex items-start gap-2 text-[15px] md:text-base text-foreground/90 hover:text-primary transition-colors font-light leading-relaxed"
+              >
+                <ArrowRight className="w-4 h-4 mt-1 shrink-0 text-primary" />
+                <span>
+                  RAJ NEXUS – 3-in-1 Ladestation fürs iPhone 18 mit Qi2.2 und
+                  25 Watt im Detail
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/3-in-1-ladestation-iphone-apple-watch-airpods"
+                className="inline-flex items-start gap-2 text-[15px] md:text-base text-foreground/90 hover:text-primary transition-colors font-light leading-relaxed"
+              >
+                <ArrowRight className="w-4 h-4 mt-1 shrink-0 text-primary" />
+                <span>
+                  3-in-1 Ladestation für iPhone, Apple Watch und AirPods – die
+                  beste Lösung 2026
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/iphone-standby-ladestation-schweiz"
+                className="inline-flex items-start gap-2 text-[15px] md:text-base text-foreground/90 hover:text-primary transition-colors font-light leading-relaxed"
+              >
+                <ArrowRight className="w-4 h-4 mt-1 shrink-0 text-primary" />
+                <span>
+                  iPhone StandBy Ladestation in der Schweiz – Nachttisch-Setup
+                  optimal nutzen
+                </span>
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </PremiumPageLayout>
   );
