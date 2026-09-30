@@ -1176,6 +1176,33 @@ const NexusPage = () => {
         </div>
       </section>
 
+      {/* ═══ Ratgeber – interne Verlinkung mit sprechendem Ankertext ═══ */}
+      <section className="py-16 md:py-20 px-5" style={{ background: L.bg, color: L.text, borderTop: `1px solid ${L.border}` }}>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-[10px] uppercase mb-5" style={{ color: L.gold, letterSpacing: "0.32em" }}>Weiterführende Ratgeber</p>
+          <ul className="space-y-5">
+            <li>
+              <Link to="/blog/nexus-iphone-18-ladegeraet" className="inline-flex items-start gap-3 text-base md:text-lg hover:opacity-70 transition-opacity" style={{ color: L.text, fontWeight: 300, textDecoration: "none" }}>
+                <ArrowRight className="w-4 h-4 mt-1 shrink-0" style={{ color: L.gold }} />
+                <span>RAJ NEXUS – 3-in-1 Ladestation fürs iPhone 18 mit Qi2.2 und 25 Watt im Detail</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/3-in-1-ladestation-iphone-apple-watch-airpods" className="inline-flex items-start gap-3 text-base md:text-lg hover:opacity-70 transition-opacity" style={{ color: L.text, fontWeight: 300, textDecoration: "none" }}>
+                <ArrowRight className="w-4 h-4 mt-1 shrink-0" style={{ color: L.gold }} />
+                <span>3-in-1 Ladestation für iPhone, Apple Watch und AirPods – die beste Lösung 2026</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/iphone-standby-ladestation-schweiz" className="inline-flex items-start gap-3 text-base md:text-lg hover:opacity-70 transition-opacity" style={{ color: L.text, fontWeight: 300, textDecoration: "none" }}>
+                <ArrowRight className="w-4 h-4 mt-1 shrink-0" style={{ color: L.gold }} />
+                <span>iPhone StandBy Ladestation in der Schweiz – Nachttisch-Setup optimal nutzen</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       {/* ═══ 6. CTA ═══ */}
       <section className="relative py-24 md:py-36 px-5" style={{ background: D.bg, color: D.beige }}>
         <div className="relative max-w-2xl mx-auto text-center">

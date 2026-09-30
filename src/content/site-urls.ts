@@ -204,6 +204,7 @@ export const STATIC_URLS: SitemapEntry[] = [
   { path: "/shop", changefreq: "daily", priority: 0.9 },
   { path: "/produkte", changefreq: "weekly", priority: 0.9 },
   { path: "/matrix", changefreq: "weekly", priority: 0.85 },
+  { path: "/airpods-case", changefreq: "weekly", priority: 0.85 },
   {
     path: "/apex",
     changefreq: "weekly",
