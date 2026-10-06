@@ -7,6 +7,7 @@ import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
+import { trackAddToCart } from "@/lib/ga-ecommerce";
 
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
@@ -305,6 +306,13 @@ const MatrixPage = () => {
       const caseVariantId = CASE_VARIANT_IDS[modelId]?.[caseId];
       if (!caseVariantId) { fail("Diese Variante ist derzeit nicht verfügbar."); return; }
 
+      trackAddToCart([
+        { item_id: caseVariantId, item_name: "RAJ MATRIX Case", item_variant: `${model.name} / ${caseFinish.name}`, price: caseFinish.price },
+        ...(airpodsSelected && AIRPODS_VARIANT_IDS[airpodsCase.id]
+          ? [{ item_id: AIRPODS_VARIANT_IDS[airpodsCase.id], item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: airpodsCase.name, price: airpodsCase.price - BUNDLE_DISCOUNT }]
+          : []),
+      ]);
+
       const reference = makeOrderReference();
       const dummyProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
       const caseItem: CartItem = { lineId: null, product: dummyProduct, variantId: caseVariantId, variantTitle: `${model.name} / ${caseFinish.name}`, price: { amount: String(caseFinish.price), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: caseFinish.name }] };
@@ -360,6 +368,7 @@ const MatrixPage = () => {
         return;
       }
 
+      trackAddToCart([{ item_id: variantId, item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: airpodsCase.name, price: airpodsCase.price }]);
       const reference = makeOrderReference();
       const product = {
         node: {

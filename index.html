@@ -228,21 +228,27 @@
           if (loaded) return;
           loaded = true;
 
-          // Google Analytics 4
-          var ga = document.createElement('script');
-          ga.async = true;
-          ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EST00HSY50';
-          ga.onload = function() {
-            window.gtag('js', new Date());
-            window.gtag('config', 'G-EST00HSY50', {
-              linker: {
-                domains: ['raj.ch', 'www.raj.ch', 'checkout.raj.ch', 'kcvjif-10.myshopify.com'],
-                accept_incoming: true
-              }
-            });
-          };
-
-          document.head.appendChild(ga);
+          // Google Analytics 4 — skipped for bots, crawlers, headless browsers and prerendering
+          var isBot = false;
+          try {
+            isBot = navigator.webdriver === true ||
+              /headlesschrome|prerender|bot|crawler|spider/i.test(navigator.userAgent || '');
+          } catch (e) {}
+          if (!isBot) {
+            var ga = document.createElement('script');
+            ga.async = true;
+            ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EST00HSY50';
+            ga.onload = function() {
+              window.gtag('js', new Date());
+              window.gtag('config', 'G-EST00HSY50', {
+                linker: {
+                  domains: ['raj.ch', 'www.raj.ch', 'checkout.raj.ch', 'kcvjif-10.myshopify.com'],
+                  accept_incoming: true
+                }
+              });
+            };
+            document.head.appendChild(ga);
+          }
 
           // Meta Pixel — replay buffered queue
           !function(f,b,e,v,n,t,s)
