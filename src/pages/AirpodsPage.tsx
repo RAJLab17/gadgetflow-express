@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { createShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
+import { trackAddToCart } from "@/lib/ga-ecommerce";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
 
 import airpodsCherry from "@/assets/matrix/airpods-cherry.png";
@@ -100,6 +101,7 @@ const AirpodsPage = () => {
     };
 
     try {
+      trackAddToCart([{ item_id: finish.variantId, item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: finish.name, price: finish.price }]);
       const reference = makeOrderReference();
       const product = {
         node: {
