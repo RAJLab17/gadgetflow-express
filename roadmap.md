@@ -7,3 +7,5 @@
 - [x] Einheitliches Case-Format an die neue schlankere Produktreferenz angleichen
 - [x] MATRIX nur auf Mobile neu ordnen: Preis, Versand und Kaufbutton im ersten Bildschirm; fixe Kaufleiste und unveränderten Desktop prüfen
 - [x] MATRIX-Mobile-Korrektur: grosses Bild ohne Plakette, Titel/Preis nebeneinander, niedrigere Modellwahl, Kaufleiste ausser bei sichtbarem Hauptbutton; Desktop vergleichen
+- [x] H1 auf /matrix, /nexus und /airpods-case beschreibend machen ohne Designänderung; Logo-Alt-Text in Header und Footer setzen
+
