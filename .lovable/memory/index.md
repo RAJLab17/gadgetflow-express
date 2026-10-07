@@ -22,5 +22,5 @@ Routing: `/` is Launch Page. `/shop` or `?mode=shop` for shop view.
 - [Page Specifics](mem://features/pages) — Content rules for About, FAQ, and Shipping pages
 - [MATRIX Shop & Bundle](mem://features/matrix-shop) — MATRIX Shopify products, prices and MATRIXBUNDLE discount logic
 - [MATRIX AirPods Compatibility](mem://features/matrix-airpods-compatibility) — MATRIX AirPods Case fits AirPods 4 and AirPods 5
-- [MATRIX Mobile](mem://features/matrix-mobile) — Mobile purchase ordering, delivery text and sticky buy bar; desktop unchanged
+- [MATRIX Mobile](mem://features/matrix-mobile) — Mobile purchase ordering, sticky buy bar, no shipping line under the image; desktop unchanged
 - [Founder-Bestand NEXUS](mem://features/founder-stock) — Echter Countdown: founder_stock Tabelle, zählt bei Kauf runter (Start 6)
