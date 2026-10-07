@@ -26,10 +26,8 @@ import onyxSilver from "@/assets/matrix/hq-reference-webp/onyx-silver.webp";
 import onyxDarkcherry from "@/assets/matrix/hq-reference-webp/onyx-darkcherry.webp";
 import onyxDarkgrey18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-darkgrey.webp.asset.json";
 import onyxSkyblue18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-skyblue.webp.asset.json";
-import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
-import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
-import airpodsCherryThumb from "@/assets/matrix/airpods-cherry-thumb.webp";
-import airpodsOnyxThumb from "@/assets/matrix/airpods-onyx-thumb.webp";
+import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
+import airpodsOnyx from "@/assets/matrix/airpods-onyx-original-bolt.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
 import payVisa from "@/assets/payments/visa.svg";
 import payMastercard from "@/assets/payments/mastercard.svg";
@@ -134,8 +132,8 @@ interface AirpodsCase {
 }
 
 const AIRPODS_CASES: Record<string, AirpodsCase> = {
-  cherry: { id: "cherry", name: "MATRIX AirPods 4 & 5 · Cherry Carbon", image: airpodsCherry, thumb: airpodsCherryThumb, price: 35 },
-  onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, thumb: airpodsOnyxThumb, price: 35 },
+  cherry: { id: "cherry", name: "MATRIX AirPods 4 & 5 · Cherry Carbon", image: airpodsCherry, thumb: airpodsCherry, price: 35 },
+  onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, thumb: airpodsOnyx, price: 35 },
 };
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */

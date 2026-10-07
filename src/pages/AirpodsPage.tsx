@@ -14,8 +14,8 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import { trackAddToCart } from "@/lib/ga-ecommerce";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
 
-import airpodsCherry from "@/assets/matrix/airpods-cherry.png";
-import airpodsOnyx from "@/assets/matrix/airpods-onyx.png";
+import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
+import airpodsOnyx from "@/assets/matrix/airpods-onyx-original-bolt.webp";
 import cherryHqAsset from "@/assets/matrix/optimized-renders/18-cherry-cherry-darkcherry.webp.asset.json";
 import onyxHqAsset from "@/assets/matrix/optimized-renders/18-onyx-onyx-darkgrey.webp.asset.json";
 const matrixCaseCherry = cherryHqAsset.url;
@@ -226,7 +226,7 @@ const AirpodsPage = () => {
                         loading="eager"
                         fetchPriority="high"
                         decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover"
+                        className="absolute inset-0 h-full w-full object-contain"
                       />
                     </div>
                     <div
