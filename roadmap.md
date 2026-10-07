@@ -6,4 +6,4 @@
 - [x] Cherry-Farbe und Case-Proportionen anhand der echten Produktreferenzen korrigieren
 - [x] Einheitliches Case-Format an die neue schlankere Produktreferenz angleichen
 - [x] MATRIX nur auf Mobile neu ordnen: Preis, Versand und Kaufbutton im ersten Bildschirm; fixe Kaufleiste und unveränderten Desktop prüfen
-- [ ] MATRIX-Mobile-Korrektur: grosses Bild ohne Plakette, Titel/Preis nebeneinander, niedrigere Modellwahl, Kaufleiste ausser bei sichtbarem Hauptbutton; Desktop vergleichen
+- [x] MATRIX-Mobile-Korrektur: grosses Bild ohne Plakette, Titel/Preis nebeneinander, niedrigere Modellwahl, Kaufleiste ausser bei sichtbarem Hauptbutton; Desktop vergleichen
