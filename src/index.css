@@ -285,13 +285,24 @@
 /* MATRIX mobile-only purchase layout; desktop rendering stays unchanged. */
 @media (max-width: 767px) {
   .matrix-device {
-    width: min(100%, clamp(96px, calc(100svh - 640px), 200px)) !important;
-    height: clamp(96px, calc(100svh - 640px), 200px);
+    width: min(100%, 380px) !important;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+  .matrix-device > img {
+    transform: scale(0.86);
+  }
+  .matrix-page {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  }
+  .matrix-mobile-buybar {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   .matrix-options > div.order-3 button {
-    min-height: 36px;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    min-height: 30px;
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
   .matrix-preview button {
     width: 24px;
