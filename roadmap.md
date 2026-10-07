@@ -8,6 +8,6 @@
 - [x] MATRIX nur auf Mobile neu ordnen: Preis, Versand und Kaufbutton im ersten Bildschirm; fixe Kaufleiste und unveränderten Desktop prüfen
 - [x] MATRIX-Mobile-Korrektur: grosses Bild ohne Plakette, Titel/Preis nebeneinander, niedrigere Modellwahl, Kaufleiste ausser bei sichtbarem Hauptbutton; Desktop vergleichen
 - [x] H1 auf /matrix, /nexus und /airpods-case beschreibend machen ohne Designänderung; Logo-Alt-Text in Header und Footer setzen
-- [x] MATRIX Mobile: Zeile „Gratis Versand · Versand ab 13. Oktober" unter dem Case-Bild entfernen
+- [x] MATRIX Mobile: Beschreibung in der H1 ersetzen durch „Carbon-Optik mit MagSafe & Qi2.2 – für iPhone 17 & 18 Pro / Pro Max"
 
 - [ ] MATRIX Mobile: Textplakette unter dem Case-Bild ist im aktuellen Build bereits entfernt; live auf raj.ch sichtbar, sobald publiziert
