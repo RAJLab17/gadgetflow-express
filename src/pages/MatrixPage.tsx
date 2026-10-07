@@ -1,4 +1,4 @@
-import { forwardRef, memo, useCallback, useMemo, useState } from "react";
+import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -281,8 +281,19 @@ const MatrixPage = () => {
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
   const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
+  const mainBuyRef = useRef<HTMLButtonElement>(null);
+  const [mainBuyVisible, setMainBuyVisible] = useState(false);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
+  useEffect(() => {
+    const button = mainBuyRef.current;
+    if (!button) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setMainBuyVisible(entry?.isIntersecting ?? false);
+    });
+    observer.observe(button);
+    return () => observer.disconnect();
+  }, []);
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
@@ -511,7 +522,7 @@ const MatrixPage = () => {
                     </div>
                     {/* Plakette */}
                     <div
-                      className="relative border-t px-4 py-1.5 md:px-10 md:py-5 flex items-center justify-between gap-3 md:gap-4"
+                      className="relative border-t px-4 py-1.5 md:px-10 md:py-5 hidden md:flex items-center justify-between gap-3 md:gap-4"
                       style={{ borderColor: H.line, background: "rgba(255,255,255,0.55)" }}
                     >
                       <div>
@@ -531,12 +542,15 @@ const MatrixPage = () => {
 
                   {/* Intro */}
                   <div className="order-1 mb-0.5 md:mb-0.5">
+                    <div className="flex items-baseline justify-between gap-4 md:block">
                     <h1
-                      className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(30px,3vw,42px)]"
+                      className="font-light leading-[0.95] text-[19px] md:text-[clamp(30px,3vw,42px)]"
                       style={{ letterSpacing: "-0.02em" }}
                     >
                       MATRIX
                     </h1>
+                    <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
+                    </div>
                     <p className="hidden md:block italic mt-1 text-sm md:mt-1 md:text-sm" style={{ color: H.gold }}>
                       Die Hülle als Teil des Systems.
                     </p>
@@ -549,7 +563,6 @@ const MatrixPage = () => {
                     Carbon-Look MagSafe-Hülle für iPhone 17 &amp; 18 Pro – Qi2.2-kompatibel
                   </p>
                   <div className="order-2 md:hidden">
-                    <p className="text-2xl font-light text-foreground">CHF {caseFinish.price}.–</p>
                     <p className="text-[11px] leading-4 text-muted-foreground">Gratis Versand · {MATRIX_DELIVERY_TEXT}</p>
                   </div>
 
@@ -722,6 +735,7 @@ const MatrixPage = () => {
                       )}
                     </div>
                     <Button
+                      ref={mainBuyRef}
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
@@ -1005,6 +1019,21 @@ const MatrixPage = () => {
         </main>
 
         <Footer />
+        {!mainBuyVisible && (
+          <div className="matrix-mobile-buybar fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 text-foreground backdrop-blur-xl md:hidden">
+            <div className="flex items-center justify-between gap-3 px-4 py-3">
+              <div className="min-w-0 leading-tight">
+                <p className="text-xs font-medium">{model.name}</p>
+                <p className="text-[11px] text-muted-foreground">{caseFinish.name}</p>
+                <p className="mt-1 text-sm font-semibold">CHF {caseFinish.price}.–</p>
+              </div>
+              <Button onClick={handleBuy} disabled={isBuying} className="h-11 shrink-0 rounded-lg px-5">
+                {isBuying ? <Loader2 className="animate-spin" /> : <ShoppingBag />}
+                Kaufen
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
