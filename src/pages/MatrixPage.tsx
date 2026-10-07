@@ -558,7 +558,8 @@ const MatrixPage = () => {
                         className="mt-1 block text-xs leading-4 text-foreground md:hidden"
                         style={{ fontWeight: 400, letterSpacing: "normal" }}
                       >
-                        Carbon-Optik mit MagSafe &amp; Qi2.2 – für iPhone 17 &amp; 18 Pro / Pro Max
+                        Carbon-Optik mit MagSafe &amp; Qi2.2 –{" "}
+                        <span className="whitespace-nowrap">für iPhone 17 &amp; 18 Pro / Pro Max</span>
                       </span>
                     </h1>
                     <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
