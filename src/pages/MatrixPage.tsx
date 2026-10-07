@@ -28,6 +28,8 @@ import onyxDarkgrey18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-
 import onyxSkyblue18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-skyblue.webp.asset.json";
 import airpodsCherry from "@/assets/matrix/airpods-cherry.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx.webp";
+import airpodsCherryThumb from "@/assets/matrix/airpods-cherry-thumb.webp";
+import airpodsOnyxThumb from "@/assets/matrix/airpods-onyx-thumb.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
 import payVisa from "@/assets/payments/visa.svg";
 import payMastercard from "@/assets/payments/mastercard.svg";
@@ -126,12 +128,14 @@ interface AirpodsCase {
   id: string;
   name: string;
   image: string;
+  /** Kompaktes, quadratisches Vorschaubild für die Bundle-Karte. */
+  thumb: string;
   price: number;
 }
 
 const AIRPODS_CASES: Record<string, AirpodsCase> = {
-  cherry: { id: "cherry", name: "MATRIX AirPods 4 & 5 · Cherry Carbon", image: airpodsCherry, price: 35 },
-  onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, price: 35 },
+  cherry: { id: "cherry", name: "MATRIX AirPods 4 & 5 · Cherry Carbon", image: airpodsCherry, thumb: airpodsCherryThumb, price: 35 },
+  onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, thumb: airpodsOnyxThumb, price: 35 },
 };
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
@@ -737,7 +741,7 @@ const MatrixPage = () => {
                     <div role="radiogroup" aria-label="Paket wählen" className="mb-3 flex flex-col gap-2">
                       {[
                         { bundle: false, label: "Nur die Hülle" },
-                        { bundle: true, label: "Hülle + AirPods 4 & 5 Case" },
+                        { bundle: true, label: "Hülle + AirPods Case" },
                       ].map((opt) => {
                         const active = airpodsSelected === opt.bundle;
                         return (
@@ -746,7 +750,10 @@ const MatrixPage = () => {
                             type="button"
                             role="radio"
                             aria-checked={active}
-                            onClick={() => setAirpodsSelected(opt.bundle)}
+                            onClick={() => {
+                              setAirpodsSelected(opt.bundle);
+                              if (!opt.bundle) setShowAirpodsColor(false);
+                            }}
                             className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-300"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
@@ -757,31 +764,12 @@ const MatrixPage = () => {
                               className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg"
                               style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}
                             >
-                              {opt.bundle ? (
-                                <>
-                                  <img
-                                    src={caseThumbSrc}
-                                    alt=""
-                                    aria-hidden
-                                    className="absolute object-contain"
-                                    style={{ left: "-12%", top: "4%", width: "72%", height: "92%" }}
-                                  />
-                                  <img
-                                    src={airpodsCase.image}
-                                    alt=""
-                                    aria-hidden
-                                    className="absolute object-contain"
-                                    style={{ right: "-6%", bottom: "2%", width: "52%", height: "52%" }}
-                                  />
-                                </>
-                              ) : (
-                                <img
-                                  src={caseThumbSrc}
-                                  alt=""
-                                  aria-hidden
-                                  className="absolute inset-0 h-full w-full object-contain"
-                                />
-                              )}
+                              <img
+                                src={opt.bundle ? airpodsCase.thumb : caseThumbSrc}
+                                alt=""
+                                aria-hidden
+                                className="absolute inset-0 h-full w-full object-contain"
+                              />
                             </span>
                             <span
                               className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center"
@@ -790,10 +778,10 @@ const MatrixPage = () => {
                               {active && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
                             </span>
                             <span className="min-w-0 flex-1">
-                              <span className="block text-sm font-medium">{opt.label}</span>
+                              <span className="block text-sm font-medium whitespace-nowrap">{opt.label}</span>
                               {opt.bundle && (
                                 <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>
-                                  AirPods Case in {airpodsCase.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
+                                  AirPods 4 &amp; 5 · {airpodsCase.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
                                 </span>
                               )}
                             </span>
