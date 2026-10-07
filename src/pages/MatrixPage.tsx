@@ -778,28 +778,28 @@ const MatrixPage = () => {
                               {active && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
                             </span>
                             <span className="min-w-0 flex-1">
-                              <span className="block text-sm font-medium whitespace-nowrap">{opt.label}</span>
+                              <span className="block text-sm font-medium">{opt.label}</span>
                               {opt.bundle && (
                                 <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>
                                   AirPods 4 &amp; 5 · {airpodsCase.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
                                 </span>
                               )}
                             </span>
-                            <span className="shrink-0 flex flex-col items-end">
+                            <span className="shrink-0 flex flex-col items-end gap-0.5">
                               <span className="text-sm font-semibold">
                                 CHF {opt.bundle ? bundleTotal : caseFinish.price}.–
                               </span>
                               {opt.bundle && (
-                                <span className="flex items-center gap-1.5">
-                                  <span className="text-[11px] line-through" style={{ color: H.textMuted }}>
-                                    CHF {caseFinish.price + airpodsCase.price}.–
-                                  </span>
-                                  <span
-                                    className="rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.08em]"
-                                    style={{ background: H.gold, color: "#fff" }}
-                                  >
-                                    Spare CHF {BUNDLE_DISCOUNT}
-                                  </span>
+                                <span className="text-[11px] line-through" style={{ color: H.textMuted }}>
+                                  CHF {caseFinish.price + airpodsCase.price}.–
+                                </span>
+                              )}
+                              {opt.bundle && (
+                                <span
+                                  className="rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.08em]"
+                                  style={{ background: H.gold, color: "#fff" }}
+                                >
+                                  Spare CHF {BUNDLE_DISCOUNT}
                                 </span>
                               )}
                             </span>
