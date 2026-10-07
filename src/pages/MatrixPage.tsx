@@ -135,7 +135,6 @@ const AIRPODS_CASES: Record<string, AirpodsCase> = {
 };
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
-const MATRIX_DELIVERY_TEXT = "Versand ab 13. Oktober";
 const BUNDLE_DISCOUNT = 15;
 /** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
 const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
@@ -570,9 +569,6 @@ const MatrixPage = () => {
                     </p>
                   </div>
 
-                  <div className="order-2 md:hidden">
-                    <p className="text-[11px] leading-4 text-muted-foreground">Gratis Versand · {MATRIX_DELIVERY_TEXT}</p>
-                  </div>
 
                   {/* Modell */}
                   <div className="order-3">
