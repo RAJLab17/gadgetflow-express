@@ -304,6 +304,10 @@ const MatrixPage = () => {
   const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
   const airpodsCase = AIRPODS_CASES[airpodsColorId ?? caseFinish.id];
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
+  const caseThumbSrc =
+    RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
+    Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
+    Object.values(RENDERS)[0];
 
   const handleBuy = useCallback(async () => {
     if (isBuying) return;
@@ -750,6 +754,36 @@ const MatrixPage = () => {
                             }}
                           >
                             <span
+                              className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg"
+                              style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}
+                            >
+                              {opt.bundle ? (
+                                <>
+                                  <img
+                                    src={caseThumbSrc}
+                                    alt=""
+                                    aria-hidden
+                                    className="absolute object-contain"
+                                    style={{ left: "-12%", top: "4%", width: "72%", height: "92%" }}
+                                  />
+                                  <img
+                                    src={airpodsCase.image}
+                                    alt=""
+                                    aria-hidden
+                                    className="absolute object-contain"
+                                    style={{ right: "-6%", bottom: "2%", width: "52%", height: "52%" }}
+                                  />
+                                </>
+                              ) : (
+                                <img
+                                  src={caseThumbSrc}
+                                  alt=""
+                                  aria-hidden
+                                  className="absolute inset-0 h-full w-full object-contain"
+                                />
+                              )}
+                            </span>
+                            <span
                               className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center"
                               style={{ borderColor: active ? H.gold : H.lineStrong }}
                             >
@@ -759,7 +793,7 @@ const MatrixPage = () => {
                               <span className="block text-sm font-medium">{opt.label}</span>
                               {opt.bundle && (
                                 <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>
-                                  AirPods Case in {airpodsCase.name}
+                                  AirPods Case in {airpodsCase.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
                                 </span>
                               )}
                             </span>
@@ -843,7 +877,7 @@ const MatrixPage = () => {
                       )}
                     </Button>
                     <p className="mt-1 md:mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
-                      Sichere Bezahlung · Kostenloser Versand
+                      Sichere Bezahlung · 30 Tage Rückgabe
                     </p>
                   </div>
 
