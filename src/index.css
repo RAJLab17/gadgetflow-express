@@ -284,9 +284,6 @@
 
 /* MATRIX mobile-only purchase layout; desktop rendering stays unchanged. */
 @media (max-width: 767px) {
-  .matrix-page {
-    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
-  }
   .matrix-device {
     width: min(100%, clamp(96px, calc(100svh - 640px), 200px)) !important;
     height: clamp(96px, calc(100svh - 640px), 200px);
@@ -309,8 +306,5 @@
   .matrix-main-buy {
     background: hsl(var(--primary)) !important;
     color: hsl(var(--primary-foreground)) !important;
-  }
-  .matrix-mobile-buybar {
-    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
