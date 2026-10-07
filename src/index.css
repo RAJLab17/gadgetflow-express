@@ -286,11 +286,12 @@
 @media (max-width: 767px) {
   .matrix-device {
     width: min(100%, 380px) !important;
+    max-width: none;
     height: auto;
     aspect-ratio: 1 / 1;
   }
   .matrix-device > img {
-    transform: scale(1.22);
+    transform: scale(0.86);
   }
   .matrix-page {
     padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
