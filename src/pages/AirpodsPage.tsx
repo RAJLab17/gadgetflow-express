@@ -250,10 +250,14 @@ const AirpodsPage = () => {
                       style={{ backgroundImage: `linear-gradient(100deg, ${H.text} 15%, ${H.gold} 88%)` }}
                     >
                       MATRIX AirPods Case
+                      <span
+                        className="mt-1 block text-sm italic"
+                        style={{ color: H.gold, fontWeight: 400, letterSpacing: "normal", lineHeight: 1.43 }}
+                      >
+                        – Carbon-Look Hülle für AirPods 4 &amp; 5
+                      </span>
                     </h1>
-                    <p className="mt-1 text-sm italic" style={{ color: H.gold }}>
-                      Schutz als Teil des Systems.
-                    </p>
+
                     <p className="mt-1 hidden max-w-md text-xs leading-relaxed md:block" style={{ color: H.textMuted }}>
                       Gleiches Carbon-Finish, gleicher goldener Blitz — passend zum MATRIX iPhone Case.
                     </p>
