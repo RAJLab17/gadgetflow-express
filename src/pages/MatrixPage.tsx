@@ -553,7 +553,7 @@ const MatrixPage = () => {
                       className="font-light leading-[0.95] text-[19px] md:text-[clamp(30px,3vw,42px)]"
                       style={{ letterSpacing: "-0.02em" }}
                     >
-                      MATRIX{" "}
+                      <span style={{ color: H.gold }}>MATRIX</span>{" "}
                       <span
 
                         className="mt-1 hidden text-sm italic md:block"
