@@ -1,4 +1,4 @@
-import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, memo, useCallback, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -280,18 +280,6 @@ const MatrixPage = () => {
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
-  const mainBuyRef = useRef<HTMLButtonElement>(null);
-  const [showMobileBuyBar, setShowMobileBuyBar] = useState(false);
-
-  useEffect(() => {
-    const button = mainBuyRef.current;
-    if (!button) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      setShowMobileBuyBar(!entry.isIntersecting && entry.boundingClientRect.bottom <= 0);
-    });
-    observer.observe(button);
-    return () => observer.disconnect();
-  }, []);
   const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
@@ -734,7 +722,6 @@ const MatrixPage = () => {
                       )}
                     </div>
                     <Button
-                      ref={mainBuyRef}
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
@@ -1018,21 +1005,6 @@ const MatrixPage = () => {
         </main>
 
         <Footer />
-        {showMobileBuyBar && (
-          <div className="matrix-mobile-buybar fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
-            <div className="flex items-center gap-3 px-4 pt-2.5 pb-2.5">
-              <div className="min-w-0 flex-1 text-foreground">
-                <p className="text-xs font-medium">{model.name}</p>
-                <p className="text-[11px] text-muted-foreground">{caseFinish.name} · CHF {caseFinish.price}.–</p>
-                {airpodsSelected && <p className="text-[10px] text-primary">Bundle · CHF {bundleTotal}.–</p>}
-              </div>
-              <Button onClick={handleBuy} disabled={isBuying} className="h-11 shrink-0 rounded-lg px-5" aria-label="Kaufen">
-                {isBuying ? <Loader2 className="animate-spin" /> : <ShoppingBag />}
-                Kaufen
-              </Button>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
