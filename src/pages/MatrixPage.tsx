@@ -304,6 +304,10 @@ const MatrixPage = () => {
   const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
   const airpodsCase = AIRPODS_CASES[airpodsColorId ?? caseFinish.id];
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
+  const caseThumbSrc =
+    RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
+    Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
+    Object.values(RENDERS)[0];
 
   const handleBuy = useCallback(async () => {
     if (isBuying) return;
