@@ -126,7 +126,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
           <a href="https://raj.ch" className="flex items-center gap-2 shrink-0 -ml-2 sm:-ml-1" aria-label="RAJ Home">
             <img
               src={logo}
-              alt="RAJ Logo"
+              alt="RAJ – MagSafe Zubehör aus der Schweiz"
               width={180}
               height={56}
               decoding="async"

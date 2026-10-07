@@ -547,13 +547,18 @@ const MatrixPage = () => {
                       className="font-light leading-[0.95] text-[19px] md:text-[clamp(30px,3vw,42px)]"
                       style={{ letterSpacing: "-0.02em" }}
                     >
-                      MATRIX
+                      MATRIX{" "}
+                      <span
+
+                        className="mt-1 hidden text-sm italic md:block"
+                        style={{ color: H.gold, fontWeight: 400, letterSpacing: "normal", lineHeight: 1.43 }}
+                      >
+                        – Carbon-Look MagSafe-Hülle für iPhone 17 &amp; 18 Pro
+                      </span>
                     </h1>
                     <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
                     </div>
-                    <p className="hidden md:block italic mt-1 text-sm md:mt-1 md:text-sm" style={{ color: H.gold }}>
-                      Die Hülle als Teil des Systems.
-                    </p>
+
                     <p className="hidden md:block mt-1 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
                       Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
                     </p>

@@ -110,7 +110,7 @@ const Footer = () => {
             <a href="https://raj.ch" className="flex items-center gap-3 mb-4 group">
               <img
                 src={logo}
-                alt="RAJ"
+                alt="RAJ – MagSafe Zubehör aus der Schweiz"
                 width={180}
                 height={48}
                 loading="lazy"
