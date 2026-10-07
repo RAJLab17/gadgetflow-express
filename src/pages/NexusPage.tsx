@@ -980,11 +980,13 @@ const NexusPage = () => {
 
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pt-0 pb-0" style={{ zIndex: 2 }}>
-          <div className="text-center mb-0.5" style={{ fontSize: "clamp(26px,6.8vw,38px)", lineHeight: 1, letterSpacing: "-.02em", fontWeight: 200, whiteSpace: "nowrap" }}>
+          <h1 className="text-center mb-1.5" style={{ fontSize: "clamp(26px,6.8vw,38px)", lineHeight: 1, letterSpacing: "-.02em", fontWeight: 200, whiteSpace: "nowrap" }}>
             <span style={{ color: H.text, fontWeight: 200 }}>RAJ</span>{" "}
             <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
-          </div>
-          <p className="text-center mb-1.5" style={{ fontSize: 13, lineHeight: 1.3, color: H.textMuted, fontWeight: 300 }}>iPhone, Watch &amp; AirPods. Geladen an einem Ort.</p>
+            <span className="block" style={{ fontSize: 13, lineHeight: 1.3, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", marginTop: 6, whiteSpace: "normal" }}>
+              – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
+            </span>
+          </h1>
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
               <HeroSwipeImage

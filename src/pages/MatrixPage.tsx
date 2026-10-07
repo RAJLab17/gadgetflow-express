@@ -570,9 +570,6 @@ const MatrixPage = () => {
                     </p>
                   </div>
 
-                  <p className="order-1 text-xs leading-4 text-foreground md:hidden">
-                    Carbon-Look MagSafe-Hülle für iPhone 17 &amp; 18 Pro / Pro Max – Qi2.2-kompatibel
-                  </p>
                   <div className="order-2 md:hidden">
                     <p className="text-[11px] leading-4 text-muted-foreground">Gratis Versand · {MATRIX_DELIVERY_TEXT}</p>
                   </div>
