@@ -288,7 +288,8 @@
     padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
   }
   .matrix-device {
-    width: min(100%, 25svh, 200px) !important;
+    width: min(100%, clamp(96px, calc(100svh - 640px), 200px)) !important;
+    height: clamp(96px, calc(100svh - 640px), 200px);
   }
   .matrix-options > div.order-3 button {
     min-height: 36px;

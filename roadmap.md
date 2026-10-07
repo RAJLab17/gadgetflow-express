@@ -5,4 +5,4 @@
 - [x] Cherry-Darstellung auf Desktop und Mobile kontrollieren, ohne Seitenänderungen
 - [x] Cherry-Farbe und Case-Proportionen anhand der echten Produktreferenzen korrigieren
 - [x] Einheitliches Case-Format an die neue schlankere Produktreferenz angleichen
-- [ ] MATRIX nur auf Mobile neu ordnen: Preis, Versand und Kaufbutton im ersten Bildschirm; fixe Kaufleiste und unveränderten Desktop prüfen
+- [x] MATRIX nur auf Mobile neu ordnen: Preis, Versand und Kaufbutton im ersten Bildschirm; fixe Kaufleiste und unveränderten Desktop prüfen
