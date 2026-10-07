@@ -110,8 +110,8 @@ const Beste3in1ChargerPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <PremiumPageLayout
-        title="Beste 3-in-1 Ladestation Schweiz 2026 | RAJ Vergleich"
-        metaDescription="Welche 3-in-1 Wireless Ladestation überzeugt 2026 in der Schweiz? RAJ NEXUS, Anker, Belkin & ESR im Qi2.2-Vergleich für iPhone, Apple Watch & AirPods."
+        title="Beste 3-in-1 Ladestation Schweiz 2026 – iPhone Qi2.2 Test"
+        metaDescription="iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99.–. Jetzt vergleichen."
         canonical="https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026"
         eyebrow="Vergleich · Mai 2026"
         heading="Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich"
