@@ -278,6 +278,7 @@ const MatrixPage = () => {
   const [caseId, setCaseId] = useState("cherry");
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
+  const [showAirpodsColor, setShowAirpodsColor] = useState(false);
   const [isBuying, setIsBuying] = useState(false);
   const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
   const mainBuyRef = useRef<HTMLButtonElement>(null);
@@ -729,14 +730,95 @@ const MatrixPage = () => {
                       </div>
                     )}
 
-                    <div className="hidden md:flex items-baseline justify-between gap-4 mb-1.5 md:mb-2.5">
-                      <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
-                        {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
-                      </span>
+                    <div role="radiogroup" aria-label="Paket wählen" className="mb-3 flex flex-col gap-2">
+                      {[
+                        { bundle: false, label: "Nur die Hülle" },
+                        { bundle: true, label: "Hülle + AirPods 4 & 5 Case" },
+                      ].map((opt) => {
+                        const active = airpodsSelected === opt.bundle;
+                        return (
+                          <button
+                            key={opt.label}
+                            type="button"
+                            role="radio"
+                            aria-checked={active}
+                            onClick={() => setAirpodsSelected(opt.bundle)}
+                            className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-300"
+                            style={{
+                              border: `1px solid ${active ? H.gold : H.line}`,
+                              background: active ? "rgba(155,107,63,0.06)" : "transparent",
+                            }}
+                          >
+                            <span
+                              className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center"
+                              style={{ borderColor: active ? H.gold : H.lineStrong }}
+                            >
+                              {active && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
+                            </span>
+                            <span className="min-w-0 flex-1">
+                              <span className="block text-sm font-medium">{opt.label}</span>
+                              {opt.bundle && (
+                                <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>
+                                  AirPods Case in {airpodsCase.name}
+                                </span>
+                              )}
+                            </span>
+                            <span className="shrink-0 flex flex-col items-end">
+                              <span className="text-sm font-semibold">
+                                CHF {opt.bundle ? bundleTotal : caseFinish.price}.–
+                              </span>
+                              {opt.bundle && (
+                                <span className="flex items-center gap-1.5">
+                                  <span className="text-[11px] line-through" style={{ color: H.textMuted }}>
+                                    CHF {caseFinish.price + airpodsCase.price}.–
+                                  </span>
+                                  <span
+                                    className="rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.08em]"
+                                    style={{ background: H.gold, color: "#fff" }}
+                                  >
+                                    Spare CHF {BUNDLE_DISCOUNT}
+                                  </span>
+                                </span>
+                              )}
+                            </span>
+                          </button>
+                        );
+                      })}
                       {airpodsSelected && (
-                        <span className="text-xs line-through" style={{ color: H.textMuted }}>
-                          CHF {caseFinish.price + airpodsCase.price}.–
-                        </span>
+                        <div className="px-1">
+                          <button
+                            type="button"
+                            onClick={() => setShowAirpodsColor((v) => !v)}
+                            aria-expanded={showAirpodsColor}
+                            className="text-[11px] underline underline-offset-2"
+                            style={{ color: H.textMuted }}
+                          >
+                            Andere Farbe für AirPods
+                          </button>
+                          {showAirpodsColor && (
+                            <div className="mt-2 flex items-center gap-2">
+                              {Object.values(AIRPODS_CASES).map((option) => {
+                                const isActive = option.id === airpodsCase.id;
+                                return (
+                                  <button
+                                    key={option.id}
+                                    type="button"
+                                    onClick={() => setAirpodsColorId(option.id)}
+                                    aria-pressed={isActive}
+                                    className="px-3 py-1.5 rounded-full text-[11px] transition-all duration-300"
+                                    style={{
+                                      border: `1px solid ${isActive ? H.gold : H.line}`,
+                                      color: isActive ? H.gold : H.textMuted,
+                                      background: isActive ? "rgba(155,107,63,0.08)" : "transparent",
+                                    }}
+                                  >
+                                    {option.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
                       )}
                     </div>
                     <Button
@@ -756,8 +838,7 @@ const MatrixPage = () => {
                       ) : (
                         <>
                           <ShoppingBag className="w-4 h-4" />
-                          <span className="md:hidden">JETZT KAUFEN</span>
-                          <span className="hidden md:inline">{airpodsSelected ? "Bundle jetzt kaufen" : "Jetzt kaufen"}</span>
+                          <span>JETZT KAUFEN · CHF {airpodsSelected ? bundleTotal : caseFinish.price}.–</span>
                         </>
                       )}
                     </Button>
@@ -766,115 +847,7 @@ const MatrixPage = () => {
                     </p>
                   </div>
 
-                  {/* AirPods Ergänzung */}
-                  <div
-                    className="order-7 mt-3 border-t pt-3 md:mt-8 md:pt-8"
-                    style={{ borderColor: H.line }}
-                  >
-                    <div className="flex items-start justify-between gap-3 mb-3 md:gap-4 md:mb-5">
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>
-                          Ergänze dein Setup
-                        </p>
-                        <h3 className="mt-1 text-base font-light md:mt-2 md:text-lg">AirPods 4 &amp; 5 Case</h3>
-                        <p className="hidden mt-1 text-xs leading-relaxed md:block" style={{ color: H.textMuted }}>
-                          {airpodsCase.name} · gleicher Carbon-Finish, gleicher goldener Blitz
-                        </p>
-                      </div>
-                      <span className="shrink-0 text-xs" style={{ color: H.textMuted }}>
-                        CHF {airpodsCase.price}.–
-                      </span>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => setAirpodsSelected((selected) => !selected)}
-                      role="checkbox"
-                      aria-checked={airpodsSelected}
-                       className="w-full flex items-center gap-3 p-2 rounded-lg text-left transition-all duration-300 md:gap-4 md:p-3"
-                      style={{
-                        border: `1px solid ${airpodsSelected ? H.gold : H.line}`,
-                        background: airpodsSelected ? "rgba(155,107,63,0.06)" : "transparent",
-                      }}
-                    >
-                      <div className="relative w-16 h-16 shrink-0 overflow-hidden rounded-md bg-white md:w-24 md:h-24">
-                        <img
-                          src={airpodsCase.image}
-                          alt={`${airpodsCase.name} für AirPods 4 und AirPods 5`}
-                          width={1024}
-                          height={1024}
-                          loading="lazy"
-                          className="absolute inset-0 h-full w-full object-contain mix-blend-multiply"
-                        />
-                        {/* Exakt dieselbe schlanke Blitzform wie auf dem Originalprodukt. */}
-                        <GoldBolt airpods />
-                      </div>
-                      <span className="min-w-0 flex-1">
-                        <span className="block text-sm font-medium">{airpodsCase.name}</span>
-                        <span className="block mt-1 text-xs" style={{ color: H.textMuted }}>
-                          {airpodsSelected ? "Zum Bundle hinzugefügt" : "Zum iPhone Case hinzufügen"}
-                        </span>
-                      </span>
-                      <span
-                        className="h-5 w-5 shrink-0 rounded-full border flex items-center justify-center"
-                        style={{ borderColor: airpodsSelected ? H.gold : H.lineStrong }}
-                      >
-                        {airpodsSelected && <Check className="h-3 w-3" style={{ color: H.gold }} />}
-                      </span>
-                    </button>
-
-                    {/* Finish-Wahl für das AirPods Case — unabhängig vom iPhone Case */}
-                    <div className="mt-3 flex items-center gap-2">
-                      <span className="text-[10px] uppercase tracking-[0.24em] mr-1" style={{ color: H.textMuted }}>
-                        Finish
-                      </span>
-                      {Object.values(AIRPODS_CASES).map((option) => {
-                        const isActive = option.id === airpodsCase.id;
-                        const label = option.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon";
-                        return (
-                          <button
-                            key={option.id}
-                            type="button"
-                            onClick={() => setAirpodsColorId(option.id)}
-                            aria-pressed={isActive}
-                            className="px-3 py-1.5 rounded-full text-[11px] transition-all duration-300"
-                            style={{
-                              border: `1px solid ${isActive ? H.gold : H.line}`,
-                              color: isActive ? H.gold : H.textMuted,
-                              background: isActive ? "rgba(155,107,63,0.08)" : "transparent",
-                            }}
-                          >
-                            {label}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    <p className="mt-3 text-xs" style={{ color: H.textMuted }}>
-                      {airpodsSelected ? (
-                        <>✓ Im Bundle — <span className="font-semibold" style={{ color: H.gold }}>Du sparst CHF 15.–</span></>
-                      ) : (
-                        <>+ CHF 35.— <span className="font-semibold" style={{ color: H.gold }}>im Bundle CHF 15.– sparen</span></>
-                      )}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={handleAirpodsBuy}
-                      disabled={isBuyingAirpods}
-                      className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:mt-4 md:py-3 md:text-xs"
-                      style={{
-                        borderColor: H.gold,
-                        color: H.gold,
-                        opacity: isBuyingAirpods ? 0.7 : 1,
-                      }}
-                    >
-                      {isBuyingAirpods ? (
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                      ) : (
-                        <ShoppingBag className="h-4 w-4" />
-                      )}
-                      AirPods 4 &amp; 5 Case einzeln kaufen · CHF {airpodsCase.price}.–
-                    </button>
+                  <div className="order-7 mt-3 md:mt-6">
                     {/* Zahlungsmethoden */}
                     <div
                       className="mt-5 rounded-xl flex items-center gap-3 md:gap-4 flex-wrap justify-center"
@@ -1030,7 +1003,7 @@ const MatrixPage = () => {
               <div className="min-w-0 leading-tight">
                 <p className="text-xs font-medium">{model.name}</p>
                 <p className="text-[11px] text-muted-foreground">{caseFinish.name}</p>
-                <p className="mt-1 text-sm font-semibold">CHF {caseFinish.price}.–</p>
+                <p className="mt-1 text-sm font-semibold">CHF {airpodsSelected ? bundleTotal : caseFinish.price}.–</p>
               </div>
               <Button onClick={handleBuy} disabled={isBuying} className="h-11 shrink-0 rounded-lg px-5">
                 {isBuying ? <Loader2 className="animate-spin" /> : <ShoppingBag />}
