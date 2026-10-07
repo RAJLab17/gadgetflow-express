@@ -817,8 +817,9 @@ const NexusPage = () => {
             <h1 style={{ fontSize: "clamp(38px,4.4vw,68px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
               <span style={{ display: "inline", color: H.text, fontWeight: 200 }}>RAJ</span>
               <span style={{ display: "inline", marginLeft: "0.12em" }} />
-              <span style={{ display: "inline", background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em", textShadow: "0 2px 24px rgba(155,107,63,.18)" }}>NEXUS</span>
+              <span style={{ display: "inline", background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em", textShadow: "0 2px 24px rgba(155,107,63,.18)" }}>NEXUS</span>{" "}
               <span style={{ display: "block", whiteSpace: "normal", marginTop: 14, fontSize: "clamp(15px,1.15vw,19px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", maxWidth: 460 }}>
+
                 – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
               </span>
             </h1>
