@@ -280,3 +280,36 @@
 }
 
 
+
+
+/* MATRIX mobile-only purchase layout; desktop rendering stays unchanged. */
+@media (max-width: 767px) {
+  .matrix-page {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  }
+  .matrix-device {
+    width: min(100%, 25svh, 200px) !important;
+  }
+  .matrix-options > div.order-3 button {
+    min-height: 36px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .matrix-preview button {
+    width: 24px;
+    height: 24px;
+  }
+  .matrix-preview button[aria-pressed="false"] {
+    box-shadow: none !important;
+  }
+  .matrix-preview button[aria-pressed="true"] {
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 3px hsl(var(--primary)) !important;
+  }
+  .matrix-main-buy {
+    background: hsl(var(--primary)) !important;
+    color: hsl(var(--primary-foreground)) !important;
+  }
+  .matrix-mobile-buybar {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}

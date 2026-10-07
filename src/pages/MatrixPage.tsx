@@ -1,4 +1,4 @@
-import { forwardRef, memo, useCallback, useEffect, useMemo, useState } from "react";
+import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -9,6 +9,7 @@ import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingChecko
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import { trackAddToCart } from "@/lib/ga-ecommerce";
 
+import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
@@ -134,6 +135,7 @@ const AIRPODS_CASES: Record<string, AirpodsCase> = {
 };
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
+const MATRIX_DELIVERY_TEXT = "Versand ab 13. Oktober";
 const BUNDLE_DISCOUNT = 15;
 /** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
 const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
@@ -238,7 +240,7 @@ const DeviceMock = memo(({
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
+      className="matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
     >
       <div
@@ -278,6 +280,18 @@ const MatrixPage = () => {
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
+  const mainBuyRef = useRef<HTMLButtonElement>(null);
+  const [showMobileBuyBar, setShowMobileBuyBar] = useState(false);
+
+  useEffect(() => {
+    const button = mainBuyRef.current;
+    if (!button) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setShowMobileBuyBar(!entry.isIntersecting && entry.boundingClientRect.bottom <= 0);
+    });
+    observer.observe(button);
+    return () => observer.disconnect();
+  }, []);
   const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
@@ -463,14 +477,14 @@ const MatrixPage = () => {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      <div style={{ background: H.bg, color: H.text }} className="min-h-screen">
+      <div style={{ background: H.bg, color: H.text }} className="matrix-page min-h-screen">
         <Header topSlot={<NexusTrustBar />} />
 
         <main className="pt-24 md:pt-28">
           {/* Hero + Konfigurator */}
           <section>
             <div className="container mx-auto px-4 md:px-6 max-w-5xl pt-2 md:pt-8 pb-5 md:pb-16">
-              <div className="grid md:grid-cols-12 gap-5 md:gap-14 items-start">
+              <div className="grid md:grid-cols-12 gap-3 md:gap-14 items-start">
                 {/* Bühne */}
                 <div className="md:col-span-6 md:sticky md:top-28">
                   <div
@@ -509,7 +523,7 @@ const MatrixPage = () => {
                     </div>
                     {/* Plakette */}
                     <div
-                      className="relative border-t px-4 py-2.5 md:px-10 md:py-5 flex items-center justify-between gap-3 md:gap-4"
+                      className="relative border-t px-4 py-1.5 md:px-10 md:py-5 flex items-center justify-between gap-3 md:gap-4"
                       style={{ borderColor: H.line, background: "rgba(255,255,255,0.55)" }}
                     >
                       <div>
@@ -525,17 +539,17 @@ const MatrixPage = () => {
                 </div>
 
                 {/* Auswahl */}
-                <div className="md:col-span-6 space-y-4 md:space-y-3">
+                <div className="matrix-options md:col-span-6 flex flex-col gap-2 md:block md:space-y-3 md:gap-0">
 
                   {/* Intro */}
-                  <div className="mb-0.5 md:mb-0.5">
+                  <div className="order-1 mb-0.5 md:mb-0.5">
                     <h1
                       className="font-light leading-[0.95] tracking-tight text-[32px] md:text-[clamp(30px,3vw,42px)]"
                       style={{ letterSpacing: "-0.02em" }}
                     >
                       MATRIX
                     </h1>
-                    <p className="italic mt-1 text-sm md:mt-1 md:text-sm" style={{ color: H.gold }}>
+                    <p className="hidden md:block italic mt-1 text-sm md:mt-1 md:text-sm" style={{ color: H.gold }}>
                       Die Hülle als Teil des Systems.
                     </p>
                     <p className="hidden md:block mt-1 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
@@ -543,9 +557,17 @@ const MatrixPage = () => {
                     </p>
                   </div>
 
+                  <p className="order-1 text-xs leading-4 text-foreground md:hidden">
+                    Carbon-Look MagSafe-Hülle für iPhone 17 &amp; 18 Pro – Qi2.2-kompatibel
+                  </p>
+                  <div className="order-2 md:hidden">
+                    <p className="text-2xl font-light text-foreground">CHF {caseFinish.price}.–</p>
+                    <p className="text-[11px] leading-4 text-muted-foreground">Gratis Versand · {MATRIX_DELIVERY_TEXT}</p>
+                  </div>
+
                   {/* Modell */}
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.28em] mb-2 md:mb-3" style={{ color: H.textMuted }}>
+                  <div className="order-3">
+                    <p className="text-[10px] uppercase tracking-[0.28em] mb-1 md:mb-3" style={{ color: H.textMuted }}>
                       Modell
                     </p>
                     <div className="grid grid-cols-2 gap-2">
@@ -572,11 +594,12 @@ const MatrixPage = () => {
                     </div>
                   </div>
 
-                  {/* Gerätefarbe */}
-                  <div>
-                    <div className="flex items-baseline justify-between mb-2 md:mb-3">
+                  {/* Gerätefarbe — nur Bildvorschau */}
+                  <div className="order-5 matrix-preview">
+                    <div className="flex items-baseline justify-between mb-1 md:mb-3">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
-                        Gerätefarbe
+                        <span className="hidden md:inline">Gerätefarbe</span>
+                        <span className="md:hidden normal-case tracking-normal">Vorschau mit deiner iPhone-Farbe</span>
                       </p>
                       <p className="text-xs" style={{ color: H.text }}>{device.name}</p>
                     </div>
@@ -603,10 +626,11 @@ const MatrixPage = () => {
                   </div>
 
                   {/* Hüllenfinish */}
-                  <div>
-                    <div className="flex items-baseline justify-between mb-2 md:mb-3">
+                  <div className="order-4">
+                    <div className="flex items-baseline justify-between mb-1 md:mb-3">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
-                        Finish
+                        <span className="hidden md:inline">Finish</span>
+                        <span className="md:hidden normal-case tracking-normal">Farbe der Hülle</span>
                       </p>
                       <p className="hidden text-xs md:block" style={{ color: H.text }}>
                         {caseFinish.material}
@@ -650,7 +674,7 @@ const MatrixPage = () => {
                   </div>
 
                     {/* CTA */}
-                  <div className="pt-2 border-t md:pt-3" style={{ borderColor: H.line }}>
+                  <div className="order-6 pt-1 border-t md:pt-3" style={{ borderColor: H.line }}>
                     {confirmed && (
                       <div
                         className="relative mb-5 rounded-xl p-4"
@@ -699,7 +723,7 @@ const MatrixPage = () => {
                       </div>
                     )}
 
-                    <div className="flex items-baseline justify-between gap-4 mb-1.5 md:mb-2.5">
+                    <div className="hidden md:flex items-baseline justify-between gap-4 mb-1.5 md:mb-2.5">
                       <span className="font-light" style={{ fontSize: "clamp(22px,2vw,28px)" }}>
                         {airpodsSelected ? `CHF ${bundleTotal}.–` : `CHF ${caseFinish.price}.–`}
                       </span>
@@ -709,11 +733,12 @@ const MatrixPage = () => {
                         </span>
                       )}
                     </div>
-                    <button
+                    <Button
+                      ref={mainBuyRef}
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
-                      className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-xl text-xs font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:py-3 md:text-sm md:tracking-[0.15em]"
+                      className="matrix-main-buy h-11 md:h-auto w-full inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-xl text-xs font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:py-3 md:text-sm md:tracking-[0.15em]"
                       style={{
                         background: H.gold,
                         color: "#fff",
@@ -725,18 +750,19 @@ const MatrixPage = () => {
                       ) : (
                         <>
                           <ShoppingBag className="w-4 h-4" />
-                          {airpodsSelected ? "Bundle jetzt kaufen" : "Jetzt kaufen"}
+                          <span className="md:hidden">JETZT KAUFEN</span>
+                          <span className="hidden md:inline">{airpodsSelected ? "Bundle jetzt kaufen" : "Jetzt kaufen"}</span>
                         </>
                       )}
-                    </button>
-                    <p className="mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
+                    </Button>
+                    <p className="mt-1 md:mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
                       Sichere Bezahlung · Kostenloser Versand
                     </p>
                   </div>
 
                   {/* AirPods Ergänzung */}
                   <div
-                    className="mt-5 border-t pt-5 md:mt-8 md:pt-8"
+                    className="order-7 mt-3 border-t pt-3 md:mt-8 md:pt-8"
                     style={{ borderColor: H.line }}
                   >
                     <div className="flex items-start justify-between gap-3 mb-3 md:gap-4 md:mb-5">
@@ -757,7 +783,8 @@ const MatrixPage = () => {
                     <button
                       type="button"
                       onClick={() => setAirpodsSelected((selected) => !selected)}
-                      aria-pressed={airpodsSelected}
+                      role="checkbox"
+                      aria-checked={airpodsSelected}
                        className="w-full flex items-center gap-3 p-2 rounded-lg text-left transition-all duration-300 md:gap-4 md:p-3"
                       style={{
                         border: `1px solid ${airpodsSelected ? H.gold : H.line}`,
@@ -991,6 +1018,21 @@ const MatrixPage = () => {
         </main>
 
         <Footer />
+        {showMobileBuyBar && (
+          <div className="matrix-mobile-buybar fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-xl md:hidden">
+            <div className="flex items-center gap-3 px-4 pt-2.5 pb-2.5">
+              <div className="min-w-0 flex-1 text-foreground">
+                <p className="text-xs font-medium">{model.name}</p>
+                <p className="text-[11px] text-muted-foreground">{caseFinish.name} · CHF {caseFinish.price}.–</p>
+                {airpodsSelected && <p className="text-[10px] text-primary">Bundle · CHF {bundleTotal}.–</p>}
+              </div>
+              <Button onClick={handleBuy} disabled={isBuying} className="h-11 shrink-0 rounded-lg px-5" aria-label="Kaufen">
+                {isBuying ? <Loader2 className="animate-spin" /> : <ShoppingBag />}
+                Kaufen
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
