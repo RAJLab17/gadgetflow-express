@@ -877,7 +877,7 @@ const MatrixPage = () => {
                       )}
                     </Button>
                     <p className="mt-1 md:mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
-                      Sichere Bezahlung · Kostenloser Versand
+                      Sichere Bezahlung · 30 Tage Rückgabe
                     </p>
                   </div>
 
