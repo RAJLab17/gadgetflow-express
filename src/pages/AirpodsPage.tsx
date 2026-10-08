@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Loader2, ShoppingBag, X } from "lucide-react";
@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { createShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
-import { trackAddToCart } from "@/lib/ga-ecommerce";
+import { trackAddToCart, trackViewItem } from "@/lib/ga-ecommerce";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
 
 import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
@@ -83,6 +83,9 @@ const FINISHES: Finish[] = [
 const paymentMethods = [payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna];
 
 const AirpodsPage = () => {
+  useEffect(() => {
+    trackViewItem({ item_id: "RAJ-MTX-AP4", item_name: "RAJ MATRIX AirPods 4 & 5 Case", price: 35 });
+  }, []);
   const [finishId, setFinishId] = useState<FinishId>("cherry");
   const [matrixFinishId, setMatrixFinishId] = useState<FinishId>("cherry");
   const [isBuying, setIsBuying] = useState(false);

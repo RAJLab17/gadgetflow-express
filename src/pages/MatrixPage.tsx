@@ -7,7 +7,7 @@ import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
-import { trackAddToCart } from "@/lib/ga-ecommerce";
+import { trackAddToCart, trackViewItem } from "@/lib/ga-ecommerce";
 
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -275,6 +275,9 @@ DeviceMock.displayName = "DeviceMock";
 
 /* ── Page ─────────────────────────────────────────────────────────────── */
 const MatrixPage = () => {
+  useEffect(() => {
+    trackViewItem({ item_id: "RAJ-MTX", item_name: "RAJ MATRIX iPhone Case", price: 59 });
+  }, []);
   const [modelId, setModelId] = useState<ModelId>("18pro");
   const [deviceId, setDeviceId] = useState("darkcherry");
   const [caseId, setCaseId] = useState("cherry");
