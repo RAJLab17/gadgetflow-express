@@ -570,8 +570,8 @@ const MatrixPage = () => {
                         style={{ fontWeight: 400, letterSpacing: "normal" }}
                       >
                         Das Carbon-System{" "}
-                        <span className="whitespace-nowrap">für iPhone 17 &amp; 18 Pro / Pro Max</span> – Hülle mit
-                        MagSafe &amp; Qi2.2
+                        <span className="whitespace-nowrap">für iPhone 17 &amp; 18 Pro / Pro Max</span>{" "}
+                        <span className="whitespace-nowrap">– Hülle mit MagSafe &amp; Qi2.2</span>
                       </span>
                     </h1>
                     <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
