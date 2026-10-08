@@ -287,14 +287,17 @@ const MatrixPage = () => {
   const [isBuying, setIsBuying] = useState(false);
   const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
   const mainBuyRef = useRef<HTMLButtonElement>(null);
-  const [mainBuyVisible, setMainBuyVisible] = useState(false);
+  const [showStickyBuy, setShowStickyBuy] = useState(false);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
   useEffect(() => {
     const button = mainBuyRef.current;
     if (!button) return;
     const observer = new IntersectionObserver(([entry]) => {
-      setMainBuyVisible(entry?.isIntersecting ?? false);
+      if (!entry) return;
+      // Stay hidden before the main button is reached; show only after it
+      // has left through the top of the viewport, not while it is below it.
+      setShowStickyBuy(!entry.isIntersecting && entry.boundingClientRect.bottom <= 0);
     });
     observer.observe(button);
     return () => observer.disconnect();
@@ -1021,8 +1024,10 @@ const MatrixPage = () => {
         </main>
 
         <Footer />
-        {!mainBuyVisible && (
-          <div className="matrix-mobile-buybar fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 text-foreground backdrop-blur-xl md:hidden">
+          <div
+            aria-hidden={!showStickyBuy}
+            className={`matrix-mobile-buybar fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 text-foreground backdrop-blur-xl md:hidden transition-[transform,visibility] duration-200 motion-reduce:transition-none ${showStickyBuy ? "translate-y-0 visible" : "translate-y-full invisible pointer-events-none"}`}
+          >
             <div className="flex items-center justify-between gap-3 px-4 py-3">
               <div className="min-w-0 leading-tight">
                 <p className="text-xs font-medium">{model.name}</p>
@@ -1035,7 +1040,6 @@ const MatrixPage = () => {
               </Button>
             </div>
           </div>
-        )}
       </div>
     </>
   );
