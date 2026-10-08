@@ -95,7 +95,7 @@ serve(async (req) => {
       }
 
       // Save to DB
-      const { data: inserted, error } = await supabase
+      const { error } = await supabase
         .from('abandoned_carts')
         .insert({
           customer_email: email,
@@ -104,9 +104,7 @@ serve(async (req) => {
           original_price: originalPrice,
           final_price: finalPrice,
           shopify_draft_order_id: shopifyDraftOrderId,
-        })
-        .select('id')
-        .single();
+        });
 
       if (error) throw error;
 
