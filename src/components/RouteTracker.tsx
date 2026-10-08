@@ -23,11 +23,8 @@ const RouteTracker = () => {
       return;
     }
     trackMetaEvent("PageView");
-    window.gtag?.("event", "page_view", {
-      page_location: window.location.href,
-      page_path: location.pathname + location.search,
-      page_title: document.title,
-    });
+    // GA4 page_view on route changes is sent by GA4 Enhanced Measurement
+    // (browser history events). Sending it here too caused double hits.
   }, [location.pathname, location.search]);
 
   return null;
