@@ -213,8 +213,34 @@
 
         // Buffer fbq/gtag/clarity calls made before scripts arrive, so app code
         // (e.g. PageView, conversion events) doesn't break.
+        // Bot filter — only skip clear automation / crawlers. Real browsers
+        // (Safari iOS, Chrome Android, Google app, Instagram/FB in-app) pass.
+        var isBot = false;
+        try {
+          isBot = navigator.webdriver === true ||
+            /headlesschrome|prerender|crawler|spider|\bbot\b|[a-z]+bot\//i.test(navigator.userAgent || '');
+        } catch (e) {}
+
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+        // GA4 init is queued IMMEDIATELY on first page load (before React Router
+        // can change the URL), exactly once. The landing URL incl. gclid/utm is
+        // pinned so source/medium and landing page are never lost. Only the
+        // gtag.js download itself is deferred for performance.
+        if (!isBot && !window.__rajGaInit) {
+          window.__rajGaInit = true;
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-EST00HSY50', {
+            page_location: window.location.href,
+            page_referrer: document.referrer || undefined,
+            linker: {
+              domains: ['raj.ch', 'www.raj.ch', 'checkout.raj.ch', 'kcvjif-10.myshopify.com'],
+              accept_incoming: true
+            }
+          });
+        }
+
         window.fbq = window.fbq || function(){
           (window.fbq.q = window.fbq.q || []).push(arguments);
         };
@@ -228,25 +254,10 @@
           if (loaded) return;
           loaded = true;
 
-          // Google Analytics 4 — skipped for bots, crawlers, headless browsers and prerendering
-          var isBot = false;
-          try {
-            isBot = navigator.webdriver === true ||
-              /headlesschrome|prerender|bot|crawler|spider/i.test(navigator.userAgent || '');
-          } catch (e) {}
           if (!isBot) {
             var ga = document.createElement('script');
             ga.async = true;
             ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EST00HSY50';
-            ga.onload = function() {
-              window.gtag('js', new Date());
-              window.gtag('config', 'G-EST00HSY50', {
-                linker: {
-                  domains: ['raj.ch', 'www.raj.ch', 'checkout.raj.ch', 'kcvjif-10.myshopify.com'],
-                  accept_incoming: true
-                }
-              });
-            };
             document.head.appendChild(ga);
           }
 
