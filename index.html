@@ -231,13 +231,18 @@
         if (!isBot && !window.__rajGaInit) {
           window.__rajGaInit = true;
           window.gtag('js', new Date());
+          // Config carries NO page_location, so later events use the current page.
           window.gtag('config', 'G-EST00HSY50', {
-            page_location: window.location.href,
-            page_referrer: document.referrer || undefined,
+            send_page_view: false,
             linker: {
               domains: ['raj.ch', 'www.raj.ch', 'checkout.raj.ch', 'kcvjif-10.myshopify.com'],
               accept_incoming: true
             }
+          });
+          // Only this first page_view is pinned to the landing URL (gclid/utm).
+          window.gtag('event', 'page_view', {
+            page_location: window.location.href,
+            page_referrer: document.referrer || undefined
           });
         }
 
