@@ -23,8 +23,12 @@ const RouteTracker = () => {
       return;
     }
     trackMetaEvent("PageView");
-    // GA4 page_view on route changes is sent by GA4 Enhanced Measurement
-    // (browser history events). Sending it here too caused double hits.
+    // Exactly one GA4 page_view per route change. GA4's automatic history
+    // page_views are off because config uses send_page_view: false.
+    window.gtag?.("event", "page_view", {
+      page_location: window.location.href,
+      page_title: document.title,
+    });
   }, [location.pathname, location.search]);
 
   return null;
