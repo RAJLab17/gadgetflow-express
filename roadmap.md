@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Mobile Kaufleisten auf MATRIX, NEXUS und AirPods prüfen; MATRIX erst nach Vorbeiscrollen am Hauptbutton einblenden, Rückkehr und Footer-Abstand testen
+- [x] Mobile Kaufleisten geprüft: MATRIX erst nach Vorbeiscrollen am Hauptbutton sichtbar, Rückkehr blendet sie aus, Auswahl aktuell, Footer-Abstand ausreichend; NEXUS und AirPods haben keine Kaufleiste
 - [x] Shopify-Fotos für MATRIX iPhone Case und AirPods Case mit den originalen Cherry-Farbtönen aktualisieren
 - [x] Aktualisierte Produktbilder und übrige Produktdaten kontrollieren
 - [x] Ausschliesslich den Cherry-Carbon-Farbton der MATRIX-Case-Bilder edler und präsenter abstimmen
