@@ -111,12 +111,18 @@ const AdminReviewsPage = () => {
     try {
       const data = await call(`?action=emails`);
       const rows: Array<Record<string, string>> = data.emails ?? [];
+      // Neutralize spreadsheet formulas: values starting with =, +, - or @
+      // would otherwise execute when the CSV is opened in Excel/Numbers.
+      const safe = (v: unknown) => {
+        const s = String(v ?? "");
+        return /^[=+\-@]/.test(s) ? `'${s}` : s;
+      };
       const header = "Name,Email,Sterne,Status,Datum";
       const csv = [
         header,
         ...rows.map(
           (r) =>
-            `"${String(r.customer_name).replace(/"/g, '""')}","${r.customer_email ?? ""}",${r.rating},${r.status},${r.created_at}`
+            `"${safe(r.customer_name).replace(/"/g, '""')}","${safe(r.customer_email)}",${r.rating},${safe(r.status)},${r.created_at}`
         ),
       ].join("\n");
       const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });

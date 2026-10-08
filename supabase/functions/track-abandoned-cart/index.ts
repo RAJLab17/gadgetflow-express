@@ -52,7 +52,9 @@ serve(async (req) => {
         .maybeSingle();
 
       if (existing) {
-        return new Response(JSON.stringify({ success: true, id: existing.id, alreadyTracked: true }), {
+        // Generic response: no internal ID, no "already exists" hint, so callers
+        // cannot probe whether a given email abandoned a cart for a product.
+        return new Response(JSON.stringify({ success: true }), {
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         });
       }
@@ -93,7 +95,7 @@ serve(async (req) => {
       }
 
       // Save to DB
-      const { data: inserted, error } = await supabase
+      const { error } = await supabase
         .from('abandoned_carts')
         .insert({
           customer_email: email,
@@ -102,13 +104,11 @@ serve(async (req) => {
           original_price: originalPrice,
           final_price: finalPrice,
           shopify_draft_order_id: shopifyDraftOrderId,
-        })
-        .select('id')
-        .single();
+        });
 
       if (error) throw error;
 
-      return new Response(JSON.stringify({ success: true, id: inserted.id }), {
+      return new Response(JSON.stringify({ success: true }), {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
