@@ -13,3 +13,4 @@
 
 - [ ] MATRIX Mobile: Textplakette unter dem Case-Bild ist im aktuellen Build bereits entfernt; live auf raj.ch sichtbar, sobald publiziert
 - [x] MATRIX Bundle-Karten: Bundle-Vorschaubild nur AirPods Case, Titel „Hülle + AirPods Case", Untertitel „AirPods 4 & 5 · Finish", Farbauswahl eingeklappt
+- [x] /matrix: H1-Beschreibung auf „Das Carbon-System für iPhone 17 & 18 Pro / Pro Max – Hülle mit MagSafe & Qi2.2" (Mobile + Desktop, Build 8. Okt)
