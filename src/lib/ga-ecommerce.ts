@@ -21,3 +21,15 @@ export function trackAddToCart(items: GaItem[]) {
     });
   } catch {}
 }
+
+/** Fires GA4 view_item once per page mount, same shape as on /nexus. */
+export function trackViewItem(item: { item_id: string; item_name: string; price: number }) {
+  if (typeof window === "undefined") return;
+  try {
+    (window as any).gtag?.("event", "view_item", {
+      currency: "CHF",
+      value: item.price,
+      items: [{ ...item, quantity: 1 }],
+    });
+  } catch {}
+}
