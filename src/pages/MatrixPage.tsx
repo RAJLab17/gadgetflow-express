@@ -698,7 +698,7 @@ const MatrixPage = () => {
                             : "radial-gradient(60% 48% at 50% 43%, rgba(155,107,63,0.12) 0%, rgba(250,249,247,0) 72%)",
                       }}
                     />
-                    <div className="relative hidden lg:flex items-center justify-center px-1 pt-0 pb-0 md:px-10 md:pt-14 md:pb-8">
+                    <div className="relative hidden lg:flex items-center justify-center p-0">
                       <DeviceMock device={device} caseFinish={caseFinish} model={model} />
                     </div>
                     <div className="relative lg:hidden px-1 md:px-10 md:pt-14 md:pb-8">
