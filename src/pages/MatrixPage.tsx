@@ -578,11 +578,8 @@ const MatrixPage = () => {
                     </h1>
                     <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
                     </div>
-
-                    <p className="hidden md:block mt-1 max-w-md text-xs leading-relaxed" style={{ color: H.textMuted }}>
-                      Vier Modelle, zwei Carbon-Finishes, ein Magnetring — magnetisch einrastend mit NEXUS und APEX.
-                    </p>
                   </div>
+
 
                   <div className="order-3">
                     <p className="text-[10px] uppercase tracking-[0.28em] mb-1 md:mb-3" style={{ color: H.textMuted }}>
