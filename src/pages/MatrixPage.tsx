@@ -45,7 +45,7 @@ import lifestyle4 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-4.we
 
 const CHERRY_ORANGE_LIFESTYLE = [lifestyle1.url, lifestyle2.url, lifestyle3.url, lifestyle4.url];
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
-  model.id === "17pro" && caseFinish.id === "cherry" && device.id === "orange";
+  (model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "orange";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
