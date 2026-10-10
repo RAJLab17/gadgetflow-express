@@ -115,7 +115,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Ist der RAJ NEXUS mit meinem iPhone kompatibel?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS ist kompatibel mit allen iPhones ab dem iPhone 12, einschliesslich iPhone 13, 14, 15, 16 und 17 Serie. Auch Apple Watch Series 1-10 und AirPods Pro/3/4 mit kabellosem Ladecase werden unterstützt.",
+        text: "Der RAJ NEXUS ist kompatibel mit allen iPhones von iPhone 12 bis iPhone 18, einschliesslich iPhone 13, 14, 15, 16, 17 und 18 Serie. Auch Apple Watch Series 1-10 und AirPods Pro/3/4 mit kabellosem Ladecase werden unterstützt.",
       },
     },
     {
@@ -131,7 +131,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Wie schnell lädt der RAJ NEXUS mein iPhone?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 3,3x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.",
+        text: "Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.",
       },
     },
   ],

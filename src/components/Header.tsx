@@ -16,6 +16,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
   const supportCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { lang, setLang, t } = useLanguage();
+  const isNexusPage = location.pathname.startsWith("/nexus");
   const isDarkPage = location.pathname === "/" || location.pathname.startsWith("/about") || location.pathname.startsWith("/nexus");
 
   const supportLinks = [
@@ -113,7 +114,9 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
           ? isDarkPage
             ? "bg-[#0a0908] shadow-elegant border-b border-white/10"
             : "bg-background shadow-elegant border-b border-border/50"
-          : "bg-transparent"
+          : isNexusPage
+            ? "bg-transparent lg:bg-white lg:border-b lg:border-black/5 lg:[&_.hdr-text]:!text-[#1a1a1a]"
+            : "bg-transparent"
       } ${isDarkPage ? "[&_*]:!text-white" : ""}`}
     >
       {/* Optional top strip (e.g. trust ticker) — sits above the logo/nav row */}
@@ -133,7 +136,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
               className="h-8 sm:h-12 w-auto select-none"
               draggable={false}
             />
-            <span className="hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
+            <span className="hdr-text hidden sm:block text-sm font-medium text-foreground/70 tracking-wide">
               Power. Always There.
             </span>
           </a>
@@ -142,7 +145,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
           <nav className="hidden md:flex items-center gap-10">
             <Link
               to="/produkte"
-              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+              className="relative hdr-text text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
               {t("header.product")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -150,7 +153,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
             <button
               onClick={() => handleNavClick("#ecosystem")}
-              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+              className="relative hdr-text text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
               Ecosystem
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -158,7 +161,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
             <Link
               to="/blog"
-              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+              className="relative hdr-text text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
               Blog
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -166,7 +169,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
             <Link
               to="/faq"
-              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+              className="relative hdr-text text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
               FAQ
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -174,7 +177,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
             <Link
               to="/about"
-              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+              className="relative hdr-text text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
               {t("header.about")}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -182,7 +185,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
             <Link
               to="/kontakt"
-              className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
+              className="relative hdr-text text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"
             >
               Kontakt
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />

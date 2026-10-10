@@ -625,6 +625,31 @@ const NexusPage = () => {
   const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
   const [heroSlideIdx, setHeroSlideIdx] = useState(0);
+  const [galleryLightbox, setGalleryLightbox] = useState(false);
+  const [galleryZoom, setGalleryZoom] = useState(false);
+  const [zoomOrigin, setZoomOrigin] = useState("50% 50%");
+  const [headerH, setHeaderH] = useState(116);
+  useEffect(() => {
+    const el = document.querySelector("header");
+    if (!el) return;
+    const update = () => setHeaderH(Math.round(el.getBoundingClientRect().height));
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!galleryLightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setGalleryLightbox(false);
+      if (e.key === "ArrowRight") { setGalleryZoom(false); setHeroSlideIdx((i) => (i + 1) % HERO_CAROUSEL_SLIDES.length); }
+      if (e.key === "ArrowLeft") { setGalleryZoom(false); setHeroSlideIdx((i) => (i - 1 + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length); }
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+  }, [galleryLightbox]);
 
   const activeHeroReview = heroReviews[heroReviewIdx] ?? null;
 
@@ -794,14 +819,107 @@ const NexusPage = () => {
       <Header topSlot={<NexusTrustBar />} />
         <section
           id="mockup-signup"
-          className="relative overflow-x-hidden pt-[86px] md:pt-[clamp(48px,3.4vw,66px)]"
+          className="relative overflow-x-hidden lg:overflow-x-clip pt-[86px] md:pt-[clamp(48px,3.4vw,66px)] lg:pt-0"
           style={{ background: H.bg, color: H.text }}
         >
           <div style={{ position: "absolute", top: "-15vh", right: "-6vw", width: "62vw", height: "84vh", background: "radial-gradient(45% 45% at 60% 40%, rgba(155,107,63,.08), transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
           <div className="hidden md:block" style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to bottom, transparent, ${H.bg})`, pointerEvents: "none", zIndex: 1 }} />
 
-          {/* DESKTOP */}
-          <div className="hidden md:grid relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", columnGap: "clamp(24px,3vw,60px)", rowGap: 0, alignItems: "start" }}>
+          {/* DESKTOP ≥1024px — gallery left, sticky buy column right */}
+          <div className="hidden lg:grid relative mx-auto w-full px-8" style={{ zIndex: 4, maxWidth: 1280, gridTemplateColumns: "minmax(0,58fr) minmax(0,42fr)", columnGap: 40, alignItems: "start", paddingTop: headerH + 32, paddingBottom: 48 }}>
+            {/* LEFT — gallery */}
+            <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
+              <div role="tablist" aria-label="Produktbilder" className="shrink-0 overflow-y-auto" style={{ display: "flex", flexDirection: "column", gap: 8, maxHeight: 6 * 72 + 5 * 8, width: 76, padding: 2 }}>
+                {HERO_CAROUSEL_SLIDES.map((s, i) => (
+                  <button key={i} type="button" role="tab" aria-selected={i === heroSlideIdx} aria-label={`Bild ${i + 1} anzeigen`} onClick={() => setHeroSlideIdx(i)} style={{ width: 72, height: 72, flexShrink: 0, borderRadius: 10, overflow: "hidden", padding: 0, background: "#fff", border: `1.5px solid ${i === heroSlideIdx ? "#1a1a1a" : "rgba(26,26,26,.12)"}`, cursor: "pointer" }}>
+                    <img src={s.thumb} alt="" loading="lazy" decoding="async" width={72} height={72} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  </button>
+                ))}
+              </div>
+              <div style={{ position: "relative", flex: 1, minWidth: 0, aspectRatio: "1 / 1", borderRadius: 16, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
+                <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} sizes="700px" priority objectFit="cover" />
+                <button type="button" aria-label="Bild vergrössern" onClick={() => { setGalleryZoom(false); setGalleryLightbox(true); }} style={{ position: "absolute", inset: 0, zIndex: 2, background: "transparent", border: 0, cursor: "zoom-in" }} />
+                {heroSlideIdx === 0 && (
+                  <>
+                    <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "5%", left: "4%" }} />
+                    <ChargeChip label="Apple Watch" icon={<IconWatch />} startVal={79} phase={0.38} floatAnim="raj-float2 7s" style={{ top: "46%", right: "4%" }} />
+                    <ChargeChip label="AirPods Pro" icon={<IconPods />} startVal={71} phase={0.72} floatAnim="raj-float 6.5s" style={{ bottom: "5%", left: "4%" }} />
+                  </>
+                )}
+                {[-1, 1].map((dir) => (
+                  <button key={dir} type="button" aria-label={dir < 0 ? "Vorheriges Bild" : "Nächstes Bild"} onClick={() => setHeroSlideIdx((heroSlideIdx + dir + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length)} className="transition-transform hover:scale-105" style={{ position: "absolute", top: "calc(50% - 22px)", [dir < 0 ? "left" : "right"]: 14, zIndex: 6, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,.92)", border: "1px solid rgba(26,26,26,.12)", boxShadow: "0 6px 20px rgba(0,0,0,.15)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#111" }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><polyline points={dir < 0 ? "15 18 9 12 15 6" : "9 18 15 12 9 6"} /></svg>
+                  </button>
+                ))}
+                <div style={{ position: "absolute", bottom: 20, right: 22, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 3, pointerEvents: "none" }}>
+                  <Qi2CertifiedBadge size={50} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT — sticky info column */}
+            <div style={{ position: "sticky", top: headerH + 24, display: "flex", flexDirection: "column" }}>
+              <h1 style={{ fontSize: "clamp(40px,4vw,60px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0 }}>
+                <span style={{ color: H.text, fontWeight: 200 }}>RAJ</span>{" "}
+                <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em" }}>NEXUS</span>{" "}
+                <span style={{ display: "block", marginTop: 12, fontSize: 17, lineHeight: 1.35, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", maxWidth: 440 }}>
+                  – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
+                </span>
+              </h1>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
+                {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
+                  <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 11px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 11, color: H.text }}>
+                    <span style={{ color: H.gold }}>✓</span> {b}
+                  </span>
+                ))}
+              </div>
+              <p style={{ marginTop: 14, maxWidth: 460, fontSize: 14.5, lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>
+                Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch oder deinen Bürotisch.
+              </p>
+              <div className="flex items-center" style={{ gap: 8, marginTop: 18 }}>
+                <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
+                  <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#22c55e", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
+                  <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
+                </span>
+                <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>{availabilityLabel}</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", marginTop: 8 }}>
+                <span style={{ fontSize: 34, color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.-</span>
+                <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
+                <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - REGULAR_PRICE}.-</span>
+              </div>
+              <div style={{ marginTop: 8 }}>
+                <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
+              </div>
+              <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="group w-full inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.01] active:scale-[0.98]" style={{ marginTop: 22, padding: "18px 40px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+                Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
+              </a>
+              <p style={{ marginTop: 10, fontSize: 12, color: H.textMuted, textAlign: "center" }}>Passt zu iPhone 12–18 · Apple Watch · AirPods mit kabellosem Case</p>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginTop: 10, flexWrap: "wrap" }}>
+                {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 4px", border: `1px solid ${H.border}` }} />
+                ))}
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
+                {[
+                  { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
+                  { i: <svg width="14" height="14" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 2 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
+                  { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–3 Werktagen" },
+                ].map((b) => (
+                  <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 11.5, color: H.text }}>
+                    {b.i} {b.t}
+                  </span>
+                ))}
+              </div>
+              {activeHeroReview && (
+                <LatestMarcelReview key={`hero-rev-lg-${heroReviewIdx}`} review={activeHeroReview} className="mt-5 animate-fade-in" onPhotoClick={() => setMarcelLightboxOpen(true)} theme="light" onExpandChange={setHeroReviewExpanded} />
+              )}
+            </div>
+          </div>
+
+          {/* TABLET 768–1023px (unchanged previous layout) */}
+          <div className="hidden md:grid lg:hidden relative pl-8 lg:pl-12 xl:pl-20 pr-6 lg:pr-8 xl:pr-10 pb-8 max-w-[1440px] mx-auto w-full" style={{ zIndex: 4, gridTemplateColumns: "minmax(0,1fr) minmax(0,1.15fr)", columnGap: "clamp(24px,3vw,60px)", rowGap: 0, alignItems: "start" }}>
             {/* LEFT — product info */}
             <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(0px, 0.6vw, 10px)" }}>
 
@@ -1083,6 +1201,51 @@ const NexusPage = () => {
         <div className="h-px w-full hidden md:block" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
       </section>
 
+      {/* ═══ DESKTOP: static reviews block ═══ */}
+      {heroReviews.length > 0 && (
+        <section className="hidden lg:block px-8 py-20" style={{ background: H.bg, color: H.text, borderTop: `1px solid ${H.border}` }} aria-labelledby="nexus-reviews-heading">
+          <div className="mx-auto" style={{ maxWidth: 1280 }}>
+            <div className="flex items-end justify-between gap-6 mb-8">
+              <div>
+                <div className="flex gap-1" aria-hidden>
+                  {[0, 1, 2, 3, 4].map((i) => <span key={i} style={{ color: H.gold, fontSize: 20, lineHeight: 1 }}>★</span>)}
+                </div>
+                <h2 id="nexus-reviews-heading" className="mt-2" style={{ fontSize: 26, fontWeight: 300, letterSpacing: "-.01em" }}>
+                  {(reviewStats?.average ?? 5).toFixed(1)} · {reviewStats?.total ?? heroReviews.length} Bewertungen
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => { setDetailsAccordionValue("reviews"); setTimeout(() => document.getElementById("product-details")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }}
+                className="text-sm transition-opacity hover:opacity-70"
+                style={{ color: H.gold, fontWeight: 500, background: "none", border: 0, cursor: "pointer" }}
+              >
+                Alle {reviewStats?.total ?? heroReviews.length} Bewertungen ansehen →
+              </button>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              {heroReviews.slice(0, 3).map((r) => (
+                <article key={r.customer_name} className="rounded-2xl p-6 flex flex-col" style={{ border: `1px solid ${H.border}`, background: H.surface }}>
+                  <div className="flex items-center justify-between gap-2">
+                    <span style={{ fontSize: 14, fontWeight: 500 }}>{r.customer_name}</span>
+                    {r.verified_purchase && (
+                      <span className="inline-flex items-center gap-1 uppercase" style={{ fontSize: 9, letterSpacing: ".12em", fontWeight: 600, color: "#059669" }}><ShieldCheck size={11} /> Verifizierter Kauf</span>
+                    )}
+                  </div>
+                  <div className="flex gap-0.5 mt-1.5" aria-label={`${r.rating} von 5 Sternen`}>
+                    {[1, 2, 3, 4, 5].map((n) => <span key={n} style={{ color: n <= r.rating ? H.gold : H.border, fontSize: 13 }}>★</span>)}
+                  </div>
+                  <p className="mt-3 line-clamp-5" style={{ fontSize: 14, lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>«{r.comment}»</p>
+                  {r.photo_url && (
+                    <img src={supaThumb(r.photo_url, 640)} alt={`Foto zur Bewertung von ${r.customer_name}`} loading="lazy" decoding="async" className="mt-4 w-full rounded-xl object-cover" style={{ aspectRatio: "4 / 3" }} />
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ═══ 2. TRUST ═══ */}
       <section style={{ background: L.bg, color: L.text }} className="pt-10 pb-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
@@ -1211,7 +1374,7 @@ const NexusPage = () => {
       </section>
 
       {/* ═══ 6. CTA ═══ */}
-      <section className="relative py-24 md:py-36 px-5" style={{ background: D.bg, color: D.beige }}>
+      <section className="relative py-24 md:py-36 px-5 lg:hidden" style={{ background: D.bg, color: D.beige }}>
         <div className="relative max-w-2xl mx-auto text-center">
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
@@ -1237,6 +1400,34 @@ const NexusPage = () => {
 
       <div className="h-16" aria-hidden style={{ background: D.bg }} />
       <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
+
+      {galleryLightbox && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center" style={{ background: "rgba(0,0,0,.94)" }} role="dialog" aria-modal="true" aria-label="Produktbild vergrössert" onClick={() => setGalleryLightbox(false)}>
+          <button type="button" onClick={() => setGalleryLightbox(false)} className="absolute top-4 right-4 p-2 rounded-full z-10" style={{ color: "#fff", background: "rgba(255,255,255,.08)" }} aria-label="Schliessen"><X size={28} /></button>
+          {[-1, 1].map((dir) => (
+            <button key={dir} type="button" aria-label={dir < 0 ? "Vorheriges Bild" : "Nächstes Bild"} onClick={(e) => { e.stopPropagation(); setGalleryZoom(false); setHeroSlideIdx((heroSlideIdx + dir + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length); }} className="absolute z-10 rounded-full flex items-center justify-center" style={{ top: "calc(50% - 26px)", [dir < 0 ? "left" : "right"]: 24, width: 52, height: 52, background: "rgba(255,255,255,.12)", color: "#fff", fontSize: 22 }}>{dir < 0 ? "‹" : "›"}</button>
+          ))}
+          <div className="overflow-hidden" style={{ maxWidth: "90vw", maxHeight: "90vh" }} onClick={(e) => e.stopPropagation()}>
+            <img
+              src={HERO_CAROUSEL_SLIDES[heroSlideIdx].src}
+              srcSet={HERO_CAROUSEL_SLIDES[heroSlideIdx].srcSet}
+              sizes="90vw"
+              alt={HERO_CAROUSEL_SLIDES[heroSlideIdx].alt}
+              onClick={(e) => {
+                const r = e.currentTarget.getBoundingClientRect();
+                setZoomOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
+                setGalleryZoom((z) => !z);
+              }}
+              onMouseMove={(e) => {
+                if (!galleryZoom) return;
+                const r = e.currentTarget.getBoundingClientRect();
+                setZoomOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
+              }}
+              style={{ display: "block", maxWidth: "90vw", maxHeight: "90vh", objectFit: "contain", background: "#fff", borderRadius: 12, transform: galleryZoom ? "scale(2.2)" : "scale(1)", transformOrigin: zoomOrigin, transition: "transform .25s ease", cursor: galleryZoom ? "zoom-out" : "zoom-in" }}
+            />
+          </div>
+        </div>
+      )}
 
       <AnimatePresence>
         {marcelLightboxOpen && activeHeroReview?.photo_url && (
