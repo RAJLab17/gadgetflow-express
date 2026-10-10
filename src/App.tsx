@@ -53,6 +53,18 @@ const ShopCartSync = () => {
   return null;
 };
 
+/* Thin gold progress line while a page chunk loads — never a blank screen. */
+const RouteFallback = () => (
+  <div
+    aria-hidden
+    className="fixed inset-x-0 top-0 z-[100] h-[2px] overflow-hidden"
+    style={{ background: "rgba(155,107,63,0.16)" }}
+  >
+    <div className="raj-route-loader" style={{ height: "100%", width: "38%", background: "#9b6b3f" }} />
+  </div>
+);
+
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
