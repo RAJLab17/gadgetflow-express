@@ -625,6 +625,31 @@ const NexusPage = () => {
   const [detailsAccordionValue, setDetailsAccordionValue] = useState<string>("");
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
   const [heroSlideIdx, setHeroSlideIdx] = useState(0);
+  const [galleryLightbox, setGalleryLightbox] = useState(false);
+  const [galleryZoom, setGalleryZoom] = useState(false);
+  const [zoomOrigin, setZoomOrigin] = useState("50% 50%");
+  const [headerH, setHeaderH] = useState(116);
+  useEffect(() => {
+    const el = document.querySelector("header");
+    if (!el) return;
+    const update = () => setHeaderH(Math.round(el.getBoundingClientRect().height));
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!galleryLightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setGalleryLightbox(false);
+      if (e.key === "ArrowRight") { setGalleryZoom(false); setHeroSlideIdx((i) => (i + 1) % HERO_CAROUSEL_SLIDES.length); }
+      if (e.key === "ArrowLeft") { setGalleryZoom(false); setHeroSlideIdx((i) => (i - 1 + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length); }
+    };
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+  }, [galleryLightbox]);
 
   const activeHeroReview = heroReviews[heroReviewIdx] ?? null;
 
@@ -1176,6 +1201,51 @@ const NexusPage = () => {
         <div className="h-px w-full hidden md:block" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
       </section>
 
+      {/* ═══ DESKTOP: static reviews block ═══ */}
+      {heroReviews.length > 0 && (
+        <section className="hidden lg:block px-8 py-20" style={{ background: H.bg, color: H.text, borderTop: `1px solid ${H.border}` }} aria-labelledby="nexus-reviews-heading">
+          <div className="mx-auto" style={{ maxWidth: 1280 }}>
+            <div className="flex items-end justify-between gap-6 mb-8">
+              <div>
+                <div className="flex gap-1" aria-hidden>
+                  {[0, 1, 2, 3, 4].map((i) => <span key={i} style={{ color: H.gold, fontSize: 20, lineHeight: 1 }}>★</span>)}
+                </div>
+                <h2 id="nexus-reviews-heading" className="mt-2" style={{ fontSize: 26, fontWeight: 300, letterSpacing: "-.01em" }}>
+                  {(reviewStats?.average ?? 5).toFixed(1)} · {reviewStats?.total ?? heroReviews.length} Bewertungen
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => { setDetailsAccordionValue("reviews"); setTimeout(() => document.getElementById("product-details")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }}
+                className="text-sm transition-opacity hover:opacity-70"
+                style={{ color: H.gold, fontWeight: 500, background: "none", border: 0, cursor: "pointer" }}
+              >
+                Alle {reviewStats?.total ?? heroReviews.length} Bewertungen ansehen →
+              </button>
+            </div>
+            <div className="grid grid-cols-3 gap-6">
+              {heroReviews.slice(0, 3).map((r) => (
+                <article key={r.customer_name} className="rounded-2xl p-6 flex flex-col" style={{ border: `1px solid ${H.border}`, background: H.surface }}>
+                  <div className="flex items-center justify-between gap-2">
+                    <span style={{ fontSize: 14, fontWeight: 500 }}>{r.customer_name}</span>
+                    {r.verified_purchase && (
+                      <span className="inline-flex items-center gap-1 uppercase" style={{ fontSize: 9, letterSpacing: ".12em", fontWeight: 600, color: "#059669" }}><ShieldCheck size={11} /> Verifizierter Kauf</span>
+                    )}
+                  </div>
+                  <div className="flex gap-0.5 mt-1.5" aria-label={`${r.rating} von 5 Sternen`}>
+                    {[1, 2, 3, 4, 5].map((n) => <span key={n} style={{ color: n <= r.rating ? H.gold : H.border, fontSize: 13 }}>★</span>)}
+                  </div>
+                  <p className="mt-3 line-clamp-5" style={{ fontSize: 14, lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>«{r.comment}»</p>
+                  {r.photo_url && (
+                    <img src={supaThumb(r.photo_url, 640)} alt={`Foto zur Bewertung von ${r.customer_name}`} loading="lazy" decoding="async" className="mt-4 w-full rounded-xl object-cover" style={{ aspectRatio: "4 / 3" }} />
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ═══ 2. TRUST ═══ */}
       <section style={{ background: L.bg, color: L.text }} className="pt-10 pb-24 md:py-44 px-5">
         <div className="max-w-5xl mx-auto">
@@ -1304,7 +1374,7 @@ const NexusPage = () => {
       </section>
 
       {/* ═══ 6. CTA ═══ */}
-      <section className="relative py-24 md:py-36 px-5" style={{ background: D.bg, color: D.beige }}>
+      <section className="relative py-24 md:py-36 px-5 lg:hidden" style={{ background: D.bg, color: D.beige }}>
         <div className="relative max-w-2xl mx-auto text-center">
           <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
@@ -1330,6 +1400,34 @@ const NexusPage = () => {
 
       <div className="h-16" aria-hidden style={{ background: D.bg }} />
       <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
+
+      {galleryLightbox && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center" style={{ background: "rgba(0,0,0,.94)" }} role="dialog" aria-modal="true" aria-label="Produktbild vergrössert" onClick={() => setGalleryLightbox(false)}>
+          <button type="button" onClick={() => setGalleryLightbox(false)} className="absolute top-4 right-4 p-2 rounded-full z-10" style={{ color: "#fff", background: "rgba(255,255,255,.08)" }} aria-label="Schliessen"><X size={28} /></button>
+          {[-1, 1].map((dir) => (
+            <button key={dir} type="button" aria-label={dir < 0 ? "Vorheriges Bild" : "Nächstes Bild"} onClick={(e) => { e.stopPropagation(); setGalleryZoom(false); setHeroSlideIdx((heroSlideIdx + dir + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length); }} className="absolute z-10 rounded-full flex items-center justify-center" style={{ top: "calc(50% - 26px)", [dir < 0 ? "left" : "right"]: 24, width: 52, height: 52, background: "rgba(255,255,255,.12)", color: "#fff", fontSize: 22 }}>{dir < 0 ? "‹" : "›"}</button>
+          ))}
+          <div className="overflow-hidden" style={{ maxWidth: "90vw", maxHeight: "90vh" }} onClick={(e) => e.stopPropagation()}>
+            <img
+              src={HERO_CAROUSEL_SLIDES[heroSlideIdx].src}
+              srcSet={HERO_CAROUSEL_SLIDES[heroSlideIdx].srcSet}
+              sizes="90vw"
+              alt={HERO_CAROUSEL_SLIDES[heroSlideIdx].alt}
+              onClick={(e) => {
+                const r = e.currentTarget.getBoundingClientRect();
+                setZoomOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
+                setGalleryZoom((z) => !z);
+              }}
+              onMouseMove={(e) => {
+                if (!galleryZoom) return;
+                const r = e.currentTarget.getBoundingClientRect();
+                setZoomOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
+              }}
+              style={{ display: "block", maxWidth: "90vw", maxHeight: "90vh", objectFit: "contain", background: "#fff", borderRadius: 12, transform: galleryZoom ? "scale(2.2)" : "scale(1)", transformOrigin: zoomOrigin, transition: "transform .25s ease", cursor: galleryZoom ? "zoom-out" : "zoom-in" }}
+            />
+          </div>
+        </div>
+      )}
 
       <AnimatePresence>
         {marcelLightboxOpen && activeHeroReview?.photo_url && (
