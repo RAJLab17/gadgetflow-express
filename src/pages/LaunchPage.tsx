@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback, lazy, Suspense } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
+import { lazyWithRetry as lazy } from "@/lib/lazyWithRetry";
 // framer-motion removed from LaunchPage critical bundle — replaced with CSS animations.
 import { Smartphone, Headphones, Watch } from "lucide-react";
 
