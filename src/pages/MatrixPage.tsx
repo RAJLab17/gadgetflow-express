@@ -39,6 +39,7 @@ import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
 import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
+import { observeMediaQuery } from "@/lib/mediaQuery";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
@@ -50,8 +51,7 @@ const getPhotoSizes = (src: string) => photoSizes.find((photo) => photo.full ===
 
 const subscribeGalleryViewport = (onChange: () => void) => {
   const query = window.matchMedia("(min-width: 1024px)");
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
+  return observeMediaQuery(query, onChange);
 };
 const getGalleryViewport = () => window.matchMedia("(min-width: 1024px)").matches;
 
