@@ -1242,22 +1242,6 @@ const NexusPage = () => {
             <div className="grid grid-cols-3 gap-6">
               {heroReviews.slice(0, 3).map((r) => renderReviewCard(r))}
               {heroReviews.slice(3, 5).map((r) => renderReviewCard(r, { gridColumn: 3 }))}
-                <article key={r.customer_name} className="rounded-2xl p-6 flex flex-col" style={{ border: `1px solid ${H.border}`, background: H.surface }}>
-                  <div className="flex items-center justify-between gap-2">
-                    <span style={{ fontSize: 14, fontWeight: 500 }}>{r.customer_name}</span>
-                    {r.verified_purchase && (
-                      <span className="inline-flex items-center gap-1 uppercase" style={{ fontSize: 9, letterSpacing: ".12em", fontWeight: 600, color: "#059669" }}><ShieldCheck size={11} /> Verifizierter Kauf</span>
-                    )}
-                  </div>
-                  <div className="flex gap-0.5 mt-1.5" aria-label={`${r.rating} von 5 Sternen`}>
-                    {[1, 2, 3, 4, 5].map((n) => <span key={n} style={{ color: n <= r.rating ? H.gold : H.border, fontSize: 13 }}>★</span>)}
-                  </div>
-                  <p className="mt-3 line-clamp-5" style={{ fontSize: 14, lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>«{r.comment}»</p>
-                  {r.photo_url && (
-                    <img src={supaThumb(r.photo_url, 640)} alt={`Foto zur Bewertung von ${r.customer_name}`} loading="lazy" decoding="async" className="mt-4 w-full rounded-xl object-cover" style={{ aspectRatio: "4 / 3" }} />
-                  )}
-                </article>
-              ))}
             </div>
           </div>
         </section>
