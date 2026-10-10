@@ -131,7 +131,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Wie schnell lädt der RAJ NEXUS mein iPhone?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 3,3x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.",
+        text: "Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.",
       },
     },
   ],
