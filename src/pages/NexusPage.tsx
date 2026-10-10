@@ -749,6 +749,11 @@ const NexusPage = () => {
       ? `Noch ${founderRemaining} verfügbar`
       : "Verfügbar";
 
+  // Unter 10 Stück im Bestand leuchtet der Hinweis-Punkt rot statt grün.
+  const availabilityColor =
+    founderRemaining !== null && founderRemaining < 10 ? "#dc2626" : "#22c55e";
+
+
   const productJsonLd = {
     ...PRODUCT_NEXUS_JSON_LD,
     offers: {
