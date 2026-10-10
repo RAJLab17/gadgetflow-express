@@ -581,6 +581,7 @@ const MatrixPage = () => {
                   </div>
 
 
+                  {/* Modell */}
                   <div className="order-3">
                     <p className="text-[10px] uppercase tracking-[0.28em] mb-1 md:mb-3" style={{ color: H.textMuted }}>
                       Modell
