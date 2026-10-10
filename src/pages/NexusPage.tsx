@@ -1240,7 +1240,8 @@ const NexusPage = () => {
               </button>
             </div>
             <div className="grid grid-cols-3 gap-6">
-              {heroReviews.slice(0, 3).map((r) => (
+              {heroReviews.slice(0, 3).map((r) => renderReviewCard(r))}
+              {heroReviews.slice(3, 5).map((r) => renderReviewCard(r, { gridColumn: 3 }))}
                 <article key={r.customer_name} className="rounded-2xl p-6 flex flex-col" style={{ border: `1px solid ${H.border}`, background: H.surface }}>
                   <div className="flex items-center justify-between gap-2">
                     <span style={{ fontSize: 14, fontWeight: 500 }}>{r.customer_name}</span>
