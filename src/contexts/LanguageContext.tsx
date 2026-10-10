@@ -354,9 +354,17 @@ const LanguageContext = createContext<LanguageContextType>({
 
 export const useLanguage = () => useContext(LanguageContext);
 
+function readSavedLanguage(): string | null {
+  try {
+    return localStorage.getItem("raj_lang");
+  } catch {
+    return null;
+  }
+}
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [lang, setLangState] = useState<Language>(() => {
-    const stored = localStorage.getItem("raj_lang");
+    const stored = readSavedLanguage();
     if (stored === "de" || stored === "fr" || stored === "it" || stored === "en") return stored;
     return "de";
   });
@@ -364,7 +372,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   // First-time visitors: adopt the browser language after mount.
   // Initial render stays "de" so crawlers always index the German default.
   useEffect(() => {
-    if (localStorage.getItem("raj_lang")) return;
+    if (readSavedLanguage()) return;
     const nav = (navigator.language || "").toLowerCase();
     if (nav.startsWith("fr")) setLangState("fr");
     else if (nav.startsWith("it")) setLangState("it");
@@ -372,7 +380,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const setLang = useCallback((newLang: Language) => {
     setLangState(newLang);
-    localStorage.setItem("raj_lang", newLang);
+    try {
+      localStorage.setItem("raj_lang", newLang);
+    } catch {
+      // Keep the language usable for this visit when browser storage is blocked.
+    }
   }, []);
 
   const t = useCallback(

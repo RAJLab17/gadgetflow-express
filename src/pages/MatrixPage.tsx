@@ -1,4 +1,4 @@
-import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
@@ -38,25 +38,30 @@ import payApplePay from "@/assets/payments/apple-pay.svg";
 import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
-import lifestyle1 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-1.webp.asset.json";
-import lifestyle2 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-2.webp.asset.json";
-import lifestyle3 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-3.webp.asset.json";
-import lifestyle4 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-4.webp.asset.json";
-import blueLifestyle1 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-1.png.asset.json";
-import blueLifestyle2 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-2.png.asset.json";
-import blueLifestyle3 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-3.png.asset.json";
-import blueLifestyle4 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-4.png.asset.json";
+import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
+import { observeMediaQuery } from "@/lib/mediaQuery";
 
-const CHERRY_ORANGE_LIFESTYLE = [lifestyle1.url, lifestyle2.url, lifestyle3.url, lifestyle4.url];
+const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
   (model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "orange";
-const CHERRY_BLUE_LIFESTYLE = [blueLifestyle1.url, blueLifestyle2.url, blueLifestyle3.url, blueLifestyle4.url];
+const CHERRY_BLUE_LIFESTYLE = lifestylePhotos.blue.map((photo) => photo.full);
+const CHERRY_SILVER_LIFESTYLE = lifestylePhotos.silver.map((photo) => photo.full);
+const photoSizes = Object.values(lifestylePhotos).flat();
+const getPhotoSizes = (src: string) => photoSizes.find((photo) => photo.full === src);
+
+const subscribeGalleryViewport = (onChange: () => void) => {
+  const query = window.matchMedia("(min-width: 1024px)");
+  return observeMediaQuery(query, onChange);
+};
+const getGalleryViewport = () => window.matchMedia("(min-width: 1024px)").matches;
+
 const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) => {
   if (hasCherryOrangeLifestyle(model, caseFinish, device)) return CHERRY_ORANGE_LIFESTYLE;
   if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "blue") return CHERRY_BLUE_LIFESTYLE;
+  if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "silver") return CHERRY_SILVER_LIFESTYLE;
   return [];
 };
-const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src);
+const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src) || CHERRY_SILVER_LIFESTYLE.includes(src);
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -256,7 +261,6 @@ const DeviceMock = memo(({
   );
   const generationFallback = generationRenders[0]?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
-  const preloadedSources = generationRenders.map(([, renderSrc]) => renderSrc).filter((renderSrc) => renderSrc !== src);
   const [photo, setPhoto] = useState(0);
   const lifestyle = getLifestylePhotos(model, caseFinish, device);
   const showLifestyle = lifestyle.length > 0;
@@ -295,11 +299,7 @@ const DeviceMock = memo(({
           objectPosition: selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
         }}
       />
-      <div aria-hidden className="hidden">
-        {preloadedSources.map((preloadSrc) => (
-          <img key={preloadSrc} src={preloadSrc} alt="" decoding="async" />
-        ))}
-      </div>
+
     </div>
     </div>
     {showLifestyle && (
@@ -319,7 +319,7 @@ const DeviceMock = memo(({
               background: "#fff",
             }}
           >
-            <img src={image} alt="" loading="lazy" className="h-full w-full object-cover" />
+            <img src={getPhotoSizes(image)?.thumb ?? image} alt="" width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
           </Button>
         ))}
       </div>
@@ -368,7 +368,9 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
         {slides.map((src, i) => (
           <div key={src} className="relative w-full shrink-0 snap-center" style={{ aspectRatio: "1 / 1" }}>
             <img
-              src={src}
+              src={i === 0 || (active > 0 && Math.abs(i - active) <= 1) ? src : undefined}
+              srcSet={getPhotoSizes(src) && (active > 0 && Math.abs(i - active) <= 1) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
+              sizes="(max-width: 767px) calc(100vw - 40px), 480px"
               alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}${i === 0 ? ` in ${device.name}` : ""}`}
               width={928}
               height={1152}
@@ -517,6 +519,7 @@ const MatrixPage = () => {
   useEffect(() => {
     trackViewItem({ item_id: "RAJ-MTX", item_name: "RAJ MATRIX iPhone Case", price: 59 });
   }, []);
+  const isDesktopGallery = useSyncExternalStore(subscribeGalleryViewport, getGalleryViewport, () => false);
   const [modelId, setModelId] = useState<ModelId>("18pro");
   const [deviceId, setDeviceId] = useState("darkcherry");
   const [caseId, setCaseId] = useState("cherry");
@@ -769,10 +772,10 @@ const MatrixPage = () => {
                       }}
                     />
                     <div className="relative hidden lg:flex items-center justify-center p-0">
-                      <DeviceMock device={device} caseFinish={caseFinish} model={model} />
+                      {isDesktopGallery && <DeviceMock device={device} caseFinish={caseFinish} model={model} />}
                     </div>
                     <div className="relative lg:hidden px-1 md:px-10 md:pt-14 md:pb-8">
-                      <MobileGallery device={device} caseFinish={caseFinish} model={model} />
+                      {!isDesktopGallery && <MobileGallery device={device} caseFinish={caseFinish} model={model} />}
                     </div>
                     {/* Plakette */}
                     <div

@@ -1,4 +1,5 @@
 # Roadmap
+- [x] MATRIX: Silver-Fotos für 17 Pro / Pro Max Cherry ergänzt; Zusatzfotos als WebP mit Handy-/Vorschaugrössen komprimiert und bedarfsgerecht geladen, erstes Bild erhalten; Desktop und 390px geprüft
 - [x] Mobile Kaufleisten geprüft: MATRIX erst nach Vorbeiscrollen am Hauptbutton sichtbar, Rückkehr blendet sie aus, Auswahl aktuell, Footer-Abstand ausreichend; NEXUS und AirPods haben keine Kaufleiste
 - [x] Shopify-Fotos für MATRIX iPhone Case und AirPods Case mit den originalen Cherry-Farbtönen aktualisieren
 - [x] Aktualisierte Produktbilder und übrige Produktdaten kontrollieren
