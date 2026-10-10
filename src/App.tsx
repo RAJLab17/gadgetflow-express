@@ -74,7 +74,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Suspense fallback={null}>
+            <Suspense fallback={<RouteFallback />}>
               <DevModeToggle />
               <RouteTracker />
               <ScrollToTop />
