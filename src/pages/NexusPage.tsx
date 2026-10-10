@@ -828,15 +828,8 @@ const NexusPage = () => {
           {/* DESKTOP ≥1024px — gallery left, sticky buy column right */}
           <div className="hidden lg:grid relative mx-auto w-full px-8" style={{ zIndex: 4, maxWidth: 1280, gridTemplateColumns: "minmax(0,58fr) minmax(0,42fr)", columnGap: 40, alignItems: "start", paddingTop: headerH + 32, paddingBottom: 48 }}>
             {/* LEFT — gallery */}
-            <div style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-              <div role="tablist" aria-label="Produktbilder" className="shrink-0 overflow-y-auto" style={{ display: "flex", flexDirection: "column", gap: 8, maxHeight: 6 * 72 + 5 * 8, width: 76, padding: 2 }}>
-                {HERO_CAROUSEL_SLIDES.map((s, i) => (
-                  <button key={i} type="button" role="tab" aria-selected={i === heroSlideIdx} aria-label={`Bild ${i + 1} anzeigen`} onClick={() => setHeroSlideIdx(i)} style={{ width: 72, height: 72, flexShrink: 0, borderRadius: 10, overflow: "hidden", padding: 0, background: "#fff", border: `1.5px solid ${i === heroSlideIdx ? "#1a1a1a" : "rgba(26,26,26,.12)"}`, cursor: "pointer" }}>
-                    <img src={s.thumb} alt="" loading="lazy" decoding="async" width={72} height={72} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                  </button>
-                ))}
-              </div>
-              <div style={{ position: "relative", flex: 1, minWidth: 0, aspectRatio: "1 / 1", borderRadius: 16, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <div style={{ position: "relative", width: "100%", minWidth: 0, aspectRatio: "1 / 1", borderRadius: 16, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
                 <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} sizes="700px" priority objectFit="cover" />
                 <button type="button" aria-label="Bild vergrössern" onClick={() => { setGalleryZoom(false); setGalleryLightbox(true); }} style={{ position: "absolute", inset: 0, zIndex: 2, background: "transparent", border: 0, cursor: "zoom-in" }} />
                 {heroSlideIdx === 0 && (
@@ -855,6 +848,13 @@ const NexusPage = () => {
                   <Qi2CertifiedBadge size={50} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
                   <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
                 </div>
+              </div>
+              <div role="tablist" aria-label="Produktbilder" style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", padding: 2 }}>
+                {HERO_CAROUSEL_SLIDES.map((s, i) => (
+                  <button key={i} type="button" role="tab" aria-selected={i === heroSlideIdx} aria-label={`Bild ${i + 1} anzeigen`} onClick={() => setHeroSlideIdx(i)} style={{ width: 72, height: 72, flexShrink: 0, borderRadius: 10, overflow: "hidden", padding: 0, background: "#fff", border: `1.5px solid ${i === heroSlideIdx ? "#1a1a1a" : "rgba(26,26,26,.12)"}`, cursor: "pointer" }}>
+                    <img src={s.thumb} alt="" loading="lazy" decoding="async" width={72} height={72} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -1066,7 +1066,7 @@ const NexusPage = () => {
             </div>
           </div>
 
-          {/* DESKTOP: ONE continuous dark bar spanning both columns — payments left, thumbnails right */}
+          {/* DESKTOP: continuous dark bar spanning both columns — payment methods only (clickable thumbnails now live under the product image) */}
           <div
             style={{
               gridColumn: "1 / -1",
@@ -1092,7 +1092,6 @@ const NexusPage = () => {
                 ))}
               </div>
             </div>
-            <HeroThumbs slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} size={52} dark style={{ justifyContent: "flex-end", margin: 0, flexWrap: "wrap" }} />
           </div>
         </div>
 
