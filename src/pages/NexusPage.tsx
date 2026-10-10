@@ -749,6 +749,11 @@ const NexusPage = () => {
       ? `Noch ${founderRemaining} verfügbar`
       : "Verfügbar";
 
+  // Unter 10 Stück im Bestand leuchtet der Hinweis-Punkt rot statt grün.
+  const availabilityColor =
+    founderRemaining !== null && founderRemaining < 10 ? "#dc2626" : "#22c55e";
+
+
   const productJsonLd = {
     ...PRODUCT_NEXUS_JSON_LD,
     offers: {
@@ -881,7 +886,7 @@ const NexusPage = () => {
                 <span style={{ color: H.text, fontWeight: 200 }}>RAJ</span>{" "}
                 <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em" }}>NEXUS</span>{" "}
                 <span style={{ display: "block", marginTop: 12, fontSize: 17, lineHeight: 1.35, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", maxWidth: 440 }}>
-                  – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
+                  3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
                 </span>
               </h1>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
@@ -896,8 +901,8 @@ const NexusPage = () => {
               </p>
               <div className="flex items-center" style={{ gap: 8, marginTop: 18 }}>
                 <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
-                  <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#22c55e", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
-                  <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
+                  <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: availabilityColor, opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
+                  <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: availabilityColor }} />
                 </span>
                 <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>{availabilityLabel}</span>
               </div>
@@ -958,7 +963,7 @@ const NexusPage = () => {
               <span style={{ display: "inline", background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em", textShadow: "0 2px 24px rgba(155,107,63,.18)" }}>NEXUS</span>{" "}
               <span style={{ display: "block", whiteSpace: "normal", marginTop: 14, fontSize: "clamp(15px,1.15vw,19px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", maxWidth: 460 }}>
 
-                – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
+                3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
               </span>
             </h1>
 
@@ -979,8 +984,8 @@ const NexusPage = () => {
               {/* Scarcity — desktop */}
               <div className="flex items-center" style={{ gap: 8, marginBottom: 6 }}>
                 <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
-                  <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#22c55e", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
-                  <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
+                  <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: availabilityColor, opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
+                  <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: availabilityColor }} />
                 </span>
                 <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
                   {availabilityLabel}
@@ -1119,7 +1124,7 @@ const NexusPage = () => {
             <span style={{ color: H.text, fontWeight: 200 }}>RAJ</span>{" "}
             <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
             <span className="block" style={{ fontSize: 13, lineHeight: 1.3, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", marginTop: 6, whiteSpace: "normal" }}>
-              – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
+              3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
             </span>
           </h1>
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
@@ -1145,8 +1150,8 @@ const NexusPage = () => {
             {/* Scarcity */}
             <div className="flex items-center" style={{ gap: 8 }}>
               <span style={{ position: "relative", display: "inline-flex", width: 8, height: 8 }}>
-                <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: "#22c55e", opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
-                <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: "#22c55e" }} />
+                <span style={{ position: "absolute", inset: 0, borderRadius: 999, background: availabilityColor, opacity: 0.75, animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite" }} />
+                <span style={{ position: "relative", display: "inline-flex", borderRadius: 999, width: 8, height: 8, background: availabilityColor }} />
               </span>
               <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>
                 {availabilityLabel}

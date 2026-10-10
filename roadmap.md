@@ -17,3 +17,5 @@
 - [x] /matrix: H1-Beschreibung auf „Das Carbon-System für iPhone 17 & 18 Pro / Pro Max – Hülle mit MagSafe & Qi2.2" (Mobile + Desktop, Build 8. Okt)
 - [x] /matrix: H1-Beschreibung exakt zwei Zeilen mit festem Umbruch („Das Carbon-System mit MagSafe" / „für iPhone 17 & 18 Pro / Pro Max"), Mobile + Desktop, 390px geprüft
 - [x] /nexus Desktop-Bewertungen: Aldin, Jonas und Maik gleich grosse Textkarten (389x217), Marcel und Laura als hohe Fotokarten ohne Lücken
+- [x] /nexus: Gedankenstrich vor „3-in-1 Qi2.2 Ladestation …" in der H1 entfernt (Desktop, Tablet, Mobile)
+- [x] /nexus: Hinweis-Punkt bei Bestand unter 10 rot statt grün (Desktop, Tablet, Mobile)
