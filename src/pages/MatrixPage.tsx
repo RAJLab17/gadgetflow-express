@@ -42,10 +42,21 @@ import lifestyle1 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-1.we
 import lifestyle2 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-2.webp.asset.json";
 import lifestyle3 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-3.webp.asset.json";
 import lifestyle4 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-4.webp.asset.json";
+import blueLifestyle1 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-1.png.asset.json";
+import blueLifestyle2 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-2.png.asset.json";
+import blueLifestyle3 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-3.png.asset.json";
+import blueLifestyle4 from "@/assets/matrix/lifestyle-17-blue-cherry/photo-4.png.asset.json";
 
 const CHERRY_ORANGE_LIFESTYLE = [lifestyle1.url, lifestyle2.url, lifestyle3.url, lifestyle4.url];
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
   (model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "orange";
+const CHERRY_BLUE_LIFESTYLE = [blueLifestyle1.url, blueLifestyle2.url, blueLifestyle3.url, blueLifestyle4.url];
+const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) => {
+  if (hasCherryOrangeLifestyle(model, caseFinish, device)) return CHERRY_ORANGE_LIFESTYLE;
+  if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "blue") return CHERRY_BLUE_LIFESTYLE;
+  return [];
+};
+const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src);
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -247,9 +258,10 @@ const DeviceMock = memo(({
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
   const preloadedSources = generationRenders.map(([, renderSrc]) => renderSrc).filter((renderSrc) => renderSrc !== src);
   const [photo, setPhoto] = useState(0);
-  const showLifestyle = hasCherryOrangeLifestyle(model, caseFinish, device);
+  const lifestyle = getLifestylePhotos(model, caseFinish, device);
+  const showLifestyle = lifestyle.length > 0;
   useEffect(() => setPhoto(0), [model.id, caseFinish.id, device.id]);
-  const selectedPhoto = showLifestyle && photo > 0 ? CHERRY_ORANGE_LIFESTYLE[photo - 1] : undefined;
+  const selectedPhoto = showLifestyle && photo > 0 ? lifestyle[photo - 1] : undefined;
 
   const isLifestyle = Boolean(selectedPhoto);
 
@@ -292,7 +304,7 @@ const DeviceMock = memo(({
     </div>
     {showLifestyle && (
       <div className="mt-4 flex flex-wrap justify-center gap-2 pb-1" aria-label="Produktbilder">
-        {[src, ...CHERRY_ORANGE_LIFESTYLE].map((image, i) => (
+        {[src, ...lifestyle].map((image, i) => (
           <Button
             key={image}
             type="button"
@@ -325,9 +337,9 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
     const rest = Object.entries(RENDERS)
       .filter(([k, v]) => k.startsWith(prefix) && v !== main)
       .map(([, v]) => v);
-    const showLifestyle = hasCherryOrangeLifestyle(model, caseFinish, device);
-    const lifestyle = showLifestyle ? CHERRY_ORANGE_LIFESTYLE : [];
-    // Orange + Cherry: ausschliesslich Orange-Aufnahmen, keine Render anderer Gerätefarben
+    const lifestyle = getLifestylePhotos(model, caseFinish, device);
+    const showLifestyle = lifestyle.length > 0;
+    // Lifestyle-Auswahl: keine Render anderer Gerätefarben hinzufügen.
     if (showLifestyle) return [main, ...lifestyle];
     return [main, ...lifestyle, ...Array.from(new Set(rest))];
   }, [model.id, model.gen, caseFinish.id, device.id]);
@@ -363,14 +375,14 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               loading={i === 0 ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
-              className={CHERRY_ORANGE_LIFESTYLE.includes(src)
+              className={isLifestylePhoto(src)
                 ? "absolute inset-0 h-full w-full object-cover"
                 : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"}
               style={{
                 filter: "contrast(1.015) saturate(1.015)",
                 left: 0,
                 right: 0,
-                ...(CHERRY_ORANGE_LIFESTYLE.includes(src) ? {
+                ...(isLifestylePhoto(src) ? {
                   objectPosition: src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
                 } : {}),
               }}
