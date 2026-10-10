@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, useCallback, lazy, Suspense } from "react";
+import { useEffect, useRef, useState, useCallback, Suspense } from "react";
+import { lazyWithRetry as lazy } from "@/lib/lazyWithRetry";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Slide 0 is the LCP image — served from /public via stable URLs and
