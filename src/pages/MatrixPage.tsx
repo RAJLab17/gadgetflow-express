@@ -251,11 +251,18 @@ const DeviceMock = memo(({
   useEffect(() => setPhoto(0), [model.id, caseFinish.id, device.id]);
   const selectedPhoto = showLifestyle && photo > 0 ? CHERRY_ORANGE_LIFESTYLE[photo - 1] : undefined;
 
+  const isLifestyle = Boolean(selectedPhoto);
+
   return (
     <div className="w-full">
+    <div className={isLifestyle ? undefined : "px-1 pt-0 pb-0 md:px-10 md:pt-14 md:pb-8"}>
     <div
-      className="matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
-      style={{ width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
+      className={
+        isLifestyle
+          ? "matrix-device relative mx-auto w-full transition-[width] duration-500 ease-out"
+          : "matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
+      }
+      style={isLifestyle ? { aspectRatio: "1 / 1" } : { width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
     >
       <div
         aria-hidden
@@ -270,14 +277,18 @@ const DeviceMock = memo(({
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-contain"
-        style={{ filter: "contrast(1.015) saturate(1.015)" }}
+        className={isLifestyle ? "absolute inset-0 h-full w-full object-cover" : "absolute inset-0 h-full w-full object-contain"}
+        style={{
+          filter: "contrast(1.015) saturate(1.015)",
+          objectPosition: selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
+        }}
       />
       <div aria-hidden className="hidden">
         {preloadedSources.map((preloadSrc) => (
           <img key={preloadSrc} src={preloadSrc} alt="" decoding="async" />
         ))}
       </div>
+    </div>
     </div>
     {showLifestyle && (
       <div className="mt-4 flex flex-wrap justify-center gap-2 pb-1" aria-label="Produktbilder">
@@ -698,7 +709,7 @@ const MatrixPage = () => {
                             : "radial-gradient(60% 48% at 50% 43%, rgba(155,107,63,0.12) 0%, rgba(250,249,247,0) 72%)",
                       }}
                     />
-                    <div className="relative hidden lg:flex items-center justify-center px-1 pt-0 pb-0 md:px-10 md:pt-14 md:pb-8">
+                    <div className="relative hidden lg:flex items-center justify-center p-0">
                       <DeviceMock device={device} caseFinish={caseFinish} model={model} />
                     </div>
                     <div className="relative lg:hidden px-1 md:px-10 md:pt-14 md:pb-8">
