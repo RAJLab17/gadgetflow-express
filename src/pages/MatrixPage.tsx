@@ -254,8 +254,8 @@ const DeviceMock = memo(({
   return (
     <div className="w-full">
     <div
-      className="matrix-device relative mx-auto w-full transition-[width] duration-500 ease-out"
-      style={{ aspectRatio: "1 / 1" }}
+      className="matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
+      style={{ width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
     >
       <div
         aria-hidden
