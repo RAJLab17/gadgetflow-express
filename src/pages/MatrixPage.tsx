@@ -280,7 +280,7 @@ const DeviceMock = memo(({
       </div>
     </div>
     {showLifestyle && (
-      <div className="mt-4 flex flex-wrap justify-center gap-2.5 px-2 pb-1" aria-label="Produktbilder">
+      <div className="mt-4 flex flex-wrap justify-center gap-2 pb-1" aria-label="Produktbilder">
         {[src, ...CHERRY_ORANGE_LIFESTYLE].map((image, i) => (
           <Button
             key={image}
@@ -289,7 +289,7 @@ const DeviceMock = memo(({
             aria-label={`Bild ${i + 1}`}
             aria-pressed={photo === i}
             onClick={() => setPhoto(i)}
-            className="h-[76px] w-[76px] overflow-hidden rounded-lg p-0 transition-all duration-200 hover:opacity-90"
+            className="h-[68px] w-[68px] shrink-0 overflow-hidden rounded-lg p-0 transition-all duration-200 hover:opacity-90"
             style={{
               borderColor: photo === i ? H.gold : H.line,
               boxShadow: photo === i ? `0 0 0 1px ${H.gold}` : "none",
