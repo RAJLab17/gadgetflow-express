@@ -122,47 +122,6 @@
 
     <!-- FAQPage schema is injected per-page via Helmet (only on /, /faq, /nexus) -->
 
-    <!-- iOS In-App-Browser Safety Shim
-         Fix for "undefined is not an object (evaluating 'window.webkit.messageHandlers')"
-         Confirmed source: Microsoft Clarity (clarity.js, loaded below as
-         https://www.clarity.ms/tag/vomrvl4nxg). Upstream bug tracked in
-         microsoft/clarity issue #1066 (open, March 2026): Clarity calls
-         window.webkit.messageHandlers.<handler>.postMessage() inside Facebook
-         and Instagram in-app WebViews on iOS without checking existence.
-         Because clarity.js is cross-origin, the browser surfaces it only as
-         "Script error." with no usable stack. Meta Pixel (fbevents.js) has
-         historically shown the same pattern. We install a safe no-op Proxy
-         ONLY when window.webkit / messageHandlers / the concrete handler is
-         missing, so real native WebViews with real bridges are untouched. -->
-    <script>
-      (function () {
-        try {
-          var noop = function () {};
-          var handlerStub = { postMessage: noop };
-          var makeProxy = function () {
-            return new Proxy({}, {
-              get: function (target, prop) {
-                return prop in target ? target[prop] : handlerStub;
-              },
-              has: function () { return true; }
-            });
-          };
-          if (typeof window.webkit === 'undefined') {
-            try {
-              Object.defineProperty(window, 'webkit', {
-                value: { messageHandlers: makeProxy() },
-                writable: true, configurable: true
-              });
-            } catch (e) {
-              window.webkit = { messageHandlers: makeProxy() };
-            }
-          } else if (window.webkit && !window.webkit.messageHandlers) {
-            try { window.webkit.messageHandlers = makeProxy(); } catch (e) {}
-          }
-        } catch (e) { /* never break the page */ }
-      })();
-    </script>
-
   </head>
 
   <body>

@@ -58,7 +58,7 @@ const getGalleryViewport = () => window.matchMedia("(min-width: 1024px)").matche
 const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) => {
   if (hasCherryOrangeLifestyle(model, caseFinish, device)) return CHERRY_ORANGE_LIFESTYLE;
   if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "blue") return CHERRY_BLUE_LIFESTYLE;
-  if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "silver") return CHERRY_SILVER_LIFESTYLE;
+  if ((model.id === "17pro" || model.id === "17promax" || model.id === "18pro" || model.id === "18promax") && caseFinish.id === "cherry" && device.id === "silver") return CHERRY_SILVER_LIFESTYLE;
   return [];
 };
 const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src) || CHERRY_SILVER_LIFESTYLE.includes(src);
