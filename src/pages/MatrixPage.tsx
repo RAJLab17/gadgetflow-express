@@ -246,8 +246,13 @@ const DeviceMock = memo(({
   const generationFallback = generationRenders[0]?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
   const preloadedSources = generationRenders.map(([, renderSrc]) => renderSrc).filter((renderSrc) => renderSrc !== src);
+  const [photo, setPhoto] = useState(0);
+  const showLifestyle = hasCherryOrangeLifestyle(model, caseFinish, device);
+  useEffect(() => setPhoto(0), [model.id, caseFinish.id, device.id]);
+  const selectedPhoto = showLifestyle && photo > 0 ? CHERRY_ORANGE_LIFESTYLE[photo - 1] : undefined;
 
   return (
+    <div className="w-full">
     <div
       className="matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
@@ -258,7 +263,7 @@ const DeviceMock = memo(({
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
       />
       <img
-        src={src}
+        src={selectedPhoto ?? src}
         alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`}
         width={928}
         height={1152}
@@ -274,7 +279,24 @@ const DeviceMock = memo(({
         ))}
       </div>
     </div>
-
+    {showLifestyle && (
+      <div className="mt-3 flex justify-center gap-2" aria-label="Produktbilder">
+        {[src, ...CHERRY_ORANGE_LIFESTYLE].map((image, i) => (
+          <Button
+            key={image}
+            type="button"
+            variant="outline"
+            aria-label={`Bild ${i + 1}`}
+            aria-pressed={photo === i}
+            onClick={() => setPhoto(i)}
+            className={`h-12 w-12 overflow-hidden rounded-md p-0 ${photo === i ? "border-primary" : "border-border"}`}
+          >
+            <img src={image} alt="" loading="lazy" className="h-full w-full object-cover" />
+          </Button>
+        ))}
+      </div>
+    )}
+    </div>
   );
 });
 DeviceMock.displayName = "DeviceMock";
