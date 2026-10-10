@@ -789,7 +789,7 @@ const NexusPage = () => {
       </div>
       <p className="mt-3 line-clamp-5" style={{ fontSize: 14, lineHeight: 1.55, color: H.textMuted, fontWeight: 300 }}>«{r.comment}»</p>
       {r.photo_url && (
-        <img src={supaThumb(r.photo_url, 640)} alt={`Foto zur Bewertung von ${r.customer_name}`} loading="lazy" decoding="async" className="mt-4 w-full rounded-xl object-cover" style={{ aspectRatio: "4 / 3" }} />
+        <img src={supaThumb(r.photo_url, 640)} alt={`Foto zur Bewertung von ${r.customer_name}`} loading="lazy" decoding="async" className="mt-4 w-full rounded-xl object-cover" style={{ aspectRatio: "4 / 3", flex: "1 1 auto", minHeight: 0 }} />
       )}
     </article>
   );
@@ -1240,8 +1240,19 @@ const NexusPage = () => {
               </button>
             </div>
             <div className="grid grid-cols-3 gap-6">
-              {heroReviews.slice(0, 3).map((r) => renderReviewCard(r))}
-              {heroReviews.slice(3, 5).map((r) => renderReviewCard(r, { gridColumn: 3 }))}
+              {(() => {
+                const photo = heroReviews.filter((r) => !!r.photo_url).slice(0, 2);
+                const text = heroReviews.filter((r) => !r.photo_url).slice(0, 3);
+                if (photo.length === 0 || text.length === 0) {
+                  return heroReviews.slice(0, 6).map((r) => renderReviewCard(r));
+                }
+                return (
+                  <>
+                    {photo.map((r, i) => renderReviewCard(r, { gridColumn: i + 1, gridRow: `1 / span ${text.length}` }))}
+                    {text.map((r, i) => renderReviewCard(r, { gridColumn: photo.length + 1, gridRow: i + 1 }))}
+                  </>
+                );
+              })()}
             </div>
           </div>
         </section>
