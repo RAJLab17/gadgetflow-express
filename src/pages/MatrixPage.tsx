@@ -46,6 +46,7 @@ const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: 
   (model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "orange";
 const CHERRY_BLUE_LIFESTYLE = lifestylePhotos.blue.map((photo) => photo.full);
 const CHERRY_SILVER_LIFESTYLE = lifestylePhotos.silver.map((photo) => photo.full);
+const ONYX_ORANGE_LIFESTYLE = lifestylePhotos.onyxOrange.map((photo) => photo.full);
 const photoSizes = Object.values(lifestylePhotos).flat();
 const getPhotoSizes = (src: string) => photoSizes.find((photo) => photo.full === src);
 
