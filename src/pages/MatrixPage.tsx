@@ -38,6 +38,14 @@ import payApplePay from "@/assets/payments/apple-pay.svg";
 import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
+import lifestyle1 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-1.webp.asset.json";
+import lifestyle2 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-2.webp.asset.json";
+import lifestyle3 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-3.webp.asset.json";
+import lifestyle4 from "@/assets/matrix/lifestyle-17pro-orange-cherry/photo-4.webp.asset.json";
+
+const CHERRY_ORANGE_LIFESTYLE = [lifestyle1.url, lifestyle2.url, lifestyle3.url, lifestyle4.url];
+const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
+  model.id === "17pro" && caseFinish.id === "cherry" && device.id === "orange";
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
@@ -238,8 +246,13 @@ const DeviceMock = memo(({
   const generationFallback = generationRenders[0]?.[1];
   const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
   const preloadedSources = generationRenders.map(([, renderSrc]) => renderSrc).filter((renderSrc) => renderSrc !== src);
+  const [photo, setPhoto] = useState(0);
+  const showLifestyle = hasCherryOrangeLifestyle(model, caseFinish, device);
+  useEffect(() => setPhoto(0), [model.id, caseFinish.id, device.id]);
+  const selectedPhoto = showLifestyle && photo > 0 ? CHERRY_ORANGE_LIFESTYLE[photo - 1] : undefined;
 
   return (
+    <div className="w-full">
     <div
       className="matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
       style={{ width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
@@ -250,7 +263,7 @@ const DeviceMock = memo(({
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
       />
       <img
-        src={src}
+        src={selectedPhoto ?? src}
         alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`}
         width={928}
         height={1152}
@@ -266,7 +279,24 @@ const DeviceMock = memo(({
         ))}
       </div>
     </div>
-
+    {showLifestyle && (
+      <div className="mt-3 flex justify-center gap-2" aria-label="Produktbilder">
+        {[src, ...CHERRY_ORANGE_LIFESTYLE].map((image, i) => (
+          <Button
+            key={image}
+            type="button"
+            variant="outline"
+            aria-label={`Bild ${i + 1}`}
+            aria-pressed={photo === i}
+            onClick={() => setPhoto(i)}
+            className={`h-12 w-12 overflow-hidden rounded-md p-0 ${photo === i ? "border-primary" : "border-border"}`}
+          >
+            <img src={image} alt="" loading="lazy" className="h-full w-full object-cover" />
+          </Button>
+        ))}
+      </div>
+    )}
+    </div>
   );
 });
 DeviceMock.displayName = "DeviceMock";
@@ -279,8 +309,9 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
     const rest = Object.entries(RENDERS)
       .filter(([k, v]) => k.startsWith(prefix) && v !== main)
       .map(([, v]) => v);
-    return [main, ...Array.from(new Set(rest))];
-  }, [model.gen, caseFinish.id, device.id]);
+    const lifestyle = hasCherryOrangeLifestyle(model, caseFinish, device) ? CHERRY_ORANGE_LIFESTYLE : [];
+    return [main, ...lifestyle, ...Array.from(new Set(rest))];
+  }, [model.id, model.gen, caseFinish.id, device.id]);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
@@ -313,7 +344,9 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               loading={i === 0 ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
-              className="absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"
+              className={CHERRY_ORANGE_LIFESTYLE.includes(src)
+                ? "absolute inset-0 h-full w-full object-contain"
+                : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"}
               style={{ filter: "contrast(1.015) saturate(1.015)", left: 0, right: 0 }}
             />
           </div>
