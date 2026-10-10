@@ -34,6 +34,18 @@ import silver3thumb from "./lifestyle-optimised/silver-3-thumb.webp.asset.json";
 import silver4full from "./lifestyle-optimised/silver-4-full.webp.asset.json";
 import silver4mobile from "./lifestyle-optimised/silver-4-mobile.webp.asset.json";
 import silver4thumb from "./lifestyle-optimised/silver-4-thumb.webp.asset.json";
+import onyxOrange1full from "./lifestyle-optimised/onyx-orange-1-full.webp.asset.json";
+import onyxOrange1mobile from "./lifestyle-optimised/onyx-orange-1-mobile.webp.asset.json";
+import onyxOrange1thumb from "./lifestyle-optimised/onyx-orange-1-thumb.webp.asset.json";
+import onyxOrange2full from "./lifestyle-optimised/onyx-orange-2-full.webp.asset.json";
+import onyxOrange2mobile from "./lifestyle-optimised/onyx-orange-2-mobile.webp.asset.json";
+import onyxOrange2thumb from "./lifestyle-optimised/onyx-orange-2-thumb.webp.asset.json";
+import onyxOrange3full from "./lifestyle-optimised/onyx-orange-3-full.webp.asset.json";
+import onyxOrange3mobile from "./lifestyle-optimised/onyx-orange-3-mobile.webp.asset.json";
+import onyxOrange3thumb from "./lifestyle-optimised/onyx-orange-3-thumb.webp.asset.json";
+import onyxOrange4full from "./lifestyle-optimised/onyx-orange-4-full.webp.asset.json";
+import onyxOrange4mobile from "./lifestyle-optimised/onyx-orange-4-mobile.webp.asset.json";
+import onyxOrange4thumb from "./lifestyle-optimised/onyx-orange-4-thumb.webp.asset.json";
 
 export const lifestylePhotos = {
   orange: [
@@ -53,5 +65,11 @@ export const lifestylePhotos = {
     { full: silver2full.url, mobile: silver2mobile.url, thumb: silver2thumb.url },
     { full: silver3full.url, mobile: silver3mobile.url, thumb: silver3thumb.url },
     { full: silver4full.url, mobile: silver4mobile.url, thumb: silver4thumb.url },
+  ],
+  onyxOrange: [
+    { full: onyxOrange1full.url, mobile: onyxOrange1mobile.url, thumb: onyxOrange1thumb.url },
+    { full: onyxOrange2full.url, mobile: onyxOrange2mobile.url, thumb: onyxOrange2thumb.url },
+    { full: onyxOrange3full.url, mobile: onyxOrange3mobile.url, thumb: onyxOrange3thumb.url },
+    { full: onyxOrange4full.url, mobile: onyxOrange4mobile.url, thumb: onyxOrange4thumb.url },
   ],
 };

@@ -46,6 +46,7 @@ const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: 
   (model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "orange";
 const CHERRY_BLUE_LIFESTYLE = lifestylePhotos.blue.map((photo) => photo.full);
 const CHERRY_SILVER_LIFESTYLE = lifestylePhotos.silver.map((photo) => photo.full);
+const ONYX_ORANGE_LIFESTYLE = lifestylePhotos.onyxOrange.map((photo) => photo.full);
 const photoSizes = Object.values(lifestylePhotos).flat();
 const getPhotoSizes = (src: string) => photoSizes.find((photo) => photo.full === src);
 
@@ -59,9 +60,10 @@ const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: Device
   if (hasCherryOrangeLifestyle(model, caseFinish, device)) return CHERRY_ORANGE_LIFESTYLE;
   if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "blue") return CHERRY_BLUE_LIFESTYLE;
   if ((model.id === "17pro" || model.id === "17promax" || model.id === "18pro" || model.id === "18promax") && caseFinish.id === "cherry" && device.id === "silver") return CHERRY_SILVER_LIFESTYLE;
+  if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "onyx" && device.id === "orange") return ONYX_ORANGE_LIFESTYLE;
   return [];
 };
-const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src) || CHERRY_SILVER_LIFESTYLE.includes(src);
+const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src) || CHERRY_SILVER_LIFESTYLE.includes(src) || ONYX_ORANGE_LIFESTYLE.includes(src);
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
