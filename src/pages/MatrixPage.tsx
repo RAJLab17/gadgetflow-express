@@ -254,8 +254,8 @@ const DeviceMock = memo(({
   return (
     <div className="w-full">
     <div
-      className="matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
-      style={{ width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
+      className="matrix-device relative mx-auto w-full transition-[width] duration-500 ease-out"
+      style={{ aspectRatio: "1 / 1" }}
     >
       <div
         aria-hidden
@@ -270,7 +270,7 @@ const DeviceMock = memo(({
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-contain"
+        className="absolute inset-0 h-full w-full object-cover"
         style={{ filter: "contrast(1.015) saturate(1.015)" }}
       />
       <div aria-hidden className="hidden">
