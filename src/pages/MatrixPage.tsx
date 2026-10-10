@@ -325,7 +325,10 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
     const rest = Object.entries(RENDERS)
       .filter(([k, v]) => k.startsWith(prefix) && v !== main)
       .map(([, v]) => v);
-    const lifestyle = hasCherryOrangeLifestyle(model, caseFinish, device) ? CHERRY_ORANGE_LIFESTYLE : [];
+    const showLifestyle = hasCherryOrangeLifestyle(model, caseFinish, device);
+    const lifestyle = showLifestyle ? CHERRY_ORANGE_LIFESTYLE : [];
+    // Orange + Cherry: ausschliesslich Orange-Aufnahmen, keine Render anderer Gerätefarben
+    if (showLifestyle) return [main, ...lifestyle];
     return [main, ...lifestyle, ...Array.from(new Set(rest))];
   }, [model.id, model.gen, caseFinish.id, device.id]);
   const scrollerRef = useRef<HTMLDivElement>(null);
