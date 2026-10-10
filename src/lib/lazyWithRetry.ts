@@ -2,6 +2,27 @@ import { lazy, type ComponentType } from "react";
 
 const RELOAD_KEY = "raj:chunk-reloaded";
 const IMPORT_TIMEOUT_MS = 15000;
+let reloadedWithoutStorage = false;
+
+function clearReloadFlag() {
+  try {
+    sessionStorage.removeItem(RELOAD_KEY);
+  } catch {
+    // Storage restrictions must not turn a successful import into a failure.
+  }
+}
+
+function markReloadAttempt(): boolean {
+  try {
+    if (sessionStorage.getItem(RELOAD_KEY) === "1") return false;
+    sessionStorage.setItem(RELOAD_KEY, "1");
+    return true;
+  } catch {
+    // Without persistent storage a reload cannot be safely bounded across loads.
+    reloadedWithoutStorage = true;
+    return false;
+  }
+}
 
 /** Reject a stalled import so it can be retried instead of hanging forever. */
 function withTimeout<T>(promise: Promise<T>, ms: number) {
@@ -33,18 +54,16 @@ export function lazyWithRetry<T extends ComponentType<any>>(
   return lazy(async () => {
     try {
       const mod = await withTimeout(factory(), IMPORT_TIMEOUT_MS);
-      sessionStorage.removeItem(RELOAD_KEY);
+      clearReloadFlag();
       return mod;
     } catch (err) {
       // one silent retry (transient network / CDN hiccup)
       try {
         const mod = await withTimeout(factory(), IMPORT_TIMEOUT_MS);
-        sessionStorage.removeItem(RELOAD_KEY);
+        clearReloadFlag();
         return mod;
       } catch (err2) {
-        const alreadyReloaded = sessionStorage.getItem(RELOAD_KEY) === "1";
-        if (!alreadyReloaded) {
-          sessionStorage.setItem(RELOAD_KEY, "1");
+        if (!reloadedWithoutStorage && markReloadAttempt()) {
           window.location.reload();
           // never resolves — page is reloading
           return new Promise<{ default: T }>(() => {});
