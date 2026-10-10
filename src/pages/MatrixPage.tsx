@@ -396,6 +396,42 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
   );
 };
 
+/* ── Zahlungsmethoden-Leiste (Desktop: unter dem Kaufblock, Mobile: unter der Trust-Zeile) ── */
+const PaymentMethodsBar = () => (
+  <div
+    className="mt-5 rounded-xl flex items-center gap-3 md:gap-4 flex-wrap justify-center"
+    style={{
+      background: "#0a0908",
+      border: "1px solid rgba(155,107,63,.20)",
+      padding: "10px 14px",
+    }}
+  >
+    <p className="text-[10px] uppercase tracking-[0.22em] w-full text-center md:w-auto md:text-left" style={{ color: H.gold }}>
+      Sichere Zahlungsmethoden
+    </p>
+    <div className="flex items-center gap-2 flex-wrap justify-center">
+      {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          style={{
+            height: 22,
+            width: "auto",
+            objectFit: "contain",
+            background: "white",
+            borderRadius: 4,
+            padding: "2px 5px",
+            border: "1px solid rgba(255,255,255,.12)",
+          }}
+        />
+      ))}
+    </div>
+  </div>
+);
+
 /* ── Mobile: Lieferzeile, Trust, FAQ, Bewertungen ── */
 const getMatrixDeliveryText = () => {
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
@@ -432,6 +468,7 @@ const MatrixMobileInfo = () => {
       <p className="mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
         ↩︎ 30 Tage Rückgabe · 🇨🇭 Swiss Brand · Gratis Versand
       </p>
+      <PaymentMethodsBar />
       <Accordion type="single" collapsible className="mt-3 w-full">
         {faqs.map(([q, a]) => (
           <AccordionItem key={q} value={q} style={{ borderColor: H.line }}>
@@ -1064,40 +1101,8 @@ const MatrixPage = () => {
                     <MatrixMobileInfo />
                   </div>
 
-                  <div className="order-7 mt-3 md:mt-6">
-                    {/* Zahlungsmethoden */}
-                    <div
-                      className="mt-5 rounded-xl flex items-center gap-3 md:gap-4 flex-wrap justify-center"
-                      style={{
-                        background: "#0a0908",
-                        border: "1px solid rgba(155,107,63,.20)",
-                        padding: "10px 14px",
-                      }}
-                    >
-                      <p className="text-[10px] uppercase tracking-[0.22em] w-full text-center md:w-auto md:text-left" style={{ color: H.gold }}>
-                        Sichere Zahlungsmethoden
-                      </p>
-                      <div className="flex items-center gap-2 flex-wrap justify-center">
-                        {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                          <img
-                            key={i}
-                            src={src}
-                            alt=""
-                            loading="lazy"
-                            decoding="async"
-                            style={{
-                              height: 22,
-                              width: "auto",
-                              objectFit: "contain",
-                              background: "white",
-                              borderRadius: 4,
-                              padding: "2px 5px",
-                              border: "1px solid rgba(255,255,255,.12)",
-                            }}
-                          />
-                        ))}
-                      </div>
-                    </div>
+                  <div className="order-7 mt-3 md:mt-6 hidden lg:block">
+                    <PaymentMethodsBar />
                   </div>
                 </div>
               </div>
