@@ -6,4 +6,5 @@
 - Serve MATRIX lifestyle photos as optimised WebP with separate thumbnail and mobile sizes; mount only the current viewport gallery and request mobile full photos on navigation, so initial visits do not download every photo or render variant.
 - Subscribe to media-query changes through the shared legacy-compatible observer so older Safari/WebViews cannot crash viewport-dependent rendering.
 - Language preferences must remain usable in memory when browser storage is blocked; persistence failures must never prevent the app shell from mounting.
+- Never fabricate webkit.messageHandlers or native bridge handlers; third-party scripts must detect real browser capabilities, since fake bridges trigger invalid native Promise calls.
 - Load every page module through lazyWithRetry and keep the app shell wrapped in an ErrorBoundary with a non-empty Suspense fallback; storage restrictions must not fail successful imports, and reload recovery requires a persistable guard to prevent loops.
