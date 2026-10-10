@@ -172,17 +172,10 @@ const MATRIX_ROWS: Row[] = [
   { label: "Qi2.2 · 25 W ohne Verlust", values: { cherry: true, onyx: true } },
   { label: "RAJ NEXUS kompatibel", values: { cherry: true, onyx: true } },
   { label: "RAJ APEX kompatibel", values: { cherry: true, onyx: true } },
-  { label: "Knöpfe", values: { cherry: "Titan, goldeloxiert", onyx: "Titan, goldeloxiert" } },
-  { label: "Materialstärke", values: { cherry: "0,9 mm", onyx: "0,9 mm" } },
-  { label: "Falltest", values: { cherry: "4 m", onyx: "4 m" } },
+  { label: "Knöpfe", values: { cherry: "Aluminium, goldeloxiert", onyx: "Aluminium, goldeloxiert" } },
   { label: "Kameraring Metall", values: { cherry: true, onyx: true } },
   { label: "Gerätefarbe im Plateau sichtbar", values: { cherry: true, onyx: true } },
 ];
-
-/* Mobile-Variante: Aluminium-Knöpfe, ohne Materialstärke/Falltest. */
-const MATRIX_ROWS_MOBILE: Row[] = MATRIX_ROWS
-  .filter((r) => r.label !== "Materialstärke" && r.label !== "Falltest")
-  .map((r) => (r.label === "Knöpfe" ? { ...r, values: { cherry: "Aluminium, goldeloxiert", onyx: "Aluminium, goldeloxiert" } } : r));
 
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
 const RENDERS: Record<string, string> = {
@@ -1077,7 +1070,7 @@ const MatrixPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {MATRIX_ROWS_MOBILE.map((row) => (
+                  {MATRIX_ROWS.map((row) => (
                     <tr key={row.label} className="border-t" style={{ borderColor: H.line }}>
                       <td className="py-3 pr-2 leading-snug" style={{ color: H.text }}>{row.label}</td>
                       {CASE_FINISHES.map((c) => {
@@ -1168,8 +1161,7 @@ const MatrixPage = () => {
                 {[
                   {
                     name: "RAJ NEXUS",
-                    text: "Der Magnetring der MATRIX sitzt 0,2 mm tiefer als die Norm verlangt. Das iPhone rastet auf dem NEXUS in derselben Position ein — mit oder ohne Hülle.",
-                    mobileText: "Der Magnetring der MATRIX ist auf den NEXUS abgestimmt. Das iPhone rastet in derselben Position ein, mit oder ohne Hülle.",
+                    text: "Der Magnetring der MATRIX ist auf den NEXUS abgestimmt. Das iPhone rastet in derselben Position ein, mit oder ohne Hülle.",
                     link: "/nexus",
                   },
                   {
@@ -1190,14 +1182,9 @@ const MatrixPage = () => {
                     <h3 className="mt-4 font-light" style={{ fontSize: "clamp(24px,2.4vw,32px)" }}>
                       {s.name}
                     </h3>
-                    <p className={`mt-4 text-sm leading-relaxed ${"mobileText" in s ? "hidden lg:block" : ""}`} style={{ color: H.textMuted }}>
+                    <p className="mt-4 text-sm leading-relaxed" style={{ color: H.textMuted }}>
                       {s.text}
                     </p>
-                    {"mobileText" in s && (
-                      <p className="mt-4 text-sm leading-relaxed lg:hidden" style={{ color: H.textMuted }}>
-                        {(s as { mobileText: string }).mobileText}
-                      </p>
-                    )}
                     <span
                       className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em]"
                       style={{ color: H.gold }}
