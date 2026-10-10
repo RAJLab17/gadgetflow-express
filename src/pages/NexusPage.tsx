@@ -1,4 +1,5 @@
-import { useEffect, useState, useCallback, FormEvent, lazy, Suspense } from "react";
+import { useEffect, useState, useCallback, FormEvent, Suspense } from "react";
+import { lazyWithRetry as lazy } from "@/lib/lazyWithRetry";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, AnimatePresence } from "framer-motion";
