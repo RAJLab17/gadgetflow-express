@@ -361,9 +361,16 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
               className={CHERRY_ORANGE_LIFESTYLE.includes(src)
-                ? "absolute inset-0 h-full w-full object-contain"
+                ? "absolute inset-0 h-full w-full object-cover"
                 : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"}
-              style={{ filter: "contrast(1.015) saturate(1.015)", left: 0, right: 0 }}
+              style={{
+                filter: "contrast(1.015) saturate(1.015)",
+                left: 0,
+                right: 0,
+                ...(CHERRY_ORANGE_LIFESTYLE.includes(src) ? {
+                  objectPosition: src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
+                } : {}),
+              }}
             />
           </div>
         ))}
