@@ -16,3 +16,4 @@
 - [x] MATRIX Bundle-Karten: Bundle-Vorschaubild nur AirPods Case, Titel „Hülle + AirPods Case", Untertitel „AirPods 4 & 5 · Finish", Farbauswahl eingeklappt
 - [x] /matrix: H1-Beschreibung auf „Das Carbon-System für iPhone 17 & 18 Pro / Pro Max – Hülle mit MagSafe & Qi2.2" (Mobile + Desktop, Build 8. Okt)
 - [x] /matrix: H1-Beschreibung exakt zwei Zeilen mit festem Umbruch („Das Carbon-System mit MagSafe" / „für iPhone 17 & 18 Pro / Pro Max"), Mobile + Desktop, 390px geprüft
+- [x] /nexus Desktop-Bewertungen: Aldin, Jonas und Maik gleich grosse Textkarten (389x217), Marcel und Laura als hohe Fotokarten ohne Lücken
