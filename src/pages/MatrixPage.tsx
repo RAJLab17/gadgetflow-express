@@ -10,6 +10,8 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import { trackAddToCart, trackViewItem } from "@/lib/ga-ecommerce";
 
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
@@ -177,6 +179,11 @@ const MATRIX_ROWS: Row[] = [
   { label: "Gerätefarbe im Plateau sichtbar", values: { cherry: true, onyx: true } },
 ];
 
+/* Mobile-Variante: Aluminium-Knöpfe, ohne Materialstärke/Falltest. */
+const MATRIX_ROWS_MOBILE: Row[] = MATRIX_ROWS
+  .filter((r) => r.label !== "Materialstärke" && r.label !== "Falltest")
+  .map((r) => (r.label === "Knöpfe" ? { ...r, values: { cherry: "Aluminium, goldeloxiert", onyx: "Aluminium, goldeloxiert" } } : r));
+
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
 const RENDERS: Record<string, string> = {
   // Gen 17
@@ -270,6 +277,137 @@ const DeviceMock = memo(({
   );
 });
 DeviceMock.displayName = "DeviceMock";
+
+/* ── Mobile: wischbare Galerie (aktuelles Bild zuerst, dann gleiche Hüllenfarbe) ── */
+const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; caseFinish: CaseFinish; model: Model }) => {
+  const slides = useMemo(() => {
+    const prefix = `${model.gen}-${caseFinish.id}-`;
+    const main = RENDERS[`${prefix}${device.id}`] ?? Object.entries(RENDERS).find(([k]) => k.startsWith(`${model.gen}-`))?.[1] ?? Object.values(RENDERS)[0];
+    const rest = Object.entries(RENDERS)
+      .filter(([k, v]) => k.startsWith(prefix) && v !== main)
+      .map(([, v]) => v);
+    return [main, ...Array.from(new Set(rest))];
+  }, [model.gen, caseFinish.id, device.id]);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    setActive(0);
+    scrollerRef.current?.scrollTo({ left: 0 });
+  }, [slides]);
+
+  const onScroll = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    setActive(Math.round(el.scrollLeft / el.clientWidth));
+  };
+
+  return (
+    <div>
+      <div
+        ref={scrollerRef}
+        onScroll={onScroll}
+        className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        aria-roledescription="carousel"
+      >
+        {slides.map((src, i) => (
+          <div key={src} className="relative w-full shrink-0 snap-center" style={{ aspectRatio: "1 / 1" }}>
+            <img
+              src={src}
+              alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}${i === 0 ? ` in ${device.name}` : ""}`}
+              width={928}
+              height={1152}
+              loading={i === 0 ? "eager" : "lazy"}
+              fetchPriority={i === 0 ? "high" : undefined}
+              decoding="async"
+              className="absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"
+              style={{ filter: "contrast(1.015) saturate(1.015)", left: 0, right: 0 }}
+            />
+          </div>
+        ))}
+      </div>
+      {slides.length > 1 && (
+        <div className="flex justify-center gap-1.5 pb-2 pt-1">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              aria-label={`Bild ${i + 1}`}
+              onClick={() => scrollerRef.current?.scrollTo({ left: i * (scrollerRef.current?.clientWidth ?? 0), behavior: "smooth" })}
+              className="h-1.5 rounded-full transition-all"
+              style={{ width: i === active ? 18 : 6, background: i === active ? H.gold : H.line }}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+/* ── Mobile: Lieferzeile, Trust, FAQ, Bewertungen ── */
+const getMatrixDeliveryText = () => {
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  return today <= "2026-10-13"
+    ? "Versand ab Mi, 14. Oktober · Lieferung ca. 15.–16. Oktober"
+    : "Lieferung in 2–3 Werktagen";
+};
+
+type MatrixReview = { id: string; customer_name: string; rating: number; title: string; comment: string; created_at: string };
+
+const MatrixMobileInfo = () => {
+  const delivery = getMatrixDeliveryText();
+  const [reviews, setReviews] = useState<MatrixReview[]>([]);
+  useEffect(() => {
+    supabase
+      .from("reviews")
+      .select("id, customer_name, rating, title, comment, created_at")
+      .eq("product_id", "matrix")
+      .eq("status", "approved")
+      .order("created_at", { ascending: false })
+      .limit(5)
+      .then(({ data }) => setReviews((data as MatrixReview[]) ?? []));
+  }, []);
+  const faqs: [string, string][] = [
+    ["Passt die Hülle zu meinem iPhone?", "Ja, MATRIX gibt es passgenau für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Wähle oben dein Modell."],
+    ["Hält MagSafe zuverlässig?", "Ja, der eingebaute N52-Magnetring hält dein iPhone sicher auf MagSafe-Ladegeräten, Haltern und im Auto."],
+    ["Kann ich kabellos laden?", "Ja, Qi2.2 und MagSafe laden direkt durch die Hülle."],
+    ["Wann kommt meine Bestellung?", delivery],
+    ["Was, wenn sie mir nicht gefällt?", "Du hast 30 Tage Rückgaberecht. Gratis Versand innerhalb der Schweiz."],
+  ];
+  return (
+    <div className="lg:hidden">
+      <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {delivery}</p>
+      <p className="mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
+        ↩︎ 30 Tage Rückgabe · 🇨🇭 Swiss Brand · Gratis Versand
+      </p>
+      <Accordion type="single" collapsible className="mt-3 w-full">
+        {faqs.map(([q, a]) => (
+          <AccordionItem key={q} value={q} style={{ borderColor: H.line }}>
+            <AccordionTrigger className="py-3 text-left text-[13px] font-normal hover:no-underline">{q}</AccordionTrigger>
+            <AccordionContent className="pb-3 text-[12px] leading-relaxed" style={{ color: H.textMuted }}>{a}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+      {reviews.length > 0 && (
+        <div className="mt-5">
+          <p className="text-[10px] uppercase tracking-[0.28em] mb-2" style={{ color: H.textMuted }}>Bewertungen</p>
+          <div className="space-y-2">
+            {reviews.map((r) => (
+              <div key={r.id} className="rounded-lg p-3" style={{ border: `1px solid ${H.line}` }}>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[12px] font-medium">{r.customer_name}</span>
+                  <span className="text-[12px]" style={{ color: H.gold }}>{"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}</span>
+                </div>
+                {r.title && <p className="mt-1 text-[12px] font-medium">{r.title}</p>}
+                <p className="mt-1 text-[12px] leading-relaxed" style={{ color: H.textMuted }}>{r.comment}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 
 
@@ -529,8 +667,11 @@ const MatrixPage = () => {
                             : "radial-gradient(60% 48% at 50% 43%, rgba(155,107,63,0.12) 0%, rgba(250,249,247,0) 72%)",
                       }}
                     />
-                    <div className="relative flex items-center justify-center px-1 pt-0 pb-0 md:px-10 md:pt-14 md:pb-8">
+                    <div className="relative hidden lg:flex items-center justify-center px-1 pt-0 pb-0 md:px-10 md:pt-14 md:pb-8">
                       <DeviceMock device={device} caseFinish={caseFinish} model={model} />
+                    </div>
+                    <div className="relative lg:hidden px-1 md:px-10 md:pt-14 md:pb-8">
+                      <MobileGallery device={device} caseFinish={caseFinish} model={model} />
                     </div>
                     {/* Plakette */}
                     <div
@@ -865,9 +1006,10 @@ const MatrixPage = () => {
                         </>
                       )}
                     </Button>
-                    <p className="mt-1 md:mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
+                    <p className="hidden lg:block mt-1 md:mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
                       Sichere Bezahlung · 30 Tage Rückgabe
                     </p>
+                    <MatrixMobileInfo />
                   </div>
 
                   <div className="order-7 mt-3 md:mt-6">
@@ -916,7 +1058,51 @@ const MatrixPage = () => {
               <h2 className="font-light tracking-tight mb-8" style={{ fontSize: "clamp(28px,3.5vw,44px)" }}>
                 Die Matrix
               </h2>
-              <div className="overflow-x-auto -mx-6 px-6">
+              {/* Mobile: kompakte Tabelle, passt auf 390 px */}
+              <table className="w-full border-collapse text-[12px] lg:hidden">
+                <thead>
+                  <tr>
+                    <th className="text-left font-normal pb-3 pr-2 align-bottom" style={{ color: H.textMuted }}>
+                      <span className="text-[9px] uppercase tracking-[0.2em]">Merkmal</span>
+                    </th>
+                    {CASE_FINISHES.map((c) => (
+                      <th key={c.id} className="pb-3 px-1 align-bottom w-[26%]">
+                        <span
+                          className="mx-auto mb-1.5 block w-4 h-4 rounded-full"
+                          style={{ background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`, boxShadow: `0 0 0 1px ${H.lineStrong}` }}
+                        />
+                        <span className="block text-[11px] font-medium leading-tight">{c.name}</span>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {MATRIX_ROWS_MOBILE.map((row) => (
+                    <tr key={row.label} className="border-t" style={{ borderColor: H.line }}>
+                      <td className="py-3 pr-2 leading-snug" style={{ color: H.text }}>{row.label}</td>
+                      {CASE_FINISHES.map((c) => {
+                        const v = row.values[c.id];
+                        return (
+                          <td key={c.id} className="py-3 px-1 text-center leading-snug">
+                            {typeof v === "boolean" ? (
+                              v ? <Check className="w-4 h-4 mx-auto" style={{ color: H.gold }} /> : <Minus className="w-4 h-4 mx-auto" style={{ color: H.line }} />
+                            ) : (
+                              <span className="text-[11px]" style={{ color: H.textMuted }}>{v}</span>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                  <tr className="border-t" style={{ borderColor: H.line }}>
+                    <td className="py-3 pr-2">Preis</td>
+                    {CASE_FINISHES.map((c) => (
+                      <td key={c.id} className="py-3 px-1 text-center font-medium">CHF {c.price}.–</td>
+                    ))}
+                  </tr>
+                </tbody>
+              </table>
+              <div className="hidden lg:block overflow-x-auto -mx-6 px-6">
                 <table className="w-full min-w-[640px] border-collapse text-sm">
                   <thead>
                     <tr>
@@ -983,6 +1169,7 @@ const MatrixPage = () => {
                   {
                     name: "RAJ NEXUS",
                     text: "Der Magnetring der MATRIX sitzt 0,2 mm tiefer als die Norm verlangt. Das iPhone rastet auf dem NEXUS in derselben Position ein — mit oder ohne Hülle.",
+                    mobileText: "Der Magnetring der MATRIX ist auf den NEXUS abgestimmt. Das iPhone rastet in derselben Position ein, mit oder ohne Hülle.",
                     link: "/nexus",
                   },
                   {
@@ -1003,9 +1190,14 @@ const MatrixPage = () => {
                     <h3 className="mt-4 font-light" style={{ fontSize: "clamp(24px,2.4vw,32px)" }}>
                       {s.name}
                     </h3>
-                    <p className="mt-4 text-sm leading-relaxed" style={{ color: H.textMuted }}>
+                    <p className={`mt-4 text-sm leading-relaxed ${"mobileText" in s ? "hidden lg:block" : ""}`} style={{ color: H.textMuted }}>
                       {s.text}
                     </p>
+                    {"mobileText" in s && (
+                      <p className="mt-4 text-sm leading-relaxed lg:hidden" style={{ color: H.textMuted }}>
+                        {(s as { mobileText: string }).mobileText}
+                      </p>
+                    )}
                     <span
                       className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em]"
                       style={{ color: H.gold }}
