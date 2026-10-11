@@ -130,6 +130,18 @@ import onyxDarkgrey3thumb from "./lifestyle-optimised/onyx-darkgrey-3-thumb.webp
 import onyxDarkgrey4full from "./lifestyle-optimised/onyx-darkgrey-4-full.webp.asset.json";
 import onyxDarkgrey4mobile from "./lifestyle-optimised/onyx-darkgrey-4-mobile.webp.asset.json";
 import onyxDarkgrey4thumb from "./lifestyle-optimised/onyx-darkgrey-4-thumb.webp.asset.json";
+import onyxSkyblue1full from "./lifestyle-optimised/onyx-skyblue-1-full.webp.asset.json";
+import onyxSkyblue1mobile from "./lifestyle-optimised/onyx-skyblue-1-mobile.webp.asset.json";
+import onyxSkyblue1thumb from "./lifestyle-optimised/onyx-skyblue-1-thumb.webp.asset.json";
+import onyxSkyblue2full from "./lifestyle-optimised/onyx-skyblue-2-full.webp.asset.json";
+import onyxSkyblue2mobile from "./lifestyle-optimised/onyx-skyblue-2-mobile.webp.asset.json";
+import onyxSkyblue2thumb from "./lifestyle-optimised/onyx-skyblue-2-thumb.webp.asset.json";
+import onyxSkyblue3full from "./lifestyle-optimised/onyx-skyblue-3-full.webp.asset.json";
+import onyxSkyblue3mobile from "./lifestyle-optimised/onyx-skyblue-3-mobile.webp.asset.json";
+import onyxSkyblue3thumb from "./lifestyle-optimised/onyx-skyblue-3-thumb.webp.asset.json";
+import onyxSkyblue4full from "./lifestyle-optimised/onyx-skyblue-4-full.webp.asset.json";
+import onyxSkyblue4mobile from "./lifestyle-optimised/onyx-skyblue-4-mobile.webp.asset.json";
+import onyxSkyblue4thumb from "./lifestyle-optimised/onyx-skyblue-4-thumb.webp.asset.json";
 
 
 export const lifestylePhotos = {
@@ -198,5 +210,11 @@ export const lifestylePhotos = {
     { full: onyxDarkgrey2full.url, mobile: onyxDarkgrey2mobile.url, thumb: onyxDarkgrey2thumb.url },
     { full: onyxDarkgrey3full.url, mobile: onyxDarkgrey3mobile.url, thumb: onyxDarkgrey3thumb.url },
     { full: onyxDarkgrey4full.url, mobile: onyxDarkgrey4mobile.url, thumb: onyxDarkgrey4thumb.url },
+  ],
+  onyxSkyblue: [
+    { full: onyxSkyblue1full.url, mobile: onyxSkyblue1mobile.url, thumb: onyxSkyblue1thumb.url },
+    { full: onyxSkyblue2full.url, mobile: onyxSkyblue2mobile.url, thumb: onyxSkyblue2thumb.url },
+    { full: onyxSkyblue3full.url, mobile: onyxSkyblue3mobile.url, thumb: onyxSkyblue3thumb.url },
+    { full: onyxSkyblue4full.url, mobile: onyxSkyblue4mobile.url, thumb: onyxSkyblue4thumb.url },
   ],
 };
