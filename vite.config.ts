@@ -59,9 +59,13 @@ const heroPreloadPlugin = (): PluginOption => ({
       const mUrl = JSON.stringify(matrixFirstRender.url);
       const matrixHeadScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${mUrl};l.setAttribute('fetchpriority','high');document.head.appendChild(l);}catch(e){}})();</script>`;
       const logoUrl = `data:image/webp;base64,${readFileSync(path.resolve(__dirname, "src/assets/logo-new-400w.webp")).toString("base64")}`;
-      const matrixShellScript = makeMatrixShellScript(matrixShellHtml(matrixFirstRender.url, logoUrl));
+      const shellHtml = matrixShellHtml(matrixFirstRender.url, logoUrl);
+      // Parse critical CSS in the head, before any shell element can be painted.
+      const shellCss = shellHtml.match(/^<style>[\s\S]*?<\/style>/)?.[0] ?? "";
+      const matrixShellScript = makeMatrixShellScript(shellHtml.slice(shellCss.length));
 
       return html
+        .replace('<meta name="viewport" content="width=device-width, initial-scale=1.0" />', '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + shellCss)
         .replace("<!--HERO_PRELOAD-->", preloadTag + matrixHeadScript)
         .replace('<div id="root"></div>', '<div id="root"></div>' + matrixShellScript)
         .replace("</body>", fallbackScript + "</body>");

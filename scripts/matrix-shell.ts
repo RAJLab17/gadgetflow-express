@@ -9,7 +9,8 @@ export function matrixShellHtml(imageUrl: string, logoUrl: string): string {
   const models = [["17pro", "17 Pro"], ["17promax", "17 Pro Max"], ["18pro", "18 Pro"], ["18promax", "18 Pro Max"]];
   return `<style>
   #__matrix_shell{--ms-bg:#faf9f7;--ms-text:#2b2725;--ms-gold:#9b6b3f;--ms-line:rgba(43,39,37,.22);--ms-selected:rgba(155,107,63,.06);--ms-cart-bg:#fff;--ms-cart-text:#111;--ms-menu-bg:rgba(30,28,25,.9);--ms-menu-text:#E8DCC4;--ms-trust-bg:#050403;--ms-trust-text:#EDE4D3;--ms-trust-gold:#C9A876;position:absolute;inset:0 0 auto;min-height:100vh;background:var(--ms-bg);color:var(--ms-text);z-index:60;font-family:var(--font-sans);}
-  #__matrix_shell *{box-sizing:border-box}#__matrix_shell button{font-family:inherit}
+  #__matrix_shell{font-family:var(--font-sans,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif);line-height:1.5;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  #__matrix_shell *{box-sizing:border-box}#__matrix_shell button{font-family:inherit;line-height:inherit;margin:0}#__matrix_shell svg,#__matrix_shell img{display:block;vertical-align:middle}
   #__matrix_shell .ms-header{position:fixed;top:0;left:0;right:0;z-index:1}
   #__matrix_shell .ms-trust{display:flex;justify-content:center;gap:2px;padding:9px 6px;background:var(--ms-trust-bg);border-block:1px solid var(--ms-trust-gold);border-color:color-mix(in srgb,var(--ms-trust-gold) 12%,transparent)}
   #__matrix_shell .ms-trust>span{display:flex;align-items:center;justify-content:center;gap:4px;flex:1;color:var(--ms-trust-gold)}
