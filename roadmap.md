@@ -27,3 +27,4 @@
 - [x] /nexus: Gedankenstrich vor „3-in-1 Qi2.2 Ladestation …" in der H1 entfernt (Desktop, Tablet, Mobile)
 - [x] /nexus: Hinweis-Punkt bei Bestand unter 10 rot statt grün (Desktop, Tablet, Mobile)
 - [x] MATRIX: Cherry-Carbon-Fotos auf Dark Grey iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
+- [x] MATRIX: Cherry-Carbon-Fotos auf Sky Blue iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
