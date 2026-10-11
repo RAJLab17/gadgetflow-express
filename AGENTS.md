@@ -10,3 +10,4 @@
 - Load every page module through lazyWithRetry and keep the app shell wrapped in an ErrorBoundary with a non-empty Suspense fallback; storage restrictions must not fail successful imports, and reload recovery requires a persistable guard to prevent loops.
 - /matrix paints an interactive static shell before the JS bundle loads; capture model and purchase intent in memory, initialise React selection from it, then replay purchase once through the existing handler and remove the shell on mount, so slow downloads cannot lose taps or duplicate checkout/tracking.
 - Generate the MATRIX instant view separately at HTML transform time with the original header logo embedded; this keeps the pre-bundle view independent of React and prevents a delayed logo replacement.
+- Insert MATRIX critical CSS immediately after the early viewport meta in the HTML head and keep shell typography/reset rules self-contained; this prevents first-paint scaling and late stylesheet layout shifts.
