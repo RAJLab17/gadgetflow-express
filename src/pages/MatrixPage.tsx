@@ -564,6 +564,8 @@ const MatrixPage = () => {
   const [modelId, setModelId] = useState<ModelId>("18pro");
   const [deviceId, setDeviceId] = useState("darkcherry");
   const [caseId, setCaseId] = useState("cherry");
+  // Remove the static first-paint shell injected by index.html once React has rendered.
+  useEffect(() => { document.getElementById("__matrix_shell")?.remove(); }, []);
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [showAirpodsColor, setShowAirpodsColor] = useState(false);
