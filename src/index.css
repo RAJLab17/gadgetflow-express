@@ -6,6 +6,7 @@
 
 @layer base {
   :root {
+    color-scheme: only light;
     /* Elegant Beige-White Theme */
     --background: 40 30% 97%;
     --foreground: 30 10% 15%;

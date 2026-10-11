@@ -4,7 +4,7 @@
 - MATRIX mobile and desktop share selection state and the existing purchase handler; an IntersectionObserver shows the mobile buy bar only after the main button exits above the viewport, avoiding duplicate checkout or tracking logic and first-view obstruction.
 - Keep the MATRIX delivery message in a named constant so shipping copy can change independently of the layout.
 - Gate MATRIX lifestyle galleries by exact model, case finish and device color on both layouts so photos cannot leak into other selections.
-- Serve MATRIX lifestyle photos as optimised WebP with separate thumbnail and mobile sizes; mount only the current viewport gallery and request mobile full photos on navigation, so initial visits do not download every photo or render variant.
+- Serve MATRIX lifestyle photos as optimised WebP with separate thumbnail and mobile sizes; mount only the current viewport gallery, give mobile slides real native-lazy image sources hidden until loaded, and eagerly load the next slide on touch or activation; mandatory snapping with always-stop prevents partial slides and hidden unloaded images prevent broken-image text.
 - Subscribe to media-query changes through the shared legacy-compatible observer so older Safari/WebViews cannot crash viewport-dependent rendering.
 - Language preferences must remain usable in memory when browser storage is blocked; persistence failures must never prevent the app shell from mounting.
 - Never fabricate webkit.messageHandlers or native bridge handlers; third-party scripts must detect real browser capabilities, since fake bridges trigger invalid native Promise calls.

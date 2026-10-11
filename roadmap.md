@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] MATRIX: mobile Galerie ohne sichtbare Ladefehler, vollständiges Einrasten, helle Darstellung und 800px-Erstbild bei langsamer Verbindung prüfen; nicht veröffentlichen
 - [x] MATRIX: mobile Erstbilder und Kaufkartenbilder verkleinern, NEXUS-Vorladung ausschliessen, Bilddaten bis zum sichtbaren Erstbild messen
 - [x] MATRIX Sofortansicht: frühe Modell-/Kaufklicks übernehmen, Ladezustand anzeigen, Original-Kopfzeile und Kaufbutton angleichen; verzögerte Übergabe auf Mobile und Desktop prüfen
 - [x] MATRIX: Onyx-Deep-Blue-Fotos für iPhone 17 Pro und Pro Max ergänzt; fünf Bilder, Bildwechsel, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft

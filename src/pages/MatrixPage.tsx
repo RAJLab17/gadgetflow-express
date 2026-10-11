@@ -397,16 +397,23 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
   }, [model.id, model.gen, caseFinish.id, device.id]);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [prefetchThrough, setPrefetchThrough] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(() => new Set());
 
   useEffect(() => {
     setActive(0);
+    setPrefetchThrough(0);
     scrollerRef.current?.scrollTo({ left: 0 });
   }, [slides]);
+
+  const preloadNext = () => setPrefetchThrough((current) => Math.max(current, active + 1));
 
   const onScroll = () => {
     const el = scrollerRef.current;
     if (!el) return;
-    setActive(Math.round(el.scrollLeft / el.clientWidth));
+    const nextActive = Math.max(0, Math.min(slides.length - 1, Math.round(el.scrollLeft / el.clientWidth)));
+    setActive(nextActive);
+    if (nextActive > 0) setPrefetchThrough((current) => Math.max(current, nextActive + 1));
   };
 
   return (
@@ -414,25 +421,34 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
       <div
         ref={scrollerRef}
         onScroll={onScroll}
+        onPointerDown={preloadNext}
+        onTouchStart={preloadNext}
         className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         aria-roledescription="carousel"
       >
         {slides.map((src, i) => (
-          <div key={src} className="relative w-full shrink-0 snap-center" style={{ aspectRatio: "1 / 1" }}>
+          <div key={src} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
             <img
-              src={i === 0 || (active > 0 && Math.abs(i - active) <= 1) ? src : undefined}
-              srcSet={i === 0 || (active > 0 && Math.abs(i - active) <= 1) ? (renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined) : undefined}
+              src={renderSizes.get(src)?.mobile ?? getPhotoSizes(src)?.mobile ?? src}
+              srcSet={renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
               sizes="(max-width: 767px) calc(100vw - 40px), 480px"
               alt={getPhotoAlt(src, caseFinish.name, model.name, device.name)}
               width={928}
               height={1152}
-              loading={i === 0 ? "eager" : "lazy"}
+              loading={i <= prefetchThrough ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
+              onLoad={() => setLoadedImages((current) => new Set(current).add(src))}
+              onError={() => setLoadedImages((current) => {
+                const next = new Set(current);
+                next.delete(src);
+                return next;
+              })}
               className={isLifestylePhoto(src)
                 ? "absolute inset-0 h-full w-full object-cover"
                 : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"}
               style={{
+                opacity: loadedImages.has(src) ? 1 : 0,
                 filter: "contrast(1.015) saturate(1.015)",
                 left: 0,
                 right: 0,
