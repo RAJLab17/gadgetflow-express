@@ -18,6 +18,9 @@ OUT = ROOT / "src/content/prerender-snapshot.json"
 
 paths = re.findall(r"<loc>https://raj\.ch([^<]*)</loc>", (ROOT / "public/sitemap.xml").read_text())
 paths = [p or "/" for p in dict.fromkeys(paths)]
+import sys
+if len(sys.argv) > 1:
+    paths = [p for p in paths if p in sys.argv[1:]]
 
 EXTRACT = r"""() => {
   const m = (sel, attr='content') => document.head.querySelector(sel)?.getAttribute(attr) || null;
@@ -53,7 +56,7 @@ EXTRACT = r"""() => {
 }"""
 
 async def main():
-    out = {}
+    out = json.loads(OUT.read_text()) if OUT.exists() else {}
     async with async_playwright() as p:
         b = await p.chromium.launch(headless=True)
         ctx = await b.new_context(viewport={"width": 1280, "height": 1800})

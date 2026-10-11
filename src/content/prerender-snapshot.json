@@ -493,7 +493,7 @@
   "twitterImage": null,
   "h1": "MATRIX Das Carbon-System mit MagSafe für iPhone 17 & 18 Pro / Pro Max",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ MATRIX Case\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"description\":\"RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.\",\"url\":\"https://raj.ch/matrix\",\"offers\":{\"@type\":\"AggregateOffer\",\"priceCurrency\":\"CHF\",\"lowPrice\":35,\"highPrice\":59,\"offerCount\":4,\"availability\":\"https://schema.org/PreOrder\"}}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ MATRIX Carbon Hülle MagSafe\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"description\":\"RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.\",\"url\":\"https://raj.ch/matrix\",\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/matrix\",\"priceCurrency\":\"CHF\",\"price\":59,\"availability\":\"https://schema.org/InStock\"}}"
   ],
   "blocks": [
    {
@@ -609,7 +609,7 @@
   "twitterImage": null,
   "h1": "MATRIX AirPods Case – Carbon-Look Hülle für AirPods 4 & 5",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"MATRIX AirPods 4 & 5 Case\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"description\":\"Carbon Case für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.\",\"sku\":\"RAJ-MTX-AP4-CHY\",\"url\":\"https://raj.ch/airpods-case\",\"offers\":{\"@type\":\"AggregateOffer\",\"priceCurrency\":\"CHF\",\"lowPrice\":35,\"highPrice\":35,\"offerCount\":2,\"availability\":\"https://schema.org/InStock\"}}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ MATRIX Carbon Hülle für AirPods 4 & 5\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"description\":\"Carbon Case für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.\",\"sku\":\"RAJ-MTX-AP4-CHY\",\"url\":\"https://raj.ch/airpods-case\",\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/airpods-case\",\"priceCurrency\":\"CHF\",\"price\":35,\"availability\":\"https://schema.org/InStock\"}}"
   ],
   "blocks": [
    {
