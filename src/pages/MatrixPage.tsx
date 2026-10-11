@@ -57,6 +57,31 @@ const ONYX_DARKGREY_LIFESTYLE = lifestylePhotos.onyxDarkgrey.map((photo) => phot
 const ONYX_SKYBLUE_LIFESTYLE = lifestylePhotos.onyxSkyblue.map((photo) => photo.full);
 const photoSizes = Object.values(lifestylePhotos).flat();
 const getPhotoSizes = (src: string) => photoSizes.find((photo) => photo.full === src);
+const LIFESTYLE_SCENES: Record<keyof typeof lifestylePhotos, string[]> = {
+  orange: ["in der Hand", "auf dem Holztisch neben einem Kaffee", "im Auto auf der Mittelkonsole", "in der Hosentasche"],
+  blue: ["in der Hand", "auf dem Holztisch neben einem Notizbuch", "auf dem Marmortisch neben einem Kaffee", "auf einem hellen Sessel"],
+  silver: ["in der Hand", "auf dem Holztisch neben einem Notizbuch", "auf einem hellen Steintisch", "in der Handtasche"],
+  onyxOrange: ["in der Hand", "in der Ledertasche", "auf dem Schreibtisch neben einem Füllfederhalter", "im Auto auf der Mittelkonsole"],
+  onyxBlue: ["in der Hand", "auf dem Schreibtisch neben dem Laptop", "im Auto auf der Mittelkonsole", "in der Ledertasche"],
+  onyxSilver: ["in der Hand", "auf dem Schreibtisch neben einem Füllfederhalter", "auf einem runden Steintisch", "im Auto auf der Mittelkonsole"],
+  cherryDarkcherry: ["in der Hand", "in der Hand am Café-Tisch", "im Auto auf der Mittelkonsole", "auf dem Marmortisch neben dem Laptop"],
+  cherryDarkgrey: ["in der Hand am Café-Tisch", "in der Hand im Wohnzimmer", "im Auto auf der Mittelkonsole", "auf dem Holztisch neben einem Notizbuch"],
+  cherrySkyblue: ["in der Hand", "auf dem Marmortisch mit Schmuck", "in der Handtasche", "auf dem Café-Tisch neben einem Cappuccino"],
+  onyxDarkcherry: ["in der Hand", "in der Ledertasche", "im Auto auf der Mittelkonsole", "auf dem Holztisch neben dem Laptop"],
+  onyxDarkgrey: ["in der Hand", "im Auto auf der Mittelkonsole", "in der Ledertasche", "auf dem Café-Tisch neben einem Cappuccino"],
+  onyxSkyblue: ["in der Hand", "auf dem Holztisch neben dem Laptop", "im Auto auf der Mittelkonsole", "in der Hosentasche"],
+};
+const PHOTO_SCENES = new Map<string, string>(
+  (Object.keys(LIFESTYLE_SCENES) as Array<keyof typeof lifestylePhotos>).flatMap((key) =>
+    lifestylePhotos[key].map((photo, i) => [photo.full, LIFESTYLE_SCENES[key][i]] as [string, string]),
+  ),
+);
+const getPhotoAlt = (src: string, caseName: string, modelName: string, deviceName: string) => {
+  const scene = PHOTO_SCENES.get(src);
+  return scene
+    ? `RAJ MATRIX ${caseName} Hülle am ${modelName} (${deviceName}), ${scene}`
+    : `RAJ MATRIX ${caseName} Hülle für ${modelName} in ${deviceName}`;
+};
 
 const subscribeGalleryViewport = (onChange: () => void) => {
   const query = window.matchMedia("(min-width: 1024px)");
@@ -148,7 +173,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "cherry",
     name: "Cherry Carbon",
-    material: "Carbon, Cherry · Titan-Knöpfe in Gold",
+    material: "Carbon, Cherry · Aluminium-Knöpfe in Gold",
     base: "#7b4b60",
     weave: "#a66f83",
     edge: "#4f2b3a",
@@ -157,7 +182,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "onyx",
     name: "Onyx Carbon",
-    material: "Carbon, Schwarz · Titan-Knöpfe in Gold",
+    material: "Carbon, Schwarz · Aluminium-Knöpfe in Gold",
     base: "#16171a",
     weave: "#33363c",
     edge: "#08090a",
@@ -310,7 +335,7 @@ const DeviceMock = memo(({
       />
       <img
         src={selectedPhoto ?? src}
-        alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`}
+        alt={getPhotoAlt(selectedPhoto ?? src, caseFinish.name, model.name, device.name)}
         width={928}
         height={1152}
         loading="eager"
@@ -342,7 +367,7 @@ const DeviceMock = memo(({
               background: "#fff",
             }}
           >
-            <img src={getPhotoSizes(image)?.thumb ?? image} alt="" width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            <img src={getPhotoSizes(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
           </Button>
         ))}
       </div>
@@ -394,7 +419,7 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               src={i === 0 || (active > 0 && Math.abs(i - active) <= 1) ? src : undefined}
               srcSet={getPhotoSizes(src) && (active > 0 && Math.abs(i - active) <= 1) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
               sizes="(max-width: 767px) calc(100vw - 40px), 480px"
-              alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}${i === 0 ? ` in ${device.name}` : ""}`}
+              alt={getPhotoAlt(src, caseFinish.name, model.name, device.name)}
               width={928}
               height={1152}
               loading={i === 0 ? "eager" : "lazy"}
@@ -623,12 +648,14 @@ const MatrixPage = () => {
         return;
       }
 
-      trackAddToCart([
+      const trackedItems = [
         { item_id: caseVariantId, item_name: "RAJ MATRIX Case", item_variant: `${model.name} / ${caseFinish.name}`, price: caseFinish.price },
         ...(airpodsSelected && AIRPODS_VARIANT_IDS[airpodsCase.id]
           ? [{ item_id: AIRPODS_VARIANT_IDS[airpodsCase.id], item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: airpodsCase.name, price: airpodsCase.price - BUNDLE_DISCOUNT }]
           : []),
-      ]);
+      ];
+      trackAddToCart(trackedItems);
+      trackBeginCheckout(trackedItems);
 
       const reference = makeOrderReference();
       const dummyProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
@@ -749,7 +776,7 @@ const MatrixPage = () => {
     name: "RAJ MATRIX Case",
     brand: { "@type": "Brand", name: "RAJ" },
     description:
-      "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Titan-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
+      "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
     url: "https://raj.ch/matrix",
     offers: {
       "@type": "AggregateOffer",
@@ -1063,8 +1090,7 @@ const MatrixPage = () => {
                             >
                               <img
                                 src={opt.bundle ? airpodsCase.thumb : caseThumbSrc}
-                                alt=""
-                                aria-hidden
+                                alt={opt.bundle ? `RAJ MATRIX ${caseFinish.name} Hülle mit AirPods Case in ${airpodsCase.name}` : `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}`}
                                 className="absolute inset-0 h-full w-full object-contain"
                               />
                             </span>
@@ -1156,8 +1182,8 @@ const MatrixPage = () => {
                         }}
                       >
                         <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg flex" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
-                          <img src={genThumb("cherry")} alt="" aria-hidden className="h-full w-1/2 object-contain" />
-                          <img src={genThumb("onyx")} alt="" aria-hidden className="h-full w-1/2 object-contain" />
+                          <img src={genThumb("cherry")} alt="RAJ MATRIX Cherry Carbon Hülle" className="h-full w-1/2 object-contain" />
+                          <img src={genThumb("onyx")} alt="RAJ MATRIX Onyx Carbon Hülle" className="h-full w-1/2 object-contain" />
                         </span>
                         <span className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center" style={{ borderColor: twoCasesSelected ? H.gold : H.lineStrong }}>
                           {twoCasesSelected && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
@@ -1225,7 +1251,10 @@ const MatrixPage = () => {
                         </>
                       )}
                     </Button>
-                    <p className="hidden lg:block mt-1 md:mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>
+                    <p className="hidden lg:block mt-2 text-center text-[12px]" style={{ color: H.text }}>
+                      🚚 {MATRIX_DELIVERY_TEXT}
+                    </p>
+                    <p className="hidden lg:block mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
                       Sichere Bezahlung · 30 Tage Rückgabe
                     </p>
                     <MatrixMobileInfo />
