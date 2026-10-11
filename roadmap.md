@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Verify and prevent preview React/provider dependency-generation mismatch causing null useEffect
+- [x] Prevent preview React/provider mismatch with React deduplication and explicit shell-provider prebundling; four routes, model selection, navigation and repeated reloads passed without runtime errors
 - [x] Product-specific 1200×630 JPG share images and runtime/static tags; local Facebook/WhatsApp curl and public image URLs verified, hosted-preview crawler checks blocked by access restriction; not published
 - [x] MATRIX: mobile Galerie ohne sichtbare Ladefehler, vollständiges Einrasten und only-light prüfen; 390px Chromium mit Slow 4G und WebKit bestanden, Erstbild 800px/49 784 Bytes; nicht veröffentlicht, echte Samsung-/iOS-Geräte nicht verfügbar
 - [x] MATRIX: mobile Erstbilder und Kaufkartenbilder verkleinern, NEXUS-Vorladung ausschliessen, Bilddaten bis zum sichtbaren Erstbild messen
