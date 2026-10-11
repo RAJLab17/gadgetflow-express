@@ -14,6 +14,8 @@
 - [x] MATRIX Mobile: Zeile „Gratis Versand · Versand ab 13. Oktober" unter dem Case-Bild entfernen
 - [x] MATRIX Mobile: Beschreibung in der H1 ersetzen durch „Carbon-Optik mit MagSafe & Qi2.2 – für iPhone 17 & 18 Pro / Pro Max"
 
+- [x] MATRIX: Onyx-Silver-Fotos für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max ergänzt; vier Bilder, Bildwechsel, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
+
 - [ ] MATRIX Mobile: Textplakette unter dem Case-Bild ist im aktuellen Build bereits entfernt; live auf raj.ch sichtbar, sobald publiziert
 - [x] MATRIX Bundle-Karten: Bundle-Vorschaubild nur AirPods Case, Titel „Hülle + AirPods Case", Untertitel „AirPods 4 & 5 · Finish", Farbauswahl eingeklappt
 - [x] /matrix: H1-Beschreibung auf „Das Carbon-System für iPhone 17 & 18 Pro / Pro Max – Hülle mit MagSafe & Qi2.2" (Mobile + Desktop, Build 8. Okt)
