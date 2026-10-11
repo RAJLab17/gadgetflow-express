@@ -85,6 +85,7 @@ const prerenderPlugin = (): PluginOption => {
   const snapshot = loadSnapshot(__dirname);
   return {
     name: "raj-prerender",
+    enforce: "post",
     transformIndexHtml: {
       order: "post",
       handler(html, ctx) {
