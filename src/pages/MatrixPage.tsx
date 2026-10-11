@@ -184,6 +184,11 @@ const AIRPODS_CASES: Record<string, AirpodsCase> = {
 const BUNDLE_DISCOUNT = 15;
 /** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
 const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
+/** Angezeigter Preis für zwei Hüllen; der Rabatt selbst kommt nur aus dem Shopify-Code. */
+const TWO_CASES_TOTAL = 99;
+const TWO_CASES_DISCOUNT_CODE = "MATRIX2";
+/** Lieferhinweis unter dem Kaufbutton und in der FAQ. */
+const MATRIX_DELIVERY_TEXT = "Neue Lieferung unterwegs · Versand in 5–8 Tagen";
 
 /* ── Shopify Variant ID mapping ─────────────────────────────────────── */
 const CASE_VARIANT_IDS: Record<string, Record<string, string>> = {
@@ -465,17 +470,10 @@ const PaymentMethodsBar = () => (
 );
 
 /* ── Mobile: Lieferzeile, Trust, FAQ, Bewertungen ── */
-const getMatrixDeliveryText = () => {
-  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  return today <= "2026-10-13"
-    ? "Versand ab Mi, 14. Oktober · Lieferung ca. 15.–16. Oktober"
-    : "Lieferung in 2–3 Werktagen";
-};
-
 type MatrixReview = { id: string; customer_name: string; rating: number; title: string; comment: string; created_at: string };
 
 const MatrixMobileInfo = () => {
-  const delivery = getMatrixDeliveryText();
+  const delivery = MATRIX_DELIVERY_TEXT;
   const [reviews, setReviews] = useState<MatrixReview[]>([]);
   useEffect(() => {
     supabase
