@@ -156,4 +156,10 @@ export const lifestylePhotos = {
     { full: cherryDarkgrey3full.url, mobile: cherryDarkgrey3mobile.url, thumb: cherryDarkgrey3thumb.url },
     { full: cherryDarkgrey4full.url, mobile: cherryDarkgrey4mobile.url, thumb: cherryDarkgrey4thumb.url },
   ],
+  cherrySkyblue: [
+    { full: cherrySkyblue1full.url, mobile: cherrySkyblue1mobile.url, thumb: cherrySkyblue1thumb.url },
+    { full: cherrySkyblue2full.url, mobile: cherrySkyblue2mobile.url, thumb: cherrySkyblue2thumb.url },
+    { full: cherrySkyblue3full.url, mobile: cherrySkyblue3mobile.url, thumb: cherrySkyblue3thumb.url },
+    { full: cherrySkyblue4full.url, mobile: cherrySkyblue4mobile.url, thumb: cherrySkyblue4thumb.url },
+  ],
 };
