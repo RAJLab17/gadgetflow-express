@@ -54,6 +54,7 @@ const CHERRY_DARKGREY_LIFESTYLE = lifestylePhotos.cherryDarkgrey.map((photo) => 
 const CHERRY_SKYBLUE_LIFESTYLE = lifestylePhotos.cherrySkyblue.map((photo) => photo.full);
 const ONYX_DARKCHERRY_LIFESTYLE = lifestylePhotos.onyxDarkcherry.map((photo) => photo.full);
 const ONYX_DARKGREY_LIFESTYLE = lifestylePhotos.onyxDarkgrey.map((photo) => photo.full);
+const ONYX_SKYBLUE_LIFESTYLE = lifestylePhotos.onyxSkyblue.map((photo) => photo.full);
 const photoSizes = Object.values(lifestylePhotos).flat();
 const getPhotoSizes = (src: string) => photoSizes.find((photo) => photo.full === src);
 
