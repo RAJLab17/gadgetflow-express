@@ -77,7 +77,7 @@ const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: Device
   if ((model.id === "18pro" || model.id === "18promax") && caseFinish.id === "onyx" && device.id === "darkgrey") return ONYX_DARKGREY_LIFESTYLE;
   return [];
 };
-const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src) || CHERRY_SILVER_LIFESTYLE.includes(src) || ONYX_ORANGE_LIFESTYLE.includes(src) || ONYX_BLUE_LIFESTYLE.includes(src) || ONYX_SILVER_LIFESTYLE.includes(src) || CHERRY_DARKCHERRY_LIFESTYLE.includes(src) || CHERRY_DARKGREY_LIFESTYLE.includes(src) || CHERRY_SKYBLUE_LIFESTYLE.includes(src) || ONYX_DARKCHERRY_LIFESTYLE.includes(src);
+const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src) || CHERRY_SILVER_LIFESTYLE.includes(src) || ONYX_ORANGE_LIFESTYLE.includes(src) || ONYX_BLUE_LIFESTYLE.includes(src) || ONYX_SILVER_LIFESTYLE.includes(src) || CHERRY_DARKCHERRY_LIFESTYLE.includes(src) || CHERRY_DARKGREY_LIFESTYLE.includes(src) || CHERRY_SKYBLUE_LIFESTYLE.includes(src) || ONYX_DARKCHERRY_LIFESTYLE.includes(src) || ONYX_DARKGREY_LIFESTYLE.includes(src);
 
 /* ── Design tokens (aligned with /produkte editorial system) ─────────── */
 const H = {
