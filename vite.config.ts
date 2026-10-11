@@ -121,6 +121,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     sitemapPlugin(),
     heroPreloadPlugin(),
+    prerenderPlugin(),
     mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
