@@ -94,6 +94,18 @@ import cherryDarkgrey3thumb from "./lifestyle-optimised/cherry-darkgrey-3-thumb.
 import cherryDarkgrey4full from "./lifestyle-optimised/cherry-darkgrey-4-full.webp.asset.json";
 import cherryDarkgrey4mobile from "./lifestyle-optimised/cherry-darkgrey-4-mobile.webp.asset.json";
 import cherryDarkgrey4thumb from "./lifestyle-optimised/cherry-darkgrey-4-thumb.webp.asset.json";
+import cherrySkyblue1full from "./lifestyle-optimised/cherry-skyblue-1-full.webp.asset.json";
+import cherrySkyblue1mobile from "./lifestyle-optimised/cherry-skyblue-1-mobile.webp.asset.json";
+import cherrySkyblue1thumb from "./lifestyle-optimised/cherry-skyblue-1-thumb.webp.asset.json";
+import cherrySkyblue2full from "./lifestyle-optimised/cherry-skyblue-2-full.webp.asset.json";
+import cherrySkyblue2mobile from "./lifestyle-optimised/cherry-skyblue-2-mobile.webp.asset.json";
+import cherrySkyblue2thumb from "./lifestyle-optimised/cherry-skyblue-2-thumb.webp.asset.json";
+import cherrySkyblue3full from "./lifestyle-optimised/cherry-skyblue-3-full.webp.asset.json";
+import cherrySkyblue3mobile from "./lifestyle-optimised/cherry-skyblue-3-mobile.webp.asset.json";
+import cherrySkyblue3thumb from "./lifestyle-optimised/cherry-skyblue-3-thumb.webp.asset.json";
+import cherrySkyblue4full from "./lifestyle-optimised/cherry-skyblue-4-full.webp.asset.json";
+import cherrySkyblue4mobile from "./lifestyle-optimised/cherry-skyblue-4-mobile.webp.asset.json";
+import cherrySkyblue4thumb from "./lifestyle-optimised/cherry-skyblue-4-thumb.webp.asset.json";
 
 export const lifestylePhotos = {
   orange: [
