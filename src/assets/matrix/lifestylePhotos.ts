@@ -102,4 +102,10 @@ export const lifestylePhotos = {
     { full: onyxBlue3full.url, mobile: onyxBlue3mobile.url, thumb: onyxBlue3thumb.url },
     { full: onyxBlue4full.url, mobile: onyxBlue4mobile.url, thumb: onyxBlue4thumb.url },
   ],
+  onyxSilver: [
+    { full: onyxSilver1full.url, mobile: onyxSilver1mobile.url, thumb: onyxSilver1thumb.url },
+    { full: onyxSilver2full.url, mobile: onyxSilver2mobile.url, thumb: onyxSilver2thumb.url },
+    { full: onyxSilver3full.url, mobile: onyxSilver3mobile.url, thumb: onyxSilver3thumb.url },
+    { full: onyxSilver4full.url, mobile: onyxSilver4mobile.url, thumb: onyxSilver4thumb.url },
+  ],
 };
