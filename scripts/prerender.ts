@@ -20,6 +20,10 @@ export interface RouteSnapshot {
   ogDescription: string | null;
   ogUrl: string | null;
   ogImage: string | null;
+  ogImageWidth?: string | null;
+  ogImageHeight?: string | null;
+  ogImageType?: string | null;
+  ogImageAlt?: string | null;
   ogType: string | null;
   twitterTitle: string | null;
   twitterDescription: string | null;
@@ -54,7 +58,7 @@ const HEAD_TAG_PATTERNS: RegExp[] = [
   /<meta[^>]*name="description"[^>]*>\s*/g,
   /<meta[^>]*name="robots"[^>]*>\s*/g,
   /<link[^>]*rel="canonical"[^>]*>\s*/g,
-  /<meta[^>]*property="og:(title|description|type|url|image)"[^>]*>\s*/g,
+  /<meta[^>]*property="og:(title|description|type|url|image(?::width|:height|:type|:alt)?)"[^>]*>\s*/g,
   /<meta[^>]*name="twitter:(title|description|image)"[^>]*>\s*/g,
 ];
 
@@ -76,10 +80,14 @@ export function renderRouteHtml(html: string, snap: RouteSnapshot): string {
     meta("property", "og:description", snap.ogDescription || desc),
     meta("property", "og:type", snap.ogType || "website"),
     meta("property", "og:url", snap.ogUrl || canonical),
-    meta("property", "og:image", snap.ogImage || "https://raj.ch/og-image.webp"),
+    meta("property", "og:image", snap.ogImage),
+    meta("property", "og:image:width", snap.ogImageWidth || null),
+    meta("property", "og:image:height", snap.ogImageHeight || null),
+    meta("property", "og:image:type", snap.ogImageType || null),
+    meta("property", "og:image:alt", snap.ogImageAlt || null),
     meta("name", "twitter:title", snap.twitterTitle || snap.title),
     meta("name", "twitter:description", snap.twitterDescription || desc),
-    meta("name", "twitter:image", snap.twitterImage || snap.ogImage || "https://raj.ch/og-image.webp"),
+    meta("name", "twitter:image", snap.twitterImage || snap.ogImage),
     ...snap.jsonLd.map(
       (j) => `<script data-rh="true" type="application/ld+json">${j.replace(/<\//g, "<\\/")}</script>`,
     ),

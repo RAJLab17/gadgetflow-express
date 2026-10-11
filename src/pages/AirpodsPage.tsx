@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { Link } from "react-router-dom";
 import { Check, Loader2, ShoppingBag, X } from "lucide-react";
 import { toast } from "sonner";
@@ -187,6 +188,7 @@ const AirpodsPage = () => {
         />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/airpods-case" />
+        {shareImageTags(shareImages.airpods)}
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

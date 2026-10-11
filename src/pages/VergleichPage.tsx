@@ -289,7 +289,6 @@ const VergleichPage = () => {
         title={PAGE_TITLE}
         metaDescription={PAGE_DESC}
         canonical={CANONICAL}
-        ogImage={HERO_IMAGE}
         eyebrow="Vergleich"
         heading={
           <>

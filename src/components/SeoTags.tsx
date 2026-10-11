@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { shareImages, shareImageTags } from "@/lib/shareImages";
 
 interface SeoTagsProps {
   title: string;
@@ -20,7 +21,7 @@ const SeoTags = ({
   title,
   description,
   canonical,
-  ogImage = "https://raj.ch/og-image.webp",
+   ogImage = shareImages.nexus.url,
   ogType = "product",
   jsonLd,
   noindex,
@@ -37,13 +38,12 @@ const SeoTags = ({
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content="RAJ" />
       <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={ogImage} />
+      {shareImageTags({ url: ogImage, alt: shareImages.nexus.alt })}
       <meta property="og:locale" content="de_CH" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@raj_swiss_" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
       {schemas.map((s, i) => (
         <script key={i} type="application/ld+json">{JSON.stringify(s)}</script>
       ))}
