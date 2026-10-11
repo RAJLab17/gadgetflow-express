@@ -1090,7 +1090,7 @@ const MatrixPage = () => {
                             >
                               <img
                                 src={opt.bundle ? airpodsCase.thumb : caseThumbSrc}
-                                alt={opt.bundle ? `RAJ MATRIX ${caseFinish.name} Hülle mit AirPods Case in ${airpodsCase.name}` : `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}`}
+                                alt={opt.bundle ? `RAJ MATRIX AirPods Case in ${CASE_FINISHES.find((c) => c.id === (airpodsColorId ?? caseFinish.id))?.name ?? caseFinish.name}` : `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}`}
                                 className="absolute inset-0 h-full w-full object-contain"
                               />
                             </span>
