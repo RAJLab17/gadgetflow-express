@@ -814,13 +814,12 @@ const NexusPage = () => {
 
         <meta property="og:site_name" content="RAJ" />
         <meta property="og:url" content="https://raj.ch/nexus" />
-        <meta property="og:image" content="https://raj.ch/og-image.webp" />
+        {shareImageTags()}
         <meta property="og:locale" content="de_CH" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@raj_swiss_" />
         <meta name="twitter:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
         <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.– statt CHF ${ORIGINAL_PRICE}.–.`} />
-        <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
 
         <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd([{ name: "Home", url: "https://raj.ch/" }, { name: "RAJ NEXUS", url: "https://raj.ch/nexus" }]))}</script>

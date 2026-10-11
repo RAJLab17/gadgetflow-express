@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
+import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -33,7 +34,7 @@ const PremiumPageLayout = ({
   title,
   metaDescription,
   canonical,
-  ogImage = "https://raj.ch/og-image.webp",
+  ogImage = shareImages.nexus.url,
   ogType = "article",
   eyebrow,
   heading,
@@ -60,14 +61,13 @@ const PremiumPageLayout = ({
         <meta property="og:type" content={ogType} />
         <meta property="og:site_name" content="RAJ" />
         {canonical && <meta property="og:url" content={canonical} />}
-        <meta property="og:image" content={ogImage} />
+        {shareImageTags({ url: ogImage, alt: shareImages.nexus.alt })}
         <meta property="og:locale" content="de_CH" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@raj_swiss_" />
         <meta name="twitter:title" content={title} />
         {metaDescription && <meta name="twitter:description" content={metaDescription} />}
-        <meta name="twitter:image" content={ogImage} />
         {schemas.map((s, i) => (
           <script key={i} type="application/ld+json">{JSON.stringify(s)}</script>
         ))}

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { shareImageTags } from "@/lib/shareImages";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LuxuryTopBar from "@/components/brand/LuxuryTopBar";
@@ -46,13 +47,12 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="RAJ" />
         <meta property="og:url" content="https://raj.ch/" />
-        <meta property="og:image" content="https://raj.ch/og-image.webp" />
+        {shareImageTags()}
         <meta property="og:locale" content="de_CH" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@raj_swiss_" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.desc} />
-        <meta name="twitter:image" content="https://raj.ch/og-image.webp" />
       </Helmet>
 
       <div className="min-h-screen" style={{ background: "#0a0908" }}>

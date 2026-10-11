@@ -1,5 +1,6 @@
 import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { Helmet } from "react-helmet-async";
+import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { Link } from "react-router-dom";
 import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
@@ -840,6 +841,7 @@ const MatrixPage = () => {
         />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/matrix" />
+        {shareImageTags(shareImages.matrix)}
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
