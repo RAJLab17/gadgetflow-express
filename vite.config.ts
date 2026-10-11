@@ -1,6 +1,8 @@
 import { defineConfig, type PluginOption } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import { readFileSync } from "node:fs";
+import { matrixShellHtml, matrixShellScript as makeMatrixShellScript } from "./scripts/matrix-shell";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
 import { generateSitemap } from "./scripts/generate-sitemap.mjs";
@@ -56,9 +58,8 @@ const heroPreloadPlugin = (): PluginOption => ({
       // block before the JS bundle arrives. MatrixPage removes it on mount.
       const mUrl = JSON.stringify(matrixFirstRender.url);
       const matrixHeadScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${mUrl};l.setAttribute('fetchpriority','high');document.head.appendChild(l);}catch(e){}})();</script>`;
-      const btn = (t: string, on: boolean) => `<span style="flex:1;text-align:center;padding:8px 2px;border-radius:8px;font-size:12px;border:1px solid ${on ? "#9b6b3f" : "rgba(43,39,37,0.22)"};background:${on ? "rgba(155,107,63,0.06)" : "transparent"}">${t}</span>`;
-      const shellHtml = `<div style="height:64px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(43,39,37,0.10)"><span style="font-size:22px;letter-spacing:0.3em;font-weight:500">RAJ</span></div><div style="max-width:480px;margin:0 auto;padding:12px 20px"><div style="aspect-ratio:1/1;display:flex;justify-content:center"><img src=${mUrl} alt="RAJ MATRIX Cherry Carbon Hülle für iPhone 18 Pro in Dark Cherry" width="928" height="1152" fetchpriority="high" decoding="async" style="height:100%;width:100%;max-width:286px;object-fit:contain"></div><div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:12px"><div style="font-size:19px;font-weight:300"><span style="color:#9b6b3f">MATRIX</span></div><span style="font-size:20px;font-weight:300">CHF 59.–</span></div><div style="display:flex;gap:6px;margin-top:14px">${btn("17 Pro", false)}${btn("17 Pro Max", false)}${btn("18 Pro", true)}${btn("18 Pro Max", false)}</div><div style="margin-top:16px;padding:14px;border-radius:12px;background:#2b2725;color:#faf9f7;text-align:center;font-size:14px;letter-spacing:0.08em">JETZT KAUFEN · CHF 59.–</div></div>`;
-      const matrixShellScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var d=document.createElement('div');d.id='__matrix_shell';d.setAttribute('aria-hidden','true');d.style.cssText='position:absolute;top:0;left:0;right:0;min-height:100vh;background:#faf9f7;color:#2b2725;z-index:60;font-family:-apple-system,BlinkMacSystemFont,system-ui,Helvetica,Arial,sans-serif;';d.innerHTML=${JSON.stringify(shellHtml)};var r=document.getElementById('root');r.parentNode.insertBefore(d,r.nextSibling);setTimeout(function(){d.remove()},10000);}catch(e){}})();</script>`;
+      const logoUrl = `data:image/webp;base64,${readFileSync(path.resolve(__dirname, "src/assets/logo-new-400w.webp")).toString("base64")}`;
+      const matrixShellScript = makeMatrixShellScript(matrixShellHtml(matrixFirstRender.url, logoUrl));
 
       return html
         .replace("<!--HERO_PRELOAD-->", preloadTag + matrixHeadScript)
