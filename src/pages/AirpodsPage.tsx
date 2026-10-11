@@ -155,17 +155,16 @@ const AirpodsPage = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "MATRIX AirPods 4 & 5 Case",
+    name: "RAJ MATRIX Carbon Hülle für AirPods 4 & 5",
     brand: { "@type": "Brand", name: "RAJ" },
     description: "Carbon Case für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.",
     sku: finish?.sku,
     url: "https://raj.ch/airpods-case",
     offers: {
-      "@type": "AggregateOffer",
+      "@type": "Offer",
+      url: "https://raj.ch/airpods-case",
       priceCurrency: "CHF",
-      lowPrice: 35,
-      highPrice: 35,
-      offerCount: FINISHES.length,
+      price: 35,
       availability: "https://schema.org/InStock",
     },
   };
