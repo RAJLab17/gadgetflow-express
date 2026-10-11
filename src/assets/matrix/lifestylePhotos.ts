@@ -70,6 +70,18 @@ import onyxSilver3thumb from "./lifestyle-optimised/onyx-silver-3-thumb.webp.ass
 import onyxSilver4full from "./lifestyle-optimised/onyx-silver-4-full.webp.asset.json";
 import onyxSilver4mobile from "./lifestyle-optimised/onyx-silver-4-mobile.webp.asset.json";
 import onyxSilver4thumb from "./lifestyle-optimised/onyx-silver-4-thumb.webp.asset.json";
+import cherryDarkcherry1full from "./lifestyle-optimised/cherry-darkcherry-1-full.webp.asset.json";
+import cherryDarkcherry1mobile from "./lifestyle-optimised/cherry-darkcherry-1-mobile.webp.asset.json";
+import cherryDarkcherry1thumb from "./lifestyle-optimised/cherry-darkcherry-1-thumb.webp.asset.json";
+import cherryDarkcherry2full from "./lifestyle-optimised/cherry-darkcherry-2-full.webp.asset.json";
+import cherryDarkcherry2mobile from "./lifestyle-optimised/cherry-darkcherry-2-mobile.webp.asset.json";
+import cherryDarkcherry2thumb from "./lifestyle-optimised/cherry-darkcherry-2-thumb.webp.asset.json";
+import cherryDarkcherry3full from "./lifestyle-optimised/cherry-darkcherry-3-full.webp.asset.json";
+import cherryDarkcherry3mobile from "./lifestyle-optimised/cherry-darkcherry-3-mobile.webp.asset.json";
+import cherryDarkcherry3thumb from "./lifestyle-optimised/cherry-darkcherry-3-thumb.webp.asset.json";
+import cherryDarkcherry4full from "./lifestyle-optimised/cherry-darkcherry-4-full.webp.asset.json";
+import cherryDarkcherry4mobile from "./lifestyle-optimised/cherry-darkcherry-4-mobile.webp.asset.json";
+import cherryDarkcherry4thumb from "./lifestyle-optimised/cherry-darkcherry-4-thumb.webp.asset.json";
 
 export const lifestylePhotos = {
   orange: [
@@ -107,5 +119,11 @@ export const lifestylePhotos = {
     { full: onyxSilver2full.url, mobile: onyxSilver2mobile.url, thumb: onyxSilver2thumb.url },
     { full: onyxSilver3full.url, mobile: onyxSilver3mobile.url, thumb: onyxSilver3thumb.url },
     { full: onyxSilver4full.url, mobile: onyxSilver4mobile.url, thumb: onyxSilver4thumb.url },
+  ],
+  cherryDarkcherry: [
+    { full: cherryDarkcherry1full.url, mobile: cherryDarkcherry1mobile.url, thumb: cherryDarkcherry1thumb.url },
+    { full: cherryDarkcherry2full.url, mobile: cherryDarkcherry2mobile.url, thumb: cherryDarkcherry2thumb.url },
+    { full: cherryDarkcherry3full.url, mobile: cherryDarkcherry3mobile.url, thumb: cherryDarkcherry3thumb.url },
+    { full: cherryDarkcherry4full.url, mobile: cherryDarkcherry4mobile.url, thumb: cherryDarkcherry4thumb.url },
   ],
 };
