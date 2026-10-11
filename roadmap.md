@@ -14,6 +14,9 @@
 - [x] MATRIX Mobile: Zeile „Gratis Versand · Versand ab 13. Oktober" unter dem Case-Bild entfernen
 - [x] MATRIX Mobile: Beschreibung in der H1 ersetzen durch „Carbon-Optik mit MagSafe & Qi2.2 – für iPhone 17 & 18 Pro / Pro Max"
 
+- [x] MATRIX: Cherry-Carbon-Fotos auf Dark Cherry iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
+
+
 - [x] MATRIX: Onyx-Silver-Fotos für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max ergänzt; vier Bilder, Bildwechsel, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
 
 - [ ] MATRIX Mobile: Textplakette unter dem Case-Bild ist im aktuellen Build bereits entfernt; live auf raj.ch sichtbar, sobald publiziert
