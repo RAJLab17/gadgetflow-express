@@ -40,6 +40,7 @@ import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
 import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
+import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
 import { observeMediaQuery } from "@/lib/mediaQuery";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
@@ -202,8 +203,8 @@ interface AirpodsCase {
 }
 
 const AIRPODS_CASES: Record<string, AirpodsCase> = {
-  cherry: { id: "cherry", name: "MATRIX AirPods 4 & 5 · Cherry Carbon", image: airpodsCherry, thumb: airpodsCherry, price: 35 },
-  onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, thumb: airpodsOnyx, price: 35 },
+  cherry: { id: "cherry", name: "MATRIX AirPods 4 & 5 · Cherry Carbon", image: airpodsCherry, thumb: airpodsThumbs.cherry, price: 35 },
+  onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, thumb: airpodsThumbs.onyx, price: 35 },
 };
 
 /** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
@@ -336,6 +337,8 @@ const DeviceMock = memo(({
       />
       <img
         src={selectedPhoto ?? src}
+        srcSet={selectedPhoto ? undefined : renderSrcSet(src)}
+        sizes={renderImageSizes}
         alt={getPhotoAlt(selectedPhoto ?? src, caseFinish.name, model.name, device.name)}
         width={928}
         height={1152}
@@ -368,7 +371,7 @@ const DeviceMock = memo(({
               background: "#fff",
             }}
           >
-            <img src={getPhotoSizes(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
           </Button>
         ))}
       </div>
@@ -418,7 +421,7 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
           <div key={src} className="relative w-full shrink-0 snap-center" style={{ aspectRatio: "1 / 1" }}>
             <img
               src={i === 0 || (active > 0 && Math.abs(i - active) <= 1) ? src : undefined}
-              srcSet={getPhotoSizes(src) && (active > 0 && Math.abs(i - active) <= 1) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
+              srcSet={i === 0 || (active > 0 && Math.abs(i - active) <= 1) ? (renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined) : undefined}
               sizes="(max-width: 767px) calc(100vw - 40px), 480px"
               alt={getPhotoAlt(src, caseFinish.name, model.name, device.name)}
               width={928}
@@ -614,8 +617,6 @@ const MatrixPage = () => {
   const secondModel = MODELS.find((m) => m.id === (secondModelId ?? modelId))!;
   const secondCaseFinish = CASE_FINISHES.find((c) => c.id === (secondCaseId ?? caseId))!;
   const currentTotal = twoCasesSelected ? TWO_CASES_TOTAL : airpodsSelected ? bundleTotal : caseFinish.price;
-  const genThumb = (finishId: string) =>
-    Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${finishId}-`))?.[1] ?? Object.values(RENDERS)[0];
   const caseThumbSrc =
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
     Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
@@ -1109,7 +1110,11 @@ const MatrixPage = () => {
                               style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}
                             >
                               <img
-                                src={opt.bundle ? airpodsCase.thumb : caseThumbSrc}
+                                src={opt.bundle ? airpodsCase.thumb : renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc}
+                                width={160}
+                                height={160}
+                                loading="lazy"
+                                decoding="async"
                                 alt={opt.bundle ? `RAJ MATRIX AirPods Case in ${CASE_FINISHES.find((c) => c.id === (airpodsColorId ?? caseFinish.id))?.name ?? caseFinish.name}` : `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}`}
                                 className="absolute inset-0 h-full w-full object-contain"
                               />
@@ -1202,8 +1207,7 @@ const MatrixPage = () => {
                         }}
                       >
                         <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg flex" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
-                          <img src={genThumb("cherry")} alt="RAJ MATRIX Cherry Carbon Hülle" className="h-full w-1/2 object-contain" />
-                          <img src={genThumb("onyx")} alt="RAJ MATRIX Onyx Carbon Hülle" className="h-full w-1/2 object-contain" />
+                          <img src={twoCaseThumbs[model.gen]} alt="RAJ MATRIX Cherry Carbon und Onyx Carbon Hüllen nebeneinander" width={160} height={160} loading="lazy" decoding="async" className="h-full w-full object-contain" />
                         </span>
                         <span className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center" style={{ borderColor: twoCasesSelected ? H.gold : H.lineStrong }}>
                           {twoCasesSelected && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}

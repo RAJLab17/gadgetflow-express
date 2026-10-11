@@ -10,6 +10,7 @@ import heroWebp400 from "./src/assets/products/nexus-hero-v2-400w.webp.asset.jso
 import heroWebp800 from "./src/assets/products/nexus-hero-v2-800w.webp.asset.json";
 import heroWebp1200 from "./src/assets/products/nexus-hero-v2-1200w.webp.asset.json";
 import matrixFirstRender from "./src/assets/matrix/optimized-renders/18-cherry-cherry-darkcherry.webp.asset.json";
+import matrixMobileRender from "./src/assets/matrix/responsive/18-cherry-cherry-darkcherry-mobile.webp.asset.json";
 
 // Vite plugin: regenerates public/sitemap.xml from src/content/site-urls.ts
 // before every build, and once on dev server start.
@@ -44,7 +45,7 @@ const heroPreloadPlugin = (): PluginOption => ({
       // Single responsive preload — matches the <img srcset/sizes> on the
       // Nexus hero exactly, so the preloaded resource is guaranteed to be
       // reused instead of triggering a second download.
-      const preloadTag = `<link rel="preload" as="image" href="${url800}" imagesrcset="${srcset}" imagesizes="100vw" fetchpriority="high" />`;
+      const preloadTag = `<script>(function(){if(location.pathname.replace(/\\/$/,'')==='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes='100vw';l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
 
       // Static LCP fallback: inject a real <img> into #root so the browser
       // can paint the hero BEFORE React hydrates (~3s render-delay saved on
@@ -57,9 +58,9 @@ const heroPreloadPlugin = (): PluginOption => ({
       // Carbon, Dark Cherry) and paint a static header/image/title/price/buy
       // block before the JS bundle arrives. MatrixPage removes it on mount.
       const mUrl = JSON.stringify(matrixFirstRender.url);
-      const matrixHeadScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${mUrl};l.setAttribute('fetchpriority','high');document.head.appendChild(l);}catch(e){}})();</script>`;
+      const matrixHeadScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url)}:${mUrl};l.imageSrcset=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url + ' 800w')}:${JSON.stringify(matrixFirstRender.url + ' 1200w')};l.setAttribute('fetchpriority','high');document.head.appendChild(l);}catch(e){}})();</script>`;
       const logoUrl = `data:image/webp;base64,${readFileSync(path.resolve(__dirname, "src/assets/logo-new-400w.webp")).toString("base64")}`;
-      const shellHtml = matrixShellHtml(matrixFirstRender.url, logoUrl);
+      const shellHtml = matrixShellHtml(matrixFirstRender.url, logoUrl, matrixMobileRender.url);
       // Parse critical CSS in the head, before any shell element can be painted.
       const shellCss = shellHtml.match(/^<style>[\s\S]*?<\/style>/)?.[0] ?? "";
       const matrixShellScript = makeMatrixShellScript(shellHtml.slice(shellCss.length));
