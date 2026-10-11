@@ -5,6 +5,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { shareImageTags } from "@/lib/shareImages";
 import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
   ShieldCheck, Truck, RotateCcw, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag, X, ChevronDown,
