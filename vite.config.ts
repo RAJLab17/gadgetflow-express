@@ -126,9 +126,20 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
+    // Providers and the renderer must share one React hook dispatcher.
+    dedupe: ["react", "react-dom"],
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  optimizeDeps: {
+    // Prebundle the shell providers up front instead of rediscovering them
+    // during lazy navigation and mixing dependency generations in open tabs.
+    include: [
+      "react", "react-dom", "react-dom/client", "react/jsx-runtime",
+      "react/jsx-dev-runtime", "@tanstack/react-query", "react-helmet-async",
+      "react-router-dom",
+    ],
   },
   build: {
     target: "es2022",
