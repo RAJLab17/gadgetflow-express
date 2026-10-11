@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] MATRIX Sofortansicht: frühe Modell-/Kaufklicks übernehmen, Ladezustand anzeigen, Original-Kopfzeile und Kaufbutton angleichen; verzögerte Übergabe auf Mobile und Desktop prüfen
 - [x] MATRIX: Onyx-Deep-Blue-Fotos für iPhone 17 Pro und Pro Max ergänzt; fünf Bilder, Bildwechsel, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
 - [x] MATRIX: Silver-Fotos für 17 Pro / Pro Max Cherry ergänzt; Zusatzfotos als WebP mit Handy-/Vorschaugrössen komprimiert und bedarfsgerecht geladen, erstes Bild erhalten; Desktop und 390px geprüft
 - [x] Mobile Kaufleisten geprüft: MATRIX erst nach Vorbeiscrollen am Hauptbutton sichtbar, Rückkehr blendet sie aus, Auswahl aktuell, Footer-Abstand ausreichend; NEXUS und AirPods haben keine Kaufleiste
