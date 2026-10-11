@@ -810,18 +810,17 @@ const MatrixPage = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "RAJ MATRIX Case",
+    name: "RAJ MATRIX Carbon Hülle MagSafe",
     brand: { "@type": "Brand", name: "RAJ" },
     description:
       "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
     url: "https://raj.ch/matrix",
     offers: {
-      "@type": "AggregateOffer",
+      "@type": "Offer",
+      url: "https://raj.ch/matrix",
       priceCurrency: "CHF",
-      lowPrice: 35,
-      highPrice: 59,
-      offerCount: CASE_FINISHES.length + Object.keys(AIRPODS_CASES).length,
-      availability: "https://schema.org/PreOrder",
+      price: 59,
+      availability: "https://schema.org/InStock",
     },
   };
 

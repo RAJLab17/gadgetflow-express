@@ -90,7 +90,7 @@ const prerenderPlugin = (): PluginOption => {
       order: "post",
       handler(html, ctx) {
         if (!ctx.server) return html;
-        const snap = snapshot[normalizeRoute(ctx.originalUrl)];
+        const snap = loadSnapshot(__dirname)[normalizeRoute(ctx.originalUrl)];
         return snap ? renderRouteHtml(html, snap) : html;
       },
     },
