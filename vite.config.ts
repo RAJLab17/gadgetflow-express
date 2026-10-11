@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { readFileSync } from "node:fs";
 import { matrixShellHtml, matrixShellScript as makeMatrixShellScript } from "./scripts/matrix-shell";
+import { loadSnapshot, normalizeRoute, renderRouteHtml } from "./scripts/prerender";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
 import { generateSitemap } from "./scripts/generate-sitemap.mjs";
@@ -76,6 +77,41 @@ const heroPreloadPlugin = (): PluginOption => ({
 
 
 
+// Vite plugin: per-route static HTML for crawlers without JavaScript.
+// Dev: the served index.html is rewritten for the requested route.
+// Build: emits <route>/index.html and <route>.html for every snapshot route
+// and rewrites index.html with the "/" snapshot.
+const prerenderPlugin = (): PluginOption => {
+  const snapshot = loadSnapshot(__dirname);
+  return {
+    name: "raj-prerender",
+    enforce: "post",
+    transformIndexHtml: {
+      order: "post",
+      handler(html, ctx) {
+        if (!ctx.server) return html;
+        const snap = snapshot[normalizeRoute(ctx.originalUrl)];
+        return snap ? renderRouteHtml(html, snap) : html;
+      },
+    },
+    generateBundle(_opts, bundle) {
+      const asset = bundle["index.html"];
+      if (!asset || asset.type !== "asset") return;
+      const base = String(asset.source);
+      for (const [route, snap] of Object.entries(snapshot)) {
+        const html = renderRouteHtml(base, snap);
+        if (route === "/") {
+          asset.source = html;
+          continue;
+        }
+        const rel = route.replace(/^\//, "");
+        this.emitFile({ type: "asset", fileName: `${rel}/index.html`, source: html });
+        this.emitFile({ type: "asset", fileName: `${rel}.html`, source: html });
+      }
+    },
+  };
+};
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -86,6 +122,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     sitemapPlugin(),
     heroPreloadPlugin(),
+    prerenderPlugin(),
     mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
