@@ -7,7 +7,7 @@ import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
-import { trackAddToCart, trackViewItem } from "@/lib/ga-ecommerce";
+import { trackAddToCart, trackBeginCheckout, trackViewItem } from "@/lib/ga-ecommerce";
 
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -184,6 +184,11 @@ const AIRPODS_CASES: Record<string, AirpodsCase> = {
 const BUNDLE_DISCOUNT = 15;
 /** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
 const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
+/** Angezeigter Preis für zwei Hüllen; der Rabatt selbst kommt nur aus dem Shopify-Code. */
+const TWO_CASES_TOTAL = 99;
+const TWO_CASES_DISCOUNT_CODE = "MATRIX2";
+/** Lieferhinweis unter dem Kaufbutton und in der FAQ. */
+const MATRIX_DELIVERY_TEXT = "Neue Lieferung unterwegs · Versand in 5–8 Tagen";
 
 /* ── Shopify Variant ID mapping ─────────────────────────────────────── */
 const CASE_VARIANT_IDS: Record<string, Record<string, string>> = {
@@ -465,17 +470,10 @@ const PaymentMethodsBar = () => (
 );
 
 /* ── Mobile: Lieferzeile, Trust, FAQ, Bewertungen ── */
-const getMatrixDeliveryText = () => {
-  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Zurich", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  return today <= "2026-10-13"
-    ? "Versand ab Mi, 14. Oktober · Lieferung ca. 15.–16. Oktober"
-    : "Lieferung in 2–3 Werktagen";
-};
-
 type MatrixReview = { id: string; customer_name: string; rating: number; title: string; comment: string; created_at: string };
 
 const MatrixMobileInfo = () => {
-  const delivery = getMatrixDeliveryText();
+  const delivery = MATRIX_DELIVERY_TEXT;
   const [reviews, setReviews] = useState<MatrixReview[]>([]);
   useEffect(() => {
     supabase
@@ -491,7 +489,7 @@ const MatrixMobileInfo = () => {
     ["Passt die Hülle zu meinem iPhone?", "Ja, MATRIX gibt es passgenau für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Wähle oben dein Modell."],
     ["Hält MagSafe zuverlässig?", "Ja, der eingebaute N52-Magnetring hält dein iPhone sicher auf MagSafe-Ladegeräten, Haltern und im Auto."],
     ["Kann ich kabellos laden?", "Ja, Qi2.2 und MagSafe laden direkt durch die Hülle."],
-    ["Wann kommt meine Bestellung?", delivery],
+    ["Wann kommt meine Bestellung?", `🚚 ${delivery}`],
     ["Was, wenn sie mir nicht gefällt?", "Du hast 30 Tage Rückgaberecht. Gratis Versand innerhalb der Schweiz."],
   ];
   return (
@@ -544,6 +542,9 @@ const MatrixPage = () => {
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [showAirpodsColor, setShowAirpodsColor] = useState(false);
+  const [twoCasesSelected, setTwoCasesSelected] = useState(false);
+  const [secondModelId, setSecondModelId] = useState<ModelId | null>(null);
+  const [secondCaseId, setSecondCaseId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
   const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
   const mainBuyRef = useRef<HTMLButtonElement>(null);
@@ -572,6 +573,11 @@ const MatrixPage = () => {
   const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
   const airpodsCase = AIRPODS_CASES[airpodsColorId ?? caseFinish.id];
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
+  const secondModel = MODELS.find((m) => m.id === (secondModelId ?? modelId))!;
+  const secondCaseFinish = CASE_FINISHES.find((c) => c.id === (secondCaseId ?? caseId))!;
+  const currentTotal = twoCasesSelected ? TWO_CASES_TOTAL : airpodsSelected ? bundleTotal : caseFinish.price;
+  const genThumb = (finishId: string) =>
+    Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${finishId}-`))?.[1] ?? Object.values(RENDERS)[0];
   const caseThumbSrc =
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
     Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
@@ -590,6 +596,32 @@ const MatrixPage = () => {
     try {
       const caseVariantId = CASE_VARIANT_IDS[modelId]?.[caseId];
       if (!caseVariantId) { fail("Diese Variante ist derzeit nicht verfügbar."); return; }
+
+      if (twoCasesSelected) {
+        const secondVariantId = CASE_VARIANT_IDS[secondModel.id]?.[secondCaseFinish.id];
+        if (!secondVariantId) { fail("Die zweite Hülle ist derzeit nicht verfügbar."); return; }
+        const items = [
+          { item_id: caseVariantId, item_name: "RAJ MATRIX Case", item_variant: `${model.name} / ${caseFinish.name}`, price: TWO_CASES_TOTAL / 2 },
+          { item_id: secondVariantId, item_name: "RAJ MATRIX Case", item_variant: `${secondModel.name} / ${secondCaseFinish.name}`, price: TWO_CASES_TOTAL / 2 },
+        ];
+        trackAddToCart(items);
+        trackBeginCheckout(items);
+        const reference = makeOrderReference();
+        const product = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(caseFinish.price), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
+        const identical = secondVariantId === caseVariantId;
+        const first: CartItem = { lineId: null, product, variantId: caseVariantId, variantTitle: `${model.name} / ${caseFinish.name}`, price: { amount: String(caseFinish.price), currencyCode: "CHF" }, quantity: identical ? 2 : 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: caseFinish.name }] };
+        const cart = await createShopifyCart(first, [TWO_CASES_DISCOUNT_CODE], [{ key: "RAJ Referenz", value: reference }, { key: "Quelle", value: "raj.ch/matrix" }]);
+        if (!cart) { fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut."); return; }
+        if (!identical) {
+          const second: CartItem = { ...first, variantId: secondVariantId, variantTitle: `${secondModel.name} / ${secondCaseFinish.name}`, quantity: 1, selectedOptions: [{ name: "Modell", value: secondModel.name }, { name: "Finish", value: secondCaseFinish.name }] };
+          const added = await addLineToShopifyCart(cart.cartId, second);
+          if (!added.success) { fail("Die zweite Hülle konnte nicht hinzugefügt werden. Bitte versuche es erneut."); return; }
+          if (added.checkoutUrl) cart.checkoutUrl = added.checkoutUrl;
+        }
+        trackCheckout({ cartId: cart.cartId, reference, summary: `2× MATRIX Case: ${model.name} · ${caseFinish.name} + ${secondModel.name} · ${secondCaseFinish.name}`, total: `CHF ${TWO_CASES_TOTAL}.–`, startedAt: Date.now() });
+        goToCheckout(checkoutTab, cart.checkoutUrl);
+        return;
+      }
 
       trackAddToCart([
         { item_id: caseVariantId, item_name: "RAJ MATRIX Case", item_variant: `${model.name} / ${caseFinish.name}`, price: caseFinish.price },
@@ -635,7 +667,7 @@ const MatrixPage = () => {
     } finally {
       setIsBuying(false);
     }
-  }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase, bundleTotal, trackCheckout]);
+  }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase, bundleTotal, trackCheckout, twoCasesSelected, secondModel, secondCaseFinish]);
 
   const handleAirpodsBuy = useCallback(async () => {
     if (isBuyingAirpods) return;
@@ -1007,7 +1039,7 @@ const MatrixPage = () => {
                         { bundle: false, label: "Nur die Hülle" },
                         { bundle: true, label: "Hülle + AirPods Case" },
                       ].map((opt) => {
-                        const active = airpodsSelected === opt.bundle;
+                        const active = !twoCasesSelected && airpodsSelected === opt.bundle;
                         return (
                           <button
                             key={opt.label}
@@ -1016,6 +1048,7 @@ const MatrixPage = () => {
                             aria-checked={active}
                             onClick={() => {
                               setAirpodsSelected(opt.bundle);
+                              setTwoCasesSelected(false);
                               if (!opt.bundle) setShowAirpodsColor(false);
                             }}
                             className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-300"
@@ -1070,7 +1103,7 @@ const MatrixPage = () => {
                           </button>
                         );
                       })}
-                      {airpodsSelected && (
+                      {airpodsSelected && !twoCasesSelected && (
                         <div className="px-1">
                           <button
                             type="button"
@@ -1106,6 +1139,70 @@ const MatrixPage = () => {
                           )}
                         </div>
                       )}
+                      <button
+                        type="button"
+                        role="radio"
+                        aria-checked={twoCasesSelected}
+                        onClick={() => {
+                          if (!twoCasesSelected) { setSecondModelId(modelId); setSecondCaseId(caseId); }
+                          setTwoCasesSelected(true);
+                          setAirpodsSelected(false);
+                          setShowAirpodsColor(false);
+                        }}
+                        className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-300"
+                        style={{
+                          border: `1px solid ${twoCasesSelected ? H.gold : H.line}`,
+                          background: twoCasesSelected ? "rgba(155,107,63,0.06)" : "transparent",
+                        }}
+                      >
+                        <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg flex" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
+                          <img src={genThumb("cherry")} alt="" aria-hidden className="h-full w-1/2 object-contain" />
+                          <img src={genThumb("onyx")} alt="" aria-hidden className="h-full w-1/2 object-contain" />
+                        </span>
+                        <span className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center" style={{ borderColor: twoCasesSelected ? H.gold : H.lineStrong }}>
+                          {twoCasesSelected && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-sm font-medium">2 Hüllen</span>
+                          <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>Für dich und deine Liebsten</span>
+                        </span>
+                        <span className="shrink-0 flex flex-col items-end gap-0.5">
+                          <span className="text-sm font-semibold">CHF {TWO_CASES_TOTAL}.–</span>
+                          <span className="text-[11px] line-through" style={{ color: H.textMuted }}>CHF {caseFinish.price * 2}.–</span>
+                          <span className="rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.08em]" style={{ background: H.gold, color: "#fff" }}>
+                            Spare CHF {caseFinish.price * 2 - TWO_CASES_TOTAL}
+                          </span>
+                        </span>
+                      </button>
+                      {twoCasesSelected && (
+                        <div className="rounded-lg px-3 py-3" style={{ border: `1px solid ${H.line}` }}>
+                          <p className="text-[10px] uppercase tracking-[0.28em] mb-2" style={{ color: H.textMuted }}>Zweite Hülle</p>
+                          <div className="grid grid-cols-2 gap-1.5">
+                            {MODELS.map((m) => {
+                              const on = m.id === secondModel.id;
+                              return (
+                                <button key={m.id} type="button" aria-pressed={on} onClick={() => setSecondModelId(m.id)}
+                                  className="rounded-md px-2 py-1.5 text-[12px] transition-all duration-300"
+                                  style={{ border: `1px solid ${on ? H.gold : H.line}`, color: on ? H.gold : H.text, background: on ? "rgba(155,107,63,0.08)" : "transparent" }}>
+                                  {m.name}
+                                </button>
+                              );
+                            })}
+                          </div>
+                          <div className="mt-2 flex items-center gap-2">
+                            {CASE_FINISHES.map((c) => {
+                              const on = c.id === secondCaseFinish.id;
+                              return (
+                                <button key={c.id} type="button" aria-pressed={on} onClick={() => setSecondCaseId(c.id)}
+                                  className="px-3 py-1.5 rounded-full text-[11px] transition-all duration-300"
+                                  style={{ border: `1px solid ${on ? H.gold : H.line}`, color: on ? H.gold : H.textMuted, background: on ? "rgba(155,107,63,0.08)" : "transparent" }}>
+                                  {c.name}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
                     </div>
                     <Button
                       ref={mainBuyRef}
@@ -1124,7 +1221,7 @@ const MatrixPage = () => {
                       ) : (
                         <>
                           <ShoppingBag className="w-4 h-4" />
-                          <span>JETZT KAUFEN · CHF {airpodsSelected ? bundleTotal : caseFinish.price}.–</span>
+                          <span>JETZT KAUFEN · CHF {currentTotal}.–</span>
                         </>
                       )}
                     </Button>
@@ -1302,9 +1399,15 @@ const MatrixPage = () => {
           >
             <div className="flex items-center justify-between gap-3 px-4 py-3">
               <div className="min-w-0 leading-tight">
-                <p className="text-xs font-medium">{model.name}</p>
-                <p className="text-[11px] text-muted-foreground">{caseFinish.name}</p>
-                <p className="mt-1 text-sm font-semibold">CHF {airpodsSelected ? bundleTotal : caseFinish.price}.–</p>
+                {twoCasesSelected ? (
+                  <p className="text-sm font-semibold">2 Hüllen · CHF {TWO_CASES_TOTAL}.–</p>
+                ) : (
+                  <>
+                    <p className="text-xs font-medium">{model.name}</p>
+                    <p className="text-[11px] text-muted-foreground">{caseFinish.name}</p>
+                    <p className="mt-1 text-sm font-semibold">CHF {currentTotal}.–</p>
+                  </>
+                )}
               </div>
               <Button onClick={handleBuy} disabled={isBuying} className="h-11 shrink-0 rounded-lg px-5">
                 {isBuying ? <Loader2 className="animate-spin" /> : <ShoppingBag />}

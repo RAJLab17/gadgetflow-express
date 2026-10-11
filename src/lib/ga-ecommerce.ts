@@ -33,3 +33,14 @@ export function trackViewItem(item: { item_id: string; item_name: string; price:
     });
   } catch {}
 }
+
+/** Fires GA4 begin_checkout + Meta InitiateCheckout. */
+export function trackBeginCheckout(items: GaItem[]) {
+  if (typeof window === "undefined") return;
+  try {
+    const full = items.map((i) => ({ quantity: 1, ...i }));
+    const value = full.reduce((s, i) => s + i.price * i.quantity, 0);
+    (window as any).gtag?.("event", "begin_checkout", { currency: "CHF", value, items: full });
+    (window as any).fbq?.("track", "InitiateCheckout", { value, currency: "CHF", content_ids: full.map((i) => i.item_id), content_type: "product", num_items: full.length });
+  } catch {}
+}
