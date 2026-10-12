@@ -31,6 +31,26 @@ interface PreorderData {
   finalPrice: number;
 }
 
+// Best-effort per-instance rate limit (no shared backend limiter available).
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const RATE_MAX = 5;
+const attempts = new Map<string, number[]>();
+function rateLimited(key: string): boolean {
+  const now = Date.now();
+  const list = (attempts.get(key) || []).filter((t) => now - t < RATE_WINDOW_MS);
+  list.push(now);
+  attempts.set(key, list);
+  if (attempts.size > 5000) {
+    for (const [k, v] of attempts) if (!v.some((t) => now - t < RATE_WINDOW_MS)) attempts.delete(k);
+  }
+  return list.length > RATE_MAX;
+}
+
+const neutral = () => new Response(
+  JSON.stringify({ success: true }),
+  { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+);
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -38,7 +58,12 @@ serve(async (req) => {
 
   try {
     const data: PreorderData = await req.json();
-    console.log('Processing preorder:', data.orderNumber);
+    const orderNumber = typeof data?.orderNumber === 'string' ? data.orderNumber.trim() : '';
+    const email = typeof data?.customerEmail === 'string' ? data.customerEmail.trim().toLowerCase() : '';
+    if (!orderNumber || !email || orderNumber.length > 64 || email.length > 255) return neutral();
+
+    const ip = (req.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'unknown';
+    if (rateLimited(`ip:${ip}`) || rateLimited(`order:${orderNumber}`)) return neutral();
 
     // Validate orderNumber exists in the database before proceeding
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
@@ -48,26 +73,23 @@ serve(async (req) => {
     const { data: orderRecord, error: orderError } = await supabase
       .from('preorders')
       .select('order_number, customer_email, customer_name, product_name, product_variant, original_price, discount_percent, final_price, street_address, postal_code, city, phone, email_sent_at')
-      .eq('order_number', data.orderNumber)
-      .single();
+      .eq('order_number', orderNumber)
+      .maybeSingle();
 
-    // Uniform 200 response to prevent order-number enumeration.
-    // Silently no-op when the order doesn't exist or was already processed.
-    if (orderError || !orderRecord || orderRecord.email_sent_at) {
-      if (orderError || !orderRecord) {
-        console.warn('process-preorder: order not found or unavailable', data.orderNumber);
-      }
-      return new Response(
-        JSON.stringify({ success: true }),
-        { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+    // Same neutral response for unknown order, wrong email, or already processed.
+    if (
+      orderError || !orderRecord || orderRecord.email_sent_at ||
+      String(orderRecord.customer_email || '').trim().toLowerCase() !== email
+    ) {
+      return neutral();
     }
 
     // Mark as processed up-front to prevent concurrent duplicate runs
     await supabase
       .from('preorders')
       .update({ email_sent_at: new Date().toISOString() })
-      .eq('order_number', data.orderNumber);
+      .eq('order_number', orderNumber)
+      .is('email_sent_at', null);
 
     // Server-side abandoned-cart conversion (ownership verified via DB row above).
     // Deletes the abandoned Shopify draft order and marks the cart converted.
@@ -267,14 +289,10 @@ serve(async (req) => {
       results.shopify = { success: false, draftOrderId: '', error: 'SHOPIFY_ACCESS_TOKEN not configured' };
     }
 
-    return new Response(JSON.stringify({ success: true, results }), {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
+    console.log('Preorder processed', { email: results.email.success, shopify: results.shopify.success });
+    return neutral();
   } catch (error) {
     console.error('Process preorder error:', error);
-    return new Response(
-      JSON.stringify({ error: 'Fehler bei der Verarbeitung' }),
-      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+    return neutral();
   }
 });
