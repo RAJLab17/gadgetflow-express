@@ -14,7 +14,7 @@ const GOLD_SOFT = "#d7ad82";
 /**
  * BrandNextDrop — "Die Objekte" als Editorial-Magazin.
  * Warme Premium-Stillleben, versetztes Raster: NEXUS im Fokus (kaufbar),
- * MATRIX als "Als Nächstes", APEX als "Early Access".
+ * MATRIX als "Jetzt verfügbar", APEX als "Bald verfügbar".
  */
 const BrandNextDrop = () => {
   const headRef = useReveal<HTMLDivElement>();
@@ -95,7 +95,7 @@ const BrandNextDrop = () => {
             </div>
           </Link>
 
-          {/* MATRIX — Als Nächstes (versetzt) */}
+          {/* MATRIX — Jetzt verfügbar (versetzt) */}
           <div className="md:mt-16">
           <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
@@ -120,7 +120,7 @@ const BrandNextDrop = () => {
                     WebkitBackdropFilter: "blur(8px)",
                   }}
                 >
-                  Als Nächstes
+                  Jetzt verfügbar
                 </span>
               </div>
               {/* AirPods 4 & 5 Case — Inset neben dem iPhone-Case */}
@@ -189,7 +189,7 @@ const BrandNextDrop = () => {
           </div>
 
 
-          {/* APEX — Early Access (weiter versetzt) */}
+          {/* APEX — Bald verfügbar (weiter versetzt) */}
           <Link to="/apex" className="group block lg:mt-32">
             <div className="relative mb-6 aspect-[3/4] overflow-hidden rounded-sm">
               <img
@@ -214,7 +214,7 @@ const BrandNextDrop = () => {
                     WebkitBackdropFilter: "blur(8px)",
                   }}
                 >
-                  Early Access
+                  Bald verfügbar
                 </span>
               </div>
             </div>
