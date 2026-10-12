@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Update German/English homepage closing descriptions and fallback heading; sync static SEO copy and verify zero forbidden-origin matches; do not publish
 - [x] Replace only German homepage runtime/static descriptions with “Schweizer Marke aus dem Thurgau.”; all six tags verified with curl and browser, audit remaining Swiss-manufacture phrases without modifying them; not published
 - [x] Prevent preview React/provider mismatch with React deduplication and explicit shell-provider prebundling; four routes, model selection, navigation and repeated reloads passed without runtime errors
 - [x] Product-specific 1200×630 JPG share images and runtime/static tags; local Facebook/WhatsApp curl and public image URLs verified, hosted-preview crawler checks blocked by access restriction; not published

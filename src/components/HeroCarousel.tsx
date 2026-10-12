@@ -25,7 +25,7 @@ const GOLD = "#9b6b3f";
 // Static fallback content for the LCP frame — avoids waiting on the
 // LanguageContext (which itself adds a render cycle).
 const STATIC_HEADLINE_LINE_1 = "Premium Wireless Charging.";
-const STATIC_HEADLINE_LINE_2 = "Made in Switzerland.";
+const STATIC_HEADLINE_LINE_2 = "Swiss Brand.";
 const STATIC_SLIDE_0_HEADLINE = "Qi2.2 · 25W · 3-in-1";
 const STATIC_SLIDE_0_SUB = "100% in 1.5 Stunden";
 

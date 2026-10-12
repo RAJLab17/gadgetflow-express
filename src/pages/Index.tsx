@@ -14,7 +14,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const META = {
   de: {
     title: "RAJ — Power. Always there. | Schweizer Luxus-Technologie",
-    desc: "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke aus dem Thurgau.",
+    desc: "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
   },
   fr: {
     title: "RAJ — Power. Always there. | Technologie de luxe suisse",
@@ -26,7 +26,7 @@ const META = {
   },
   en: {
     title: "RAJ — Power. Always there. | Swiss Luxury Technology",
-    desc: "RAJ is a Swiss luxury tech house. Premium objects of substance — beginning with NEXUS. Precision, permanence, character. Made in Switzerland.",
+    desc: "RAJ is a Swiss luxury tech house. Premium objects of substance — beginning with NEXUS. Precision, permanence, character. Swiss Brand.",
   },
 } as const;
 
