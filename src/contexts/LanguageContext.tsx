@@ -225,7 +225,7 @@ const translations: Translations = {
     it: "Spedizione gratuita in Svizzera · Founder Edition limitata a 100 pezzi",
     en: "Complimentary Swiss shipping · Founder Edition limited to 100 pieces",
   },
-  "topbar.madeIn": { de: "Konzipiert in der Schweiz", fr: "Conçu en Suisse", it: "Concepito in Svizzera", en: "Designed in Switzerland" },
+  "topbar.madeIn": { de: "Schweizer Marke", fr: "Marque suisse", it: "Marchio svizzero", en: "Swiss Brand" },
 
   // Brand Hero
   "brand.hero.eyebrow": {

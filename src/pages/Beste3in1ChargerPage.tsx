@@ -140,7 +140,7 @@ const Beste3in1ChargerPage = () => {
         <Table
           headers={["Produkt", "Standard", "iPhone-Leistung", "Preis", "Herkunft"]}
           rows={[
-            ["RAJ NEXUS", "Qi2.2", "25W", "CHF 99", "🇨🇭 Schweiz"],
+            ["RAJ NEXUS", "Qi2.2", "25W", "CHF 99", "Schweizer Marke"],
             ["Anker MagGo 3-in-1", "Qi2.2", "25W", "CHF 130–160", "USA"],
             ["Belkin 3-in-1", "Qi2", "15W", "CHF 120–150", "USA"],
             ["ESR CryoBoost", "Qi2.2", "25W", "CHF 90–110", "International"],
@@ -150,8 +150,8 @@ const Beste3in1ChargerPage = () => {
 
         <H2>RAJ NEXUS – Die Schweizer Alternative</H2>
         <P>
-          Der RAJ NEXUS ist die erste 3-in-1 Wireless Ladestation einer Schweizer Marke. Designed in Weinfelden,
-          Thurgau – gebaut für iPhone 16 Pro Nutzer, die kein Kompromissprodukt wollen.
+          Der RAJ NEXUS ist die erste 3-in-1 Wireless Ladestation einer Schweizer Marke aus Weinfelden,
+          Thurgau – für iPhone 16 Pro Nutzer, die kein Kompromissprodukt wollen.
         </P>
 
         <H3>Technische Daten RAJ NEXUS</H3>
@@ -167,8 +167,8 @@ const Beste3in1ChargerPage = () => {
 
         <H3>Was RAJ NEXUS von der Konkurrenz unterscheidet</H3>
         <P>
-          Anker und Belkin sind globale Massenprodukte ohne Bezug zur Schweiz. Der RAJ NEXUS ist speziell für den
-          Schweizer Markt entwickelt – CHF-Preise, Schweizer Support, Swiss Design. Für den gleichen Preis wie
+          Anker und Belkin sind globale Massenprodukte ohne Bezug zur Schweiz. Der RAJ NEXUS kommt von einer
+          Schweizer Marke – CHF-Preise, Schweizer Support. Für den gleichen Preis wie
           ein Belkin bekommst du ein Produkt mit Charakter.
         </P>
 
@@ -183,9 +183,9 @@ const Beste3in1ChargerPage = () => {
             ["Preis", "CHF 99", "CHF 130–160"],
             ["Standard", "Qi2.2", "Qi2.2"],
             ["iPhone-Leistung", "25W", "25W"],
-            ["Design", "Swiss Design", "Generisch"],
+            ["Design", "Schweizer Marke", "Generisch"],
             ["Support", "Schweiz", "International"],
-            ["Herkunft", "🇨🇭 Designed in CH", "USA"],
+            ["Herkunft", "Schweizer Marke", "USA"],
           ]}
         />
         <P><strong>Fazit:</strong> Gleiche Ladeleistung, CHF 30–60 günstiger, Schweizer Marke.</P>
@@ -197,7 +197,7 @@ const Beste3in1ChargerPage = () => {
             ["Preis", "CHF 99", "CHF 120–150"],
             ["Standard", "Qi2.2", "Qi2"],
             ["iPhone-Leistung", "25W", "15W"],
-            ["Design", "Swiss Design", "Generisch"],
+            ["Design", "Schweizer Marke", "Generisch"],
           ]}
         />
         <P><strong>Fazit:</strong> RAJ NEXUS lädt schneller, kostet weniger, sieht besser aus.</P>
@@ -269,7 +269,7 @@ const Beste3in1ChargerPage = () => {
           Kombination aus Leistung, Design und Preis.
         </P>
         <UL>
-          <li><strong>Beste Wahl allgemein:</strong> RAJ NEXUS – CHF 99, Qi2.2 25W, Swiss Design</li>
+          <li><strong>Beste Wahl allgemein:</strong> RAJ NEXUS – CHF 99, Qi2.2 25W, Schweizer Marke</li>
           <li><strong>Günstiger Einstieg:</strong> freeVoice 3-in-1 – CHF 32, Qi2 15W, kein Premium</li>
           <li><strong>Internationale Alternative:</strong> ESR CryoBoost – Qi2.2 25W, kein CH-Bezug</li>
         </UL>

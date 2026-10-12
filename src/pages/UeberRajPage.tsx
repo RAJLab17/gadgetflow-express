@@ -14,8 +14,8 @@ const UeberRajPage = () => {
     >
       <div className="space-y-8 text-foreground/85 font-light leading-relaxed text-lg">
         <p>
-          RAJ ist eine Schweizer Consumer-Electronics-Marke mit Sitz im Kanton Thurgau. Wir entwickeln
-          Premium-Zubehör für das Apple-Ökosystem – mit dem Anspruch an Schweizer Präzision, nachhaltige Qualität
+          RAJ ist eine Schweizer Marke mit Sitz im Kanton Thurgau. Wir bieten
+          Premium-Zubehör für das Apple-Ökosystem – mit dem Anspruch an nachhaltige Qualität
           und kompromissloses Design.
         </p>
 

@@ -17,7 +17,7 @@ const L = {
 };
 
 const VALUES = [
-  { n: "01", title: "Fokus", copy: "Reduktion auf das Wesentliche. Wir entwickeln keine Funktionen, sondern Lösungen, die bleiben." },
+  { n: "01", title: "Fokus", copy: "Reduktion auf das Wesentliche. Als Schweizer Marke stehen wir für Lösungen, die bleiben." },
   { n: "02", title: "Qualität", copy: "Anspruch ohne Kompromisse. Jedes Detail folgt einem klaren Qualitätsverständnis, sichtbar und spürbar." },
   { n: "03", title: "Vertrauen", copy: "Verlässlichkeit im Alltag. Dein Vertrauen ist unser Antrieb, wir hören zu und liefern." },
   { n: "04", title: "Transparenz", copy: "Klare Entscheidungen, klare Preise. Ohne versteckte Bedingungen, ohne leere Versprechen." },
@@ -34,13 +34,13 @@ const AboutPage = () => {
   return (
     <div style={{ background: L.bg, color: L.text }} className="min-h-screen font-light">
       <Helmet>
-        <title>Über RAJ, Schweizer Präzision aus dem Thurgau</title>
+        <title>Über RAJ – Schweizer Marke aus dem Thurgau</title>
         <meta
           name="description"
           content="RAJ ist eine Schweizer Consumer-Electronics-Marke aus dem Thurgau. Präzision, Beständigkeit und Charakter, gebaut auf 16 Jahren Erfahrung."
         />
         <link rel="canonical" href="https://raj.ch/about" />
-        <meta property="og:title" content="Über RAJ, Schweizer Präzision aus dem Thurgau" />
+        <meta property="og:title" content="Über RAJ – Schweizer Marke aus dem Thurgau" />
         <meta property="og:description" content="Schweizer Consumer-Electronics aus dem Thurgau. Präzision · Beständigkeit · Charakter." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://raj.ch/about" />
@@ -58,7 +58,7 @@ const AboutPage = () => {
             <h1 className="font-light tracking-tight leading-[0.95] text-[clamp(3rem,8vw,6.5rem)]">
               Schweizer
               <br />
-              <span className="italic" style={{ color: L.gold }}>Präzision.</span>
+              <span className="italic" style={{ color: L.gold }}>Marke.</span>
             </h1>
             <p className="mt-10 max-w-xl text-lg md:text-xl leading-relaxed" style={{ color: L.textMuted }}>
               Gegründet im Thurgau. Gebaut auf 16 Jahren Erfahrung in der Präzisionsindustrie.

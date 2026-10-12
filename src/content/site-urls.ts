@@ -243,7 +243,7 @@ export const STATIC_URLS: SitemapEntry[] = [
       {
         loc: `${SITE_URL}/assets/products/nexus-stone-hero.webp`,
         title: "RAJ NEXUS auf Stein",
-        caption: "RAJ NEXUS – Premium Materialien im Schweizer Design",
+        caption: "RAJ NEXUS – Premium Materialien · Schweizer Marke",
       },
       {
         loc: `${SITE_URL}/assets/products/nexus-bedside-night.webp`,
