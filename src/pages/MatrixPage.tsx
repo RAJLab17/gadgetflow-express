@@ -47,6 +47,7 @@ import {
 import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
 import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
 import { observeMediaQuery } from "@/lib/mediaQuery";
+import BundleOfferImage from "@/components/matrix/BundleOfferImage";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
@@ -1079,15 +1080,17 @@ const MatrixPage = () => {
                               className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg"
                               style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}
                             >
-                              <img
-                                src={opt.bundle ? airpodsCase.thumb : renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc}
+                              {opt.bundle ? (
+                                <BundleOfferImage phoneSrc={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} finishId={caseFinish.id} finishName={caseFinish.name} />
+                              ) : <img
+                                src={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc}
                                 width={160}
                                 height={160}
                                 loading="lazy"
                                 decoding="async"
                                 alt={opt.bundle ? `RAJ MATRIX AirPods Case in ${CASE_FINISHES.find((c) => c.id === (airpodsColorId ?? caseFinish.id))?.name ?? caseFinish.name}` : `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}`}
                                 className="absolute inset-0 h-full w-full object-contain"
-                              />
+                              />}
                             </span>
                             <span
                               className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center"
