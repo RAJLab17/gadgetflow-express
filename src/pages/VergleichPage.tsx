@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Gibt es einen 3-in-1 Charger aus der Schweiz?",
-    a: "Ja, der RAJ NEXUS ist aktuell die einzige Schweizer Marke in diesem Vergleich, entwickelt und supportet aus dem Thurgau.",
+    a: "Ja, der RAJ NEXUS ist aktuell die einzige Schweizer Marke in diesem Vergleich, mit Support aus dem Thurgau.",
   },
   {
     q: "Welcher Charger lädt am schnellsten?",
