@@ -238,6 +238,12 @@
       <image:title>RAJ APEX MagSafe Auto-Ladehalterung</image:title>
       <image:caption>RAJ APEX Auto-Ladehalterung mit Qi2 und bis zu 25 Watt</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/827e9df7-2f9a-4bd1-a4b8-e954fa5922e6/apex-dash-1400.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/1821758f-f720-4110-b758-3e4ec6136462/apex-vent-1400.webp</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -308,6 +314,19 @@
     </image:image>
     <image:image>
       <image:loc>https://raj.ch/assets/hero/nexus-hero-1200.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://raj.ch/about</loc>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/c0c6921b-2dfb-4186-acca-8ae4a9333c7f/workshop-detail.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/c84f0b53-d344-44fa-a231-cfb5c5caa9ff/precision-craft.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/81a77e3f-aa2d-4e22-a5ca-7cdaf7e38afe/about-thurgau-clean.webp</image:loc>
     </image:image>
   </url>
 
