@@ -19,3 +19,4 @@
 
 - Responsive NEXUS title variants select the sole H1 using the shared media-query observer and render inactive titles as divs; this preserves all breakpoint layouts without duplicate DOM headings.
 - sitemap-images.xml auto-collects each sitemap route's CDN asset pointers, public/ image paths and absolute raj.ch CDN URLs from its page module (via App.tsx) plus manual site-urls.ts images, skipping logos/icons/payment/thumbs and hashed Vite imports; only permanent addresses may enter the sitemap.
+- /airpods-case shares MATRIX commerce constants, variant IDs, delivery/trust copy and payment bar via src/components/matrix/matrixCommerce.tsx, and paints a captured outside-root instant view (scripts/capture-airpods-shell.py → airpods-shell-view.json, no H1) removed after the real first gallery image decodes or fails; re-run the capture after changing that page's header/purchase layout.

@@ -4,6 +4,7 @@ import path from "path";
 import { readFileSync } from "node:fs";
 import { matrixShellHtml, matrixShellScript as makeMatrixShellScript } from "./scripts/matrix-shell";
 import { nexusShellCss, nexusShellScript } from "./scripts/nexus-shell";
+import { airpodsShellHead, airpodsShellScript } from "./scripts/airpods-shell";
 import { loadSnapshot, normalizeRoute, renderRouteHtml } from "./scripts/prerender";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
@@ -47,7 +48,7 @@ const heroPreloadPlugin = (): PluginOption => ({
       // Single responsive preload — matches the <img srcset/sizes> on the
       // Nexus hero exactly, so the preloaded resource is guaranteed to be
       // reused instead of triggering a second download.
-       const preloadTag = `<script>(function(){if(location.pathname.replace(/\\/$/,'')==='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes=location.pathname.replace(/\\/$/,'')==='/nexus'?'(max-width: 768px) 100vw, 700px':'100vw';l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
+       const preloadTag = `<script>(function(){var _p=location.pathname.replace(/\\/$/,'');if(_p==='/matrix'||_p==='/airpods-case')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes=location.pathname.replace(/\\/$/,'')==='/nexus'?'(max-width: 768px) 100vw, 700px':'100vw';l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
 
       // Static LCP fallback: inject a real <img> into #root so the browser
       // can paint the hero BEFORE React hydrates (~3s render-delay saved on
@@ -82,6 +83,10 @@ const heroPreloadPlugin = (): PluginOption => ({
 // and rewrites index.html with the "/" snapshot.
 const prerenderPlugin = (): PluginOption => {
   const snapshot = loadSnapshot(__dirname);
+  const VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
+  const withShell = (html: string, route: string) => route === "/airpods-case"
+    ? html.replace(VIEWPORT, VIEWPORT + airpodsShellHead()).replace('<div id="root"></div>', '<div id="root"></div>' + airpodsShellScript())
+    : withNexusShell(html, route);
   const withNexusShell = (html: string, route: string) => route !== "/nexus" ? html : html
     .replace('<meta name="viewport" content="width=device-width, initial-scale=1.0" />', '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + nexusShellCss())
     .replace('<div id="root"></div>', '<div id="root"></div>' + nexusShellScript());
@@ -94,7 +99,7 @@ const prerenderPlugin = (): PluginOption => {
         if (!ctx.server) return html;
         const route = normalizeRoute(ctx.originalUrl);
         const snap = loadSnapshot(__dirname)[route];
-        return withNexusShell(snap ? renderRouteHtml(html, snap) : html, route);
+        return withShell(snap ? renderRouteHtml(html, snap) : html, route);
       },
     },
     generateBundle(_opts, bundle) {
@@ -102,7 +107,7 @@ const prerenderPlugin = (): PluginOption => {
       if (!asset || asset.type !== "asset") return;
       const base = String(asset.source);
       for (const [route, snap] of Object.entries(snapshot)) {
-        const html = withNexusShell(renderRouteHtml(base, snap), route);
+        const html = withShell(renderRouteHtml(base, snap), route);
         if (route === "/") {
           asset.source = html;
           continue;
