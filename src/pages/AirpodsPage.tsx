@@ -28,33 +28,47 @@ import {
   PaymentMethodsBar,
 } from "@/components/matrix/matrixCommerce";
 
-import airpodsCherryAsset from "@/assets/matrix/schema/airpods-cherry-premium.webp.asset.json";
-import airpodsOnyxAsset from "@/assets/matrix/schema/airpods-onyx-premium.webp.asset.json";
 import BundleOfferImage, { bundlePhoneThumb, originalAirpodsThumbs } from "@/components/matrix/BundleOfferImage";
-import cherryDesk from "@/assets/matrix/airpods-lifestyle/cherry-desk-full.webp.asset.json";
-import cherryDeskMobile from "@/assets/matrix/airpods-lifestyle/cherry-desk-mobile.webp.asset.json";
-import cherryDeskThumb from "@/assets/matrix/airpods-lifestyle/cherry-desk-thumb.webp.asset.json";
-import cherryDeskSecond from "@/assets/matrix/airpods-lifestyle/cherry-desk-second-full.webp.asset.json";
-import cherryDeskSecondMobile from "@/assets/matrix/airpods-lifestyle/cherry-desk-second-mobile.webp.asset.json";
-import cherryDeskSecondThumb from "@/assets/matrix/airpods-lifestyle/cherry-desk-second-thumb.webp.asset.json";
-import cherryBag from "@/assets/matrix/airpods-lifestyle/cherry-bag-full.webp.asset.json";
-import cherryBagMobile from "@/assets/matrix/airpods-lifestyle/cherry-bag-mobile.webp.asset.json";
-import cherryBagThumb from "@/assets/matrix/airpods-lifestyle/cherry-bag-thumb.webp.asset.json";
-import cherryBedside from "@/assets/matrix/airpods-lifestyle/cherry-bedside-full.webp.asset.json";
-import cherryBedsideMobile from "@/assets/matrix/airpods-lifestyle/cherry-bedside-mobile.webp.asset.json";
-import cherryBedsideThumb from "@/assets/matrix/airpods-lifestyle/cherry-bedside-thumb.webp.asset.json";
-import onyxDesk from "@/assets/matrix/airpods-lifestyle/onyx-desk-full.webp.asset.json";
-import onyxDeskMobile from "@/assets/matrix/airpods-lifestyle/onyx-desk-mobile.webp.asset.json";
-import onyxDeskThumb from "@/assets/matrix/airpods-lifestyle/onyx-desk-thumb.webp.asset.json";
-import onyxBag from "@/assets/matrix/airpods-lifestyle/onyx-bag-full.webp.asset.json";
-import onyxBagMobile from "@/assets/matrix/airpods-lifestyle/onyx-bag-mobile.webp.asset.json";
-import onyxBagThumb from "@/assets/matrix/airpods-lifestyle/onyx-bag-thumb.webp.asset.json";
-import onyxCafe from "@/assets/matrix/airpods-lifestyle/onyx-cafe-full.webp.asset.json";
-import onyxCafeMobile from "@/assets/matrix/airpods-lifestyle/onyx-cafe-mobile.webp.asset.json";
-import onyxCafeThumb from "@/assets/matrix/airpods-lifestyle/onyx-cafe-thumb.webp.asset.json";
-import onyxCar from "@/assets/matrix/airpods-lifestyle/onyx-car-full.webp.asset.json";
-import onyxCarMobile from "@/assets/matrix/airpods-lifestyle/onyx-car-mobile.webp.asset.json";
-import onyxCarThumb from "@/assets/matrix/airpods-lifestyle/onyx-car-thumb.webp.asset.json";
+import apCherryProduct1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-1200.webp.asset.json";
+import apCherryProduct800 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-800.webp.asset.json";
+import apCherryProduct400 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-400.webp.asset.json";
+import apCherryProduct200 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-200.webp.asset.json";
+import apCherryDesk1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-1200.webp.asset.json";
+import apCherryDesk800 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-800.webp.asset.json";
+import apCherryDesk400 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-400.webp.asset.json";
+import apCherryDesk200 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-200.webp.asset.json";
+import apCherryBag1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-1200.webp.asset.json";
+import apCherryBag800 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-800.webp.asset.json";
+import apCherryBag400 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-400.webp.asset.json";
+import apCherryBag200 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-200.webp.asset.json";
+import apCherryDeskSecond1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-1200.webp.asset.json";
+import apCherryDeskSecond800 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-800.webp.asset.json";
+import apCherryDeskSecond400 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-400.webp.asset.json";
+import apCherryDeskSecond200 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-200.webp.asset.json";
+import apCherryBedside1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-bedside-1200.webp.asset.json";
+import apCherryBedside800 from "@/assets/matrix/airpods-gallery/airpods-cherry-bedside-800.webp.asset.json";
+import apCherryBedside400 from "@/assets/matrix/airpods-gallery/airpods-cherry-bedside-400.webp.asset.json";
+import apCherryBedside200 from "@/assets/matrix/airpods-gallery/airpods-cherry-bedside-200.webp.asset.json";
+import apOnyxProduct1200 from "@/assets/matrix/airpods-gallery/airpods-onyx-product-1200.webp.asset.json";
+import apOnyxProduct800 from "@/assets/matrix/airpods-gallery/airpods-onyx-product-800.webp.asset.json";
+import apOnyxProduct400 from "@/assets/matrix/airpods-gallery/airpods-onyx-product-400.webp.asset.json";
+import apOnyxProduct200 from "@/assets/matrix/airpods-gallery/airpods-onyx-product-200.webp.asset.json";
+import apOnyxDesk1200 from "@/assets/matrix/airpods-gallery/airpods-onyx-desk-1200.webp.asset.json";
+import apOnyxDesk800 from "@/assets/matrix/airpods-gallery/airpods-onyx-desk-800.webp.asset.json";
+import apOnyxDesk400 from "@/assets/matrix/airpods-gallery/airpods-onyx-desk-400.webp.asset.json";
+import apOnyxDesk200 from "@/assets/matrix/airpods-gallery/airpods-onyx-desk-200.webp.asset.json";
+import apOnyxBag1200 from "@/assets/matrix/airpods-gallery/airpods-onyx-bag-1200.webp.asset.json";
+import apOnyxBag800 from "@/assets/matrix/airpods-gallery/airpods-onyx-bag-800.webp.asset.json";
+import apOnyxBag400 from "@/assets/matrix/airpods-gallery/airpods-onyx-bag-400.webp.asset.json";
+import apOnyxBag200 from "@/assets/matrix/airpods-gallery/airpods-onyx-bag-200.webp.asset.json";
+import apOnyxCafe1200 from "@/assets/matrix/airpods-gallery/airpods-onyx-cafe-1200.webp.asset.json";
+import apOnyxCafe800 from "@/assets/matrix/airpods-gallery/airpods-onyx-cafe-800.webp.asset.json";
+import apOnyxCafe400 from "@/assets/matrix/airpods-gallery/airpods-onyx-cafe-400.webp.asset.json";
+import apOnyxCafe200 from "@/assets/matrix/airpods-gallery/airpods-onyx-cafe-200.webp.asset.json";
+import apOnyxCar1200 from "@/assets/matrix/airpods-gallery/airpods-onyx-car-1200.webp.asset.json";
+import apOnyxCar800 from "@/assets/matrix/airpods-gallery/airpods-onyx-car-800.webp.asset.json";
+import apOnyxCar400 from "@/assets/matrix/airpods-gallery/airpods-onyx-car-400.webp.asset.json";
+import apOnyxCar200 from "@/assets/matrix/airpods-gallery/airpods-onyx-car-200.webp.asset.json";
 
 const H = {
   bg: "#faf9f7",
@@ -68,7 +82,7 @@ const H = {
 type FinishId = "cherry" | "onyx";
 type ModelId = "17pro" | "17promax" | "18pro" | "18promax";
 
-interface Slide { src: string; alt: string; mobile?: string; thumb?: string }
+interface Slide { src: string; md: string; sm: string; thumb: string; alt: string }
 
 interface Finish {
   id: FinishId;
@@ -84,6 +98,8 @@ interface Finish {
 }
 
 const AIRPODS_PRICE = 35;
+/** Vier Lifestyle-Fotos für das Product-Schema (feste Adressen, Produktfotos stehen davor). */
+const AIRPODS_SCHEMA_LIFESTYLE = [apCherryDesk1200, apCherryBag1200, apCherryBedside1200, apOnyxDesk1200].map((a) => `https://raj.ch${a.url}`);
 const IPHONE_CASE_PRICE = 59;
 
 const FINISHES: Finish[] = [
@@ -97,11 +113,11 @@ const FINISHES: Finish[] = [
     variantId: AIRPODS_VARIANT_IDS.cherry,
     sku: "RAJ-MTX-AP4-CHY",
     slides: [
-      { src: airpodsCherryAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Cherry Carbon mit goldenem Blitz und Karabiner" },
-      { src: cherryDesk.url, mobile: cherryDeskMobile.url, thumb: cherryDeskThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Holzschreibtisch neben Laptop und Notizbuch" },
-      { src: cherryBag.url, mobile: cherryBagMobile.url, thumb: cherryBagThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Blitz in einer geöffneten Handtasche" },
-      { src: cherryDeskSecond.url, mobile: cherryDeskSecondMobile.url, thumb: cherryDeskSecondThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Blitz und Karabiner auf dem Holzschreibtisch neben einem Laptop" },
-      { src: cherryBedside.url, mobile: cherryBedsideMobile.url, thumb: cherryBedsideThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Marmortablett neben einer Nachttischlampe" },
+      { src: apCherryProduct1200.url, md: apCherryProduct800.url, sm: apCherryProduct400.url, thumb: apCherryProduct200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner" },
+      { src: apCherryDesk1200.url, md: apCherryDesk800.url, sm: apCherryDesk400.url, thumb: apCherryDesk200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon auf einem Holztisch neben einem Laptop und Notizbuch" },
+      { src: apCherryBag1200.url, md: apCherryBag800.url, sm: apCherryBag400.url, thumb: apCherryBag200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon in einer geöffneten Handtasche" },
+      { src: apCherryDeskSecond1200.url, md: apCherryDeskSecond800.url, sm: apCherryDeskSecond400.url, thumb: apCherryDeskSecond200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Holztisch vor einem Laptop" },
+      { src: apCherryBedside1200.url, md: apCherryBedside800.url, sm: apCherryBedside400.url, thumb: apCherryBedside200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon auf einem Marmortablett neben einer Nachttischlampe" },
     ],
   },
   {
@@ -114,11 +130,11 @@ const FINISHES: Finish[] = [
     variantId: AIRPODS_VARIANT_IDS.onyx,
     sku: "RAJ-MTX-AP4-ONX",
     slides: [
-      { src: airpodsOnyxAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Onyx Carbon mit goldenem Blitz und Karabiner" },
-      { src: onyxDesk.url, mobile: onyxDeskMobile.url, thumb: onyxDeskThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Blitz und Karabiner auf einem Holzschreibtisch neben Sonnenbrille und Schlüssel" },
-      { src: onyxBag.url, mobile: onyxBagMobile.url, thumb: onyxBagThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Karabiner in einer braunen Ledertasche neben Notizbuch und Stift" },
-      { src: onyxCafe.url, mobile: onyxCafeMobile.url, thumb: onyxCafeThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Blitz auf einem Marmortisch neben einer Kaffeetasse" },
-      { src: onyxCar.url, mobile: onyxCarMobile.url, thumb: onyxCarThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Karabiner auf der Mittelkonsole eines Autos" },
+      { src: apOnyxProduct1200.url, md: apOnyxProduct800.url, sm: apOnyxProduct400.url, thumb: apOnyxProduct200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon" },
+      { src: apOnyxDesk1200.url, md: apOnyxDesk800.url, sm: apOnyxDesk400.url, thumb: apOnyxDesk200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon auf einem Holztisch neben Sonnenbrille und Schlüsseln" },
+      { src: apOnyxBag1200.url, md: apOnyxBag800.url, sm: apOnyxBag400.url, thumb: apOnyxBag200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon in einer braunen Ledertasche neben Notizbuch und Stift" },
+      { src: apOnyxCafe1200.url, md: apOnyxCafe800.url, sm: apOnyxCafe400.url, thumb: apOnyxCafe200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon auf einem Marmortisch neben einer Kaffeetasse" },
+      { src: apOnyxCar1200.url, md: apOnyxCar800.url, sm: apOnyxCar400.url, thumb: apOnyxCar200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon auf der Mittelkonsole eines Autos" },
     ],
   },
 ];
@@ -131,6 +147,9 @@ const MODELS: { id: ModelId; short: string; name: string; status: string }[] = [
 ];
 
 const BUNDLE_TOTAL = AIRPODS_PRICE + IPHONE_CASE_PRICE - BUNDLE_DISCOUNT;
+
+const GALLERY_SIZES = "(max-width: 767px) 100vw, 460px";
+const slideSrcSet = (s: Slide) => `${s.sm} 400w, ${s.md} 800w, ${s.src} 1200w`;
 
 /* ── Wischbare Galerie (Punkte ab 2 Bildern, Desktop zusätzlich Vorschaubilder) ── */
 const Gallery = ({ finish }: { finish: Finish }) => {
@@ -151,6 +170,14 @@ const Gallery = ({ finish }: { finish: Finish }) => {
     scrollerRef.current?.scrollTo({ left: i * (scrollerRef.current?.clientWidth ?? 0), behavior: "smooth" });
   };
   const preloadNext = () => setPrefetchThrough((current) => Math.max(current, active + 1));
+  useEffect(() => {
+    // Nächstes Bild vorladen, während alle Nicht-Erstbilder loading="lazy" bleiben.
+    for (let i = 1; i <= Math.min(prefetchThrough, slides.length - 1); i++) {
+      const img = new Image();
+      img.sizes = GALLERY_SIZES;
+      img.srcset = slideSrcSet(slides[i]);
+    }
+  }, [prefetchThrough, slides]);
 
   return (
     <div>
@@ -174,12 +201,12 @@ const Gallery = ({ finish }: { finish: Finish }) => {
             <img
               data-airpods-hero={i === 0 ? "" : undefined}
               src={slide.src}
-               srcSet={slide.mobile ? `${slide.mobile} 480w, ${slide.src} 768w` : undefined}
-               sizes="(max-width: 767px) calc(100vw - 32px), 480px"
+              srcSet={slideSrcSet(slide)}
+              sizes={GALLERY_SIZES}
               alt={slide.alt}
-              width={1254}
-              height={1254}
-               loading={i <= prefetchThrough ? "eager" : "lazy"}
+              width={1200}
+              height={1200}
+               loading={i === 0 ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
                onLoad={() => setLoadedImages((current) => new Set(current).add(slide.src))}
@@ -203,7 +230,7 @@ const Gallery = ({ finish }: { finish: Finish }) => {
           <div className="mt-4 hidden flex-wrap justify-center gap-2 pb-3 lg:flex" aria-label="Produktbilder">
             {slides.map((slide, i) => (
               <Button key={slide.src} type="button" variant="outline" aria-label={`Bild ${i + 1}`} aria-pressed={active === i} onClick={() => goTo(i)} className="h-[68px] w-[68px] overflow-hidden rounded-lg p-0" style={{ borderColor: active === i ? H.gold : H.line, background: "#fff" }}>
-                <img src={slide.thumb ?? slide.src} alt={`Vorschau: ${slide.alt}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                <img src={slide.thumb} alt={`Vorschau: ${slide.alt}`} width={200} height={200} loading="lazy" decoding="async" className="h-full w-full object-cover" />
               </Button>
             ))}
           </div>
@@ -309,7 +336,12 @@ const AirpodsPage = () => {
     brand: { "@type": "Brand", name: "RAJ" },
     description: "Carbon Case für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.",
     sku: finish?.sku,
-    image: ["https://raj.ch/__l5e/assets-v1/b8f774f2-944d-45b9-b88a-e8f79c2a6af0/raj-airpods-share.jpg", "https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp", "https://raj.ch/__l5e/assets-v1/85b897bc-20a7-43f1-b648-9423827acb9b/airpods-onyx-original-bolt.webp"],
+    image: [
+      "https://raj.ch/__l5e/assets-v1/b8f774f2-944d-45b9-b88a-e8f79c2a6af0/raj-airpods-share.jpg",
+      "https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp",
+      "https://raj.ch/__l5e/assets-v1/85b897bc-20a7-43f1-b648-9423827acb9b/airpods-onyx-original-bolt.webp",
+      ...AIRPODS_SCHEMA_LIFESTYLE,
+    ],
     url: "https://raj.ch/airpods-case",
     offers: {
       "@type": "Offer",
@@ -331,7 +363,7 @@ const AirpodsPage = () => {
         shippingDestination: { "@type": "DefinedRegion", addressCountry: "CH" },
         deliveryTime: {
           "@type": "ShippingDeliveryTime",
-          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "d" },
+          handlingTime: { "@type": "QuantitativeValue", minValue: 3, maxValue: 6, unitCode: "d" },
           transitTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "d" },
         },
       },
@@ -482,7 +514,7 @@ const AirpodsPage = () => {
                                 height={160}
                                 loading="lazy"
                                 decoding="async"
-                                alt={opt.bundle ? `RAJ MATRIX AirPods Hülle und iPhone Hülle in ${finish.name}` : `RAJ MATRIX AirPods 4 & 5 Hülle in ${finish.name}`}
+                                alt={`MATRIX AirPods Hülle in ${finish.name}`}
                                 className="absolute inset-0 h-full w-full object-contain"
                               />}
                             </span>
