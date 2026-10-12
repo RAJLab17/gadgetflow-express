@@ -175,7 +175,7 @@ const rows: Row[] = [
     ultra: "CHF 90.90",
     anker: "CHF 85.90",
   },
-  { label: "Qi-Standard", nexus: "Qi2.2", boost: "Qi2", ultra: "Qi2", anker: "Qi2" },
+  { label: "Qi-Standard", nexus: "Qi2.2", boost: "Qi2", ultra: "Qi2 25W", anker: "Qi2" },
   {
     label: "iPhone Ladeleistung",
     nexus: "Bis zu 25W",
