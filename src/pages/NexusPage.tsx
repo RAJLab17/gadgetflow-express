@@ -22,7 +22,6 @@ import { fetchProductVariantInfo } from "@/lib/shopify";
 
 // ─── PREIS-KONFIGURATION ───────────────────────────────────────
 const REGULAR_PRICE = 99;
-const ORIGINAL_PRICE = 129;
 
 
 import {
@@ -514,7 +513,6 @@ const BuyModal = ({ open, onClose }: { open: boolean; onClose: () => void }) => 
             ) : (
               <>
                 <h3 className="text-xl text-center" style={{ color: D.beige, fontWeight: 300, marginTop: 20 }}>Bald verfügbar.</h3>
-                <p className="text-[12px] text-center" style={{ color: D.muted, marginTop: 8 }}>Ab 16. Juni. Founder Edition. Nur 100 Stück.</p>
                 <form onSubmit={submit} className="mt-6">
                   <div style={{ position: "absolute", left: "-9999px" }} aria-hidden>
                     <input value={hp1} onChange={(e) => setHp1(e.target.value)} tabIndex={-1} autoComplete="off" />
@@ -804,11 +802,11 @@ const NexusPage = () => {
     <>
       <Helmet>
         <title>RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz</title>
-        <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${REGULAR_PRICE}.– statt CHF ${ORIGINAL_PRICE}.–.`} />
+        <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${REGULAR_PRICE}.–.`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://raj.ch/nexus" />
         <meta property="og:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
-        <meta property="og:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.– statt CHF ${ORIGINAL_PRICE}.–.`} />
+        <meta property="og:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.–.`} />
         <meta property="og:type" content="product" />
         <meta property="product:price:amount" content={`${REGULAR_PRICE}.00`} />
         <meta property="product:price:currency" content="CHF" />
@@ -820,7 +818,7 @@ const NexusPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@raj_swiss_" />
         <meta name="twitter:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
-        <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.– statt CHF ${ORIGINAL_PRICE}.–.`} />
+        <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.–.`} />
 
         <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd([{ name: "Home", url: "https://raj.ch/" }, { name: "RAJ NEXUS", url: "https://raj.ch/nexus" }]))}</script>
@@ -908,8 +906,6 @@ const NexusPage = () => {
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", marginTop: 8 }}>
                 <span style={{ fontSize: 34, color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.-</span>
-                <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
-                <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - REGULAR_PRICE}.-</span>
               </div>
               <div style={{ marginTop: 8 }}>
                 <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
@@ -946,14 +942,6 @@ const NexusPage = () => {
             <div style={{ display: "flex", flexDirection: "column", paddingTop: "clamp(0px, 0.6vw, 10px)" }}>
 
 
-            {/* Founder eyebrow */}
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 11, width: "fit-content", padding: "9px 18px 9px 14px", borderRadius: 100, border: `1px solid ${H.gold}44`, background: H.surface, marginBottom: 22, boxShadow: "0 4px 24px rgba(26,26,26,.05)" }}>
-              <span style={{ position: "relative", display: "flex", width: 7, height: 7 }}>
-                <span style={{ position: "absolute", inset: 0, borderRadius: "50%", background: H.gold, animation: "raj-ping 2.2s ease-out infinite" }} />
-                <span style={{ position: "relative", width: 7, height: 7, borderRadius: "50%", background: H.gold }} />
-              </span>
-              <span style={{ fontSize: 10, textTransform: "uppercase", fontWeight: 600, color: H.gold, letterSpacing: ".24em" }}>Founder Edition — limitiert</span>
-            </div>
 
             <h1 style={{ fontSize: "clamp(38px,4.4vw,68px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
               <span style={{ display: "inline", color: H.text, fontWeight: 200 }}>RAJ</span>
@@ -993,8 +981,6 @@ const NexusPage = () => {
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
                 <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.-</span>
-                <span style={{ fontSize: 12, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.-</span>
-                <span style={{ fontSize: 9, textTransform: "uppercase", letterSpacing: ".14em", color: H.gold, fontWeight: 600, padding: "4px 9px", borderRadius: 100, background: "rgba(155,107,63,.1)" }}>-CHF {ORIGINAL_PRICE - REGULAR_PRICE}.-</span>
               </div>
             </div>
             <div style={{ marginTop: 10 }}>
@@ -1160,7 +1146,6 @@ const NexusPage = () => {
             {/* Price */}
             <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
               <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {REGULAR_PRICE}.–</span>
-              <span style={{ fontSize: 10, textDecoration: "line-through", color: "#b8b0a2", fontWeight: 300 }}>CHF {ORIGINAL_PRICE}.–</span>
             </div>
 
             {/* Rating */}
@@ -1393,12 +1378,10 @@ const NexusPage = () => {
       {/* ═══ 6. CTA ═══ */}
       <section className="relative py-24 md:py-36 px-5 lg:hidden" style={{ background: D.bg, color: D.beige }}>
         <div className="relative max-w-2xl mx-auto text-center">
-          <span className="text-[10px] uppercase" style={{ color: D.gold, letterSpacing: "0.32em" }}>— Founder Edition · Limitiert auf 100</span>
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
           <p className="text-base md:text-lg mt-6 mb-2" style={{ color: D.muted, fontWeight: 300 }}>
-            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {REGULAR_PRICE}.-</span> statt <span className="line-through" style={{ color: D.mutedDim }}>CHF {ORIGINAL_PRICE}.-</span>
+            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {REGULAR_PRICE}.-</span>
           </p>
-          <p className="text-xs uppercase tracking-widest mb-8" style={{ color: D.gold }}>Founder Edition · Limitiert auf 100</p>
           <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
             Jetzt kaufen
           </a>
