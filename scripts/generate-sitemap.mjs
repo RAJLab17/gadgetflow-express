@@ -188,7 +188,7 @@ function pickImages(urls) {
   const best = new Map();
   const score = (u) => {
     const w = u.match(/-(\d+)w?\.\w+$/); const mobile = /-mobile\./.test(u);
-    return (mobile ? 0 : 10000) + (w ? Number(w[1]) : 5000) + (u.endsWith(".webp") ? 1 : 0);
+    return (mobile ? 0 : 10000) + (w ? Number(w[1]) : 0) + (u.endsWith(".webp") ? 1 : 0);
   };
   for (const u of urls) {
     if (EXCLUDE.test(u)) continue;
