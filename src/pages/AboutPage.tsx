@@ -4,9 +4,12 @@ import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import workshopDetail from "@/assets/about/workshop-detail.jpg";
-import precisionCraft from "@/assets/about/precision-craft.jpg";
-import thurgauMap from "@/assets/about-thurgau-clean.webp";
+import workshopDetailAsset from "@/assets/about/workshop-detail.jpg.asset.json";
+const workshopDetail = workshopDetailAsset.url;
+import precisionCraftAsset from "@/assets/about/precision-craft.jpg.asset.json";
+const precisionCraft = precisionCraftAsset.url;
+import thurgauMapAsset from "@/assets/about-thurgau-clean.webp.asset.json";
+const thurgauMap = thurgauMapAsset.url;
 
 const L = {
   bg: "#FAF8F5",
