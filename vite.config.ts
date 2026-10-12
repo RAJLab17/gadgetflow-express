@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { readFileSync } from "node:fs";
 import { matrixShellHtml, matrixShellScript as makeMatrixShellScript } from "./scripts/matrix-shell";
+import { nexusShellCss, nexusShellScript } from "./scripts/nexus-shell";
 import { loadSnapshot, normalizeRoute, renderRouteHtml } from "./scripts/prerender";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
@@ -46,14 +47,13 @@ const heroPreloadPlugin = (): PluginOption => ({
       // Single responsive preload — matches the <img srcset/sizes> on the
       // Nexus hero exactly, so the preloaded resource is guaranteed to be
       // reused instead of triggering a second download.
-      const preloadTag = `<script>(function(){if(location.pathname.replace(/\\/$/,'')==='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes='100vw';l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
+       const preloadTag = `<script>(function(){if(location.pathname.replace(/\\/$/,'')==='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes=location.pathname.replace(/\\/$/,'')==='/nexus'?'(max-width: 768px) 100vw, 700px':'100vw';l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
 
       // Static LCP fallback: inject a real <img> into #root so the browser
       // can paint the hero BEFORE React hydrates (~3s render-delay saved on
       // mobile). Only rendered on /nexus and / (the two routes whose LCP is
       // this image). React wipes #root's children on mount, so this is
       // automatically removed once the SPA takes over.
-      const fallbackScript = `<script>(function(){try{if(location.pathname!=='/nexus')return;var r=document.getElementById('root');if(!r)return;var img=document.createElement('img');img.src=${JSON.stringify(url800)};img.srcset=${JSON.stringify(srcset)};img.sizes='100vw';img.alt='RAJ NEXUS 3-in-1 Wireless Charger';img.fetchPriority='high';img.decoding='sync';img.style.cssText='display:block;width:100%;max-width:600px;height:auto;margin:0 auto;object-fit:contain;';var w=document.createElement('div');w.id='__lcp_fallback';w.style.cssText='position:absolute;top:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;z-index:0;';w.appendChild(img);r.appendChild(w);}catch(e){}})();</script>`;
 
       // /matrix instant shell: preload the default render (18 Pro, Cherry
       // Carbon, Dark Cherry) and paint a static header/image/title/price/buy
@@ -69,8 +69,7 @@ const heroPreloadPlugin = (): PluginOption => ({
       return html
         .replace('<meta name="viewport" content="width=device-width, initial-scale=1.0" />', '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + shellCss)
         .replace("<!--HERO_PRELOAD-->", preloadTag + matrixHeadScript)
-        .replace('<div id="root"></div>', '<div id="root"></div>' + matrixShellScript)
-        .replace("</body>", fallbackScript + "</body>");
+        .replace('<div id="root"></div>', '<div id="root"></div>' + matrixShellScript);
     },
   },
 });
@@ -83,6 +82,9 @@ const heroPreloadPlugin = (): PluginOption => ({
 // and rewrites index.html with the "/" snapshot.
 const prerenderPlugin = (): PluginOption => {
   const snapshot = loadSnapshot(__dirname);
+  const withNexusShell = (html: string, route: string) => route !== "/nexus" ? html : html
+    .replace('<meta name="viewport" content="width=device-width, initial-scale=1.0" />', '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + nexusShellCss())
+    .replace('<div id="root"></div>', '<div id="root"></div>' + nexusShellScript());
   return {
     name: "raj-prerender",
     enforce: "post",
@@ -90,8 +92,9 @@ const prerenderPlugin = (): PluginOption => {
       order: "post",
       handler(html, ctx) {
         if (!ctx.server) return html;
-        const snap = loadSnapshot(__dirname)[normalizeRoute(ctx.originalUrl)];
-        return snap ? renderRouteHtml(html, snap) : html;
+        const route = normalizeRoute(ctx.originalUrl);
+        const snap = loadSnapshot(__dirname)[route];
+        return withNexusShell(snap ? renderRouteHtml(html, snap) : html, route);
       },
     },
     generateBundle(_opts, bundle) {
@@ -99,7 +102,7 @@ const prerenderPlugin = (): PluginOption => {
       if (!asset || asset.type !== "asset") return;
       const base = String(asset.source);
       for (const [route, snap] of Object.entries(snapshot)) {
-        const html = renderRouteHtml(base, snap);
+        const html = withNexusShell(renderRouteHtml(base, snap), route);
         if (route === "/") {
           asset.source = html;
           continue;
