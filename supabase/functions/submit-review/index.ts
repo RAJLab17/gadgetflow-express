@@ -190,6 +190,8 @@ Deno.serve(async (req) => {
       .insert({ review_id: review.id, email: data.customer_email })
 
     if (emailErr) {
+      const { data: r } = await supabase.from('reviews').select('photo_path').eq('id', review.id).maybeSingle()
+      if (r?.photo_path) await supabase.storage.from('review-photos').remove([r.photo_path])
       await supabase.from('reviews').delete().eq('id', review.id)
       return json({ error: 'email_store_failed', details: emailErr.message }, 500)
     }
