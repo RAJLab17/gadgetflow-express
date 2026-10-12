@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Correct APEX prices, waitlist wording and homepage roadmap; refresh /, /produkte, /apex SEO copies; audit remaining APEX CHF 99 and 2027 claims; do not publish
 - [x] Remove outdated NEXUS offer price/Founder claims from reachable pages and translations, preserve stock/email/technical/competitor values, refresh ten SEO snapshots; 32 browser routes and 27 Googlebot checks passed; historical customer review quote reported unchanged; not published
 - [x] Remove NEXUS comparison prices and Founder claims from /nexus and llms.txt; add exact APEX availability; refresh both static SEO copies; browser checks at 390/820/1280px and Googlebot curl passed; remaining 129/Founder audit delivered; not published
 - [x] Update German/English homepage closing descriptions and fallback heading; static German tags verified by curl, both runtime languages verified in browser, zero forbidden-origin matches across site sources including llms.txt and JSON-LD; not published

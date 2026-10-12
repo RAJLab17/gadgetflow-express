@@ -11,6 +11,7 @@ type Milestone = {
   name: string;
   status: "available" | "next" | "early" | "locked";
   etaKey: string;
+  etaText?: string;
   href?: string;
   image?: string;
   imageAlt?: string;
@@ -29,6 +30,7 @@ const milestones: Milestone[] = [
     name: "RAJ MATRIX",
     status: "next",
     etaKey: "brand.road.eta.2026",
+    etaText: "Erhältlich",
     href: "/matrix",
     image: matrixImage,
     imageAlt: "RAJ MATRIX Carbon-Case in Cherry Carbon",
@@ -36,7 +38,8 @@ const milestones: Milestone[] = [
   {
     name: "RAJ APEX",
     status: "early",
-    etaKey: "brand.road.eta.2027",
+    etaKey: "brand.road.eta.soon",
+    etaText: "Voraussichtlich ab Ende November 2026",
     href: "/apex",
     image: apexCarImage,
     imageAlt: "RAJ APEX MagSafe Auto-Ladehalterung im Fahrzeug",
@@ -49,8 +52,8 @@ const milestones: Milestone[] = [
 
 const statusLabel = (status: Milestone["status"], availableLabel: string) => {
   if (status === "available") return availableLabel;
-  if (status === "next") return "Als Nächstes";
-  if (status === "early") return "Early Access";
+  if (status === "next") return "Erhältlich";
+  if (status === "early") return "Bald verfügbar";
   return null;
 };
 
@@ -120,7 +123,7 @@ const CollectionCard = ({ milestone, index }: { milestone: Milestone; index: num
             <p className="mt-2 font-serif text-sm italic text-foreground/80">Hier beginnt es.</p>
           )}
           <div className="mt-7 flex items-end justify-between gap-2">
-            <span className="text-[9px] font-semibold uppercase text-primary">{t(milestone.etaKey)}</span>
+            <span className="text-[9px] font-semibold uppercase text-primary">{milestone.etaText ?? t(milestone.etaKey)}</span>
             {milestone.href && (
               <ArrowUpRight className="h-3.5 w-3.5 text-primary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             )}
@@ -131,7 +134,7 @@ const CollectionCard = ({ milestone, index }: { milestone: Milestone; index: num
   );
 
   return milestone.href ? (
-    <Link to={milestone.href} aria-label={`${milestone.name} — ${t(milestone.etaKey)}`}>
+    <Link to={milestone.href} aria-label={`${milestone.name} — ${milestone.etaText ?? t(milestone.etaKey)}`}>
       {content}
     </Link>
   ) : (

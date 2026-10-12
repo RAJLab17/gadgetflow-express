@@ -31,7 +31,6 @@ interface ApexVariant {
   icon: React.ReactNode;
   sku: string;
   price: number;
-  compareAt: number;
   img480: string;
   img900: string;
   img1400: string;
@@ -46,7 +45,6 @@ const APEX_VARIANTS: ApexVariant[] = [
     icon: <Car className="w-4 h-4" />,
     sku: "RAJ-APX-Q2-SLV",
     price: 75,
-    compareAt: 99,
     img480: apexSilver480,
     img900: apexSilver900,
     img1400: apexSilver1400,
@@ -59,7 +57,6 @@ const APEX_VARIANTS: ApexVariant[] = [
     icon: <Wind className="w-4 h-4" />,
     sku: "RAJ-APX-Q2-BLK",
     price: 69,
-    compareAt: 99,
     img480: apexBlack480,
     img900: apexBlack900,
     img1400: apexBlack1400,
@@ -135,7 +132,7 @@ const FAQ_APEX_JSON_LD = {
       name: "Wann kann ich RAJ APEX kaufen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "RAJ APEX startet in Kürze. Trage dich mit deiner E-Mail-Adresse ein, um als Erster informiert zu werden und dir den Early-Access-Preis zu sichern.",
+        text: "RAJ APEX ist voraussichtlich ab Ende November 2026 verfügbar. Trage dich mit deiner E-Mail-Adresse ein, um dich unverbindlich vorzumerken und als Erster informiert zu werden.",
       },
     },
     {
@@ -323,7 +320,7 @@ const ApexPage = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-70" style={{ background: H.goldLight }} />
                     <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: H.gold }} />
                   </span>
-                  Bald verfügbar — Early Access
+                  Bald verfügbar
                 </div>
 
                 <h1 className="font-bold leading-[0.95] mb-3" style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", letterSpacing: "-0.02em" }}>
@@ -332,10 +329,6 @@ const ApexPage = () => {
 
                 <p className="text-lg md:text-xl mb-7" style={{ color: H.textMuted }}>
                   Dein iPhone. Sicher am Ort.<br />Egal welches Auto.
-                </p>
-
-                <p className="text-sm mb-5 text-muted-foreground">
-                  Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber).
                 </p>
 
                 {/* Variant selector */}
@@ -382,12 +375,12 @@ const ApexPage = () => {
                 <div className="rounded-2xl border p-5" style={{ borderColor: H.border, background: "#FAF9F7" }}>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4">
                     <span className="text-xl sm:text-2xl md:text-3xl font-bold" style={{ color: H.text }}>
-                      Early Access CHF {variant.price}.–
-                    </span>
-                    <span className="text-sm line-through" style={{ color: H.textMuted }}>
-                      CHF {variant.compareAt}.–
+                      CHF {variant.price}.–
                     </span>
                   </div>
+                  <p className="text-sm mb-4 text-muted-foreground">
+                    Voraussichtlich ab Ende November 2026.
+                  </p>
 
                   <AnimatePresence mode="wait">
                     <motion.div
