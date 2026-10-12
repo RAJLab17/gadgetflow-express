@@ -742,7 +742,7 @@ const MatrixPage = () => {
         node: {
           id: "gid://shopify/Product/16139790549317",
           title: "RAJ MATRIX AirPods 4 & 5 Case",
-          description: "Aramid-Carbon Case für AirPods 4 und AirPods 5.",
+          description: "Carbon-Finish Hülle für AirPods 4 & 5",
           handle: "raj-matrix-airpods-4-case",
           priceRange: { minVariantPrice: { amount: String(airpodsCase.price), currencyCode: "CHF" } },
           images: { edges: [] },
