@@ -41,10 +41,6 @@ import apCherryBag1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-
 import apCherryBag800 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-800.webp.asset.json";
 import apCherryBag400 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-400.webp.asset.json";
 import apCherryBag200 from "@/assets/matrix/airpods-gallery/airpods-cherry-bag-200.webp.asset.json";
-import apCherryDeskSecond1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-1200.webp.asset.json";
-import apCherryDeskSecond800 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-800.webp.asset.json";
-import apCherryDeskSecond400 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-400.webp.asset.json";
-import apCherryDeskSecond200 from "@/assets/matrix/airpods-gallery/airpods-cherry-desk-second-200.webp.asset.json";
 import apCherryBedside1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-bedside-1200.webp.asset.json";
 import apCherryBedside800 from "@/assets/matrix/airpods-gallery/airpods-cherry-bedside-800.webp.asset.json";
 import apCherryBedside400 from "@/assets/matrix/airpods-gallery/airpods-cherry-bedside-400.webp.asset.json";
@@ -116,7 +112,6 @@ const FINISHES: Finish[] = [
       { src: apCherryProduct1200.url, md: apCherryProduct800.url, sm: apCherryProduct400.url, thumb: apCherryProduct200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner" },
       { src: apCherryDesk1200.url, md: apCherryDesk800.url, sm: apCherryDesk400.url, thumb: apCherryDesk200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon auf einem Holztisch neben einem Laptop und Notizbuch" },
       { src: apCherryBag1200.url, md: apCherryBag800.url, sm: apCherryBag400.url, thumb: apCherryBag200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon in einer geöffneten Handtasche" },
-      { src: apCherryDeskSecond1200.url, md: apCherryDeskSecond800.url, sm: apCherryDeskSecond400.url, thumb: apCherryDeskSecond200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Holztisch vor einem Laptop" },
       { src: apCherryBedside1200.url, md: apCherryBedside800.url, sm: apCherryBedside400.url, thumb: apCherryBedside200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon auf einem Marmortablett neben einer Nachttischlampe" },
     ],
   },
