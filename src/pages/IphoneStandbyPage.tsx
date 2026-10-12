@@ -79,7 +79,7 @@ const IphoneStandbyPage = () => {
 
         <section>
           <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-5">
-            RAJ NEXUS – Schweizer Marke mit StandBy
+            RAJ NEXUS – ideal für den StandBy-Modus
           </h2>
           <p>
             Der RAJ NEXUS hält das iPhone präzise im richtigen Winkel für StandBy, lädt mit Qi2.2 für optimale Temperatur, und lädt gleichzeitig Apple Watch und AirPods. Ein Gerät, eine Lösung – für den Nachttisch oder Schreibtisch.

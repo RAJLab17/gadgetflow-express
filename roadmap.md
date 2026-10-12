@@ -1,4 +1,5 @@
 # Roadmap
+- [x] Apply only requested origin wording polish; both comparison tables have one support row; four SEO copies refreshed; browser and Googlebot checks passed; not published
 - [x] Audit all origin claims; replace NEXUS/general Swiss design/development/precision claims; MATRIX-only and neutral technical mentions preserved; eight SEO copies refreshed; browser and Googlebot checks passed; every-occurrence report delivered; not published
 - [x] Correct APEX prices, waitlist wording and homepage roadmap; refresh /, /produkte, /apex SEO copies; browser variant checks and Googlebot HTML passed; no APEX CHF 99 claims remain, 2027 retained only for ATLAS/ATELIER; not published
 - [x] Remove outdated NEXUS offer price/Founder claims from reachable pages and translations, preserve stock/email/technical/competitor values, refresh ten SEO snapshots; 32 browser routes and 27 Googlebot checks passed; historical customer review quote reported unchanged; not published

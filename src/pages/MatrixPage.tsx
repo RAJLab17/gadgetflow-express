@@ -536,7 +536,7 @@ const MatrixMobileInfo = () => {
     <div className="lg:hidden">
       <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {delivery}</p>
       <p className="mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
-        ↩︎ 30 Tage Rückgabe · 🇨🇭 Swiss Brand · Gratis Versand
+        ↩︎ 30 Tage Rückgabe · Schweizer Marke · Gratis Versand
       </p>
       <PaymentMethodsBar />
       {reviews.length > 0 && (

@@ -183,9 +183,8 @@ const Beste3in1ChargerPage = () => {
             ["Preis", "CHF 99", "CHF 130–160"],
             ["Standard", "Qi2.2", "Qi2.2"],
             ["iPhone-Leistung", "25W", "25W"],
-            ["Design", "Schweizer Marke", "Generisch"],
-            ["Support", "Schweiz", "International"],
-            ["Herkunft", "Schweizer Marke", "USA"],
+            ["Marke", "Schweizer Marke (RAJ)", "Internationale Marke"],
+            ["Support", "Schweiz, auf Deutsch", "International"],
           ]}
         />
         <P><strong>Fazit:</strong> Gleiche Ladeleistung, CHF 30–60 günstiger, Schweizer Marke.</P>
@@ -197,7 +196,8 @@ const Beste3in1ChargerPage = () => {
             ["Preis", "CHF 99", "CHF 120–150"],
             ["Standard", "Qi2.2", "Qi2"],
             ["iPhone-Leistung", "25W", "15W"],
-            ["Design", "Schweizer Marke", "Generisch"],
+            ["Marke", "Schweizer Marke (RAJ)", "Internationale Marke"],
+            ["Support", "Schweiz, auf Deutsch", "International"],
           ]}
         />
         <P><strong>Fazit:</strong> RAJ NEXUS lädt schneller, kostet weniger, sieht besser aus.</P>
