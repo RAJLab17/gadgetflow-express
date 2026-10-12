@@ -1,4 +1,5 @@
 # Architecture rules
+- MATRIX and AirPods bundle offer cards use BundleOfferImage with original-product AirPods thumbnails and page-owned phone selections, keeping their presentation identical without coupling checkout logic.
 - NEXUS uses an outside-root, scoped static header/hero capture with matching responsive image hints; remove it only after the visible React hero decodes and paints opaque, so mounting cannot erase the first product paint. Regenerate the capture from the unchanged header/hero if their layout changes.
 - Deduplicate React/ReactDOM and prebundle app-shell providers together in Vite so lazy navigation cannot mix React hook dispatchers from separate dependency generations.
 - Product share images use the shared shareImages metadata helper and CDN asset pointers; capture image dimensions, MIME type and alt text in the SEO snapshot so runtime and crawler tags stay identical.

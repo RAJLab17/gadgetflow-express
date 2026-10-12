@@ -30,7 +30,7 @@ import {
 
 import airpodsCherryAsset from "@/assets/matrix/schema/airpods-cherry-premium.webp.asset.json";
 import airpodsOnyxAsset from "@/assets/matrix/schema/airpods-onyx-premium.webp.asset.json";
-import { airpodsThumbs } from "@/assets/matrix/responsiveRenders";
+import BundleOfferImage, { bundlePhoneThumb, originalAirpodsThumbs } from "@/components/matrix/BundleOfferImage";
 import cherryDesk from "@/assets/matrix/airpods-lifestyle/cherry-desk-full.webp.asset.json";
 import cherryDeskMobile from "@/assets/matrix/airpods-lifestyle/cherry-desk-mobile.webp.asset.json";
 import cherryDeskThumb from "@/assets/matrix/airpods-lifestyle/cherry-desk-thumb.webp.asset.json";
@@ -474,15 +474,17 @@ const AirpodsPage = () => {
                             style={optionStyle(active)}
                           >
                             <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
-                              <img
-                                src={airpodsThumbs[finish.id]}
+                              {opt.bundle ? (
+                                <BundleOfferImage phoneSrc={bundlePhoneThumb(model.id, finish.id)} finishId={finish.id} finishName={finish.name} />
+                              ) : <img
+                                src={originalAirpodsThumbs[finish.id]}
                                 width={160}
                                 height={160}
                                 loading="lazy"
                                 decoding="async"
                                 alt={opt.bundle ? `RAJ MATRIX AirPods Hülle und iPhone Hülle in ${finish.name}` : `RAJ MATRIX AirPods 4 & 5 Hülle in ${finish.name}`}
                                 className="absolute inset-0 h-full w-full object-contain"
-                              />
+                              />}
                             </span>
                             <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border" style={{ borderColor: active ? H.gold : H.lineStrong }}>
                               {active && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
