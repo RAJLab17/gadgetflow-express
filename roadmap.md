@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Enforce one H1 per sitemap page without visual changes, describe NEXUS content images and audit homepage/MATRIX/AirPods/APEX alt attributes; refresh crawler copies and report per-route counts; do not publish.
+- [x] Enforce one H1 per sitemap page without visual changes, describe NEXUS content images and audit homepage/MATRIX/AirPods/APEX alt attributes; refresh crawler copies and report per-route counts; do not publish.
 - [x] Correct outdated iPhone wattage for iOS 26, add 25 W model paragraph, update NEXUS/FAQ structured data and llms.txt; /qi2-erklaert, /nexus, /faq and shared /shop crawler copies refreshed; browser/Googlebot checks passed, all three requested phrases have zero remaining matches; not published
 - [x] Update only four /qi2-erklaert head tags, /vergleich FAQ/technology/Belkin standard label and /faq incorrect original-Qi2 power answer; three SEO copies refreshed, browser/Googlebot and zero old-phrase checks passed; correct product power labels preserved, other 24 copies unchanged; not published
 - [x] Update homepage title, MATRIX/APEX availability labels and AGB date; /, /produkte and /agb static SEO copies refreshed; browser and Googlebot checks passed, other 24 snapshots unchanged; not published
