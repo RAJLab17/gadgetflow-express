@@ -165,6 +165,10 @@ const Qi2ErklaertPage = () => {
         <a href="https://raj.ch" className="text-primary underline hover:opacity-80">raj.ch</a>
       </p>
     </PremiumPageLayout>
+      <Helmet>
+        <meta name="twitter:title" content="Qi2 vs. Qi2.2 erklärt – Unterschiede fürs iPhone | RAJ" />
+        <meta name="twitter:description" content="Qi2 vs. Qi2.2 erklärt: Unterschiede, Vorteile und worauf du beim Kauf eines kabellosen Ladegeräts achten solltest. Stand April 2026." />
+      </Helmet>
     </>
   );
 };
