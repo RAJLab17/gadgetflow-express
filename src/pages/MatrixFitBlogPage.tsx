@@ -94,7 +94,7 @@ const MatrixFitBlogPage = () => (
       ogImage={shareImages.matrix.url}
       eyebrow="Ratgeber"
       heading={H1}
-      intro={INTRO}
+      intro={<p>{INTRO}</p>}
       meta={<p>Autor: RAJ Team, Weinfelden · <time dateTime={DATE_ISO}>{DATE}</time></p>}
       width="wide"
     >
