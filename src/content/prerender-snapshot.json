@@ -281,7 +281,7 @@
   "title": "RAJ NEXUS — 3-in-1 Wireless Charger",
   "description": "RAJ NEXUS — Qi2.2 zertifizierter 3-in-1 Wireless Charger. Lädt iPhone, Apple Watch und AirPods gleichzeitig. CHF 99 · Gratis Versand · 3 Jahre Garantie.",
   "robots": null,
-  "canonical": "https://raj.ch/shop",
+  "canonical": "https://raj.ch/nexus",
   "ogTitle": null,
   "ogDescription": null,
   "ogUrl": null,
@@ -302,7 +302,7 @@
   "blocks": [
    {
     "tag": "p",
-    "text": "3’375 Menschen haben den RAJ NEXUS bereits entdeckt"
+    "text": "3’380 Menschen haben den RAJ NEXUS bereits entdeckt"
    },
    {
     "tag": "h1",
@@ -1410,11 +1410,11 @@
   ]
  },
  "/versand": {
-  "title": "Versand & Rückgabe – RAJ",
+  "title": "Versand und Rückgabe | RAJ, 30 Tage Rückgabe in der Schweiz",
   "description": "Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/versand",
-  "ogTitle": "Versand & Rückgabe – RAJ",
+  "ogTitle": "Versand und Rückgabe | RAJ, 30 Tage Rückgabe in der Schweiz",
   "ogDescription": "Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit.",
   "ogUrl": "https://raj.ch/versand",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
@@ -1423,7 +1423,7 @@
   "ogImageType": "image/jpeg",
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "article",
-  "twitterTitle": "Versand & Rückgabe – RAJ",
+  "twitterTitle": "Versand und Rückgabe | RAJ, 30 Tage Rückgabe in der Schweiz",
   "twitterDescription": "Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Transparent. Fair.",
@@ -2084,11 +2084,11 @@
   ]
  },
  "/datenschutz": {
-  "title": "Datenschutzerklärung – RAJ",
+  "title": "Datenschutzerklärung | RAJ GmbH, Schweizer Marke für Apple Zubehör",
   "description": "Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/datenschutz",
-  "ogTitle": "Datenschutzerklärung – RAJ",
+  "ogTitle": "Datenschutzerklärung | RAJ GmbH, Schweizer Marke für Apple Zubehör",
   "ogDescription": "Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten.",
   "ogUrl": "https://raj.ch/datenschutz",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
@@ -2097,7 +2097,7 @@
   "ogImageType": "image/jpeg",
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "article",
-  "twitterTitle": "Datenschutzerklärung – RAJ",
+  "twitterTitle": "Datenschutzerklärung | RAJ GmbH, Schweizer Marke für Apple Zubehör",
   "twitterDescription": "Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Datenschutz­erklärung",
@@ -2332,15 +2332,107 @@
    {
     "tag": "p",
     "text": "Sofern du dich für unseren Newsletter anmeldest, verwenden wir deine E‑Mail‑Adresse ausschliesslich für den Versand von Informationen zu unseren Produkten und Angeboten."
+   },
+   {
+    "tag": "p",
+    "text": "Du kannst den Newsletter jederzeit über den Abmeldelink in jeder E‑Mail oder durch eine Nachricht an uns abbestellen."
+   },
+   {
+    "tag": "p",
+    "text": "Für den Versand von Newsletter und Marketing‑E‑Mails nutzen wir Brevo (Sendinblue SA, 55 rue d'Amsterdam, Paris, Frankreich). Deine E‑Mail‑Adresse wird ausschliesslich für den Versand verwendet und nicht an Dritte weitergegeben. Weitere Informationen: brevo.com/legal/privacypolicy"
+   },
+   {
+    "tag": "h2",
+    "text": "8. WEITERGABE VON DATEN"
+   },
+   {
+    "tag": "p",
+    "text": "Eine Weitergabe personenbezogener Daten erfolgt nur, soweit dies erforderlich ist:"
+   },
+   {
+    "tag": "li",
+    "text": "· an Versand‑ und Logistikpartner"
+   },
+   {
+    "tag": "li",
+    "text": "· an Zahlungsdienstleister"
+   },
+   {
+    "tag": "li",
+    "text": "· an IT‑ und Hosting‑Dienstleister"
+   },
+   {
+    "tag": "li",
+    "text": "· an Behörden, sofern eine gesetzliche Verpflichtung besteht"
+   },
+   {
+    "tag": "p",
+    "text": "Eine Weitergabe zu Marketingzwecken Dritter erfolgt nicht."
+   },
+   {
+    "tag": "h2",
+    "text": "9. AUFBEWAHRUNGSDAUER"
+   },
+   {
+    "tag": "p",
+    "text": "Wir bewahren personenbezogene Daten nur so lange auf, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen."
+   },
+   {
+    "tag": "h2",
+    "text": "10. DATENSICHERHEIT"
+   },
+   {
+    "tag": "p",
+    "text": "Wir treffen angemessene technische und organisatorische Sicherheitsmassnahmen, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen. Dazu gehören insbesondere verschlüsselte Datenübertragungen (SSL/TLS)."
+   },
+   {
+    "tag": "h2",
+    "text": "11. RECHTE DER BETROFFENEN PERSONEN"
+   },
+   {
+    "tag": "p",
+    "text": "Du hast das Recht:"
+   },
+   {
+    "tag": "li",
+    "text": "· Auskunft über deine gespeicherten personenbezogenen Daten zu erhalten"
+   },
+   {
+    "tag": "li",
+    "text": "· unrichtige Daten berichtigen zu lassen"
+   },
+   {
+    "tag": "li",
+    "text": "· die Löschung oder Einschränkung der Bearbeitung zu verlangen"
+   },
+   {
+    "tag": "li",
+    "text": "· eine erteilte Einwilligung jederzeit zu widerrufen"
+   },
+   {
+    "tag": "p",
+    "text": "Anfragen hierzu kannst du an die oben angegebene Kontaktadresse richten."
+   },
+   {
+    "tag": "h2",
+    "text": "12. ÄNDERUNGEN DIESER DATENSCHUTZERKLÄRUNG"
+   },
+   {
+    "tag": "p",
+    "text": "Die RAJ GmbH behält sich vor, diese Datenschutzerklärung jederzeit anzupassen, insbesondere bei Änderungen gesetzlicher Vorgaben oder unseres Angebots. Es gilt die jeweils aktuelle, auf der Website veröffentlichte Version."
+   },
+   {
+    "tag": "p",
+    "text": "Diese Datenschutzerklärung ist integraler Bestandteil unserer Website und unseres Online‑Shops."
    }
   ]
  },
  "/impressum": {
-  "title": "Impressum – RAJ",
+  "title": "Impressum | RAJ GmbH, Schweizer Marke für Apple Zubehör",
   "description": "Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/impressum",
-  "ogTitle": "Impressum – RAJ",
+  "ogTitle": "Impressum | RAJ GmbH, Schweizer Marke für Apple Zubehör",
   "ogDescription": "Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise.",
   "ogUrl": "https://raj.ch/impressum",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
@@ -2349,7 +2441,7 @@
   "ogImageType": "image/jpeg",
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "article",
-  "twitterTitle": "Impressum – RAJ",
+  "twitterTitle": "Impressum | RAJ GmbH, Schweizer Marke für Apple Zubehör",
   "twitterDescription": "Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Impressum",
@@ -3944,6 +4036,416 @@
    {
     "tag": "p",
     "text": "Quelle: Apple: iPhone Modelle vergleichen"
+   }
+  ]
+ },
+ "/manuals": {
+  "title": "Bedienungsanleitung RAJ NEXUS | Produktdokumentation als PDF",
+  "description": "Bedienungsanleitung für den RAJ NEXUS 3 in 1 Wireless Charger als PDF auf Deutsch, Englisch, Französisch und Italienisch.",
+  "robots": "index, follow",
+  "canonical": "https://raj.ch/manuals",
+  "ogTitle": null,
+  "ogDescription": null,
+  "ogUrl": null,
+  "ogImage": null,
+  "ogImageWidth": null,
+  "ogImageHeight": null,
+  "ogImageType": null,
+  "ogImageAlt": null,
+  "ogType": null,
+  "twitterTitle": null,
+  "twitterDescription": null,
+  "twitterImage": null,
+  "h1": "Produktdokumentation",
+  "jsonLd": [],
+  "blocks": [
+   {
+    "tag": "h1",
+    "text": "Produktdokumentation"
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS 3-in-1 Wireless Charger · Model RAJ-NEX-T3-Q2-BLK"
+   },
+   {
+    "tag": "p",
+    "text": "Die Dokumente öffnen sich in einem neuen Tab."
+   }
+  ]
+ },
+ "/dokumente": {
+  "title": "Produktdokumentation – RAJ NEXUS",
+  "description": "Benutzerhandbücher für den RAJ NEXUS 3-in-1 Wireless Charger in Deutsch, Englisch, Französisch und Italienisch zum Download.",
+  "robots": "noindex, follow",
+  "canonical": "https://raj.ch/manuals",
+  "ogTitle": null,
+  "ogDescription": null,
+  "ogUrl": null,
+  "ogImage": null,
+  "ogImageWidth": null,
+  "ogImageHeight": null,
+  "ogImageType": null,
+  "ogImageAlt": null,
+  "ogType": null,
+  "twitterTitle": null,
+  "twitterDescription": null,
+  "twitterImage": null,
+  "h1": "Produktdokumentation",
+  "jsonLd": [],
+  "blocks": [
+   {
+    "tag": "h1",
+    "text": "Produktdokumentation"
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS 3-in-1 Wireless Charger · Model RAJ-NEX-T3-Q2-BLK"
+   },
+   {
+    "tag": "p",
+    "text": "Die Dokumente öffnen sich in einem neuen Tab."
+   }
+  ]
+ },
+ "/auto": {
+  "title": "RAJ APEX — MagSafe Auto-Ladehalterung mit Qi2 · 25W | RAJ",
+  "description": "RAJ APEX: MagSafe Auto-Ladehalterung mit bis zu 25W. Wähle zwischen Dashboard-Montage (APEX Dash) oder Lüftungsdüse (APEX Vent). Swiss Brand.",
+  "robots": null,
+  "canonical": "https://raj.ch/apex",
+  "ogTitle": "RAJ APEX — MagSafe Auto-Ladehalterung",
+  "ogDescription": "Dein iPhone. Sicher am Ort. Egal welches Auto.",
+  "ogUrl": "https://raj.ch/apex",
+  "ogImage": null,
+  "ogImageWidth": null,
+  "ogImageHeight": null,
+  "ogImageType": null,
+  "ogImageAlt": null,
+  "ogType": "product",
+  "twitterTitle": null,
+  "twitterDescription": null,
+  "twitterImage": null,
+  "h1": "RAJ APEX",
+  "jsonLd": [
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ APEX — MagSafe Auto-Ladehalterung\",\"description\":\"RAJ APEX ist eine Qi2 MagSafe-kompatible Auto-Ladehalterung mit bis zu 25W. Jede APEX kommt mit Saugmontage (Armaturenbrett/Scheibe), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter — inkl. aktiver Kühlung. Erhältlich in Silber oder Space Black.\",\"image\":[\"https://raj.ch/assets/products/apex-card-900.webp\"],\"sku\":\"RAJ-APX-Q2\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"offers\":[{\"@type\":\"Offer\",\"sku\":\"RAJ-APX-Q2-SLV\",\"name\":\"APEX Silver\",\"priceCurrency\":\"CHF\",\"price\":75,\"itemCondition\":\"https://schema.org/NewCondition\",\"availability\":\"https://schema.org/PreOrder\",\"url\":\"https://raj.ch/apex\",\"seller\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\"},\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":2,\"maxValue\":4,\"unitCode\":\"d\"}}}},{\"@type\":\"Offer\",\"sku\":\"RAJ-APX-Q2-BLK\",\"name\":\"APEX Black\",\"priceCurrency\":\"CHF\",\"price\":69,\"itemCondition\":\"https://schema.org/NewCondition\",\"availability\":\"https://schema.org/PreOrder\",\"url\":\"https://raj.ch/apex\",\"seller\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\"},\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":2,\"maxValue\":4,\"unitCode\":\"d\"}}}}]}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen APEX Silver und APEX Black?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Funktional sind beide Varianten identisch: Jede APEX kommt mit Saugmontage für Armaturenbrett und Windschutzscheibe, Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter. Beide laden dein iPhone kabellos mit bis zu 25W (Qi2), sind 360° drehbar und verfügen über aktive Kühlung. Der einzige Unterschied ist die Farbe: Silber oder Space Black.\"}},{\"@type\":\"Question\",\"name\":\"Wann kann ich RAJ APEX kaufen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ APEX ist voraussichtlich ab Ende November 2026 verfügbar. Trage dich mit deiner E-Mail-Adresse ein, um dich unverbindlich vorzumerken und als Erster informiert zu werden.\"}},{\"@type\":\"Question\",\"name\":\"Ist RAJ APEX mit meinem iPhone kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. RAJ APEX ist mit iPhone 12–18 (inkl. Pro und Pro Max) sowie allen offiziellen MagSafe-Hüllen kompatibel.\"}},{\"@type\":\"Question\",\"name\":\"Ist ein Ladekabel im Lieferumfang enthalten?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, RAJ APEX wird inklusive USB-C Kabel, Kfz-Ladeadapter, Saugmontage und Lüftungsclip mit Schnellverschluss geliefert.\"}},{\"@type\":\"Question\",\"name\":\"Gibt es Garantie auf RAJ APEX?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ APEX kommt mit 3 Jahre Garantie ab Kaufdatum.\"}}]}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"RAJ\",\"item\":\"https://raj.ch/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"APEX Auto-Ladehalterung\",\"item\":\"https://raj.ch/apex\"}]}"
+  ],
+  "blocks": [
+   {
+    "tag": "h1",
+    "text": "RAJ APEX"
+   },
+   {
+    "tag": "p",
+    "text": "Dein iPhone. Sicher am Ort. Egal welches Auto."
+   },
+   {
+    "tag": "p",
+    "text": "Jede APEX kommt komplett im Lieferumfang: Saugmontage (Armaturenbrett & Scheibe, 360° drehbar), Lüftungsclip mit Schnellverschluss, USB-C Kabel und Kfz-Ladeadapter. MagSafe-Halt, aktive Kühlung und bis zu 25W kabelloses Laden — für jedes Auto, jede Situation."
+   },
+   {
+    "tag": "p",
+    "text": "Voraussichtlich ab Ende November 2026."
+   },
+   {
+    "tag": "p",
+    "text": "Unverbindlich · Jederzeit abmeldbar"
+   },
+   {
+    "tag": "h2",
+    "text": "Auf einen Blick"
+   },
+   {
+    "tag": "p",
+    "text": "Kabelloses Schnellladen mit magnetischer MagSafe-Ausrichtung."
+   },
+   {
+    "tag": "p",
+    "text": "Saugmontage für Armaturenbrett & Scheibe plus Lüftungsclip."
+   },
+   {
+    "tag": "p",
+    "text": "Leiser Lüfter hält die Ladeleistung auch im Sommer stabil."
+   },
+   {
+    "tag": "p",
+    "text": "Kompatibel inkl. Pro & Pro Max und offiziellen MagSafe-Hüllen."
+   },
+   {
+    "tag": "h2",
+    "text": "Häufige Fragen"
+   }
+  ]
+ },
+ "/launch": {
+  "title": "RAJ NEXUS — 3-in-1 Qi2 Wireless Charger | Swiss Brand",
+  "description": "iPhone, AirPods & Apple Watch gleichzeitig laden. Qi2.2 zertifiziert, 25W. CHF 99. Gratis Lieferung Schweiz.",
+  "robots": "noindex, follow",
+  "canonical": "https://raj.ch/launch",
+  "ogTitle": "RAJ NEXUS — 3-in-1 Qi2 Wireless Charger",
+  "ogDescription": "iPhone, AirPods & Apple Watch gleichzeitig laden. CHF 99. Swiss Brand.",
+  "ogUrl": "https://raj.ch/launch",
+  "ogImage": null,
+  "ogImageWidth": null,
+  "ogImageHeight": null,
+  "ogImageType": null,
+  "ogImageAlt": null,
+  "ogType": "website",
+  "twitterTitle": null,
+  "twitterDescription": null,
+  "twitterImage": null,
+  "h1": "iPhone, AirPods & Apple Watch. Eine Ladestation. Ein Griff.",
+  "jsonLd": [
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.\"}},{\"@type\":\"Question\",\"name\":\"Was kostet der RAJ NEXUS in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.\"}},{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen Qi2 und Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Qi2 lädt iPhones mit bis zu 15 W, Qi2.2 mit bis zu 25 W – ab iPhone 16 mit iOS 26.\"}},{\"@type\":\"Question\",\"name\":\"Ist der RAJ NEXUS mit meinem iPhone kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist kompatibel mit allen iPhones von iPhone 12 bis iPhone 18, einschliesslich iPhone 13, 14, 15, 16, 17 und 18 Serie. Auch Apple Watch Series 1-10 und AirPods Pro/3/4 mit kabellosem Ladecase werden unterstützt.\"}},{\"@type\":\"Question\",\"name\":\"Wo kann ich den RAJ NEXUS kaufen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ausschliesslich über raj.ch erhältlich – direkt vom Hersteller, ohne Zwischenhändler. Versand innerhalb der Schweiz.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell lädt der RAJ NEXUS mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.\"}}]}"
+  ],
+  "blocks": [
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS"
+   },
+   {
+    "tag": "p",
+    "text": "CHF 99"
+   },
+   {
+    "tag": "h1",
+    "text": "iPhone, AirPods & Apple Watch. Eine Ladestation. Ein Griff."
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS bringt dein Setup aufgeräumt zusammen."
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS"
+   },
+   {
+    "tag": "p",
+    "text": "CHF 99"
+   },
+   {
+    "tag": "p",
+    "text": "66"
+   },
+   {
+    "tag": "p",
+    "text": "Anmeldungen · +6 heute"
+   },
+   {
+    "tag": "li",
+    "text": "CHF 99"
+   },
+   {
+    "tag": "li",
+    "text": "Qi2.2 zertifiziert · 25W"
+   },
+   {
+    "tag": "li",
+    "text": "3 Jahre Garantie"
+   },
+   {
+    "tag": "p",
+    "text": "Unverbindlich · Kein Spam"
+   },
+   {
+    "tag": "p",
+    "text": "Fragen? Jederzeit unter founder@raj.ch"
+   },
+   {
+    "tag": "h3",
+    "text": "Faltet sich. Lädt überall."
+   },
+   {
+    "tag": "p",
+    "text": "Hotelzimmer. Lounge. Airbnb. Eine Bewegung — aufgeklappt. iPhone, Watch, AirPods. Alle gleichzeitig."
+   },
+   {
+    "tag": "h3",
+    "text": "Drei Kabel weg. Ein Objekt da."
+   },
+   {
+    "tag": "p",
+    "text": "Kein Kabelsalat. Kein Suchen. Ein einziger Ort — alles geladen, alles bereit."
+   },
+   {
+    "tag": "h3",
+    "text": "Hinlegen. Aufwachen mit 100 %."
+   },
+   {
+    "tag": "p",
+    "text": "Telefon drauf — magnetisch klick. Morgens: voll geladen, bereit für den Tag."
+   },
+   {
+    "tag": "p",
+    "text": "Power. Always There."
+   },
+   {
+    "tag": "p",
+    "text": "Premium Materialien. Echte Leistung. Fairer Preis."
+   },
+   {
+    "tag": "p",
+    "text": "Präzise. Zuverlässig. Durchdacht."
+   },
+   {
+    "tag": "h2",
+    "text": "Warum RAJ?"
+   },
+   {
+    "tag": "p",
+    "text": "Wir haben selbst gesucht. Ein Ladegerät das Design, Leistung und Qualität verbindet. Zu einem fairen Preis. Wir haben es nicht gefunden. Also haben wir es selbst gebaut. In der Schweiz. Für Menschen die wissen was sie wollen. Und die sich nicht mit Mittelmass zufrieden geben."
+   },
+   {
+    "tag": "h2",
+    "text": "Häufige Fragen"
+   },
+   {
+    "tag": "p",
+    "text": "Du hast noch eine Frage? Ich lese jede Mail selbst —"
+   },
+   {
+    "tag": "p",
+    "text": "Antwort meist innerhalb von 24 Stunden · Direkt vom Gründer"
+   },
+   {
+    "tag": "h2",
+    "text": "Dein Platz wartet."
+   }
+  ]
+ },
+ "/prelaunch": {
+  "title": "RAJ NEXUS — 3-in-1 Qi2 Wireless Charger | Swiss Brand",
+  "description": "iPhone, AirPods & Apple Watch gleichzeitig laden. Qi2.2 zertifiziert, 25W. CHF 99. Gratis Lieferung Schweiz.",
+  "robots": "noindex, follow",
+  "canonical": "https://raj.ch/prelaunch",
+  "ogTitle": "RAJ NEXUS — 3-in-1 Qi2 Wireless Charger",
+  "ogDescription": "iPhone, AirPods & Apple Watch gleichzeitig laden. CHF 99. Swiss Brand.",
+  "ogUrl": "https://raj.ch/prelaunch",
+  "ogImage": null,
+  "ogImageWidth": null,
+  "ogImageHeight": null,
+  "ogImageType": null,
+  "ogImageAlt": null,
+  "ogType": "website",
+  "twitterTitle": null,
+  "twitterDescription": null,
+  "twitterImage": null,
+  "h1": "iPhone, AirPods & Apple Watch. Eine Ladestation. Ein Griff.",
+  "jsonLd": [
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.\"}},{\"@type\":\"Question\",\"name\":\"Was kostet der RAJ NEXUS in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.\"}},{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen Qi2 und Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Qi2 lädt iPhones mit bis zu 15 W, Qi2.2 mit bis zu 25 W – ab iPhone 16 mit iOS 26.\"}},{\"@type\":\"Question\",\"name\":\"Ist der RAJ NEXUS mit meinem iPhone kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist kompatibel mit allen iPhones von iPhone 12 bis iPhone 18, einschliesslich iPhone 13, 14, 15, 16, 17 und 18 Serie. Auch Apple Watch Series 1-10 und AirPods Pro/3/4 mit kabellosem Ladecase werden unterstützt.\"}},{\"@type\":\"Question\",\"name\":\"Wo kann ich den RAJ NEXUS kaufen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ausschliesslich über raj.ch erhältlich – direkt vom Hersteller, ohne Zwischenhändler. Versand innerhalb der Schweiz.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell lädt der RAJ NEXUS mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.\"}}]}"
+  ],
+  "blocks": [
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS"
+   },
+   {
+    "tag": "p",
+    "text": "CHF 99"
+   },
+   {
+    "tag": "h1",
+    "text": "iPhone, AirPods & Apple Watch. Eine Ladestation. Ein Griff."
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS bringt dein Setup aufgeräumt zusammen."
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS"
+   },
+   {
+    "tag": "p",
+    "text": "CHF 99"
+   },
+   {
+    "tag": "p",
+    "text": "66"
+   },
+   {
+    "tag": "p",
+    "text": "Anmeldungen · +6 heute"
+   },
+   {
+    "tag": "li",
+    "text": "CHF 99"
+   },
+   {
+    "tag": "li",
+    "text": "Qi2.2 zertifiziert · 25W"
+   },
+   {
+    "tag": "li",
+    "text": "3 Jahre Garantie"
+   },
+   {
+    "tag": "p",
+    "text": "Unverbindlich · Kein Spam"
+   },
+   {
+    "tag": "p",
+    "text": "Fragen? Jederzeit unter founder@raj.ch"
+   },
+   {
+    "tag": "h3",
+    "text": "Faltet sich. Lädt überall."
+   },
+   {
+    "tag": "p",
+    "text": "Hotelzimmer. Lounge. Airbnb. Eine Bewegung — aufgeklappt. iPhone, Watch, AirPods. Alle gleichzeitig."
+   },
+   {
+    "tag": "h3",
+    "text": "Drei Kabel weg. Ein Objekt da."
+   },
+   {
+    "tag": "p",
+    "text": "Kein Kabelsalat. Kein Suchen. Ein einziger Ort — alles geladen, alles bereit."
+   },
+   {
+    "tag": "h3",
+    "text": "Hinlegen. Aufwachen mit 100 %."
+   },
+   {
+    "tag": "p",
+    "text": "Telefon drauf — magnetisch klick. Morgens: voll geladen, bereit für den Tag."
+   },
+   {
+    "tag": "p",
+    "text": "Power. Always There."
+   },
+   {
+    "tag": "p",
+    "text": "Premium Materialien. Echte Leistung. Fairer Preis."
+   },
+   {
+    "tag": "p",
+    "text": "Präzise. Zuverlässig. Durchdacht."
+   },
+   {
+    "tag": "h2",
+    "text": "Warum RAJ?"
+   },
+   {
+    "tag": "p",
+    "text": "Wir haben selbst gesucht. Ein Ladegerät das Design, Leistung und Qualität verbindet. Zu einem fairen Preis. Wir haben es nicht gefunden. Also haben wir es selbst gebaut. In der Schweiz. Für Menschen die wissen was sie wollen. Und die sich nicht mit Mittelmass zufrieden geben."
+   },
+   {
+    "tag": "h2",
+    "text": "Häufige Fragen"
+   },
+   {
+    "tag": "p",
+    "text": "Du hast noch eine Frage? Ich lese jede Mail selbst —"
+   },
+   {
+    "tag": "p",
+    "text": "Antwort meist innerhalb von 24 Stunden · Direkt vom Gründer"
+   },
+   {
+    "tag": "h2",
+    "text": "Dein Platz wartet."
    }
   ]
  }
