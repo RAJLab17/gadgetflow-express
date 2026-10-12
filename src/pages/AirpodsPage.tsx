@@ -1,3 +1,5 @@
+import ProductFaqSection from "@/components/ProductFaqSection";
+import { AIRPODS_FAQ } from "@/content/matrixFaq";
 import { useCallback, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
@@ -423,6 +425,7 @@ const AirpodsPage = () => {
               </div>
             </div>
           </section>
+          <ProductFaqSection title="Fragen zur MATRIX AirPods-Hülle" items={AIRPODS_FAQ} />
         </main>
 
         <Footer />
