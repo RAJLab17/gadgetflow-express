@@ -7,10 +7,12 @@ export function handOffAirpodsShell(): () => void {
   const check = async () => {
     if (cancelled) return;
     const hero = document.querySelector<HTMLImageElement>("#root img[data-airpods-hero]");
-    if (!hero || !hero.complete || !hero.naturalWidth) {
+    if (!hero || !hero.complete) {
       frame = requestAnimationFrame(check);
       return;
     }
+    // A failed image must not leave the instant view covering the real page.
+    if (!hero.naturalWidth) { shell.remove(); return; }
     try { await hero.decode(); } catch { /* older engines may reject decode for loaded images */ }
     if (cancelled) return;
     frame = requestAnimationFrame(() => { if (!cancelled) shell.remove(); });
