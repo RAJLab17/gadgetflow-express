@@ -1,6 +1,6 @@
 import ProductFaqSection from "@/components/ProductFaqSection";
 import { AIRPODS_FAQ } from "@/content/matrixFaq";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { Link } from "react-router-dom";
@@ -11,30 +11,30 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import { Button } from "@/components/ui/button";
-import { createShopifyCart } from "@/lib/shopify";
+import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
-import { trackAddToCart, trackViewItem } from "@/lib/ga-ecommerce";
+import { trackAddToCart, trackBeginCheckout, trackViewItem } from "@/lib/ga-ecommerce";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
+import { handOffAirpodsShell } from "@/lib/airpodsShell";
+import {
+  AIRPODS_VARIANT_IDS,
+  BUNDLE_DISCOUNT,
+  BUNDLE_DISCOUNT_CODE,
+  CASE_VARIANT_IDS,
+  MATRIX_DELIVERY_TEXT,
+  MATRIX_TRUST_DESKTOP,
+  MATRIX_TRUST_MOBILE,
+  PaymentMethodsBar,
+} from "@/components/matrix/matrixCommerce";
 
-import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
-import airpodsOnyx from "@/assets/matrix/airpods-onyx-original-bolt.webp";
-import cherryHqAsset from "@/assets/matrix/optimized-renders/18-cherry-cherry-darkcherry.webp.asset.json";
-import onyxHqAsset from "@/assets/matrix/optimized-renders/18-onyx-onyx-darkgrey.webp.asset.json";
-const matrixCaseCherry = cherryHqAsset.url;
-const matrixCaseOnyx = onyxHqAsset.url;
-import payVisa from "@/assets/payments/visa.svg";
-import payMastercard from "@/assets/payments/mastercard.svg";
-import payAmex from "@/assets/payments/amex.svg";
-import payApplePay from "@/assets/payments/apple-pay.svg";
-import payGooglePay from "@/assets/payments/google-pay.svg";
-import payTwint from "@/assets/payments/twint.png";
-import payKlarna from "@/assets/payments/klarna.svg";
+import airpodsCherryAsset from "@/assets/matrix/schema/airpods-cherry-bolt.webp.asset.json";
+import airpodsOnyxAsset from "@/assets/matrix/schema/airpods-onyx-original-bolt.webp.asset.json";
+import { airpodsThumbs } from "@/assets/matrix/responsiveRenders";
 
 const H = {
   bg: "#faf9f7",
   gold: "#9b6b3f",
-  cherry: "#7b4b60",
   line: "rgba(43,39,37,0.10)",
   lineStrong: "rgba(43,39,37,0.22)",
   text: "#2b2725",
@@ -42,63 +42,137 @@ const H = {
 };
 
 type FinishId = "cherry" | "onyx";
+type ModelId = "17pro" | "17promax" | "18pro" | "18promax";
+
+interface Slide { src: string; alt: string }
 
 interface Finish {
   id: FinishId;
   name: string;
-  image: string;
-  matrixImage: string;
   base: string;
   weave: string;
   edge: string;
   price: number;
   variantId: string;
   sku: string;
+  /** Produktfoto zuerst, danach bis zu 4 Lifestyle-Fotos (feste CDN-Adressen). */
+  slides: Slide[];
 }
+
+const AIRPODS_PRICE = 35;
+const IPHONE_CASE_PRICE = 59;
 
 const FINISHES: Finish[] = [
   {
     id: "cherry",
     name: "Cherry Carbon",
-    image: airpodsCherry,
-    matrixImage: matrixCaseCherry,
     base: "#7b4b60",
     weave: "#a66f83",
     edge: "#4f2b3a",
-    price: 35,
-    variantId: "gid://shopify/ProductVariant/59116737364293",
+    price: AIRPODS_PRICE,
+    variantId: AIRPODS_VARIANT_IDS.cherry,
     sku: "RAJ-MTX-AP4-CHY",
+    slides: [{ src: airpodsCherryAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Cherry Carbon mit goldenem Blitz und Karabiner" }],
   },
   {
     id: "onyx",
     name: "Onyx Carbon",
-    image: airpodsOnyx,
-    matrixImage: matrixCaseOnyx,
     base: "#16171a",
     weave: "#33363c",
     edge: "#08090a",
-    price: 35,
-    variantId: "gid://shopify/ProductVariant/59116737397061",
+    price: AIRPODS_PRICE,
+    variantId: AIRPODS_VARIANT_IDS.onyx,
     sku: "RAJ-MTX-AP4-ONX",
+    slides: [{ src: airpodsOnyxAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Onyx Carbon mit goldenem Blitz und Karabiner" }],
   },
 ];
 
-const paymentMethods = [payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna];
+const MODELS: { id: ModelId; short: string; name: string; status: string }[] = [
+  { id: "17pro", short: "17 Pro", name: "iPhone 17 Pro", status: "Verfügbar" },
+  { id: "17promax", short: "17 Pro Max", name: "iPhone 17 Pro Max", status: "Verfügbar" },
+  { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", status: "Vorbestellung" },
+  { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", status: "Vorbestellung" },
+];
+
+const BUNDLE_TOTAL = AIRPODS_PRICE + IPHONE_CASE_PRICE - BUNDLE_DISCOUNT;
+
+/* ── Wischbare Galerie (Punkte ab 2 Bildern, Desktop zusätzlich Vorschaubilder) ── */
+const Gallery = ({ finish }: { finish: Finish }) => {
+  const slides = finish.slides;
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    setActive(0);
+    scrollerRef.current?.scrollTo({ left: 0 });
+  }, [finish.id]);
+
+  const goTo = (i: number) => scrollerRef.current?.scrollTo({ left: i * (scrollerRef.current?.clientWidth ?? 0), behavior: "smooth" });
+
+  return (
+    <div>
+      <div
+        ref={scrollerRef}
+        onScroll={() => {
+          const el = scrollerRef.current;
+          if (el) setActive(Math.max(0, Math.min(slides.length - 1, Math.round(el.scrollLeft / el.clientWidth))));
+        }}
+        className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        aria-roledescription="carousel"
+      >
+        {slides.map((slide, i) => (
+          <div key={slide.src} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
+            <img
+              data-airpods-hero={i === 0 ? "" : undefined}
+              src={slide.src}
+              alt={slide.alt}
+              width={1024}
+              height={1024}
+              loading={i === 0 ? "eager" : "lazy"}
+              fetchPriority={i === 0 ? "high" : undefined}
+              decoding="async"
+              className={i === 0 ? "absolute inset-0 h-full w-full object-contain" : "absolute inset-0 h-full w-full object-cover"}
+            />
+          </div>
+        ))}
+      </div>
+      {slides.length > 1 && (
+        <>
+          <div className="flex justify-center gap-1.5 pb-2 pt-1 lg:hidden">
+            {slides.map((_, i) => (
+              <button key={i} type="button" aria-label={`Bild ${i + 1}`} onClick={() => goTo(i)} className="h-1.5 rounded-full transition-all" style={{ width: i === active ? 18 : 6, background: i === active ? H.gold : H.line }} />
+            ))}
+          </div>
+          <div className="mt-4 hidden flex-wrap justify-center gap-2 pb-3 lg:flex" aria-label="Produktbilder">
+            {slides.map((slide, i) => (
+              <Button key={slide.src} type="button" variant="outline" aria-label={`Bild ${i + 1}`} aria-pressed={active === i} onClick={() => goTo(i)} className="h-[68px] w-[68px] overflow-hidden rounded-lg p-0" style={{ borderColor: active === i ? H.gold : H.line, background: "#fff" }}>
+                <img src={slide.src} alt={`Vorschau: ${slide.alt}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+              </Button>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 const AirpodsPage = () => {
   useEffect(() => {
     trackViewItem({ item_id: "RAJ-MTX-AP4", item_name: "RAJ MATRIX AirPods 4 & 5 Case", price: 35 });
   }, []);
+  useEffect(() => handOffAirpodsShell(), []);
   const [finishId, setFinishId] = useState<FinishId>("cherry");
-  const [matrixFinishId, setMatrixFinishId] = useState<FinishId>("cherry");
+  const [bundleSelected, setBundleSelected] = useState(false);
+  const [modelId, setModelId] = useState<ModelId>("18pro");
   const [isBuying, setIsBuying] = useState(false);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
   const finish = FINISHES.find((item) => item.id === finishId) ?? FINISHES[0];
-  const matrixFinish = FINISHES.find((item) => item.id === matrixFinishId) ?? FINISHES[0];
+  const model = MODELS.find((m) => m.id === modelId) ?? MODELS[2];
+  const currentTotal = bundleSelected ? BUNDLE_TOTAL : finish.price;
 
   const handleBuy = useCallback(async () => {
-    if (!finish || isBuying) return;
+    if (isBuying) return;
     setIsBuying(true);
     const checkoutTab = openCheckoutTab();
     const fail = (message: string) => {
@@ -107,45 +181,61 @@ const AirpodsPage = () => {
     };
 
     try {
-      trackAddToCart([{ item_id: finish.variantId, item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: finish.name, price: finish.price }]);
       const reference = makeOrderReference();
-      const product = {
+      const airpodsProduct = {
         node: {
           id: "gid://shopify/Product/16139790549317",
           title: "RAJ MATRIX AirPods 4 & 5 Case",
           description: "Carbon Case für AirPods 4 und AirPods 5.",
           handle: "raj-matrix-airpods-4-case",
           priceRange: { minVariantPrice: { amount: String(finish.price), currencyCode: "CHF" } },
-          images: { edges: [{ node: { url: finish.image, altText: `${finish.name} AirPods Case` } }] },
+          images: { edges: [{ node: { url: finish.slides[0].src, altText: `${finish.name} AirPods Case` } }] },
           variants: { edges: [] },
           options: [{ name: "Finish", values: FINISHES.map((item) => item.name) }],
         },
       };
-      const item: CartItem = {
+      const airpodsItem: CartItem = {
         lineId: null,
-        product,
+        product: airpodsProduct,
         variantId: finish.variantId,
         variantTitle: finish.name,
         price: { amount: String(finish.price), currencyCode: "CHF" },
         quantity: 1,
         selectedOptions: [{ name: "Finish", value: finish.name }],
       };
-      const cart = await createShopifyCart(item, undefined, [
-        { key: "RAJ Referenz", value: reference },
-        { key: "Quelle", value: "raj.ch/airpods-case" },
-      ]);
-      if (!cart) {
-        fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut.");
+
+      if (!bundleSelected) {
+        trackAddToCart([{ item_id: finish.variantId, item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: finish.name, price: finish.price }]);
+        const cart = await createShopifyCart(airpodsItem, undefined, [
+          { key: "RAJ Referenz", value: reference },
+          { key: "Quelle", value: "raj.ch/airpods-case" },
+        ]);
+        if (!cart) { fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut."); return; }
+        trackCheckout({ cartId: cart.cartId, reference, summary: `MATRIX AirPods 4 & 5 Case · ${finish.name}`, total: `CHF ${finish.price}.–`, startedAt: Date.now() });
+        goToCheckout(checkoutTab, cart.checkoutUrl);
         return;
       }
 
-      trackCheckout({
-        cartId: cart.cartId,
-        reference,
-        summary: `MATRIX AirPods 4 & 5 Case · ${finish.name}`,
-        total: `CHF ${finish.price}.–`,
-        startedAt: Date.now(),
-      });
+      // Bundle: gleiche Logik wie auf /matrix (iPhone-Hülle zuerst, dann AirPods, Code MATRIXBUNDLE).
+      const caseVariantId = CASE_VARIANT_IDS[model.id]?.[finish.id];
+      if (!caseVariantId) { fail("Diese Variante ist derzeit nicht verfügbar."); return; }
+      const items = [
+        { item_id: caseVariantId, item_name: "RAJ MATRIX Case", item_variant: `${model.name} / ${finish.name}`, price: IPHONE_CASE_PRICE },
+        { item_id: finish.variantId, item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: `MATRIX AirPods 4 & 5 · ${finish.name}`, price: finish.price - BUNDLE_DISCOUNT },
+      ];
+      trackAddToCart(items);
+      trackBeginCheckout(items);
+      const caseProduct = { node: { id: "", title: "MATRIX Case", description: "", handle: "raj-matrix-case", priceRange: { minVariantPrice: { amount: String(IPHONE_CASE_PRICE), currencyCode: "CHF" } }, images: { edges: [] }, variants: { edges: [] }, options: [] } };
+      const caseItem: CartItem = { lineId: null, product: caseProduct, variantId: caseVariantId, variantTitle: `${model.name} / ${finish.name}`, price: { amount: String(IPHONE_CASE_PRICE), currencyCode: "CHF" }, quantity: 1, selectedOptions: [{ name: "Modell", value: model.name }, { name: "Finish", value: finish.name }] };
+      const cart = await createShopifyCart(caseItem, [BUNDLE_DISCOUNT_CODE], [
+        { key: "RAJ Referenz", value: reference },
+        { key: "Quelle", value: "raj.ch/airpods-case" },
+      ]);
+      if (!cart) { fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut."); return; }
+      const added = await addLineToShopifyCart(cart.cartId, airpodsItem);
+      if (!added.success) { fail("Das AirPods Case konnte nicht zum Bundle hinzugefügt werden. Bitte versuche es erneut."); return; }
+      if (added.checkoutUrl) cart.checkoutUrl = added.checkoutUrl;
+      trackCheckout({ cartId: cart.cartId, reference, summary: `MATRIX Case ${model.name} · ${finish.name} + AirPods 4 & 5 Case ${finish.name}`, total: `CHF ${BUNDLE_TOTAL}.–`, startedAt: Date.now() });
       goToCheckout(checkoutTab, cart.checkoutUrl);
     } catch (error) {
       console.error("AirPods Case purchase failed:", error);
@@ -153,7 +243,7 @@ const AirpodsPage = () => {
     } finally {
       setIsBuying(false);
     }
-  }, [finish, isBuying, trackCheckout]);
+  }, [finish, isBuying, trackCheckout, bundleSelected, model]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -191,7 +281,10 @@ const AirpodsPage = () => {
     },
   };
 
-  if (!finish || !matrixFinish) return null;
+  const optionStyle = (active: boolean) => ({
+    border: `1px solid ${active ? H.gold : H.line}`,
+    background: active ? "rgba(155,107,63,0.06)" : "transparent",
+  });
 
   return (
     <>
@@ -218,134 +311,78 @@ const AirpodsPage = () => {
 
         <main className="pt-24 md:pt-28">
           <section>
-            <div className="container mx-auto max-w-5xl px-4 pb-10 pt-2 md:px-6 md:pb-16 md:pt-8">
-              <div className="grid items-start gap-5 md:grid-cols-12 md:gap-14">
+            <div className="container mx-auto max-w-5xl px-4 pb-5 pt-2 md:px-6 md:pb-16 md:pt-8">
+              <div className="grid items-start gap-3 md:grid-cols-12 md:gap-14">
+                {/* Galerie */}
                 <div className="md:sticky md:top-28 md:col-span-6">
                   <div
-                    className="relative overflow-hidden rounded-md border md:rounded-lg"
+                    className="relative overflow-hidden rounded-md md:rounded-lg"
                     style={{
-                      borderColor: H.line,
                       background:
                         finish.id === "cherry"
-                          ? "linear-gradient(155deg, #faf3eb 0%, #efe9e3 50%, #e4ddd7 100%)"
-                          : "linear-gradient(155deg, #f9f2ea 0%, #efe8e2 50%, #e3ddd6 100%)",
+                          ? "linear-gradient(155deg, #fff 0%, #faf6f7 52%, #eee5e7 100%)"
+                          : "linear-gradient(155deg, #fff 0%, #f7f6f4 52%, #e9e7e3 100%)",
+                      border: `1px solid ${H.line}`,
                       boxShadow: "0 1px 0 rgba(255,255,255,0.95) inset, 0 28px 70px -36px rgba(43,39,37,0.34)",
                     }}
                   >
-                    <div
-                      aria-hidden
-                      className="absolute inset-x-0 top-0 h-px"
-                      style={{ background: `linear-gradient(90deg, transparent, ${H.gold}, transparent)`, opacity: 0.5 }}
-                    />
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-0"
-                      style={{ boxShadow: "inset 0 0 140px 20px rgba(43,39,37,0.12)" }}
-                    />
-                    <div className="relative aspect-[4/3]">
-                      <img
-                        src={finish.image}
-                        alt={`MATRIX AirPods 4 & 5 Case in ${finish.name}`}
-                        width={768}
-                        height={576}
-                        loading="eager"
-                        fetchPriority="high"
-                        decoding="async"
-                        className="absolute inset-0 h-full w-full object-contain"
-                      />
-                    </div>
-                    <div
-                      className="relative flex items-center justify-between gap-3 border-t px-4 py-2.5 md:gap-4 md:px-10 md:py-5"
-                      style={{ borderColor: H.line, background: "rgba(255,255,255,0.55)" }}
-                    >
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.3em]" style={{ color: H.gold }}>
-                          {finish.name}
-                        </p>
-                        <p className="mt-1 text-xs font-light md:mt-1.5 md:text-sm">AirPods 4 &amp; 5 · Carbon Case</p>
-                      </div>
+                    <div aria-hidden className="absolute left-0 right-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${H.gold}, transparent)`, opacity: 0.5 }} />
+                    <div className="relative px-1 md:px-10 md:pb-6 md:pt-10">
+                      <Gallery finish={finish} />
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-4 md:col-span-6 md:space-y-3">
+                {/* Auswahl */}
+                <div className="flex flex-col gap-2 md:col-span-6 md:gap-3">
                   <div className="mb-0.5">
-                    <h1
-                      className="bg-clip-text text-[32px] font-light leading-[0.95] text-transparent md:text-[clamp(30px,3vw,42px)]"
-                      style={{ backgroundImage: `linear-gradient(100deg, ${H.text} 15%, ${H.gold} 88%)` }}
-                    >
-                      MATRIX AirPods Case{" "}
-                      <span
-
-                        className="mt-1 block text-sm italic"
-                        style={{ color: H.gold, fontWeight: 400, letterSpacing: "normal", lineHeight: 1.43 }}
-                      >
-                        – Carbon-Look Hülle für AirPods 4 &amp; 5
-                      </span>
-                    </h1>
-
-                    <p className="mt-1 hidden max-w-md text-xs leading-relaxed md:block" style={{ color: H.textMuted }}>
-                      Gleiches Carbon-Finish, gleicher goldener Blitz — passend zum MATRIX iPhone Case.
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h1 className="text-[19px] font-light leading-[0.95] md:text-[clamp(30px,3vw,42px)]" style={{ letterSpacing: "-0.02em" }}>
+                        <span style={{ color: H.gold }}>MATRIX</span>
+                        <span className="sr-only"> AirPods Case – Carbon-Look Hülle für AirPods 4 &amp; 5</span>
+                      </h1>
+                      <span className="whitespace-nowrap text-xl font-light text-foreground md:text-[clamp(22px,2vw,28px)]">CHF {AIRPODS_PRICE}.–</span>
+                    </div>
+                    <p aria-hidden="true" className="mt-1 text-xs leading-4 text-foreground md:text-sm md:italic" style={{ color: undefined }}>
+                      Carbon Hülle für AirPods 4 &amp; 5
                     </p>
                   </div>
 
+                  {/* Kompatibel */}
                   <div>
-                    <p className="mb-2 text-[10px] uppercase tracking-[0.28em] md:mb-3" style={{ color: H.textMuted }}>
-                      Kompatibel
-                    </p>
-                    <div
-                      className="rounded-lg border px-4 py-3 text-sm font-medium"
-                      style={{ borderColor: H.gold, background: "rgba(155,107,63,0.06)" }}
-                    >
-                      AirPods 4 &amp; 5
+                    <p className="mb-1 text-[10px] uppercase tracking-[0.28em] md:mb-3" style={{ color: H.textMuted }}>Kompatibel</p>
+                    <div className="rounded-lg px-2.5 py-2 text-left md:px-4 md:py-2.5" style={optionStyle(true)}>
+                      <span className="block text-xs font-medium md:text-sm">AirPods 4 &amp; 5</span>
                     </div>
                   </div>
 
+                  {/* Farbe der Hülle */}
                   <div>
-                    <div className="mb-2 flex items-baseline justify-between md:mb-3">
-                      <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
-                        Finish
-                      </p>
-                      <p className="hidden text-xs md:block">Carbon · goldener Karabiner</p>
-                    </div>
-                    <div className="space-y-2">
-                      {FINISHES.map((item) => {
-                        const active = item.id === finish.id;
+                    <p className="mb-1 text-[10px] md:mb-3" style={{ color: H.textMuted }}>Farbe der Hülle</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {FINISHES.map((c) => {
+                        const active = c.id === finish.id;
                         return (
-                          <Button
-                            key={item.id}
+                          <button
+                            key={c.id}
                             type="button"
-                            variant="outline"
-                            onClick={() => setFinishId(item.id)}
+                            onClick={() => setFinishId(c.id)}
                             aria-pressed={active}
-                            className="h-auto w-full justify-start gap-4 rounded-lg px-4 py-3"
-                            style={{
-                              borderColor: active ? H.gold : H.line,
-                              background: active ? "rgba(155,107,63,0.06)" : "transparent",
-                            }}
+                            className="flex w-full items-center gap-2 rounded-lg px-2.5 py-2 transition-all duration-300 md:gap-3 md:px-4 md:py-2.5"
+                            style={optionStyle(active)}
                           >
-                            <span
-                              className="relative h-6 w-6 shrink-0 overflow-hidden rounded-full"
-                              style={{
-                                background: `linear-gradient(145deg, ${item.weave}, ${item.base} 55%, ${item.edge})`,
-                                boxShadow: `0 0 0 1px ${H.lineStrong}`,
-                              }}
-                            >
-                              <span
-                                aria-hidden
-                                className="absolute inset-0 opacity-35"
-                                style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent 0 2px, rgba(255,255,255,.35) 2px 3px, rgba(0,0,0,.18) 3px 4px)" }}
-                              />
+                            <span className="relative h-5 w-5 shrink-0 overflow-hidden rounded-full md:h-6 md:w-6" style={{ background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`, boxShadow: `0 0 0 1px ${H.lineStrong}` }}>
+                              <span aria-hidden className="absolute inset-0 opacity-35" style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent 0 2px, rgba(255,255,255,.35) 2px 3px, rgba(0,0,0,.18) 3px 4px)" }} />
                             </span>
-                            <span className="min-w-0 flex-1 text-left text-sm">{item.name}</span>
-                            <span className="text-xs font-normal" style={{ color: H.textMuted }}>CHF {item.price}.–</span>
-                          </Button>
+                            <span className="min-w-0 flex-1 text-left text-xs font-medium md:text-sm">{c.name}</span>
+                          </button>
                         );
                       })}
                     </div>
                   </div>
 
-                  <div className="border-t pt-3" style={{ borderColor: H.line }}>
+                  {/* CTA */}
+                  <div className="border-t pt-1 md:pt-3" style={{ borderColor: H.line }}>
                     {confirmed && (
                       <div className="relative mb-5 rounded-xl p-4" style={{ background: "rgba(155,107,63,0.08)", boxShadow: `0 0 0 1px ${H.lineStrong}` }}>
                         <Button type="button" variant="ghost" size="icon" onClick={dismissOrder} aria-label="Bestätigung schliessen" className="absolute right-2 top-2 h-8 w-8 opacity-50 hover:opacity-100">
@@ -363,88 +400,106 @@ const AirpodsPage = () => {
                       </div>
                     )}
 
-                    <p className="mb-2.5 text-[clamp(22px,2vw,28px)] font-light">CHF 35.–</p>
+                    <div role="radiogroup" aria-label="Paket wählen" className="mb-3 mt-2 flex flex-col gap-2">
+                      {[
+                        { bundle: false, label: "Nur die Hülle" },
+                        { bundle: true, label: "Hülle + MATRIX iPhone Hülle" },
+                      ].map((opt) => {
+                        const active = bundleSelected === opt.bundle;
+                        return (
+                          <button
+                            key={opt.label}
+                            type="button"
+                            role="radio"
+                            aria-checked={active}
+                            onClick={() => setBundleSelected(opt.bundle)}
+                            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-300"
+                            style={optionStyle(active)}
+                          >
+                            <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
+                              <img
+                                src={airpodsThumbs[finish.id]}
+                                width={160}
+                                height={160}
+                                loading="lazy"
+                                decoding="async"
+                                alt={opt.bundle ? `RAJ MATRIX AirPods Hülle und iPhone Hülle in ${finish.name}` : `RAJ MATRIX AirPods 4 & 5 Hülle in ${finish.name}`}
+                                className="absolute inset-0 h-full w-full object-contain"
+                              />
+                            </span>
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border" style={{ borderColor: active ? H.gold : H.lineStrong }}>
+                              {active && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
+                            </span>
+                            <span className="min-w-0 flex-1">
+                              <span className="block text-sm font-medium">{opt.label}</span>
+                              {opt.bundle && (
+                                <span className="mt-0.5 block text-[11px]" style={{ color: H.textMuted }}>
+                                  {model.name} · {finish.name}
+                                </span>
+                              )}
+                            </span>
+                            <span className="flex shrink-0 flex-col items-end gap-0.5">
+                              <span className="text-sm font-semibold">CHF {opt.bundle ? BUNDLE_TOTAL : AIRPODS_PRICE}.–</span>
+                              {opt.bundle && (
+                                <>
+                                  <span className="text-[11px] line-through" style={{ color: H.textMuted }}>CHF {AIRPODS_PRICE + IPHONE_CASE_PRICE}.–</span>
+                                  <span className="rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.08em]" style={{ background: H.gold, color: "#fff" }}>
+                                    Spare CHF {BUNDLE_DISCOUNT}
+                                  </span>
+                                </>
+                              )}
+                            </span>
+                          </button>
+                        );
+                      })}
+                      {bundleSelected && (
+                        <div className="rounded-lg px-3 py-3" style={{ border: `1px solid ${H.line}` }}>
+                          <p className="mb-2 text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>iPhone Modell</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            {MODELS.map((m) => {
+                              const on = m.id === model.id;
+                              return (
+                                <button key={m.id} type="button" aria-pressed={on} onClick={() => setModelId(m.id)} className="rounded-lg px-2.5 py-2 text-left transition-all duration-300 md:px-4 md:py-2.5" style={optionStyle(on)}>
+                                  <span className="block text-xs font-medium md:text-sm">iPhone {m.short}</span>
+                                  <span className="mt-0.5 hidden text-[11px] md:block" style={{ color: H.textMuted }}>{m.status}</span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                          <p className="mt-2 text-[11px]" style={{ color: H.textMuted }}>iPhone Hülle in {finish.name}, passend zur AirPods Hülle.</p>
+                        </div>
+                      )}
+                    </div>
+
                     <Button
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
-                      className="w-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-primary-foreground active:scale-[0.98]"
+                      className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:h-auto md:py-3 md:text-sm md:tracking-[0.15em]"
+                      style={{ background: H.gold, color: "#fff", opacity: isBuying ? 0.7 : 1 }}
                     >
-                      {isBuying ? <Loader2 className="h-4 w-4 animate-spin" /> : <ShoppingBag className="h-4 w-4" />}
-                      Jetzt kaufen
+                      {isBuying ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>
+                          <ShoppingBag className="h-4 w-4" />
+                          <span>JETZT KAUFEN · CHF {currentTotal}.–</span>
+                        </>
+                      )}
                     </Button>
-                    <p className="mt-2 text-center text-[11px]" style={{ color: H.textMuted }}>Sichere Bezahlung · Kostenloser Versand</p>
-                  </div>
-
-                  <div className="mt-5 border-t pt-5 md:mt-8 md:pt-8" style={{ borderColor: H.line }}>
-                    <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>Ergänze dein Setup</p>
-                    <h2 className="mt-1 text-base font-light md:mt-2 md:text-lg">MATRIX iPhone Case</h2>
-
-                    <div className="mt-4 grid grid-cols-[auto_1fr] gap-4 md:grid-cols-[140px_1fr] md:gap-5">
-                      <div
-                        className="relative aspect-[3/4] overflow-hidden rounded-xl"
-                        style={{
-                          background:
-                            matrixFinish.id === "cherry"
-                              ? "linear-gradient(155deg, #faf3eb 0%, #efe9e3 50%, #e4ddd7 100%)"
-                              : "linear-gradient(155deg, #f9f2ea 0%, #efe8e2 50%, #e3ddd6 100%)",
-                          boxShadow: `inset 0 0 0 1px ${H.lineStrong}`,
-                        }}
-                      >
-                        <img
-                          src={matrixFinish.matrixImage}
-                          alt={`MATRIX iPhone Case in ${matrixFinish.name}`}
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      </div>
-
-                      <div className="flex flex-col justify-center">
-                        <p className="text-xs" style={{ color: H.textMuted }}>MagSafe-kompatibel · CHF 59.–</p>
-                        <div className="mt-3 space-y-2">
-                          {FINISHES.map((item) => {
-                            const active = matrixFinish.id === item.id;
-                            return (
-                              <Button
-                                key={item.id}
-                                type="button"
-                                variant="outline"
-                                onClick={() => setMatrixFinishId(item.id)}
-                                aria-pressed={active}
-                                className="h-auto w-full justify-start gap-3 rounded-lg px-3 py-2.5"
-                                style={{ borderColor: active ? H.gold : H.line, background: active ? "rgba(155,107,63,0.06)" : "transparent" }}
-                              >
-                                <span className="h-5 w-5 rounded-full" style={{ background: `linear-gradient(145deg, ${item.weave}, ${item.base} 55%, ${item.edge})`, boxShadow: `0 0 0 1px ${H.lineStrong}` }} />
-                                <span className="flex-1 text-left text-xs">{item.name}</span>
-                                <span className="text-xs font-normal" style={{ color: H.textMuted }}>CHF 59.–</span>
-                              </Button>
-                            );
-                          })}
-                        </div>
-                        <p className="mt-3 text-xs" style={{ color: H.textMuted }}>
-                          Zusammen im Bundle — <span className="font-semibold" style={{ color: H.gold }}>CHF 15.– sparen</span>
-                        </p>
-                        <Button asChild variant="outline" className="mt-3 w-full border-primary text-xs uppercase tracking-[0.12em] text-primary">
-                          <Link to="/matrix">MATRIX iPhone Case ansehen</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap items-center justify-center gap-3 rounded-xl border bg-foreground px-3.5 py-2.5 md:gap-4" style={{ borderColor: "rgba(155,107,63,.20)" }}>
-                    <p className="w-full text-center text-[10px] uppercase tracking-[0.22em] text-primary md:w-auto md:text-left">Sichere Zahlungsmethoden</p>
-                    <div className="flex flex-wrap items-center justify-center gap-2">
-                      {paymentMethods.map((src, index) => (
-                        <img key={src} src={src} alt={`Zahlung mit ${["Visa", "Mastercard", "American Express", "Apple Pay", "Google Pay", "TWINT", "Klarna"][index]}`} loading="lazy" decoding="async" className="h-[22px] w-auto rounded bg-background object-contain px-[5px] py-0.5" />
-                      ))}
-                    </div>
+                    <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {MATRIX_DELIVERY_TEXT}</p>
+                    <p className="mt-1 text-center text-[11px] lg:hidden" style={{ color: H.textMuted }}>{MATRIX_TRUST_MOBILE}</p>
+                    <p className="mt-1 hidden text-center text-[11px] lg:block" style={{ color: H.textMuted }}>{MATRIX_TRUST_DESKTOP}</p>
+                    <PaymentMethodsBar />
                   </div>
                 </div>
               </div>
             </div>
           </section>
           <ProductFaqSection title="Fragen zur MATRIX AirPods-Hülle" items={AIRPODS_FAQ} />
+          <div className="container mx-auto max-w-3xl px-6 pb-10 text-[15px] font-light">
+            <Link to="/matrix" className="text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary">MATRIX iPhone Hülle ansehen</Link>
+          </div>
         </main>
 
         <Footer />
