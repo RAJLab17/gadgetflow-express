@@ -15,7 +15,7 @@ const article = {
   author: { "@type": "Organization", name: "RAJ" },
   publisher: { "@type": "Organization", name: "RAJ", url: "https://raj.ch" },
   url: PAGE_URL,
-  image: "https://raj.ch/raj-nexus-product.png",
+  image: ["https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp", "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg"],
 };
 const breadcrumb = breadcrumbJsonLd([
   { name: "Home", url: "https://raj.ch" },

@@ -14,7 +14,7 @@ export const PRODUCT_NEXUS_JSON_LD = {
   name: "RAJ NEXUS 3-in-1 Wireless Charger",
   description:
     "Premium 3-in-1 wireless charging station for iPhone, Apple Watch, and AirPods. Qi2.2 certified with up to 25W fast charging. Foldable, adjustable design. Swiss Brand.",
-  image: "https://raj.ch/raj-nexus-product.png",
+  image: ["https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp", "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg"],
   brand: { "@type": "Brand", name: "RAJ" },
   manufacturer: {
     "@type": "Organization",
