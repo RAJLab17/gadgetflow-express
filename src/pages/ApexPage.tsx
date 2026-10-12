@@ -9,12 +9,18 @@ import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import { breadcrumbJsonLd } from "@/lib/schemas";
 import logoTransparent from "@/assets/logo-transparent.webp";
-import apexSilver480 from "@/assets/products/apex-dash-480.webp";
-import apexSilver900 from "@/assets/products/apex-dash-900.webp";
-import apexSilver1400 from "@/assets/products/apex-dash-1400.webp";
-import apexBlack480 from "@/assets/products/apex-vent-480.webp";
-import apexBlack900 from "@/assets/products/apex-vent-900.webp";
-import apexBlack1400 from "@/assets/products/apex-vent-1400.webp";
+import apexSilver480Asset from "@/assets/products/apex-dash-480.webp.asset.json";
+const apexSilver480 = apexSilver480Asset.url;
+import apexSilver900Asset from "@/assets/products/apex-dash-900.webp.asset.json";
+const apexSilver900 = apexSilver900Asset.url;
+import apexSilver1400Asset from "@/assets/products/apex-dash-1400.webp.asset.json";
+const apexSilver1400 = apexSilver1400Asset.url;
+import apexBlack480Asset from "@/assets/products/apex-vent-480.webp.asset.json";
+const apexBlack480 = apexBlack480Asset.url;
+import apexBlack900Asset from "@/assets/products/apex-vent-900.webp.asset.json";
+const apexBlack900 = apexBlack900Asset.url;
+import apexBlack1400Asset from "@/assets/products/apex-vent-1400.webp.asset.json";
+const apexBlack1400 = apexBlack1400Asset.url;
 
 const getSupabase = () => import("@/integrations/supabase/client").then((m) => m.supabase);
 
