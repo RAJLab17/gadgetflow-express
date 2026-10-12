@@ -26,7 +26,7 @@ const LAST_UPDATED_LABEL = "Juli 2026";
 const faqs = [
   {
     q: "Ist Qi2.2 besser als Qi2?",
-    a: "Ja, Qi2.2 ist die Weiterentwicklung von Qi2 mit verbessertem Wärmemanagement und strengeren Sicherheitsprüfungen bei gleicher maximaler Ladeleistung von 25W.",
+    a: "Ja. Qi2.2 – offiziell «Qi2 25W» genannt – ist die Weiterentwicklung von Qi2: Statt bis zu 15 W lädt es iPhones mit bis zu 25 W und hat ein verbessertes Wärmemanagement.",
   },
   {
     q: "Welcher 3-in-1 Charger ist am günstigsten in der Schweiz?",
@@ -175,7 +175,7 @@ const rows: Row[] = [
     ultra: "CHF 90.90",
     anker: "CHF 85.90",
   },
-  { label: "Qi-Standard", nexus: "Qi2.2", boost: "Qi2", ultra: "Qi2", anker: "Qi2" },
+  { label: "Qi-Standard", nexus: "Qi2.2", boost: "Qi2", ultra: "Qi2 25W", anker: "Qi2" },
   {
     label: "iPhone Ladeleistung",
     nexus: "Bis zu 25W",
@@ -371,8 +371,9 @@ const VergleichPage = () => {
         <H3>Technologie</H3>
         <P>
           Der RAJ NEXUS ist mit Qi2.2 zertifiziert – dem neuesten Standard des Wireless Power Consortium
-          mit verbessertem Wärmemanagement und strengeren Sicherheitsprüfungen gegenüber Qi2, bei gleicher
-          maximaler Ladeleistung von 25W. Belkins UltraCharge Pro erreicht mit Qi2 ebenfalls 25W, während
+          mit verbessertem Wärmemanagement und strengeren Sicherheitsprüfungen gegenüber dem ursprünglichen Qi2
+          (Qi v2.0): Qi2 unterstützt bis zu 15 W, Qi2.2 – offiziell «Qi2 25W» genannt – bis zu 25 W.
+          Belkins UltraCharge Pro erreicht mit «Qi2 25W» ebenfalls bis zu 25 W, während
           das ältere BoostCharge Pro und der Anker MagGo bei 15W bleiben.
         </P>
 
