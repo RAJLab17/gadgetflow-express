@@ -170,7 +170,6 @@ const AirpodsPage = () => {
       priceCurrency: "CHF",
       price: 35,
       availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
         applicableCountry: "CH",

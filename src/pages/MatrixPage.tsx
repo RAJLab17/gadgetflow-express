@@ -809,7 +809,6 @@ const MatrixPage = () => {
       priceCurrency: "CHF",
       price: 59,
       availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
         applicableCountry: "CH",
