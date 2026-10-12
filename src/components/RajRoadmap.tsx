@@ -30,7 +30,7 @@ const milestones: Milestone[] = [
     name: "RAJ MATRIX",
     status: "next",
     etaKey: "brand.road.eta.2026",
-    etaText: "Erhältlich",
+    etaText: "Jetzt verfügbar",
     href: "/matrix",
     image: matrixImage,
     imageAlt: "RAJ MATRIX Carbon-Case in Cherry Carbon",
@@ -52,7 +52,7 @@ const milestones: Milestone[] = [
 
 const statusLabel = (status: Milestone["status"], availableLabel: string) => {
   if (status === "available") return availableLabel;
-  if (status === "next") return "Erhältlich";
+  if (status === "next") return "Jetzt verfügbar";
   if (status === "early") return "Bald verfügbar";
   return null;
 };

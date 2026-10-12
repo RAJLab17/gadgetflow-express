@@ -13,7 +13,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const META = {
   de: {
-    title: "RAJ — Power. Always there. | Schweizer Luxus-Technologie",
+    title: "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
     desc: "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
   },
   fr: {

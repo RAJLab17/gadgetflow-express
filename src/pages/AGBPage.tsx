@@ -116,7 +116,7 @@ const AGBPage = () => {
           <p className="text-foreground font-medium">RAJ GmbH</p>
           <p>Gaswerkstrasse 9a</p>
           <p>info@raj.ch</p>
-          <p className="pt-2">Stand: 13.06.2026</p>
+          <p className="pt-2">Stand: 12.10.2026</p>
         </div>
       }
     >

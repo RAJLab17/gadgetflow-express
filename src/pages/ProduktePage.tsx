@@ -47,7 +47,7 @@ const products: Product[] = [
     description:
       "Carbon-Cases für iPhone sowie AirPods 4 & 5. Cherry Carbon oder Schwarz Carbon, goldene Knöpfe, MagSafe-kompatibel.",
     price: "ab CHF 59.–",
-    status: "Als Nächstes",
+    status: "Jetzt verfügbar",
     link: "/matrix",
     img: matrixImg,
     imgAlt: "RAJ MATRIX Carbon-Case in Cherry Carbon mit goldenen Details auf einem Podest",
@@ -201,7 +201,7 @@ const ProduktePage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/35 via-transparent to-transparent" aria-hidden />
                   <span className="absolute left-5 top-5 border border-background/30 bg-foreground/70 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-background backdrop-blur-sm">
-                    Als Nächstes
+                    Jetzt verfügbar
                   </span>
                 </div>
               </Link>
