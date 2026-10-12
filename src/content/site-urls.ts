@@ -183,21 +183,6 @@ export const STATIC_URLS: SitemapEntry[] = [
     priority: 1.0,
     images: [
       {
-        loc: `${SITE_URL}/raj-logo.png`,
-        title: "RAJ Logo - Swiss Premium Wireless Charging",
-        caption: "Offizielles Logo der Marke RAJ - Power. Always There.",
-      },
-      {
-        loc: `${SITE_URL}/favicon.png`,
-        title: "RAJ Favicon",
-        caption: "RAJ Brand Icon",
-      },
-      {
-        loc: `${SITE_URL}/og-image.webp`,
-        title: "RAJ NEXUS - Open Graph Bild",
-        caption: "RAJ NEXUS 3-in-1 Wireless Charger Vorschaubild",
-      },
-      {
         loc: `https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp`,
         title: "RAJ NEXUS 3-in-1 Wireless Charger",
         caption:

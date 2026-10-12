@@ -4,7 +4,7 @@
  * Runs automatically before every Vite build (see vite.config.ts).
  * Can also be run manually:  node scripts/generate-sitemap.mjs
  */
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { createRequire } from "node:module";
@@ -129,8 +129,93 @@ function buildImagesSitemap(entries, siteUrl) {
   return lines.join("\n");
 }
 
+// ---------------------------------------------------------------------------
+// Automatic content images: every sitemap route is mapped to its page module
+// via src/App.tsx; CDN asset pointers (.asset.json), public/ image paths and
+// absolute raj.ch CDN URLs referenced by the page (and by src/assets modules it
+// imports) are added. Hashed Vite imports are skipped (address changes per build).
+// ---------------------------------------------------------------------------
+const EXCLUDE = /(logo|icon|favicon|payment|\/pay|badge|qi2-mark|qi2-logo|social\/|-share\.|placeholder|signature|thumb)/i;
+
+function routeModules() {
+  const app = readFileSync(resolve(ROOT, "src/App.tsx"), "utf8");
+  const comp = {};
+  for (const m of app.matchAll(/const\s+(\w+)\s*=\s*lazyWithRetry\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g)) comp[m[1]] = m[2];
+  for (const m of app.matchAll(/import\s+(\w+)\s+from\s+["'](\.\/pages\/[^"']+)["']/g)) comp[m[1]] ??= m[2];
+  const routes = {};
+  for (const m of app.matchAll(/<Route\s+path="([^"]+)"\s+element=\{<(\w+)\s*\/>\}/g)) {
+    if (comp[m[2]]) routes[m[1]] = resolveModule(resolve(ROOT, "src"), comp[m[2]]);
+  }
+  return routes;
+}
+
+function resolveModule(fromDir, spec) {
+  const base = spec.startsWith("@/") ? resolve(ROOT, "src", spec.slice(2)) : resolve(fromDir, spec);
+  for (const c of [base, base + ".tsx", base + ".ts", base + "/index.tsx", base + "/index.ts"]) {
+    if (existsSync(c) && !c.endsWith("/")) try { readFileSync(c); return c; } catch {}
+  }
+  return null;
+}
+
+function collectImages(file, siteUrl, seen = new Set()) {
+  if (!file || seen.has(file)) return [];
+  seen.add(file);
+  const src = readFileSync(file, "utf8");
+  const dir = dirname(file);
+  const urls = [];
+  for (const m of src.matchAll(/from\s+["']([^"']+)["']/g)) {
+    const spec = m[1];
+    if (spec.endsWith(".asset.json")) {
+      const p = spec.startsWith("@/") ? resolve(ROOT, "src", spec.slice(2)) : resolve(dir, spec);
+      if (existsSync(p)) {
+        const j = JSON.parse(readFileSync(p, "utf8"));
+        if ((j.content_type || "").startsWith("image/")) urls.push(siteUrl + j.url);
+      }
+    } else if (/^(@\/assets\/|\.)/.test(spec) && !/\.\w+$/.test(spec)) {
+      const mod = resolveModule(dir, spec);
+      if (mod && mod.includes("/src/assets/")) urls.push(...collectImages(mod, siteUrl, seen));
+    }
+  }
+  for (const m of src.matchAll(/["'`](\/(?:assets|hero)\/[^"'`\s]+\.(?:webp|jpe?g|png|avif))["'`]/g)) {
+    if (existsSync(resolve(ROOT, "public" + m[1]))) urls.push(siteUrl + m[1]);
+  }
+  for (const m of src.matchAll(/https:\/\/raj\.ch(\/__l5e\/assets-v1\/[^"'`\s]+\.(?:webp|jpe?g|png|avif))/g)) urls.push(siteUrl + m[1]);
+  return urls;
+}
+
+/** Keep one URL per image: drop thumbs/excluded, prefer full > largest width > mobile. */
+function pickImages(urls) {
+  const best = new Map();
+  const score = (u) => {
+    const w = u.match(/-(\d+)w?\.\w+$/); const mobile = /-mobile\./.test(u);
+    return (mobile ? 0 : 10000) + (w ? Number(w[1]) : 5000) + (u.endsWith(".webp") ? 1 : 0);
+  };
+  for (const u of urls) {
+    if (EXCLUDE.test(u)) continue;
+    const key = u.split("/").pop().replace(/\.\w+$/, "").replace(/-(full|mobile|\d+w?)$/, "");
+    const cur = best.get(key);
+    if (!cur || score(u) > score(cur)) best.set(key, u);
+  }
+  return [...best.values()];
+}
+
+function addAutoImages(entries, siteUrl) {
+  const routes = routeModules();
+  return entries.map((e) => {
+    const manual = e.images ?? [];
+    const have = new Set(manual.map((i) => i.loc));
+    const auto = pickImages(collectImages(routes[e.path], siteUrl))
+      .filter((u) => !have.has(u))
+      .map((loc) => ({ loc }));
+    const images = [...manual, ...auto];
+    return images.length ? { ...e, images } : e;
+  });
+}
+
 export async function generateSitemap() {
-  const { SITE_URL, entries } = await loadEntries();
+  const loaded = await loadEntries();
+  const SITE_URL = loaded.SITE_URL;
+  const entries = addAutoImages(loaded.entries, SITE_URL);
   const xml = buildSitemap(entries, SITE_URL);
   const indexXml = buildSitemapIndex(SITE_URL);
   const imagesXml = buildImagesSitemap(entries, SITE_URL);
