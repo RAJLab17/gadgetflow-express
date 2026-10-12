@@ -802,11 +802,11 @@ const NexusPage = () => {
     <>
       <Helmet>
         <title>RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz</title>
-        <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${REGULAR_PRICE}.–.`} />
+        <meta name="description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF ${REGULAR_PRICE}.`} />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://raj.ch/nexus" />
         <meta property="og:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
-        <meta property="og:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.–.`} />
+        <meta property="og:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.`} />
         <meta property="og:type" content="product" />
         <meta property="product:price:amount" content={`${REGULAR_PRICE}.00`} />
         <meta property="product:price:currency" content="CHF" />
@@ -818,7 +818,7 @@ const NexusPage = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@raj_swiss_" />
         <meta name="twitter:title" content="RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz" />
-        <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.–.`} />
+        <meta name="twitter:description" content={`RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF ${REGULAR_PRICE}.`} />
 
         <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd([{ name: "Home", url: "https://raj.ch/" }, { name: "RAJ NEXUS", url: "https://raj.ch/nexus" }]))}</script>
@@ -905,7 +905,7 @@ const NexusPage = () => {
                 <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>{availabilityLabel}</span>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", marginTop: 8 }}>
-                <span style={{ fontSize: 34, color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.-</span>
+                <span style={{ fontSize: 34, color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}</span>
               </div>
               <div style={{ marginTop: 8 }}>
                 <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
@@ -980,7 +980,7 @@ const NexusPage = () => {
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
-                <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.-</span>
+                <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}</span>
               </div>
             </div>
             <div style={{ marginTop: 10 }}>
@@ -1145,7 +1145,7 @@ const NexusPage = () => {
             </div>
             {/* Price */}
             <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
-              <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {REGULAR_PRICE}.–</span>
+              <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {REGULAR_PRICE}</span>
             </div>
 
             {/* Rating */}
@@ -1380,7 +1380,7 @@ const NexusPage = () => {
         <div className="relative max-w-2xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl mt-6 leading-[1.05] tracking-tight" style={{ color: D.beige, fontWeight: 300 }}>Bereit?</h2>
           <p className="text-base md:text-lg mt-6 mb-2" style={{ color: D.muted, fontWeight: 300 }}>
-            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {REGULAR_PRICE}.-</span>
+            <span style={{ color: D.gold, fontWeight: 500 }}>CHF {REGULAR_PRICE}</span>
           </p>
           <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="inline-block px-10 py-4 rounded-full font-bold text-[13px] uppercase tracking-[0.22em] active:scale-[0.98] transition-all no-underline" style={{ background: `linear-gradient(135deg, ${D.gold}, #c8946b)`, color: D.bg, boxShadow: `0 16px 40px -12px ${D.gold}`, textDecoration: "none" }}>
             Jetzt kaufen

@@ -30,7 +30,7 @@ const products: Product[] = [
     tagline: "Drei Geräte. Ein Objekt.",
     description:
       "Das 3-in-1 Ladeobjekt für den Nachttisch. Offiziell Qi2.2-zertifiziert, 25 Watt, präzise gefertigt.",
-    price: "CHF 99.–",
+    price: "CHF 99",
     status: "Verfügbar",
     link: "/nexus",
     img: "/assets/products/nexus-bedside-night.webp",
