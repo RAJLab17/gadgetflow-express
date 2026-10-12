@@ -294,7 +294,7 @@
   "blocks": [
    {
     "tag": "p",
-    "text": "3’363 Menschen haben den RAJ NEXUS bereits entdeckt"
+    "text": "3’369 Menschen haben den RAJ NEXUS bereits entdeckt"
    },
    {
     "tag": "h1",
@@ -1094,11 +1094,11 @@
   ]
  },
  "/about": {
-  "title": "Über RAJ, Schweizer Präzision aus dem Thurgau",
+  "title": "Über RAJ – Schweizer Marke aus dem Thurgau",
   "description": "RAJ ist eine Schweizer Consumer-Electronics-Marke aus dem Thurgau. Präzision, Beständigkeit und Charakter, gebaut auf 16 Jahren Erfahrung.",
   "robots": null,
   "canonical": "https://raj.ch/about",
-  "ogTitle": "Über RAJ, Schweizer Präzision aus dem Thurgau",
+  "ogTitle": "Über RAJ – Schweizer Marke aus dem Thurgau",
   "ogDescription": "Schweizer Consumer-Electronics aus dem Thurgau. Präzision · Beständigkeit · Charakter.",
   "ogUrl": "https://raj.ch/about",
   "ogImage": null,
@@ -1110,7 +1110,7 @@
   "twitterTitle": null,
   "twitterDescription": null,
   "twitterImage": null,
-  "h1": "Schweizer Präzision.",
+  "h1": "Schweizer Marke.",
   "jsonLd": [],
   "blocks": [
    {
@@ -1119,7 +1119,7 @@
    },
    {
     "tag": "h1",
-    "text": "Schweizer Präzision."
+    "text": "Schweizer Marke."
    },
    {
     "tag": "p",
@@ -1187,7 +1187,7 @@
    },
    {
     "tag": "p",
-    "text": "Reduktion auf das Wesentliche. Wir entwickeln keine Funktionen, sondern Lösungen, die bleiben."
+    "text": "Reduktion auf das Wesentliche. Als Schweizer Marke stehen wir für Lösungen, die bleiben."
    },
    {
     "tag": "p",
@@ -2735,7 +2735,7 @@
    },
    {
     "tag": "p",
-    "text": "Der RAJ NEXUS ist die erste 3-in-1 Wireless Ladestation einer Schweizer Marke. Designed in Weinfelden, Thurgau – gebaut für iPhone 16 Pro Nutzer, die kein Kompromissprodukt wollen."
+    "text": "Der RAJ NEXUS ist die erste 3-in-1 Wireless Ladestation einer Schweizer Marke aus Weinfelden, Thurgau – für iPhone 16 Pro Nutzer, die kein Kompromissprodukt wollen."
    },
    {
     "tag": "h3",
@@ -2775,7 +2775,7 @@
    },
    {
     "tag": "p",
-    "text": "Anker und Belkin sind globale Massenprodukte ohne Bezug zur Schweiz. Der RAJ NEXUS ist speziell für den Schweizer Markt entwickelt – CHF-Preise, Schweizer Support, Swiss Design. Für den gleichen Preis wie ein Belkin bekommst du ein Produkt mit Charakter."
+    "text": "Anker und Belkin sind globale Massenprodukte ohne Bezug zur Schweiz. Der RAJ NEXUS kommt von einer Schweizer Marke – CHF-Preise, Schweizer Support. Für den gleichen Preis wie ein Belkin bekommst du ein Produkt mit Charakter."
    },
    {
     "tag": "h2",
@@ -2907,11 +2907,19 @@
    },
    {
     "tag": "li",
-    "text": "Beste Wahl allgemein: RAJ NEXUS – CHF 99, Qi2.2 25W, Swiss Design"
+    "text": "Beste Wahl allgemein: RAJ NEXUS – CHF 99, Qi2.2 25W, Schweizer Marke"
    },
    {
     "tag": "li",
     "text": "Günstiger Einstieg: freeVoice 3-in-1 – CHF 32, Qi2 15W, kein Premium"
+   },
+   {
+    "tag": "li",
+    "text": "Internationale Alternative: ESR CryoBoost – Qi2.2 25W, kein CH-Bezug"
+   },
+   {
+    "tag": "p",
+    "text": "RAJ ist eine Schweizer Consumer Electronics Marke aus Weinfelden, Thurgau. PRÄZISION · BESTÄNDIGKEIT · CHARAKTER."
    }
   ]
  },
@@ -3158,7 +3166,7 @@
    },
    {
     "tag": "h2",
-    "text": "RAJ NEXUS – entwickelt für StandBy"
+    "text": "RAJ NEXUS – Schweizer Marke mit StandBy"
    },
    {
     "tag": "p",
@@ -3316,8 +3324,8 @@
   "jsonLd": [
    "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"3-in-1 Charger Vergleich 2026: NEXUS, Belkin & Anker | RAJ\",\"description\":\"RAJ NEXUS, Belkin UltraCharge Pro und Anker MagGo im Vergleich: Preis, Qi2.2, Ladeleistung und Verfügbarkeit in der Schweiz – aktualisiert Juli 2026.\",\"datePublished\":\"2026-05-02\",\"dateModified\":\"2026-07-19\",\"author\":{\"@type\":\"Organization\",\"name\":\"RAJ\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"RAJ\",\"url\":\"https://raj.ch\"},\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp\"],\"mainEntityOfPage\":\"https://raj.ch/vergleich\",\"url\":\"https://raj.ch/vergleich\"}",
    "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://raj.ch\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://raj.ch/blog\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Vergleich: RAJ NEXUS vs Belkin vs Anker\",\"item\":\"https://raj.ch/vergleich\"}]}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ist Qi2.2 besser als Qi2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, Qi2.2 ist die Weiterentwicklung von Qi2 mit verbessertem Wärmemanagement und strengeren Sicherheitsprüfungen bei gleicher maximaler Ladeleistung von 25W.\"}},{\"@type\":\"Question\",\"name\":\"Welcher 3-in-1 Charger ist am günstigsten in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Das ältere Belkin BoostCharge Pro, aktuell im Sale ab CHF 39.–, allerdings mit geringerer Ladeleistung (15W) für das iPhone.\"}},{\"@type\":\"Question\",\"name\":\"Gibt es einen 3-in-1 Charger aus der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, der RAJ NEXUS ist aktuell die einzige Schweizer Marke in diesem Vergleich, entwickelt und supportet aus dem Thurgau.\"}},{\"@type\":\"Question\",\"name\":\"Welcher Charger lädt am schnellsten?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ NEXUS und Belkin UltraCharge Pro laden das iPhone beide mit bis zu 25W. Anker MagGo und das ältere Belkin BoostCharge Pro laden mit 15W.\"}}]}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp\"],\"description\":\"Schweizer 3-in-1 Wireless Charger mit Qi2.2-Zertifizierung, 25W für iPhone, 5W für Apple Watch und AirPods, verstellbarer Winkel 0–75°, faltbares Design.\",\"offers\":{\"@type\":\"Offer\",\"price\":\"99.00\",\"priceCurrency\":\"CHF\",\"availability\":\"https://schema.org/InStock\",\"url\":\"https://raj.ch/nexus\"}}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp\"],\"description\":\"Schweizer 3-in-1 Wireless Charger mit Qi2.2-Zertifizierung, 25W für iPhone, 5W für Apple Watch und AirPods, verstellbarer Winkel 0–75°, faltbares Design.\",\"offers\":{\"@type\":\"Offer\",\"price\":\"99.00\",\"priceCurrency\":\"CHF\",\"availability\":\"https://schema.org/InStock\",\"url\":\"https://raj.ch/nexus\"}}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ist Qi2.2 besser als Qi2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, Qi2.2 ist die Weiterentwicklung von Qi2 mit verbessertem Wärmemanagement und strengeren Sicherheitsprüfungen bei gleicher maximaler Ladeleistung von 25W.\"}},{\"@type\":\"Question\",\"name\":\"Welcher 3-in-1 Charger ist am günstigsten in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Das ältere Belkin BoostCharge Pro, aktuell im Sale ab CHF 39.–, allerdings mit geringerer Ladeleistung (15W) für das iPhone.\"}},{\"@type\":\"Question\",\"name\":\"Gibt es einen 3-in-1 Charger aus der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, der RAJ NEXUS ist aktuell die einzige Schweizer Marke in diesem Vergleich, mit Support aus dem Thurgau.\"}},{\"@type\":\"Question\",\"name\":\"Welcher Charger lädt am schnellsten?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ NEXUS und Belkin UltraCharge Pro laden das iPhone beide mit bis zu 25W. Anker MagGo und das ältere Belkin BoostCharge Pro laden mit 15W.\"}}]}"
   ],
   "blocks": [
    {
@@ -3467,6 +3475,22 @@
    {
     "tag": "p",
     "text": "Alle vier Ladestationen erfüllen ihren Zweck gut. Die Unterschiede liegen im Detail: Preis, Ladeleistung, Zertifizierung und Verfügbarkeit. Wer den neuesten Standard (Qi2.2), ein Schweizer Produkt und einen fairen Preis sucht, findet im RAJ NEXUS eine überzeugende Option. Wer auf eine etablierte Marke mit sofortiger Lieferung setzt, greift zu Belkin. Und wer vor allem den Preis im Blick hat, ist bei Anker oder dem älteren Belkin-Modell richtig."
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS"
+   },
+   {
+    "tag": "h3",
+    "text": "Der einzige Schweizer 3-in-1 mit Qi2.2."
+   },
+   {
+    "tag": "p",
+    "text": "CHF 99. 3 Jahre Garantie. Direkt von RAJ aus dem Thurgau."
+   },
+   {
+    "tag": "p",
+    "text": "Dieser Vergleich wurde nach bestem Wissen erstellt. Preise und Lagerbestände wurden im Juli 2026 auf digitec.ch und galaxus.ch geprüft und können sich seither geändert haben. Der RAJ NEXUS ist über raj.ch erhältlich."
    }
   ]
  },
@@ -3519,7 +3543,7 @@
    },
    {
     "tag": "p",
-    "text": "RAJ ist die einzige Schweizer Brand, die einen Qi2.2-zertifizierten 3-in-1 Charger anbietet. Der RAJ NEXUS lädt iPhone, Apple Watch und AirPods gleichzeitig – optimiert für den Nachttisch, mit verbessertem Wärmemanagement durch Qi2.2. Entwickelt, verkauft und supportet in der Schweiz. CHF 99."
+    "text": "RAJ ist die einzige Schweizer Brand, die einen Qi2.2-zertifizierten 3-in-1 Charger anbietet. Der RAJ NEXUS lädt iPhone, Apple Watch und AirPods gleichzeitig – optimiert für den Nachttisch, mit verbessertem Wärmemanagement durch Qi2.2. Verkauft und supportet in der Schweiz. CHF 99."
    },
    {
     "tag": "h2",
@@ -3709,11 +3733,11 @@
    },
    {
     "tag": "h2",
-    "text": "RAJ NEXUS – entwickelt für genau diesen Alltag"
+    "text": "RAJ NEXUS – Schweizer Marke für genau diesen Alltag"
    },
    {
     "tag": "p",
-    "text": "Der RAJ NEXUS ist Qi2.2-zertifiziert nach dem aktuellsten Standard des Wireless Power Consortium. Er wurde nicht für den Massenmarkt entwickelt, sondern für Menschen die täglich mit iPhone, Apple Watch und AirPods arbeiten und dabei keine Zeit verlieren wollen."
+    "text": "Der RAJ NEXUS ist Qi2.2-zertifiziert nach dem aktuellsten Standard des Wireless Power Consortium. Er kommt von einer Schweizer Marke für Menschen die täglich mit iPhone, Apple Watch und AirPods arbeiten und dabei keine Zeit verlieren wollen."
    },
    {
     "tag": "p",
