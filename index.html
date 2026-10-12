@@ -184,9 +184,18 @@
         }
 
         window.fbq = window.fbq || function(){
-          (window.fbq.q = window.fbq.q || []).push(arguments);
+          if (location.pathname.replace(/\/$/, '') === '/nexus' && window.fbq.callMethod) {
+            window.fbq.callMethod.apply(window.fbq, arguments);
+          } else {
+            (window.fbq.q = window.fbq.q || []).push(arguments);
+          }
         };
         window.fbq.q = window.fbq.q || [];
+        if (!isBot && location.pathname.replace(/\/$/, '') === '/nexus') {
+          window.fbq('set', 'autoConfig', false, '1606572153733548');
+          window.fbq('init', '1606572153733548');
+          window.fbq('track', 'PageView');
+        }
         window.clarity = window.clarity || function(){
           (window.clarity.q = window.clarity.q || []).push(arguments);
         };
@@ -203,20 +212,11 @@
             document.head.appendChild(ga);
           }
 
-          if (!isBot) {
-            // Meta Pixel — replay buffered queue (skipped for bots, same check as GA4)
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq && f.fbq.loaded)return;n=f.fbq=f.fbq||function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=n.queue||window.fbq.q||[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            window.fbq('set', 'autoConfig', false, '1606572153733548');
-            window.fbq('init', '1606572153733548');
-            window.fbq('track', 'PageView');
+          if (!isBot && location.pathname.replace(/\/$/, '') !== '/nexus') {
+            loadMetaPixel();
+          }
 
+          if (!isBot) {
             // Microsoft Clarity — replay buffered queue (skipped for bots, same check as GA4)
             (function(c,l,a,r,i,t,y){
               var existing = c[a]; var existingQ = existing && existing.q ? existing.q : [];
@@ -226,6 +226,35 @@
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "vomrvl4nxg");
           }
+        }
+
+        function loadMetaPixel() {
+            if (isBot || (window.fbq && window.fbq.loaded)) return;
+            // Retain the inline queue and replay every event, including early purchases.
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq && f.fbq.loaded)return;n=f.fbq=f.fbq||function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=n.queue||window.fbq.q||[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            if (location.pathname.replace(/\/$/, '') !== '/nexus') {
+              window.fbq('set', 'autoConfig', false, '1606572153733548');
+              window.fbq('init', '1606572153733548');
+              window.fbq('track', 'PageView');
+            }
+
+        }
+
+        // NEXUS only: interaction still loads GA/Clarity as before, never the Pixel early.
+        if (location.pathname.replace(/\/$/, '') === '/nexus') {
+          function scheduleMetaPixel() {
+            if ('requestIdleCallback' in window) requestIdleCallback(loadMetaPixel, { timeout: 1500 });
+            else setTimeout(loadMetaPixel, 1500);
+          }
+          if (document.readyState === 'complete') scheduleMetaPixel();
+          else window.addEventListener('load', scheduleMetaPixel, { once: true });
         }
 
         // Schedule strictly AFTER window 'load' (i.e. after LCP / above-the-fold paint).

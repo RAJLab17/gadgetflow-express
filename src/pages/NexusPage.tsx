@@ -11,6 +11,7 @@ import {
   ShieldCheck, Truck, RotateCcw, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag, X, ChevronDown,
 } from "lucide-react";
 import { observeMediaQuery } from "@/lib/mediaQuery";
+import { handOffNexusShell } from "@/lib/nexusShell";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useViewContent } from "@/hooks/useViewContent";
@@ -562,6 +563,7 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 
 
 const NexusPage = () => {
+  useEffect(handOffNexusShell, []);
   const { t, lang, setLang } = useLanguage();
   const [headingBreakpoint, setHeadingBreakpoint] = useState(() =>
     window.matchMedia("(min-width: 1024px)").matches ? "desktop" :
@@ -868,7 +870,7 @@ const NexusPage = () => {
             {/* LEFT — gallery */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               <div style={{ position: "relative", width: "100%", minWidth: 0, aspectRatio: "1 / 1", borderRadius: 16, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
-                <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} sizes="700px" priority objectFit="cover" />
+                <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} sizes="(max-width: 768px) 100vw, 700px" priority objectFit="cover" />
                 <button type="button" aria-label="Bild vergrössern" onClick={() => { setGalleryZoom(false); setGalleryLightbox(true); }} style={{ position: "absolute", inset: 0, zIndex: 2, background: "transparent", border: 0, cursor: "zoom-in" }} />
                 {heroSlideIdx === 0 && (
                   <>
@@ -1049,7 +1051,7 @@ const NexusPage = () => {
                   slides={HERO_CAROUSEL_SLIDES}
                   index={heroSlideIdx}
                   onChange={setHeroSlideIdx}
-                  sizes="(max-width: 767px) 100vw, 52vw"
+                  sizes="(max-width: 768px) 100vw, 700px"
                   priority
                   objectFit="cover"
                 />
@@ -1140,7 +1142,7 @@ const NexusPage = () => {
                 slides={HERO_CAROUSEL_SLIDES}
                 index={heroSlideIdx}
                 onChange={setHeroSlideIdx}
-                sizes="100vw"
+                sizes="(max-width: 768px) 100vw, 700px"
                 priority
                 objectFit="cover"
                 objectPosition={heroSlideIdx === 0 ? "center 30%" : "center"}
