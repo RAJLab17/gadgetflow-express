@@ -72,10 +72,10 @@ const KabellosesLadenFirmenPage = () => {
         platzieren – fertig. Keine Kabel, keine Risiken durch unkontrolliertes Fremdequipment, kein Suchen.
       </P>
 
-      <H2>RAJ NEXUS – Schweizer Marke für genau diesen Alltag</H2>
+      <H2>RAJ NEXUS – gemacht für genau diesen Alltag</H2>
       <P>
-        Der RAJ NEXUS ist Qi2.2-zertifiziert nach dem aktuellsten Standard des Wireless Power Consortium. Er kommt
-        von einer Schweizer Marke für Menschen die täglich mit iPhone, Apple Watch und AirPods
+        Der RAJ NEXUS ist Qi2.2-zertifiziert nach dem aktuellsten Standard des Wireless Power Consortium. Er richtet sich
+        an Menschen, die täglich mit iPhone, Apple Watch und AirPods
         arbeiten und dabei keine Zeit verlieren wollen.
       </P>
       <P>Für Unternehmen bedeutet das:</P>
