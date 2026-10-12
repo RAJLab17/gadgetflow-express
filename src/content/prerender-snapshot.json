@@ -1,10 +1,10 @@
 {
  "/": {
-  "title": "RAJ — Power. Always there. | Schweizer Luxus-Technologie",
+  "title": "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
   "description": "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/",
-  "ogTitle": "RAJ — Power. Always there. | Schweizer Luxus-Technologie",
+  "ogTitle": "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
   "ogDescription": "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
   "ogUrl": "https://raj.ch/",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
@@ -13,7 +13,7 @@
   "ogImageType": "image/jpeg",
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "website",
-  "twitterTitle": "RAJ — Power. Always there. | Schweizer Luxus-Technologie",
+  "twitterTitle": "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
   "twitterDescription": "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Energie, in Form gegossen.",
@@ -254,18 +254,6 @@
    {
     "tag": "p",
     "text": "Drei Geräte, ein Ladegerät. Die beste 3-in-1 Ladestation für Apple-Nutzer in der Schweiz."
-   },
-   {
-    "tag": "p",
-    "text": "01 VERFÜGBAR RAJ NEXUS Hier beginnt es. JETZT VERFÜGBAR"
-   },
-   {
-    "tag": "p",
-    "text": "02 ERHÄLTLICH RAJ MATRIX ERHÄLTLICH"
-   },
-   {
-    "tag": "p",
-    "text": "03 BALD VERFÜGBAR RAJ APEX VORAUSSICHTLICH AB ENDE NOVEMBER 2026"
    }
   ]
  },
@@ -499,10 +487,6 @@
    {
     "tag": "h2",
     "text": "Für ein Setup, das ruhiger aussieht und besser funktioniert."
-   },
-   {
-    "tag": "p",
-    "text": "UNTERWEGS 03 / BALD VERFÜGBAR APEX Halt im Bewegten. Die MagSafe-Ladehalterung fürs Auto. Mit Saug- und Lüftungsmontage, aktiver Kühlung und 25 Watt. STANDARD Qi2 · 25 W MONTAGE Saugnapf · Lüftung ab CHF 69.– ENTDECKEN"
    }
   ]
  },
@@ -1887,7 +1871,7 @@
    },
    {
     "tag": "p",
-    "text": "Stand: 13.06.2026"
+    "text": "Stand: 12.10.2026"
    },
    {
     "tag": "h2",
