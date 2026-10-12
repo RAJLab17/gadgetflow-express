@@ -39,7 +39,7 @@ export const PRODUCT_NEXUS_JSON_LD = {
     {
       "@type": "PropertyValue",
       name: "Charging Speed",
-      value: "Up to 25W (iPhone currently 15W), 5W (Apple Watch), 5W (AirPods)",
+      value: "Up to 25W for iPhone 16 and newer with iOS 26 (15W for older models), 5W (Apple Watch), 5W (AirPods)",
     },
     {
       "@type": "PropertyValue",
@@ -107,7 +107,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Was ist der Unterschied zwischen Qi2 und Qi2.2?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Beide laden iPhones mit bis zu 15W (Qi2.2 unterstützt bis 25W), aber Qi2.2 ist zukunftssicherer und ermöglicht perspektivisch höhere Ladeleistungen.",
+        text: "Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Qi2 lädt iPhones mit bis zu 15 W, Qi2.2 mit bis zu 25 W – ab iPhone 16 mit iOS 26.",
       },
     },
     {

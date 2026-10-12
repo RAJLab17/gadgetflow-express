@@ -8,7 +8,7 @@ The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously 
 
 ### Key Specifications
 - **Certification:** Qi2.2 and CE certified
-- **iPhone Charging:** Up to 25W fast wireless charging via MagSafe-compatible magnetic alignment
+- **iPhone Charging:** Up to 25W for iPhone 16 and newer with iOS 26 (15W for older models) via MagSafe-compatible magnetic alignment. iPhone 16e: up to 15W.
 - **Apple Watch Charging:** 5W dedicated charging puck
 - **AirPods Charging:** 5W Qi wireless charging pad
 - **Design:** Foldable, adjustable angle (0–75°), compact form factor

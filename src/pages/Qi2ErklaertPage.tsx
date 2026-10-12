@@ -85,10 +85,10 @@ const Qi2ErklaertPage = () => {
         des Ladens, was wiederum zu schnellerem und sichererem Laden führt.
       </P>
       <P>
-        <Strong>Höhere Ladeleistungen möglich:</Strong> Während Qi2 bei 15W liegt, ermöglicht Qi2.2 perspektivisch
-        höhere Leistungen. Erste Hersteller wie Belkin (UltraCharge) bieten bereits Qi2.2-Ladegeräte mit 25W an. Ob
-        ein Gerät diese höheren Leistungen nutzen kann, hängt allerdings vom Smartphone ab – aktuelle iPhones laden
-        weiterhin mit maximal 15W kabellos.
+        <Strong>Höhere Ladeleistungen möglich:</Strong> Während das ursprüngliche Qi2 bis zu 15 W unterstützt,
+        ermöglicht Qi2.2 («Qi2 25W») bis zu 25 W. Hersteller wie Belkin (UltraCharge) bieten Qi2.2-Ladegeräte mit
+        25 W an. Seit iOS 26 laden iPhone 16, 16 Plus, 16 Pro und 16 Pro Max sowie die iPhone-17- und
+        iPhone-18-Serien damit mit bis zu 25 W; iPhone 16e und ältere iPhones laden mit bis zu 15 W.
       </P>
       <P>
         <Strong>Strengere Sicherheitsprüfungen:</Strong> Qi2.2 verschärft die Authentifizierungsprotokolle. Das
@@ -98,21 +98,30 @@ const Qi2ErklaertPage = () => {
 
       <H2>Was ist der Unterschied für den Alltag?</H2>
       <P>
-        Für die meisten iPhone-Nutzer ist der Unterschied zwischen Qi2 und Qi2.2 im Alltag aktuell noch gering. Beide
-        Standards laden das iPhone mit bis zu 15W. Die Vorteile von Qi2.2 zeigen sich eher langfristig:
+        Seit iOS 26 können iPhone 16, 16 Plus, 16 Pro und 16 Pro Max sowie neuere iPhones mit Qi2.2 im Alltag
+        mit bis zu 25 W statt der bis zu 15 W des ursprünglichen Qi2 laden. Bei iPhone 16e und älteren iPhones
+        bleibt die Ladeleistung bei bis zu 15 W. Weitere Vorteile von Qi2.2 sind:
       </P>
       <P>
         <Strong>Weniger Hitze</Strong> bedeutet weniger Verschleiss am Akku. Wer sein Ladegerät jede Nacht nutzt,
         profitiert über die Monate hinweg von der besseren Wärmeabfuhr.
       </P>
       <P>
-        <Strong>Zukunftssicherheit:</Strong> Wenn Apple in zukünftigen iPhone-Generationen höhere kabellose
-        Ladegeschwindigkeiten unterstützt (z.B. 25W), ist ein Qi2.2-Ladegerät bereits dafür bereit. Ein Qi2-Ladegerät
-        müsste dann ersetzt werden.
+        <Strong>Zukunftssicherheit:</Strong> Ein Qi2.2-Ladegerät unterstützt bereits die bis zu 25 W, die iPhone 16,
+        16 Plus, 16 Pro und 16 Pro Max seit iOS 26 sowie die iPhone-17- und iPhone-18-Serien nutzen können.
+        Ein ursprüngliches Qi2-Ladegerät bleibt auf bis zu 15 W begrenzt.
       </P>
       <P>
         <Strong>Sicherheit:</Strong> Die strengeren Authentifizierungsprotokolle von Qi2.2 bedeuten, dass du sicher
         sein kannst, dass dein Ladegerät geprüft und zertifiziert ist.
+      </P>
+
+      <H2>Welche iPhones laden mit 25 W?</H2>
+      <P>
+        Seit iOS 26 laden iPhone 16, iPhone 16 Plus, iPhone 16 Pro und iPhone 16 Pro Max sowie die
+        iPhone-17- und iPhone-18-Serien mit bis zu 25 W an Qi2.2-Ladegeräten («Qi2 25W»).
+        iPhone 16e und ältere iPhones laden mit bis zu 15 W. Für die volle Ladeleistung ist ein
+        ausreichend starkes Netzteil erforderlich.
       </P>
 
       <H2>Worauf sollte ich beim Kauf achten?</H2>
@@ -154,8 +163,9 @@ const Qi2ErklaertPage = () => {
       <P>
         Qi2.2 ist keine Revolution, sondern eine sinnvolle Evolution. Wer heute ein neues kabelloses Ladegerät kauft
         und es mehrere Jahre nutzen will, ist mit Qi2.2 besser aufgestellt – besseres Wärmemanagement, höhere
-        Zukunftssicherheit und strengere Sicherheitsstandards. Für den sofortigen Alltagsgebrauch liefern beide
-        Standards die gleiche Ladeleistung von 15W.
+        Zukunftssicherheit und strengere Sicherheitsstandards. Das ursprüngliche Qi2 liefert bis zu 15 W;
+        Qi2.2 liefert seit iOS 26 bei iPhone 16, 16 Plus, 16 Pro und 16 Pro Max sowie den iPhone-17- und
+        iPhone-18-Serien bis zu 25 W. iPhone 16e und ältere iPhones laden mit bis zu 15 W.
       </P>
 
       <hr className="my-12 border-border/60" />
