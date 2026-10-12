@@ -327,7 +327,7 @@ const AirpodsPage = () => {
                     }}
                   >
                     <div aria-hidden className="absolute left-0 right-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${H.gold}, transparent)`, opacity: 0.5 }} />
-                    <div className="relative px-1 md:px-10 md:pb-6 md:pt-10">
+                    <div className="relative">
                       <Gallery finish={finish} />
                     </div>
                   </div>
