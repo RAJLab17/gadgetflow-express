@@ -10,21 +10,6 @@
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
     <image:image>
-      <image:loc>https://raj.ch/raj-logo.png</image:loc>
-      <image:title>RAJ Logo - Swiss Premium Wireless Charging</image:title>
-      <image:caption>Offizielles Logo der Marke RAJ - Power. Always There.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://raj.ch/favicon.png</image:loc>
-      <image:title>RAJ Favicon</image:title>
-      <image:caption>RAJ Brand Icon</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://raj.ch/og-image.webp</image:loc>
-      <image:title>RAJ NEXUS - Open Graph Bild</image:title>
-      <image:caption>RAJ NEXUS 3-in-1 Wireless Charger Vorschaubild</image:caption>
-    </image:image>
-    <image:image>
       <image:loc>https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp</image:loc>
       <image:title>RAJ NEXUS 3-in-1 Wireless Charger</image:title>
       <image:caption>Premium 3-in-1 Qi2.2 Wireless Charger für iPhone, Apple Watch und AirPods</image:caption>
@@ -39,16 +24,217 @@
     <loc>https://raj.ch/produkte</loc>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/7856274a-3d97-4fb4-8863-bb1957cdf69a/matrix-cherry-raj-home.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/assets/products/nexus-bedside-night.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/matrix</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/fd5e0e80-b338-4e97-a084-fe48ff14e50d/17-cherry-cherry-cosmic-orange.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/6fa396cf-21a6-4377-9434-f88dd3dfb079/17-cherry-cherry-deep-blue.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/0d8b1a81-882c-458a-8c4c-76f45ce25424/17-cherry-cherry-silver.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d6b4938c-c4cf-4bce-aa1a-022cc075ffd2/18-cherry-cherry-darkcherry.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/f762ee71-c946-4ac0-901a-94fea7a97dc1/18-cherry-cherry-darkgrey.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/59723654-78db-4010-a3a0-ecc3334d7b03/18-cherry-cherry-silver.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/f8e11bce-a5b8-44dc-9082-24be772e1574/18-cherry-cherry-skyblue.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/fd40f8d5-0eff-43ae-a89d-ce17b762c90a/18-onyx-onyx-skyblue.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/3fd7f90b-dea5-4bd6-a028-33a5e8915878/matrix-orange-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/dfeb365b-3248-44ae-93c5-b0f7d84e965c/matrix-orange-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/b027545d-0205-4412-a29d-54adc51953bc/matrix-orange-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/91d885b6-efa9-459a-9629-972589168296/matrix-orange-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/5ddf530b-e903-4e70-ae3c-0acaed38b782/matrix-blue-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/00fed542-12a1-4551-96aa-04f7f5c2e7b7/matrix-blue-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/52da560e-a618-49fa-b862-6370aeebb233/matrix-blue-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/aae86c49-a3c2-4cde-a681-a75b013b0df7/matrix-blue-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/3f206398-70e9-4738-884e-b59d1fce7dd4/matrix-silver-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/1c8e34d6-3f1a-4118-9c6b-de7d0a780438/matrix-silver-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/544a78fd-9df8-45b0-955b-c50071a42486/matrix-silver-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/471f125d-10b3-4252-b087-8e2325a47fcb/matrix-silver-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d1ded33b-7adb-4dd9-bc34-58fd6752a813/onyx-orange-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/5cf49f7f-c9cf-4856-9065-b5d613ccc9cf/onyx-orange-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d67b7b8d-b5c1-4ade-8c45-7c252209afb0/onyx-orange-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/c39c6188-e054-465a-b9d9-fc64a6ba839f/onyx-orange-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/08ba59c2-6484-4fbf-9ce2-4cc8a316a8f9/matrix-onyx-blue-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/431a8d42-ec37-44be-b8f8-551354af7102/matrix-onyx-blue-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d26553e6-37cb-4fc9-8e03-5aa007c45f70/matrix-onyx-blue-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/47f5062a-cf9c-4bf7-8eba-032d4bb65080/matrix-onyx-blue-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/ec883499-a3a6-4ece-b95b-0ba091fbc996/onyx-silver-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/e0e8ddda-e89a-4915-90ad-d57ab592c8d5/onyx-silver-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/8c696e12-cf64-40df-87a9-faa5c5f26e0a/onyx-silver-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/74cb5400-8185-42e0-9502-a1c6b860dc02/onyx-silver-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/aecb7752-4fc3-4ab0-bb0c-cdfe05090a4e/cherry-darkcherry-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/2b98d3a3-aeed-44e7-b2ed-9d0a83f348fa/cherry-darkcherry-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/1586ba67-ecd2-4fc1-a581-23ef1f0382e7/cherry-darkcherry-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/4212a976-9e03-4286-9cbb-4978fd5ce3f4/cherry-darkcherry-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/0f396c1f-e92b-4bcc-a596-6606e1e49b0e/cherry-darkgrey-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/599445c5-a09b-44cd-b370-1922f5c73ae2/cherry-darkgrey-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/a883eb72-c983-4d91-9522-6ae0898e9d3c/cherry-darkgrey-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/b39c08e9-4d05-47db-8260-ae86df82352d/cherry-darkgrey-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/e49ec6d1-095a-4036-b552-11bec9fc9b0a/cherry-skyblue-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d093e187-d117-47dd-b058-f5a863c05d39/cherry-skyblue-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/effd725b-240f-494c-acb1-b5162eacab2c/cherry-skyblue-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/931e85da-a5e4-4c60-a14e-e7243a08080e/cherry-skyblue-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/bef7fa50-bc61-46bc-9eb0-2f8358601706/onyx-darkcherry-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/10ea9756-a505-4d4f-ad8f-515908733858/onyx-darkcherry-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/ce128455-f814-466c-8789-14be7c95e164/onyx-darkcherry-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/b9bd532e-ffe5-4c1f-a3b7-1f0de920007e/onyx-darkcherry-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/68c84d6b-9646-4975-bf46-8c6e296da071/onyx-darkgrey-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/9e2ea775-688b-4d94-a9ff-16ece7da07a2/onyx-darkgrey-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/05ec10e2-cbad-4132-9e2b-da28b656c325/onyx-darkgrey-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/020dc13f-000f-465d-98f0-a017e264e7b1/onyx-darkgrey-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/0ff6009f-7cbb-4d96-b805-ec0811b80a81/onyx-skyblue-1-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/634c926e-5d6b-48e2-a43d-93c607e07c13/onyx-skyblue-2-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/f2579768-3620-4e87-9658-852fd7c05719/onyx-skyblue-3-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d7e0383e-342b-4055-b96e-2380f1a45fac/onyx-skyblue-4-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/4296c3cd-23dc-4fc0-ac20-2b201fceacde/onyx-orange-mobile.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/cf56e0e8-6f75-4930-b1e3-b43a4194bcf7/onyx-blue-mobile.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/cfbdcb8b-b084-49fe-ba16-d93bc791aa7d/onyx-silver-mobile.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/fa0bc3a1-6ade-416d-9fc4-fe78a530407e/onyx-darkcherry-mobile.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/airpods-case</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d6b4938c-c4cf-4bce-aa1a-022cc075ffd2/18-cherry-cherry-darkcherry.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/85b897bc-20a7-43f1-b648-9423827acb9b/airpods-onyx-original-bolt.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/apex</loc>
@@ -119,6 +305,18 @@
       <image:title>RAJ NEXUS Night City</image:title>
       <image:caption>RAJ NEXUS bei Nacht – Premium kabelloses Laden</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/5b67aabf-117b-4a1e-b7c4-51a45bb39f02/nexus-carousel4-lifestyle.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/7d80b0ce-96a4-40d7-ab02-44b4f6776d26/nexus-hero-chatgpt-1200w.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/assets/products/nexus-real-hero-floating-white.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/assets/hero/nexus-hero-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/about</loc>
@@ -175,6 +373,9 @@
     <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/59723654-78db-4010-a3a0-ecc3334d7b03/18-cherry-cherry-silver.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/blog/nexus-iphone-18-ladegeraet</loc>
@@ -199,12 +400,18 @@
     <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/magsafe-ladestation-schweiz</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/iphone-standby-ladestation-schweiz</loc>
@@ -223,6 +430,9 @@
     <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/bester-wireless-charger-schweiz</loc>
