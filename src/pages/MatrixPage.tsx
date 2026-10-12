@@ -1,3 +1,5 @@
+import ProductFaqSection from "@/components/ProductFaqSection";
+import { MATRIX_FAQ } from "@/content/matrixFaq";
 import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
@@ -12,7 +14,6 @@ import { trackAddToCart, trackBeginCheckout, trackViewItem } from "@/lib/ga-ecom
 import { readMatrixShellIntent } from "@/lib/matrixShell";
 
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
@@ -531,13 +532,6 @@ const MatrixMobileInfo = () => {
       .limit(5)
       .then(({ data }) => setReviews((data as MatrixReview[]) ?? []));
   }, []);
-  const faqs: [string, string][] = [
-    ["Passt die Hülle zu meinem iPhone?", "Ja, MATRIX gibt es passgenau für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Wähle oben dein Modell."],
-    ["Hält MagSafe zuverlässig?", "Ja, der eingebaute N52-Magnetring hält dein iPhone sicher auf MagSafe-Ladegeräten, Haltern und im Auto."],
-    ["Kann ich kabellos laden?", "Ja, Qi2.2 und MagSafe laden direkt durch die Hülle."],
-    ["Wann kommt meine Bestellung?", `🚚 ${delivery}`],
-    ["Was, wenn sie mir nicht gefällt?", "Du hast 30 Tage Rückgaberecht. Gratis Versand innerhalb der Schweiz."],
-  ];
   return (
     <div className="lg:hidden">
       <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {delivery}</p>
@@ -545,14 +539,6 @@ const MatrixMobileInfo = () => {
         ↩︎ 30 Tage Rückgabe · 🇨🇭 Swiss Brand · Gratis Versand
       </p>
       <PaymentMethodsBar />
-      <Accordion type="single" collapsible className="mt-3 w-full">
-        {faqs.map(([q, a]) => (
-          <AccordionItem key={q} value={q} style={{ borderColor: H.line }}>
-            <AccordionTrigger className="py-3 text-left text-[13px] font-normal hover:no-underline">{q}</AccordionTrigger>
-            <AccordionContent className="pb-3 text-[12px] leading-relaxed" style={{ color: H.textMuted }}>{a}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
       {reviews.length > 0 && (
         <div className="mt-5">
           <p className="text-[10px] uppercase tracking-[0.28em] mb-2" style={{ color: H.textMuted }}>Bewertungen</p>
@@ -1308,6 +1294,8 @@ const MatrixPage = () => {
               </div>
             </div>
           </section>
+
+          <ProductFaqSection title="Fragen zur MATRIX" items={MATRIX_FAQ} />
 
           {/* Matrix-Tabelle */}
           <section className="border-t" style={{ borderColor: H.line }}>

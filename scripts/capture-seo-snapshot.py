@@ -35,7 +35,7 @@ EXTRACT = r"""() => {
     if (!t || t.length < 2) continue;
     if (blocks.length && blocks[blocks.length-1].text === t) continue;
     blocks.push({ tag: el.tagName.toLowerCase(), text: t });
-    len += t.length; if (len > 4000) break;
+    len += t.length; if (len > 12000) break;
   }
   const h1 = [...document.querySelectorAll('h1')].map(h => (h.innerText||'').replace(/\s+/g,' ').trim()).find(Boolean) || null;
   return {
