@@ -176,7 +176,7 @@ const BrandNextDrop = () => {
               >
                 <img
                   src={airpodsRender}
-                  alt=""
+                  alt="RAJ MATRIX AirPods 4 & 5 Case in Cherry Carbon mit goldenem Blitz"
                   width={24}
                   height={24}
                   loading="lazy"

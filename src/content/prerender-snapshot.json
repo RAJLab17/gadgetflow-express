@@ -907,7 +907,7 @@
   "twitterTitle": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz",
   "twitterDescription": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF 99.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
-  "h1": "RAJ NEXUS 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch & AirPods",
+  "h1": "RAJ NEXUS – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch & AirPods",
   "jsonLd": [
    "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://raj.ch/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"RAJ NEXUS\",\"item\":\"https://raj.ch/nexus\"}]}",
    "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"description\":\"Premium 3-in-1 wireless charging station for iPhone, Apple Watch, and AirPods. Qi2.2 certified with up to 25W fast charging. Foldable, adjustable design. Swiss Brand.\",\"image\":\"https://raj.ch/raj-nexus-product.png\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"manufacturer\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\",\"url\":\"https://raj.ch\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Weinfelden\",\"addressRegion\":\"Thurgau\",\"postalCode\":\"8570\",\"addressCountry\":\"CH\"}},\"sku\":\"RAJ-NEXUS-001\",\"category\":\"Electronics > Chargers > Wireless Chargers\",\"material\":\"Premium aluminum and silicone\",\"color\":\"Black / Gold\",\"weight\":{\"@type\":\"QuantitativeValue\",\"value\":\"200\",\"unitCode\":\"GRM\"},\"additionalProperty\":[{\"@type\":\"PropertyValue\",\"name\":\"Certification\",\"value\":\"Qi2.2 Certified\"},{\"@type\":\"PropertyValue\",\"name\":\"CE Certified\",\"value\":\"Yes\"},{\"@type\":\"PropertyValue\",\"name\":\"Charging Speed\",\"value\":\"Up to 25W for iPhone 16 and newer with iOS 26 (15W for older models), 5W (Apple Watch), 5W (AirPods)\"},{\"@type\":\"PropertyValue\",\"name\":\"Compatibility\",\"value\":\"iPhone 12/13/14/15/16/17 Series, Apple Watch Series 1-10, AirPods Pro/3/4\"},{\"@type\":\"PropertyValue\",\"name\":\"Design\",\"value\":\"Foldable, adjustable angle\"},{\"@type\":\"PropertyValue\",\"name\":\"Country of Brand\",\"value\":\"Switzerland\"}],\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/nexus\",\"priceCurrency\":\"CHF\",\"price\":\"99.00\",\"priceValidUntil\":\"2026-12-31\",\"validFrom\":\"2026-01-01\",\"availability\":\"https://schema.org/InStock\",\"itemCondition\":\"https://schema.org/NewCondition\",\"seller\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\"},\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"}}}},\"aggregateRating\":{\"@type\":\"AggregateRating\",\"ratingValue\":5,\"reviewCount\":15,\"bestRating\":5,\"worstRating\":1},\"review\":[]}",
@@ -917,7 +917,7 @@
   "blocks": [
    {
     "tag": "h1",
-    "text": "RAJ NEXUS 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch & AirPods"
+    "text": "RAJ NEXUS – 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch & AirPods"
    },
    {
     "tag": "p",
@@ -932,10 +932,6 @@
     "text": "«Ich bin einer der ersten, der bei der RAJ einen wireless Charger bestellt hat. Ich wollte …»"
    },
    {
-    "tag": "h1",
-    "text": "RAJ NEXUS 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch & AirPods"
-   },
-   {
     "tag": "p",
     "text": "Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch oder deinen Bürotisch."
    },
@@ -946,10 +942,6 @@
    {
     "tag": "p",
     "text": "Sichere Zahlungsmethoden"
-   },
-   {
-    "tag": "h1",
-    "text": "RAJ NEXUS3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch & AirPods"
    },
    {
     "tag": "p",

@@ -15,3 +15,5 @@
 - Generate the MATRIX instant view separately at HTML transform time with the original header logo embedded; this keeps the pre-bundle view independent of React and prevents a delayed logo replacement.
 - Insert MATRIX critical CSS immediately after the early viewport meta in the HTML head and keep shell typography/reset rules self-contained; this prevents first-paint scaling and late stylesheet layout shifts.
 - Crawler HTML per sitemap route comes from src/content/prerender-snapshot.json baked in by the raj-prerender Vite plugin (dev + build, <noscript> body, data-rh head tags); re-run scripts/capture-seo-snapshot.py after changing page SEO text, because non-JS crawlers otherwise see stale copy.
+
+- Responsive NEXUS title variants select the sole H1 using the shared media-query observer and render inactive titles as divs; this preserves all breakpoint layouts without duplicate DOM headings.

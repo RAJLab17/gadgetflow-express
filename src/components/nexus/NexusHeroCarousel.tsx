@@ -249,7 +249,7 @@ export const HeroThumbs = ({
           >
             <img
               src={s.thumb}
-              alt=""
+              alt={`Vorschau: ${s.alt}`}
               loading="lazy"
               decoding="async"
               width={size}

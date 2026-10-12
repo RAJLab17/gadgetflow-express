@@ -498,7 +498,7 @@ const PaymentMethodsBar = () => (
         <img
           key={i}
           src={src}
-          alt=""
+          alt={`Zahlung mit ${["Visa", "Mastercard", "American Express", "Apple Pay", "Google Pay", "TWINT", "Klarna"][i]}`}
           loading="lazy"
           decoding="async"
           style={{
