@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Angebotsbilder nur auf /airpods-case und /matrix korrigieren: Original-AirPods-Foto, gemeinsame Zweiprodukt-Vorschau, beide Farben auf Mobile/Desktop prüfen und Screenshots zeigen; nicht veröffentlichen.
+- [x] Angebotsbilder nur auf /airpods-case und /matrix korrigiert: Original-AirPods-Foto, gemeinsame Zweiprodukt-Vorschau, beide Farben auf Mobile/Desktop geprüft und Screenshots erstellt; nicht veröffentlicht.
 - [x] AirPods Onyx-Galerie: alle vier hochgeladenen Lifestyle-Fotos nach dem Produktfoto ergänzt und alle fünf Bildwechsel geprüft; nicht veröffentlicht.
 - [x] NEXUS only: outside-root matching instant view until decoded hero, responsive priority image hints, load/idle Pixel with queue replay; Chromium/WebKit continuity and one H1 verified, real checkout CHF 99, PageView/ViewContent/AddToCart network verified; local metrics reported with dev-server caveat, existing nonzero CLS and absent InitiateCheckout left unchanged; not published.
 - [x] Enforce one H1 per sitemap page without visual changes, describe NEXUS content images and audit homepage/MATRIX/AirPods/APEX alt attributes; refresh crawler copies and report per-route counts; do not publish.
