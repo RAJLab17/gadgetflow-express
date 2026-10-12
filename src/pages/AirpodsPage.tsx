@@ -28,8 +28,8 @@ import {
   PaymentMethodsBar,
 } from "@/components/matrix/matrixCommerce";
 
-import airpodsCherryAsset from "@/assets/matrix/schema/airpods-cherry-bolt.webp.asset.json";
-import airpodsOnyxAsset from "@/assets/matrix/schema/airpods-onyx-original-bolt.webp.asset.json";
+import airpodsCherryAsset from "@/assets/matrix/schema/airpods-cherry-premium.webp.asset.json";
+import airpodsOnyxAsset from "@/assets/matrix/schema/airpods-onyx-premium.webp.asset.json";
 import { airpodsThumbs } from "@/assets/matrix/responsiveRenders";
 
 const H = {
@@ -126,12 +126,12 @@ const Gallery = ({ finish }: { finish: Finish }) => {
               data-airpods-hero={i === 0 ? "" : undefined}
               src={slide.src}
               alt={slide.alt}
-              width={1024}
-              height={1024}
+              width={1254}
+              height={1254}
               loading={i === 0 ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
-              className={i === 0 ? "absolute inset-0 h-full w-full object-contain" : "absolute inset-0 h-full w-full object-cover"}
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
         ))}
