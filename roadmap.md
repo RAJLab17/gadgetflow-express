@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Remove NEXUS comparison prices and Founder claims from /nexus and llms.txt; add exact APEX availability; refresh both static SEO copies; audit all remaining 129/Founder occurrences; do not publish
 - [x] Update German/English homepage closing descriptions and fallback heading; static German tags verified by curl, both runtime languages verified in browser, zero forbidden-origin matches across site sources including llms.txt and JSON-LD; not published
 - [x] Replace only German homepage runtime/static descriptions with “Schweizer Marke aus dem Thurgau.”; all six tags verified with curl and browser, audit remaining Swiss-manufacture phrases without modifying them; not published
 - [x] Prevent preview React/provider mismatch with React deduplication and explicit shell-provider prebundling; four routes, model selection, navigation and repeated reloads passed without runtime errors

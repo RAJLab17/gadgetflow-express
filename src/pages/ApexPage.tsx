@@ -334,6 +334,10 @@ const ApexPage = () => {
                   Dein iPhone. Sicher am Ort.<br />Egal welches Auto.
                 </p>
 
+                <p className="text-sm mb-5 text-muted-foreground">
+                  Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber).
+                </p>
+
                 {/* Variant selector */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
                   {APEX_VARIANTS.map((v) => {

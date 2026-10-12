@@ -98,7 +98,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Was kostet der RAJ NEXUS in der Schweiz?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS kostet CHF 99 (statt CHF 129). Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.",
+        text: "Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.",
       },
     },
 

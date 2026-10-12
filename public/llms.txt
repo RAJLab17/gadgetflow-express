@@ -21,8 +21,6 @@ The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously 
 
 ### Pricing and Availability
 - **Price:** CHF 99
-- **Original Price:** CHF 129 (shown crossed out on the product page)
-- **Founder Edition:** Limited to 100 units (still stated in the live site's static HTML)
 - **Currency:** Swiss Francs (CHF)
 - **Market:** Switzerland
 - **Where to Buy:** https://raj.ch/nexus (direct-to-consumer)
@@ -59,7 +57,7 @@ RAJ plant Produktwelten für Apple-Nutzer:
 - **NEXUS** — 3-in-1 Qi2.2 Wireless Charger (verfügbar)
 - **MATRIX** — Carbon iPhone Cases (verfügbar) — https://raj.ch/matrix
 - **AURORA** — Carbon iPhone Cases, Roségold (in Vorbereitung)
-- **APEX** — MagSafe car mount, coming end of November, CHF 69 — https://raj.ch/apex
+- **APEX** — MagSafe car mount. Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber). — https://raj.ch/apex
 - **ATLAS** — Travel & On-the-Go (geplant)
 - **ATELIER** — Workspace / Desk (geplant)
 
@@ -101,7 +99,7 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 - [RAJ NEXUS](https://raj.ch/nexus): 3-in-1 Qi2.2 Wireless Charger
 - [RAJ MATRIX](https://raj.ch/matrix): Carbon-Finish iPhone Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max, CHF 59; Bundle CHF 79; zwei Hüllen CHF 99
 - [MATRIX AirPods Case](https://raj.ch/airpods-case): Carbon-Finish Hülle für AirPods 4 & 5, CHF 35
-- [APEX](https://raj.ch/apex): MagSafe car mount, coming end of November, CHF 69
+- [APEX](https://raj.ch/apex): MagSafe car mount. Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber).
 - [Qi2 erklärt](https://raj.ch/qi2-erklaert): Qi2 vs. Qi2.2
 - [Vergleich](https://raj.ch/vergleich): RAJ NEXUS vs. Belkin vs. Anker
 - [Reviews](https://raj.ch/reviews): Kundenbewertungen
