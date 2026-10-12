@@ -45,8 +45,7 @@ const PRODUCT_QUERY = `
 `;
 
 const FOUNDER_TOTAL = 100;
-const FOUNDER_PRICE = "CHF 99.–";
-const REGULAR_PRICE = "CHF 129.–";
+const FOUNDER_PRICE = "CHF 99";
 
 const ShopPreview = () => {
   const { quickBuy, isProcessing: buyNowProcessing } = useQuickBuy();
@@ -227,7 +226,7 @@ const ShopPreview = () => {
               <div>
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] tracking-[0.25em] uppercase font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  Founder Edition · Limitiert auf {FOUNDER_TOTAL}
+                  RAJ NEXUS · Swiss Brand
                 </span>
                 <span className="block text-xs tracking-[0.3em] uppercase text-muted-foreground mt-4">3-in-1 Wireless Charger</span>
                 <h1 className="text-4xl md:text-5xl font-light tracking-tight mt-2">RAJ NEXUS</h1>
@@ -240,11 +239,11 @@ const ShopPreview = () => {
               <div className="flex flex-col gap-2 -mt-1">
                 <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/25 bg-primary/[0.04] backdrop-blur-sm text-xs font-medium text-foreground/85 self-start">
                   <Zap className="w-3.5 h-3.5 text-primary" strokeWidth={2} fill="currentColor" />
-                  Lebenslanger Early Access zu neuen RAJ Produkten
+                  Qi2.2 zertifiziert · 25 W Schnellladung
                 </span>
                 <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-primary/25 bg-primary/[0.04] backdrop-blur-sm text-xs font-medium text-foreground/85 self-start">
                   <Award className="w-3.5 h-3.5 text-primary" strokeWidth={2} />
-                  Founder Edition mit persönlicher Seriennummer
+                  3 Jahre Garantie
                 </span>
               </div>
 
@@ -252,13 +251,9 @@ const ShopPreview = () => {
               <div className="space-y-2">
                 <div className="flex items-baseline gap-3 flex-wrap">
                   <span className="text-4xl font-light">{FOUNDER_PRICE}</span>
-                  <span className="text-xl text-muted-foreground line-through font-light">{REGULAR_PRICE}</span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-primary/10 text-primary font-medium tracking-wider uppercase">
-                    Spare CHF 30
-                  </span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Founder-Preis · danach {REGULAR_PRICE} · inkl. MwSt.
+                  Inkl. MwSt.
                 </p>
               </div>
 

@@ -92,7 +92,7 @@ const ThreeInOnePage = () => {
                 ["iPhone", "25W", "15W", "15W"],
                 ["Apple Watch", "check", "check", "check"],
                 ["AirPods", "check", "check", "check"],
-                ["Preis CHF", "99.–", "ab 109.–", "ab 129.–"],
+                ["Preis CHF", "CHF 99", "ab 109.–", "ab 129.–"],
                 ["Swiss Brand", "check", "x", "x"],
               ].map(([label, a, b, c]) => (
                 <tr key={label} className="border-b border-border/50">
@@ -127,7 +127,7 @@ const ThreeInOnePage = () => {
             to="/"
             className="inline-flex items-center gap-2 px-7 py-4 bg-primary text-primary-foreground hover:bg-primary/90 transition-colors text-sm font-medium tracking-wide rounded-md"
           >
-            RAJ NEXUS – Jetzt Founder Edition sichern
+            RAJ NEXUS kaufen – CHF 99
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

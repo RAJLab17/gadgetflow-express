@@ -162,7 +162,7 @@ const Beste3in1ChargerPage = () => {
           <li>Kompatibilität: iPhone 12–16 Pro Max, Apple Watch Series 1–10, AirPods Pro 2, AirPods 3/4</li>
           <li>Standard: Qi2.2 zertifiziert</li>
           <li>Anschluss: USB-C</li>
-          <li>Preis: CHF 99 (Founder Edition)</li>
+          <li>Preis: CHF 99</li>
         </UL>
 
         <H3>Was RAJ NEXUS von der Konkurrenz unterscheidet</H3>
