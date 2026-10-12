@@ -7,7 +7,7 @@ export function handOffAirpodsShell(): () => void {
   const check = async () => {
     if (cancelled) return;
     const hero = document.querySelector<HTMLImageElement>("#root img[data-airpods-hero]");
-    if (!hero || !hero.complete) {
+    if (!hero || !hero.complete || hero.getBoundingClientRect().width === 0) {
       frame = requestAnimationFrame(check);
       return;
     }
@@ -15,6 +15,8 @@ export function handOffAirpodsShell(): () => void {
     if (!hero.naturalWidth) { shell.remove(); return; }
     try { await hero.decode(); } catch { /* older engines may reject decode for loaded images */ }
     if (cancelled) return;
+    // React fades the image in after onLoad; keep the shell until it is fully opaque.
+    if (Number(getComputedStyle(hero).opacity) < 1) { frame = requestAnimationFrame(check); return; }
     frame = requestAnimationFrame(() => { if (!cancelled) shell.remove(); });
   };
   frame = requestAnimationFrame(check);
