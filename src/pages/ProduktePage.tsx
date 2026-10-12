@@ -63,7 +63,7 @@ const products: Product[] = [
     description:
       "Die MagSafe-Ladehalterung fürs Auto. Mit Saug- und Lüftungsmontage, aktiver Kühlung und 25 Watt.",
     price: "ab CHF 69.–",
-    status: "Early Access",
+    status: "Bald verfügbar",
     link: "/apex",
     img: apexCarImage,
     imgAlt: "RAJ APEX MagSafe Auto-Ladehalterung im Fahrzeug",
