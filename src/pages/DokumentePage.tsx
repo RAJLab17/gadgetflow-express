@@ -53,7 +53,7 @@ const DokumentePage = () => {
             name="description"
             content="Benutzerhandbücher für den RAJ NEXUS 3-in-1 Wireless Charger in Deutsch, Englisch, Französisch und Italienisch zum Download."
           />
-          <meta name="robots" content="noindex, follow" />
+          <meta name="robots" content="index, follow" />
           <link rel="canonical" href="https://raj.ch/manuals" />
         </Helmet>
       )}
