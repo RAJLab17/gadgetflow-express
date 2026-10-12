@@ -8,6 +8,13 @@
       "when": 1791382681074,
       "tag": "0000_tighten_public_policies",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791827424514,
+      "tag": "0001_lock_review_photo_uploads",
+      "breakpoints": true
     }
   ]
 }
