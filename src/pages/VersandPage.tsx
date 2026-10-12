@@ -15,7 +15,7 @@ const Item = ({ icon: Icon, title, desc }: { icon: typeof Truck; title: string; 
 const VersandPage = () => {
   return (
     <PremiumPageLayout
-      title="Versand & Rückgabe – RAJ"
+      title="Versand und Rückgabe | RAJ, 30 Tage Rückgabe in der Schweiz"
       metaDescription="Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit."
       canonical="https://raj.ch/versand"
       jsonLd={webPageJsonLd({ name: "Versand & Rückgabe – RAJ", description: "Alles zu Versand und Rückgabe bei RAJ – transparent, fair, schweizweit.", url: "https://raj.ch/versand" })}

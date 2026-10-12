@@ -162,7 +162,7 @@ const Footer = () => {
               <li><Link to="/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
               <li><Link to="/versand" className="text-muted-foreground hover:text-primary transition-colors">Versand & Rückgabe</Link></li>
               <li><Link to="/kontakt" className="text-muted-foreground hover:text-primary transition-colors">Kontakt</Link></li>
-              <li><Link to="/dokumente" className="text-muted-foreground hover:text-primary transition-colors">Manuals & Downloads</Link></li>
+              <li><Link to="/manuals" className="text-muted-foreground hover:text-primary transition-colors">Manuals & Downloads</Link></li>
               <li><Link to="/reviews" className="text-muted-foreground hover:text-primary transition-colors">Bewertungen</Link></li>
 
             </ul>
@@ -172,7 +172,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-6 text-foreground">Dokumente & Rechtliches</h4>
             <ul className="space-y-3">
               {[
-                { label: "Produktdokumentation", href: "/dokumente" },
+                { label: "Produktdokumentation", href: "/manuals" },
                 { label: "Datenschutz", href: "/datenschutz" },
                 { label: "AGB", href: "/agb" },
                 { label: "Impressum", href: "/impressum" },
