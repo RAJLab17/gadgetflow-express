@@ -34,13 +34,16 @@ import onyxSkyblue18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-s
 import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx-original-bolt.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
-import payVisa from "@/assets/payments/visa.svg";
-import payMastercard from "@/assets/payments/mastercard.svg";
-import payAmex from "@/assets/payments/amex.svg";
-import payApplePay from "@/assets/payments/apple-pay.svg";
-import payGooglePay from "@/assets/payments/google-pay.svg";
-import payTwint from "@/assets/payments/twint.png";
-import payKlarna from "@/assets/payments/klarna.svg";
+import {
+  AIRPODS_VARIANT_IDS,
+  BUNDLE_DISCOUNT,
+  BUNDLE_DISCOUNT_CODE,
+  CASE_VARIANT_IDS,
+  MATRIX_DELIVERY_TEXT,
+  MATRIX_TRUST_DESKTOP,
+  MATRIX_TRUST_MOBILE,
+  PaymentMethodsBar,
+} from "@/components/matrix/matrixCommerce";
 import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
 import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
 import { observeMediaQuery } from "@/lib/mediaQuery";
@@ -209,29 +212,9 @@ const AIRPODS_CASES: Record<string, AirpodsCase> = {
   onyx: { id: "onyx", name: "MATRIX AirPods 4 & 5 · Onyx Carbon", image: airpodsOnyx, thumb: airpodsThumbs.onyx, price: 35 },
 };
 
-/** Rabatt, wenn iPhone-Hülle und AirPods-Hülle zusammen gekauft werden. */
-const BUNDLE_DISCOUNT = 15;
-/** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
-const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
 /** Angezeigter Preis für zwei Hüllen; der Rabatt selbst kommt nur aus dem Shopify-Code. */
 const TWO_CASES_TOTAL = 99;
 const TWO_CASES_DISCOUNT_CODE = "MATRIX2";
-/** Lieferhinweis unter dem Kaufbutton und in der FAQ. */
-const MATRIX_DELIVERY_TEXT = "Neue Lieferung unterwegs · Versand in 5–8 Tagen";
-
-/* ── Shopify Variant ID mapping ─────────────────────────────────────── */
-const CASE_VARIANT_IDS: Record<string, Record<string, string>> = {
-  // modelId → caseId → gid
-  "17pro":    { cherry: "gid://shopify/ProductVariant/59116736545093", onyx: "gid://shopify/ProductVariant/59116736577861" },
-  "17promax": { cherry: "gid://shopify/ProductVariant/59116736610629", onyx: "gid://shopify/ProductVariant/59116736643397" },
-  "18pro":    { cherry: "gid://shopify/ProductVariant/59116736676165", onyx: "gid://shopify/ProductVariant/59116736708933" },
-  "18promax": { cherry: "gid://shopify/ProductVariant/59116736741701", onyx: "gid://shopify/ProductVariant/59116736774469" },
-};
-
-const AIRPODS_VARIANT_IDS: Record<string, string> = {
-  cherry: "gid://shopify/ProductVariant/59116737364293",
-  onyx:   "gid://shopify/ProductVariant/59116737397061",
-};
 
 
 
@@ -480,41 +463,6 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
   );
 };
 
-/* ── Zahlungsmethoden-Leiste (Desktop: unter dem Kaufblock, Mobile: unter der Trust-Zeile) ── */
-const PaymentMethodsBar = () => (
-  <div
-    className="mt-5 rounded-xl flex items-center gap-3 md:gap-4 flex-wrap justify-center"
-    style={{
-      background: "#0a0908",
-      border: "1px solid rgba(155,107,63,.20)",
-      padding: "10px 14px",
-    }}
-  >
-    <p className="text-[10px] uppercase tracking-[0.22em] w-full text-center md:w-auto md:text-left" style={{ color: H.gold }}>
-      Sichere Zahlungsmethoden
-    </p>
-    <div className="flex items-center gap-2 flex-wrap justify-center">
-      {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt={`Zahlung mit ${["Visa", "Mastercard", "American Express", "Apple Pay", "Google Pay", "TWINT", "Klarna"][i]}`}
-          loading="lazy"
-          decoding="async"
-          style={{
-            height: 22,
-            width: "auto",
-            objectFit: "contain",
-            background: "white",
-            borderRadius: 4,
-            padding: "2px 5px",
-            border: "1px solid rgba(255,255,255,.12)",
-          }}
-        />
-      ))}
-    </div>
-  </div>
-);
 
 /* ── Mobile: Lieferzeile, Trust, FAQ, Bewertungen ── */
 type MatrixReview = { id: string; customer_name: string; rating: number; title: string; comment: string; created_at: string };
@@ -536,7 +484,7 @@ const MatrixMobileInfo = () => {
     <div className="lg:hidden">
       <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {delivery}</p>
       <p className="mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
-        ↩︎ 30 Tage Rückgabe · Schweizer Marke · Gratis Versand
+        {MATRIX_TRUST_MOBILE}
       </p>
       <PaymentMethodsBar />
       {reviews.length > 0 && (
@@ -1301,7 +1249,7 @@ const MatrixPage = () => {
                       🚚 {MATRIX_DELIVERY_TEXT}
                     </p>
                     <p className="hidden lg:block mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
-                      Sichere Bezahlung · 30 Tage Rückgabe
+                      {MATRIX_TRUST_DESKTOP}
                     </p>
                     <MatrixMobileInfo />
                   </div>
