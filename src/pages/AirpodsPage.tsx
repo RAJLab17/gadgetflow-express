@@ -417,7 +417,7 @@ const AirpodsPage = () => {
                     <p className="w-full text-center text-[10px] uppercase tracking-[0.22em] text-primary md:w-auto md:text-left">Sichere Zahlungsmethoden</p>
                     <div className="flex flex-wrap items-center justify-center gap-2">
                       {paymentMethods.map((src, index) => (
-                        <img key={src} src={src} alt={index === 0 ? "Akzeptierte Zahlungsmethoden" : ""} loading="lazy" decoding="async" className="h-[22px] w-auto rounded bg-background object-contain px-[5px] py-0.5" />
+                        <img key={src} src={src} alt={`Zahlung mit ${["Visa", "Mastercard", "American Express", "Apple Pay", "Google Pay", "TWINT", "Klarna"][index]}`} loading="lazy" decoding="async" className="h-[22px] w-auto rounded bg-background object-contain px-[5px] py-0.5" />
                       ))}
                     </div>
                   </div>

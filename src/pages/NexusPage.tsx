@@ -10,6 +10,7 @@ import {
   Smartphone, Headphones, Watch, Mail, Loader2, Check, ArrowRight,
   ShieldCheck, Truck, RotateCcw, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag, X, ChevronDown,
 } from "lucide-react";
+import { observeMediaQuery } from "@/lib/mediaQuery";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useViewContent } from "@/hooks/useViewContent";
@@ -22,6 +23,7 @@ import { fetchProductVariantInfo } from "@/lib/shopify";
 
 // ─── PREIS-KONFIGURATION ───────────────────────────────────────
 const REGULAR_PRICE = 99;
+const PAYMENT_NAMES = ["Visa", "Mastercard", "American Express", "Apple Pay", "Google Pay", "TWINT", "Klarna"];
 
 
 import {
@@ -561,6 +563,22 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 
 const NexusPage = () => {
   const { t, lang, setLang } = useLanguage();
+  const [headingBreakpoint, setHeadingBreakpoint] = useState(() =>
+    window.matchMedia("(min-width: 1024px)").matches ? "desktop" :
+    window.matchMedia("(min-width: 768px)").matches ? "tablet" : "mobile"
+  );
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const tablet = window.matchMedia("(min-width: 768px)");
+    const update = () => setHeadingBreakpoint(desktop.matches ? "desktop" : tablet.matches ? "tablet" : "mobile");
+    const stopDesktop = observeMediaQuery(desktop, update);
+    const stopTablet = observeMediaQuery(tablet, update);
+    update();
+    return () => { stopDesktop(); stopTablet(); };
+  }, []);
+  const DesktopTitle = headingBreakpoint === "desktop" ? "h1" : "div";
+  const TabletTitle = headingBreakpoint === "tablet" ? "h1" : "div";
+  const MobileTitle = headingBreakpoint === "mobile" ? "h1" : "div";
   const [popupTrigger, setPopupTrigger] = useState(0);
   const [popupMessage, setPopupMessage] = useState("");
   const [buyModalOpen, setBuyModalOpen] = useState(false);
@@ -872,7 +890,7 @@ const NexusPage = () => {
               <div role="tablist" aria-label="Produktbilder" style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", padding: 2 }}>
                 {HERO_CAROUSEL_SLIDES.map((s, i) => (
                   <button key={i} type="button" role="tab" aria-selected={i === heroSlideIdx} aria-label={`Bild ${i + 1} anzeigen`} onClick={() => setHeroSlideIdx(i)} style={{ width: 72, height: 72, flexShrink: 0, borderRadius: 10, overflow: "hidden", padding: 0, background: "#fff", border: `1.5px solid ${i === heroSlideIdx ? "#1a1a1a" : "rgba(26,26,26,.12)"}`, cursor: "pointer" }}>
-                    <img src={s.thumb} alt="" loading="lazy" decoding="async" width={72} height={72} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    <img src={s.thumb} alt={`Vorschau: ${s.alt}`} loading="lazy" decoding="async" width={72} height={72} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   </button>
                 ))}
               </div>
@@ -880,13 +898,14 @@ const NexusPage = () => {
 
             {/* RIGHT — sticky info column */}
             <div style={{ position: "sticky", top: headerH + 24, display: "flex", flexDirection: "column" }}>
-              <h1 style={{ fontSize: "clamp(40px,4vw,60px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0 }}>
+              <DesktopTitle style={{ fontSize: "clamp(40px,4vw,60px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0 }}>
                 <span style={{ color: H.text, fontWeight: 200 }}>RAJ</span>{" "}
                 <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em" }}>NEXUS</span>{" "}
+                <span className="sr-only">– </span>
                 <span style={{ display: "block", marginTop: 12, fontSize: 17, lineHeight: 1.35, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", maxWidth: 440 }}>
                   3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
                 </span>
-              </h1>
+              </DesktopTitle>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
                 {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
                   <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 11px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 11, color: H.text }}>
@@ -916,7 +935,7 @@ const NexusPage = () => {
               <p style={{ marginTop: 10, fontSize: 12, color: H.textMuted, textAlign: "center" }}>Passt zu iPhone 12–18 · Apple Watch · AirPods mit kabellosem Case</p>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginTop: 10, flexWrap: "wrap" }}>
                 {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 4px", border: `1px solid ${H.border}` }} />
+                  <img key={i} src={src} alt={`Zahlung mit ${PAYMENT_NAMES[i]}`} loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 4px", border: `1px solid ${H.border}` }} />
                 ))}
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
@@ -943,17 +962,18 @@ const NexusPage = () => {
 
 
 
-            <h1 style={{ fontSize: "clamp(38px,4.4vw,68px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
+            <TabletTitle style={{ fontSize: "clamp(38px,4.4vw,68px)", lineHeight: 1, letterSpacing: "-.03em", fontWeight: 200, margin: 0, whiteSpace: "nowrap" }}>
               <span style={{ display: "inline", color: H.text, fontWeight: 200 }}>RAJ</span>
               <span style={{ display: "inline", marginLeft: "0.12em" }} />
               <span style={{ fontSize: 0 }}>{" "}</span>
 
               <span style={{ display: "inline", background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.02em", textShadow: "0 2px 24px rgba(155,107,63,.18)" }}>NEXUS</span>{" "}
+              <span className="sr-only">– </span>
               <span style={{ display: "block", whiteSpace: "normal", marginTop: 14, fontSize: "clamp(15px,1.15vw,19px)", lineHeight: 1.35, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", maxWidth: 460 }}>
 
                 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
               </span>
-            </h1>
+            </TabletTitle>
 
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
@@ -1096,7 +1116,7 @@ const NexusPage = () => {
               <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".22em", color: H.gold }}>Sichere Zahlungsmethoden</p>
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                 {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                  <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.12)" }} />
+                  <img key={i} src={src} alt={`Zahlung mit ${PAYMENT_NAMES[i]}`} loading="lazy" decoding="async" style={{ height: 22, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.12)" }} />
                 ))}
               </div>
             </div>
@@ -1106,13 +1126,14 @@ const NexusPage = () => {
 
         {/* MOBILE */}
         <div className="md:hidden relative px-5 pt-0 pb-0" style={{ zIndex: 2 }}>
-          <h1 className="text-center mb-1.5" style={{ fontSize: "clamp(26px,6.8vw,38px)", lineHeight: 1, letterSpacing: "-.02em", fontWeight: 200, whiteSpace: "nowrap" }}>
+          <MobileTitle className="text-center mb-1.5" style={{ fontSize: "clamp(26px,6.8vw,38px)", lineHeight: 1, letterSpacing: "-.02em", fontWeight: 200, whiteSpace: "nowrap" }}>
             <span style={{ color: H.text, fontWeight: 200 }}>RAJ</span>{" "}
             <span style={{ background: `linear-gradient(135deg, #c8946b 0%, ${H.goldLight} 50%, #7a4e2a 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", fontWeight: 500, letterSpacing: "-.01em" }}>NEXUS</span>
+            {" "}<span className="sr-only">– </span>
             <span className="block" style={{ fontSize: 13, lineHeight: 1.3, color: H.textMuted, fontWeight: 300, letterSpacing: "normal", marginTop: 6, whiteSpace: "normal" }}>
               3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
             </span>
-          </h1>
+          </MobileTitle>
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
               <HeroSwipeImage
@@ -1198,7 +1219,7 @@ const NexusPage = () => {
             <p style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: ".2em", color: D.beige, textAlign: "center" }}>Sichere Zahlungsmethoden</p>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }}>
               {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
-                <img key={i} src={src} alt="" loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.2)" }} />
+                <img key={i} src={src} alt={`Zahlung mit ${PAYMENT_NAMES[i]}`} loading="lazy" decoding="async" style={{ height: 18, width: "auto", objectFit: "contain", background: "white", borderRadius: 4, padding: "2px 5px", border: "1px solid rgba(255,255,255,.2)" }} />
               ))}
             </div>
           </div>
@@ -1273,10 +1294,10 @@ const NexusPage = () => {
       <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
         <div className="max-w-7xl mx-auto space-y-24 md:space-y-48">
           {[
-            { img: nexusFeatures, srcSet: `${nexusFeatures1000} 1000w, ${nexusFeatures1200} 1200w, ${nexusFeatures} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "100% in 1.5 Stunden", eyebrow: "Für die, die keine Zeit haben", title: "Vollgeladen, bevor der Kaffee fertig ist.", copy: "90 Minuten und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen." },
-            { img: nexusFolds, alt: "Faltbar wie eine Brieftasche", eyebrow: "Für die Vielreisenden", title: "Faltet sich wie eine Brieftasche.", copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig laden." },
-            { img: nexusDesk, srcSet: `${nexusDesk680} 680w, ${nexusDesk1200} 1200w, ${nexusDesk} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "Aufgeräumter Schreibtisch", eyebrow: "Für die, die Ordnung lieben", title: "Drei Kabel weg. Ein Objekt da.", copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Einfach hinlegen. Fertig." },
-            { img: nexusWindow, srcSet: `${nexusWindow680} 680w, ${nexusWindow1200} 1200w, ${nexusWindow} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "Material Detail im Licht", eyebrow: "Für die, die Qualität spüren", title: "Aluminium. Mattes Finish. Gewicht in der Hand.", copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Manche Dinge erklären sich von selbst." },
+            { img: nexusFeatures, srcSet: `${nexusFeatures1000} 1000w, ${nexusFeatures1200} 1200w, ${nexusFeatures} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "RAJ NEXUS 3-in-1 Ladestation auf dem Schreibtisch beim Schreiben", eyebrow: "Für die, die keine Zeit haben", title: "Vollgeladen, bevor der Kaffee fertig ist.", copy: "90 Minuten und dein iPhone ist bei 100 %. Während du duschst, frühstückst, deine Mails checkst. Nie wieder mit 23 % aus dem Haus rennen." },
+            { img: nexusFolds, alt: "RAJ NEXUS 3-in-1 Ladestation mit faltbarem Gelenk in verschiedenen Positionen", eyebrow: "Für die Vielreisenden", title: "Faltet sich wie eine Brieftasche.", copy: "Hotelzimmer in Mailand. Lounge in Zürich. Airbnb in Lissabon. Eine Bewegung — aufgeklappt. Dein iPhone, deine Watch, deine AirPods. Alle gleichzeitig laden." },
+            { img: nexusDesk, srcSet: `${nexusDesk680} 680w, ${nexusDesk1200} 1200w, ${nexusDesk} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "RAJ NEXUS mit iPhone, Apple Watch und AirPods auf einem aufgeräumten Schreibtisch", eyebrow: "Für die, die Ordnung lieben", title: "Drei Kabel weg. Ein Objekt da.", copy: "Kein Kabelsalat mehr hinter dem Monitor. Kein Suchen nach dem Ladekabel um Mitternacht. Einfach hinlegen. Fertig." },
+            { img: nexusWindow, srcSet: `${nexusWindow680} 680w, ${nexusWindow1200} 1200w, ${nexusWindow} 1600w`, sizes: "(max-width: 768px) 100vw, 650px", alt: "RAJ NEXUS 3-in-1 Ladestation auf einem Beistelltisch am Fenster", eyebrow: "Für die, die Qualität spüren", title: "Aluminium. Mattes Finish. Gewicht in der Hand.", copy: "CNC-gefräst aus einem Block. Mattes Finish, das Fingerabdrücke ignoriert. Manche Dinge erklären sich von selbst." },
           ].map((s: any, i) => {
             const imageRight = i % 2 === 1;
             return (
@@ -1303,7 +1324,7 @@ const NexusPage = () => {
           </div>
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="md:col-span-6">
-              <img src={nexusTopview} srcSet={`${nexusTopview680} 680w, ${nexusTopview1200} 1200w`} sizes="(max-width: 768px) 100vw, 650px" alt="RAJ NEXUS Top View" width={1200} height={1200} loading="lazy" decoding="async" className="w-full aspect-square object-cover rounded-sm" style={{ boxShadow: "0 30px 80px -30px rgba(26,26,26,0.25)" }} />
+              <img src={nexusTopview} srcSet={`${nexusTopview680} 680w, ${nexusTopview1200} 1200w`} sizes="(max-width: 768px) 100vw, 650px" alt="RAJ NEXUS 3-in-1 Ladestation mit iPhone, Apple Watch und AirPods von oben" width={1200} height={1200} loading="lazy" decoding="async" className="w-full aspect-square object-cover rounded-sm" style={{ boxShadow: "0 30px 80px -30px rgba(26,26,26,0.25)" }} />
             </div>
             <div className="md:col-span-6">
               <dl className="space-y-0">
