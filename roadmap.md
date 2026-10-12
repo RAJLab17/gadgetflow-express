@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Update /qi2-erklaert metadata and /vergleich Qi2 FAQ; audit original-Qi2 25W claims, refresh affected SEO copies and report changes; do not publish
 - [x] Update homepage title, MATRIX/APEX availability labels and AGB date; /, /produkte and /agb static SEO copies refreshed; browser and Googlebot checks passed, other 24 snapshots unchanged; not published
 - [x] Apply only requested origin wording polish; both comparison tables have one support row; four SEO copies refreshed; browser and Googlebot checks passed; not published
 - [x] Audit all origin claims; replace NEXUS/general Swiss design/development/precision claims; MATRIX-only and neutral technical mentions preserved; eight SEO copies refreshed; browser and Googlebot checks passed; every-occurrence report delivered; not published

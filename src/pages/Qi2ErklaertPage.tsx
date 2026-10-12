@@ -37,8 +37,8 @@ const Qi2ErklaertPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
     <PremiumPageLayout
-      title="Qi2 vs. Qi2.2 erklärt – Unterschiede fürs iPhone | RAJ"
-      metaDescription="Qi2 vs. Qi2.2 erklärt: Unterschiede, Vorteile und worauf du beim Kauf eines kabellosen Ladegeräts achten solltest. Stand April 2026."
+      title="Qi2 vs. Qi2.2: Der Unterschied einfach erklärt (2026) | RAJ"
+      metaDescription="Qi2.2 lädt iPhones mit bis zu 25 W statt 15 W. Was sich gegenüber Qi2 ändert, welche iPhones es unterstützen und worauf du beim Kauf achten musst."
       canonical="https://raj.ch/qi2-erklaert"
       eyebrow="Wissen"
       heading="Qi2 vs. Qi2.2 erklärt."
