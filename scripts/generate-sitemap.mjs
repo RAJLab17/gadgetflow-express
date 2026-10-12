@@ -140,7 +140,7 @@ const EXCLUDE = /(logo|icon|favicon|payment|\/pay|badge|qi2-mark|qi2-logo|social
 function routeModules() {
   const app = readFileSync(resolve(ROOT, "src/App.tsx"), "utf8");
   const comp = {};
-  for (const m of app.matchAll(/const\s+(\w+)\s*=\s*lazyWithRetry\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g)) comp[m[1]] = m[2];
+  for (const m of app.matchAll(/const\s+(\w+)\s*=\s*(?:lazy|lazyWithRetry)\(\s*\(\)\s*=>\s*import\(["']([^"']+)["']\)/g)) comp[m[1]] = m[2];
   for (const m of app.matchAll(/import\s+(\w+)\s+from\s+["'](\.\/pages\/[^"']+)["']/g)) comp[m[1]] ??= m[2];
   const routes = {};
   for (const m of app.matchAll(/<Route\s+path="([^"]+)"\s+element=\{<(\w+)\s*\/>\}/g)) {
