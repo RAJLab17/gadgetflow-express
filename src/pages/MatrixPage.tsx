@@ -14,7 +14,6 @@ import { trackAddToCart, trackBeginCheckout, trackViewItem } from "@/lib/ga-ecom
 import { readMatrixShellIntent } from "@/lib/matrixShell";
 
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
