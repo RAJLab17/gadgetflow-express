@@ -162,6 +162,7 @@ const AirpodsPage = () => {
     brand: { "@type": "Brand", name: "RAJ" },
     description: "Carbon Case für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.",
     sku: finish?.sku,
+    image: ["https://raj.ch/__l5e/assets-v1/b8f774f2-944d-45b9-b88a-e8f79c2a6af0/raj-airpods-share.jpg", "https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp", "https://raj.ch/__l5e/assets-v1/86343e5b-c604-48cd-a30f-f6da5bb5b062/airpods-onyx-original-bolt.webp"],
     url: "https://raj.ch/airpods-case",
     offers: {
       "@type": "Offer",
@@ -169,6 +170,24 @@ const AirpodsPage = () => {
       priceCurrency: "CHF",
       price: 35,
       availability: "https://schema.org/InStock",
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "CH",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 30,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
+      },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "CHF" },
+        shippingDestination: { "@type": "DefinedRegion", addressCountry: "CH" },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "d" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "d" },
+        },
+      },
     },
   };
 
