@@ -29,11 +29,15 @@ The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously 
 
 ## RAJ MATRIX Carbon iPhone Case (kaufbar)
 
-Premium iPhone case with a carbon-fibre surface for iPhone 18 Pro and iPhone 18 Pro Max. Slim, grippy, MagSafe-compatible, precise fit.
+Premium iPhone case with a Carbon-Finish for iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro and iPhone 18 Pro Max. Slim, grippy, MagSafe-compatible, precise fit.
 
 ### Key Points
-- **Für:** iPhone 18 Pro und iPhone 18 Pro Max
-- **Look:** Carbon-Optik, Hightech-Oberfläche, gold PVD accents
+- **Für:** iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro und iPhone 18 Pro Max
+- **Look:** Carbon-Finish, goldene Aluminium-Knöpfe
+- **Finishes:** Cherry Carbon und Onyx Carbon
+- **Price:** CHF 59
+- **Bundle:** iPhone case + MATRIX AirPods case: CHF 79
+- **Two Cases:** Two MATRIX iPhone cases: CHF 99
 - **MagSafe:** kompatibel — kabelloses Laden ohne Abnehmen der Hülle
 - **Passform:** präziser Sitz, erhöhter Rand für Display- und Kameraschutz
 - **Marke:** Schweizer Marke, Schweizer Support
@@ -42,13 +46,19 @@ Premium iPhone case with a carbon-fibre surface for iPhone 18 Pro and iPhone 18 
 - **Market:** Switzerland
 - **Currency:** CHF
 
+## RAJ MATRIX AirPods Case
+
+Carbon-Finish case for AirPods 4 & 5, available in Cherry Carbon and Onyx Carbon with the original gold lightning emblem.
+- **Price:** CHF 35
+- **Where to Buy:** https://raj.ch/airpods-case
+
 ## Produkt-Ecosystem
 
 RAJ plant Produktwelten für Apple-Nutzer:
 - **NEXUS** — 3-in-1 Qi2.2 Wireless Charger (verfügbar)
 - **MATRIX** — Carbon iPhone Cases (verfügbar) — https://raj.ch/matrix
 - **AURORA** — Carbon iPhone Cases, Roségold (in Vorbereitung)
-- **APEX** — Auto / Mobility MagSafe Lösungen (in Vorbereitung) — https://raj.ch/apex
+- **APEX** — MagSafe car mount, coming end of November, CHF 69 — https://raj.ch/apex
 - **ATLAS** — Travel & On-the-Go (geplant)
 - **ATELIER** — Workspace / Desk (geplant)
 
@@ -88,8 +98,11 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 ## Pages
 - [Startseite](https://raj.ch/): RAJ Brand & Produkte
 - [RAJ NEXUS](https://raj.ch/nexus): 3-in-1 Qi2.2 Wireless Charger
-- [RAJ MATRIX](https://raj.ch/matrix): Carbon iPhone Case für iPhone 18 Pro / Pro Max
-- [APEX](https://raj.ch/apex): Auto / Mobility MagSafe (in Vorbereitung)
+- [RAJ MATRIX](https://raj.ch/matrix): Carbon-Finish iPhone Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max, CHF 59; Bundle CHF 79; zwei Hüllen CHF 99
+- [MATRIX AirPods Case](https://raj.ch/airpods-case): Carbon-Finish Hülle für AirPods 4 & 5, CHF 35
+- [APEX](https://raj.ch/apex): MagSafe car mount, coming end of November, CHF 69
+- [Qi2 erklärt](https://raj.ch/qi2-erklaert): Qi2 vs. Qi2.2
+- [Vergleich](https://raj.ch/vergleich): RAJ NEXUS vs. Belkin vs. Anker
 - [Reviews](https://raj.ch/reviews): Kundenbewertungen
 - [Über RAJ](https://raj.ch/about): Marke, Mission, Schweizer Herkunft
 - [FAQ](https://raj.ch/faq): Häufige Fragen
@@ -124,4 +137,4 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 - **Response time:** within 24h, in German
 
 ## Last Updated
-19.09.2026
+12.10.2026
