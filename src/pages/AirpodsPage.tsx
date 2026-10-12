@@ -34,6 +34,9 @@ import { airpodsThumbs } from "@/assets/matrix/responsiveRenders";
 import cherryDesk from "@/assets/matrix/airpods-lifestyle/cherry-desk-full.webp.asset.json";
 import cherryDeskMobile from "@/assets/matrix/airpods-lifestyle/cherry-desk-mobile.webp.asset.json";
 import cherryDeskThumb from "@/assets/matrix/airpods-lifestyle/cherry-desk-thumb.webp.asset.json";
+import cherryDeskSecond from "@/assets/matrix/airpods-lifestyle/cherry-desk-second-full.webp.asset.json";
+import cherryDeskSecondMobile from "@/assets/matrix/airpods-lifestyle/cherry-desk-second-mobile.webp.asset.json";
+import cherryDeskSecondThumb from "@/assets/matrix/airpods-lifestyle/cherry-desk-second-thumb.webp.asset.json";
 import cherryBag from "@/assets/matrix/airpods-lifestyle/cherry-bag-full.webp.asset.json";
 import cherryBagMobile from "@/assets/matrix/airpods-lifestyle/cherry-bag-mobile.webp.asset.json";
 import cherryBagThumb from "@/assets/matrix/airpods-lifestyle/cherry-bag-thumb.webp.asset.json";
@@ -85,6 +88,7 @@ const FINISHES: Finish[] = [
       { src: airpodsCherryAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Cherry Carbon mit goldenem Blitz und Karabiner" },
       { src: cherryDesk.url, mobile: cherryDeskMobile.url, thumb: cherryDeskThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Holzschreibtisch neben Laptop und Notizbuch" },
       { src: cherryBag.url, mobile: cherryBagMobile.url, thumb: cherryBagThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Blitz in einer geöffneten Handtasche" },
+      { src: cherryDeskSecond.url, mobile: cherryDeskSecondMobile.url, thumb: cherryDeskSecondThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Blitz und Karabiner auf dem Holzschreibtisch neben einem Laptop" },
       { src: cherryBedside.url, mobile: cherryBedsideMobile.url, thumb: cherryBedsideThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Marmortablett neben einer Nachttischlampe" },
     ],
   },
