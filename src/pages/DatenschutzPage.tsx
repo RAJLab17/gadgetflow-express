@@ -135,7 +135,7 @@ const sections: Section[] = [
 const DatenschutzPage = () => {
   return (
     <PremiumPageLayout
-      title="Datenschutzerklärung – RAJ"
+      title="Datenschutzerklärung | RAJ GmbH, Schweizer Marke für Apple Zubehör"
       metaDescription="Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten."
       canonical="https://raj.ch/datenschutz"
       jsonLd={webPageJsonLd({ name: "Datenschutzerklärung – RAJ", description: "Datenschutzerklärung von RAJ. Informationen zur Erhebung und Bearbeitung personenbezogener Daten.", url: "https://raj.ch/datenschutz" })}

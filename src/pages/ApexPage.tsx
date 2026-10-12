@@ -400,7 +400,7 @@ const ApexPage = () => {
                   {[
                     { i: <RotateCcw className="w-3.5 h-3.5" />, t: "30 Tage Rückgabe" },
                     { i: <img src={logoTransparent} alt="" aria-hidden="true" className="w-4 h-4 object-contain" />, t: "Swiss Brand" },
-                    { i: <Truck className="w-3.5 h-3.5" />, t: "Lieferung in 2–3 Werktagen" },
+                    { i: <Truck className="w-3.5 h-3.5" />, t: "Lieferung ab Ende November 2026" },
                   ].map((b, i) => (
                     <span key={i} className="inline-flex items-center gap-1.5">
                       {b.i} {b.t}

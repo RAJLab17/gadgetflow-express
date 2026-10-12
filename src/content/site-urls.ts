@@ -211,7 +211,6 @@ export const STATIC_URLS: SitemapEntry[] = [
       },
     ],
   },
-  { path: "/shop", changefreq: "daily", priority: 0.9 },
   { path: "/produkte", changefreq: "weekly", priority: 0.9 },
   { path: "/matrix", changefreq: "weekly", priority: 0.85 },
   { path: "/airpods-case", changefreq: "weekly", priority: 0.85 },
@@ -307,7 +306,8 @@ export const STATIC_URLS: SitemapEntry[] = [
   // Blog index
   { path: "/blog", changefreq: "weekly", priority: 0.8 },
 
-  // /dokumente and /manuals intentionally omitted: the page is noindex.
+  // /manuals = Produktdokumentation (QR-Code auf der Verpackung). /dokumente ist Duplikat (canonical /manuals), nicht in der Sitemap.
+  { path: "/manuals", changefreq: "monthly", priority: 0.5 },
 
   // Rechtliches
   { path: "/agb", changefreq: "yearly", priority: 0.3 },

@@ -18,9 +18,11 @@ OUT = ROOT / "src/content/prerender-snapshot.json"
 
 paths = re.findall(r"<loc>https://raj\.ch([^<]*)</loc>", (ROOT / "public/sitemap.xml").read_text())
 paths = [p or "/" for p in dict.fromkeys(paths)]
+# Non-sitemap routes that still need their own static head (duplicates / noindex pages).
+paths += ["/dokumente", "/auto", "/launch", "/prelaunch", "/shop"]
 import sys
 if len(sys.argv) > 1:
-    paths = [p for p in paths if p in sys.argv[1:]]
+    paths = sys.argv[1:]  # explicit paths (may include non-sitemap duplicates)
 
 EXTRACT = r"""() => {
   const m = (sel, attr='content') => document.head.querySelector(sel)?.getAttribute(attr) || null;

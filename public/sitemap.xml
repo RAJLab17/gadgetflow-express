@@ -36,11 +36,6 @@
     </image:image>
   </url>
   <url>
-    <loc>https://raj.ch/shop</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
     <loc>https://raj.ch/produkte</loc>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
@@ -154,6 +149,11 @@
     <loc>https://raj.ch/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://raj.ch/manuals</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://raj.ch/agb</loc>

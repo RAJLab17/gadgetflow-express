@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FileDown } from "lucide-react";
 import Header from "@/components/Header";
@@ -32,17 +33,30 @@ const manuals = [
 ];
 
 const DokumentePage = () => {
+  const isManuals = useLocation().pathname.replace(/\/+$/, "") === "/manuals";
   return (
     <div className="min-h-screen bg-[#f0ede6] text-[#2b2725]">
-      <Helmet>
-        <title>Produktdokumentation – RAJ NEXUS</title>
-        <meta
-          name="description"
-          content="Benutzerhandbücher für den RAJ NEXUS 3-in-1 Wireless Charger in Deutsch, Englisch, Französisch und Italienisch zum Download."
-        />
-        <meta name="robots" content="noindex, follow" />
-        <link rel="canonical" href="https://raj.ch/dokumente" />
-      </Helmet>
+      {isManuals ? (
+        <Helmet>
+          <title>Bedienungsanleitung RAJ NEXUS | Produktdokumentation als PDF</title>
+          <meta
+            name="description"
+            content="Bedienungsanleitung für den RAJ NEXUS 3 in 1 Wireless Charger als PDF auf Deutsch, Englisch, Französisch und Italienisch."
+          />
+          <meta name="robots" content="index, follow" />
+          <link rel="canonical" href="https://raj.ch/manuals" />
+        </Helmet>
+      ) : (
+        <Helmet>
+          <title>Produktdokumentation – RAJ NEXUS</title>
+          <meta
+            name="description"
+            content="Benutzerhandbücher für den RAJ NEXUS 3-in-1 Wireless Charger in Deutsch, Englisch, Französisch und Italienisch zum Download."
+          />
+          <meta name="robots" content="noindex, follow" />
+          <link rel="canonical" href="https://raj.ch/manuals" />
+        </Helmet>
+      )}
 
       <Header />
 

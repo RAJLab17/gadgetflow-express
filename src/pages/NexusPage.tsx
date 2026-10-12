@@ -941,8 +941,8 @@ const NexusPage = () => {
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 16 }}>
                 {[
                   { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
-                  { i: <svg width="14" height="14" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 2 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
-                  { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–3 Werktagen" },
+                  { i: null, t: "Swiss Brand" },
+                  { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–4 Werktagen" },
                 ].map((b) => (
                   <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 11.5, color: H.text }}>
                     {b.i} {b.t}
@@ -1015,8 +1015,8 @@ const NexusPage = () => {
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14 }}>
               {[
                 { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
-                { i: <svg width="14" height="14" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 2 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
-                { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–3 Werktagen" },
+                { i: null, t: "Swiss Brand" },
+                { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–4 Werktagen" },
               ].map((b) => (
                 <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 11.5, color: H.text, boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
                   {b.i} {b.t}
@@ -1189,8 +1189,8 @@ const NexusPage = () => {
           <div className="flex flex-nowrap justify-center gap-1.5 mt-2 mb-2 px-1">
             {[
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
-              { i: <svg width="11" height="11" viewBox="0 0 32 32" style={{ display: "block", borderRadius: 1.5, flexShrink: 0 }} aria-hidden><rect width="32" height="32" fill="#D52B1E"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>, t: "Swiss Brand" },
-              { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🚚</span>, t: "2–3 Werktage" },
+              { i: null, t: "Swiss Brand" },
+              { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🚚</span>, t: "2–4 Werktage" },
             ].map((b) => (
               <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 7px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 9.5, color: H.text, whiteSpace: "nowrap", boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
                 {b.i} {b.t}

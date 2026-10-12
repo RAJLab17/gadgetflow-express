@@ -13,7 +13,7 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 const ImpressumPage = () => {
   return (
     <PremiumPageLayout
-      title="Impressum – RAJ"
+      title="Impressum | RAJ GmbH, Schweizer Marke für Apple Zubehör"
       metaDescription="Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise."
       canonical="https://raj.ch/impressum"
       jsonLd={webPageJsonLd({ name: "Impressum – RAJ", description: "Impressum der RAJ – Kontaktdaten, Unternehmensangaben und rechtliche Hinweise.", url: "https://raj.ch/impressum" })}
