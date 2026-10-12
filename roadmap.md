@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Correct outdated iPhone wattage for iOS 26, add 25 W model paragraph, update NEXUS/FAQ structured data and llms.txt, refresh affected crawler copies and verify remaining phrase matches; do not publish
 - [x] Update only four /qi2-erklaert head tags, /vergleich FAQ/technology/Belkin standard label and /faq incorrect original-Qi2 power answer; three SEO copies refreshed, browser/Googlebot and zero old-phrase checks passed; correct product power labels preserved, other 24 copies unchanged; not published
 - [x] Update homepage title, MATRIX/APEX availability labels and AGB date; /, /produkte and /agb static SEO copies refreshed; browser and Googlebot checks passed, other 24 snapshots unchanged; not published
 - [x] Apply only requested origin wording polish; both comparison tables have one support row; four SEO copies refreshed; browser and Googlebot checks passed; not published
