@@ -29,12 +29,6 @@ interface ReviewModalProps {
   productId?: string;
 }
 
-const extFor = (type: string) => {
-  if (type === "image/png") return "png";
-  if (type === "image/webp") return "webp";
-  return "jpg";
-};
-
 const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus" }: ReviewModalProps) => {
   const [rating, setRating] = useState(initialRating);
   const [name, setName] = useState("");
