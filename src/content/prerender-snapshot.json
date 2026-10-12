@@ -1477,7 +1477,7 @@
    },
    {
     "tag": "li",
-    "text": "Ausprobieren erlaubt 30 Tage Rückgabe – auch wenn du die Hülle ausprobiert hast, solange sie ohne Gebrauchsspuren und in der Originalverpackung ist."
+    "text": "Ausprobieren erlaubt 30 Tage Rückgabe, auch wenn du das Produkt ausprobiert hast, solange es ohne Gebrauchsspuren, vollständig und in der Originalverpackung ist."
    },
    {
     "tag": "p",
@@ -1485,7 +1485,7 @@
    },
    {
     "tag": "p",
-    "text": "30 Tage Rückgabe – auch wenn du die Hülle ausprobiert hast, solange sie ohne Gebrauchsspuren und in der Originalverpackung ist."
+    "text": "30 Tage Rückgabe, auch wenn du das Produkt ausprobiert hast, solange es ohne Gebrauchsspuren, vollständig und in der Originalverpackung ist."
    },
    {
     "tag": "li",
@@ -1955,7 +1955,7 @@
    },
    {
     "tag": "p",
-    "text": "Voraussetzung für die Rückgabe ist, dass sich die Ware in unbenutztem, unbeschädigtem Zustand und – sofern möglich – in der Originalverpackung befindet."
+    "text": "Die Ware kann innert 30 Tagen zurückgegeben werden, auch wenn sie ausprobiert wurde, sofern sie keine Gebrauchsspuren aufweist, vollständig ist und sich in der Originalverpackung befindet."
    },
    {
     "tag": "p",
@@ -2012,6 +2012,42 @@
    {
     "tag": "p",
     "text": "Angaben zur Kompatibilität mit Endgeräten (z. B. Smartphones, Smartwatches oder Kopfhörern) basieren auf den jeweils geltenden Standards und den Herstellerangaben der Endgeräte."
+   },
+   {
+    "tag": "h2",
+    "text": "11. DATENSCHUTZ"
+   },
+   {
+    "tag": "p",
+    "text": "Die Verarbeitung personenbezogener Daten erfolgt gemäss unserer Datenschutzerklärung, welche integraler Bestandteil dieser AGB ist."
+   },
+   {
+    "tag": "h2",
+    "text": "12. ÄNDERUNGEN DER AGB"
+   },
+   {
+    "tag": "p",
+    "text": "Die RAJ GmbH behält sich das Recht vor, diese AGB jederzeit anzupassen. Massgeblich ist die jeweils zum Zeitpunkt der Bestellung gültige Fassung."
+   },
+   {
+    "tag": "h2",
+    "text": "13. ANWENDBARES RECHT UND GERICHTSSTAND"
+   },
+   {
+    "tag": "p",
+    "text": "Es gilt ausschliesslich schweizerisches Recht unter Ausschluss des UN‑Kaufrechts (CISG)."
+   },
+   {
+    "tag": "p",
+    "text": "Gerichtsstand ist – soweit gesetzlich zulässig – der Sitz der RAJ GmbH."
+   },
+   {
+    "tag": "h2",
+    "text": "14. SALVATORISCHE KLAUSEL"
+   },
+   {
+    "tag": "p",
+    "text": "Sollte eine Bestimmung dieser AGB ganz oder teilweise unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt."
    }
   ]
  },
