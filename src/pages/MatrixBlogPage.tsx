@@ -125,6 +125,10 @@ const MatrixBlogPage = () => {
           und Schutz – sondern beides in einer Hülle, die zu deinem Apple-Ökosystem passt.
         </P>
 
+        <P>
+          Weiterlesen: <Link to="/blog/iphone-17-pro-huelle-iphone-18-pro" className="text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors">Passt eine iPhone 17 Pro Hülle aufs iPhone 18 Pro?</Link>
+        </P>
+
         <div className="my-10">
           <Link
             to="/matrix"

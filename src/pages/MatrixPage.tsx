@@ -1296,6 +1296,9 @@ const MatrixPage = () => {
           </section>
 
           <ProductFaqSection title="Fragen zur MATRIX" items={MATRIX_FAQ} />
+          <div className="container mx-auto px-6 max-w-3xl pb-10 text-[15px] font-light">
+            <Link to="/blog/iphone-17-pro-huelle-iphone-18-pro" className="text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors">Passt eine iPhone 17 Pro Hülle aufs iPhone 18 Pro?</Link>
+          </div>
 
           {/* Matrix-Tabelle */}
           <section className="border-t" style={{ borderColor: H.line }}>

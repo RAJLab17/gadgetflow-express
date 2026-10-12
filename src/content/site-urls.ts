@@ -54,6 +54,16 @@ export interface BlogArticle {
 // ---------------------------------------------------------------------------
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
+    slug: "iphone-17-pro-huelle-iphone-18-pro",
+    path: "/blog/iphone-17-pro-huelle-iphone-18-pro",
+    title: "Passt eine iPhone 17 Pro Hülle auf das iPhone 18 Pro?",
+    excerpt:
+      "Kurz gesagt: Bei der RAJ MATRIX ja. iPhone 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max. Worauf du bei anderen Hüllen achten musst.",
+    date: "12.10.2026",
+    dateISO: "2026-10-12",
+    priority: 0.85,
+  },
+  {
     slug: "nexus-iphone-18-ladegeraet",
     path: "/blog/nexus-iphone-18-ladegeraet",
     title: "RAJ NEXUS – 3-in-1 Ladestation fürs iPhone 18 (Qi2.2, 25W)",
