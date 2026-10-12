@@ -224,10 +224,10 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/10f5fd9d-a2fd-43b0-a87f-eef1df359412/airpods-cherry-premium.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/85b897bc-20a7-43f1-b648-9423827acb9b/airpods-onyx-original-bolt.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/04e8ab3c-4bf8-41f3-905b-becce8f82b2c/airpods-onyx-premium.webp</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://raj.ch/__l5e/assets-v1/350b4491-4a65-45ae-afd0-26885cd5158b/17-cherry-cherry-cosmic-orange-mobile.webp</image:loc>
@@ -267,6 +267,12 @@
     </image:image>
     <image:image>
       <image:loc>https://raj.ch/__l5e/assets-v1/fa0bc3a1-6ade-416d-9fc4-fe78a530407e/onyx-darkcherry-mobile.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/85b897bc-20a7-43f1-b648-9423827acb9b/airpods-onyx-original-bolt.webp</image:loc>
     </image:image>
   </url>
   <url>
