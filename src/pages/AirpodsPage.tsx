@@ -43,6 +43,18 @@ import cherryBagThumb from "@/assets/matrix/airpods-lifestyle/cherry-bag-thumb.w
 import cherryBedside from "@/assets/matrix/airpods-lifestyle/cherry-bedside-full.webp.asset.json";
 import cherryBedsideMobile from "@/assets/matrix/airpods-lifestyle/cherry-bedside-mobile.webp.asset.json";
 import cherryBedsideThumb from "@/assets/matrix/airpods-lifestyle/cherry-bedside-thumb.webp.asset.json";
+import onyxDesk from "@/assets/matrix/airpods-lifestyle/onyx-desk-full.webp.asset.json";
+import onyxDeskMobile from "@/assets/matrix/airpods-lifestyle/onyx-desk-mobile.webp.asset.json";
+import onyxDeskThumb from "@/assets/matrix/airpods-lifestyle/onyx-desk-thumb.webp.asset.json";
+import onyxBag from "@/assets/matrix/airpods-lifestyle/onyx-bag-full.webp.asset.json";
+import onyxBagMobile from "@/assets/matrix/airpods-lifestyle/onyx-bag-mobile.webp.asset.json";
+import onyxBagThumb from "@/assets/matrix/airpods-lifestyle/onyx-bag-thumb.webp.asset.json";
+import onyxCafe from "@/assets/matrix/airpods-lifestyle/onyx-cafe-full.webp.asset.json";
+import onyxCafeMobile from "@/assets/matrix/airpods-lifestyle/onyx-cafe-mobile.webp.asset.json";
+import onyxCafeThumb from "@/assets/matrix/airpods-lifestyle/onyx-cafe-thumb.webp.asset.json";
+import onyxCar from "@/assets/matrix/airpods-lifestyle/onyx-car-full.webp.asset.json";
+import onyxCarMobile from "@/assets/matrix/airpods-lifestyle/onyx-car-mobile.webp.asset.json";
+import onyxCarThumb from "@/assets/matrix/airpods-lifestyle/onyx-car-thumb.webp.asset.json";
 
 const H = {
   bg: "#faf9f7",
@@ -101,7 +113,13 @@ const FINISHES: Finish[] = [
     price: AIRPODS_PRICE,
     variantId: AIRPODS_VARIANT_IDS.onyx,
     sku: "RAJ-MTX-AP4-ONX",
-    slides: [{ src: airpodsOnyxAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Onyx Carbon mit goldenem Blitz und Karabiner" }],
+    slides: [
+      { src: airpodsOnyxAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Onyx Carbon mit goldenem Blitz und Karabiner" },
+      { src: onyxDesk.url, mobile: onyxDeskMobile.url, thumb: onyxDeskThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Blitz und Karabiner auf einem Holzschreibtisch neben Sonnenbrille und Schlüssel" },
+      { src: onyxBag.url, mobile: onyxBagMobile.url, thumb: onyxBagThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Karabiner in einer braunen Ledertasche neben Notizbuch und Stift" },
+      { src: onyxCafe.url, mobile: onyxCafeMobile.url, thumb: onyxCafeThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Blitz auf einem Marmortisch neben einer Kaffeetasse" },
+      { src: onyxCar.url, mobile: onyxCarMobile.url, thumb: onyxCarThumb.url, alt: "RAJ MATRIX AirPods Hülle in Onyx Carbon mit goldenem Karabiner auf der Mittelkonsole eines Autos" },
+    ],
   },
 ];
 
