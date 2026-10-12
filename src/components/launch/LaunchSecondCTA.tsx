@@ -144,7 +144,7 @@ const LaunchSecondCTA = ({ onSignupSuccess }: LaunchSecondCTAProps) => {
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : (
                   <>
-                    Founder Platz sichern <span aria-hidden>→</span>
+                    {t("hero.cta.primary")} <span aria-hidden>→</span>
                   </>
                 )}
               </button>
