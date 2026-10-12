@@ -46,7 +46,7 @@ const VersandPage = () => {
           </div>
           <ul>
             <Item icon={Clock} title="30 Tage Rückgaberecht" desc="Ab Erhalt der Ware – unkompliziert und fair." />
-            <Item icon={Package} title="Ausprobieren erlaubt" desc="30 Tage Rückgabe – auch wenn du die Hülle ausprobiert hast, solange sie ohne Gebrauchsspuren und in der Originalverpackung ist." />
+            <Item icon={Package} title="Ausprobieren erlaubt" desc="30 Tage Rückgabe, auch wenn du das Produkt ausprobiert hast, solange es ohne Gebrauchsspuren, vollständig und in der Originalverpackung ist." />
             <Item icon={ShieldCheck} title="Schnelle Rückerstattung" desc="Über das ursprüngliche Zahlungsmittel innerhalb von 3–5 Werktagen." />
             <Item
               icon={Mail}

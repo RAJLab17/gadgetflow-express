@@ -46,7 +46,7 @@ const sections = [
     title: "7. Rücktritts‑ und Rückgaberecht",
     content: [
       "Der Kunde hat das Recht, innerhalb von 30 Tagen nach Erhalt der Ware vom Kaufvertrag zurückzutreten.",
-      "Voraussetzung für die Rückgabe ist, dass sich die Ware in unbenutztem, unbeschädigtem Zustand und – sofern möglich – in der Originalverpackung befindet.",
+      "Die Ware kann innert 30 Tagen zurückgegeben werden, auch wenn sie ausprobiert wurde, sofern sie keine Gebrauchsspuren aufweist, vollständig ist und sich in der Originalverpackung befindet.",
       "Vom Rücktrittsrecht ausgeschlossen sind individuell angefertigte oder personalisierte Produkte, sofern diese entsprechend gekennzeichnet sind.",
       "Die Rückerstattung erfolgt innerhalb von 5 Werktagen nach Prüfung der zurückgesendeten Ware über das ursprünglich verwendete Zahlungsmittel.",
       "Die Rücksendkosten trägt der Kunde, sofern nicht anders vereinbart.",
