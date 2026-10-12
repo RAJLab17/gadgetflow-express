@@ -31,6 +31,15 @@ import {
 import airpodsCherryAsset from "@/assets/matrix/schema/airpods-cherry-premium.webp.asset.json";
 import airpodsOnyxAsset from "@/assets/matrix/schema/airpods-onyx-premium.webp.asset.json";
 import { airpodsThumbs } from "@/assets/matrix/responsiveRenders";
+import cherryDesk from "@/assets/matrix/airpods-lifestyle/cherry-desk-full.webp.asset.json";
+import cherryDeskMobile from "@/assets/matrix/airpods-lifestyle/cherry-desk-mobile.webp.asset.json";
+import cherryDeskThumb from "@/assets/matrix/airpods-lifestyle/cherry-desk-thumb.webp.asset.json";
+import cherryBag from "@/assets/matrix/airpods-lifestyle/cherry-bag-full.webp.asset.json";
+import cherryBagMobile from "@/assets/matrix/airpods-lifestyle/cherry-bag-mobile.webp.asset.json";
+import cherryBagThumb from "@/assets/matrix/airpods-lifestyle/cherry-bag-thumb.webp.asset.json";
+import cherryBedside from "@/assets/matrix/airpods-lifestyle/cherry-bedside-full.webp.asset.json";
+import cherryBedsideMobile from "@/assets/matrix/airpods-lifestyle/cherry-bedside-mobile.webp.asset.json";
+import cherryBedsideThumb from "@/assets/matrix/airpods-lifestyle/cherry-bedside-thumb.webp.asset.json";
 
 const H = {
   bg: "#faf9f7",
@@ -44,7 +53,7 @@ const H = {
 type FinishId = "cherry" | "onyx";
 type ModelId = "17pro" | "17promax" | "18pro" | "18promax";
 
-interface Slide { src: string; alt: string }
+interface Slide { src: string; alt: string; mobile?: string; thumb?: string }
 
 interface Finish {
   id: FinishId;
@@ -72,7 +81,12 @@ const FINISHES: Finish[] = [
     price: AIRPODS_PRICE,
     variantId: AIRPODS_VARIANT_IDS.cherry,
     sku: "RAJ-MTX-AP4-CHY",
-    slides: [{ src: airpodsCherryAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Cherry Carbon mit goldenem Blitz und Karabiner" }],
+    slides: [
+      { src: airpodsCherryAsset.url, alt: "RAJ MATRIX AirPods 4 & 5 Hülle in Cherry Carbon mit goldenem Blitz und Karabiner" },
+      { src: cherryDesk.url, mobile: cherryDeskMobile.url, thumb: cherryDeskThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Holzschreibtisch neben Laptop und Notizbuch" },
+      { src: cherryBag.url, mobile: cherryBagMobile.url, thumb: cherryBagThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Blitz in einer geöffneten Handtasche" },
+      { src: cherryBedside.url, mobile: cherryBedsideMobile.url, thumb: cherryBedsideThumb.url, alt: "RAJ MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner auf einem Marmortablett neben einer Nachttischlampe" },
+    ],
   },
   {
     id: "onyx",
@@ -101,13 +115,20 @@ const Gallery = ({ finish }: { finish: Finish }) => {
   const slides = finish.slides;
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [prefetchThrough, setPrefetchThrough] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(() => new Set());
 
   useEffect(() => {
     setActive(0);
+    setPrefetchThrough(0);
     scrollerRef.current?.scrollTo({ left: 0 });
   }, [finish.id]);
 
-  const goTo = (i: number) => scrollerRef.current?.scrollTo({ left: i * (scrollerRef.current?.clientWidth ?? 0), behavior: "smooth" });
+  const goTo = (i: number) => {
+    setPrefetchThrough((current) => Math.max(current, i + 1));
+    scrollerRef.current?.scrollTo({ left: i * (scrollerRef.current?.clientWidth ?? 0), behavior: "smooth" });
+  };
+  const preloadNext = () => setPrefetchThrough((current) => Math.max(current, active + 1));
 
   return (
     <div>
@@ -115,8 +136,14 @@ const Gallery = ({ finish }: { finish: Finish }) => {
         ref={scrollerRef}
         onScroll={() => {
           const el = scrollerRef.current;
-          if (el) setActive(Math.max(0, Math.min(slides.length - 1, Math.round(el.scrollLeft / el.clientWidth))));
+          if (el) {
+            const next = Math.max(0, Math.min(slides.length - 1, Math.round(el.scrollLeft / el.clientWidth)));
+            setActive(next);
+            if (next > 0) setPrefetchThrough((current) => Math.max(current, next + 1));
+          }
         }}
+        onPointerDown={preloadNext}
+        onTouchStart={preloadNext}
         className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         aria-roledescription="carousel"
       >
@@ -125,13 +152,21 @@ const Gallery = ({ finish }: { finish: Finish }) => {
             <img
               data-airpods-hero={i === 0 ? "" : undefined}
               src={slide.src}
+               srcSet={slide.mobile ? `${slide.mobile} 480w, ${slide.src} 768w` : undefined}
+               sizes="(max-width: 767px) calc(100vw - 32px), 480px"
               alt={slide.alt}
               width={1254}
               height={1254}
-              loading={i === 0 ? "eager" : "lazy"}
+               loading={i <= prefetchThrough ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
-              className="absolute inset-0 h-full w-full object-cover"
+               onLoad={() => setLoadedImages((current) => new Set(current).add(slide.src))}
+               onError={() => setLoadedImages((current) => {
+                 const next = new Set(current);
+                 next.delete(slide.src);
+                 return next;
+               })}
+               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 motion-reduce:transition-none ${loadedImages.has(slide.src) ? "opacity-100" : "opacity-0"}`}
             />
           </div>
         ))}
@@ -140,13 +175,13 @@ const Gallery = ({ finish }: { finish: Finish }) => {
         <>
           <div className="flex justify-center gap-1.5 pb-2 pt-1 lg:hidden">
             {slides.map((_, i) => (
-              <button key={i} type="button" aria-label={`Bild ${i + 1}`} onClick={() => goTo(i)} className="h-1.5 rounded-full transition-all" style={{ width: i === active ? 18 : 6, background: i === active ? H.gold : H.line }} />
+              <Button key={i} type="button" variant="ghost" aria-label={`Bild ${i + 1}`} aria-pressed={active === i} onClick={() => goTo(i)} className={`h-1.5 min-h-0 rounded-full p-0 transition-all ${i === active ? "w-[18px] bg-primary" : "w-1.5 bg-border"}`} />
             ))}
           </div>
           <div className="mt-4 hidden flex-wrap justify-center gap-2 pb-3 lg:flex" aria-label="Produktbilder">
             {slides.map((slide, i) => (
               <Button key={slide.src} type="button" variant="outline" aria-label={`Bild ${i + 1}`} aria-pressed={active === i} onClick={() => goTo(i)} className="h-[68px] w-[68px] overflow-hidden rounded-lg p-0" style={{ borderColor: active === i ? H.gold : H.line, background: "#fff" }}>
-                <img src={slide.src} alt={`Vorschau: ${slide.alt}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                <img src={slide.thumb ?? slide.src} alt={`Vorschau: ${slide.alt}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
               </Button>
             ))}
           </div>
