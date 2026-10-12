@@ -17,9 +17,29 @@ const Schema = z.object({
   rating: z.number().int().min(1).max(5),
   title: z.string().trim().min(3).max(120),
   comment: z.string().trim().min(20).max(1500),
-  photo_path: z.string().trim().max(300).regex(/^pending\/[a-zA-Z0-9._-]+$/).optional().nullable(),
   website: z.string().max(0).optional(), // honeypot
 })
+
+
+const MAX_BYTES = 10 * 1024 * 1024
+const MAX_PHOTOS = 5
+const RATE_LIMIT = 10
+const RATE_WINDOW_MS = 10 * 60 * 1000
+
+// Detect image type from file content (magic bytes), not from name/extension.
+function sniffImage(b: Uint8Array): { ext: string; mime: string } | null {
+  if (b.length >= 3 && b[0] === 0xff && b[1] === 0xd8 && b[2] === 0xff) return { ext: 'jpg', mime: 'image/jpeg' }
+  if (b.length >= 8 && b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4e && b[3] === 0x47 && b[4] === 0x0d && b[5] === 0x0a && b[6] === 0x1a && b[7] === 0x0a) return { ext: 'png', mime: 'image/png' }
+  const ascii = (o: number, n: number) => String.fromCharCode(...b.slice(o, o + n))
+  if (b.length >= 12 && ascii(0, 4) === 'RIFF' && ascii(8, 4) === 'WEBP') return { ext: 'webp', mime: 'image/webp' }
+  if (b.length >= 12 && ascii(4, 4) === 'ftyp' && ['heic', 'heix', 'heim', 'heis', 'hevc', 'hevx', 'mif1', 'msf1', 'heif'].includes(ascii(8, 4))) return { ext: 'heic', mime: 'image/heic' }
+  return null
+}
+
+async function hashIp(ip: string) {
+  const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('raj-review:' + ip))
+  return Array.from(new Uint8Array(d)).map((x) => x.toString(16).padStart(2, '0')).join('')
+}
 
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -78,13 +98,49 @@ Deno.serve(async (req) => {
   if (req.method !== 'POST') return json({ error: 'method_not_allowed' }, 405)
 
   try {
-    const raw = await req.json().catch(() => ({}))
+    let raw: Record<string, unknown> = {}
+    const files: File[] = []
+    const ctype = req.headers.get('content-type') ?? ''
+    if (ctype.includes('multipart/form-data')) {
+      const form = await req.formData().catch(() => null)
+      if (!form) return json({ error: 'invalid_input' }, 400)
+      for (const [k, v] of form.entries()) {
+        if (k === 'photos' && v instanceof File) files.push(v)
+        else if (typeof v === 'string') raw[k] = k === 'rating' ? Number(v) : v
+      }
+    } else {
+      raw = await req.json().catch(() => ({}))
+    }
     const parsed = Schema.safeParse(raw)
     if (!parsed.success) {
       return json({ error: 'invalid_input', issues: parsed.error.flatten().fieldErrors }, 400)
     }
     const data = parsed.data
     const supabase = createClient(SUPABASE_URL, SERVICE_ROLE)
+
+    // Validate photos before anything is stored
+    if (files.length > MAX_PHOTOS) return json({ error: 'too_many_photos' }, 400)
+    const photos: { bytes: Uint8Array; ext: string; mime: string }[] = []
+    for (const f of files) {
+      if (f.size > MAX_BYTES) return json({ error: 'photo_too_large' }, 400)
+      const bytes = new Uint8Array(await f.arrayBuffer())
+      const kind = sniffImage(bytes)
+      if (!kind) return json({ error: 'invalid_photo_type' }, 400)
+      photos.push({ bytes, ...kind })
+    }
+    if (photos.length) {
+      const ip = (req.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || req.headers.get('cf-connecting-ip') || 'unknown'
+      const ipHash = await hashIp(ip)
+      const since = new Date(Date.now() - RATE_WINDOW_MS).toISOString()
+      const { count } = await supabase
+        .from('review_upload_attempts')
+        .select('id', { count: 'exact', head: true })
+        .eq('ip_hash', ipHash)
+        .gte('created_at', since)
+      if ((count ?? 0) + photos.length > RATE_LIMIT) return json({ error: 'rate_limited' }, 429)
+      await supabase.from('review_upload_attempts').insert(photos.map(() => ({ ip_hash: ipHash })))
+      await supabase.from('review_upload_attempts').delete().lt('created_at', new Date(Date.now() - 24 * 3600 * 1000).toISOString())
+    }
 
     const { data: orderRow } = await supabase
       .from('preorders')
@@ -104,7 +160,7 @@ Deno.serve(async (req) => {
         comment: data.comment,
         status: 'pending',
         verified_purchase: verifiedPurchase,
-        photo_path: data.photo_path ?? null,
+        photo_path: null,
       })
       .select('id')
       .single()
@@ -113,11 +169,29 @@ Deno.serve(async (req) => {
       return json({ error: 'insert_failed', details: insertErr?.message }, 500)
     }
 
+    // Store photos only together with the saved review; random names, no overwrite
+    if (photos.length) {
+      const paths: string[] = []
+      for (const p of photos) {
+        const path = `pending/${crypto.randomUUID()}.${p.ext}`
+        const { error: upErr } = await supabase.storage.from('review-photos').upload(path, p.bytes, { contentType: p.mime, upsert: false })
+        if (upErr) {
+          if (paths.length) await supabase.storage.from('review-photos').remove(paths)
+          await supabase.from('reviews').delete().eq('id', review.id)
+          return json({ error: 'photo_upload_failed' }, 500)
+        }
+        paths.push(path)
+      }
+      await supabase.from('reviews').update({ photo_path: paths[0] }).eq('id', review.id)
+    }
+
     const { error: emailErr } = await supabase
       .from('review_emails')
       .insert({ review_id: review.id, email: data.customer_email })
 
     if (emailErr) {
+      const { data: r } = await supabase.from('reviews').select('photo_path').eq('id', review.id).maybeSingle()
+      if (r?.photo_path) await supabase.storage.from('review-photos').remove([r.photo_path])
       await supabase.from('reviews').delete().eq('id', review.id)
       return json({ error: 'email_store_failed', details: emailErr.message }, 500)
     }

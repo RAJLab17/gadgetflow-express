@@ -239,6 +239,24 @@ export type Database = {
           },
         ]
       }
+      review_upload_attempts: {
+        Row: {
+          created_at: string
+          id: string
+          ip_hash: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          ip_hash: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          ip_hash?: string
+        }
+        Relationships: []
+      }
       reviews: {
         Row: {
           comment: string

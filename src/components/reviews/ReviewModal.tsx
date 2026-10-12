@@ -29,12 +29,6 @@ interface ReviewModalProps {
   productId?: string;
 }
 
-const extFor = (type: string) => {
-  if (type === "image/png") return "png";
-  if (type === "image/webp") return "webp";
-  return "jpg";
-};
-
 const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus" }: ReviewModalProps) => {
   const [rating, setRating] = useState(initialRating);
   const [name, setName] = useState("");
@@ -92,19 +86,6 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
     setPhotoPreview(URL.createObjectURL(file));
   };
 
-  const uploadPhoto = async (): Promise<string | null> => {
-    if (!photoFile) return null;
-    const ext = extFor(photoFile.type);
-    const path = `pending/${crypto.randomUUID()}.${ext}`;
-    const { error } = await supabase.storage.from("review-photos").upload(path, photoFile, {
-      cacheControl: "3600",
-      upsert: false,
-      contentType: photoFile.type,
-    });
-    if (error) throw new Error(`Foto-Upload fehlgeschlagen: ${error.message}`);
-    return path;
-  };
-
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const parsed = schema.safeParse({
@@ -125,19 +106,16 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
     }
     setSubmitting(true);
     try {
-      const photo_path = await uploadPhoto();
-      const { error } = await supabase.functions.invoke("submit-review", {
-        body: {
-          product_id: productId,
-          customer_name: parsed.data.customer_name,
-          customer_email: parsed.data.customer_email,
-          rating: parsed.data.rating,
-          title: parsed.data.title,
-          comment: parsed.data.comment,
-          website: parsed.data.website,
-          photo_path,
-        },
-      });
+      const form = new FormData();
+      form.append("product_id", productId);
+      form.append("customer_name", parsed.data.customer_name);
+      form.append("customer_email", parsed.data.customer_email);
+      form.append("rating", String(parsed.data.rating));
+      form.append("title", parsed.data.title);
+      form.append("comment", parsed.data.comment);
+      if (parsed.data.website) form.append("website", parsed.data.website);
+      if (photoFile) form.append("photos", photoFile);
+      const { error } = await supabase.functions.invoke("submit-review", { body: form });
       if (error) throw error;
       toast({
         title: "Danke für deine Bewertung!",
