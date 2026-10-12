@@ -1,0 +1,64 @@
+export type FaqItem = { q: string; a: string };
+
+/** Fakten nur aus raj.ch / Shopify / FAQ. Offene Punkte sind als TODO markiert. */
+export const MATRIX_FAQ: FaqItem[] = [
+  {
+    q: "Passt die MATRIX auf iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max?",
+    a: "Die RAJ MATRIX Carbon-Hülle passt auf das iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Die 17er- und die 18er-Generation nutzen dieselbe Hülle: Die Pro-Version passt auf iPhone 17 Pro und 18 Pro, die Pro-Max-Version auf iPhone 17 Pro Max und 18 Pro Max. Wähle oben einfach dein Modell aus, damit Tasten und Kamera-Aussparungen exakt sitzen. Im Kameraplateau und in den Aussparungen bleibt die Farbe deines iPhones sichtbar, sodass die Hülle zu jeder Gerätefarbe passt. Für andere iPhone-Modelle bieten wir die MATRIX derzeit nicht an.",
+  },
+  {
+    q: "Funktioniert MagSafe und Qi2.2 kabelloses Laden mit der Hülle?",
+    a: "Die RAJ MATRIX Carbon-Hülle unterstützt MagSafe und Qi2.2 vollständig. Ein eingebauter N52-Magnetring hält dein iPhone sicher auf MagSafe-Ladegeräten, Haltern und im Auto. Kabelloses Laden funktioniert direkt durch die Hülle, mit Qi2.2 und 25 W ohne Verlust. Du musst die Hülle zum Laden also nie abnehmen. Der Magnetring ist zudem auf die Ladestation RAJ NEXUS und die Autohalterung RAJ APEX abgestimmt, damit das iPhone immer in derselben Position einrastet. Was Qi2.2 genau bedeutet, erklären wir in unserem Qi2.2-Ratgeber.",
+  },
+  {
+    q: "Woraus besteht die Hülle?",
+    a: "Die RAJ MATRIX Carbon-Hülle hat ein Carbon-Finish, wahlweise in Cherry Carbon oder Onyx Carbon. Die Knöpfe sind aus Aluminium und goldeloxiert, der Kameraring ist aus Metall. Im Inneren sitzt ein N52-Magnetring für MagSafe und Qi2.2. Grundmaterial des Hüllenkörpers: [TODO: Stefan bestätigen]. Als Erkennungszeichen trägt jede Hülle den goldenen RAJ Blitz unten links. Durch das Kameraplateau bleibt die Originalfarbe deines iPhones sichtbar, sodass Hülle und Gerät optisch zusammenspielen.",
+  },
+  {
+    q: "Wie gut schützt sie Kamera und Display?",
+    a: "Die RAJ MATRIX Carbon-Hülle schützt die Kamera mit einem Kameraring aus Metall, der das Kameraplateau umrahmt. Ob und wie hoch der Rand über Display und Kameralinsen steht und wie sturzfest die Hülle ist: [TODO: Stefan bestätigen]. Die Hülle ist passgenau für das gewählte Modell gefertigt, sodass Tasten und Kamera-Aussparungen exakt sitzen. Die Tasten sind als goldeloxierte Aluminium-Knöpfe ausgeführt. Der MagSafe-Magnetring bleibt auch mit Hülle voll nutzbar. Wenn dich der Schutz im Alltag nicht überzeugt, kannst du die Hülle innerhalb von 30 Tagen zurückgeben.",
+  },
+  {
+    q: "Cherry Carbon oder Onyx Carbon – welche Farbe?",
+    a: "Die RAJ MATRIX Carbon-Hülle gibt es in zwei Finishes: Cherry Carbon und Onyx Carbon. Cherry Carbon ist ein warmer Kirschton mit sichtbarer Carbon-Struktur, Onyx Carbon ein dunkles, fast schwarzes Finish. Beide Varianten haben goldeloxierte Aluminium-Knöpfe sowie den goldenen RAJ Blitz und kosten gleich viel, CHF 59.–. Da die Gerätefarbe im Kameraplateau sichtbar bleibt, lohnt sich ein Blick auf die Vorschau oben: Dort siehst du jede Kombination mit deiner iPhone-Farbe. Die passende MATRIX AirPods-Hülle gibt es in denselben zwei Finishes.",
+  },
+  {
+    q: "Wie schnell wird geliefert und was kostet der Versand?",
+    a: "Die RAJ MATRIX Carbon-Hülle wird aktuell in 5–8 Tagen versendet, denn eine neue Lieferung ist unterwegs. Der Versand innerhalb der Schweiz ist kostenlos, ohne Mindestbestellwert. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du zwei Hüllen oder die Hülle zusammen mit der AirPods-Hülle, wird der Bundle-Preis im Checkout automatisch berechnet. Alle Details zu Lieferung und Rückgabe findest du auf unserer Seite zu Versand und Rückgabe.",
+  },
+  {
+    q: "Kann ich die Hülle zurückgeben?",
+    a: "Die RAJ MATRIX Carbon-Hülle kannst du innerhalb von 30 Tagen ab Erhalt zurückgeben. Laut unseren Rückgabebedingungen muss die Ware unbenutzt, unbeschädigt und im Originalzustand zurückgesendet werden. Ob du die Hülle in dieser Zeit am iPhone testen darfst: [TODO: Stefan bestätigen]. Die Rückerstattung erfolgt über das ursprüngliche Zahlungsmittel innerhalb von 3–5 Werktagen. Wie du eine Rückgabe meldest, steht auf unserer Seite zu Versand und Rückgabe. Bei Fragen hilft dir unser Support aus der Schweiz gerne weiter.",
+  },
+  {
+    q: "Passt die MATRIX zur RAJ NEXUS Ladestation?",
+    a: "Die RAJ MATRIX Carbon-Hülle ist auf die RAJ NEXUS Ladestation abgestimmt. Der Magnetring der MATRIX sitzt so, dass das iPhone auf dem NEXUS in derselben Position einrastet, mit oder ohne Hülle. Geladen wird mit Qi2.2 direkt durch die Hülle hindurch. Der RAJ NEXUS ist eine 3-in-1 Ladestation, die iPhone, Apple Watch und AirPods gleichzeitig kabellos lädt, und kostet CHF 99.–. Ausserdem passt die MATRIX zur Autohalterung RAJ APEX, die voraussichtlich ab Ende November 2026 erhältlich ist.",
+  },
+];
+
+export const AIRPODS_FAQ: FaqItem[] = [
+  {
+    q: "Passt die Hülle auf AirPods 4 und AirPods 5?",
+    a: "Die RAJ MATRIX AirPods-Hülle passt auf AirPods 4 und AirPods 5. Ob sie bei den AirPods 4 für beide Varianten, mit und ohne aktive Geräuschunterdrückung, gleich passt: [TODO: Stefan bestätigen]. Für andere AirPods-Modelle bieten wir sie nicht an. Die Hülle gibt es in Cherry Carbon und Onyx Carbon, jeweils mit goldenem RAJ Blitz, passend zur MATRIX iPhone-Hülle. Sie kostet CHF 35.–. Zusammen mit einer MATRIX iPhone-Hülle im Bundle zahlst du CHF 79.– statt CHF 94.–.",
+  },
+  {
+    q: "Kann ich die AirPods durch die Hülle kabellos laden?",
+    a: "Die RAJ MATRIX AirPods-Hülle ist für AirPods 4 und AirPods 5 gemacht. Ob kabelloses Laden durch die Hülle hindurch funktioniert und mit welchen Ladegeräten: [TODO: Stefan bestätigen]. Der RAJ NEXUS ist eine 3-in-1 Ladestation, die iPhone, Apple Watch und AirPods gleichzeitig kabellos lädt; das iPhone lädt dort mit Qi2.2. Die MATRIX iPhone-Hülle lädt mit Qi2.2 und MagSafe direkt durch die Hülle. Wie die verschiedenen Ladestandards funktionieren, erklären wir in unserem Qi2.2-Ratgeber.",
+  },
+  {
+    q: "Wofür ist der Karabiner?",
+    a: "Die RAJ MATRIX AirPods-Hülle kommt mit einem goldenen Karabiner. Damit kannst du dein AirPods Case an Tasche, Rucksack oder Schlüsselbund befestigen und hast es unterwegs immer griffbereit. Material des Karabiners und ob er abnehmbar ist: [TODO: Stefan bestätigen]. Der goldene Ton passt zum RAJ Blitz auf der Hülle und zu den goldeloxierten Aluminium-Knöpfen der MATRIX iPhone-Hülle, sodass beide Hüllen als Set zusammenpassen. Die Hülle ist in Cherry Carbon und Onyx Carbon erhältlich.",
+  },
+  {
+    q: "Woraus besteht die Hülle?",
+    a: "Die RAJ MATRIX AirPods-Hülle hat dasselbe Carbon-Finish wie die MATRIX iPhone-Hülle, wahlweise in Cherry Carbon oder Onyx Carbon. Auf der Hülle sitzt der goldene RAJ Blitz, dazu kommt ein goldener Karabiner. Grundmaterial des Hüllenkörpers: [TODO: Stefan bestätigen]. Wenn du beide Hüllen kaufst, wählt die MATRIX-Seite die AirPods-Farbe automatisch passend zu deiner iPhone-Hülle, du kannst sie aber auch frei kombinieren. So entsteht ein einheitliches Set für iPhone und AirPods.",
+  },
+  {
+    q: "Wie schnell wird geliefert und was kostet der Versand?",
+    a: "Die RAJ MATRIX AirPods-Hülle wird innerhalb der Schweiz kostenlos versendet, ohne Mindestbestellwert. Lieferzeit: [TODO: Stefan bestätigen – die Versandseite nennt 2–4 Werktage, die MATRIX-Seite 5–8 Tage]. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du die AirPods-Hülle zusammen mit einer MATRIX iPhone-Hülle, sparst du CHF 15.–. Alle Details findest du auf unserer Seite zu Versand und Rückgabe.",
+  },
+  {
+    q: "Kann ich die Hülle zurückgeben?",
+    a: "Die RAJ MATRIX AirPods-Hülle kannst du innerhalb von 30 Tagen ab Erhalt zurückgeben. Laut unseren Rückgabebedingungen muss die Ware unbenutzt, unbeschädigt und im Originalzustand zurückgesendet werden. Ob du die Hülle in dieser Zeit an deinen AirPods testen darfst: [TODO: Stefan bestätigen]. Die Rückerstattung erfolgt über das ursprüngliche Zahlungsmittel innerhalb von 3–5 Werktagen. Wie du eine Rückgabe meldest, steht auf unserer Seite zu Versand und Rückgabe. Bei Fragen hilft dir unser Support aus der Schweiz gerne weiter.",
+  },
+];
