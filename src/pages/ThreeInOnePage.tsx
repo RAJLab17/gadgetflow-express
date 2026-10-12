@@ -92,7 +92,7 @@ const ThreeInOnePage = () => {
                 ["iPhone", "25W", "15W", "15W"],
                 ["Apple Watch", "check", "check", "check"],
                 ["AirPods", "check", "check", "check"],
-                ["Preis CHF", "CHF 99", "ab 109.–", "ab 129.–"],
+                ["Preis CHF", "99.–", "ab 109.–", "ab 129.–"],
                 ["Swiss Brand", "check", "x", "x"],
               ].map(([label, a, b, c]) => (
                 <tr key={label} className="border-b border-border/50">
