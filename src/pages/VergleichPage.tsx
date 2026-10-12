@@ -170,7 +170,7 @@ type Row = { label: string; nexus: string; boost: string; ultra: string; anker: 
 const rows: Row[] = [
   {
     label: "Preis Schweiz (Digitec/Galaxus, Juli 2026)",
-    nexus: "CHF 99 (Early Access) / 129",
+    nexus: "CHF 99",
     boost: "CHF 39.– (Sale, regulär 64.40)",
     ultra: "CHF 90.90",
     anker: "CHF 85.90",
@@ -322,7 +322,7 @@ const VergleichPage = () => {
 
         <Callout>
           <strong className="not-italic font-medium text-foreground">Kurz zusammengefasst:</strong>{" "}
-          RAJ NEXUS (Qi2.2, 25W, CHF 99–129) ist die einzige Schweizer Marke der drei mit Schweizer Support.
+          RAJ NEXUS (Qi2.2, 25W, CHF 99) ist die einzige Schweizer Marke der drei mit Schweizer Support.
           Belkin bietet zwei Modelle an: das ältere BoostCharge Pro (15W, ab CHF 39.–) und das neuere
           UltraCharge Pro (25W, CHF 90.90). Anker MagGo (Qi2, 15W, CHF 85.90) liegt preislich dazwischen.
           Alle Modelle laden iPhone, Apple Watch und AirPods gleichzeitig.
@@ -335,7 +335,7 @@ const VergleichPage = () => {
           Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Swiss Brand mit Qi2.2-Zertifizierung. Das
           faltbare Design mit verstellbarem Winkel (0–75°) macht ihn sowohl für den Schreibtisch als auch
           für unterwegs geeignet. Das iPhone wird mit bis zu 25W geladen, Apple Watch und AirPods jeweils
-          mit 5W. Die Founder Edition ist für CHF 99 erhältlich (regulär CHF 129), inklusive 3 Jahren
+          mit 5W. Der RAJ NEXUS ist für CHF 99 erhältlich, inklusive 3 Jahren
           Garantie.
         </P>
 
@@ -364,7 +364,7 @@ const VergleichPage = () => {
         <P>
           Belkins älteres BoostCharge Pro ist aktuell die günstigste Option im Sale, allerdings mit der
           schwächeren 15W-Ladeleistung. Vergleicht man Modelle mit gleicher 25W-Leistungsklasse, liegen
-          RAJ NEXUS (CHF 99 Early Access) und Belkin UltraCharge Pro (CHF 90.90) sehr nah beieinander.
+          RAJ NEXUS (CHF 99) und Belkin UltraCharge Pro (CHF 90.90) sehr nah beieinander.
           Anker MagGo bietet mit CHF 85.90 bei 15W ein solides Mittelfeld-Angebot.
         </P>
 
@@ -404,8 +404,7 @@ const VergleichPage = () => {
             </div>
             <p className="text-foreground/85 font-light leading-relaxed text-[15px]">
               Für Käufer, die Wert auf ein Schweizer Produkt legen, den neuesten Qi2.2-Standard wollen und
-              bereit sind, direkt beim Hersteller zu kaufen. Die Founder Edition mit persönlicher
-              Seriennummer spricht Early Adopters an.
+              bereit sind, direkt beim Hersteller zu kaufen.
             </p>
           </div>
           <div className="bg-background p-8 md:p-10">
@@ -463,7 +462,7 @@ const VergleichPage = () => {
             Der einzige Schweizer 3-in-1 mit Qi2.2.
           </h3>
           <p className="text-foreground/80 font-light leading-relaxed mb-6 max-w-xl">
-            Founder Edition ab CHF 99. 3 Jahre Garantie. Direkt vom Hersteller aus dem Thurgau.
+            CHF 99. 3 Jahre Garantie. Direkt von RAJ aus dem Thurgau.
           </p>
           <Link
             to="/nexus"

@@ -67,8 +67,7 @@ const BesterWirelessChargerPage = () => {
       <P>
         RAJ ist die einzige Schweizer Brand, die einen Qi2.2-zertifizierten 3-in-1 Charger anbietet. Der RAJ NEXUS
         lädt iPhone, Apple Watch und AirPods gleichzeitig – optimiert für den Nachttisch, mit verbessertem
-        Wärmemanagement durch Qi2.2. Entwickelt, verkauft und supportet in der Schweiz. Founder Edition: CHF 99
-        (limitiert auf 100 Stück) – danach CHF 129.
+        Wärmemanagement durch Qi2.2. Entwickelt, verkauft und supportet in der Schweiz. CHF 99.
       </P>
       <CTA label="Jetzt sichern" />
 
@@ -92,7 +91,7 @@ const BesterWirelessChargerPage = () => {
         der Markenbekanntheit.
       </P>
 
-      <CTA label="RAJ NEXUS – Founder Edition sichern, CHF 99" />
+      <CTA label="RAJ NEXUS kaufen – CHF 99" />
     </PremiumPageLayout>
     </>
   );

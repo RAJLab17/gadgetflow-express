@@ -213,7 +213,7 @@
    },
    {
     "tag": "p",
-    "text": "Early Access beginnt mit RAJ NEXUS. Alles andere ist bereits in Bewegung."
+    "text": "Es beginnt mit RAJ NEXUS. Alles andere ist bereits in Bewegung."
    },
    {
     "tag": "p",
@@ -259,7 +259,7 @@
  },
  "/shop": {
   "title": "RAJ NEXUS — 3-in-1 Wireless Charger",
-  "description": "RAJ NEXUS — Qi2.2 zertifizierter 3-in-1 Wireless Charger. Lädt iPhone, Apple Watch und AirPods gleichzeitig. CHF 99.– · Gratis Versand · 3 Jahre Garantie.",
+  "description": "RAJ NEXUS — Qi2.2 zertifizierter 3-in-1 Wireless Charger. Lädt iPhone, Apple Watch und AirPods gleichzeitig. CHF 99 · Gratis Versand · 3 Jahre Garantie.",
   "robots": null,
   "canonical": "https://raj.ch/shop",
   "ogTitle": null,
@@ -277,12 +277,12 @@
   "h1": "RAJ NEXUS",
   "jsonLd": [
    "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"description\":\"Premium 3-in-1 wireless charging station for iPhone, Apple Watch, and AirPods. Qi2.2 certified with up to 25W fast charging. Foldable, adjustable design. Swiss Brand.\",\"image\":\"https://raj.ch/raj-nexus-product.png\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"manufacturer\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\",\"url\":\"https://raj.ch\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Weinfelden\",\"addressRegion\":\"Thurgau\",\"postalCode\":\"8570\",\"addressCountry\":\"CH\"}},\"sku\":\"RAJ-NEXUS-001\",\"category\":\"Electronics > Chargers > Wireless Chargers\",\"material\":\"Premium aluminum and silicone\",\"color\":\"Black / Gold\",\"weight\":{\"@type\":\"QuantitativeValue\",\"value\":\"200\",\"unitCode\":\"GRM\"},\"additionalProperty\":[{\"@type\":\"PropertyValue\",\"name\":\"Certification\",\"value\":\"Qi2.2 Certified\"},{\"@type\":\"PropertyValue\",\"name\":\"CE Certified\",\"value\":\"Yes\"},{\"@type\":\"PropertyValue\",\"name\":\"Charging Speed\",\"value\":\"Up to 25W (iPhone currently 15W), 5W (Apple Watch), 5W (AirPods)\"},{\"@type\":\"PropertyValue\",\"name\":\"Compatibility\",\"value\":\"iPhone 12/13/14/15/16/17 Series, Apple Watch Series 1-10, AirPods Pro/3/4\"},{\"@type\":\"PropertyValue\",\"name\":\"Design\",\"value\":\"Foldable, adjustable angle\"},{\"@type\":\"PropertyValue\",\"name\":\"Country of Brand\",\"value\":\"Switzerland\"}],\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/nexus\",\"priceCurrency\":\"CHF\",\"price\":\"99.00\",\"priceValidUntil\":\"2026-12-31\",\"validFrom\":\"2026-01-01\",\"availability\":\"https://schema.org/InStock\",\"itemCondition\":\"https://schema.org/NewCondition\",\"seller\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\"},\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"}}}}}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.\"}},{\"@type\":\"Question\",\"name\":\"Was kostet der RAJ NEXUS in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kostet CHF 99 (statt CHF 129). Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.\"}},{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen Qi2 und Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Beide laden iPhones mit bis zu 15W (Qi2.2 unterstützt bis 25W), aber Qi2.2 ist zukunftssicherer und ermöglicht perspektivisch höhere Ladeleistungen.\"}},{\"@type\":\"Question\",\"name\":\"Ist der RAJ NEXUS mit meinem iPhone kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist kompatibel mit allen iPhones von iPhone 12 bis iPhone 18, einschliesslich iPhone 13, 14, 15, 16, 17 und 18 Serie. Auch Apple Watch Series 1-10 und AirPods Pro/3/4 mit kabellosem Ladecase werden unterstützt.\"}},{\"@type\":\"Question\",\"name\":\"Wo kann ich den RAJ NEXUS kaufen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ausschliesslich über raj.ch erhältlich – direkt vom Hersteller, ohne Zwischenhändler. Versand innerhalb der Schweiz.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell lädt der RAJ NEXUS mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.\"}}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.\"}},{\"@type\":\"Question\",\"name\":\"Was kostet der RAJ NEXUS in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.\"}},{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen Qi2 und Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Beide laden iPhones mit bis zu 15W (Qi2.2 unterstützt bis 25W), aber Qi2.2 ist zukunftssicherer und ermöglicht perspektivisch höhere Ladeleistungen.\"}},{\"@type\":\"Question\",\"name\":\"Ist der RAJ NEXUS mit meinem iPhone kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist kompatibel mit allen iPhones von iPhone 12 bis iPhone 18, einschliesslich iPhone 13, 14, 15, 16, 17 und 18 Serie. Auch Apple Watch Series 1-10 und AirPods Pro/3/4 mit kabellosem Ladecase werden unterstützt.\"}},{\"@type\":\"Question\",\"name\":\"Wo kann ich den RAJ NEXUS kaufen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ausschliesslich über raj.ch erhältlich – direkt vom Hersteller, ohne Zwischenhändler. Versand innerhalb der Schweiz.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell lädt der RAJ NEXUS mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.\"}}]}"
   ],
   "blocks": [
    {
     "tag": "p",
-    "text": "3’359 Menschen haben den RAJ NEXUS bereits entdeckt"
+    "text": "3’363 Menschen haben den RAJ NEXUS bereits entdeckt"
    },
    {
     "tag": "h1",
@@ -294,7 +294,7 @@
    },
    {
     "tag": "p",
-    "text": "Founder-Preis · danach CHF 129.– · inkl. MwSt."
+    "text": "Inkl. MwSt."
    },
    {
     "tag": "li",
@@ -410,7 +410,7 @@
    },
    {
     "tag": "p",
-    "text": "CHF 99.– · Gratis Versand · 30 Tage Rückgabe"
+    "text": "CHF 99 · Gratis Versand · 30 Tage Rückgabe"
    },
    {
     "tag": "p",
@@ -762,11 +762,11 @@
  },
  "/nexus": {
   "title": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz",
-  "description": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF 99.–.",
+  "description": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Bis zu 25W, faltbar. Jetzt CHF 99.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/nexus",
   "ogTitle": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz",
-  "ogDescription": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF 99.–.",
+  "ogDescription": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF 99.",
   "ogUrl": "https://raj.ch/nexus",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "ogImageWidth": "1200",
@@ -775,7 +775,7 @@
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "product",
   "twitterTitle": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz",
-  "twitterDescription": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF 99.–.",
+  "twitterDescription": "RAJ NEXUS – 3-in-1 Qi2.2 Wireless Charger Schweiz für iPhone, Apple Watch und AirPods. Jetzt CHF 99.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "RAJ NEXUS 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch & AirPods",
   "jsonLd": [
@@ -967,7 +967,7 @@
    },
    {
     "tag": "p",
-    "text": "CHF 99.-"
+    "text": "CHF 99"
    },
    {
     "tag": "p",
@@ -1186,7 +1186,7 @@
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Häufige Fragen.",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.\"}},{\"@type\":\"Question\",\"name\":\"Was kostet der RAJ NEXUS in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kostet CHF 99 im Early Access (Founder Edition) und CHF 129 nach dem Launch. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.\"}},{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen Qi2 und Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Beide laden iPhones mit bis zu 15W (Qi2.2 unterstützt bis 25W), aber Qi2.2 ist zukunftssicherer und ermöglicht perspektivisch höhere Ladeleistungen.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell lädt der RAJ NEXUS mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.\"}},{\"@type\":\"Question\",\"name\":\"Was ist Qi2 und was unterscheidet es von normalem Wireless Charging?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2 ist der aktuelle Premium-Standard für kabelloses Laden. Dank Magnetausrichtung und bis zu 25 Watt Ladeleistung ist Qi2 schneller, präziser und effizienter als der ältere Qi-Standard.\"}},{\"@type\":\"Question\",\"name\":\"Welche Geräte sind mit dem RAJ NEXUS kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist kompatibel mit allen Qi2-zertifizierten Geräten — darunter iPhone 13 bis iPhone 17 sowie Android-Geräte mit Qi2-Unterstützung. Ältere Qi-Geräte werden ebenfalls unterstützt.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich mein Android-Gerät laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Alle Geräte mit Qi oder Qi2 funktionieren mit dem RAJ NEXUS. Die Ladegeschwindigkeit richtet sich nach den Spezifikationen deines Geräts.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich mein Samsung Mobile Phone laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Für optimale Ladeperformance und präzise Magnetausrichtung empfehlen wir eine kompatible magnetische Schutzhülle. Ohne magnetische Hülle ist das Laden möglich, jedoch mit eingeschränkter Effizienz.\"}},{\"@type\":\"Question\",\"name\":\"Funktioniert der RAJ NEXUS mit einer Schutzhülle?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja — für das beste Ladeerlebnis empfehlen wir eine Qi2-kompatible Schutzhülle. Schlanke, nicht-metallische Hüllen funktionieren ebenfalls. Metallhüllen oder Hüllen mit Kreditkarten können die Ladefunktion beeinträchtigen.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich mehrere Geräte gleichzeitig laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der RAJ NEXUS 3-in-1 lädt Smartphone, Smartwatch und kabellose Kopfhörer gleichzeitig — perfekt für den modernen Alltag.\"}},{\"@type\":\"Question\",\"name\":\"Ist der RAJ NEXUS zertifiziert?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der RAJ NEXUS trägt sowohl die CE-Zertifizierung als auch die WPC-Zertifizierung (Wireless Power Consortium) und erfüllt höchste Sicherheits- und Qualitätsstandards.\"}},{\"@type\":\"Question\",\"name\":\"Welches Netzteil wird benötigt?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Für maximale Leistung empfehlen wir ein USB-C Netzteil mit mindestens 30 Watt. Das Netzteil ist nicht im Lieferumfang enthalten.\"}},{\"@type\":\"Question\",\"name\":\"Wird RAJ in Zukunft weitere Produkte bringen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. RAJ steht für kontinuierliche Innovation im Bereich Premium Wireless Charging. Weitere Produkte sind bereits in Entwicklung — bleib über unseren Newsletter auf dem Laufenden und sei der Erste, der von neuen Launches erfährt.\"}},{\"@type\":\"Question\",\"name\":\"Warum ist Qi2.2 besser als normales MagSafe?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"MagSafe lädt iPhones mit bis zu 15W. Qi2.2 unterstützt bis zu 25W bei kompatiblen Geräten und bietet verbessertes Wärmemanagement — das Gerät bleibt kühler beim Laden. Zudem ist Qi2.2 ein offener Standard, der von allen WPC-Mitgliedern genutzt werden kann.\"}},{\"@type\":\"Question\",\"name\":\"Wie unterscheidet sich der RAJ NEXUS von Belkin und Anker?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ NEXUS ist Qi2.2-zertifiziert, Belkin und Anker setzen noch auf Qi2. Zudem ist RAJ die einzige Schweizer Brand mit lokalem Support auf Deutsch. Der RAJ NEXUS kostet CHF 99 (Founder Edition) — günstiger als Belkin (ab CHF 109) und Anker (ab CHF 129).\"}},{\"@type\":\"Question\",\"name\":\"Welches Netzteil empfiehlt RAJ für optimales Laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wir empfehlen ein USB-C Netzteil mit mindestens 30W Power Delivery (PD). Ein 20W iPhone-Netzteil reicht für das iPhone allein, ist aber bei gleichzeitigem Laden aller drei Geräte nicht optimal.\"}},{\"@type\":\"Question\",\"name\":\"Was bedeutet CE-Zertifizierung?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"CE steht für Conformité Européenne und bestätigt, dass das Produkt alle europäischen Sicherheits- und Qualitätsstandards erfüllt. Der RAJ NEXUS ist CE-zertifiziert und entspricht allen geltenden EU- und Schweizer Normen.\"}},{\"@type\":\"Question\",\"name\":\"Ist kabelloses Laden sicher für den Akku?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Moderne Qi2.2-Charger kommunizieren aktiv mit dem iPhone und passen die Ladeleistung automatisch an — das schont den Akku. Der RAJ NEXUS verfügt zudem über integrierten Überhitzungsschutz.\"}},{\"@type\":\"Question\",\"name\":\"Unterstützt der RAJ NEXUS den iOS StandBy Modus?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Wenn du dein iPhone im Querformat auf den RAJ NEXUS legst, aktiviert sich automatisch der iOS StandBy Modus — mit Uhrzeit, Widgets oder Fotos auf dem Bildschirm.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich den RAJ NEXUS für mein Unternehmen bestellen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Für Teams und Unternehmen bieten wir Mengenpreise an. Schreib uns direkt an founder@raj.ch — wir antworten innerhalb von 24 Stunden auf Deutsch.\"}},{\"@type\":\"Question\",\"name\":\"Wohin wird der RAJ NEXUS geliefert?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Aktuell liefern wir innerhalb der Schweiz. Internationaler Versand ist für spätere Produktlinien geplant.\"}},{\"@type\":\"Question\",\"name\":\"Wie lange ist die Garantie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kommt mit 3 Jahren Garantie gemäss Schweizer Recht. Bei Fragen oder Defekten: founder@raj.ch.\"}}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.\"}},{\"@type\":\"Question\",\"name\":\"Was kostet der RAJ NEXUS in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.\"}},{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen Qi2 und Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Beide laden iPhones mit bis zu 15W (Qi2.2 unterstützt bis 25W), aber Qi2.2 ist zukunftssicherer und ermöglicht perspektivisch höhere Ladeleistungen.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell lädt der RAJ NEXUS mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.\"}},{\"@type\":\"Question\",\"name\":\"Was ist Qi2 und was unterscheidet es von normalem Wireless Charging?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2 ist der aktuelle Premium-Standard für kabelloses Laden. Dank Magnetausrichtung und bis zu 25 Watt Ladeleistung ist Qi2 schneller, präziser und effizienter als der ältere Qi-Standard.\"}},{\"@type\":\"Question\",\"name\":\"Welche Geräte sind mit dem RAJ NEXUS kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist kompatibel mit allen Qi2-zertifizierten Geräten — darunter iPhone 13 bis iPhone 17 sowie Android-Geräte mit Qi2-Unterstützung. Ältere Qi-Geräte werden ebenfalls unterstützt.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich mein Android-Gerät laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Alle Geräte mit Qi oder Qi2 funktionieren mit dem RAJ NEXUS. Die Ladegeschwindigkeit richtet sich nach den Spezifikationen deines Geräts.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich mein Samsung Mobile Phone laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Für optimale Ladeperformance und präzise Magnetausrichtung empfehlen wir eine kompatible magnetische Schutzhülle. Ohne magnetische Hülle ist das Laden möglich, jedoch mit eingeschränkter Effizienz.\"}},{\"@type\":\"Question\",\"name\":\"Funktioniert der RAJ NEXUS mit einer Schutzhülle?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja — für das beste Ladeerlebnis empfehlen wir eine Qi2-kompatible Schutzhülle. Schlanke, nicht-metallische Hüllen funktionieren ebenfalls. Metallhüllen oder Hüllen mit Kreditkarten können die Ladefunktion beeinträchtigen.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich mehrere Geräte gleichzeitig laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der RAJ NEXUS 3-in-1 lädt Smartphone, Smartwatch und kabellose Kopfhörer gleichzeitig — perfekt für den modernen Alltag.\"}},{\"@type\":\"Question\",\"name\":\"Ist der RAJ NEXUS zertifiziert?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der RAJ NEXUS trägt sowohl die CE-Zertifizierung als auch die WPC-Zertifizierung (Wireless Power Consortium) und erfüllt höchste Sicherheits- und Qualitätsstandards.\"}},{\"@type\":\"Question\",\"name\":\"Welches Netzteil wird benötigt?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Für maximale Leistung empfehlen wir ein USB-C Netzteil mit mindestens 30 Watt. Das Netzteil ist nicht im Lieferumfang enthalten.\"}},{\"@type\":\"Question\",\"name\":\"Wird RAJ in Zukunft weitere Produkte bringen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. RAJ steht für kontinuierliche Innovation im Bereich Premium Wireless Charging. Weitere Produkte sind bereits in Entwicklung — bleib über unseren Newsletter auf dem Laufenden und sei der Erste, der von neuen Launches erfährt.\"}},{\"@type\":\"Question\",\"name\":\"Warum ist Qi2.2 besser als normales MagSafe?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"MagSafe lädt iPhones mit bis zu 15W. Qi2.2 unterstützt bis zu 25W bei kompatiblen Geräten und bietet verbessertes Wärmemanagement — das Gerät bleibt kühler beim Laden. Zudem ist Qi2.2 ein offener Standard, der von allen WPC-Mitgliedern genutzt werden kann.\"}},{\"@type\":\"Question\",\"name\":\"Wie unterscheidet sich der RAJ NEXUS von Belkin und Anker?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ NEXUS ist Qi2.2-zertifiziert, Belkin und Anker setzen noch auf Qi2. Zudem ist RAJ die einzige Schweizer Brand mit lokalem Support auf Deutsch. Der RAJ NEXUS kostet CHF 99 — günstiger als Belkin (ab CHF 109) und Anker (ab CHF 129).\"}},{\"@type\":\"Question\",\"name\":\"Welches Netzteil empfiehlt RAJ für optimales Laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Wir empfehlen ein USB-C Netzteil mit mindestens 30W Power Delivery (PD). Ein 20W iPhone-Netzteil reicht für das iPhone allein, ist aber bei gleichzeitigem Laden aller drei Geräte nicht optimal.\"}},{\"@type\":\"Question\",\"name\":\"Was bedeutet CE-Zertifizierung?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"CE steht für Conformité Européenne und bestätigt, dass das Produkt alle europäischen Sicherheits- und Qualitätsstandards erfüllt. Der RAJ NEXUS ist CE-zertifiziert und entspricht allen geltenden EU- und Schweizer Normen.\"}},{\"@type\":\"Question\",\"name\":\"Ist kabelloses Laden sicher für den Akku?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Moderne Qi2.2-Charger kommunizieren aktiv mit dem iPhone und passen die Ladeleistung automatisch an — das schont den Akku. Der RAJ NEXUS verfügt zudem über integrierten Überhitzungsschutz.\"}},{\"@type\":\"Question\",\"name\":\"Unterstützt der RAJ NEXUS den iOS StandBy Modus?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Wenn du dein iPhone im Querformat auf den RAJ NEXUS legst, aktiviert sich automatisch der iOS StandBy Modus — mit Uhrzeit, Widgets oder Fotos auf dem Bildschirm.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich den RAJ NEXUS für mein Unternehmen bestellen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Für Teams und Unternehmen bieten wir Mengenpreise an. Schreib uns direkt an founder@raj.ch — wir antworten innerhalb von 24 Stunden auf Deutsch.\"}},{\"@type\":\"Question\",\"name\":\"Wohin wird der RAJ NEXUS geliefert?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Aktuell liefern wir innerhalb der Schweiz. Internationaler Versand ist für spätere Produktlinien geplant.\"}},{\"@type\":\"Question\",\"name\":\"Wie lange ist die Garantie?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kommt mit 3 Jahren Garantie gemäss Schweizer Recht. Bei Fragen oder Defekten: founder@raj.ch.\"}}]}"
   ],
   "blocks": [
    {
@@ -1203,7 +1203,7 @@
    },
    {
     "tag": "p",
-    "text": "Der RAJ NEXUS kostet CHF 99 im Early Access (Founder Edition) und CHF 129 nach dem Launch. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil."
+    "text": "Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil."
    },
    {
     "tag": "p",
@@ -1255,7 +1255,7 @@
    },
    {
     "tag": "p",
-    "text": "RAJ NEXUS ist Qi2.2-zertifiziert, Belkin und Anker setzen noch auf Qi2. Zudem ist RAJ die einzige Schweizer Brand mit lokalem Support auf Deutsch. Der RAJ NEXUS kostet CHF 99 (Founder Edition) — günstiger als Belkin (ab CHF 109) und Anker (ab CHF 129)."
+    "text": "RAJ NEXUS ist Qi2.2-zertifiziert, Belkin und Anker setzen noch auf Qi2. Zudem ist RAJ die einzige Schweizer Brand mit lokalem Support auf Deutsch. Der RAJ NEXUS kostet CHF 99 — günstiger als Belkin (ab CHF 109) und Anker (ab CHF 129)."
    },
    {
     "tag": "p",
@@ -2513,11 +2513,11 @@
  },
  "/blog/bester-3in1-wireless-charger-schweiz-2026": {
   "title": "Beste 3-in-1 Ladestation Schweiz 2026 – iPhone Qi2.2 Test",
-  "description": "iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99.–. Jetzt vergleichen.",
+  "description": "iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99. Jetzt vergleichen.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
   "ogTitle": "Beste 3-in-1 Ladestation Schweiz 2026 – iPhone Qi2.2 Test",
-  "ogDescription": "iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99.–. Jetzt vergleichen.",
+  "ogDescription": "iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99. Jetzt vergleichen.",
   "ogUrl": "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "ogImageWidth": "1200",
@@ -2526,7 +2526,7 @@
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "article",
   "twitterTitle": "Beste 3-in-1 Ladestation Schweiz 2026 – iPhone Qi2.2 Test",
-  "twitterDescription": "iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99.–. Jetzt vergleichen.",
+  "twitterDescription": "iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99. Jetzt vergleichen.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich",
   "jsonLd": [
@@ -2613,7 +2613,7 @@
    },
    {
     "tag": "li",
-    "text": "Preis: CHF 99 (Founder Edition)"
+    "text": "Preis: CHF 99"
    },
    {
     "tag": "h3",
@@ -3184,7 +3184,7 @@
    },
    {
     "tag": "p",
-    "text": "Kurz zusammengefasst: RAJ NEXUS (Qi2.2, 25W, CHF 99–129) ist die einzige Schweizer Marke der drei mit Schweizer Support. Belkin bietet zwei Modelle an: das ältere BoostCharge Pro (15W, ab CHF 39.–) und das neuere UltraCharge Pro (25W, CHF 90.90). Anker MagGo (Qi2, 15W, CHF 85.90) liegt preislich dazwischen. Alle Modelle laden iPhone, Apple Watch und AirPods gleichzeitig."
+    "text": "Kurz zusammengefasst: RAJ NEXUS (Qi2.2, 25W, CHF 99) ist die einzige Schweizer Marke der drei mit Schweizer Support. Belkin bietet zwei Modelle an: das ältere BoostCharge Pro (15W, ab CHF 39.–) und das neuere UltraCharge Pro (25W, CHF 90.90). Anker MagGo (Qi2, 15W, CHF 85.90) liegt preislich dazwischen. Alle Modelle laden iPhone, Apple Watch und AirPods gleichzeitig."
    },
    {
     "tag": "h2",
@@ -3196,7 +3196,7 @@
    },
    {
     "tag": "p",
-    "text": "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Swiss Brand mit Qi2.2-Zertifizierung. Das faltbare Design mit verstellbarem Winkel (0–75°) macht ihn sowohl für den Schreibtisch als auch für unterwegs geeignet. Das iPhone wird mit bis zu 25W geladen, Apple Watch und AirPods jeweils mit 5W. Die Founder Edition ist für CHF 99 erhältlich (regulär CHF 129), inklusive 3 Jahren Garantie."
+    "text": "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Swiss Brand mit Qi2.2-Zertifizierung. Das faltbare Design mit verstellbarem Winkel (0–75°) macht ihn sowohl für den Schreibtisch als auch für unterwegs geeignet. Das iPhone wird mit bis zu 25W geladen, Apple Watch und AirPods jeweils mit 5W. Der RAJ NEXUS ist für CHF 99 erhältlich, inklusive 3 Jahren Garantie."
    },
    {
     "tag": "h3",
@@ -3232,7 +3232,7 @@
    },
    {
     "tag": "p",
-    "text": "Belkins älteres BoostCharge Pro ist aktuell die günstigste Option im Sale, allerdings mit der schwächeren 15W-Ladeleistung. Vergleicht man Modelle mit gleicher 25W-Leistungsklasse, liegen RAJ NEXUS (CHF 99 Early Access) und Belkin UltraCharge Pro (CHF 90.90) sehr nah beieinander. Anker MagGo bietet mit CHF 85.90 bei 15W ein solides Mittelfeld-Angebot."
+    "text": "Belkins älteres BoostCharge Pro ist aktuell die günstigste Option im Sale, allerdings mit der schwächeren 15W-Ladeleistung. Vergleicht man Modelle mit gleicher 25W-Leistungsklasse, liegen RAJ NEXUS (CHF 99) und Belkin UltraCharge Pro (CHF 90.90) sehr nah beieinander. Anker MagGo bietet mit CHF 85.90 bei 15W ein solides Mittelfeld-Angebot."
    },
    {
     "tag": "h3",
@@ -3268,7 +3268,7 @@
    },
    {
     "tag": "p",
-    "text": "Für Käufer, die Wert auf ein Schweizer Produkt legen, den neuesten Qi2.2-Standard wollen und bereit sind, direkt beim Hersteller zu kaufen. Die Founder Edition mit persönlicher Seriennummer spricht Early Adopters an."
+    "text": "Für Käufer, die Wert auf ein Schweizer Produkt legen, den neuesten Qi2.2-Standard wollen und bereit sind, direkt beim Hersteller zu kaufen."
    },
    {
     "tag": "p",
@@ -3365,7 +3365,7 @@
    },
    {
     "tag": "p",
-    "text": "RAJ ist die einzige Schweizer Brand, die einen Qi2.2-zertifizierten 3-in-1 Charger anbietet. Der RAJ NEXUS lädt iPhone, Apple Watch und AirPods gleichzeitig – optimiert für den Nachttisch, mit verbessertem Wärmemanagement durch Qi2.2. Entwickelt, verkauft und supportet in der Schweiz. Founder Edition: CHF 99 (limitiert auf 100 Stück) – danach CHF 129."
+    "text": "RAJ ist die einzige Schweizer Brand, die einen Qi2.2-zertifizierten 3-in-1 Charger anbietet. Der RAJ NEXUS lädt iPhone, Apple Watch und AirPods gleichzeitig – optimiert für den Nachttisch, mit verbessertem Wärmemanagement durch Qi2.2. Entwickelt, verkauft und supportet in der Schweiz. CHF 99."
    },
    {
     "tag": "h2",

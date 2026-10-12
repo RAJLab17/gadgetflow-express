@@ -76,7 +76,7 @@ const BrandNextDrop = () => {
                 </p>
               </div>
                <span className="text-base font-medium" style={{ color: GOLD_SOFT }}>
-                CHF 99.–
+                CHF 99
               </span>
             </div>
             <div className="mt-4">

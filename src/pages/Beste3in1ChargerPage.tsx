@@ -111,7 +111,7 @@ const Beste3in1ChargerPage = () => {
       </Helmet>
       <PremiumPageLayout
         title="Beste 3-in-1 Ladestation Schweiz 2026 – iPhone Qi2.2 Test"
-        metaDescription="iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99.–. Jetzt vergleichen."
+        metaDescription="iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99. Jetzt vergleichen."
         canonical="https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026"
         eyebrow="Vergleich · Mai 2026"
         heading="Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich"
@@ -162,7 +162,7 @@ const Beste3in1ChargerPage = () => {
           <li>Kompatibilität: iPhone 12–16 Pro Max, Apple Watch Series 1–10, AirPods Pro 2, AirPods 3/4</li>
           <li>Standard: Qi2.2 zertifiziert</li>
           <li>Anschluss: USB-C</li>
-          <li>Preis: CHF 99 (Founder Edition)</li>
+          <li>Preis: CHF 99</li>
         </UL>
 
         <H3>Was RAJ NEXUS von der Konkurrenz unterscheidet</H3>

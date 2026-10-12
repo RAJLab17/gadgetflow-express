@@ -194,7 +194,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                 {t("hero.sticky.label")}
               </p>
               <p className="text-[11px] text-[#666] leading-tight">
-                CHF 99 statt CHF 129 · Du wärst Founder #{nextFounderNumber}
+                CHF 99
               </p>
             </div>
             <a
@@ -286,13 +286,13 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                         {t("hero.youAre")}
                       </p>
                       <p className="text-[18px] sm:text-[22px] font-extrabold text-[#1a1a1a] leading-tight tabular-nums">
-                        Founder #{nextFounderNumber}
+                        CHF 99
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className="text-[18px] sm:text-[22px] font-extrabold tabular-nums leading-tight" style={{ color: GOLD }}>
-                      {taken}<span className="text-[12px] sm:text-[13px] text-[#888] font-medium"> / 100</span>
+                      {taken}
                     </p>
                     <p className="text-[10px] sm:text-[11px] text-[#888] font-medium leading-tight">
                       {t("hero.foundersJoined")}
@@ -304,22 +304,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                 </div>
 
 
-                {/* Progress bar */}
-                <div className="w-full mb-4 sm:mb-5">
-                  <div
-                    className="relative h-1.5 rounded-full overflow-hidden"
-                    style={{ backgroundColor: "rgba(155,107,63,0.12)" }}
-                    role="progressbar"
-                    aria-valuenow={taken}
-                    aria-valuemin={0}
-                    aria-valuemax={TOTAL_SPOTS}
-                  >
-                    <div
-                      className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-[1600ms] ease-out"
-                      style={{ background: `linear-gradient(90deg, ${GOLD}, #c08a5a)`, width: `${progress}%` }}
-                    />
-                  </div>
-                </div>
 
                 {/* Was du bekommst — 3 starke Bullets */}
                 <ul className="space-y-2 mb-4 sm:mb-5">
@@ -353,7 +337,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                       {t("hero.success.title")}
                     </h3>
                     <p className="text-[14px] text-[#444] mb-1">
-                      {t("hero.success.sub")} <span className="font-bold" style={{ color: GOLD }}>#{nextFounderNumber}</span>
+                      {t("hero.success.sub")}
                     </p>
                     <p className="text-[12px] text-[#888] leading-snug max-w-xs mx-auto mt-2">
                       {t("hero.success.next")}
@@ -398,7 +382,7 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                         </>
                       ) : (
                         <>
-                          {t("hero.cta.primary")} #{nextFounderNumber} <span aria-hidden>→</span>
+                          {t("hero.cta.primary")} <span aria-hidden>→</span>
                         </>
                       )}
                     </button>
@@ -437,31 +421,6 @@ const HeroBadgesAndCTA = ({ spotsTaken, signupsToday, onSignupSuccess }: Props) 
                 )}
               </div>
 
-              {/* Countdown UNTER der Box — sekundärer Druck */}
-              <div className="mt-4 sm:mt-5">
-                <p className="text-center text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-[#888] font-semibold mb-2">
-                  {t("hero.priceLine")}
-                </p>
-                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 max-w-sm mx-auto">
-                  {countdownUnits.map((u) => (
-                    <div
-                      key={u.label}
-                      className="flex flex-col items-center justify-center rounded-lg py-2 sm:py-2.5"
-                      style={{
-                        background: "linear-gradient(180deg, #2b2725 0%, #1a1715 100%)",
-                        border: "1px solid rgba(155,107,63,0.35)",
-                      }}
-                    >
-                      <span className="text-[16px] sm:text-[20px] font-extrabold text-white tabular-nums leading-none">
-                        {String(u.value).padStart(2, "0")}
-                      </span>
-                      <span className="text-[8px] sm:text-[9px] uppercase tracking-wide mt-1 font-medium" style={{ color: GOLD }}>
-                        {u.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
           </div>
