@@ -35,7 +35,7 @@
 
 - [x] MATRIX: Onyx-Silver-Fotos für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max ergänzt; vier Bilder, Bildwechsel, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
 
-- [ ] MATRIX Mobile: Textplakette unter dem Case-Bild ist im aktuellen Build bereits entfernt; live auf raj.ch sichtbar, sobald publiziert
+- [x] MATRIX Mobile: Textplakette unter dem Case-Bild ist im aktuellen Build bereits entfernt; mit der Veröffentlichung vom 12. Okt auf raj.ch sichtbar
 - [x] MATRIX Bundle-Karten: Bundle-Vorschaubild nur AirPods Case, Titel „Hülle + AirPods Case", Untertitel „AirPods 4 & 5 · Finish", Farbauswahl eingeklappt
 - [x] /matrix: H1-Beschreibung auf „Das Carbon-System für iPhone 17 & 18 Pro / Pro Max – Hülle mit MagSafe & Qi2.2" (Mobile + Desktop, Build 8. Okt)
 - [x] /matrix: H1-Beschreibung exakt zwei Zeilen mit festem Umbruch („Das Carbon-System mit MagSafe" / „für iPhone 17 & 18 Pro / Pro Max"), Mobile + Desktop, 390px geprüft
@@ -48,3 +48,4 @@
 - [x] MATRIX: Onyx-Carbon-Fotos auf Dark Grey iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
 - [x] MATRIX: Onyx-Sky-Blue-Fotos für iPhone 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
 - [x] Prerender per-route SEO HTML for all sitemap routes (not published)
+- [x] /dokumente: robots auf index, follow; canonical bleibt https://raj.ch/manuals, nicht in der sitemap.xml; Crawler-Kopie erneuert, Runtime/Googlebot geprüft; veröffentlicht

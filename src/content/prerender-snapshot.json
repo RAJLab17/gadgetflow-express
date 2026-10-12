@@ -4076,7 +4076,7 @@
  "/dokumente": {
   "title": "Produktdokumentation – RAJ NEXUS",
   "description": "Benutzerhandbücher für den RAJ NEXUS 3-in-1 Wireless Charger in Deutsch, Englisch, Französisch und Italienisch zum Download.",
-  "robots": "noindex, follow",
+  "robots": "index, follow",
   "canonical": "https://raj.ch/manuals",
   "ogTitle": null,
   "ogDescription": null,
