@@ -66,7 +66,7 @@ const products: Product[] = [
     price: "CHF 35.–",
     status: "Jetzt verfügbar",
     link: "/airpods-case",
-    img: airpodsCherryProduct.url,
+    img: `https://raj.ch${airpodsCherryProduct.url}`,
     imgAlt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner",
     specs: [
       { label: "Material", value: "Carbon" },
