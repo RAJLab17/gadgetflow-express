@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import matrixImageAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
 import matrixFallback from "@/assets/home/objekt-matrix-premium.webp";
 import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
+import airpodsCherryProduct from "@/assets/matrix/airpods-gallery/airpods-cherry-product-1200.webp.asset.json";
 
 const matrixImg = matrixImageAsset.url;
 
@@ -45,7 +46,7 @@ const products: Product[] = [
     name: "MATRIX",
     tagline: "Schutz mit Charakter.",
     description:
-      "Carbon-Cases für iPhone sowie AirPods 4 & 5. Cherry Carbon oder Schwarz Carbon, goldene Knöpfe, MagSafe-kompatibel.",
+      "Carbon Hülle für iPhone 17 und 18 Pro / Pro Max. Cherry Carbon oder Onyx Carbon, goldene Knöpfe, MagSafe-kompatibel.",
     price: "ab CHF 59.–",
     status: "Jetzt verfügbar",
     link: "/matrix",
@@ -58,6 +59,22 @@ const products: Product[] = [
   },
   {
     index: "03",
+    name: "MATRIX AirPods",
+    tagline: "",
+    description:
+      "Carbon Hülle für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon, mit goldenem Karabiner.",
+    price: "CHF 35.–",
+    status: "Jetzt verfügbar",
+    link: "/airpods-case",
+    img: `https://raj.ch${airpodsCherryProduct.url}`,
+    imgAlt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner",
+    specs: [
+      { label: "Material", value: "Carbon" },
+      { label: "Modelle", value: "AirPods 4 & 5" },
+    ],
+  },
+  {
+    index: "04",
     name: "APEX",
     tagline: "Halt im Bewegten.",
     description:
@@ -85,7 +102,7 @@ const ProductDetails = ({ product }: { product: Product }) => (
     </div>
 
     <h2 className="text-3xl font-light leading-none text-foreground md:text-4xl">{product.name}</h2>
-    <p className="mt-3 text-sm font-medium text-primary">{product.tagline}</p>
+    {product.tagline && <p className="mt-3 text-sm font-medium text-primary">{product.tagline}</p>}
     <p className="mx-auto mt-5 max-w-sm text-sm font-light leading-7 text-muted-foreground">
       {product.description}
     </p>
@@ -101,8 +118,8 @@ const ProductDetails = ({ product }: { product: Product }) => (
       ))}
     </dl>
 
-    <div className="mt-7 flex items-center justify-between gap-5">
-      <span className="text-xl font-light text-foreground">{product.price}</span>
+    <div className="mt-7 flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
+      <span className="whitespace-nowrap text-xl font-light text-foreground">{product.price}</span>
       <Link
         to={product.link}
         className="group inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-foreground"
@@ -115,9 +132,9 @@ const ProductDetails = ({ product }: { product: Product }) => (
 );
 
 const ProduktePage = () => {
-  const [nexus, matrix, apex] = products;
+  const [nexus, matrix, airpods, apex] = products;
 
-  if (!nexus || !matrix || !apex) return null;
+  if (!nexus || !matrix || !airpods || !apex) return null;
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
@@ -155,7 +172,7 @@ const ProduktePage = () => {
               RAJ Kollektion · 2026
             </div>
             <h1 className="raj-rise mt-7 text-5xl font-light leading-none text-foreground sm:text-6xl md:text-8xl">
-              Drei Objekte.
+              Vier Objekte.
               <span className="mt-2 block text-primary">Eine klare Idee.</span>
             </h1>
             <p className="raj-rise-sm mx-auto mt-7 max-w-xl text-sm font-light leading-7 text-muted-foreground md:text-base">
@@ -163,7 +180,7 @@ const ProduktePage = () => {
             </p>
           </header>
 
-          <section className="mx-auto mt-20 grid max-w-6xl grid-cols-1 gap-x-8 gap-y-20 px-5 sm:px-8 md:mt-28 md:grid-cols-3 lg:gap-x-12">
+          <section className="mx-auto mt-20 grid max-w-6xl grid-cols-1 gap-x-8 gap-y-20 px-5 sm:px-8 md:mt-28 md:grid-cols-4 lg:gap-x-12">
             <article className="group">
               <Link to={nexus.link} className="block" aria-label="RAJ NEXUS entdecken">
                 <div className="relative aspect-[3/4] overflow-hidden bg-card">
@@ -206,6 +223,26 @@ const ProduktePage = () => {
                 </div>
               </Link>
               <ProductDetails product={matrix} />
+            </article>
+
+            <article className="group">
+              <Link to={airpods.link} className="block" aria-label="MATRIX AirPods Hülle entdecken">
+                <div className="relative aspect-[3/4] overflow-hidden bg-card">
+                  <img
+                    src={airpods.img}
+                    alt={airpods.imgAlt}
+                    width={1200}
+                    height={1200}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-contain object-center transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
+                  />
+                  <span className="absolute left-5 top-5 bg-background/90 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm">
+                    Jetzt verfügbar
+                  </span>
+                </div>
+              </Link>
+              <ProductDetails product={airpods} />
             </article>
 
             <article className="group">

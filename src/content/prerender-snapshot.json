@@ -459,9 +459,9 @@
   "twitterTitle": null,
   "twitterDescription": null,
   "twitterImage": null,
-  "h1": "Drei Objekte. Eine klare Idee.",
+  "h1": "Vier Objekte. Eine klare Idee.",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"ItemList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"RAJ NEXUS\",\"url\":\"https://raj.ch/nexus\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"RAJ MATRIX\",\"url\":\"https://raj.ch/matrix\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"RAJ APEX\",\"url\":\"https://raj.ch/apex\"}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"ItemList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"RAJ NEXUS\",\"url\":\"https://raj.ch/nexus\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"RAJ MATRIX\",\"url\":\"https://raj.ch/matrix\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"RAJ MATRIX AirPods\",\"url\":\"https://raj.ch/airpods-case\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"RAJ APEX\",\"url\":\"https://raj.ch/apex\"}]}"
   ],
   "blocks": [
    {
@@ -482,15 +482,19 @@
    },
    {
     "tag": "p",
-    "text": "Jetzt verfügbar"
-   },
-   {
-    "tag": "p",
     "text": "Schutz mit Charakter."
    },
    {
     "tag": "p",
-    "text": "Carbon-Cases für iPhone sowie AirPods 4 & 5. Cherry Carbon oder Schwarz Carbon, goldene Knöpfe, MagSafe-kompatibel."
+    "text": "Carbon Hülle für iPhone 17 und 18 Pro / Pro Max. Cherry Carbon oder Onyx Carbon, goldene Knöpfe, MagSafe-kompatibel."
+   },
+   {
+    "tag": "h2",
+    "text": "MATRIX AirPods"
+   },
+   {
+    "tag": "p",
+    "text": "Carbon Hülle für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon, mit goldenem Karabiner."
    },
    {
     "tag": "h2",
@@ -511,10 +515,6 @@
    {
     "tag": "h2",
     "text": "Für ein Setup, das ruhiger aussieht und besser funktioniert."
-   },
-   {
-    "tag": "p",
-    "text": "UNTERWEGS 03 / BALD VERFÜGBAR APEX Halt im Bewegten. Die MagSafe-Ladehalterung fürs Auto. Mit Saug- und Lüftungsmontage, aktiver Kühlung und 25 Watt. STANDARD Qi2 · 25 W MONTAGE Saugnapf · Lüftung ab CHF 69.– ENTDECKEN"
    }
   ]
  },
