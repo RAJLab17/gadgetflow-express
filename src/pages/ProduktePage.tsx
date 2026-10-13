@@ -118,8 +118,8 @@ const ProductDetails = ({ product }: { product: Product }) => (
       ))}
     </dl>
 
-    <div className="mt-7 flex items-center justify-between gap-5">
-      <span className="text-xl font-light text-foreground">{product.price}</span>
+    <div className="mt-7 flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
+      <span className="whitespace-nowrap text-xl font-light text-foreground">{product.price}</span>
       <Link
         to={product.link}
         className="group inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-foreground"

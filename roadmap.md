@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] AirPods-Produktkarte auf /produkte ergänzen, vorhandene Navigation prüfen, Crawler-Kopie aktualisieren, Mobile/Desktop und Links prüfen; /matrix unverändert lassen; veröffentlichen.
+- [x] AirPods-Produktkarte auf /produkte ergänzt; Menü enthält keine Produkt-Unterliste und bleibt unverändert; Crawler-Kopie, 1 H1, 4 ItemList-Produkte, Links und Mobile/Desktop geprüft; /matrix unverändert. Veröffentlichung beauftragt.
 - [x] Angebotsbilder nur auf /airpods-case und /matrix korrigiert: Original-AirPods-Foto, gemeinsame Zweiprodukt-Vorschau, beide Farben auf Mobile/Desktop geprüft und Screenshots erstellt; nicht veröffentlicht.
 - [x] AirPods Onyx-Galerie: alle vier hochgeladenen Lifestyle-Fotos nach dem Produktfoto ergänzt und alle fünf Bildwechsel geprüft; nicht veröffentlicht.
 - [x] NEXUS only: outside-root matching instant view until decoded hero, responsive priority image hints, load/idle Pixel with queue replay; Chromium/WebKit continuity and one H1 verified, real checkout CHF 99, PageView/ViewContent/AddToCart network verified; local metrics reported with dev-server caveat, existing nonzero CLS and absent InitiateCheckout left unchanged; not published.
