@@ -1,5 +1,5 @@
 # Roadmap
-- [x] /matrix Unterzeile unter «MATRIX» auf „Die Hülle als Teil des Systems" / „für iPhone 17 & 18 Pro / Pro Max" geändert: React-H1 (Mobile+Desktop), Sofortansicht und Crawler-Kopie; Schrift, Grösse, Umbruch und Abstände unverändert, Mobile/Desktop mit und ohne JavaScript geprüft; nicht veröffentlicht.
+- [x] /matrix Unterzeile unter «MATRIX» auf „Die Hülle als Teil des Systems" reduziert und die Zeile „für iPhone 17 & 18 Pro / Pro Max" entfernt: React-H1 (Mobile+Desktop), Sofortansicht und Crawler-Kopie; Schrift, Grösse und Abstände unverändert, Mobile/Desktop mit und ohne JavaScript geprüft; nicht veröffentlicht.
 - [x] /matrix Linkbereich unter den FAQ: Überschrift «Mehr erfahren» plus vier einheitliche Zeilen (Guide, NEXUS, Qi2.2, Versand) mit Pfeil und Trennlinien, echte <a href> auch im statischen Shell; Mobile/Desktop und /airpods-case unverändert geprüft; nicht veröffentlicht.
 - [x] Pfeil-Symbol vor «30 Tage Rückgabe» entfernt: geteilte Mobile-Trust-Zeile auf /matrix und /airpods-case, Crawler-Kopie erneuert; Build und Vorschau bei 390px geprüft; nicht veröffentlicht.
 - [x] MATRIX FAQ: acht native Akkordeons mit erster offener Frage, vollständigen Antworten in Sofortansicht und Crawler-HTML; gewünschte FAQ-Texte und JSON-LD angepasst; Mobile/Desktop, 44px-Zeilen, Öffnen/Schliessen und Nutzung ohne JavaScript geprüft; nicht veröffentlicht.
