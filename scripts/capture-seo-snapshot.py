@@ -31,12 +31,12 @@ EXTRACT = r"""() => {
   const root = document.querySelector('main') || document.getElementById('root');
   const skip = el => el.closest('header, footer, nav, [aria-hidden="true"], #matrix-shell, script, style, noscript');
   const blocks = []; let len = 0;
-  for (const el of root.querySelectorAll('h1, h2, h3, p, li')) {
+  for (const el of root.querySelectorAll('h1, h2, h3, p, li, details > summary')) {
     if (skip(el)) continue;
-    const t = (el.innerText || '').replace(/\s+/g, ' ').trim();
+    const t = (el.closest('details') ? el.textContent : el.innerText || '').replace(/\s+/g, ' ').trim();
     if (!t || t.length < 2) continue;
     if (blocks.length && blocks[blocks.length-1].text === t) continue;
-    blocks.push({ tag: el.tagName.toLowerCase(), text: t });
+    blocks.push({ tag: el.tagName === 'SUMMARY' ? 'h3' : el.tagName.toLowerCase(), text: t });
     len += t.length; if (len > 12000) break;
   }
   const h1 = [...document.querySelectorAll('h1')].map(h => (h.innerText||'').replace(/\s+/g,' ').trim()).find(Boolean) || null;

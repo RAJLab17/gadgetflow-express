@@ -8,7 +8,7 @@ const LINKS = [
   { to: "/versand", label: "Versand & Rückgabe" },
 ];
 
-const ProductFaqSection = ({ title, items }: { title: string; items: FaqItem[] }) => {
+const ProductFaqSection = ({ title, items, accordion = false }: { title: string; items: FaqItem[]; accordion?: boolean }) => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -22,7 +22,17 @@ const ProductFaqSection = ({ title, items }: { title: string; items: FaqItem[] }
       <div className="container mx-auto max-w-3xl px-6 py-14 md:py-20">
         <h2 className="mb-8 font-light tracking-tight" style={{ fontSize: "clamp(28px,3.5vw,44px)" }}>{title}</h2>
         <div className="space-y-8">
-          {items.map(({ q, a }) => (
+          {items.map(({ q, a }, index) => accordion ? (
+            <details key={q} open={index === 0} className="group">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-base font-medium md:text-lg [&::-webkit-details-marker]:hidden">
+                <span>{q}</span>
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="shrink-0 transition-transform group-open:rotate-180 motion-reduce:transition-none">
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </summary>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a}</p>
+            </details>
+          ) : (
             <div key={q}>
               <h3 className="text-base font-medium md:text-lg">{q}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a}</p>
