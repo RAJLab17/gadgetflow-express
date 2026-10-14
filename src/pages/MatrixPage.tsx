@@ -526,7 +526,31 @@ const MatrixPage = () => {
   const [caseId, setCaseId] = useState("cherry");
   // The selected model is already reflected in the first React render.
   useEffect(() => {
-    document.getElementById("__matrix_shell")?.remove();
+    // Remove the static view only once the React product image is decoded and painted.
+    const shell = document.getElementById("__matrix_shell");
+    if (shell) {
+      let done = false;
+      const remove = () => {
+        if (done) return;
+        done = true;
+        requestAnimationFrame(() => requestAnimationFrame(() => shell.remove()));
+      };
+      const img = document.querySelector<HTMLImageElement>(".matrix-page main section img");
+      const fallback = window.setTimeout(remove, 4000);
+      if (!img) remove();
+      else {
+        const ready = img.complete && img.naturalWidth > 0 ? Promise.resolve() : new Promise<void>((res) => {
+          img.addEventListener("load", () => res(), { once: true });
+          img.addEventListener("error", () => res(), { once: true });
+        });
+        ready.then(() => (img.decode ? img.decode().catch(() => undefined) : undefined)).then(() => {
+          // MobileGallery fades images in via opacity; wait until it is visible.
+          const check = () => (getComputedStyle(img).opacity === "1" ? remove() : requestAnimationFrame(check));
+          check();
+        });
+      }
+      void fallback;
+    }
     delete window.__matrixShellIntent;
     if (shellIntent?.headerAction) {
       document.querySelector<HTMLButtonElement>(shellIntent.headerAction === "cart" ? 'button[aria-label="Warenkorb öffnen"]' : 'button[aria-label="Menü öffnen"]')?.click();
