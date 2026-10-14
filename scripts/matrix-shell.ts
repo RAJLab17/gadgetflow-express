@@ -10,7 +10,13 @@ export function matrixShellHtml(imageUrl: string, logoUrl: string, mobileImageUr
   const card = icon('<rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 9.5h19M14.5 15h4.5"/>', 13);
   const models = [["17pro", "17 Pro"], ["17promax", "17 Pro Max"], ["18pro", "18 Pro"], ["18promax", "18 Pro Max"]];
   const esc = (text: string) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  const faq = `<section class="ms-faq"><h2>Fragen zur MATRIX</h2>${MATRIX_FAQ.map(({ q, a }, index) => `<details${index === 0 ? " open" : ""}><summary><span>${esc(q)}</span>${icon('<path d="m6 9 6 6 6-6"/>', 16)}</summary><p>${esc(a)}</p></details>`).join("")}</section>`;
+  const faqLinks: [string, string][] = [
+    ["/blog/iphone-17-pro-huelle-iphone-18-pro", "Passt eine iPhone 17 Pro Hülle aufs iPhone 18 Pro?"],
+    ["/nexus", "RAJ NEXUS Ladestation"],
+    ["/qi2-erklaert", "Qi2.2 erklärt"],
+    ["/versand", "Versand & Rückgabe"],
+  ];
+  const faq = `<section class="ms-faq"><h2>Fragen zur MATRIX</h2>${MATRIX_FAQ.map(({ q, a }, index) => `<details${index === 0 ? " open" : ""}><summary><span>${esc(q)}</span>${icon('<path d="m6 9 6 6 6-6"/>', 16)}</summary><p>${esc(a)}</p></details>`).join("")}<nav class="ms-links" aria-label="Mehr erfahren"><h3>Mehr erfahren</h3><ul>${faqLinks.map(([href, label]) => `<li><a href="${href}"><span>${esc(label)}</span><span aria-hidden="true">›</span></a></li>`).join("")}</ul></nav></section>`;
   return `<style>
   #__matrix_shell{--ms-bg:#faf9f7;--ms-text:#2b2725;--ms-gold:#9b6b3f;--ms-line:rgba(43,39,37,.22);--ms-selected:rgba(155,107,63,.06);--ms-cart-bg:#fff;--ms-cart-text:#111;--ms-menu-bg:rgba(30,28,25,.9);--ms-menu-text:#E8DCC4;--ms-trust-bg:#050403;--ms-trust-text:#EDE4D3;--ms-trust-gold:#C9A876;position:absolute;inset:0 0 auto;min-height:100vh;background:var(--ms-bg);color:var(--ms-text);z-index:60;font-family:var(--font-sans);}
   #__matrix_shell{font-family:var(--font-sans,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif);line-height:1.5;-webkit-text-size-adjust:100%;text-size-adjust:100%}

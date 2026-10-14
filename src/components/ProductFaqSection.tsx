@@ -2,13 +2,27 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import type { FaqItem } from "@/content/matrixFaq";
 
-const LINKS = [
+export type FaqLink = { to: string; label: string };
+
+const LINKS: FaqLink[] = [
   { to: "/nexus", label: "RAJ NEXUS Ladestation" },
   { to: "/qi2-erklaert", label: "Qi2.2 erklärt" },
   { to: "/versand", label: "Versand & Rückgabe" },
 ];
 
-const ProductFaqSection = ({ title, items, accordion = false }: { title: string; items: FaqItem[]; accordion?: boolean }) => {
+const ProductFaqSection = ({
+  title,
+  items,
+  accordion = false,
+  links = LINKS,
+  linksAsList = false,
+}: {
+  title: string;
+  items: FaqItem[];
+  accordion?: boolean;
+  links?: FaqLink[];
+  linksAsList?: boolean;
+}) => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -39,11 +53,27 @@ const ProductFaqSection = ({ title, items, accordion = false }: { title: string;
             </div>
           ))}
         </div>
-        <nav aria-label="Weiterlesen" className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          {LINKS.map((l) => (
-            <Link key={l.to} to={l.to} className="text-primary underline underline-offset-4">{l.label}</Link>
-          ))}
-        </nav>
+        {linksAsList ? (
+          <nav aria-label="Mehr erfahren" className="mt-12">
+            <h3 className="mb-3 font-light tracking-tight" style={{ fontSize: "clamp(19px,2.3vw,24px)" }}>Mehr erfahren</h3>
+            <ul className="border-t border-border">
+              {links.map((l) => (
+                <li key={l.to} className="border-b border-border">
+                  <Link to={l.to} className="flex min-h-12 items-center justify-between gap-4 py-3 text-[15px] font-light text-foreground no-underline">
+                    <span>{l.label}</span>
+                    <span aria-hidden="true" className="shrink-0 text-[18px] leading-none text-primary">›</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : (
+          <nav aria-label="Weiterlesen" className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {links.map((l) => (
+              <Link key={l.to} to={l.to} className="text-primary underline underline-offset-4">{l.label}</Link>
+            ))}
+          </nav>
+        )}
       </div>
     </section>
   );
