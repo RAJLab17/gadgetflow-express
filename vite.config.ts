@@ -84,7 +84,9 @@ const heroPreloadPlugin = (): PluginOption => ({
 const prerenderPlugin = (): PluginOption => {
   const snapshot = loadSnapshot(__dirname);
   const VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
-  const withShell = (html: string, route: string) => route === "/airpods-case"
+  const withShell = (html: string, route: string) => route === "/matrix"
+    ? html.replace('<div id="root"></div>', '<div id="root"></div><div id="__matrix_shell">' + matrixShellHtml(matrixFirstRender.url, `data:image/webp;base64,${readFileSync(path.resolve(__dirname, "src/assets/logo-new-400w.webp")).toString("base64")}`, matrixMobileRender.url).replace(/^<style>[\s\S]*?<\/style>/, "") + '</div>')
+    : route === "/airpods-case"
     ? html.replace(VIEWPORT, VIEWPORT + airpodsShellHead()).replace('<div id="root"></div>', '<div id="root"></div>' + airpodsShellScript())
     : withNexusShell(html, route);
   const withNexusShell = (html: string, route: string) => route !== "/nexus" ? html : html
