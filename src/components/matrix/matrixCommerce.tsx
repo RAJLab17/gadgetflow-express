@@ -15,7 +15,7 @@ export const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
 /** Lieferhinweis unter dem Kaufbutton und in der FAQ. */
 export const MATRIX_DELIVERY_TEXT = "Neue Lieferung unterwegs · Versand in 5–8 Tagen";
 /** Trust-Zeilen unter dem Kaufbutton (Mobile / Desktop). */
-export const MATRIX_TRUST_MOBILE = "↩︎ 30 Tage Rückgabe · Schweizer Marke · Gratis Versand";
+export const MATRIX_TRUST_MOBILE = "30 Tage Rückgabe · Schweizer Marke · Gratis Versand";
 export const MATRIX_TRUST_DESKTOP = "Sichere Bezahlung · 30 Tage Rückgabe";
 
 /* ── Shopify Variant ID mapping ─────────────────────────────────────── */
