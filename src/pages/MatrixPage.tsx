@@ -903,14 +903,14 @@ const MatrixPage = () => {
                         className="mt-1 hidden text-sm italic md:block"
                         style={{ color: H.gold, fontWeight: 400, letterSpacing: "normal", lineHeight: 1.43 }}
                       >
-                        <span className="block">Das Carbon-System mit MagSafe</span>
+                        <span className="block">Die Hülle als Teil des Systems</span>
                         <span className="block">für iPhone 17 &amp; 18 Pro / Pro Max</span>
                       </span>
                       <span
                         className="mt-1 block text-xs leading-4 text-foreground md:hidden"
                         style={{ fontWeight: 400, letterSpacing: "normal" }}
                       >
-                        <span className="block">Das Carbon-System mit MagSafe</span>
+                        <span className="block">Die Hülle als Teil des Systems</span>
                         <span className="block">für iPhone 17 &amp; 18 Pro / Pro Max</span>
                       </span>
                     </h1>
