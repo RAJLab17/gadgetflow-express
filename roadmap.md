@@ -1,4 +1,5 @@
 # Roadmap
+- [x] /matrix Linkbereich unter den FAQ: Überschrift «Mehr erfahren» plus vier einheitliche Zeilen (Guide, NEXUS, Qi2.2, Versand) mit Pfeil und Trennlinien, echte <a href> auch im statischen Shell; Mobile/Desktop und /airpods-case unverändert geprüft; nicht veröffentlicht.
 - [x] Pfeil-Symbol vor «30 Tage Rückgabe» entfernt: geteilte Mobile-Trust-Zeile auf /matrix und /airpods-case, Crawler-Kopie erneuert; Build und Vorschau bei 390px geprüft; nicht veröffentlicht.
 - [x] MATRIX FAQ: acht native Akkordeons mit erster offener Frage, vollständigen Antworten in Sofortansicht und Crawler-HTML; gewünschte FAQ-Texte und JSON-LD angepasst; Mobile/Desktop, 44px-Zeilen, Öffnen/Schliessen und Nutzung ohne JavaScript geprüft; nicht veröffentlicht.
 - [x] AirPods-Produktkarte auf /produkte ergänzt; Menü enthält keine Produkt-Unterliste und bleibt unverändert; Crawler-Kopie, 1 H1, 4 ItemList-Produkte, Links und Mobile/Desktop geprüft; /matrix unverändert. Veröffentlichung beauftragt.
