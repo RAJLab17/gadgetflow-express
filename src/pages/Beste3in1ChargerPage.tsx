@@ -27,7 +27,7 @@ const faqJsonLd = {
       name: "Was ist der beste 3-in-1 Wireless Charger für die Schweiz 2026?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS ist die einzige Schweizer 3-in-1 Wireless Ladestation mit Qi2.2 25W Standard. Für CHF 99 bietet er die gleiche Ladeleistung wie Anker-Produkte zum doppelten Preis.",
+        text: "RAJ ist eine Schweizer Marke mit Qi2.2 3-in-1 Ladestation und Support aus dem Thurgau. Für CHF 99 bietet der RAJ NEXUS die gleiche Ladeleistung wie Anker-Produkte zum doppelten Preis.",
       },
     },
     {
@@ -65,7 +65,7 @@ const UL = ({ children }: { children: React.ReactNode }) => (
 const CTA = ({ label }: { label: string }) => (
   <div className="my-10">
     <Link
-      to="/"
+      to="/nexus"
       className="group inline-flex items-center gap-2 px-7 py-4 bg-primary text-primary-foreground text-sm font-medium tracking-wide hover:opacity-90 transition-opacity"
     >
       {label}
@@ -110,7 +110,7 @@ const Beste3in1ChargerPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <PremiumPageLayout
-        title="Beste 3-in-1 Ladestation Schweiz 2026 – iPhone Qi2.2 Test"
+        title="Beste 3-in-1 Ladestation Schweiz 2026: Qi2.2 Vergleich | RAJ"
         metaDescription="iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99. Jetzt vergleichen."
         canonical="https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026"
         eyebrow="Vergleich · Mai 2026"
@@ -221,8 +221,8 @@ const Beste3in1ChargerPage = () => {
 
         <H3>Was ist der beste 3-in-1 Wireless Charger für die Schweiz 2026?</H3>
         <P>
-          Der RAJ NEXUS ist die einzige Schweizer 3-in-1 Wireless Ladestation mit Qi2.2 25W Standard. Für CHF 99
-          bietet er die gleiche Ladeleistung wie Anker-Produkte zum doppelten Preis.
+          RAJ ist eine Schweizer Marke mit Qi2.2 3-in-1 Ladestation und Support aus dem Thurgau. Für CHF 99
+          bietet der RAJ NEXUS die gleiche Ladeleistung wie Anker-Produkte zum doppelten Preis.
         </P>
 
         <H3>Was ist Qi2.2?</H3>

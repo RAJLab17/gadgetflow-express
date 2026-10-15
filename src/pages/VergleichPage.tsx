@@ -460,7 +460,7 @@ const VergleichPage = () => {
             RAJ NEXUS
           </p>
           <h3 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
-            Der einzige Schweizer 3-in-1 mit Qi2.2.
+            Schweizer Marke mit Qi2.2 3-in-1 Ladestation und Support aus dem Thurgau.
           </h3>
           <p className="text-foreground/80 font-light leading-relaxed mb-6 max-w-xl">
             CHF 99. 3 Jahre Garantie. Direkt von RAJ aus dem Thurgau.
