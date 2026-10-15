@@ -25,6 +25,10 @@ const PRODUCT_FACTS: Record<string, string> = {
 const withFacts = (html: string, route: string) => PRODUCT_FACTS[route]
   ? html.replace(/(<noscript>\s*<div style="max-width:800px[^>]*>\s*<h1>[\s\S]*?<\/h1>)/, `$1${PRODUCT_FACTS[route]}`)
   : html;
+// Static first-image preloads; must match the first React <img> src/srcset/sizes exactly.
+const matrixPreload = `<link rel="preload" as="image" href="${matrixMobileRender.url}" imagesrcset="${matrixMobileRender.url} 800w, ${matrixFirstRender.url} 1200w" imagesizes="(max-width: 1023px) 266px, 1200px" fetchpriority="high">`;
+const nexusPreload = `<link rel="preload" as="image" href="${heroWebp800.url}" imagesrcset="${heroWebp400.url} 400w, ${heroWebp800.url} 800w, ${heroWebp1200.url} 1200w" imagesizes="(max-width: 768px) 266px, 700px" fetchpriority="high">`;
+const ROUTE_PRELOADS: Record<string, string> = { "/airpods-case": airpodsPreload, "/matrix": matrixPreload, "/nexus": nexusPreload };
 // Page colour painted before the bundle so there is no white flash.
 const pageBg = (route: string) => `<style>html,body{background:${route === "/matrix" || route === "/airpods-case" ? "#faf9f7" : "#fff"}}</style>`;
 
@@ -61,7 +65,7 @@ const heroPreloadPlugin = (): PluginOption => ({
       // Single responsive preload — matches the <img srcset/sizes> on the
       // Nexus hero exactly, so the preloaded resource is guaranteed to be
       // reused instead of triggering a second download.
-       const preloadTag = `<script>(function(){var _p=location.pathname.replace(/\\/$/,'');if(_p==='/matrix'||_p==='/airpods-case')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes=location.pathname.replace(/\\/$/,'')==='/nexus'?'(max-width: 768px) 100vw, 700px':'100vw';l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
+       const preloadTag = `<script>(function(){var _p=location.pathname.replace(/\\/$/,'');if(_p==='/matrix'||_p==='/airpods-case'||_p==='/nexus')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes=location.pathname.replace(/\\/$/,'')==='/nexus'?'(max-width: 768px) 100vw, 700px':'100vw';l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
 
       // Static LCP fallback: inject a real <img> into #root so the browser
       // can paint the hero BEFORE React hydrates (~3s render-delay saved on
@@ -74,7 +78,7 @@ const heroPreloadPlugin = (): PluginOption => ({
       // block before the JS bundle arrives. MatrixPage removes it on mount.
       const mUrl = JSON.stringify(matrixFirstRender.url);
       const matrixHeadScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url)}:${mUrl};l.imageSrcset=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url + ' 800w')}:${JSON.stringify(matrixFirstRender.url + ' 1200w')};l.setAttribute('fetchpriority','high');document.head.appendChild(l);}catch(e){}})();</script>`;
-      return html.replace("<!--HERO_PRELOAD-->", preloadTag + matrixHeadScript);
+      return html.replace("<!--HERO_PRELOAD-->", preloadTag);
     },
   },
 });
@@ -89,7 +93,7 @@ const prerenderPlugin = (): PluginOption => {
   const snapshot = loadSnapshot(__dirname);
   const VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
   const withShell = (html: string, route: string) =>
-    withFacts(html, route).replace(VIEWPORT, VIEWPORT + pageBg(route) + (route === "/airpods-case" ? airpodsPreload : ""));
+    withFacts(html, route).replace(VIEWPORT, VIEWPORT + pageBg(route) + (ROUTE_PRELOADS[route] ?? ""));
   return {
     name: "raj-prerender",
     enforce: "post",

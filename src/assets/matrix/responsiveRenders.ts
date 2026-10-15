@@ -49,7 +49,8 @@ export const renderSizes = new Map<string, { mobile: string; thumb: string }>([
 ]);
 export const airpodsThumbs = { cherry: thumb13.url, onyx: thumb14.url };
 export const twoCaseThumbs = { "17": two17.url, "18": two18.url };
-export const renderImageSizes = "(max-width: 1023px) 800px, 1200px";
+// Mobile slot capped at 266px so even 3x screens pick the 800w file, never 1200w.
+export const renderImageSizes = "(max-width: 1023px) 266px, 1200px";
 export const renderSrcSet = (src: string) => {
   const sized = renderSizes.get(src);
   return sized ? `${sized.mobile} 800w, ${src} 1200w` : undefined;
