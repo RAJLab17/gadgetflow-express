@@ -118,7 +118,7 @@ const ThreeInOnePage = () => {
             Fazit
           </h2>
           <p>
-            Für iPhone-Nutzer in der Schweiz die alle drei Apple-Geräte täglich laden: der RAJ NEXUS bietet den neuesten Standard, den günstigsten Preis und als einzige Option Schweizer Support. Faltbar, kompakt, für Nachttisch und Schreibtisch.
+            Für iPhone-Nutzer in der Schweiz die alle drei Apple-Geräte täglich laden: der RAJ NEXUS bietet den neuesten Standard und den günstigsten Preis, mit Schweizer Support aus dem Thurgau. Faltbar, kompakt, für Nachttisch und Schreibtisch.
           </p>
         </section>
 
