@@ -11,7 +11,6 @@ import {
   ShieldCheck, Truck, RotateCcw, Tag, Gift, Zap, Package, Infinity as InfinityIcon, ShoppingBag, X, ChevronDown,
 } from "lucide-react";
 import { observeMediaQuery } from "@/lib/mediaQuery";
-import { handOffNexusShell } from "@/lib/nexusShell";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { useViewContent } from "@/hooks/useViewContent";
@@ -563,7 +562,6 @@ const SocialProofPopup = ({ trigger, message }: { trigger: number; message: stri
 
 
 const NexusPage = () => {
-  useEffect(handOffNexusShell, []);
   const { t, lang, setLang } = useLanguage();
   const [headingBreakpoint, setHeadingBreakpoint] = useState(() =>
     window.matchMedia("(min-width: 1024px)").matches ? "desktop" :
