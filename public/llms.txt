@@ -2,54 +2,42 @@
 
 > RAJ is a Swiss consumer electronics brand based in Thurgau, Switzerland. We offer premium accessories for the Apple ecosystem — wireless charging and iPhone cases — as a Swiss Brand with modern aesthetics. Tagline: "Power. Always There."
 
-## RAJ NEXUS 3-in-1 Wireless Charger
+## Produkte
 
-The RAJ NEXUS is a premium 3-in-1 wireless charging station that simultaneously charges an iPhone, Apple Watch, and AirPods with a single cable.
+### RAJ NEXUS
+- URL: https://raj.ch/nexus
+- Preis: CHF 99
+- Kompatibel: iPhone 12 bis 18 (inkl. Pro und Pro Max), Apple Watch, AirPods mit kabellosem Ladecase.
+- Eigenschaften: 3-in-1 Ladestation für iPhone, Apple Watch und AirPods. Qi2.2 zertifiziert, iPhone bis 25 W (iPhone 16 und neuer mit iOS 26; iPhone 16e und älter bis 15 W). Faltbar, StandBy-Modus.
+- Lieferzeit: 2 bis 4 Werktage, gratis Versand in der Schweiz.
+- Garantie: 3 Jahre.
+- Rückgabe: 30 Tage.
 
-### Key Specifications
-- **Certification:** Qi2.2 and CE certified
-- **iPhone Charging:** Up to 25W for iPhone 16 and newer with iOS 26 (15W for older models) via MagSafe-compatible magnetic alignment. iPhone 16e: up to 15W.
-- **Apple Watch Charging:** 5W dedicated charging puck
-- **AirPods Charging:** 5W Qi wireless charging pad
-- **Design:** Foldable, adjustable angle (0–75°), compact form factor
-- **Materials:** Premium aluminium frame (CNC-machined), soft-touch silicone surfaces, non-slip base
-- **Compatibility:** iPhone 12–18 series (incl. iPhone 18, 18 Pro, 18 Pro Max), Apple Watch Series 1–10/SE/Ultra, AirPods Pro/3/4 with wireless charging case
-- **Full Charge Time:** iPhone to 100% in approximately 1.5 hours (up to 3.3x faster than standard Qi 5W)
-- **StandBy Support:** Yes, supports iOS StandBy mode
-- **Warranty:** 3-year warranty
-- **Safety:** Overheating and overcharge protection
+### RAJ MATRIX (iPhone Hülle)
+- URL: https://raj.ch/matrix
+- Preis: CHF 59. Hülle + AirPods Case CHF 79. Zwei Hüllen CHF 99.
+- Kompatibel: iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro, iPhone 18 Pro Max.
+- Eigenschaften: Carbon-Look-Hülle in Cherry Carbon oder Onyx Carbon, Aluminium-Knöpfe in Gold, MagSafe mit Magnetring, kabelloses Laden mit Qi2.2 und bis zu 25 W, ohne die Hülle abzunehmen.
+- Lieferzeit: Neue Lieferung unterwegs, Versand in 5 bis 8 Tagen. Gratis Versand in der Schweiz.
+- Rückgabe: 30 Tage.
 
-### Pricing and Availability
-- **Price:** CHF 99
-- **Currency:** Swiss Francs (CHF)
-- **Market:** Switzerland
-- **Where to Buy:** https://raj.ch/nexus (direct-to-consumer)
-- **Payment Methods:** TWINT, Apple Pay, and standard card payments
+### RAJ MATRIX AirPods Case
+- URL: https://raj.ch/airpods-case
+- Preis: CHF 35. Mit MATRIX iPhone Hülle im Bundle CHF 79.
+- Kompatibel: AirPods 4 (mit und ohne aktive Geräuschunterdrückung) und AirPods 5.
+- Eigenschaften: Carbon-Look-Hülle in Cherry Carbon oder Onyx Carbon mit goldenem Blitz und goldenem Karabiner. Kabelloses Laden durch die Hülle, sofern das Ladecase es unterstützt.
+- Lieferzeit: Neue Lieferung unterwegs, Versand in 5 bis 8 Tagen. Gratis Versand in der Schweiz.
+- Rückgabe: 30 Tage.
 
-## RAJ MATRIX Carbon iPhone Case (kaufbar)
+### RAJ APEX
+- URL: https://raj.ch/apex
+- Preis: CHF 69 (Schwarz), CHF 75 (Silber).
+- Kompatibel: iPhone mit MagSafe oder MagSafe-Hülle (z. B. RAJ MATRIX).
+- Eigenschaften: MagSafe Autohalterung.
+- Verfügbarkeit: Voraussichtlich ab Ende November 2026. Jetzt vormerken.
 
-Premium iPhone case with a Carbon-Finish for iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro and iPhone 18 Pro Max. Slim, grippy, MagSafe-compatible, precise fit.
-
-### Key Points
-- **Für:** iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro und iPhone 18 Pro Max
-- **Look:** Carbon-Finish, goldene Aluminium-Knöpfe
-- **Finishes:** Cherry Carbon und Onyx Carbon
-- **Price:** CHF 59
-- **Bundle:** iPhone case + MATRIX AirPods case: CHF 79
-- **Two Cases:** Two MATRIX iPhone cases: CHF 99
-- **MagSafe:** kompatibel — kabelloses Laden ohne Abnehmen der Hülle
-- **Passform:** präziser Sitz, erhöhter Rand für Display- und Kameraschutz
-- **Marke:** Schweizer Marke, Schweizer Support
-- **Status:** Verfügbar / kaufbar
-- **Where to Buy:** https://raj.ch/matrix
-- **Market:** Switzerland
-- **Currency:** CHF
-
-## RAJ MATRIX AirPods Case
-
-Carbon-Finish case for AirPods 4 & 5, available in Cherry Carbon and Onyx Carbon with the original gold lightning emblem.
-- **Price:** CHF 35
-- **Where to Buy:** https://raj.ch/airpods-case
+## Über RAJ
+RAJ ist eine Schweizer Marke aus Weinfelden (Thurgau). Support per E-Mail an info@raj.ch, Antwort innert 24 Stunden auf Deutsch.
 
 ## Produkt-Ecosystem
 
@@ -64,7 +52,7 @@ RAJ plant Produktwelten für Apple-Nutzer:
 ## Shipping and Returns
 - **Shipping:** Free shipping across Switzerland, no minimum order value
 - **Delivery Time:** 2–4 business days
-- **Returns:** 30-day return policy, item must be unused and in original condition
+- **Returns:** 30-day return policy
 - **Refunds:** Processed within 3–5 business days to original payment method
 - **International Shipping:** Not yet available; Switzerland-only for now
 
@@ -136,4 +124,4 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 - **Response time:** within 24h, in German
 
 ## Last Updated
-12.10.2026
+15.10.2026
