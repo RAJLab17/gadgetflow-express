@@ -76,8 +76,6 @@ const heroPreloadPlugin = (): PluginOption => ({
       // /matrix instant shell: preload the default render (18 Pro, Cherry
       // Carbon, Dark Cherry) and paint a static header/image/title/price/buy
       // block before the JS bundle arrives. MatrixPage removes it on mount.
-      const mUrl = JSON.stringify(matrixFirstRender.url);
-      const matrixHeadScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url)}:${mUrl};l.imageSrcset=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url + ' 800w')}:${JSON.stringify(matrixFirstRender.url + ' 1200w')};l.setAttribute('fetchpriority','high');document.head.appendChild(l);}catch(e){}})();</script>`;
       return html.replace("<!--HERO_PRELOAD-->", preloadTag);
     },
   },
