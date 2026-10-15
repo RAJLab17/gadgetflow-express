@@ -11,7 +11,6 @@ import type { CartItem } from "@/lib/shopify";
 import { usePendingCheckout, makeOrderReference } from "@/hooks/usePendingCheckout";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import { trackAddToCart, trackBeginCheckout, trackViewItem } from "@/lib/ga-ecommerce";
-import { readMatrixShellIntent } from "@/lib/matrixShell";
 
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
@@ -517,45 +516,9 @@ const MatrixPage = () => {
     trackViewItem({ item_id: "RAJ-MTX", item_name: "RAJ MATRIX iPhone Case", price: 59 });
   }, []);
   const isDesktopGallery = useSyncExternalStore(subscribeGalleryViewport, getGalleryViewport, () => false);
-  const [shellIntent] = useState(readMatrixShellIntent);
-  const [modelId, setModelId] = useState<ModelId>(() => MODELS.find((m) => m.id === shellIntent?.modelId)?.id ?? "18pro");
-  const [deviceId, setDeviceId] = useState(() => {
-    const initialModel = MODELS.find((m) => m.id === shellIntent?.modelId);
-    return initialModel?.gen === "17" ? "orange" : "darkcherry";
-  });
+  const [modelId, setModelId] = useState<ModelId>("18pro");
+  const [deviceId, setDeviceId] = useState("darkcherry");
   const [caseId, setCaseId] = useState("cherry");
-  // The selected model is already reflected in the first React render.
-  useEffect(() => {
-    // Remove the static view only once the React product image is decoded and painted.
-    const shell = document.getElementById("__matrix_shell");
-    if (shell) {
-      let done = false;
-      const remove = () => {
-        if (done) return;
-        done = true;
-        requestAnimationFrame(() => requestAnimationFrame(() => shell.remove()));
-      };
-      const img = document.querySelector<HTMLImageElement>(".matrix-page main section img");
-      const fallback = window.setTimeout(remove, 4000);
-      if (!img) remove();
-      else {
-        const ready = img.complete && img.naturalWidth > 0 ? Promise.resolve() : new Promise<void>((res) => {
-          img.addEventListener("load", () => res(), { once: true });
-          img.addEventListener("error", () => res(), { once: true });
-        });
-        ready.then(() => (img.decode ? img.decode().catch(() => undefined) : undefined)).then(() => {
-          // MobileGallery fades images in via opacity; wait until it is visible.
-          const check = () => (getComputedStyle(img).opacity === "1" ? remove() : requestAnimationFrame(check));
-          check();
-        });
-      }
-      void fallback;
-    }
-    delete window.__matrixShellIntent;
-    if (shellIntent?.headerAction) {
-      document.querySelector<HTMLButtonElement>(shellIntent.headerAction === "cart" ? 'button[aria-label="Warenkorb öffnen"]' : 'button[aria-label="Menü öffnen"]')?.click();
-    }
-  }, [shellIntent]);
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [showAirpodsColor, setShowAirpodsColor] = useState(false);
@@ -686,12 +649,6 @@ const MatrixPage = () => {
     }
   }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase, bundleTotal, trackCheckout, twoCasesSelected, secondModel, secondCaseFinish]);
 
-  const shellBuyReplayed = useRef(false);
-  useEffect(() => {
-    if (!shellIntent?.buy || shellBuyReplayed.current) return;
-    shellBuyReplayed.current = true;
-    void handleBuy();
-  }, [shellIntent, handleBuy]);
 
   const handleAirpodsBuy = useCallback(async () => {
     if (isBuyingAirpods) return;

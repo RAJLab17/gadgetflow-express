@@ -16,7 +16,6 @@ import type { CartItem } from "@/lib/shopify";
 import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import { trackAddToCart, trackBeginCheckout, trackViewItem } from "@/lib/ga-ecommerce";
 import { makeOrderReference, usePendingCheckout } from "@/hooks/usePendingCheckout";
-import { handOffAirpodsShell } from "@/lib/airpodsShell";
 import {
   AIRPODS_VARIANT_IDS,
   BUNDLE_DISCOUNT,
@@ -239,7 +238,6 @@ const AirpodsPage = () => {
   useEffect(() => {
     trackViewItem({ item_id: "RAJ-MTX-AP4", item_name: "RAJ MATRIX AirPods 4 & 5 Case", price: 35 });
   }, []);
-  useEffect(() => handOffAirpodsShell(), []);
   const [finishId, setFinishId] = useState<FinishId>("cherry");
   const [bundleSelected, setBundleSelected] = useState(false);
   const [modelId, setModelId] = useState<ModelId>("18pro");

@@ -1,10 +1,6 @@
 import { defineConfig, type PluginOption } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { readFileSync } from "node:fs";
-import { matrixShellHtml, matrixShellScript as makeMatrixShellScript } from "./scripts/matrix-shell";
-import { nexusShellCss, nexusShellScript } from "./scripts/nexus-shell";
-import { airpodsShellHead, airpodsShellScript } from "./scripts/airpods-shell";
 import { loadSnapshot, normalizeRoute, renderRouteHtml } from "./scripts/prerender";
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
@@ -14,6 +10,14 @@ import heroWebp800 from "./src/assets/products/nexus-hero-v2-800w.webp.asset.jso
 import heroWebp1200 from "./src/assets/products/nexus-hero-v2-1200w.webp.asset.json";
 import matrixFirstRender from "./src/assets/matrix/optimized-renders/18-cherry-cherry-darkcherry.webp.asset.json";
 import matrixMobileRender from "./src/assets/matrix/responsive/18-cherry-cherry-darkcherry-mobile.webp.asset.json";
+import ap400 from "./src/assets/matrix/airpods-gallery/airpods-cherry-product-400.webp.asset.json";
+import ap800 from "./src/assets/matrix/airpods-gallery/airpods-cherry-product-800.webp.asset.json";
+import ap1200 from "./src/assets/matrix/airpods-gallery/airpods-cherry-product-1200.webp.asset.json";
+
+// Must match GALLERY_SIZES / slideSrcSet of the first AirpodsPage slide so the preload is reused.
+const airpodsPreload = `<link rel="preload" as="image" href="${ap1200.url}" imagesrcset="${ap400.url} 400w, ${ap800.url} 800w, ${ap1200.url} 1200w" imagesizes="(max-width: 767px) 100vw, 460px" fetchpriority="high">`;
+// Page colour painted before the bundle so there is no white flash.
+const pageBg = (route: string) => `<style>html,body{background:${route === "/matrix" || route === "/airpods-case" ? "#faf9f7" : "#fff"}}</style>`;
 
 // Vite plugin: regenerates public/sitemap.xml from src/content/site-urls.ts
 // before every build, and once on dev server start.
@@ -61,16 +65,7 @@ const heroPreloadPlugin = (): PluginOption => ({
       // block before the JS bundle arrives. MatrixPage removes it on mount.
       const mUrl = JSON.stringify(matrixFirstRender.url);
       const matrixHeadScript = `<script>(function(){try{if(location.pathname.replace(/\\/$/,'')!=='/matrix')return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url)}:${mUrl};l.imageSrcset=window.matchMedia('(max-width:1023px)').matches?${JSON.stringify(matrixMobileRender.url + ' 800w')}:${JSON.stringify(matrixFirstRender.url + ' 1200w')};l.setAttribute('fetchpriority','high');document.head.appendChild(l);}catch(e){}})();</script>`;
-      const logoUrl = `data:image/webp;base64,${readFileSync(path.resolve(__dirname, "src/assets/logo-new-400w.webp")).toString("base64")}`;
-      const shellHtml = matrixShellHtml(matrixFirstRender.url, logoUrl, matrixMobileRender.url);
-      // Parse critical CSS in the head, before any shell element can be painted.
-      const shellCss = shellHtml.match(/^<style>[\s\S]*?<\/style>/)?.[0] ?? "";
-      const matrixShellScript = makeMatrixShellScript(shellHtml.slice(shellCss.length));
-
-      return html
-        .replace('<meta name="viewport" content="width=device-width, initial-scale=1.0" />', '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + shellCss)
-        .replace("<!--HERO_PRELOAD-->", preloadTag + matrixHeadScript)
-        .replace('<div id="root"></div>', '<div id="root"></div>' + matrixShellScript);
+      return html.replace("<!--HERO_PRELOAD-->", preloadTag + matrixHeadScript);
     },
   },
 });
@@ -84,14 +79,8 @@ const heroPreloadPlugin = (): PluginOption => ({
 const prerenderPlugin = (): PluginOption => {
   const snapshot = loadSnapshot(__dirname);
   const VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
-  const withShell = (html: string, route: string) => route === "/matrix"
-    ? html.replace('<div id="root"></div>', '<div id="root"></div><div id="__matrix_shell">' + matrixShellHtml(matrixFirstRender.url, `data:image/webp;base64,${readFileSync(path.resolve(__dirname, "src/assets/logo-new-400w.webp")).toString("base64")}`, matrixMobileRender.url).replace(/^<style>[\s\S]*?<\/style>/, "") + '</div>')
-    : route === "/airpods-case"
-    ? html.replace(VIEWPORT, VIEWPORT + airpodsShellHead()).replace('<div id="root"></div>', '<div id="root"></div>' + airpodsShellScript())
-    : withNexusShell(html, route);
-  const withNexusShell = (html: string, route: string) => route !== "/nexus" ? html : html
-    .replace('<meta name="viewport" content="width=device-width, initial-scale=1.0" />', '<meta name="viewport" content="width=device-width, initial-scale=1.0" />' + nexusShellCss())
-    .replace('<div id="root"></div>', '<div id="root"></div>' + nexusShellScript());
+  const withShell = (html: string, route: string) =>
+    html.replace(VIEWPORT, VIEWPORT + pageBg(route) + (route === "/airpods-case" ? airpodsPreload : ""));
   return {
     name: "raj-prerender",
     enforce: "post",
