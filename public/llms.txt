@@ -91,7 +91,7 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 - [Qi2 erklärt](https://raj.ch/qi2-erklaert): Qi2 vs. Qi2.2
 - [Vergleich](https://raj.ch/vergleich): RAJ NEXUS vs. Belkin vs. Anker
 - [Reviews](https://raj.ch/reviews): Kundenbewertungen
-- [Über RAJ](https://raj.ch/about): Marke, Mission, Schweizer Herkunft
+- [Über RAJ](https://raj.ch/about): Marke und Mission
 - [FAQ](https://raj.ch/faq): Häufige Fragen
 - [Versand](https://raj.ch/versand): Versand- und Lieferinformationen Schweiz
 - [Blog](https://raj.ch/blog): Ratgeber zu Wireless Charging und iPhone-Zubehör
