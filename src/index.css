@@ -39,6 +39,7 @@
     --radius: 0.75rem;
 
     /* Custom tokens */
+    --nexus-availability: #2E9E5B;
     --glow-primary: 30 45% 35%;
     --glow-secondary: 35 35% 45%;
     --surface-elevated: 40 28% 93%;
