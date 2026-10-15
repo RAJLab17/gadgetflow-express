@@ -47,6 +47,7 @@ import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
 import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
 import { observeMediaQuery } from "@/lib/mediaQuery";
 import BundleOfferImage from "@/components/matrix/BundleOfferImage";
+import MatrixSwapImage from "@/components/matrix/MatrixSwapImage";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
@@ -256,6 +257,33 @@ const RENDERS: Record<string, string> = {
   "18-onyx-silver": onyxSilver,
 };
 
+let variantsWarming = false;
+const warmVariantImages = () => {
+  if (variantsWarming) return;
+  variantsWarming = true;
+  const start = () => {
+    const queue = Array.from(new Set(Object.values(RENDERS).map((src) => renderSizes.get(src)?.mobile).filter((src): src is string => Boolean(src))));
+    const loadNext = () => {
+      const src = queue.shift();
+      if (!src) return;
+      const image = new Image();
+      image.fetchPriority = "low";
+      image.decoding = "async";
+      image.onload = image.onerror = loadNext;
+      image.src = src;
+    };
+    // Only two low-priority downloads at once, after the initial page load.
+    loadNext();
+    loadNext();
+  };
+  const idle = () => {
+    if ("requestIdleCallback" in window) window.requestIdleCallback(start);
+    else setTimeout(start, 1500);
+  };
+  if (document.readyState === "complete") idle();
+  else window.addEventListener("load", idle, { once: true });
+};
+
 /* Originalkontur des goldenen MATRIX-Emblems, direkt aus dem Produktfoto. */
 const GoldBolt = forwardRef<HTMLImageElement, { airpods?: boolean }>(({ airpods = false }, ref) => (
   <img
@@ -320,7 +348,7 @@ const DeviceMock = memo(({
         className="absolute left-1/2 -translate-x-1/2 bottom-[3%] w-[58%] h-8 rounded-[50%] pointer-events-none"
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
       />
-      <img
+      <MatrixSwapImage
         src={selectedPhoto ?? src}
         srcSet={selectedPhoto ? undefined : renderSrcSet(src)}
         sizes={renderImageSizes}
@@ -330,6 +358,7 @@ const DeviceMock = memo(({
         loading="eager"
         fetchPriority="high"
         decoding="async"
+        onLoad={warmVariantImages}
         className={isLifestyle ? "absolute inset-0 h-full w-full object-cover" : "absolute inset-0 h-full w-full object-contain"}
         style={{
           filter: "contrast(1.015) saturate(1.015)",
@@ -383,7 +412,6 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [prefetchThrough, setPrefetchThrough] = useState(0);
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(() => new Set());
 
   useEffect(() => {
     setActive(0);
@@ -412,8 +440,8 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
         aria-roledescription="carousel"
       >
         {slides.map((src, i) => (
-          <div key={src} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
-            <img
+          <div key={i} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
+            <MatrixSwapImage
               src={renderSizes.get(src)?.mobile ?? getPhotoSizes(src)?.mobile ?? src}
               srcSet={renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
               sizes="(max-width: 767px) calc(100vw - 40px), 480px"
@@ -423,17 +451,11 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               loading={i <= prefetchThrough ? "eager" : "lazy"}
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
-              onLoad={() => setLoadedImages((current) => new Set(current).add(src))}
-              onError={() => setLoadedImages((current) => {
-                const next = new Set(current);
-                next.delete(src);
-                return next;
-              })}
+              onLoad={i === 0 ? warmVariantImages : undefined}
               className={isLifestylePhoto(src)
                 ? "absolute inset-0 h-full w-full object-cover"
                 : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"}
               style={{
-                opacity: loadedImages.has(src) ? 1 : 0,
                 filter: "contrast(1.015) saturate(1.015)",
                 left: 0,
                 right: 0,
@@ -717,10 +739,12 @@ const MatrixPage = () => {
 
 
   const selectModel = (id: ModelId) => {
+    const next = MODELS.find((m) => m.id === id);
+    if (!next) return;
     setModelId(id);
-    const next = MODELS.find((m) => m.id === id)!;
     if (!DEVICE_FINISHES.find((f) => f.id === deviceId)?.gens.includes(next.gen)) {
-      setDeviceId(DEVICE_FINISHES.find((f) => f.gens.includes(next.gen))!.id);
+      const fallback = DEVICE_FINISHES.find((f) => f.gens.includes(next.gen));
+      if (fallback) setDeviceId(fallback.id);
     }
   };
 
@@ -1060,8 +1084,8 @@ const MatrixPage = () => {
                               style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}
                             >
                               {opt.bundle ? (
-                                <BundleOfferImage phoneSrc={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} finishId={caseFinish.id} finishName={caseFinish.name} />
-                              ) : <img
+                                <BundleOfferImage seamless phoneSrc={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} finishId={caseFinish.id} finishName={caseFinish.name} />
+                              ) : <MatrixSwapImage
                                 src={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc}
                                 width={160}
                                 height={160}
@@ -1159,7 +1183,7 @@ const MatrixPage = () => {
                         }}
                       >
                         <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg flex" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
-                          <img src={twoCaseThumbs[model.gen]} alt="RAJ MATRIX Cherry Carbon und Onyx Carbon Hüllen nebeneinander" width={160} height={160} loading="lazy" decoding="async" className="h-full w-full object-contain" />
+                          <MatrixSwapImage src={twoCaseThumbs[model.gen]} alt="RAJ MATRIX Cherry Carbon und Onyx Carbon Hüllen nebeneinander" width={160} height={160} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-contain" />
                         </span>
                         <span className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center" style={{ borderColor: twoCasesSelected ? H.gold : H.lineStrong }}>
                           {twoCasesSelected && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}

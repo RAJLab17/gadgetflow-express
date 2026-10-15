@@ -1,4 +1,5 @@
 # Architecture rules
+- MATRIX variant and offer images use MatrixSwapImage to retain decoded previous pixels during asynchronous swaps; warm only 800w renders at low priority after the first image and window load to protect initial loading.
 - MATRIX native FAQ accordions use MATRIX_FAQ content with all answers embedded and the first question open; snapshot capture includes closed answers so crawler text and FAQPage stay consistent.
 - MATRIX and AirPods bundle offer cards use BundleOfferImage with original-product AirPods thumbnails and page-owned phone selections, keeping their presentation identical without coupling checkout logic.
 - Deduplicate React/ReactDOM and prebundle app-shell providers together in Vite so lazy navigation cannot mix React hook dispatchers from separate dependency generations.
