@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { getOriginCartAttributes } from "@/lib/attribution";
 
 const SHOPIFY_API_VERSION = '2025-07';
 const SHOPIFY_STORE_PERMANENT_DOMAIN = 'kcvjif-10.myshopify.com';
@@ -217,20 +218,38 @@ export async function createShopifyCart(
   discountCodes?: string[],
   attributes?: Array<{ key: string; value: string }>,
 ): Promise<{ cartId: string; checkoutUrl: string; lineId: string } | null> {
-  const input: Record<string, unknown> = { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] };
-  if (discountCodes?.length) input.discountCodes = discountCodes;
-  if (attributes?.length) input.attributes = attributes;
-  const data = await storefrontApiRequest(CART_CREATE_MUTATION, { input });
+  let origin: Array<{ key: string; value: string }> = [];
+  try {
+    const existing = new Set((attributes ?? []).map(a => a.key));
+    origin = getOriginCartAttributes().filter(a => !existing.has(a.key));
+  } catch { origin = []; }
 
-  if (data?.data?.cartCreate?.userErrors?.length > 0) {
-    console.error('Cart creation failed:', data.data.cartCreate.userErrors);
-    return null;
+  const attempt = async (extra: Array<{ key: string; value: string }>) => {
+    const input: Record<string, unknown> = { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] };
+    if (discountCodes?.length) input.discountCodes = discountCodes;
+    const all = [...(attributes ?? []), ...extra];
+    if (all.length) input.attributes = all;
+    const data = await storefrontApiRequest(CART_CREATE_MUTATION, { input });
+    if (data?.data?.cartCreate?.userErrors?.length > 0) {
+      console.error('Cart creation failed:', data.data.cartCreate.userErrors);
+      return null;
+    }
+    const cart = data?.data?.cartCreate?.cart;
+    if (!cart?.checkoutUrl) return null;
+    const lineId = cart.lines.edges[0]?.node?.id;
+    if (!lineId) return null;
+    return { cartId: cart.id, checkoutUrl: normalizeCheckoutUrl(cart.checkoutUrl), lineId };
+  };
+
+  if (origin.length === 0) return attempt([]);
+  try {
+    const result = await attempt(origin);
+    if (result) return result;
+  } catch (error) {
+    console.warn('Cart creation with origin attributes failed, retrying without:', error);
   }
-  const cart = data?.data?.cartCreate?.cart;
-  if (!cart?.checkoutUrl) return null;
-  const lineId = cart.lines.edges[0]?.node?.id;
-  if (!lineId) return null;
-  return { cartId: cart.id, checkoutUrl: normalizeCheckoutUrl(cart.checkoutUrl), lineId };
+  // Second and final attempt without origin data (no cart was created above).
+  return attempt([]);
 }
 
 export async function addLineToShopifyCart(cartId: string, item: CartItem): Promise<{ success: boolean; lineId?: string; checkoutUrl?: string; cartNotFound?: boolean }> {
