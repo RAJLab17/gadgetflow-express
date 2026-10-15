@@ -768,9 +768,7 @@ const NexusPage = () => {
       ? `Noch ${founderRemaining} verfügbar`
       : "Verfügbar";
 
-  // Unter 10 Stück im Bestand leuchtet der Hinweis-Punkt rot statt grün.
-  const availabilityColor =
-    founderRemaining !== null && founderRemaining < 10 ? "#dc2626" : "#22c55e";
+  const availabilityColor = "var(--nexus-availability)";
 
 
   const productJsonLd = {
@@ -926,7 +924,7 @@ const NexusPage = () => {
                 <span style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase", fontWeight: 500, color: H.gold }}>{availabilityLabel}</span>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap", marginTop: 8 }}>
-                <span style={{ fontSize: 34, color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}</span>
+                <span style={{ fontSize: 27.2, lineHeight: "51px", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.–</span>
               </div>
               <div style={{ marginTop: 8 }}>
                 <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
@@ -1002,7 +1000,7 @@ const NexusPage = () => {
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
-                <span style={{ fontSize: "clamp(28px,2.2vw,36px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}</span>
+                <span style={{ fontSize: "clamp(22.4px,1.76vw,28.8px)", lineHeight: "clamp(42px,3.3vw,54px)", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.–</span>
               </div>
             </div>
             <div style={{ marginTop: 10 }}>
@@ -1168,7 +1166,7 @@ const NexusPage = () => {
             </div>
             {/* Price */}
             <div className="flex items-baseline justify-center" style={{ gap: 10 }}>
-              <span style={{ fontSize: 24, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: 1 }}>CHF {REGULAR_PRICE}</span>
+              <span style={{ fontSize: 19.2, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: "24px" }}>CHF {REGULAR_PRICE}.–</span>
             </div>
 
             {/* Rating */}
