@@ -773,11 +773,12 @@ const MatrixPage = () => {
       },
       shippingDetails: {
         "@type": "OfferShippingDetails",
+        description: MATRIX_DELIVERY_TEXT,
         shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "CHF" },
         shippingDestination: { "@type": "DefinedRegion", addressCountry: "CH" },
         deliveryTime: {
           "@type": "ShippingDeliveryTime",
-          handlingTime: { "@type": "QuantitativeValue", minValue: 3, maxValue: 6, unitCode: "d" },
+          handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "d" },
           transitTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "d" },
         },
       },
