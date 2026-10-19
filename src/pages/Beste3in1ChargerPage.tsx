@@ -148,7 +148,6 @@ const Beste3in1ChargerPage = () => {
             ["Anker Prime Wireless Charging Station (3-in-1, MagGo, AirCool, Foldable, A25N1)", "Qi2.2", "bis 25W"],
             ["Belkin BoostCharge Pro 3-in-1 Magnetic Wireless Charging Stand with Qi2 15W (WIZ023)", "Qi2", "bis 15W"],
             ["ESR CryoBoost 3-in-1 Magnetic Charging Station (25W, Qi2.2)", "Qi2.2", "bis 25W"],
-            ["freeVoice Wireless Charger Compact (3in1, FWP-WCS-003)", "Qi", "bis 15W"],
           ]}
         />
 
@@ -276,7 +275,6 @@ const Beste3in1ChargerPage = () => {
         </P>
         <UL>
           <li><strong>Unsere Empfehlung:</strong> RAJ NEXUS – CHF 99, Qi2.2 bis 25W, Schweizer Marke</li>
-          <li><strong>Modell mit Qi:</strong> freeVoice Wireless Charger Compact (3in1, FWP-WCS-003) – bis 15W laut Herstellerangabe</li>
           <li><strong>Modell mit Qi2.2:</strong> ESR CryoBoost 3-in-1 Magnetic Charging Station (25W, Qi2.2) – bis 25W laut Herstellerangabe</li>
         </UL>
 
