@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Nur 3-in-1-Vergleich: Transparenz, sachliche Aussagen, unbelegte Konkurrenzpreise entfernen; Beschreibung und Artikel-/Sitemap-Datum aktualisieren, Crawler-Kopie prüfen, Vorher/Nachher zeigen und veröffentlichen.
 - [x] MATRIX/AirPods: Lieferhinweis und FAQ auf Versand ab 20. Oktober / Lieferung 1–2 Werktage angeglichen; InStock und Transit 1–2 Tage geprüft, nur beide Crawler-Kopien erneuert, llms aktualisiert; Browser und zwei Regeltests bestanden, Veröffentlichung wird angefordert.
 - [x] Textkorrekturen: beide NEXUS-Bloglinks führen auf /nexus, exakter neuer Titel inkl. OG/Twitter, absolute Alleinstellungen auf fünf Seiten entschärft; JSON-LD/llms/noscript angeglichen; Browsernavigation und statisches HTML geprüft, Build OK; Layout/Bilder/Checkout unverändert, nicht veröffentlicht.
 - [x] /matrix: bisherige Haupt-/Angebotsbilder bis zur dekodierten Ersatzdatei behalten und 150 ms überblenden; 800w-Varianten nach Erstbild und Seitenladung niedrig priorisiert vorladen; Silver erhalten. 390px: zehn schnelle Wechsel ohne leere Karte, konstante Höhe/Position/Scroll; Angebotsbilder ebenfalls geprüft, Build OK; nicht veröffentlicht.
