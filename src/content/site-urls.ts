@@ -45,6 +45,8 @@ export interface BlogArticle {
   date: string;
   /** ISO date for <time> + sitemap lastmod, e.g. "2026-05-03" */
   dateISO: string;
+  /** Authoritative significant content update; independent of the displayed publication date. */
+  lastmod?: string;
   priority?: number;
   changefreq?: SitemapEntry["changefreq"];
 }
@@ -91,6 +93,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Drei Geräte, ein Ladegerät. RAJ NEXUS, Anker, Belkin & ESR im direkten Qi2.2-Vergleich für die Schweiz.",
     date: "04.05.2026",
     dateISO: "2026-05-04",
+    lastmod: "2026-10-19",
     priority: 0.85,
   },
   {
@@ -310,7 +313,7 @@ export function getAllSitemapEntries(): SitemapEntry[] {
     (a) => !seen.has(a.path),
   ).map((a) => ({
     path: a.path,
-    lastmod: a.dateISO,
+    lastmod: a.lastmod ?? a.dateISO,
     changefreq: a.changefreq ?? "weekly",
     priority: a.priority ?? 0.8,
   }));

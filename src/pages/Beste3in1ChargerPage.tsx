@@ -5,15 +5,16 @@ import PremiumPageLayout from "@/components/PremiumPageLayout";
 import { breadcrumbJsonLd, articleJsonLd } from "@/lib/schemas";
 
 const articleSchema = articleJsonLd({
-  headline: "Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich",
+  headline: "3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich",
   url: "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
+  dateModified: "2026-10-19",
 });
 
 const breadcrumb = breadcrumbJsonLd([
   { name: "Home", url: "https://raj.ch" },
   { name: "Blog", url: "https://raj.ch/blog" },
   {
-    name: "Beste 3-in-1 Wireless Ladestation Schweiz 2026",
+    name: "3-in-1 Wireless Ladestationen Schweiz 2026",
     url: "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
   },
 ]);
@@ -24,10 +25,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Was ist der beste 3-in-1 Wireless Charger für die Schweiz 2026?",
+      name: "Welche 3-in-1 Wireless Ladestation empfiehlt RAJ für die Schweiz 2026?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "RAJ ist eine Schweizer Marke mit Qi2.2 3-in-1 Ladestation und Support aus dem Thurgau. Für CHF 99 bietet der RAJ NEXUS die gleiche Ladeleistung wie Anker-Produkte zum doppelten Preis.",
+        text: "Als Marke hinter NEXUS empfehlen wir unsere eigene Ladestation: Der RAJ NEXUS bietet laut Herstellerangabe bis zu 25W Ladeleistung für CHF 99. RAJ ist eine Schweizer Marke aus Weinfelden TG und bietet Support auf Deutsch aus dem Thurgau.",
       },
     },
     {
@@ -35,7 +36,7 @@ const faqJsonLd = {
       name: "Was ist Qi2.2?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Qi2.2 ist der neueste Standard für kabelloses Laden mit bis zu 25W Ladeleistung und magnetischer Ausrichtung.",
+        text: "Qi2.2 ist ein Standard für kabelloses Laden, entwickelt vom Wireless Power Consortium. Er ermöglicht bis zu 25W Ladeleistung mit magnetischer Ausrichtung. Die tatsächlich erreichte Leistung hängt vom Gerät, Netzteil und den Ladebedingungen ab.",
       },
     },
     {
@@ -111,47 +112,50 @@ const Beste3in1ChargerPage = () => {
       </Helmet>
       <PremiumPageLayout
         title="Beste 3-in-1 Ladestation Schweiz 2026: Qi2.2 Vergleich | RAJ"
-        metaDescription="iPhone, Apple Watch & AirPods: 5 Modelle verglichen nach Ladeleistung, Qi2.2 und Preis in CHF – RAJ NEXUS aus der Schweiz für CHF 99. Jetzt vergleichen."
+        metaDescription="Qi2.2 Ladestationen für iPhone, Apple Watch und AirPods im Überblick: Ladeleistung, Bauform und Preise in CHF. Ein Vergleich von RAJ, Stand Oktober 2026."
         canonical="https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026"
-        eyebrow="Vergleich · Mai 2026"
-        heading="Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich"
-        intro="Drei Geräte, drei Kabel, drei Stecker – jede Nacht das gleiche Chaos auf dem Nachttisch. Eine gute 3-in-1 Wireless Ladestation löst das mit einem einzigen Kabel. Dieser Vergleich zeigt, welche Optionen 2026 wirklich überzeugen – und warum der RAJ NEXUS die erste Schweizer Antwort auf Belkin und Anker ist."
-        meta={<p>Zuletzt aktualisiert: Mai 2026</p>}
+        eyebrow="Vergleich · Oktober 2026"
+        heading="3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich"
+        intro={<>
+          <p className="mb-6 text-base font-medium leading-relaxed text-foreground">Transparenz: Dieser Vergleich stammt von RAJ, der Marke hinter NEXUS. Alle Angaben beruhen auf Herstellerangaben, nicht auf eigenen Labormessungen. Stand: Oktober 2026.</p>
+          <p>Drei Geräte, drei Kabel, drei Stecker – jede Nacht das gleiche Chaos auf dem Nachttisch. Eine 3-in-1 Wireless Ladestation lädt diese Geräte über einen einzigen Anschluss. Dieser Vergleich stellt Herstellerangaben zu Ladeleistung und Bauform gegenüber und ordnet den RAJ NEXUS als Ladestation einer Schweizer Marke ein.</p>
+        </>}
+        meta={<p>Zuletzt aktualisiert: 19. Oktober 2026</p>}
         width="wide"
       >
         <H2>Was ist eine 3-in-1 Wireless Ladestation?</H2>
         <P>
           Eine 3-in-1 Wireless Ladestation lädt iPhone, Apple Watch und AirPods gleichzeitig – kabellos, über
-          einen einzigen USB-C Anschluss. Die besten Modelle nutzen den Qi2.2 Standard, der 2025/2026 als neuer
-          Goldstandard für kabelloses Laden gilt.
+          einen einzigen USB-C Anschluss. Modelle mit Qi2.2 unterstützen laut Standard bis zu 25W
+          Ladeleistung für kompatible Smartphones.
         </P>
 
         <H2>Qi2 vs. Qi2.2 – was ist der Unterschied?</H2>
         <UL>
           <li><strong>Qi2</strong> – bis 15W, magnetische Ausrichtung, kompatibel mit iPhone 12 und neuer</li>
-          <li><strong>Qi2.2</strong> – bis 25W, stärkere Magneten, verbessertes Wärmemanagement, kompatibel mit iPhone 16 und neuer</li>
+          <li><strong>Qi2.2</strong> – bis 25W, magnetische Ausrichtung; 25W auf unterstützten iPhone-16-Modellen mit iOS 26 und neueren kompatiblen Modellen</li>
         </UL>
         <P>
-          Wer tagsüber kurz nachlädt, merkt den Unterschied deutlich. Wer nachts lädt, bekommt mit beiden
-          Standards ein volles iPhone am Morgen.
+          Die Wattangaben bezeichnen die maximale Ladeleistung. Die tatsächlich erreichte Leistung und
+          Ladedauer hängen unter anderem vom Gerät, Netzteil, Akkustand und der Temperatur ab.
         </P>
 
-        <H2>Schnellübersicht: Die besten 3-in-1 Ladestationen Schweiz 2026</H2>
+        <H2>Schnellübersicht: 3-in-1 Ladestationen Schweiz 2026</H2>
         <Table
-          headers={["Produkt", "Standard", "iPhone-Leistung", "Preis", "Herkunft"]}
+          headers={["Produkt", "Standard", "iPhone-Leistung laut Hersteller", "Herkunft"]}
           rows={[
-            ["RAJ NEXUS", "Qi2.2", "25W", "CHF 99", "Schweizer Marke"],
-            ["Anker MagGo 3-in-1", "Qi2.2", "25W", "CHF 130–160", "USA"],
-            ["Belkin 3-in-1", "Qi2", "15W", "CHF 120–150", "USA"],
-            ["ESR CryoBoost", "Qi2.2", "25W", "CHF 90–110", "International"],
-            ["freeVoice 3-in-1", "Qi2", "15W", "CHF 32", "International"],
+            ["RAJ NEXUS", "Qi2.2", "bis 25W", "Schweizer Marke"],
+            ["Anker MagGo 3-in-1", "Qi2.2", "bis 25W", "USA"],
+            ["Belkin 3-in-1", "Qi2", "bis 15W", "USA"],
+            ["ESR CryoBoost", "Qi2.2", "bis 25W", "International"],
+            ["freeVoice 3-in-1", "Qi2", "bis 15W", "International"],
           ]}
         />
 
         <H2>RAJ NEXUS – Die Schweizer Alternative</H2>
         <P>
-          Der RAJ NEXUS ist die erste 3-in-1 Wireless Ladestation einer Schweizer Marke aus Weinfelden,
-          Thurgau – für iPhone 16 Pro Nutzer, die kein Kompromissprodukt wollen.
+          Der RAJ NEXUS ist eine 3-in-1 Qi2.2 Ladestation einer Schweizer Marke aus Weinfelden TG
+          – für iPhone, Apple Watch und AirPods.
         </P>
 
         <H3>Technische Daten RAJ NEXUS</H3>
@@ -167,9 +171,8 @@ const Beste3in1ChargerPage = () => {
 
         <H3>Was RAJ NEXUS von der Konkurrenz unterscheidet</H3>
         <P>
-          Anker und Belkin sind globale Massenprodukte ohne Bezug zur Schweiz. Der RAJ NEXUS kommt von einer
-          Schweizer Marke – CHF-Preise, Schweizer Support. Für den gleichen Preis wie
-          ein Belkin bekommst du ein Produkt mit Charakter.
+          Der RAJ NEXUS kommt von einer Schweizer Marke aus Weinfelden TG. RAJ bietet den NEXUS für
+          CHF 99 und Support auf Deutsch aus dem Thurgau. Anker und Belkin sind internationale Marken.
         </P>
 
         <CTA label="RAJ NEXUS sichern – CHF 99" />
@@ -180,27 +183,25 @@ const Beste3in1ChargerPage = () => {
         <Table
           headers={["", "RAJ NEXUS", "Anker MagGo"]}
           rows={[
-            ["Preis", "CHF 99", "CHF 130–160"],
             ["Standard", "Qi2.2", "Qi2.2"],
-            ["iPhone-Leistung", "25W", "25W"],
+            ["iPhone-Leistung laut Hersteller", "bis 25W", "bis 25W"],
             ["Marke", "Schweizer Marke (RAJ)", "Internationale Marke"],
             ["Support", "Schweiz, auf Deutsch", "International"],
           ]}
         />
-        <P><strong>Fazit:</strong> Gleiche Ladeleistung, CHF 30–60 günstiger, Schweizer Marke.</P>
+        <P><strong>Fazit:</strong> Laut Herstellerangaben unterstützen RAJ NEXUS und das hier aufgeführte Anker MagGo Modell jeweils bis zu 25W iPhone-Ladeleistung.</P>
 
         <H3>RAJ NEXUS vs. Belkin 3-in-1</H3>
         <Table
           headers={["", "RAJ NEXUS", "Belkin 3-in-1"]}
           rows={[
-            ["Preis", "CHF 99", "CHF 120–150"],
             ["Standard", "Qi2.2", "Qi2"],
-            ["iPhone-Leistung", "25W", "15W"],
+            ["iPhone-Leistung laut Hersteller", "bis 25W", "bis 15W"],
             ["Marke", "Schweizer Marke (RAJ)", "Internationale Marke"],
             ["Support", "Schweiz, auf Deutsch", "International"],
           ]}
         />
-        <P><strong>Fazit:</strong> RAJ NEXUS lädt schneller, kostet weniger, sieht besser aus.</P>
+        <P><strong>Fazit:</strong> Laut Herstellerangaben unterstützt RAJ NEXUS bis zu 25W iPhone-Ladeleistung; das hier aufgeführte Belkin 3-in-1 Modell mit Qi2 unterstützt bis zu 15W. Diese Angaben sind keine Messung der tatsächlichen Ladedauer.</P>
 
         <H2>Für wen ist eine 3-in-1 Wireless Ladestation sinnvoll?</H2>
         <P><strong>Ja, wenn du:</strong></P>
@@ -213,23 +214,24 @@ const Beste3in1ChargerPage = () => {
         <P><strong>Eher nicht, wenn du:</strong></P>
         <UL>
           <li>Nur ein Gerät lädst</li>
-          <li>Maximale Kabelgeschwindigkeit brauchst (USB-C kabelgebunden ist immer schneller)</li>
+          <li>Eine bestimmte Ladeleistung über USB-C benötigst; die Leistung hängt vom Gerät und Netzteil ab</li>
           <li>Ein sehr dickes Case (über 5mm) verwendest, das Wireless Charging blockiert</li>
         </UL>
 
         <H2>Häufig gestellte Fragen (FAQ)</H2>
 
-        <H3>Was ist der beste 3-in-1 Wireless Charger für die Schweiz 2026?</H3>
+        <H3>Welche 3-in-1 Wireless Ladestation empfiehlt RAJ für die Schweiz 2026?</H3>
         <P>
-          RAJ ist eine Schweizer Marke mit Qi2.2 3-in-1 Ladestation und Support aus dem Thurgau. Für CHF 99
-          bietet der RAJ NEXUS die gleiche Ladeleistung wie Anker-Produkte zum doppelten Preis.
+          Als Marke hinter NEXUS empfehlen wir unsere eigene Ladestation: Der RAJ NEXUS bietet laut
+          Herstellerangabe bis zu 25W Ladeleistung für CHF 99. RAJ ist eine Schweizer Marke aus Weinfelden TG
+          und bietet Support auf Deutsch aus dem Thurgau.
         </P>
 
         <H3>Was ist Qi2.2?</H3>
         <P>
-          Qi2.2 ist der neueste Standard für kabelloses Laden, entwickelt vom Wireless Power Consortium. Er
-          ermöglicht bis zu 25W Ladeleistung mit magnetischer Ausrichtung – fast so schnell wie kabelgebundenes
-          Laden.
+          Qi2.2 ist ein Standard für kabelloses Laden, entwickelt vom Wireless Power Consortium. Er
+          ermöglicht bis zu 25W Ladeleistung mit magnetischer Ausrichtung. Die tatsächlich erreichte
+          Leistung hängt vom Gerät, Netzteil und den Ladebedingungen ab.
         </P>
 
         <H3>Funktioniert der RAJ NEXUS mit iPhone 15?</H3>
@@ -247,8 +249,8 @@ const Beste3in1ChargerPage = () => {
         <H3>Wie unterscheidet sich Qi2 von MagSafe?</H3>
         <P>
           MagSafe ist Apples proprietärer Standard, Qi2 ist der offene Industriestandard basierend auf
-          MagSafe-Technologie. Qi2 und MagSafe sind funktional identisch bei 15W. Qi2.2 übertrifft MagSafe mit
-          bis zu 25W.
+          MagSafe-Technologie. Qi2 unterstützt bis zu 15W und Qi2.2 bis zu 25W. Die MagSafe-Ladeleistung
+          hängt von der Generation des Ladegeräts und dem iPhone-Modell ab.
         </P>
 
         <H3>Ist kabelloses Laden schlecht für den Akku?</H3>
@@ -265,13 +267,14 @@ const Beste3in1ChargerPage = () => {
 
         <H2>Fazit: Welche 3-in-1 Ladestation kaufen?</H2>
         <P>
-          Wer in der Schweiz eine 3-in-1 Wireless Ladestation sucht, findet 2026 mit dem RAJ NEXUS die beste
-          Kombination aus Leistung, Design und Preis.
+          Unsere Empfehlung als Marke hinter NEXUS ist die eigene 3-in-1 Qi2.2 Ladestation für CHF 99.
+          Für die Auswahl sind die unterstützten Geräte, die maximale Ladeleistung laut Hersteller und
+          die Bauform relevant.
         </P>
         <UL>
-          <li><strong>Beste Wahl allgemein:</strong> RAJ NEXUS – CHF 99, Qi2.2 25W, Schweizer Marke</li>
-          <li><strong>Günstiger Einstieg:</strong> freeVoice 3-in-1 – CHF 32, Qi2 15W, kein Premium</li>
-          <li><strong>Internationale Alternative:</strong> ESR CryoBoost – Qi2.2 25W, kein CH-Bezug</li>
+          <li><strong>Unsere Empfehlung:</strong> RAJ NEXUS – CHF 99, Qi2.2 bis 25W, Schweizer Marke</li>
+          <li><strong>Modell mit Qi2:</strong> freeVoice 3-in-1 – bis 15W laut Herstellerangabe</li>
+          <li><strong>Modell mit Qi2.2:</strong> ESR CryoBoost – bis 25W laut Herstellerangabe</li>
         </UL>
 
         <CTA label="RAJ NEXUS bestellen" />
