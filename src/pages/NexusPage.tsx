@@ -771,6 +771,11 @@ const NexusPage = () => {
 
   const productJsonLd = {
     ...PRODUCT_NEXUS_JSON_LD,
+    additionalProperty: PRODUCT_NEXUS_JSON_LD.additionalProperty.map((property) =>
+      property.name === "Compatibility"
+        ? { ...property, value: "iPhone 12 to iPhone 18 Series, Apple Watch, AirPods with wireless charging case" }
+        : property
+    ),
     offers: {
       ...PRODUCT_NEXUS_JSON_LD.offers,
       price: `${REGULAR_PRICE}.00`,

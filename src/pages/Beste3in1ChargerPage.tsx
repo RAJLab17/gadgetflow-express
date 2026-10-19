@@ -44,7 +44,7 @@ const faqJsonLd = {
       name: "Funktioniert der RAJ NEXUS mit iPhone 15?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja. Der RAJ NEXUS ist kompatibel mit iPhone 12 bis iPhone 16 Pro Max.",
+        text: "Ja. Der RAJ NEXUS ist kompatibel mit allen iPhones mit MagSafe oder Qi2, von iPhone 12 bis iPhone 18 Pro Max. Die volle Qi2.2-Leistung von bis zu 25W erreichen iPhone 16 und neuer mit aktuellem iOS.",
       },
     },
   ],
@@ -112,7 +112,7 @@ const Beste3in1ChargerPage = () => {
       </Helmet>
       <PremiumPageLayout
         title="Beste 3-in-1 Ladestation Schweiz 2026: Qi2.2 Vergleich | RAJ"
-        metaDescription="Qi2.2 Ladestationen für iPhone, Apple Watch und AirPods im Überblick: Ladeleistung, Bauform und Preise in CHF. Ein Vergleich von RAJ, Stand Oktober 2026."
+        metaDescription="Qi2.2 Ladestationen für iPhone, Apple Watch und AirPods im Überblick: Ladeleistung, Bauform und unsere Empfehlung. Ein Vergleich von RAJ, Stand Oktober 2026."
         canonical="https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026"
         eyebrow="Vergleich · Oktober 2026"
         heading="3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich"
@@ -133,7 +133,7 @@ const Beste3in1ChargerPage = () => {
         <H2>Qi2 vs. Qi2.2 – was ist der Unterschied?</H2>
         <UL>
           <li><strong>Qi2</strong> – bis 15W, magnetische Ausrichtung, kompatibel mit iPhone 12 und neuer</li>
-          <li><strong>Qi2.2</strong> – bis 25W, magnetische Ausrichtung; 25W auf unterstützten iPhone-16-Modellen mit iOS 26 und neueren kompatiblen Modellen</li>
+          <li><strong>Qi2.2</strong> – bis 25W, magnetische Ausrichtung; 25W auf iPhone 16 und neuer mit aktuellem iOS</li>
         </UL>
         <P>
           Die Wattangaben bezeichnen die maximale Ladeleistung. Die tatsächlich erreichte Leistung und
@@ -142,15 +142,17 @@ const Beste3in1ChargerPage = () => {
 
         <H2>Schnellübersicht: 3-in-1 Ladestationen Schweiz 2026</H2>
         <Table
-          headers={["Produkt", "Standard", "iPhone-Leistung laut Hersteller", "Herkunft"]}
+          headers={["Produkt", "Standard", "iPhone-Leistung laut Hersteller"]}
           rows={[
-            ["RAJ NEXUS", "Qi2.2", "bis 25W", "Schweizer Marke"],
-            ["Anker MagGo 3-in-1", "Qi2.2", "bis 25W", "USA"],
-            ["Belkin 3-in-1", "Qi2", "bis 15W", "USA"],
-            ["ESR CryoBoost", "Qi2.2", "bis 25W", "International"],
-            ["freeVoice 3-in-1", "Qi2", "bis 15W", "International"],
+            ["RAJ NEXUS", "Qi2.2", "bis 25W"],
+            ["Anker Prime Wireless Charging Station (3-in-1, MagGo, AirCool, Foldable, A25N1)", "Qi2.2", "bis 25W"],
+            ["Belkin BoostCharge Pro 3-in-1 Magnetic Wireless Charging Stand with Qi2 15W (WIZ023)", "Qi2", "bis 15W"],
+            ["ESR CryoBoost 3-in-1 Magnetic Charging Station (25W, Qi2.2)", "Qi2.2", "bis 25W"],
+            ["freeVoice Wireless Charger Compact (3in1, FWP-WCS-003)", "Qi", "bis 15W"],
           ]}
         />
+
+        <P>Viele Hersteller bieten mehrere Generationen an, teils auch mit Qi2.2. Massgebend ist die Herstellerangabe zum jeweiligen Modell.</P>
 
         <H2>RAJ NEXUS – Die Schweizer Alternative</H2>
         <P>
@@ -163,7 +165,7 @@ const Beste3in1ChargerPage = () => {
           <li>iPhone: bis 25W (Qi2.2, iPhone 16 und neuer)</li>
           <li>Apple Watch: bis 5W</li>
           <li>AirPods: bis 3W</li>
-          <li>Kompatibilität: iPhone 12–16 Pro Max, Apple Watch Series 1–10, AirPods Pro 2, AirPods 3/4</li>
+          <li>Kompatibilität: iPhone 12 bis iPhone 18 Pro Max, Apple Watch, AirPods mit kabellosem Ladecase</li>
           <li>Standard: Qi2.2 zertifiziert</li>
           <li>Anschluss: USB-C</li>
           <li>Preis: CHF 99</li>
@@ -179,9 +181,9 @@ const Beste3in1ChargerPage = () => {
 
         <H2>Vergleich RAJ NEXUS vs. Anker vs. Belkin</H2>
 
-        <H3>RAJ NEXUS vs. Anker MagGo 3-in-1</H3>
+        <H3>RAJ NEXUS vs. Anker Prime Wireless Charging Station (3-in-1, MagGo, AirCool, Foldable, A25N1)</H3>
         <Table
-          headers={["", "RAJ NEXUS", "Anker MagGo"]}
+          headers={["", "RAJ NEXUS", "Anker Prime A25N1"]}
           rows={[
             ["Standard", "Qi2.2", "Qi2.2"],
             ["iPhone-Leistung laut Hersteller", "bis 25W", "bis 25W"],
@@ -189,11 +191,11 @@ const Beste3in1ChargerPage = () => {
             ["Support", "Schweiz, auf Deutsch", "International"],
           ]}
         />
-        <P><strong>Fazit:</strong> Laut Herstellerangaben unterstützen RAJ NEXUS und das hier aufgeführte Anker MagGo Modell jeweils bis zu 25W iPhone-Ladeleistung.</P>
+        <P><strong>Fazit:</strong> Laut Herstellerangaben unterstützen RAJ NEXUS und Anker Prime A25N1 jeweils bis zu 25W iPhone-Ladeleistung.</P>
 
-        <H3>RAJ NEXUS vs. Belkin 3-in-1</H3>
+        <H3>RAJ NEXUS vs. Belkin BoostCharge Pro 3-in-1 Magnetic Wireless Charging Stand with Qi2 15W (WIZ023)</H3>
         <Table
-          headers={["", "RAJ NEXUS", "Belkin 3-in-1"]}
+          headers={["", "RAJ NEXUS", "Belkin BoostCharge Pro 3-in-1 Magnetic Wireless Charging Stand with Qi2 15W (WIZ023)"]}
           rows={[
             ["Standard", "Qi2.2", "Qi2"],
             ["iPhone-Leistung laut Hersteller", "bis 25W", "bis 15W"],
@@ -201,7 +203,9 @@ const Beste3in1ChargerPage = () => {
             ["Support", "Schweiz, auf Deutsch", "International"],
           ]}
         />
-        <P><strong>Fazit:</strong> Laut Herstellerangaben unterstützt RAJ NEXUS bis zu 25W iPhone-Ladeleistung; das hier aufgeführte Belkin 3-in-1 Modell mit Qi2 unterstützt bis zu 15W. Diese Angaben sind keine Messung der tatsächlichen Ladedauer.</P>
+        <P><strong>Fazit:</strong> Laut Herstellerangaben unterstützt RAJ NEXUS bis zu 25W iPhone-Ladeleistung; das hier aufgeführte Belkin BoostCharge Pro 3-in-1 Magnetic Wireless Charging Stand with Qi2 15W (WIZ023) Modell mit Qi2 unterstützt bis zu 15W. Diese Angaben sind keine Messung der tatsächlichen Ladedauer.</P>
+
+        <P>Viele Hersteller bieten mehrere Generationen an, teils auch mit Qi2.2. Massgebend ist die Herstellerangabe zum jeweiligen Modell.</P>
 
         <H2>Für wen ist eine 3-in-1 Wireless Ladestation sinnvoll?</H2>
         <P><strong>Ja, wenn du:</strong></P>
@@ -236,8 +240,7 @@ const Beste3in1ChargerPage = () => {
 
         <H3>Funktioniert der RAJ NEXUS mit iPhone 15?</H3>
         <P>
-          Ja. Der RAJ NEXUS ist kompatibel mit iPhone 12 bis iPhone 16 Pro Max. Für die volle 25W Qi2.2-Leistung
-          ist ein iPhone 16 oder neuer empfohlen.
+          Ja. Der RAJ NEXUS ist kompatibel mit allen iPhones mit MagSafe oder Qi2, von iPhone 12 bis iPhone 18 Pro Max. Die volle Qi2.2-Leistung von bis zu 25W erreichen iPhone 16 und neuer mit aktuellem iOS.
         </P>
 
         <H3>Brauche ich ein spezielles Netzteil?</H3>
@@ -273,8 +276,8 @@ const Beste3in1ChargerPage = () => {
         </P>
         <UL>
           <li><strong>Unsere Empfehlung:</strong> RAJ NEXUS – CHF 99, Qi2.2 bis 25W, Schweizer Marke</li>
-          <li><strong>Modell mit Qi2:</strong> freeVoice 3-in-1 – bis 15W laut Herstellerangabe</li>
-          <li><strong>Modell mit Qi2.2:</strong> ESR CryoBoost – bis 25W laut Herstellerangabe</li>
+          <li><strong>Modell mit Qi:</strong> freeVoice Wireless Charger Compact (3in1, FWP-WCS-003) – bis 15W laut Herstellerangabe</li>
+          <li><strong>Modell mit Qi2.2:</strong> ESR CryoBoost 3-in-1 Magnetic Charging Station (25W, Qi2.2) – bis 25W laut Herstellerangabe</li>
         </UL>
 
         <CTA label="RAJ NEXUS bestellen" />
