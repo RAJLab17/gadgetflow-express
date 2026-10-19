@@ -276,7 +276,6 @@ const Beste3in1ChargerPage = () => {
         <UL>
           <li><strong>Unsere Empfehlung:</strong> RAJ NEXUS – CHF 99, Qi2.2 bis 25W, Schweizer Marke</li>
           <li><strong>Modell mit Qi2.2:</strong> ESR CryoBoost 3-in-1 Magnetic Charging Station (25W, Qi2.2) – bis 25W laut Herstellerangabe</li>
-          <li><strong>Modell mit Qi2.2:</strong> ESR CryoBoost 3-in-1 Magnetic Charging Station (25W, Qi2.2) – bis 25W laut Herstellerangabe</li>
         </UL>
 
         <CTA label="RAJ NEXUS bestellen" />
