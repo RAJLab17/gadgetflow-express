@@ -4,8 +4,9 @@ import thumb1 from "./responsive/17-cherry-cherry-deep-blue-thumb.webp.asset.jso
 import mobile1 from "./responsive/17-cherry-cherry-deep-blue-mobile.webp.asset.json";
 import thumb2 from "./responsive/17-cherry-cherry-silver-thumb.webp.asset.json";
 import mobile2 from "./responsive/17-cherry-cherry-silver-mobile.webp.asset.json";
-import thumb3 from "./responsive/18-cherry-cherry-darkcherry-thumb.webp.asset.json";
-import mobile3 from "./responsive/18-cherry-cherry-darkcherry-mobile.webp.asset.json";
+import thumb3 from "./uploaded-renders/cherry-darkcherry-photo-thumb.webp.asset.json";
+import mobile3 from "./uploaded-renders/cherry-darkcherry-photo-mobile.webp.asset.json";
+import full3 from "./uploaded-renders/cherry-darkcherry-photo-full.webp.asset.json";
 import thumb4 from "./responsive/18-cherry-cherry-darkgrey-thumb.webp.asset.json";
 import mobile4 from "./responsive/18-cherry-cherry-darkgrey-mobile.webp.asset.json";
 import thumb5 from "./responsive/18-cherry-cherry-silver-thumb.webp.asset.json";
@@ -36,7 +37,7 @@ export const renderSizes = new Map<string, { mobile: string; thumb: string }>([
   ["/__l5e/assets-v1/fd5e0e80-b338-4e97-a084-fe48ff14e50d/17-cherry-cherry-cosmic-orange.webp", { mobile: mobile0.url, thumb: thumb0.url }],
   ["/__l5e/assets-v1/6fa396cf-21a6-4377-9434-f88dd3dfb079/17-cherry-cherry-deep-blue.webp", { mobile: mobile1.url, thumb: thumb1.url }],
   ["/__l5e/assets-v1/0d8b1a81-882c-458a-8c4c-76f45ce25424/17-cherry-cherry-silver.webp", { mobile: mobile2.url, thumb: thumb2.url }],
-  ["/__l5e/assets-v1/d6b4938c-c4cf-4bce-aa1a-022cc075ffd2/18-cherry-cherry-darkcherry.webp", { mobile: mobile3.url, thumb: thumb3.url }],
+  [full3.url, { mobile: mobile3.url, thumb: thumb3.url }],
   ["/__l5e/assets-v1/f762ee71-c946-4ac0-901a-94fea7a97dc1/18-cherry-cherry-darkgrey.webp", { mobile: mobile4.url, thumb: thumb4.url }],
   ["/__l5e/assets-v1/59723654-78db-4010-a3a0-ecc3334d7b03/18-cherry-cherry-silver.webp", { mobile: mobile5.url, thumb: thumb5.url }],
   ["/__l5e/assets-v1/f8e11bce-a5b8-44dc-9082-24be772e1574/18-cherry-cherry-skyblue.webp", { mobile: mobile6.url, thumb: thumb6.url }],
