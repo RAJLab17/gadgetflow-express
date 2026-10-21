@@ -4,9 +4,9 @@ import thumb1 from "./responsive/17-cherry-cherry-deep-blue-thumb.webp.asset.jso
 import mobile1 from "./responsive/17-cherry-cherry-deep-blue-mobile.webp.asset.json";
 import thumb2 from "./responsive/17-cherry-cherry-silver-thumb.webp.asset.json";
 import mobile2 from "./responsive/17-cherry-cherry-silver-mobile.webp.asset.json";
-import thumb3 from "./uploaded-renders/cherry-darkcherry-photo-thumb.webp.asset.json";
-import mobile3 from "./uploaded-renders/cherry-darkcherry-photo-mobile.webp.asset.json";
-import full3 from "./uploaded-renders/cherry-darkcherry-photo-full.webp.asset.json";
+import thumb3 from "./uploaded-renders/cherry-darkcherry-transparent-thumb.webp.asset.json";
+import mobile3 from "./uploaded-renders/cherry-darkcherry-transparent-mobile.webp.asset.json";
+import full3 from "./uploaded-renders/cherry-darkcherry-transparent-full.webp.asset.json";
 import thumb4 from "./responsive/18-cherry-cherry-darkgrey-thumb.webp.asset.json";
 import mobile4 from "./responsive/18-cherry-cherry-darkgrey-mobile.webp.asset.json";
 import thumb5 from "./responsive/18-cherry-cherry-silver-thumb.webp.asset.json";
