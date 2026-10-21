@@ -20,7 +20,7 @@ import Footer from "@/components/Footer";
 import cherryOrangeAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-cosmic-orange.webp.asset.json";
 import cherryBlueAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-deep-blue.webp.asset.json";
 import cherrySilverAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-silver.webp.asset.json";
-import cherryDarkcherry18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-darkcherry.webp.asset.json";
+import cherryDarkcherry18Asset from "@/assets/matrix/uploaded-renders/cherry-darkcherry-photo-full.webp.asset.json";
 import cherryDarkgrey18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-darkgrey.webp.asset.json";
 import cherrySilver18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-silver.webp.asset.json";
 import cherrySkyblue18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-skyblue.webp.asset.json";
@@ -755,7 +755,7 @@ const MatrixPage = () => {
     brand: { "@type": "Brand", name: "RAJ" },
     description:
       "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
-    image: ["https://raj.ch/__l5e/assets-v1/96396c57-bc64-4ec4-8654-d13c7f42095b/raj-matrix-share.jpg", "https://raj.ch/__l5e/assets-v1/d6b4938c-c4cf-4bce-aa1a-022cc075ffd2/18-cherry-cherry-darkcherry.webp", "https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp"],
+    image: ["https://raj.ch/__l5e/assets-v1/96396c57-bc64-4ec4-8654-d13c7f42095b/raj-matrix-share.jpg", `https://raj.ch${cherryDarkcherry18Asset.url}`, "https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp"],
     url: "https://raj.ch/matrix",
     offers: {
       "@type": "Offer",
