@@ -1184,7 +1184,7 @@ const MatrixPage = () => {
                         }}
                       >
                         <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg flex" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
-                          <MatrixSwapImage src={twoCaseThumbs[model.gen]} alt="Zwei RAJ MATRIX Cherry Carbon Hüllen nebeneinander" width={160} height={160} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-contain" />
+                          <MatrixSwapImage src={twoCaseThumbs[model.gen]} alt="RAJ MATRIX Onyx Carbon und Cherry Carbon Hülle nebeneinander" width={160} height={160} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-contain" />
                         </span>
                         <span className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center" style={{ borderColor: twoCasesSelected ? H.gold : H.lineStrong }}>
                           {twoCasesSelected && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
