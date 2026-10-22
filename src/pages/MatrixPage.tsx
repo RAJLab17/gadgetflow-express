@@ -499,6 +499,8 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
             />
             </ZoomFrame>
           </div>
+        ))}
+      </div>
       <ProductLightbox
         open={lightboxIndex !== null}
         images={slides.map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name) }))}
@@ -506,8 +508,6 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
         onIndexChange={setLightboxIndex}
         onClose={() => setLightboxIndex(null)}
       />
-        ))}
-      </div>
       {slides.length > 1 && (
         <div className="flex justify-center gap-1.5 pb-2 pt-1">
           {slides.map((_, i) => (
