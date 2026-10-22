@@ -29,7 +29,7 @@ import cherrySilver18Asset from "@/assets/matrix/uploaded-renders/18-cherry-silv
 import cherrySkyblue18Asset from "@/assets/matrix/uploaded-renders/18-cherry-skyblue-norm-full.webp.asset.json";
 import onyxOrange from "@/assets/matrix/uploaded-renders/17-onyx-orange-norm-full.webp.asset.json";
 import onyxBlue from "@/assets/matrix/uploaded-renders/17-onyx-blue-norm-full.webp.asset.json";
-import onyxSilver from "@/assets/matrix/uploaded-renders/17-onyx-silver-norm-full.webp.asset.json";
+import onyxSilver from "@/assets/matrix/uploaded-renders/onyx-silver-v2-full.webp.asset.json";
 import onyxDarkcherry from "@/assets/matrix/uploaded-renders/18-onyx-darkcherry-norm-full.webp.asset.json";
 import onyxDarkgrey18Asset from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
 import onyxSkyblue18Asset from "@/assets/matrix/uploaded-renders/18-onyx-skyblue-v2-full.webp.asset.json";
