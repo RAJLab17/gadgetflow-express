@@ -14,8 +14,9 @@ import full4 from "./uploaded-renders/cherry-darkgrey-v1-full.webp.asset.json";
 import thumb5 from "./uploaded-renders/cherry-silver-18-v1-thumb.webp.asset.json";
 import mobile5 from "./uploaded-renders/cherry-silver-18-v1-mobile.webp.asset.json";
 import full5 from "./uploaded-renders/cherry-silver-18-v1-full.webp.asset.json";
-import thumb6 from "./responsive/18-cherry-cherry-skyblue-thumb.webp.asset.json";
-import mobile6 from "./responsive/18-cherry-cherry-skyblue-mobile.webp.asset.json";
+import thumb6 from "./uploaded-renders/cherry-skyblue-18-v1-thumb.webp.asset.json";
+import mobile6 from "./uploaded-renders/cherry-skyblue-18-v1-mobile.webp.asset.json";
+import full6 from "./uploaded-renders/cherry-skyblue-18-v1-full.webp.asset.json";
 import thumb7 from "./responsive/18-onyx-onyx-darkgrey-thumb.webp.asset.json";
 import mobile7 from "./responsive/18-onyx-onyx-darkgrey-mobile.webp.asset.json";
 import thumb8 from "./responsive/18-onyx-onyx-skyblue-thumb.webp.asset.json";
@@ -43,7 +44,7 @@ export const renderSizes = new Map<string, { mobile: string; thumb: string }>([
   [full3.url, { mobile: mobile3.url, thumb: thumb3.url }],
   [full4.url, { mobile: mobile4.url, thumb: thumb4.url }],
   [full5.url, { mobile: mobile5.url, thumb: thumb5.url }],
-  ["/__l5e/assets-v1/f8e11bce-a5b8-44dc-9082-24be772e1574/18-cherry-cherry-skyblue.webp", { mobile: mobile6.url, thumb: thumb6.url }],
+  [full6.url, { mobile: mobile6.url, thumb: thumb6.url }],
   ["/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp", { mobile: mobile7.url, thumb: thumb7.url }],
   ["/__l5e/assets-v1/fd40f8d5-0eff-43ae-a89d-ce17b762c90a/18-onyx-onyx-skyblue.webp", { mobile: mobile8.url, thumb: thumb8.url }],
   [full9, { mobile: mobile9.url, thumb: thumb9.url }],
