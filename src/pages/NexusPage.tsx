@@ -955,6 +955,7 @@ const NexusPage = () => {
               {activeHeroReview && (
                 <LatestMarcelReview key={`hero-rev-lg-${heroReviewIdx}`} review={activeHeroReview} className="mt-5 animate-fade-in" onPhotoClick={() => setMarcelLightboxOpen(true)} theme="light" onExpandChange={setHeroReviewExpanded} />
               )}
+              <p className="mt-4 text-xs text-muted-foreground"><Link to="/kabelloses-laden-firmen-schweiz" className="text-primary underline underline-offset-4">Für Firmen: Mengenpreise ab 10 Stück.</Link></p>
             </div>
           </div>
 
@@ -1039,6 +1040,7 @@ const NexusPage = () => {
             )}
 
 
+            <p className="mt-4 text-xs text-muted-foreground"><Link to="/kabelloses-laden-firmen-schweiz" className="text-primary underline underline-offset-4">Für Firmen: Mengenpreise ab 10 Stück.</Link></p>
           </div>
 
           {/* RIGHT — hero image */}
@@ -1229,6 +1231,7 @@ const NexusPage = () => {
         </div>
 
         <div className="h-px w-full hidden md:block" style={{ background: `linear-gradient(to right, transparent, ${D.gold}, transparent)`, opacity: 0.4 }} />
+        <p className="md:hidden px-5 py-4 text-center text-xs text-muted-foreground"><Link to="/kabelloses-laden-firmen-schweiz" className="text-primary underline underline-offset-4">Für Firmen: Mengenpreise ab 10 Stück.</Link></p>
       </section>
 
       {/* ═══ DESKTOP: static reviews block ═══ */}

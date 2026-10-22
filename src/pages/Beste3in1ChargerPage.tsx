@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, articleJsonLd } from "@/lib/schemas";
 const articleSchema = articleJsonLd({
   headline: "3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich",
   url: "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
-  dateModified: "2026-10-19",
+  dateModified: "2026-10-22",
 });
 
 const breadcrumb = breadcrumbJsonLd([

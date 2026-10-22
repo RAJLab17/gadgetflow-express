@@ -93,7 +93,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Drei Geräte, ein Ladegerät. RAJ NEXUS, Anker, Belkin & ESR im direkten Qi2.2-Vergleich für die Schweiz.",
     date: "04.05.2026",
     dateISO: "2026-05-04",
-    lastmod: "2026-10-19",
+    lastmod: "2026-10-22",
     priority: 0.85,
   },
   {
@@ -145,15 +145,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     dateISO: "2026-05-02",
   },
   {
-    slug: "bester-wireless-charger-schweiz-2026",
-    path: "/bester-wireless-charger-schweiz",
-    title: "Bester Wireless Charger Schweiz 2026 – Top 3 im Vergleich",
-    excerpt:
-      "Qi2.2, MagSafe, 3-in-1 – welcher Charger lohnt sich wirklich für iPhone-Nutzer in der Schweiz?",
-    date: "02.05.2026",
-    dateISO: "2026-05-02",
-  },
-  {
     slug: "kabelloses-laden-buero-schweiz",
     path: "/kabelloses-laden-buero-schweiz",
     title:
@@ -172,6 +163,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       "Mitarbeitende bringen eigene Ladekabel mit – ein unterschätztes Risiko. Wie KMUs das eleganter lösen.",
     date: "02.05.2026",
     dateISO: "2026-05-02",
+    lastmod: "2026-10-22",
   },
 ];
 
