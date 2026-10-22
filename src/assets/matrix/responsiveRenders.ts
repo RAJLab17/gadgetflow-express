@@ -31,9 +31,9 @@ import v9 from "./uploaded-renders/18-cherry-skyblue-norm-thumb.webp.asset.json"
 import f10 from "./uploaded-renders/18-onyx-darkcherry-norm-full.webp.asset.json";
 import m10 from "./uploaded-renders/18-onyx-darkcherry-norm-mobile.webp.asset.json";
 import v10 from "./uploaded-renders/18-onyx-darkcherry-norm-thumb.webp.asset.json";
-import f11 from "./uploaded-renders/18-onyx-darkgrey-norm-full.webp.asset.json";
-import m11 from "./uploaded-renders/18-onyx-darkgrey-norm-mobile.webp.asset.json";
-import v11 from "./uploaded-renders/18-onyx-darkgrey-norm-thumb.webp.asset.json";
+import f11 from "./uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
+import m11 from "./uploaded-renders/18-onyx-darkgrey-v2-mobile.webp.asset.json";
+import v11 from "./uploaded-renders/18-onyx-darkgrey-v2-thumb.webp.asset.json";
 import f12 from "./uploaded-renders/18-onyx-skyblue-v2-full.webp.asset.json";
 import m12 from "./uploaded-renders/18-onyx-skyblue-v2-mobile.webp.asset.json";
 import v12 from "./uploaded-renders/18-onyx-skyblue-v2-thumb.webp.asset.json";
