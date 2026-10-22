@@ -20,19 +20,19 @@ import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
-import cherryOrangeAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-cosmic-orange.webp.asset.json";
-import cherryBlueAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-deep-blue.webp.asset.json";
-import cherrySilverAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-silver.webp.asset.json";
-import cherryDarkcherry18Asset from "@/assets/matrix/uploaded-renders/cherry-darkcherry-v4-full.webp.asset.json";
-import cherryDarkgrey18Asset from "@/assets/matrix/uploaded-renders/cherry-darkgrey-v1-full.webp.asset.json";
-import cherrySilver18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-silver.webp.asset.json";
-import cherrySkyblue18Asset from "@/assets/matrix/optimized-renders/18-cherry-cherry-skyblue.webp.asset.json";
-import onyxOrange from "@/assets/matrix/hq-reference-webp/onyx-orange.webp";
-import onyxBlue from "@/assets/matrix/hq-reference-webp/onyx-blue.webp";
-import onyxSilver from "@/assets/matrix/hq-reference-webp/onyx-silver.webp";
-import onyxDarkcherry from "@/assets/matrix/hq-reference-webp/onyx-darkcherry.webp";
-import onyxDarkgrey18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-darkgrey.webp.asset.json";
-import onyxSkyblue18Asset from "@/assets/matrix/optimized-renders/18-onyx-onyx-skyblue.webp.asset.json";
+import cherryOrangeAsset from "@/assets/matrix/uploaded-renders/17-cherry-orange-norm-full.webp.asset.json";
+import cherryBlueAsset from "@/assets/matrix/uploaded-renders/17-cherry-blue-norm-full.webp.asset.json";
+import cherrySilverAsset from "@/assets/matrix/uploaded-renders/17-cherry-silver-norm-full.webp.asset.json";
+import cherryDarkcherry18Asset from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json";
+import cherryDarkgrey18Asset from "@/assets/matrix/uploaded-renders/18-cherry-darkgrey-norm-full.webp.asset.json";
+import cherrySilver18Asset from "@/assets/matrix/uploaded-renders/18-cherry-silver-norm-full.webp.asset.json";
+import cherrySkyblue18Asset from "@/assets/matrix/uploaded-renders/18-cherry-skyblue-norm-full.webp.asset.json";
+import onyxOrange from "@/assets/matrix/uploaded-renders/17-onyx-orange-norm-full.webp.asset.json";
+import onyxBlue from "@/assets/matrix/uploaded-renders/17-onyx-blue-norm-full.webp.asset.json";
+import onyxSilver from "@/assets/matrix/uploaded-renders/17-onyx-silver-norm-full.webp.asset.json";
+import onyxDarkcherry from "@/assets/matrix/uploaded-renders/18-onyx-darkcherry-norm-full.webp.asset.json";
+import onyxDarkgrey18Asset from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-norm-full.webp.asset.json";
+import onyxSkyblue18Asset from "@/assets/matrix/uploaded-renders/18-onyx-skyblue-norm-full.webp.asset.json";
 import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx-original-bolt.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
@@ -249,18 +249,18 @@ const RENDERS: Record<string, string> = {
   "17-cherry-orange": cherryOrangeAsset.url,
   "17-cherry-blue": cherryBlueAsset.url,
   "17-cherry-silver": cherrySilverAsset.url,
-  "17-onyx-orange": onyxOrange,
-  "17-onyx-blue": onyxBlue,
-  "17-onyx-silver": onyxSilver,
+  "17-onyx-orange": onyxOrange.url,
+  "17-onyx-blue": onyxBlue.url,
+  "17-onyx-silver": onyxSilver.url,
   // Gen 18
   "18-cherry-darkcherry": cherryDarkcherry18Asset.url,
   "18-cherry-darkgrey": cherryDarkgrey18Asset.url,
   "18-cherry-skyblue": cherrySkyblue18Asset.url,
   "18-cherry-silver": cherrySilver18Asset.url,
-  "18-onyx-darkcherry": onyxDarkcherry,
+  "18-onyx-darkcherry": onyxDarkcherry.url,
   "18-onyx-darkgrey": onyxDarkgrey18Asset.url,
   "18-onyx-skyblue": onyxSkyblue18Asset.url,
-  "18-onyx-silver": onyxSilver,
+  "18-onyx-silver": onyxSilver.url,
 };
 
 let variantsWarming = false;
@@ -763,7 +763,7 @@ const MatrixPage = () => {
     brand: { "@type": "Brand", name: "RAJ" },
     description:
       "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
-    image: ["https://raj.ch/__l5e/assets-v1/96396c57-bc64-4ec4-8654-d13c7f42095b/raj-matrix-share.jpg", `https://raj.ch${cherryDarkcherry18Asset.url}`, "https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp"],
+    image: ["https://raj.ch/__l5e/assets-v1/96396c57-bc64-4ec4-8654-d13c7f42095b/raj-matrix-share.jpg", `https://raj.ch${cherryDarkcherry18Asset.url}`, `https://raj.ch${onyxDarkgrey18Asset.url}`],
     url: "https://raj.ch/matrix",
     ...reviewSchema("matrix", productReviews),
     offers: {

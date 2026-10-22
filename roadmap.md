@@ -1,70 +1,7 @@
 # Roadmap
-- [x] Bewertungen für MATRIX/AirPods: eigene Abschnitte/Sterne, Produktfilter und Kundenlinks, automatische Formularzuordnung, Freigabe und exakt produktbezogenes Schema; 17 NEXUS-Bewertungen erhalten; 13 Regeltests und Browserprüfungen bestanden, Crawler-Kopien erneuert, nicht veröffentlicht.
-- [ ] Echten Shopify-Bestelltest abschliessen: dauerhafter SHOPIFY_ACCESS_TOKEN verweigert Bestellzugriff mit HTTP 401, auch nach Konto-Verbindung; gültiger dauerhafter Zugang mit read_orders erforderlich. Keine Testbewertungen gespeichert.
-- [x] Alten Vergleich entfernt, Blog/llms/Sitemaps bereinigt; Firmenartikel, Quellenlinks, gemeinsame sichtbare/Schema-FAQ, Footer-/NEXUS-Link und lastmod 22.10.2026 aktualisiert; zehn Regeltests und Browsernavigation bestanden, keine Laufzeitfehler.
-- [x] Nutzer hat Browserweiterleitung (HTTP 200 statt 301) freigegeben; alte Adresse erhält im vorgerenderten HTML genau einen Canonical-Link auf den Blogartikel, geprüft. Veröffentlichung angefordert.
-- [x] MATRIX: hochgeladenes Cherry-/Dark-Cherry-Foto als Erstbild für 18 Pro und Pro Max; optimierte Haupt-, Handy- und Vorschaugrössen, passende Vorladung und Crawler-Bildangaben; auf Desktop und Handy mit ausgelieferten CDN-Bildern geprüft, nicht veröffentlicht.
-- [x] Nur Vergleichsartikel: Kompatibilität, identische sichtbare/Schema-FAQ, Qi2.2-Erklärung, genaue Konkurrenzmodelle, Herkunftsspalte und Beschreibung angepasst; /nexus nur Product-Compatibility; Browser und beide Crawler-Kopien geprüft, andere Seiten unverändert; geänderten Text zeigen, nicht veröffentlicht.
-- [x] Nur 3-in-1-Vergleich: Transparenz und sachliche Aussagen ergänzt, unbelegte Konkurrenzpreise entfernt; Beschreibung und Artikel-/Sitemap-Datum 19.10.2026 aktualisiert; Browser, Crawler-Kopie und Datumstests bestanden, andere Crawler-Seiten unverändert; Vorher/Nachher gezeigt, Veröffentlichung für raj.ch angefordert.
-- [x] MATRIX/AirPods: Lieferhinweis und FAQ auf Versand ab 20. Oktober / Lieferung 1–2 Werktage angeglichen; InStock und Transit 1–2 Tage geprüft, nur beide Crawler-Kopien erneuert, llms aktualisiert; Browser und zwei Regeltests bestanden, Veröffentlichung wird angefordert.
-- [x] Textkorrekturen: beide NEXUS-Bloglinks führen auf /nexus, exakter neuer Titel inkl. OG/Twitter, absolute Alleinstellungen auf fünf Seiten entschärft; JSON-LD/llms/noscript angeglichen; Browsernavigation und statisches HTML geprüft, Build OK; Layout/Bilder/Checkout unverändert, nicht veröffentlicht.
-- [x] /matrix: bisherige Haupt-/Angebotsbilder bis zur dekodierten Ersatzdatei behalten und 150 ms überblenden; 800w-Varianten nach Erstbild und Seitenladung niedrig priorisiert vorladen; Silver erhalten. 390px: zehn schnelle Wechsel ohne leere Karte, konstante Höhe/Position/Scroll; Angebotsbilder ebenfalls geprüft, Build OK; nicht veröffentlicht.
-- [x] /nexus: grüner Verfügbarkeitspunkt, CHF 99.– und 20% kleinerer Preis mit stabiler Bereichshöhe in React und Shell; Grössen und Farben bei 390/1280px geprüft, JSON-LD unverändert, Build OK; nicht veröffentlicht.
-- [x] /matrix Unterzeile unter «MATRIX» auf „Die Hülle als Teil des Systems" reduziert und die Zeile „für iPhone 17 & 18 Pro / Pro Max" entfernt: React-H1 (Mobile+Desktop), Sofortansicht und Crawler-Kopie; Schrift, Grösse und Abstände unverändert, Mobile/Desktop mit und ohne JavaScript geprüft; nicht veröffentlicht.
-- [x] /matrix Linkbereich unter den FAQ: Überschrift «Mehr erfahren» plus vier einheitliche Zeilen (Guide, NEXUS, Qi2.2, Versand) mit Pfeil und Trennlinien, echte <a href> auch im statischen Shell; Mobile/Desktop und /airpods-case unverändert geprüft; nicht veröffentlicht.
-- [x] Pfeil-Symbol vor «30 Tage Rückgabe» entfernt: geteilte Mobile-Trust-Zeile auf /matrix und /airpods-case, Crawler-Kopie erneuert; Build und Vorschau bei 390px geprüft; nicht veröffentlicht.
-- [x] MATRIX FAQ: acht native Akkordeons mit erster offener Frage, vollständigen Antworten in Sofortansicht und Crawler-HTML; gewünschte FAQ-Texte und JSON-LD angepasst; Mobile/Desktop, 44px-Zeilen, Öffnen/Schliessen und Nutzung ohne JavaScript geprüft; nicht veröffentlicht.
-- [x] AirPods-Produktkarte auf /produkte ergänzt; Menü enthält keine Produkt-Unterliste und bleibt unverändert; Crawler-Kopie, 1 H1, 4 ItemList-Produkte, Links und Mobile/Desktop geprüft; /matrix unverändert. Veröffentlichung beauftragt.
-- [x] Angebotsbilder nur auf /airpods-case und /matrix korrigiert: Original-AirPods-Foto, gemeinsame Zweiprodukt-Vorschau, beide Farben auf Mobile/Desktop geprüft und Screenshots erstellt; nicht veröffentlicht.
-- [x] AirPods Onyx-Galerie: alle vier hochgeladenen Lifestyle-Fotos nach dem Produktfoto ergänzt und alle fünf Bildwechsel geprüft; nicht veröffentlicht.
-- [x] NEXUS only: outside-root matching instant view until decoded hero, responsive priority image hints, load/idle Pixel with queue replay; Chromium/WebKit continuity and one H1 verified, real checkout CHF 99, PageView/ViewContent/AddToCart network verified; local metrics reported with dev-server caveat, existing nonzero CLS and absent InitiateCheckout left unchanged; not published.
-- [x] Enforce one H1 per sitemap page without visual changes, describe NEXUS content images and audit homepage/MATRIX/AirPods/APEX alt attributes; refresh crawler copies and report per-route counts; do not publish.
-- [x] Correct outdated iPhone wattage for iOS 26, add 25 W model paragraph, update NEXUS/FAQ structured data and llms.txt; /qi2-erklaert, /nexus, /faq and shared /shop crawler copies refreshed; browser/Googlebot checks passed, all three requested phrases have zero remaining matches; not published
-- [x] Update only four /qi2-erklaert head tags, /vergleich FAQ/technology/Belkin standard label and /faq incorrect original-Qi2 power answer; three SEO copies refreshed, browser/Googlebot and zero old-phrase checks passed; correct product power labels preserved, other 24 copies unchanged; not published
-- [x] Update homepage title, MATRIX/APEX availability labels and AGB date; /, /produkte and /agb static SEO copies refreshed; browser and Googlebot checks passed, other 24 snapshots unchanged; not published
-- [x] Apply only requested origin wording polish; both comparison tables have one support row; four SEO copies refreshed; browser and Googlebot checks passed; not published
-- [x] Audit all origin claims; replace NEXUS/general Swiss design/development/precision claims; MATRIX-only and neutral technical mentions preserved; eight SEO copies refreshed; browser and Googlebot checks passed; every-occurrence report delivered; not published
-- [x] Correct APEX prices, waitlist wording and homepage roadmap; refresh /, /produkte, /apex SEO copies; browser variant checks and Googlebot HTML passed; no APEX CHF 99 claims remain, 2027 retained only for ATLAS/ATELIER; not published
-- [x] Remove outdated NEXUS offer price/Founder claims from reachable pages and translations, preserve stock/email/technical/competitor values, refresh ten SEO snapshots; 32 browser routes and 27 Googlebot checks passed; historical customer review quote reported unchanged; not published
-- [x] Remove NEXUS comparison prices and Founder claims from /nexus and llms.txt; add exact APEX availability; refresh both static SEO copies; browser checks at 390/820/1280px and Googlebot curl passed; remaining 129/Founder audit delivered; not published
-- [x] Update German/English homepage closing descriptions and fallback heading; static German tags verified by curl, both runtime languages verified in browser, zero forbidden-origin matches across site sources including llms.txt and JSON-LD; not published
-- [x] Replace only German homepage runtime/static descriptions with “Schweizer Marke aus dem Thurgau.”; all six tags verified with curl and browser, audit remaining Swiss-manufacture phrases without modifying them; not published
-- [x] Prevent preview React/provider mismatch with React deduplication and explicit shell-provider prebundling; four routes, model selection, navigation and repeated reloads passed without runtime errors
-- [x] Product-specific 1200×630 JPG share images and runtime/static tags; local Facebook/WhatsApp curl and public image URLs verified, hosted-preview crawler checks blocked by access restriction; not published
-- [x] MATRIX: mobile Galerie ohne sichtbare Ladefehler, vollständiges Einrasten und only-light prüfen; 390px Chromium mit Slow 4G und WebKit bestanden, Erstbild 800px/49 784 Bytes; nicht veröffentlicht, echte Samsung-/iOS-Geräte nicht verfügbar
-- [x] MATRIX: mobile Erstbilder und Kaufkartenbilder verkleinern, NEXUS-Vorladung ausschliessen, Bilddaten bis zum sichtbaren Erstbild messen
-- [x] MATRIX Sofortansicht: frühe Modell-/Kaufklicks übernehmen, Ladezustand anzeigen, Original-Kopfzeile und Kaufbutton angleichen; verzögerte Übergabe auf Mobile und Desktop prüfen
-- [x] MATRIX: Onyx-Deep-Blue-Fotos für iPhone 17 Pro und Pro Max ergänzt; fünf Bilder, Bildwechsel, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-- [x] MATRIX: Silver-Fotos für 17 Pro / Pro Max Cherry ergänzt; Zusatzfotos als WebP mit Handy-/Vorschaugrössen komprimiert und bedarfsgerecht geladen, erstes Bild erhalten; Desktop und 390px geprüft
-- [x] Mobile Kaufleisten geprüft: MATRIX erst nach Vorbeiscrollen am Hauptbutton sichtbar, Rückkehr blendet sie aus, Auswahl aktuell, Footer-Abstand ausreichend; NEXUS und AirPods haben keine Kaufleiste
-- [x] Shopify-Fotos für MATRIX iPhone Case und AirPods Case mit den originalen Cherry-Farbtönen aktualisieren
-- [x] Aktualisierte Produktbilder und übrige Produktdaten kontrollieren
-- [x] Ausschliesslich den Cherry-Carbon-Farbton der MATRIX-Case-Bilder edler und präsenter abstimmen
-- [x] Cherry-Darstellung auf Desktop und Mobile kontrollieren, ohne Seitenänderungen
-- [x] Cherry-Farbe und Case-Proportionen anhand der echten Produktreferenzen korrigieren
-- [x] Einheitliches Case-Format an die neue schlankere Produktreferenz angleichen
-- [x] MATRIX nur auf Mobile neu ordnen: Preis, Versand und Kaufbutton im ersten Bildschirm; fixe Kaufleiste und unveränderten Desktop prüfen
-- [x] MATRIX-Mobile-Korrektur: grosses Bild ohne Plakette, Titel/Preis nebeneinander, niedrigere Modellwahl, Kaufleiste ausser bei sichtbarem Hauptbutton; Desktop vergleichen
-- [x] H1 auf /matrix, /nexus und /airpods-case beschreibend machen ohne Designänderung; Logo-Alt-Text in Header und Footer setzen
-- [x] MATRIX Mobile: Zeile „Gratis Versand · Versand ab 13. Oktober" unter dem Case-Bild entfernen
-- [x] MATRIX Mobile: Beschreibung in der H1 ersetzen durch „Carbon-Optik mit MagSafe & Qi2.2 – für iPhone 17 & 18 Pro / Pro Max"
 
-- [x] MATRIX: Cherry-Carbon-Fotos auf Dark Cherry iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-
-
-- [x] MATRIX: Onyx-Silver-Fotos für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max ergänzt; vier Bilder, Bildwechsel, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-
-- [x] MATRIX Mobile: Textplakette unter dem Case-Bild ist im aktuellen Build bereits entfernt; mit der Veröffentlichung vom 12. Okt auf raj.ch sichtbar
-- [x] MATRIX Bundle-Karten: Bundle-Vorschaubild nur AirPods Case, Titel „Hülle + AirPods Case", Untertitel „AirPods 4 & 5 · Finish", Farbauswahl eingeklappt
-- [x] /matrix: H1-Beschreibung auf „Das Carbon-System für iPhone 17 & 18 Pro / Pro Max – Hülle mit MagSafe & Qi2.2" (Mobile + Desktop, Build 8. Okt)
-- [x] /matrix: H1-Beschreibung exakt zwei Zeilen mit festem Umbruch („Das Carbon-System mit MagSafe" / „für iPhone 17 & 18 Pro / Pro Max"), Mobile + Desktop, 390px geprüft
-- [x] /nexus Desktop-Bewertungen: Aldin, Jonas und Maik gleich grosse Textkarten (389x217), Marcel und Laura als hohe Fotokarten ohne Lücken
-- [x] /nexus: Gedankenstrich vor „3-in-1 Qi2.2 Ladestation …" in der H1 entfernt (Desktop, Tablet, Mobile)
-- [x] /nexus: Hinweis-Punkt bei Bestand unter 10 rot statt grün (Desktop, Tablet, Mobile)
-- [x] MATRIX: Cherry-Carbon-Fotos auf Dark Grey iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-- [x] MATRIX: Cherry-Carbon-Fotos auf Sky Blue iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-- [x] MATRIX: Onyx-Carbon-Fotos auf Dark Cherry iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-- [x] MATRIX: Onyx-Carbon-Fotos auf Dark Grey iPhone für 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-- [x] MATRIX: Onyx-Sky-Blue-Fotos für iPhone 18 Pro und 18 Pro Max ergänzt; vier Bilder, lazy Laden, unverändertes Erstbild und Farbtrennung auf Desktop und Mobile geprüft
-- [x] Prerender per-route SEO HTML for all sitemap routes (not published)
-- [x] /dokumente: robots auf index, follow; canonical bleibt https://raj.ch/manuals, nicht in der sitemap.xml; Crawler-Kopie erneuert, Runtime/Googlebot geprüft; veröffentlicht
+- [x] Cherry Silver/Sky Blue/Deep Blue: neue Fotos eingebaut
+- [x] Ladefehler der Vorschau: waren vorübergehend, Build OK
+- [x] Dateivolumen geprüft: Full 103–170 KB, Mobil 64–107 KB, Vorschau 5–8 KB
+- [x] Alle 13 Produktbilder einheitlich zentriert (gleicher Canvas 1122×1402, Höhe 1300, Mitte exakt gleich)
+- [x] Sitemaps, Suchmaschinen-Kopie, Vorlade-Links aktualisiert; alte Dateien gelöscht
