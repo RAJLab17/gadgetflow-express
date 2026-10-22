@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
 import { breadcrumbJsonLd } from "@/lib/schemas";
 import { shareImages } from "@/lib/shareImages";
-import cherryAsset from "@/assets/matrix/optimized-renders/18-cherry-cherry-silver.webp.asset.json";
+import cherryAsset from "@/assets/matrix/uploaded-renders/cherry-silver-18-v1-full.webp.asset.json";
 
 const URL = "https://raj.ch/blog/iphone-17-pro-huelle-iphone-18-pro";
 const DATE_ISO = "2026-10-12";
