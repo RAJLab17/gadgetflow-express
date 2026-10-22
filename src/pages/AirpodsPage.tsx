@@ -1,4 +1,7 @@
 import ProductFaqSection from "@/components/ProductFaqSection";
+import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
+import { useProductReviews } from "@/hooks/useProductReviews";
+import { reviewSchema } from "@/lib/reviewProducts";
 import { AIRPODS_FAQ } from "@/content/matrixFaq";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
@@ -235,6 +238,7 @@ const Gallery = ({ finish }: { finish: Finish }) => {
 };
 
 const AirpodsPage = () => {
+  const { reviews: productReviews } = useProductReviews("airpods-case");
   useEffect(() => {
     trackViewItem({ item_id: "RAJ-MTX-AP4", item_name: "RAJ MATRIX AirPods 4 & 5 Case", price: 35 });
   }, []);
@@ -336,6 +340,7 @@ const AirpodsPage = () => {
       ...AIRPODS_SCHEMA_LIFESTYLE,
     ],
     url: "https://raj.ch/airpods-case",
+    ...reviewSchema("airpods-case", productReviews),
     offers: {
       "@type": "Offer",
       url: "https://raj.ch/airpods-case",
@@ -426,6 +431,7 @@ const AirpodsPage = () => {
                       </h1>
                       <span className="whitespace-nowrap text-xl font-light text-foreground md:text-[clamp(22px,2vw,28px)]">CHF {AIRPODS_PRICE}.–</span>
                     </div>
+                    <ProductRating productId="airpods-case" />
                     <p aria-hidden="true" className="mt-1 text-xs leading-4 text-foreground md:text-sm md:italic" style={{ color: undefined }}>
                       Carbon Hülle für AirPods 4 &amp; 5
                     </p>
@@ -581,6 +587,7 @@ const AirpodsPage = () => {
               </div>
             </div>
           </section>
+          <ProductReviews productId="airpods-case" />
           <ProductFaqSection title="Fragen zur MATRIX AirPods-Hülle" items={AIRPODS_FAQ} />
           <div className="container mx-auto max-w-3xl px-6 pb-10 text-[15px] font-light">
             <Link to="/matrix" className="text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary">MATRIX iPhone Hülle ansehen</Link>
