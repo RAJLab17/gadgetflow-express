@@ -34,9 +34,9 @@ import v10 from "./uploaded-renders/18-onyx-darkcherry-norm-thumb.webp.asset.jso
 import f11 from "./uploaded-renders/18-onyx-darkgrey-norm-full.webp.asset.json";
 import m11 from "./uploaded-renders/18-onyx-darkgrey-norm-mobile.webp.asset.json";
 import v11 from "./uploaded-renders/18-onyx-darkgrey-norm-thumb.webp.asset.json";
-import f12 from "./uploaded-renders/18-onyx-skyblue-norm-full.webp.asset.json";
-import m12 from "./uploaded-renders/18-onyx-skyblue-norm-mobile.webp.asset.json";
-import v12 from "./uploaded-renders/18-onyx-skyblue-norm-thumb.webp.asset.json";
+import f12 from "./uploaded-renders/18-onyx-skyblue-v2-full.webp.asset.json";
+import m12 from "./uploaded-renders/18-onyx-skyblue-v2-mobile.webp.asset.json";
+import v12 from "./uploaded-renders/18-onyx-skyblue-v2-thumb.webp.asset.json";
 import thumb13 from "./responsive/airpods-cherry-bolt-thumb.webp.asset.json";
 import thumb14 from "./responsive/airpods-onyx-original-bolt-thumb.webp.asset.json";
 import two17 from "./responsive/two-cases-17-thumb.webp.asset.json";
