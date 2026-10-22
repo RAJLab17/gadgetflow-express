@@ -51,6 +51,7 @@ import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSiz
 import { observeMediaQuery } from "@/lib/mediaQuery";
 import BundleOfferImage from "@/components/matrix/BundleOfferImage";
 import MatrixSwapImage from "@/components/matrix/MatrixSwapImage";
+import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
@@ -337,6 +338,9 @@ const DeviceMock = memo(({
   const selectedPhoto = showLifestyle && photo > 0 ? lifestyle[photo - 1] : undefined;
 
   const isLifestyle = Boolean(selectedPhoto);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const zoomImages = (showLifestyle ? [src, ...lifestyle] : [src]).map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name) }));
+  const zoomObjectPosition = selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%";
 
   return (
     <div className="w-full">
@@ -354,6 +358,12 @@ const DeviceMock = memo(({
         className="absolute left-1/2 -translate-x-1/2 bottom-[3%] w-[58%] h-8 rounded-[50%] pointer-events-none"
         style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
       />
+      <ZoomFrame
+        zoomSrc={selectedPhoto ?? src}
+        onOpen={() => setLightboxOpen(true)}
+        objectFit={isLifestyle ? "cover" : "contain"}
+        objectPosition={zoomObjectPosition}
+      >
       <MatrixSwapImage
         src={selectedPhoto ?? src}
         srcSet={selectedPhoto ? undefined : renderSrcSet(src)}
@@ -371,9 +381,17 @@ const DeviceMock = memo(({
           objectPosition: selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
         }}
       />
+      </ZoomFrame>
 
     </div>
     </div>
+    <ProductLightbox
+      open={lightboxOpen}
+      images={zoomImages}
+      index={showLifestyle ? photo : 0}
+      onIndexChange={setPhoto}
+      onClose={() => setLightboxOpen(false)}
+    />
     {showLifestyle && (
       <div className="mt-4 flex flex-wrap justify-center gap-2 pb-1" aria-label="Produktbilder">
         {[src, ...lifestyle].map((image, i) => (
@@ -427,6 +445,7 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
   }, [slides]);
 
   const preloadNext = () => setPrefetchThrough((current) => Math.max(current, active + 1));
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const onScroll = () => {
     const el = scrollerRef.current;
@@ -448,6 +467,13 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
       >
         {slides.map((src, i) => (
           <div key={i} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
+            <ZoomFrame
+              zoomSrc={src}
+              onOpen={() => setLightboxIndex(i)}
+              objectFit={isLifestylePhoto(src) ? "cover" : "contain"}
+              objectPosition={src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%"}
+              overlayClassName={isLifestylePhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
+            >
             <MatrixSwapImage
               src={renderSizes.get(src)?.mobile ?? getPhotoSizes(src)?.mobile ?? src}
               srcSet={renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
@@ -471,9 +497,17 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
                 } : {}),
               }}
             />
+            </ZoomFrame>
           </div>
         ))}
       </div>
+      <ProductLightbox
+        open={lightboxIndex !== null}
+        images={slides.map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name) }))}
+        index={lightboxIndex ?? 0}
+        onIndexChange={setLightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+      />
       {slides.length > 1 && (
         <div className="flex justify-center gap-1.5 pb-2 pt-1">
           {slides.map((_, i) => (
