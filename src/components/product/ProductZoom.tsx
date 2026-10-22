@@ -88,7 +88,7 @@ export const ZoomFrame = ({
       )}
       <span
         aria-hidden
-        className="pointer-events-none absolute flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-sm"
+        className="pointer-events-none absolute flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-foreground opacity-90 shadow-sm"
         style={{ right: 10, bottom: 10, zIndex: 5, ...iconStyle }}
       >
         <Search size={15} strokeWidth={2} />
@@ -149,7 +149,8 @@ export const ProductLightbox = ({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[200] bg-foreground/90"
+      className="fixed inset-0 z-[200]"
+      style={{ background: "hsl(var(--foreground) / 0.92)" }}
       role="dialog"
       aria-modal="true"
       aria-label="Produktbild vergrössert"
@@ -205,7 +206,8 @@ export const ProductLightbox = ({
         type="button"
         onClick={onClose}
         aria-label="Schliessen"
-        className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-background/15 text-background transition-colors hover:bg-background/25"
+        style={{ background: "hsl(var(--background) / 0.15)" }}
+        className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full text-background transition-opacity hover:opacity-80"
       >
         <X size={26} />
       </button>
@@ -218,15 +220,15 @@ export const ProductLightbox = ({
               type="button"
               onClick={() => go(dir)}
               aria-label={dir < 0 ? "Vorheriges Bild" : "Nächstes Bild"}
-              className="absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-background/15 text-background transition-colors hover:bg-background/25 md:flex"
-              style={{ [dir < 0 ? "left" : "right"]: 24 }}
+              className="absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full text-background transition-opacity hover:opacity-80 md:flex"
+              style={{ [dir < 0 ? "left" : "right"]: 24, background: "hsl(var(--background) / 0.15)" }}
             >
               {dir < 0 ? <ChevronLeft size={26} /> : <ChevronRight size={26} />}
             </button>
           ))}
           <div className="pointer-events-none absolute bottom-5 left-0 right-0 z-10 flex justify-center gap-1.5">
             {images.map((img, i) => (
-              <span key={img.src + i} className={`h-1.5 rounded-full transition-all ${i === safeIndex ? "w-[18px] bg-background" : "w-1.5 bg-background/40"}`} />
+              <span key={img.src + i} className={`h-1.5 rounded-full transition-all ${i === safeIndex ? "w-[18px] bg-background" : "w-1.5 bg-background opacity-40"}`} />
             ))}
           </div>
         </>
