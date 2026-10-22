@@ -599,6 +599,14 @@
    },
    {
     "tag": "h2",
+    "text": "Bewertungen"
+   },
+   {
+    "tag": "p",
+    "text": "Noch keine Bewertungen. Du hast die MATRIX gekauft? Wir freuen uns über deine Meinung."
+   },
+   {
+    "tag": "h2",
     "text": "Fragen zur MATRIX"
    },
    {
@@ -737,6 +745,14 @@
    {
     "tag": "p",
     "text": "SICHERE ZAHLUNGSMETHODEN"
+   },
+   {
+    "tag": "h2",
+    "text": "Bewertungen"
+   },
+   {
+    "tag": "p",
+    "text": "Noch keine Bewertungen. Du hast die MATRIX gekauft? Wir freuen uns über deine Meinung."
    },
    {
     "tag": "h2",
@@ -1518,8 +1534,8 @@
   ]
  },
  "/reviews": {
-  "title": "Bewertungen RAJ NEXUS – Echte Kundenmeinungen | RAJ",
-  "description": "Lies, was Kunden über den RAJ NEXUS sagen – der Qi2.2 zertifizierte 3-in-1 Wireless Charger aus der Schweiz. Verifizierte Bewertungen, manuelle Prüfung.",
+  "title": "Bewertungen RAJ – Echte Kundenmeinungen | RAJ",
+  "description": "Lies, was Kunden über RAJ sagen. Verifizierte Bewertungen, manuelle Prüfung.",
   "robots": null,
   "canonical": "https://raj.ch/reviews",
   "ogTitle": null,
@@ -1534,10 +1550,8 @@
   "twitterTitle": null,
   "twitterDescription": null,
   "twitterImage": null,
-  "h1": "Was Kunden über den RAJ NEXUS sagen",
-  "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS\",\"description\":\"Qi2.2 zertifizierter 3-in-1 Wireless Charger – Swiss Brand.\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"aggregateRating\":{\"@type\":\"AggregateRating\",\"ratingValue\":5,\"reviewCount\":17,\"bestRating\":5,\"worstRating\":1},\"review\":[{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Christoph\"},\"datePublished\":\"2026-07-30T14:15:00+00:00\",\"reviewBody\":\"Habe das Produkt als Geschenk für meinen Vater gekauft. Jetzt muss ich es mir zusätzlich selbst kaufen, weil mein Vater so davon geschwärmt hat. Wir sind beide vom RAJ NEXUS überzeugt.\",\"name\":\"RAJ NEXUS überzeugt\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Chris M.\"},\"datePublished\":\"2026-07-28T10:30:00+00:00\",\"reviewBody\":\"Beim Preis hab ich zuerst geschluckt. Aber nach einem Monat täglicher Nutzung habe ich mich von der Qualität überzeugen lassen. Das Aufklappen ist ein echter Mehrwert, da man es einfach und überall mitnehmen kann. Zudem macht das Andocken und sofortige Laden alles viel einfacher. Würde ich auf jeden Fall wieder kaufen.\",\"name\":\"Edles Produkt\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Laura\"},\"datePublished\":\"2026-07-17T14:31:29.299625+00:00\",\"reviewBody\":\"Ich bin sehr zufrieden mit meinem Kauf. Das Produkt ist hochwertig verarbeitet, entspricht genau der Beschreibung und wurde schnell geliefert. Klare Empfehlung, ich würde jederzeit wieder bestellen!\",\"name\":\"Qualität, die überzeugt!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Aldin\"},\"datePublished\":\"2026-07-15T09:18:39.145482+00:00\",\"reviewBody\":\"Die Bestellung verlief reibungslos. Bereits beim Öffnen sieht man die Liebe zum Detail. Schnell angeschlossen und ohne grosses Tamtam wurden bereits Handy, Kopfhörer und Uhr geladen. Ich bin zufrieden.\",\"name\":\"Super Produkt\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Šomi\"},\"datePublished\":\"2026-07-12T16:59:26.814858+00:00\",\"reviewBody\":\"Ich bin mit dem Produkt sehr zufrieden. Es ist perfekt für meinen Schreibtisch, weil jetzt alles ordentlich an einem Ort ist und ich viel mehr Platz habe. Die Qualität ist sehr gut, die Verarbeitung wirkt hochwertig und die Anwendung ist unkompliziert. Es entspricht genau der Beschreibung und erfüllt meine Erwartungen voll und ganz. Ich kann das Produkt auf jeden Fall weiterempfehlen.\",\"name\":\"Wow Perfekt!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Marcel\"},\"datePublished\":\"2026-07-11T11:39:33.689475+00:00\",\"reviewBody\":\"Ich bin einer der ersten, der bei der RAJ einen wireless Charger bestellt hat. Ich wollte es testen und eine schweizer Marke unterstützen. Preis ist okay verglichen mit anderen. Zu dem ist NEXUS auf dem neusten Standard. Mein Handy (Iphone 17 pro) wird in ca. 1h und 10-15min voll. Dachte nicht das es so schnell geht. Die Lieferung war schnell, ich habe es in 1 Tag erhalten. Ich hatte vorher Belkin und Anker gehabt und muss sagen obwohl RAJ eine neue Marke ist, spielen dir schon jetzt vorne mit dabei. Bin gespannt wie es hier weiter geht. Ich bin zu 100% zufrieden.\",\"name\":\"RAJ Nexus Feedback\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Randy M.\"},\"datePublished\":\"2026-07-07T19:04:14.791434+00:00\",\"reviewBody\":\"Ich nutze den RAJ NEXUS jetzt seit einiger Zeit und bin wirklich positiv überrascht. Die Verarbeitung wirkt hochwertig und das Gerät funktioniert zuverlässig. Besonders praktisch finde ich, dass ich mehrere Geräte gleichzeitig laden kann, ohne dass die Ladegeschwindigkeit darunter leidet. Ideal für unterwegs, im Büro oder zu Hause. Das Design ist schlicht und modern, und die Lieferung war schnell. Insgesamt ein sehr gutes Produkt mit einem fairen Preis. Ich würde den RAJ NEXUS jederzeit wieder kaufen und kann ihn definitiv weiterempfehlen. ⭐⭐⭐⭐⭐\",\"name\":\"Top Qualität und absolut alltagstauglich\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Egzon\"},\"datePublished\":\"2026-07-06T03:32:25.338023+00:00\",\"reviewBody\":\"Sehr zufrieden mit der Quali und der Leistung.\\nSehr hochwertiges feeling. Handy läd sehr schnell. Kann es sehr weiterempfehlen\",\"name\":\"Top Qualität und bomben Leistung\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Maik\"},\"datePublished\":\"2026-07-06T02:16:33.882952+00:00\",\"reviewBody\":\"Absolut empfehlenswert! Dieser 3-in-1-Charger ist genau das, was ich gesucht habe. Er lädt mein Smartphone, meine Smartwatch und meine Kopfhörer gleichzeitig – schnell, zuverlässig und ohne Kabelchaos. Das Design ist modern, hochwertig verarbeitet und passt perfekt auf den Nachttisch oder Schreibtisch. Besonders praktisch ist, dass alles an einem Ort geladen wird und ich nur noch ein einziges Kabel benötige. Funktioniert einwandfrei und spart jede Menge Platz. Klare Kaufempfehlung!\",\"name\":\"WOW!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Jonas\"},\"datePublished\":\"2026-07-02T01:32:30.649283+00:00\",\"reviewBody\":\"Ich bin sehr zufrieden mit dem RAJ NEXUS. Hochwertige Verarbeitung, elegantes Design und lädt mein iPhone, meine Apple Watch und AirPods gleichzeitig zuverlässig. Endlich kein Kabelsalat mehr – absolute Kaufempfehlung!\",\"name\":\"Top 3-in-1 Ladegerät!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}}]}"
-  ],
+  "h1": "Was Kunden über RAJ sagen",
+  "jsonLd": [],
   "blocks": [
    {
     "tag": "p",
@@ -1545,7 +1559,7 @@
    },
    {
     "tag": "h1",
-    "text": "Was Kunden über den RAJ NEXUS sagen"
+    "text": "Was Kunden über RAJ sagen"
    },
    {
     "tag": "p",
@@ -1557,7 +1571,7 @@
    },
    {
     "tag": "p",
-    "text": "Hast du den RAJ NEXUS getestet?"
+    "text": "Hast du ein RAJ Produkt gekauft?"
    },
    {
     "tag": "p",
@@ -1650,6 +1664,54 @@
    {
     "tag": "p",
     "text": "Endlich mal eine hochwertige Schweizer Marke. Die Lieferung war schnell und das Produkt war sorgfältig und hochwertig verpackt. Ich nutze das Wireless-Ladegerät täglich auf meinem Schreibtisch im Büro. Es lädt mein Smartphone zuverlässig und unkompliziert, einfach auflegen und der Ladevorgang startet. Ich bin sehr zufrieden und kann es definitiv weiterempfehlen."
+   },
+   {
+    "tag": "h3",
+    "text": "Gutes Ladegerät"
+   },
+   {
+    "tag": "p",
+    "text": "Endlich mal eine gute schweizer Marke. Lieferung war schnell und die Verpackung fühlt sich hochwertig an. Ich benutze den NEXUS in meinem Büro und kann es nur weiterempfehlen."
+   },
+   {
+    "tag": "h3",
+    "text": "Top Qualität und sehr praktisch"
+   },
+   {
+    "tag": "p",
+    "text": "Ich nutze den NEXUS jetzt täglich und bin echt zufrieden. Endlich liegen nicht mehr überall Kabel herum und ich kann mein iPhone, die Apple Watch und die AirPods gleichzeitig laden. Die Qualität fühlt sich sehr gut an und auch die Verpackung hat einen richtig hochwertigen Eindruck gemacht. Würde ich definitiv weiterempfehlen."
+   },
+   {
+    "tag": "h3",
+    "text": "Empfehlenswerter wireless charger"
+   },
+   {
+    "tag": "p",
+    "text": "Ich benutze seit 3 Jahren wireless charger, weil ich nur mein Handy platzieren kann und es lädt direkt. Ich wollte dieses Mal eine schweizer Brand unterstützen und habe mir den RAJ NEXUS gekauft. Neue Marke, war am Anfang etwas skeptisch, doch nach ca. 10 Tagen jetzt muss ich sagen, hat sich gelohnt. Verpackung habe ich auf Seite gelegt, finde es einfach Super wie die aussieht, für mich teilweise fast übertrieben gut. Noch edler als Apple selber. Die Marke hat hier was überlegt, muss man schon sagen. Ich bin gespannt was die Marke sonst noch so bringt."
+   },
+   {
+    "tag": "h3",
+    "text": "Qi2.2 überzeugt"
+   },
+   {
+    "tag": "p",
+    "text": "Ich benutze das Ladegerät schon seit einer Woche und ich muss ehrlicherweise sagen, dass ich positiv Überrascht bin von neuer Technologie. Ich hatte vorher Belkin benutzt und hatte nicht so schnell mein Handy und Earpods laden können. Zudem kann man es in jeder Position falten, und ich benutze es ab und zu um Serie anzuschauen, weil ich jeden Winkel so einstellen kann wie ich will und muss nicht immer mein Handy in der Hand heben."
+   },
+   {
+    "tag": "h3",
+    "text": "Beeindruckende Qualität & tolles Unboxing"
+   },
+   {
+    "tag": "p",
+    "text": "Ich war positiv überrascht. Schon die Verpackung wirkt sehr hochwertig und macht beim Auspacken einen ausgezeichneten Eindruck. Der RAJ NEXUS selbst ist sauber verarbeitet, fühlt sich robust an und passt perfekt zu meinem Setup. Für eine neue Marke wurde hier wirklich auf jedes Detail geachtet. Klare Kaufempfehlung!"
+   },
+   {
+    "tag": "h3",
+    "text": "Habe mir die Founder Edition gekauft"
+   },
+   {
+    "tag": "p",
+    "text": "Unboxing war ziemlich speziell. Für eine neue Marke sieht die Verpackung richtig gut aus, hätte ich nicht erwartet. Das Produkt selbst überzeugt. Ich merke keinen Unterschied zum Kabel, lädt genauso schnell. Am Anfang war ich ehrlich gesagt skeptisch gegenüber Wireless Charging generell — aber jetzt bin ich ein Fan davon. Handy drauf, es lädt. So einfach ist das."
    }
   ]
  },

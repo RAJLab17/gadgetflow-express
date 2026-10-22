@@ -1,5 +1,6 @@
 # Roadmap
-- [ ] Bewertungen für MATRIX/AirPods: Produktfilter, Formular, echte Shopify-Kaufprüfung, Freigabe und Schema; bestehende 17 NEXUS-Bewertungen erhalten; testen und echten Bestelltest erklären, nicht veröffentlichen.
+- [x] Bewertungen für MATRIX/AirPods: eigene Abschnitte/Sterne, Produktfilter und Kundenlinks, automatische Formularzuordnung, Freigabe und exakt produktbezogenes Schema; 17 NEXUS-Bewertungen erhalten; 13 Regeltests und Browserprüfungen bestanden, Crawler-Kopien erneuert, nicht veröffentlicht.
+- [ ] Echten Shopify-Bestelltest abschliessen: dauerhafter SHOPIFY_ACCESS_TOKEN verweigert Bestellzugriff mit HTTP 401, auch nach Konto-Verbindung; gültiger dauerhafter Zugang mit read_orders erforderlich. Keine Testbewertungen gespeichert.
 - [x] Alten Vergleich entfernt, Blog/llms/Sitemaps bereinigt; Firmenartikel, Quellenlinks, gemeinsame sichtbare/Schema-FAQ, Footer-/NEXUS-Link und lastmod 22.10.2026 aktualisiert; zehn Regeltests und Browsernavigation bestanden, keine Laufzeitfehler.
 - [x] Nutzer hat Browserweiterleitung (HTTP 200 statt 301) freigegeben; alte Adresse erhält im vorgerenderten HTML genau einen Canonical-Link auf den Blogartikel, geprüft. Veröffentlichung angefordert.
 - [x] MATRIX: hochgeladenes Cherry-/Dark-Cherry-Foto als Erstbild für 18 Pro und Pro Max; optimierte Haupt-, Handy- und Vorschaugrössen, passende Vorladung und Crawler-Bildangaben; auf Desktop und Handy mit ausgelieferten CDN-Bildern geprüft, nicht veröffentlicht.
