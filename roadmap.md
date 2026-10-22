@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Vergleichsaltseite entfernen, Verweise bereinigen und Weiterleitung prüfen; Firmenartikel samt FAQ/Quellen, Footer-/NEXUS-Link und lastmod 22.10.2026 aktualisieren; prüfen, Vorher/Nachher zeigen, danach Veröffentlichung.
 - [x] MATRIX: hochgeladenes Cherry-/Dark-Cherry-Foto als Erstbild für 18 Pro und Pro Max; optimierte Haupt-, Handy- und Vorschaugrössen, passende Vorladung und Crawler-Bildangaben; auf Desktop und Handy mit ausgelieferten CDN-Bildern geprüft, nicht veröffentlicht.
 - [x] Nur Vergleichsartikel: Kompatibilität, identische sichtbare/Schema-FAQ, Qi2.2-Erklärung, genaue Konkurrenzmodelle, Herkunftsspalte und Beschreibung angepasst; /nexus nur Product-Compatibility; Browser und beide Crawler-Kopien geprüft, andere Seiten unverändert; geänderten Text zeigen, nicht veröffentlicht.
 - [x] Nur 3-in-1-Vergleich: Transparenz und sachliche Aussagen ergänzt, unbelegte Konkurrenzpreise entfernt; Beschreibung und Artikel-/Sitemap-Datum 19.10.2026 aktualisiert; Browser, Crawler-Kopie und Datumstests bestanden, andere Crawler-Seiten unverändert; Vorher/Nachher gezeigt, Veröffentlichung für raj.ch angefordert.

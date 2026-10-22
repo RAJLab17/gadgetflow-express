@@ -33,7 +33,6 @@ const Qi2ErklaertPage = lazy(() => import("./pages/Qi2ErklaertPage"));
 const UeberRajPage = lazy(() => import("./pages/UeberRajPage"));
 const DokumentePage = lazy(() => import("./pages/DokumentePage"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
-const BesterWirelessChargerPage = lazy(() => import("./pages/BesterWirelessChargerPage"));
 const KabellosesLadenBueroPage = lazy(() => import("./pages/KabellosesLadenBueroPage"));
 const KabellosesLadenFirmenPage = lazy(() => import("./pages/KabellosesLadenFirmenPage"));
 const IphoneStandbyPage = lazy(() => import("./pages/IphoneStandbyPage"));
@@ -106,7 +105,7 @@ const App = () => (
                 <Route path="/dokumente" element={<DokumentePage />} />
                 <Route path="/manuals" element={<DokumentePage />} />
                 <Route path="/blog" element={<BlogPage />} />
-                <Route path="/bester-wireless-charger-schweiz" element={<BesterWirelessChargerPage />} />
+                <Route path="/bester-wireless-charger-schweiz" element={<Navigate to="/blog/bester-3in1-wireless-charger-schweiz-2026" replace />} />
                 <Route path="/kabelloses-laden-buero-schweiz" element={<KabellosesLadenBueroPage />} />
                 <Route path="/kabelloses-laden-firmen-schweiz" element={<KabellosesLadenFirmenPage />} />
                 <Route path="/iphone-standby-ladestation-schweiz" element={<IphoneStandbyPage />} />

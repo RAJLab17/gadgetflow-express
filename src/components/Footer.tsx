@@ -146,6 +146,7 @@ const Footer = () => {
                 { label: "RAJ MATRIX", href: "/matrix" },
                 { label: "RAJ APEX", href: "/apex" },
                 { label: "Alle Produkte", href: "/produkte" },
+                { label: "Für Firmen", href: "/kabelloses-laden-firmen-schweiz" },
                 { label: "Über uns", href: "/about" },
               ].map((link) => (
                 <li key={link.label}>
