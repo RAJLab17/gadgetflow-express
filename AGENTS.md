@@ -1,4 +1,5 @@
 # Architecture rules
+- Company FAQ visible answers and FAQPage structured data derive from the same page-local entries to prevent inconsistent offer terms.
 - Blog sitemap entries may supply a page-specific lastmod independently of publication dates, so significant article updates do not change the blog index's publication history.
 - MATRIX variant and offer images use MatrixSwapImage to retain decoded previous pixels during asynchronous swaps; warm only 800w renders at low priority after the first image and window load to protect initial loading.
 - MATRIX native FAQ accordions use MATRIX_FAQ content with all answers embedded and the first question open; snapshot capture includes closed answers so crawler text and FAQPage stay consistent.
