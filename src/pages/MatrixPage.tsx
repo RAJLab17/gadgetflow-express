@@ -32,7 +32,7 @@ import onyxBlue from "@/assets/matrix/uploaded-renders/17-onyx-blue-norm-full.we
 import onyxSilver from "@/assets/matrix/uploaded-renders/17-onyx-silver-norm-full.webp.asset.json";
 import onyxDarkcherry from "@/assets/matrix/uploaded-renders/18-onyx-darkcherry-norm-full.webp.asset.json";
 import onyxDarkgrey18Asset from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-norm-full.webp.asset.json";
-import onyxSkyblue18Asset from "@/assets/matrix/uploaded-renders/18-onyx-skyblue-norm-full.webp.asset.json";
+import onyxSkyblue18Asset from "@/assets/matrix/uploaded-renders/18-onyx-skyblue-v2-full.webp.asset.json";
 import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx-original-bolt.webp";
 import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
