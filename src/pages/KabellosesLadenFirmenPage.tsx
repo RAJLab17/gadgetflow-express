@@ -135,14 +135,6 @@ const KabellosesLadenFirmenPage = () => {
       </P>
 
       <div className="my-8">
-        <Button asChild className="group h-auto rounded-none px-7 py-4 text-sm font-medium tracking-wide hover:opacity-90">
-        <a
-          href="mailto:founder@raj.ch?subject=Business%20Anfrage%20RAJ%20NEXUS"
-        >
-          Firmenanfrage senden
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </a>
-        </Button>
         <p className="mt-4 text-sm text-muted-foreground font-light">
           founder@raj.ch · Antwort auf Deutsch, aus der Schweiz, innerhalb von 24h.
         </p>

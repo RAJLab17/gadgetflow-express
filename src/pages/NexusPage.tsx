@@ -1040,9 +1040,8 @@ const NexusPage = () => {
             )}
 
 
+            <p className="mt-4 text-xs text-muted-foreground"><Link to="/kabelloses-laden-firmen-schweiz" className="text-primary underline underline-offset-4">Für Firmen: Mengenpreise ab 10 Stück.</Link></p>
           </div>
-
-          <p className="mt-4 text-xs text-muted-foreground"><Link to="/kabelloses-laden-firmen-schweiz" className="text-primary underline underline-offset-4">Für Firmen: Mengenpreise ab 10 Stück.</Link></p>
 
           {/* RIGHT — hero image */}
           <div style={{ alignSelf: "start", width: "100%", marginTop: "clamp(64px, 9vh, 130px)" }}>
