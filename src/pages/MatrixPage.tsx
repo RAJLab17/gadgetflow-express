@@ -100,7 +100,10 @@ const subscribeGalleryViewport = (onChange: () => void) => {
 };
 const getGalleryViewport = () => window.matchMedia("(min-width: 1024px)").matches;
 
-const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) => {
+// Lifestyle-Galerie vorübergehend ausgeblendet: nur das erste Produktbild zeigen.
+const LIFESTYLE_GALLERY_ENABLED = false;
+const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: DeviceFinish): string[] => {
+  if (!LIFESTYLE_GALLERY_ENABLED) return [];
   if (hasCherryOrangeLifestyle(model, caseFinish, device)) return CHERRY_ORANGE_LIFESTYLE;
   if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "blue") return CHERRY_BLUE_LIFESTYLE;
   if ((model.id === "17pro" || model.id === "17promax" || model.id === "18pro" || model.id === "18promax") && caseFinish.id === "cherry" && device.id === "silver") return CHERRY_SILVER_LIFESTYLE;
@@ -410,6 +413,7 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
     const showLifestyle = lifestyle.length > 0;
     // Lifestyle-Auswahl: keine Render anderer Gerätefarben hinzufügen.
     if (showLifestyle) return [main, ...lifestyle];
+    if (!LIFESTYLE_GALLERY_ENABLED) return [main];
     return [main, ...lifestyle, ...Array.from(new Set(rest))];
   }, [model.id, model.gen, caseFinish.id, device.id]);
   const scrollerRef = useRef<HTMLDivElement>(null);
