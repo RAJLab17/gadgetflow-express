@@ -905,6 +905,10 @@
    },
    {
     "tag": "p",
+    "text": "Für Firmen: Mengenpreise ab 10 Stück."
+   },
+   {
+    "tag": "p",
     "text": "Abends hinlegen, morgens voll. NEXUS 3-in-1 wireless charger macht das Laden zum Handgriff statt zur Kabelsuche. Leise, schnell und schön genug für den Nachttisch oder deinen Bürotisch."
    },
    {
@@ -913,6 +917,10 @@
    },
    {
     "tag": "p",
+    "text": "Für Firmen: Mengenpreise ab 10 Stück."
+   },
+   {
+    "tag": "p",
     "text": "Sichere Zahlungsmethoden"
    },
    {
@@ -922,6 +930,10 @@
    {
     "tag": "p",
     "text": "Sichere Zahlungsmethoden"
+   },
+   {
+    "tag": "p",
+    "text": "Für Firmen: Mengenpreise ab 10 Stück."
    },
    {
     "tag": "h2",
@@ -1776,18 +1788,6 @@
    {
     "tag": "p",
     "text": "Direkter Vergleich der drei beliebtesten 3-in-1 Wireless Charger für iPhone. Qi2.2, Preis, Design."
-   },
-   {
-    "tag": "p",
-    "text": "02.05.2026"
-   },
-   {
-    "tag": "h2",
-    "text": "Bester Wireless Charger Schweiz 2026 – Top 3 im Vergleich"
-   },
-   {
-    "tag": "p",
-    "text": "Qi2.2, MagSafe, 3-in-1 – welcher Charger lohnt sich wirklich für iPhone-Nutzer in der Schweiz?"
    },
    {
     "tag": "p",
@@ -2768,9 +2768,9 @@
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich\",\"datePublished\":\"2026-05-02\",\"dateModified\":\"2026-10-19\",\"author\":{\"@type\":\"Organization\",\"name\":\"RAJ\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"RAJ\",\"url\":\"https://raj.ch\"},\"url\":\"https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026\"}",
    "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://raj.ch\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://raj.ch/blog\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"3-in-1 Wireless Ladestationen Schweiz 2026\",\"item\":\"https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026\"}]}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Welche 3-in-1 Wireless Ladestation empfiehlt RAJ für die Schweiz 2026?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Als Marke hinter NEXUS empfehlen wir unsere eigene Ladestation: Der RAJ NEXUS bietet laut Herstellerangabe bis zu 25W Ladeleistung für CHF 99. RAJ ist eine Schweizer Marke aus Weinfelden TG und bietet Support auf Deutsch aus dem Thurgau.\"}},{\"@type\":\"Question\",\"name\":\"Was ist Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist ein Standard für kabelloses Laden, entwickelt vom Wireless Power Consortium. Er ermöglicht bis zu 25W Ladeleistung mit magnetischer Ausrichtung. Die tatsächlich erreichte Leistung hängt vom Gerät, Netzteil und den Ladebedingungen ab.\"}},{\"@type\":\"Question\",\"name\":\"Funktioniert der RAJ NEXUS mit iPhone 15?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der RAJ NEXUS ist kompatibel mit allen iPhones mit MagSafe oder Qi2, von iPhone 12 bis iPhone 18 Pro Max. Die volle Qi2.2-Leistung von bis zu 25W erreichen iPhone 16 und neuer mit aktuellem iOS.\"}}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Welche 3-in-1 Wireless Ladestation empfiehlt RAJ für die Schweiz 2026?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Als Marke hinter NEXUS empfehlen wir unsere eigene Ladestation: Der RAJ NEXUS bietet laut Herstellerangabe bis zu 25W Ladeleistung für CHF 99. RAJ ist eine Schweizer Marke aus Weinfelden TG und bietet Support auf Deutsch aus dem Thurgau.\"}},{\"@type\":\"Question\",\"name\":\"Was ist Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist ein Standard für kabelloses Laden, entwickelt vom Wireless Power Consortium. Er ermöglicht bis zu 25W Ladeleistung mit magnetischer Ausrichtung. Die tatsächlich erreichte Leistung hängt vom Gerät, Netzteil und den Ladebedingungen ab.\"}},{\"@type\":\"Question\",\"name\":\"Funktioniert der RAJ NEXUS mit iPhone 15?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der RAJ NEXUS ist kompatibel mit allen iPhones mit MagSafe oder Qi2, von iPhone 12 bis iPhone 18 Pro Max. Die volle Qi2.2-Leistung von bis zu 25W erreichen iPhone 16 und neuer mit aktuellem iOS.\"}}]}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich\",\"datePublished\":\"2026-05-02\",\"dateModified\":\"2026-10-22\",\"author\":{\"@type\":\"Organization\",\"name\":\"RAJ\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"RAJ\",\"url\":\"https://raj.ch\"},\"url\":\"https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026\"}"
   ],
   "blocks": [
    {
@@ -3823,8 +3823,9 @@
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Kabelloses Laden im Büro – warum Schweizer KMUs umdenken",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Kabelloses Laden für Unternehmen Schweiz\",\"datePublished\":\"2026-05-02\",\"dateModified\":\"2026-05-02\",\"author\":{\"@type\":\"Organization\",\"name\":\"RAJ\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"RAJ\",\"url\":\"https://raj.ch\"},\"url\":\"https://raj.ch/kabelloses-laden-firmen-schweiz\"}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://raj.ch\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://raj.ch/blog\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Kabelloses Laden für Unternehmen Schweiz\",\"item\":\"https://raj.ch/kabelloses-laden-firmen-schweiz\"}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://raj.ch\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://raj.ch/blog\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Kabelloses Laden für Unternehmen Schweiz\",\"item\":\"https://raj.ch/kabelloses-laden-firmen-schweiz\"}]}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Kabelloses Laden für Unternehmen Schweiz\",\"datePublished\":\"2026-05-02\",\"dateModified\":\"2026-10-22\",\"author\":{\"@type\":\"Organization\",\"name\":\"RAJ\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"RAJ\",\"url\":\"https://raj.ch\"},\"url\":\"https://raj.ch/kabelloses-laden-firmen-schweiz\"}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Kann ich auf Rechnung bestellen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, für Firmenbestellungen auf Rechnung.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell wird geliefert?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"In der Regel innert weniger Werktage ab Lager in Weinfelden TG.\"}},{\"@type\":\"Question\",\"name\":\"Mit welchen Geräten ist der RAJ NEXUS kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"iPhone 12 bis iPhone 18 Pro Max, Apple Watch sowie AirPods mit kabellosem Ladecase.\"}},{\"@type\":\"Question\",\"name\":\"Wer ist für Garantie und Support zuständig?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ direkt, persönlich und auf Deutsch.\"}}]}"
   ],
   "blocks": [
    {
@@ -3837,7 +3838,7 @@
    },
    {
     "tag": "p",
-    "text": "Zuletzt aktualisiert: Mai 2026"
+    "text": "Zuletzt aktualisiert: 22. Oktober 2026"
    },
    {
     "tag": "h2",
@@ -3845,11 +3846,11 @@
    },
    {
     "tag": "p",
-    "text": "Elektrizität verursacht in der Schweiz rund 3'000 Brände pro Jahr mit einem Schadenvolumen von gegen CHF 100 Millionen – das entspricht 25% aller Brandkosten. Laut der Beratungsstelle für Brandverhütung (BFB) sind die meisten dieser Brände nicht auf technische Defekte zurückzuführen, sondern auf Fehlverhalten der Benutzer. Das Eidgenössische Starkstrominspektorat ESTI warnt zudem explizit vor günstigen Elektrogeräten aus Online-Plattformen – oft ohne Schweizer Zertifizierung und mit lückenhaften Sicherheitsprüfungen."
+    "text": "Die Beratungsstelle für Brandverhütung (BFB) und das Eidgenössische Starkstrominspektorat (ESTI) weisen regelmässig auf Risiken durch ungeprüfte Elektrogeräte hin."
    },
    {
     "tag": "p",
-    "text": "Mitgebrachte Ladekabel fallen in genau diese Kategorie. Als Arbeitgeber trägt man Verantwortung für die elektrische Sicherheit am Arbeitsplatz."
+    "text": "Auch mitgebrachte Elektrogeräte sollten geprüft werden. Als Arbeitgeber trägt man Verantwortung für die elektrische Sicherheit am Arbeitsplatz."
    },
    {
     "tag": "h2",
@@ -3865,7 +3866,7 @@
    },
    {
     "tag": "p",
-    "text": "Wer einmal zertifizierte, kabellose Ladestationen pro Arbeitsplatz einführt, löst beide Probleme gleichzeitig. Ein Gerät liegt auf dem Schreibtisch. iPhone ablegen, Apple Watch einhängen, AirPods platzieren – fertig. Keine Kabel, keine Risiken durch unkontrolliertes Fremdequipment, kein Suchen."
+    "text": "Wer einheitliche, kabellose Ladestationen pro Arbeitsplatz einführt, kann beide Probleme reduzieren. Ein Gerät liegt auf dem Schreibtisch. iPhone ablegen, Apple Watch einhängen, AirPods platzieren – fertig. Weniger Kabel und weniger unkontrolliertes Fremdequipment, kein Suchen."
    },
    {
     "tag": "h2",
@@ -3873,7 +3874,7 @@
    },
    {
     "tag": "p",
-    "text": "Der RAJ NEXUS ist Qi2.2-zertifiziert nach dem aktuellsten Standard des Wireless Power Consortium. Er richtet sich an Menschen, die täglich mit iPhone, Apple Watch und AirPods arbeiten und dabei keine Zeit verlieren wollen."
+    "text": "Der RAJ NEXUS unterstützt den Qi2.2-Standard mit bis zu 25 W laut Herstellerangabe. Er richtet sich an Menschen, die täglich mit iPhone, Apple Watch und AirPods arbeiten und dabei keine Zeit verlieren wollen."
    },
    {
     "tag": "p",
@@ -3881,11 +3882,11 @@
    },
    {
     "tag": "li",
-    "text": "· Ein geprüftes, zertifiziertes Gerät pro Arbeitsplatz"
+    "text": "· Ein einheitliches, hochwertiges Gerät pro Arbeitsplatz"
    },
    {
     "tag": "li",
-    "text": "· Kein unkontrolliertes Fremdequipment mehr"
+    "text": "· Weniger unkontrolliertes Fremdequipment"
    },
    {
     "tag": "li",
@@ -3898,6 +3899,78 @@
    {
     "tag": "li",
     "text": "· Mengenpreise für Teams auf Anfrage"
+   },
+   {
+    "tag": "h2",
+    "text": "Für wen"
+   },
+   {
+    "tag": "p",
+    "text": "Der RAJ NEXUS eignet sich für Mitarbeitergeschenke, Kundengeschenke, Büroausstattung und den Aussendienst."
+   },
+   {
+    "tag": "h2",
+    "text": "So läuft es ab"
+   },
+   {
+    "tag": "li",
+    "text": "Anfrage per E-Mail."
+   },
+   {
+    "tag": "li",
+    "text": "Kostenloses Muster auf Wunsch."
+   },
+   {
+    "tag": "li",
+    "text": "Bestellung auf Rechnung."
+   },
+   {
+    "tag": "li",
+    "text": "Lieferung innert weniger Tage aus Weinfelden TG."
+   },
+   {
+    "tag": "h2",
+    "text": "Mengenpreise"
+   },
+   {
+    "tag": "p",
+    "text": "Für Teams ab 10 Stück bieten wir Mengenpreise. Schreiben Sie uns, wir senden Ihnen gerne ein Angebot."
+   },
+   {
+    "tag": "h2",
+    "text": "Häufige Fragen"
+   },
+   {
+    "tag": "h3",
+    "text": "Kann ich auf Rechnung bestellen?"
+   },
+   {
+    "tag": "p",
+    "text": "Ja, für Firmenbestellungen auf Rechnung."
+   },
+   {
+    "tag": "h3",
+    "text": "Wie schnell wird geliefert?"
+   },
+   {
+    "tag": "p",
+    "text": "In der Regel innert weniger Werktage ab Lager in Weinfelden TG."
+   },
+   {
+    "tag": "h3",
+    "text": "Mit welchen Geräten ist der RAJ NEXUS kompatibel?"
+   },
+   {
+    "tag": "p",
+    "text": "iPhone 12 bis iPhone 18 Pro Max, Apple Watch sowie AirPods mit kabellosem Ladecase."
+   },
+   {
+    "tag": "h3",
+    "text": "Wer ist für Garantie und Support zuständig?"
+   },
+   {
+    "tag": "p",
+    "text": "RAJ direkt, persönlich und auf Deutsch."
    },
    {
     "tag": "h2",
