@@ -30,6 +30,7 @@ import {
   PaymentMethodsBar,
 } from "@/components/matrix/matrixCommerce";
 
+import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
 import BundleOfferImage, { bundlePhoneThumb, originalAirpodsThumbs } from "@/components/matrix/BundleOfferImage";
 import apCherryProduct1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-1200.webp.asset.json";
 import apCherryProduct800 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-800.webp.asset.json";
@@ -167,6 +168,7 @@ const Gallery = ({ finish }: { finish: Finish }) => {
     scrollerRef.current?.scrollTo({ left: i * (scrollerRef.current?.clientWidth ?? 0), behavior: "smooth" });
   };
   const preloadNext = () => setPrefetchThrough((current) => Math.max(current, active + 1));
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   useEffect(() => {
     // Nächstes Bild vorladen, während alle Nicht-Erstbilder loading="lazy" bleiben.
     for (let i = 1; i <= Math.min(prefetchThrough, slides.length - 1); i++) {
@@ -195,6 +197,7 @@ const Gallery = ({ finish }: { finish: Finish }) => {
       >
         {slides.map((slide, i) => (
           <div key={slide.src} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
+            <ZoomFrame zoomSrc={slide.src} onOpen={() => setLightboxIndex(i)} objectFit="cover">
             <img
               data-airpods-hero={i === 0 ? "" : undefined}
               src={slide.src}
@@ -214,9 +217,17 @@ const Gallery = ({ finish }: { finish: Finish }) => {
                })}
                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 motion-reduce:transition-none ${loadedImages.has(slide.src) ? "opacity-100" : "opacity-0"}`}
             />
+            </ZoomFrame>
           </div>
         ))}
       </div>
+      <ProductLightbox
+        open={lightboxIndex !== null}
+        images={slides.map((slide) => ({ src: slide.src, alt: slide.alt }))}
+        index={lightboxIndex ?? 0}
+        onIndexChange={(i) => { setLightboxIndex(i); goTo(i); }}
+        onClose={() => setLightboxIndex(null)}
+      />
       {slides.length > 1 && (
         <>
           <div className="flex justify-center gap-1.5 pb-2 pt-1 lg:hidden">

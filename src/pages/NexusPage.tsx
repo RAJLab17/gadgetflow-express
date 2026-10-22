@@ -70,6 +70,10 @@ import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import { HERO_CAROUSEL_SLIDES, HeroSwipeImage, HeroThumbs } from "@/components/nexus/NexusHeroCarousel";
+import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
+
+const heroFullSrc = (s: { src: string; srcSet: string }) => s.srcSet.split(",").pop()?.trim().split(/\s+/)[0] || s.src;
+const HERO_ZOOM_IMAGES = HERO_CAROUSEL_SLIDES.map((s) => ({ src: heroFullSrc(s), alt: s.alt }));
 
 // ─── HERO FOTO ────────────────────────────────────────────────────
 const nexusHeroImg = nexusHeroFallbackAsset.url;
@@ -643,8 +647,6 @@ const NexusPage = () => {
   const [marcelLightboxOpen, setMarcelLightboxOpen] = useState(false);
   const [heroSlideIdx, setHeroSlideIdx] = useState(0);
   const [galleryLightbox, setGalleryLightbox] = useState(false);
-  const [galleryZoom, setGalleryZoom] = useState(false);
-  const [zoomOrigin, setZoomOrigin] = useState("50% 50%");
   const [headerH, setHeaderH] = useState(116);
   useEffect(() => {
     const el = document.querySelector("header");
@@ -655,18 +657,6 @@ const NexusPage = () => {
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
-  useEffect(() => {
-    if (!galleryLightbox) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setGalleryLightbox(false);
-      if (e.key === "ArrowRight") { setGalleryZoom(false); setHeroSlideIdx((i) => (i + 1) % HERO_CAROUSEL_SLIDES.length); }
-      if (e.key === "ArrowLeft") { setGalleryZoom(false); setHeroSlideIdx((i) => (i - 1 + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length); }
-    };
-    window.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
-  }, [galleryLightbox]);
 
   const activeHeroReview = heroReviews[heroReviewIdx] ?? null;
 
@@ -871,8 +861,9 @@ const NexusPage = () => {
             {/* LEFT — gallery */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               <div style={{ position: "relative", width: "100%", minWidth: 0, aspectRatio: "1 / 1", borderRadius: 16, overflow: "hidden", background: "#fff", boxShadow: "0 40px 100px -40px rgba(26,26,26,.28), 0 0 0 1px rgba(155,107,63,.14)" }}>
-                <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} sizes="(max-width: 768px) 266px, 700px" priority objectFit="cover" />
-                <button type="button" aria-label="Bild vergrössern" onClick={() => { setGalleryZoom(false); setGalleryLightbox(true); }} style={{ position: "absolute", inset: 0, zIndex: 2, background: "transparent", border: 0, cursor: "zoom-in" }} />
+                <ZoomFrame zoomSrc={HERO_ZOOM_IMAGES[heroSlideIdx].src} onOpen={() => setGalleryLightbox(true)} objectFit={HERO_CAROUSEL_SLIDES[heroSlideIdx].fit ?? "cover"} objectPosition={HERO_CAROUSEL_SLIDES[heroSlideIdx].position ?? "center"} iconStyle={{ right: "auto", left: 14, bottom: 14 }}>
+                  <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={heroSlideIdx} onChange={setHeroSlideIdx} sizes="(max-width: 768px) 266px, 700px" priority objectFit="cover" />
+                </ZoomFrame>
                 {heroSlideIdx === 0 && (
                   <>
                     <ChargeChip label="iPhone" icon={<IconPhone />} startVal={58} phase={0} floatAnim="raj-float 6s" style={{ top: "5%", left: "4%" }} />
@@ -1050,6 +1041,7 @@ const NexusPage = () => {
                 <div style={{ position: "relative", zIndex: 2, width: "100%", paddingBottom: "100%", borderRadius: 18, overflow: "hidden", background: "#fff", boxShadow: "0 50px 120px -40px rgba(26,26,26,.32), 0 0 0 1px rgba(155,107,63,.16)" }}>
                 <div style={{ position: "absolute", inset: 0 }}>
 
+                <ZoomFrame zoomSrc={HERO_ZOOM_IMAGES[heroSlideIdx].src} onOpen={() => setGalleryLightbox(true)} objectFit={HERO_CAROUSEL_SLIDES[heroSlideIdx].fit ?? "cover"} objectPosition={HERO_CAROUSEL_SLIDES[heroSlideIdx].position ?? "center"}>
                 <HeroSwipeImage
                   slides={HERO_CAROUSEL_SLIDES}
                   index={heroSlideIdx}
@@ -1058,6 +1050,7 @@ const NexusPage = () => {
                   priority
                   objectFit="cover"
                 />
+                </ZoomFrame>
 
                 {/* Overlays inside the frame */}
                 {HERO_CAROUSEL_SLIDES[heroSlideIdx].showChips !== false && (
@@ -1141,6 +1134,7 @@ const NexusPage = () => {
           </MobileTitle>
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
+              <ZoomFrame zoomSrc={HERO_ZOOM_IMAGES[heroSlideIdx].src} onOpen={() => setGalleryLightbox(true)} objectFit="cover" iconStyle={{ right: "auto", left: 12, bottom: 12 }}>
               <HeroSwipeImage
                 slides={HERO_CAROUSEL_SLIDES}
                 index={heroSlideIdx}
@@ -1150,6 +1144,7 @@ const NexusPage = () => {
                 objectFit="cover"
                 objectPosition={heroSlideIdx === 0 ? "center 30%" : "center"}
               />
+              </ZoomFrame>
               <div style={{ position: "absolute", bottom: 14, right: 14, zIndex: 3, display: "flex", flexDirection: "column", alignItems: "center", gap: 2, pointerEvents: "none" }}>
                 <Qi2CertifiedBadge size={34} compact variant={heroSlideIdx === 1 || heroSlideIdx === 3 ? "light" : "dark"} />
                 <span style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: ".22em", textTransform: "uppercase", color: heroSlideIdx === 1 || heroSlideIdx === 3 ? "#ffffff" : "#000000" }}>Zertifiziert</span>
@@ -1428,33 +1423,13 @@ const NexusPage = () => {
       <div className="h-16" aria-hidden style={{ background: D.bg }} />
       <BuyModal open={buyModalOpen} onClose={() => setBuyModalOpen(false)} />
 
-      {galleryLightbox && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center" style={{ background: "rgba(0,0,0,.94)" }} role="dialog" aria-modal="true" aria-label="Produktbild vergrössert" onClick={() => setGalleryLightbox(false)}>
-          <button type="button" onClick={() => setGalleryLightbox(false)} className="absolute top-4 right-4 p-2 rounded-full z-10" style={{ color: "#fff", background: "rgba(255,255,255,.08)" }} aria-label="Schliessen"><X size={28} /></button>
-          {[-1, 1].map((dir) => (
-            <button key={dir} type="button" aria-label={dir < 0 ? "Vorheriges Bild" : "Nächstes Bild"} onClick={(e) => { e.stopPropagation(); setGalleryZoom(false); setHeroSlideIdx((heroSlideIdx + dir + HERO_CAROUSEL_SLIDES.length) % HERO_CAROUSEL_SLIDES.length); }} className="absolute z-10 rounded-full flex items-center justify-center" style={{ top: "calc(50% - 26px)", [dir < 0 ? "left" : "right"]: 24, width: 52, height: 52, background: "rgba(255,255,255,.12)", color: "#fff", fontSize: 22 }}>{dir < 0 ? "‹" : "›"}</button>
-          ))}
-          <div className="overflow-hidden" style={{ maxWidth: "90vw", maxHeight: "90vh" }} onClick={(e) => e.stopPropagation()}>
-            <img
-              src={HERO_CAROUSEL_SLIDES[heroSlideIdx].src}
-              srcSet={HERO_CAROUSEL_SLIDES[heroSlideIdx].srcSet}
-              sizes="90vw"
-              alt={HERO_CAROUSEL_SLIDES[heroSlideIdx].alt}
-              onClick={(e) => {
-                const r = e.currentTarget.getBoundingClientRect();
-                setZoomOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
-                setGalleryZoom((z) => !z);
-              }}
-              onMouseMove={(e) => {
-                if (!galleryZoom) return;
-                const r = e.currentTarget.getBoundingClientRect();
-                setZoomOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
-              }}
-              style={{ display: "block", maxWidth: "90vw", maxHeight: "90vh", objectFit: "contain", background: "#fff", borderRadius: 12, transform: galleryZoom ? "scale(2.2)" : "scale(1)", transformOrigin: zoomOrigin, transition: "transform .25s ease", cursor: galleryZoom ? "zoom-out" : "zoom-in" }}
-            />
-          </div>
-        </div>
-      )}
+      <ProductLightbox
+        open={galleryLightbox}
+        images={HERO_ZOOM_IMAGES}
+        index={heroSlideIdx}
+        onIndexChange={setHeroSlideIdx}
+        onClose={() => setGalleryLightbox(false)}
+      />
 
       <AnimatePresence>
         {marcelLightboxOpen && activeHeroReview?.photo_url && (
