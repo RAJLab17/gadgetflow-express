@@ -34,7 +34,7 @@ import thumb14 from "./responsive/airpods-onyx-original-bolt-thumb.webp.asset.js
 import two17 from "./responsive/two-cases-17-thumb.webp.asset.json";
 import two18 from "./responsive/two-cases-18-thumb.webp.asset.json";
 export const renderSizes = new Map<string, { mobile: string; thumb: string }>([
-  ["/__l5e/assets-v1/fd5e0e80-b338-4e97-a084-fe48ff14e50d/17-cherry-cherry-cosmic-orange.webp", { mobile: mobile0.url, thumb: thumb0.url }],
+  ["/__l5e/assets-v1/26a65acd-2239-4e4f-95cf-bc3c2a82d5ee/17-cherry-cherry-cosmic-orange.webp", { mobile: mobile0.url, thumb: thumb0.url }],
   ["/__l5e/assets-v1/6fa396cf-21a6-4377-9434-f88dd3dfb079/17-cherry-cherry-deep-blue.webp", { mobile: mobile1.url, thumb: thumb1.url }],
   ["/__l5e/assets-v1/0d8b1a81-882c-458a-8c4c-76f45ce25424/17-cherry-cherry-silver.webp", { mobile: mobile2.url, thumb: thumb2.url }],
   [full3.url, { mobile: mobile3.url, thumb: thumb3.url }],
