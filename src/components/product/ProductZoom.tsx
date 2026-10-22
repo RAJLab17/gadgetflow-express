@@ -184,7 +184,7 @@ export const ProductLightbox = ({
         doubleClick={{ mode: "toggle", step: 1 }}
         wheel={{ step: 0.2 }}
         panning={{ disabled: scale <= 1.01, velocityDisabled: true }}
-        onTransformed={(_, state) => setScale(state.scale)}
+        onTransform={(_, state) => setScale(state.scale)}
       >
         <TransformComponent
           wrapperStyle={{ width: "100%", height: "100%" }}
