@@ -7,8 +7,9 @@ import mobile2 from "./responsive/17-cherry-cherry-silver-mobile.webp.asset.json
 import thumb3 from "./uploaded-renders/cherry-darkcherry-v4-thumb.webp.asset.json";
 import mobile3 from "./uploaded-renders/cherry-darkcherry-v4-mobile.webp.asset.json";
 import full3 from "./uploaded-renders/cherry-darkcherry-v4-full.webp.asset.json";
-import thumb4 from "./responsive/18-cherry-cherry-darkgrey-thumb.webp.asset.json";
-import mobile4 from "./responsive/18-cherry-cherry-darkgrey-mobile.webp.asset.json";
+import thumb4 from "./uploaded-renders/cherry-darkgrey-v1-thumb.webp.asset.json";
+import mobile4 from "./uploaded-renders/cherry-darkgrey-v1-mobile.webp.asset.json";
+import full4 from "./uploaded-renders/cherry-darkgrey-v1-full.webp.asset.json";
 import thumb5 from "./responsive/18-cherry-cherry-silver-thumb.webp.asset.json";
 import mobile5 from "./responsive/18-cherry-cherry-silver-mobile.webp.asset.json";
 import thumb6 from "./responsive/18-cherry-cherry-skyblue-thumb.webp.asset.json";
@@ -38,7 +39,7 @@ export const renderSizes = new Map<string, { mobile: string; thumb: string }>([
   ["/__l5e/assets-v1/6fa396cf-21a6-4377-9434-f88dd3dfb079/17-cherry-cherry-deep-blue.webp", { mobile: mobile1.url, thumb: thumb1.url }],
   ["/__l5e/assets-v1/0d8b1a81-882c-458a-8c4c-76f45ce25424/17-cherry-cherry-silver.webp", { mobile: mobile2.url, thumb: thumb2.url }],
   [full3.url, { mobile: mobile3.url, thumb: thumb3.url }],
-  ["/__l5e/assets-v1/f762ee71-c946-4ac0-901a-94fea7a97dc1/18-cherry-cherry-darkgrey.webp", { mobile: mobile4.url, thumb: thumb4.url }],
+  [full4.url, { mobile: mobile4.url, thumb: thumb4.url }],
   ["/__l5e/assets-v1/59723654-78db-4010-a3a0-ecc3334d7b03/18-cherry-cherry-silver.webp", { mobile: mobile5.url, thumb: thumb5.url }],
   ["/__l5e/assets-v1/f8e11bce-a5b8-44dc-9082-24be772e1574/18-cherry-cherry-skyblue.webp", { mobile: mobile6.url, thumb: thumb6.url }],
   ["/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp", { mobile: mobile7.url, thumb: thumb7.url }],
