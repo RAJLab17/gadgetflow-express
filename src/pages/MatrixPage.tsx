@@ -763,7 +763,7 @@ const MatrixPage = () => {
     brand: { "@type": "Brand", name: "RAJ" },
     description:
       "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
-    image: ["https://raj.ch/__l5e/assets-v1/96396c57-bc64-4ec4-8654-d13c7f42095b/raj-matrix-share.jpg", `https://raj.ch${cherryDarkcherry18Asset.url}`, "https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp"],
+    image: ["https://raj.ch/__l5e/assets-v1/96396c57-bc64-4ec4-8654-d13c7f42095b/raj-matrix-share.jpg", `https://raj.ch${cherryDarkcherry18Asset.url}`, `https://raj.ch${onyxDarkgrey18Asset.url}`],
     url: "https://raj.ch/matrix",
     ...reviewSchema("matrix", productReviews),
     offers: {
