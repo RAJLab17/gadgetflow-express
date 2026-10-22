@@ -27,10 +27,10 @@ import cherryDarkcherry18Asset from "@/assets/matrix/uploaded-renders/18-cherry-
 import cherryDarkgrey18Asset from "@/assets/matrix/uploaded-renders/18-cherry-darkgrey-norm-full.webp.asset.json";
 import cherrySilver18Asset from "@/assets/matrix/uploaded-renders/18-cherry-silver-norm-full.webp.asset.json";
 import cherrySkyblue18Asset from "@/assets/matrix/uploaded-renders/18-cherry-skyblue-norm-full.webp.asset.json";
-import onyxOrange from "@/assets/matrix/uploaded-renders/17-onyx-orange-norm-full.webp.asset.json";
+import onyxOrange from "@/assets/matrix/uploaded-renders/17-onyx-orange-v2-full.webp.asset.json";
 import onyxBlue from "@/assets/matrix/uploaded-renders/17-onyx-blue-v2-full.webp.asset.json";
 import onyxSilver from "@/assets/matrix/uploaded-renders/onyx-silver-v2-full.webp.asset.json";
-import onyxDarkcherry from "@/assets/matrix/uploaded-renders/18-onyx-darkcherry-norm-full.webp.asset.json";
+import onyxDarkcherry from "@/assets/matrix/uploaded-renders/18-onyx-darkcherry-v2-full.webp.asset.json";
 import onyxDarkgrey18Asset from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
 import onyxSkyblue18Asset from "@/assets/matrix/uploaded-renders/18-onyx-skyblue-v2-full.webp.asset.json";
 import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
