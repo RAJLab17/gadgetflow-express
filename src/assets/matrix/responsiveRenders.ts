@@ -60,3 +60,9 @@ export const airpodsThumbs = { cherry: thumb13.url, onyx: thumb14.url };
 export const twoCaseThumbs = { "17": two17.url, "18": two18.url };
 // Mobile slot capped at 266px so even 3x screens pick the 800w file, never 1200w.
 export const renderImageSizes = "(max-width: 1023px) 266px, 1200px";
+
+// Desktop: 1200w full + 800w mobile; matches the route preload in vite.config.ts.
+export const renderSrcSet = (src: string) => {
+  const sizes = renderSizes.get(src);
+  return sizes ? `${sizes.mobile} 800w, ${src} 1200w` : undefined;
+};

@@ -249,18 +249,18 @@ const RENDERS: Record<string, string> = {
   "17-cherry-orange": cherryOrangeAsset.url,
   "17-cherry-blue": cherryBlueAsset.url,
   "17-cherry-silver": cherrySilverAsset.url,
-  "17-onyx-orange": onyxOrange,
-  "17-onyx-blue": onyxBlue,
-  "17-onyx-silver": onyxSilver,
+  "17-onyx-orange": onyxOrange.url,
+  "17-onyx-blue": onyxBlue.url,
+  "17-onyx-silver": onyxSilver.url,
   // Gen 18
   "18-cherry-darkcherry": cherryDarkcherry18Asset.url,
   "18-cherry-darkgrey": cherryDarkgrey18Asset.url,
   "18-cherry-skyblue": cherrySkyblue18Asset.url,
   "18-cherry-silver": cherrySilver18Asset.url,
-  "18-onyx-darkcherry": onyxDarkcherry,
+  "18-onyx-darkcherry": onyxDarkcherry.url,
   "18-onyx-darkgrey": onyxDarkgrey18Asset.url,
   "18-onyx-skyblue": onyxSkyblue18Asset.url,
-  "18-onyx-silver": onyxSilver,
+  "18-onyx-silver": onyxSilver.url,
 };
 
 let variantsWarming = false;
