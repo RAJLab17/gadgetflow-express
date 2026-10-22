@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import StarRating from "./StarRating";
+import { REVIEW_PRODUCTS, type ReviewProductId } from "@/lib/reviewProducts";
 
 const MAX_PHOTO_BYTES = 5 * 1024 * 1024; // 5 MB
 const ALLOWED_PHOTO_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
@@ -16,6 +17,7 @@ const ALLOWED_PHOTO_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp
 const schema = z.object({
   customer_name: z.string().trim().min(2, "Bitte deinen Namen eingeben").max(80),
   customer_email: z.string().trim().email("Ungültige Email").max(255),
+  order_number: z.string().trim().max(80),
   rating: z.number().int().min(1, "Bitte Sterne wählen").max(5),
   title: z.string().trim().min(3, "Titel zu kurz").max(120),
   comment: z.string().trim().min(20, "Mindestens 20 Zeichen").max(1500),
@@ -26,13 +28,14 @@ interface ReviewModalProps {
   open: boolean;
   onOpenChange: (o: boolean) => void;
   initialRating?: number;
-  productId?: string;
+  productId?: ReviewProductId;
 }
 
 const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus" }: ReviewModalProps) => {
   const [rating, setRating] = useState(initialRating);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [orderNumber, setOrderNumber] = useState("");
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("");
   const [website, setWebsite] = useState(""); // honeypot
@@ -55,6 +58,7 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
   const reset = () => {
     setName("");
     setEmail("");
+    setOrderNumber("");
     setTitle("");
     setComment("");
     setWebsite("");
@@ -91,6 +95,7 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
     const parsed = schema.safeParse({
       customer_name: name,
       customer_email: email,
+      order_number: orderNumber,
       rating,
       title,
       comment,
@@ -110,13 +115,15 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
       form.append("product_id", productId);
       form.append("customer_name", parsed.data.customer_name);
       form.append("customer_email", parsed.data.customer_email);
+      if (parsed.data.order_number) form.append("order_number", parsed.data.order_number);
       form.append("rating", String(parsed.data.rating));
       form.append("title", parsed.data.title);
       form.append("comment", parsed.data.comment);
       if (parsed.data.website) form.append("website", parsed.data.website);
       if (photoFile) form.append("photos", photoFile);
-      const { error } = await supabase.functions.invoke("submit-review", { body: form });
+      const { data, error } = await supabase.functions.invoke("submit-review", { body: form });
       if (error) throw error;
+      if (!data?.ok) throw new Error("Die Bewertung konnte nicht gespeichert werden. Bitte versuche es erneut.");
       toast({
         title: "Danke für deine Bewertung!",
         description: "Sie wird nach kurzer Prüfung veröffentlicht.",
@@ -136,7 +143,7 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
         <DialogHeader>
           <DialogTitle className="text-2xl">Bewertung schreiben</DialogTitle>
           <DialogDescription>
-            Teile deine Erfahrung mit dem RAJ NEXUS – ehrlich und in deinen Worten.
+            Teile deine Erfahrung mit {REVIEW_PRODUCTS[productId]} – ehrlich und in deinen Worten.
           </DialogDescription>
         </DialogHeader>
 
@@ -148,7 +155,7 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <Label htmlFor="rev-name">Name *</Label>
+              <Label htmlFor="rev-name">Vorname *</Label>
               <Input id="rev-name" value={name} onChange={(e) => setName(e.target.value)} maxLength={80} required />
             </div>
             <div>
@@ -166,13 +173,19 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
           </div>
 
           <div>
+            <Label htmlFor="rev-order">Bestellnummer (optional)</Label>
+            <Input id="rev-order" value={orderNumber} onChange={(e) => setOrderNumber(e.target.value)} maxLength={80} />
+            <p className="mt-1 text-[11px] text-muted-foreground">Für «Verifizierter Kauf»: Bestellnummer und E-Mail deiner Bestellung. Wird nie öffentlich angezeigt.</p>
+          </div>
+
+          <div>
             <Label htmlFor="rev-title">Titel *</Label>
             <Input
               id="rev-title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               maxLength={120}
-              placeholder="z.B. Endlich ein Schweizer Charger der hält was er verspricht"
+              placeholder={productId === "nexus" ? "z.B. Endlich ein Schweizer Charger der hält was er verspricht" : "Dein Fazit"}
               required
             />
           </div>
@@ -185,7 +198,7 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
               onChange={(e) => setComment(e.target.value)}
               rows={5}
               maxLength={1500}
-              placeholder="Was hat dich überzeugt? Wie nutzt du den NEXUS im Alltag?"
+              placeholder={productId === "nexus" ? "Was hat dich überzeugt? Wie nutzt du den NEXUS im Alltag?" : "Wie nutzt du deine MATRIX im Alltag?"}
               required
             />
             <p className="mt-1 text-[11px] text-stone-500">{comment.length} / 1500</p>

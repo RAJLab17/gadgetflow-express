@@ -1,9 +1,11 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { z } from 'npm:zod@3'
+import { verifyPurchase } from './verify-purchase.ts'
 
-const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
-const SERVICE_ROLE = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
+const SUPABASE_URL = Deno.env.get('SUPABASE_URL')
+const SERVICE_ROLE = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+const SHOPIFY_ACCESS_TOKEN = Deno.env.get('SHOPIFY_ACCESS_TOKEN')
 const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY')
 const BREVO_API_KEY = Deno.env.get('BREVO_API_KEY')
 const NOTIFY_TO = 'founder@raj.ch'
@@ -11,7 +13,8 @@ const NOTIFY_FROM_EMAIL = 'noreply@raj.ch'
 const NOTIFY_FROM_NAME = 'RAJ Reviews'
 
 const Schema = z.object({
-  product_id: z.string().trim().min(1).max(60).default('nexus'),
+  product_id: z.enum(['nexus', 'matrix', 'airpods-case']).default('nexus'),
+  order_number: z.string().trim().max(80).optional(),
   customer_name: z.string().trim().min(2).max(80),
   customer_email: z.string().trim().email().max(255),
   rating: z.number().int().min(1).max(5),
@@ -22,7 +25,7 @@ const Schema = z.object({
 
 
 const MAX_BYTES = 10 * 1024 * 1024
-const MAX_PHOTOS = 5
+const MAX_PHOTOS = 1
 const RATE_LIMIT = 10
 const RATE_WINDOW_MS = 10 * 60 * 1000
 
@@ -116,6 +119,7 @@ Deno.serve(async (req) => {
       return json({ error: 'invalid_input', issues: parsed.error.flatten().fieldErrors }, 400)
     }
     const data = parsed.data
+    if (!SUPABASE_URL || !SERVICE_ROLE) return json({ error: 'service_unavailable' }, 503)
     const supabase = createClient(SUPABASE_URL, SERVICE_ROLE)
 
     // Validate photos before anything is stored
@@ -128,27 +132,28 @@ Deno.serve(async (req) => {
       if (!kind) return json({ error: 'invalid_photo_type' }, 400)
       photos.push({ bytes, ...kind })
     }
-    if (photos.length) {
+    {
       const ip = (req.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || req.headers.get('cf-connecting-ip') || 'unknown'
       const ipHash = await hashIp(ip)
       const since = new Date(Date.now() - RATE_WINDOW_MS).toISOString()
-      const { count } = await supabase
+      const { count, error: rateError } = await supabase
         .from('review_upload_attempts')
         .select('id', { count: 'exact', head: true })
         .eq('ip_hash', ipHash)
         .gte('created_at', since)
-      if ((count ?? 0) + photos.length > RATE_LIMIT) return json({ error: 'rate_limited' }, 429)
-      await supabase.from('review_upload_attempts').insert(photos.map(() => ({ ip_hash: ipHash })))
+      if (rateError) return json({ error: 'service_unavailable' }, 503)
+      if ((count ?? 0) + 1 > RATE_LIMIT) return json({ error: 'rate_limited' }, 429)
+      const { error: attemptError } = await supabase.from('review_upload_attempts').insert({ ip_hash: ipHash })
+      if (attemptError) return json({ error: 'service_unavailable' }, 503)
       await supabase.from('review_upload_attempts').delete().lt('created_at', new Date(Date.now() - 24 * 3600 * 1000).toISOString())
     }
 
-    const { data: orderRow } = await supabase
-      .from('preorders')
-      .select('id')
-      .ilike('customer_email', data.customer_email)
-      .limit(1)
-      .maybeSingle()
-    const verifiedPurchase = !!orderRow
+    let verifiedPurchase = false
+    try {
+      verifiedPurchase = await verifyPurchase(data.product_id, data.order_number, data.customer_email, SHOPIFY_ACCESS_TOKEN)
+    } catch {
+      return json({ error: 'Die Kaufprüfung ist gerade nicht verfügbar. Bitte später erneut versuchen oder ohne Bestellnummer bewerten.' }, 503)
+    }
 
     const { data: review, error: insertErr } = await supabase
       .from('reviews')

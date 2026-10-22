@@ -5,7 +5,9 @@ import { ShieldCheck, CheckCircle2, MessageSquare } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/integrations/supabase/client";
+import { useSearchParams } from "react-router-dom";
+import { useProductReviews } from "@/hooks/useProductReviews";
+import { REVIEW_PRODUCTS, isReviewProduct, type ReviewProductId } from "@/lib/reviewProducts";
 import StarRating from "@/components/reviews/StarRating";
 import ReviewCard, { type PublicReview } from "@/components/reviews/ReviewCard";
 import ReviewModal from "@/components/reviews/ReviewModal";
@@ -26,44 +28,21 @@ type Filter = "all" | "5" | "4" | "3" | "2" | "1";
 type Sort = "newest" | "helpful" | "top" | "low";
 
 const ReviewsPage = () => {
-  const [stats, setStats] = useState<Stats>(EMPTY_STATS);
-  const [reviews, setReviews] = useState<PublicReview[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedProduct = searchParams.get("product");
+  const product = isReviewProduct(requestedProduct) ? requestedProduct : undefined;
+  const { stats, reviews, isPending: loading, isError, refetch: load } = useProductReviews(product);
+  const [writeProduct, setWriteProduct] = useState<ReviewProductId>(product ?? "nexus");
+  const productName = product ? REVIEW_PRODUCTS[product] : "RAJ";
   const [modalOpen, setModalOpen] = useState(false);
   const [seedRating, setSeedRating] = useState(5);
   const [filter, setFilter] = useState<Filter>("all");
   const [sort, setSort] = useState<Sort>("newest");
 
-  const load = async () => {
-    setLoading(true);
-    const [{ data: s }, { data: r }] = await Promise.all([
-      supabase.rpc("get_review_stats", { _product_id: "nexus" }),
-      supabase
-        .from("reviews_public")
-        .select("*")
-        .eq("product_id", "nexus")
-        .order("created_at", { ascending: false })
-        .limit(200),
-    ]);
-    if (s && Array.isArray(s) && s.length > 0) {
-      const row = s[0] as { total: number; average: number; c5: number; c4: number; c3: number; c2: number; c1: number };
-      setStats({
-        total: Number(row.total) || 0,
-        average: Number(row.average) || 0,
-        c5: Number(row.c5) || 0,
-        c4: Number(row.c4) || 0,
-        c3: Number(row.c3) || 0,
-        c2: Number(row.c2) || 0,
-        c1: Number(row.c1) || 0,
-      });
-    }
-    setReviews((r ?? []) as PublicReview[]);
-    setLoading(false);
-  };
-
   useEffect(() => {
-    load();
-  }, []);
+    setWriteProduct(product ?? "nexus");
+    setFilter("all");
+  }, [product]);
 
   const filtered = useMemo(() => {
     let list = [...reviews];
@@ -98,12 +77,12 @@ const ReviewsPage = () => {
   ];
 
   const jsonLd =
-    stats.total > 0
+    product && stats.total > 0
       ? {
           "@context": "https://schema.org",
           "@type": "Product",
-          name: "RAJ NEXUS",
-          description: "Qi2.2 zertifizierter 3-in-1 Wireless Charger – Swiss Brand.",
+          name: productName,
+          description: `Kundenbewertungen für ${productName}`,
           brand: { "@type": "Brand", name: "RAJ" },
           aggregateRating: {
             "@type": "AggregateRating",
@@ -126,10 +105,10 @@ const ReviewsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Bewertungen RAJ NEXUS – Echte Kundenmeinungen | RAJ</title>
+        <title>{`Bewertungen ${productName} – Echte Kundenmeinungen | RAJ`}</title>
         <meta
           name="description"
-          content="Lies, was Kunden über den RAJ NEXUS sagen – der Qi2.2 zertifizierte 3-in-1 Wireless Charger aus der Schweiz. Verifizierte Bewertungen, manuelle Prüfung."
+          content={`Lies, was Kunden über ${productName} sagen. Verifizierte Bewertungen, manuelle Prüfung.`}
         />
         <link rel="canonical" href="https://raj.ch/reviews" />
         {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
@@ -150,11 +129,15 @@ const ReviewsPage = () => {
               Kundenbewertungen
             </p>
             <h1 className="text-4xl font-light tracking-tight text-stone-900 sm:text-5xl">
-              Was Kunden über den <span className="font-medium">RAJ NEXUS</span> sagen
+              Was Kunden über {product === "nexus" ? "den " : ""}<span className="font-medium">{productName}</span> sagen
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-stone-600">
               Echte Stimmen aus der Schweiz. Manuell geprüft, niemals gefiltert.
             </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-2" aria-label="Produktfilter">
+              <Button size="sm" variant={!product ? "default" : "outline"} aria-pressed={!product} onClick={() => setSearchParams({})}>Alle</Button>
+              {(Object.keys(REVIEW_PRODUCTS) as ReviewProductId[]).map(id => <Button key={id} size="sm" variant={product === id ? "default" : "outline"} aria-pressed={product === id} onClick={() => setSearchParams({ product: id })}>{id === "airpods-case" ? "AirPods Case" : REVIEW_PRODUCTS[id]}</Button>)}
+            </div>
           </motion.div>
 
           {/* AGGREGAT */}
@@ -209,7 +192,8 @@ const ReviewsPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-14 rounded-2xl border border-stone-200 bg-white px-6 py-8 text-center shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
           >
-            <p className="text-sm font-medium text-stone-900">Hast du den RAJ NEXUS getestet?</p>
+            <p className="text-sm font-medium text-stone-900">{product === "nexus" ? "Hast du den RAJ NEXUS getestet?" : product ? `Hast du ${productName} gekauft?` : "Hast du ein RAJ Produkt gekauft?"}</p>
+            {!product && <select aria-label="Produkt bewerten" value={writeProduct} onChange={e => { if (isReviewProduct(e.target.value)) setWriteProduct(e.target.value); }} className="mt-3 rounded-md border border-input bg-background px-3 py-2 text-sm">{(Object.keys(REVIEW_PRODUCTS) as ReviewProductId[]).map(id => <option key={id} value={id}>{REVIEW_PRODUCTS[id]}</option>)}</select>}
             <p className="mt-1 text-sm text-stone-600">
               Klick auf einen Stern, um deine Bewertung abzugeben.
             </p>
@@ -273,13 +257,13 @@ const ReviewsPage = () => {
           </select>
         </div>
 
-        {loading ? (
+        {isError ? <div className="py-16 text-center"><p>Bewertungen konnten nicht geladen werden.</p><Button variant="outline" onClick={() => load()}>Erneut versuchen</Button></div> : loading ? (
           <div className="py-16 text-center text-sm text-stone-500">Bewertungen werden geladen…</div>
         ) : filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-stone-300 px-6 py-16 text-center">
             <p className="text-stone-900">Noch keine Bewertungen.</p>
             <p className="mt-1 text-sm text-stone-500">
-              Sei der oder die Erste, die ihre Erfahrung teilt.
+              {product && product !== "nexus" ? "Du hast die MATRIX gekauft? Wir freuen uns über deine Meinung." : "Sei der oder die Erste, die ihre Erfahrung teilt."}
             </p>
             <Button
               onClick={() => openWithRating(5)}
@@ -306,7 +290,7 @@ const ReviewsPage = () => {
           if (!o) load();
         }}
         initialRating={seedRating}
-        productId="nexus"
+        productId={writeProduct}
       />
     </div>
   );

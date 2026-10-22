@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import StarRating from "@/components/reviews/StarRating";
+import { REVIEW_PRODUCTS, isReviewProduct } from "@/lib/reviewProducts";
 
 const FN_URL = `https://${import.meta.env.VITE_SUPABASE_PROJECT_ID}.supabase.co/functions/v1/admin-reviews`;
 const ANON = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -237,6 +238,7 @@ const AdminReviewsPage = () => {
                       )}
                     </div>
                     <h2 className="mt-1 font-medium text-stone-900">{r.title}</h2>
+                    <p className="mt-1 text-xs text-muted-foreground">{isReviewProduct(r.product_id) ? REVIEW_PRODUCTS[r.product_id] : r.product_id}</p>
                     <p className="text-xs text-stone-500">
                       {r.customer_name}{r.customer_email ? <> · <span className="font-mono">{r.customer_email}</span></> : null} ·{" "}
                       {new Date(r.created_at).toLocaleString("de-CH")}

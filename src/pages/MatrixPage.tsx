@@ -1,4 +1,7 @@
 import ProductFaqSection from "@/components/ProductFaqSection";
+import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
+import { useProductReviews } from "@/hooks/useProductReviews";
+import { reviewSchema } from "@/lib/reviewProducts";
 import { MATRIX_FAQ } from "@/content/matrixFaq";
 import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { Helmet } from "react-helmet-async";
@@ -534,6 +537,7 @@ const MatrixMobileInfo = () => {
 
 /* ── Page ─────────────────────────────────────────────────────────────── */
 const MatrixPage = () => {
+  const { reviews: productReviews } = useProductReviews("matrix");
   useEffect(() => {
     trackViewItem({ item_id: "RAJ-MTX", item_name: "RAJ MATRIX iPhone Case", price: 59 });
   }, []);
@@ -757,6 +761,7 @@ const MatrixPage = () => {
       "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
     image: ["https://raj.ch/__l5e/assets-v1/96396c57-bc64-4ec4-8654-d13c7f42095b/raj-matrix-share.jpg", `https://raj.ch${cherryDarkcherry18Asset.url}`, "https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp"],
     url: "https://raj.ch/matrix",
+    ...reviewSchema("matrix", productReviews),
     offers: {
       "@type": "Offer",
       url: "https://raj.ch/matrix",
@@ -896,6 +901,7 @@ const MatrixPage = () => {
                     </h1>
                     <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
                     </div>
+                    <ProductRating productId="matrix" />
                   </div>
 
 
@@ -1269,6 +1275,7 @@ const MatrixPage = () => {
             </div>
           </section>
 
+          <ProductReviews productId="matrix" />
           <ProductFaqSection
             title="Fragen zur MATRIX"
             items={MATRIX_FAQ}
