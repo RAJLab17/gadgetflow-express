@@ -1,7 +1,8 @@
 import thumb0 from "./responsive/17-cherry-cherry-cosmic-orange-thumb.webp.asset.json";
 import mobile0 from "./responsive/17-cherry-cherry-cosmic-orange-mobile.webp.asset.json";
-import thumb1 from "./responsive/17-cherry-cherry-deep-blue-thumb.webp.asset.json";
-import mobile1 from "./responsive/17-cherry-cherry-deep-blue-mobile.webp.asset.json";
+import thumb1 from "./uploaded-renders/cherry-deepblue-17-v1-thumb.webp.asset.json";
+import mobile1 from "./uploaded-renders/cherry-deepblue-17-v1-mobile.webp.asset.json";
+import full1 from "./uploaded-renders/cherry-deepblue-17-v1-full.webp.asset.json";
 import thumb2 from "./uploaded-renders/cherry-silver-17-v1-thumb.webp.asset.json";
 import mobile2 from "./uploaded-renders/cherry-silver-17-v1-mobile.webp.asset.json";
 import full2 from "./uploaded-renders/cherry-silver-17-v1-full.webp.asset.json";
@@ -39,7 +40,7 @@ import two17 from "./responsive/two-cases-17-thumb.webp.asset.json";
 import two18 from "./responsive/two-cases-18-thumb.webp.asset.json";
 export const renderSizes = new Map<string, { mobile: string; thumb: string }>([
   ["/__l5e/assets-v1/26a65acd-2239-4e4f-95cf-bc3c2a82d5ee/17-cherry-cherry-cosmic-orange.webp", { mobile: mobile0.url, thumb: thumb0.url }],
-  ["/__l5e/assets-v1/6fa396cf-21a6-4377-9434-f88dd3dfb079/17-cherry-cherry-deep-blue.webp", { mobile: mobile1.url, thumb: thumb1.url }],
+  [full1.url, { mobile: mobile1.url, thumb: thumb1.url }],
   [full2.url, { mobile: mobile2.url, thumb: thumb2.url }],
   [full3.url, { mobile: mobile3.url, thumb: thumb3.url }],
   [full4.url, { mobile: mobile4.url, thumb: thumb4.url }],

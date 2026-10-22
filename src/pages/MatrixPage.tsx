@@ -21,7 +21,7 @@ import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
 import cherryOrangeAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-cosmic-orange.webp.asset.json";
-import cherryBlueAsset from "@/assets/matrix/optimized-renders/17-cherry-cherry-deep-blue.webp.asset.json";
+import cherryBlueAsset from "@/assets/matrix/uploaded-renders/cherry-deepblue-17-v1-full.webp.asset.json";
 import cherrySilverAsset from "@/assets/matrix/uploaded-renders/cherry-silver-17-v1-full.webp.asset.json";
 import cherryDarkcherry18Asset from "@/assets/matrix/uploaded-renders/cherry-darkcherry-v4-full.webp.asset.json";
 import cherryDarkgrey18Asset from "@/assets/matrix/uploaded-renders/cherry-darkgrey-v1-full.webp.asset.json";
