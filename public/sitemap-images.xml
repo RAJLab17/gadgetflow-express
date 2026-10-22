@@ -34,31 +34,43 @@
   <url>
     <loc>https://raj.ch/matrix</loc>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/26a65acd-2239-4e4f-95cf-bc3c2a82d5ee/17-cherry-cherry-cosmic-orange.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/ada82c80-0f54-4b01-98c5-ed7b0a57be10/17-cherry-orange-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/1245d969-5e01-46e0-8086-2f9f4e688b17/cherry-deepblue-17-v1-full.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/fd839851-d7f9-4610-b7e6-851b52053d69/17-cherry-blue-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/6ed00e5c-1552-4a3c-ac64-383d53030c9f/cherry-silver-17-v1-full.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/b4f11621-990d-48f4-b3e7-916556db5567/17-cherry-silver-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/a5b42744-a39d-49a2-8bac-c61b7c84edda/cherry-darkcherry-v4-full.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/92d7bef2-3f0d-4790-b395-276c106f849b/18-cherry-darkcherry-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/3cf24b88-a428-4c0c-bc05-d369fc6da07c/cherry-darkgrey-v1-full.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/5d6c9e6f-db08-4227-b484-11df9dee5d8f/18-cherry-darkgrey-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/0b6b149b-d288-4f63-bb4b-8261fe29a6b9/cherry-silver-18-v1-full.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/57abbbe5-767e-4a88-8fd5-e89489ec59ed/18-cherry-silver-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/3b67bcf0-5ea8-494e-b890-004fc9042434/cherry-skyblue-18-v1-full.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/2064c3dc-f802-4c7d-b23d-3df0b73bb97f/18-cherry-skyblue-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/c0233099-828c-4748-9dce-a9b1ddef34fe/17-onyx-orange-norm-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/fd40f8d5-0eff-43ae-a89d-ce17b762c90a/18-onyx-onyx-skyblue.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/6ffef6f0-e230-4477-95f1-d268a78d840b/17-onyx-blue-norm-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/2279d776-7b84-41fc-a30e-19b892d4ad21/17-onyx-silver-norm-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/d748124c-73be-4be9-96c7-046f3104c15c/18-onyx-darkcherry-norm-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/a7717aaa-514c-4df3-bff0-fafbde8cdabf/18-onyx-darkgrey-norm-full.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/5d6da7fd-8621-410a-9f77-c9a8495f55a6/18-onyx-skyblue-norm-full.webp</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://raj.ch/__l5e/assets-v1/3fd7f90b-dea5-4bd6-a028-33a5e8915878/matrix-orange-1-full.webp</image:loc>
@@ -205,16 +217,7 @@
       <image:loc>https://raj.ch/__l5e/assets-v1/d7e0383e-342b-4055-b96e-2380f1a45fac/onyx-skyblue-4-full.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/4296c3cd-23dc-4fc0-ac20-2b201fceacde/onyx-orange-mobile.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/cf56e0e8-6f75-4930-b1e3-b43a4194bcf7/onyx-blue-mobile.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/cfbdcb8b-b084-49fe-ba16-d93bc791aa7d/onyx-silver-mobile.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/fa0bc3a1-6ade-416d-9fc4-fe78a530407e/onyx-darkcherry-mobile.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/697504bf-8065-41c7-b5c9-f77f58ad7f5a/18-onyx-onyx-darkgrey.webp</image:loc>
     </image:image>
   </url>
 
@@ -357,7 +360,7 @@
   <url>
     <loc>https://raj.ch/blog/iphone-17-pro-huelle-iphone-18-pro</loc>
     <image:image>
-      <image:loc>https://raj.ch/__l5e/assets-v1/0b6b149b-d288-4f63-bb4b-8261fe29a6b9/cherry-silver-18-v1-full.webp</image:loc>
+      <image:loc>https://raj.ch/__l5e/assets-v1/57abbbe5-767e-4a88-8fd5-e89489ec59ed/18-cherry-silver-norm-full.webp</image:loc>
     </image:image>
   </url>
 

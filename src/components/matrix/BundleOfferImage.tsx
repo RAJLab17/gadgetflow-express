@@ -1,7 +1,7 @@
 import cherryAirpods from "@/assets/matrix/responsive/airpods-cherry-premium-thumb.webp.asset.json";
 import onyxAirpods from "@/assets/matrix/responsive/airpods-onyx-premium-thumb.webp.asset.json";
-import cherry17 from "@/assets/matrix/uploaded-renders/cherry-silver-17-v1-thumb.webp.asset.json";
-import cherry18 from "@/assets/matrix/uploaded-renders/cherry-silver-18-v1-thumb.webp.asset.json";
+import cherry17 from "@/assets/matrix/uploaded-renders/17-cherry-silver-norm-thumb.webp.asset.json";
+import cherry18 from "@/assets/matrix/uploaded-renders/18-cherry-silver-norm-thumb.webp.asset.json";
 import onyxSilver from "@/assets/matrix/responsive/onyx-silver-thumb.webp.asset.json";
 import MatrixSwapImage from "./MatrixSwapImage";
 
