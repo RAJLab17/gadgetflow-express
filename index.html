@@ -158,6 +158,10 @@
             /headlesschrome|prerender|crawler|spider|\bbot\b|[a-z]+bot\//i.test(navigator.userAgent || '');
         } catch (e) {}
 
+        // Domain gate — tracking only loads on the real production hosts.
+        var isProdHost = /^(www\.)?raj\.ch$/i.test(location.hostname);
+        isBot = isBot || !isProdHost;
+
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
 
