@@ -29,9 +29,10 @@ interface ReviewModalProps {
   onOpenChange: (o: boolean) => void;
   initialRating?: number;
   productId?: ReviewProductId;
+  initialOrderNumber?: string;
 }
 
-const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus" }: ReviewModalProps) => {
+const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus", initialOrderNumber }: ReviewModalProps) => {
   const [rating, setRating] = useState(initialRating);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -48,6 +49,10 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
   useEffect(() => {
     if (open) setRating(initialRating || 5);
   }, [open, initialRating]);
+
+  useEffect(() => {
+    if (open && initialOrderNumber) setOrderNumber((current) => current || initialOrderNumber);
+  }, [open, initialOrderNumber]);
 
   useEffect(() => {
     return () => {
