@@ -31,6 +31,7 @@ import {
 } from "@/components/matrix/matrixCommerce";
 
 import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
+import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
 import BundleOfferImage, { bundlePhoneThumb, originalAirpodsThumbs } from "@/components/matrix/BundleOfferImage";
 import apCherryProduct1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-1200.webp.asset.json";
 import apCherryProduct800 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-800.webp.asset.json";
@@ -257,6 +258,7 @@ const AirpodsPage = () => {
   const [bundleSelected, setBundleSelected] = useState(false);
   const [modelId, setModelId] = useState<ModelId>("18pro");
   const [isBuying, setIsBuying] = useState(false);
+  const mainBuyRef = useRef<HTMLButtonElement>(null);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
   const finish = FINISHES.find((item) => item.id === finishId) ?? FINISHES[0];
@@ -574,6 +576,7 @@ const AirpodsPage = () => {
                     </div>
 
                     <Button
+                      ref={mainBuyRef}
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
@@ -606,6 +609,14 @@ const AirpodsPage = () => {
         </main>
 
         <Footer />
+        <MobileProductBuyBar
+          mainBuyRef={mainBuyRef}
+          name={`MATRIX AIRPODS · ${finish.name}${bundleSelected ? " + Hülle" : ""}`}
+          image={finish.slides[0].thumb}
+          imageAlt={`MATRIX AirPods Case · ${finish.name}`}
+          price={currentTotal}
+          busy={isBuying}
+        />
       </div>
     </>
   );

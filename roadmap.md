@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Mobile Kaufleisten auf MATRIX, NEXUS und AirPods umgesetzt; Scrollen, Auswahl, Overlay-Vorrang und echte Kassenöffnung auf allen drei Seiten geprüft. Produktbild-Dateien werden in der lokalen Testansicht nicht ausgeliefert; ausgewählte Bildadressen geprüft.
+
 - [x] Cherry Silver/Sky Blue/Deep Blue: neue Fotos eingebaut
 - [x] Ladefehler der Vorschau: waren vorübergehend, Build OK
 - [x] Dateivolumen geprüft: Full 103–170 KB, Mobil 64–107 KB, Vorschau 5–8 KB
