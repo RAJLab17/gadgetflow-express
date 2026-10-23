@@ -46,7 +46,7 @@
     --buybar-surface: hsl(var(--background) / 0.88);
     --buybar-line: linear-gradient(90deg, hsl(var(--primary) / 0.08), hsl(var(--primary) / 0.55), hsl(var(--primary) / 0.08));
     --buybar-shadow: 0 6px 28px hsl(var(--foreground) / 0.14);
-    --buybar-nexus-button: linear-gradient(160deg, #c8946b 0%, #d6b899 60%, #7a4e2a 100%);
+    --buybar-nexus-button: linear-gradient(160deg, #c8946b 0%, #c9a876 60%, #7a4e2a 100%);
     --buybar-nexus-foreground: #0a0908;
     
     /* Gradients */
