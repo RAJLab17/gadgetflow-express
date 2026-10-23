@@ -20,13 +20,10 @@ export function ProductRating({ productId }: { productId: ReviewProductId }) {
 export default function ProductReviews({ productId }: { productId: ReviewProductId }) {
   const { reviews, stats, isPending, isError, refetch } = useProductReviews(productId);
   const [open, setOpen] = useState(false);
-  const [orderNumber, setOrderNumber] = useState<string>();
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const wantsForm = params.get("bewertung") === "1";
     if (!wantsForm && window.location.hash !== "#bewertungen") return;
-    const order = (params.get("bestellung") || "").replace(/[^0-9A-Za-z#-]/g, "").slice(0, 40);
-    if (order) setOrderNumber(order);
     const stop = scrollToReviewsWhenStable("bewertungen");
     if (wantsForm) setOpen(true);
     return stop;
@@ -52,7 +49,7 @@ export default function ProductReviews({ productId }: { productId: ReviewProduct
         {filtered.map(review => <ReviewCard key={review.id} review={review} />)}
         {!filtered.length && <p className="py-8 text-muted-foreground">Keine Bewertungen mit dieser Sternezahl.</p>}
       </> : <div className="mt-6 text-center"><p className="text-foreground">Noch keine Bewertungen. Du hast die MATRIX gekauft? Wir freuen uns über deine Meinung.</p><Button className="mt-6" onClick={() => setOpen(true)}><MessageSquare size={16} className="mr-2" />Bewertung schreiben</Button></div>}
-      <ReviewModal open={open} productId={productId} initialOrderNumber={orderNumber} onOpenChange={setOpen} />
+      <ReviewModal open={open} productId={productId} onOpenChange={setOpen} />
     </div>
   </section>;
 }

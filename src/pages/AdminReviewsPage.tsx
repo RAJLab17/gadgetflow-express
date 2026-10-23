@@ -231,9 +231,13 @@ const AdminReviewsPage = () => {
                   <div>
                     <div className="flex items-center gap-2">
                       <StarRating value={r.rating} readOnly size={14} />
-                      {r.verified_purchase && (
+                      {r.verified_purchase ? (
                         <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
                           Verifiziert
+                        </span>
+                      ) : (
+                        <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-800">
+                          Nicht verifiziert
                         </span>
                       )}
                     </div>

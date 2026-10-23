@@ -14,7 +14,6 @@ const NOTIFY_FROM_NAME = 'RAJ Reviews'
 
 const Schema = z.object({
   product_id: z.enum(['nexus', 'matrix', 'airpods-case']).default('nexus'),
-  order_number: z.string().trim().max(80).optional(),
   customer_name: z.string().trim().min(2).max(80),
   customer_email: z.string().trim().email().max(255),
   rating: z.number().int().min(1).max(5),
@@ -150,9 +149,10 @@ Deno.serve(async (req) => {
 
     let verifiedPurchase = false
     try {
-      verifiedPurchase = await verifyPurchase(data.product_id, data.order_number, data.customer_email, SHOPIFY_ACCESS_TOKEN)
-    } catch {
-      return json({ error: 'Die Kaufprüfung ist gerade nicht verfügbar. Bitte später erneut versuchen oder ohne Bestellnummer bewerten.' }, 503)
+      verifiedPurchase = await verifyPurchase(data.product_id, data.customer_email, SHOPIFY_ACCESS_TOKEN)
+    } catch (e) {
+      // Never block or reveal: store as not verified; admin decides.
+      console.error('purchase verification unavailable', e)
     }
 
     const { data: review, error: insertErr } = await supabase
