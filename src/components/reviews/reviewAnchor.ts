@@ -19,6 +19,7 @@ export function scrollToReviewsWhenStable(id: string): () => void {
   };
   const stop = () => {
     stopped = true;
+    try { history.scrollRestoration = "auto"; } catch { /* ignore */ }
     window.clearInterval(timer);
     window.removeEventListener("wheel", stop);
     window.removeEventListener("touchstart", stop);
@@ -46,10 +47,11 @@ export function scrollToReviewsWhenStable(id: string): () => void {
   requestAnimationFrame(() => requestAnimationFrame(() => {
     imagesAbove().then(() => {
       align(true);
+      const smoothUntil = Date.now() + 900;
       timer = window.setInterval(() => {
         if (loadedAt && Date.now() - loadedAt > 2000) return stop();
         if (!loadedAt && Date.now() - start > 8000) return stop();
-        align(false);
+        if (Date.now() > smoothUntil) align(false);
       }, 250);
     });
   }));
