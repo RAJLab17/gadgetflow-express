@@ -53,6 +53,7 @@ import { observeMediaQuery } from "@/lib/mediaQuery";
 import BundleOfferImage from "@/components/matrix/BundleOfferImage";
 import MatrixSwapImage from "@/components/matrix/MatrixSwapImage";
 import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
+import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
@@ -593,21 +594,7 @@ const MatrixPage = () => {
   const [isBuying, setIsBuying] = useState(false);
   const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
   const mainBuyRef = useRef<HTMLButtonElement>(null);
-  const [showStickyBuy, setShowStickyBuy] = useState(false);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
-
-  useEffect(() => {
-    const button = mainBuyRef.current;
-    if (!button) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry) return;
-      // Stay hidden before the main button is reached; show only after it
-      // has left through the top of the viewport, not while it is below it.
-      setShowStickyBuy(!entry.isIntersecting && entry.boundingClientRect.bottom <= 0);
-    });
-    observer.observe(button);
-    return () => observer.disconnect();
-  }, []);
 
   const model = MODELS.find((m) => m.id === modelId)!;
   const finishes = useMemo(
@@ -1496,28 +1483,14 @@ const MatrixPage = () => {
         </main>
 
         <Footer />
-          <div
-            aria-hidden={!showStickyBuy}
-            className={`matrix-mobile-buybar fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 text-foreground backdrop-blur-xl md:hidden transition-[transform,visibility] duration-200 motion-reduce:transition-none ${showStickyBuy ? "translate-y-0 visible" : "translate-y-full invisible pointer-events-none"}`}
-          >
-            <div className="flex items-center justify-between gap-3 px-4 py-3">
-              <div className="min-w-0 leading-tight">
-                {twoCasesSelected ? (
-                  <p className="text-sm font-semibold">2 Hüllen · CHF {TWO_CASES_TOTAL}.–</p>
-                ) : (
-                  <>
-                    <p className="text-xs font-medium">{model.name}</p>
-                    <p className="text-[11px] text-muted-foreground">{caseFinish.name}</p>
-                    <p className="mt-1 text-sm font-semibold">CHF {currentTotal}.–</p>
-                  </>
-                )}
-              </div>
-              <Button onClick={handleBuy} disabled={isBuying} className="h-11 shrink-0 rounded-lg px-5">
-                {isBuying ? <Loader2 className="animate-spin" /> : <ShoppingBag />}
-                Kaufen
-              </Button>
-            </div>
-          </div>
+        <MobileProductBuyBar
+          mainBuyRef={mainBuyRef}
+          name={`MATRIX · ${caseFinish.name}${twoCasesSelected ? " · 2 Hüllen" : airpodsSelected ? " + AirPods" : ""}`}
+          image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc}
+          imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`}
+          price={currentTotal}
+          busy={isBuying}
+        />
       </div>
     </>
   );

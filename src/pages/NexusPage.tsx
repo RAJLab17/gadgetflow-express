@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, FormEvent, Suspense, type CSSProperties } from "react";
+import { useEffect, useState, useCallback, useRef, FormEvent, Suspense, type CSSProperties } from "react";
 import { lazyWithRetry as lazy } from "@/lib/lazyWithRetry";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
@@ -71,6 +71,7 @@ import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import { HERO_CAROUSEL_SLIDES, HeroSwipeImage, HeroThumbs } from "@/components/nexus/NexusHeroCarousel";
 import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
+import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
 
 const heroFullSrc = (s: { src: string; srcSet: string }) => s.srcSet.split(",").pop()?.trim().split(/\s+/)[0] || s.src;
 const HERO_ZOOM_IMAGES = HERO_CAROUSEL_SLIDES.map((s) => ({ src: heroFullSrc(s), alt: s.alt }));
@@ -588,6 +589,7 @@ const NexusPage = () => {
   const [buyModalOpen, setBuyModalOpen] = useState(false);
   const openBuyModal = useCallback(() => setBuyModalOpen(true), []);
   const { quickBuy: quickBuyRaw, isProcessing: buyProcessing } = useQuickBuy();
+  const mainBuyRef = useRef<HTMLAnchorElement>(null);
 
 
   const trackAddToCart = useCallback(() => {
@@ -1183,7 +1185,7 @@ const NexusPage = () => {
               </Link>
             )}
           </div>
-          <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
+          <a ref={mainBuyRef} href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
           </a>
           <div className="flex flex-nowrap justify-center gap-1.5 mt-2 mb-2 px-1">
@@ -1431,6 +1433,7 @@ const NexusPage = () => {
         onClose={() => setGalleryLightbox(false)}
       />
 
+      <MobileProductBuyBar mainBuyRef={mainBuyRef} name="NEXUS · SPACE BLACK" image={HERO_CAROUSEL_SLIDES[heroSlideIdx].src} imageAlt="RAJ NEXUS · Space Black" price={currentValue} busy={buyProcessing} nexus />
       <AnimatePresence>
         {marcelLightboxOpen && activeHeroReview?.photo_url && (
           <motion.div
