@@ -17,7 +17,6 @@ const ALLOWED_PHOTO_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp
 const schema = z.object({
   customer_name: z.string().trim().min(2, "Bitte deinen Namen eingeben").max(80),
   customer_email: z.string().trim().email("Ungültige Email").max(255),
-  order_number: z.string().trim().max(80),
   rating: z.number().int().min(1, "Bitte Sterne wählen").max(5),
   title: z.string().trim().min(3, "Titel zu kurz").max(120),
   comment: z.string().trim().min(20, "Mindestens 20 Zeichen").max(1500),
@@ -29,14 +28,12 @@ interface ReviewModalProps {
   onOpenChange: (o: boolean) => void;
   initialRating?: number;
   productId?: ReviewProductId;
-  initialOrderNumber?: string;
 }
 
-const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus", initialOrderNumber }: ReviewModalProps) => {
+const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus" }: ReviewModalProps) => {
   const [rating, setRating] = useState(initialRating);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [orderNumber, setOrderNumber] = useState("");
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("");
   const [website, setWebsite] = useState(""); // honeypot
@@ -50,9 +47,6 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
     if (open) setRating(initialRating || 5);
   }, [open, initialRating]);
 
-  useEffect(() => {
-    if (open && initialOrderNumber) setOrderNumber((current) => current || initialOrderNumber);
-  }, [open, initialOrderNumber]);
 
   useEffect(() => {
     return () => {
@@ -63,7 +57,6 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
   const reset = () => {
     setName("");
     setEmail("");
-    setOrderNumber("");
     setTitle("");
     setComment("");
     setWebsite("");
@@ -100,7 +93,6 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
     const parsed = schema.safeParse({
       customer_name: name,
       customer_email: email,
-      order_number: orderNumber,
       rating,
       title,
       comment,
@@ -120,7 +112,6 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
       form.append("product_id", productId);
       form.append("customer_name", parsed.data.customer_name);
       form.append("customer_email", parsed.data.customer_email);
-      if (parsed.data.order_number) form.append("order_number", parsed.data.order_number);
       form.append("rating", String(parsed.data.rating));
       form.append("title", parsed.data.title);
       form.append("comment", parsed.data.comment);
@@ -130,8 +121,7 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
       if (error) throw error;
       if (!data?.ok) throw new Error("Die Bewertung konnte nicht gespeichert werden. Bitte versuche es erneut.");
       toast({
-        title: "Danke für deine Bewertung!",
-        description: "Sie wird nach kurzer Prüfung veröffentlicht.",
+        title: "Danke! Deine Bewertung wird kurz geprüft und dann veröffentlicht.",
       });
       reset();
       onOpenChange(false);
@@ -160,11 +150,12 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <Label htmlFor="rev-name">Vorname *</Label>
+              <Label htmlFor="rev-name">Name *</Label>
               <Input id="rev-name" value={name} onChange={(e) => setName(e.target.value)} maxLength={80} required />
+              <p className="mt-1 text-[11px] text-muted-foreground">Wird öffentlich angezeigt, z.B. nur Vorname</p>
             </div>
             <div>
-              <Label htmlFor="rev-email">Email *</Label>
+              <Label htmlFor="rev-email">E-Mail *</Label>
               <Input
                 id="rev-email"
                 type="email"
@@ -173,15 +164,10 @@ const ReviewModal = ({ open, onOpenChange, initialRating = 5, productId = "nexus
                 maxLength={255}
                 required
               />
-              <p className="mt-1 text-[11px] text-stone-500">Wird nie öffentlich angezeigt.</p>
+              <p className="mt-1 text-[11px] text-stone-500">Wird nicht veröffentlicht, nur zur Kaufbestätigung</p>
             </div>
           </div>
 
-          <div>
-            <Label htmlFor="rev-order">Bestellnummer (optional)</Label>
-            <Input id="rev-order" value={orderNumber} onChange={(e) => setOrderNumber(e.target.value)} maxLength={80} />
-            <p className="mt-1 text-[11px] text-muted-foreground">Für «Verifizierter Kauf»: Bestellnummer und E-Mail deiner Bestellung. Wird nie öffentlich angezeigt.</p>
-          </div>
 
           <div>
             <Label htmlFor="rev-title">Titel *</Label>
