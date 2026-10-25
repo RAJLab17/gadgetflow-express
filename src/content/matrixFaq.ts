@@ -24,7 +24,7 @@ export const MATRIX_FAQ: FaqItem[] = [
   },
   {
     q: "Wie schnell wird geliefert und was kostet der Versand?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle wird innerhalb der Schweiz kostenlos versendet. Versand ab Dienstag, 20. Oktober · Lieferung in 1–2 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du zwei Hüllen oder die Hülle zusammen mit der AirPods-Hülle, wird der Bundle-Preis im Checkout automatisch berechnet. Alle Details zu Lieferung und Rückgabe findest du auf unserer Seite zu Versand und Rückgabe.",
+    a: "Die RAJ MATRIX Carbon-Look-Hülle wird innerhalb der Schweiz kostenlos versendet. Lieferung in 1–2 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du zwei Hüllen oder die Hülle zusammen mit der AirPods-Hülle, wird der Bundle-Preis im Checkout automatisch berechnet. Alle Details zu Lieferung und Rückgabe findest du auf unserer Seite zu Versand und Rückgabe.",
   },
   {
     q: "Kann ich die Hülle zurückgeben?",
