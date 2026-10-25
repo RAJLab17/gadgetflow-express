@@ -31,5 +31,12 @@ class MatrixShippingTests(unittest.TestCase):
                 self.assertEqual(delivery["handlingTime"]["maxValue"], 0)
 
 
+    def test_matrix_page_has_no_fixed_shipping_start_date(self):
+        snapshot = json.loads((ROOT / "src/content/prerender-snapshot.json").read_text())
+        matrix = json.dumps(snapshot["/matrix"], ensure_ascii=False)
+        self.assertNotIn("Versand ab", matrix)
+        self.assertIn("Lieferung in 1–2 Werktagen", matrix)
+
+
 if __name__ == "__main__":
     unittest.main()
