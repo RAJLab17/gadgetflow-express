@@ -10,6 +10,7 @@ import nexusHero1200Asset from "@/assets/products/nexus-hero-v2-1200w.webp.asset
 import matrixImageAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
 import matrixFallback from "@/assets/home/objekt-matrix-premium.webp";
 import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
+import blitzMarkAsset from "@/assets/about/raj-blitz-mark.webp.asset.json";
 
 const TITLE = "Über RAJ – Schweizer Marke für Apple-Zubehör aus Weinfelden";
 const DESCRIPTION =
@@ -25,7 +26,10 @@ const HERO_IMAGE = {
   alt: "RAJ NEXUS 3-in-1 Ladestation mit iPhone, Apple Watch und AirPods",
 };
 
-/** Team photo (portrait ~1000×1250). Set src once the owner's photo is uploaded. */
+/**
+ * Team photo (portrait ~1000×1250). Set src once the owner's photo is uploaded;
+ * until then the designed brand panel is shown in the same frame.
+ */
 const TEAM_IMAGE: { src: string; alt: string } | null = null;
 
 const MESSAGE = [
@@ -150,8 +154,8 @@ const AboutPage = () => {
               </p>
             </motion.div>
             <motion.div {...fade} transition={{ ...fade.transition, delay: 0.1 }} className="md:col-span-5 md:pt-24">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-card">
-                {TEAM_IMAGE && (
+              <div className="relative aspect-[4/5] max-h-[360px] overflow-hidden rounded-sm bg-card md:max-h-none">
+                {TEAM_IMAGE ? (
                   <img
                     src={TEAM_IMAGE.src}
                     alt={TEAM_IMAGE.alt}
@@ -161,6 +165,22 @@ const AboutPage = () => {
                     decoding="async"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
+                ) : (
+                  <div className="brand-panel absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+                    <img
+                      src={blitzMarkAsset.url}
+                      alt="RAJ Blitz-Symbol"
+                      width={480}
+                      height={520}
+                      loading="lazy"
+                      decoding="async"
+                      className="brand-panel-mark h-[86px] w-auto md:h-[112px]"
+                    />
+                    <p className="brand-panel-tagline mt-8 text-[10px] md:mt-10 md:text-[12px]">POWER. ALWAYS THERE.</p>
+                    <p className="brand-panel-place absolute inset-x-0 bottom-5 text-[9px] md:text-[10px]">
+                      WEINFELDEN · THURGAU
+                    </p>
+                  </div>
                 )}
               </div>
             </motion.div>

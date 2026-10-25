@@ -48,6 +48,18 @@
     --buybar-shadow: 0 6px 28px hsl(var(--foreground) / 0.14);
     --buybar-nexus-button: linear-gradient(160deg, #c8946b 0%, #c9a876 60%, #7a4e2a 100%);
     --buybar-nexus-foreground: #0a0908;
+
+    /* Brand panel (designed placeholder surface on /about) */
+    --panel-ink-top: #1d1a17;
+    --panel-ink-mid: #111010;
+    --panel-ink-deep: #080807;
+    --panel-gold: #c9a876;
+    --panel-glow: rgba(201, 168, 118, 0.18);
+    --panel-glow-soft: rgba(201, 168, 118, 0.08);
+    --panel-carbon: rgba(255, 255, 255, 0.03);
+    --panel-carbon-fine: rgba(255, 255, 255, 0.018);
+    --panel-hairline: rgba(201, 168, 118, 0.14);
+    --panel-muted: #b7b2ab;
     
     /* Gradients */
     --gradient-glow: linear-gradient(135deg, hsl(30, 45%, 35%), hsl(35, 35%, 45%));
@@ -376,4 +388,27 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .mobile-product-buybar { transition: none; }
+}
+
+/* Brand panel — designed placeholder on /about; swap in TEAM_IMAGE to replace it */
+.brand-panel {
+  background-image:
+    radial-gradient(62% 46% at 50% 33%, var(--panel-glow) 0%, transparent 72%),
+    repeating-linear-gradient(135deg, var(--panel-carbon) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(135deg, var(--panel-carbon-fine) 0 1px, transparent 1px 3px),
+    linear-gradient(168deg, var(--panel-ink-top) 0%, var(--panel-ink-mid) 52%, var(--panel-ink-deep) 100%);
+  box-shadow: inset 0 0 0 1px var(--panel-hairline);
+}
+.brand-panel-mark {
+  filter: drop-shadow(0 0 14px var(--panel-glow)) drop-shadow(0 0 42px var(--panel-glow-soft));
+}
+.brand-panel-tagline {
+  color: var(--panel-gold);
+  letter-spacing: 0.44em;
+  text-indent: 0.44em;
+}
+.brand-panel-place {
+  color: var(--panel-muted);
+  letter-spacing: 0.26em;
+  text-indent: 0.26em;
 }
