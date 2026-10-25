@@ -282,7 +282,7 @@
   "blocks": [
    {
     "tag": "p",
-    "text": "3’400 Menschen haben den RAJ NEXUS bereits entdeckt"
+    "text": "3’401 Menschen haben den RAJ NEXUS bereits entdeckt"
    },
    {
     "tag": "h1",
@@ -1168,6 +1168,14 @@
    {
     "tag": "p",
     "text": "TEAM RAJ · WEINFELDEN, THURGAU"
+   },
+   {
+    "tag": "p",
+    "text": "POWER. ALWAYS THERE."
+   },
+   {
+    "tag": "p",
+    "text": "WEINFELDEN · THURGAU"
    },
    {
     "tag": "p",
