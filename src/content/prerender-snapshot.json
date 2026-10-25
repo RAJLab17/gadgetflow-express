@@ -282,7 +282,7 @@
   "blocks": [
    {
     "tag": "p",
-    "text": "3’398 Menschen haben den RAJ NEXUS bereits entdeckt"
+    "text": "3’399 Menschen haben den RAJ NEXUS bereits entdeckt"
    },
    {
     "tag": "h1",
@@ -919,6 +919,7 @@
   "jsonLd": [
    "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://raj.ch/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"RAJ NEXUS\",\"item\":\"https://raj.ch/nexus\"}]}",
    "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Was ist der RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.\"}},{\"@type\":\"Question\",\"name\":\"Was kostet der RAJ NEXUS in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.\"}},{\"@type\":\"Question\",\"name\":\"Was ist der Unterschied zwischen Qi2 und Qi2.2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Qi2 lädt iPhones mit bis zu 15 W, Qi2.2 mit bis zu 25 W – ab iPhone 16 mit iOS 26.\"}},{\"@type\":\"Question\",\"name\":\"Ist der RAJ NEXUS mit meinem iPhone kompatibel?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist kompatibel mit allen iPhones von iPhone 12 bis iPhone 18, einschliesslich iPhone 13, 14, 15, 16, 17 und 18 Serie. Auch Apple Watch Series 1-10 und AirPods Pro/3/4 mit kabellosem Ladecase werden unterstützt.\"}},{\"@type\":\"Question\",\"name\":\"Wo kann ich den RAJ NEXUS kaufen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS ist ausschliesslich über raj.ch erhältlich – direkt vom Hersteller, ohne Zwischenhändler. Versand innerhalb der Schweiz.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell lädt der RAJ NEXUS mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen.\"}}]}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"description\":\"Premium 3-in-1 wireless charging station for iPhone, Apple Watch, and AirPods. Qi2.2 certified with up to 25W fast charging. Foldable, adjustable design. Swiss Brand.\",\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg\"],\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"manufacturer\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\",\"url\":\"https://raj.ch\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Weinfelden\",\"addressRegion\":\"Thurgau\",\"postalCode\":\"8570\",\"addressCountry\":\"CH\"}},\"sku\":\"RAJ-NEXUS-001\",\"category\":\"Electronics > Chargers > Wireless Chargers\",\"material\":\"Premium aluminum and silicone\",\"color\":\"Black / Gold\",\"weight\":{\"@type\":\"QuantitativeValue\",\"value\":\"200\",\"unitCode\":\"GRM\"},\"additionalProperty\":[{\"@type\":\"PropertyValue\",\"name\":\"Certification\",\"value\":\"Qi2.2 Certified\"},{\"@type\":\"PropertyValue\",\"name\":\"CE Certified\",\"value\":\"Yes\"},{\"@type\":\"PropertyValue\",\"name\":\"Charging Speed\",\"value\":\"Up to 25W for iPhone 16 and newer with iOS 26 (15W for older models), 5W (Apple Watch), 5W (AirPods)\"},{\"@type\":\"PropertyValue\",\"name\":\"Compatibility\",\"value\":\"iPhone 12 to iPhone 18 Series, Apple Watch, AirPods with wireless charging case\"},{\"@type\":\"PropertyValue\",\"name\":\"Design\",\"value\":\"Foldable, adjustable angle\"},{\"@type\":\"PropertyValue\",\"name\":\"Country of Brand\",\"value\":\"Switzerland\"}],\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/nexus\",\"priceCurrency\":\"CHF\",\"price\":\"99.00\",\"priceValidUntil\":\"2026-12-31\",\"validFrom\":\"2026-01-01\",\"availability\":\"https://schema.org/InStock\",\"itemCondition\":\"https://schema.org/NewCondition\",\"seller\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\"},\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"}}}},\"aggregateRating\":{\"@type\":\"AggregateRating\",\"ratingValue\":5,\"reviewCount\":17,\"bestRating\":5,\"worstRating\":1},\"review\":[]}",
    "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"description\":\"Premium 3-in-1 wireless charging station for iPhone, Apple Watch, and AirPods. Qi2.2 certified with up to 25W fast charging. Foldable, adjustable design. Swiss Brand.\",\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg\"],\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"manufacturer\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\",\"url\":\"https://raj.ch\",\"address\":{\"@type\":\"PostalAddress\",\"addressLocality\":\"Weinfelden\",\"addressRegion\":\"Thurgau\",\"postalCode\":\"8570\",\"addressCountry\":\"CH\"}},\"sku\":\"RAJ-NEXUS-001\",\"category\":\"Electronics > Chargers > Wireless Chargers\",\"material\":\"Premium aluminum and silicone\",\"color\":\"Black / Gold\",\"weight\":{\"@type\":\"QuantitativeValue\",\"value\":\"200\",\"unitCode\":\"GRM\"},\"additionalProperty\":[{\"@type\":\"PropertyValue\",\"name\":\"Certification\",\"value\":\"Qi2.2 Certified\"},{\"@type\":\"PropertyValue\",\"name\":\"CE Certified\",\"value\":\"Yes\"},{\"@type\":\"PropertyValue\",\"name\":\"Charging Speed\",\"value\":\"Up to 25W for iPhone 16 and newer with iOS 26 (15W for older models), 5W (Apple Watch), 5W (AirPods)\"},{\"@type\":\"PropertyValue\",\"name\":\"Compatibility\",\"value\":\"iPhone 12 to iPhone 18 Series, Apple Watch, AirPods with wireless charging case\"},{\"@type\":\"PropertyValue\",\"name\":\"Design\",\"value\":\"Foldable, adjustable angle\"},{\"@type\":\"PropertyValue\",\"name\":\"Country of Brand\",\"value\":\"Switzerland\"}],\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/nexus\",\"priceCurrency\":\"CHF\",\"price\":\"99.00\",\"priceValidUntil\":\"2026-12-31\",\"validFrom\":\"2026-01-01\",\"availability\":\"https://schema.org/InStock\",\"itemCondition\":\"https://schema.org/NewCondition\",\"seller\":{\"@type\":\"Organization\",\"name\":\"RAJ GmbH\"},\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":1,\"maxValue\":3,\"unitCode\":\"d\"}}}},\"aggregateRating\":{\"@type\":\"AggregateRating\",\"ratingValue\":5,\"reviewCount\":17,\"bestRating\":5,\"worstRating\":1},\"review\":[{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Christoph\"},\"datePublished\":\"2026-07-30T14:15:00+00:00\",\"reviewBody\":\"Habe das Produkt als Geschenk für meinen Vater gekauft. Jetzt muss ich es mir zusätzlich selbst kaufen, weil mein Vater so davon geschwärmt hat. Wir sind beide vom RAJ NEXUS überzeugt.\",\"name\":\"RAJ NEXUS überzeugt\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Chris M.\"},\"datePublished\":\"2026-07-28T10:30:00+00:00\",\"reviewBody\":\"Beim Preis hab ich zuerst geschluckt. Aber nach einem Monat täglicher Nutzung habe ich mich von der Qualität überzeugen lassen. Das Aufklappen ist ein echter Mehrwert, da man es einfach und überall mitnehmen kann. Zudem macht das Andocken und sofortige Laden alles viel einfacher. Würde ich auf jeden Fall wieder kaufen.\",\"name\":\"Edles Produkt\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Laura\"},\"datePublished\":\"2026-07-17T14:31:29.299625+00:00\",\"reviewBody\":\"Ich bin sehr zufrieden mit meinem Kauf. Das Produkt ist hochwertig verarbeitet, entspricht genau der Beschreibung und wurde schnell geliefert. Klare Empfehlung, ich würde jederzeit wieder bestellen!\",\"name\":\"Qualität, die überzeugt!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Aldin\"},\"datePublished\":\"2026-07-15T09:18:39.145482+00:00\",\"reviewBody\":\"Die Bestellung verlief reibungslos. Bereits beim Öffnen sieht man die Liebe zum Detail. Schnell angeschlossen und ohne grosses Tamtam wurden bereits Handy, Kopfhörer und Uhr geladen. Ich bin zufrieden.\",\"name\":\"Super Produkt\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Šomi\"},\"datePublished\":\"2026-07-12T16:59:26.814858+00:00\",\"reviewBody\":\"Ich bin mit dem Produkt sehr zufrieden. Es ist perfekt für meinen Schreibtisch, weil jetzt alles ordentlich an einem Ort ist und ich viel mehr Platz habe. Die Qualität ist sehr gut, die Verarbeitung wirkt hochwertig und die Anwendung ist unkompliziert. Es entspricht genau der Beschreibung und erfüllt meine Erwartungen voll und ganz. Ich kann das Produkt auf jeden Fall weiterempfehlen.\",\"name\":\"Wow Perfekt!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Marcel\"},\"datePublished\":\"2026-07-11T11:39:33.689475+00:00\",\"reviewBody\":\"Ich bin einer der ersten, der bei der RAJ einen wireless Charger bestellt hat. Ich wollte es testen und eine schweizer Marke unterstützen. Preis ist okay verglichen mit anderen. Zu dem ist NEXUS auf dem neusten Standard. Mein Handy (Iphone 17 pro) wird in ca. 1h und 10-15min voll. Dachte nicht das es so schnell geht. Die Lieferung war schnell, ich habe es in 1 Tag erhalten. Ich hatte vorher Belkin und Anker gehabt und muss sagen obwohl RAJ eine neue Marke ist, spielen dir schon jetzt vorne mit dabei. Bin gespannt wie es hier weiter geht. Ich bin zu 100% zufrieden.\",\"name\":\"RAJ Nexus Feedback\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Randy M.\"},\"datePublished\":\"2026-07-07T19:04:14.791434+00:00\",\"reviewBody\":\"Ich nutze den RAJ NEXUS jetzt seit einiger Zeit und bin wirklich positiv überrascht. Die Verarbeitung wirkt hochwertig und das Gerät funktioniert zuverlässig. Besonders praktisch finde ich, dass ich mehrere Geräte gleichzeitig laden kann, ohne dass die Ladegeschwindigkeit darunter leidet. Ideal für unterwegs, im Büro oder zu Hause. Das Design ist schlicht und modern, und die Lieferung war schnell. Insgesamt ein sehr gutes Produkt mit einem fairen Preis. Ich würde den RAJ NEXUS jederzeit wieder kaufen und kann ihn definitiv weiterempfehlen. ⭐⭐⭐⭐⭐\",\"name\":\"Top Qualität und absolut alltagstauglich\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Egzon\"},\"datePublished\":\"2026-07-06T03:32:25.338023+00:00\",\"reviewBody\":\"Sehr zufrieden mit der Quali und der Leistung.\\nSehr hochwertiges feeling. Handy läd sehr schnell. Kann es sehr weiterempfehlen\",\"name\":\"Top Qualität und bomben Leistung\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Maik\"},\"datePublished\":\"2026-07-06T02:16:33.882952+00:00\",\"reviewBody\":\"Absolut empfehlenswert! Dieser 3-in-1-Charger ist genau das, was ich gesucht habe. Er lädt mein Smartphone, meine Smartwatch und meine Kopfhörer gleichzeitig – schnell, zuverlässig und ohne Kabelchaos. Das Design ist modern, hochwertig verarbeitet und passt perfekt auf den Nachttisch oder Schreibtisch. Besonders praktisch ist, dass alles an einem Ort geladen wird und ich nur noch ein einziges Kabel benötige. Funktioniert einwandfrei und spart jede Menge Platz. Klare Kaufempfehlung!\",\"name\":\"WOW!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}},{\"@type\":\"Review\",\"author\":{\"@type\":\"Person\",\"name\":\"Jonas\"},\"datePublished\":\"2026-07-02T01:32:30.649283+00:00\",\"reviewBody\":\"Ich bin sehr zufrieden mit dem RAJ NEXUS. Hochwertige Verarbeitung, elegantes Design und lädt mein iPhone, meine Apple Watch und AirPods gleichzeitig zuverlässig. Endlich kein Kabelsalat mehr – absolute Kaufempfehlung!\",\"name\":\"Top 3-in-1 Ladegerät!\",\"reviewRating\":{\"@type\":\"Rating\",\"ratingValue\":5,\"bestRating\":5,\"worstRating\":1}}]}"
   ],
   "blocks": [
@@ -1105,12 +1106,12 @@
   ]
  },
  "/about": {
-  "title": "Über RAJ – Schweizer Marke aus dem Thurgau",
-  "description": "RAJ ist eine Schweizer Consumer-Electronics-Marke aus dem Thurgau. Präzision, Beständigkeit und Charakter, gebaut auf 16 Jahren Erfahrung.",
+  "title": "Über RAJ – Schweizer Marke für Apple-Zubehör aus Weinfelden",
+  "description": "RAJ ist eine Schweizer Marke für Apple-Zubehör aus Weinfelden. Geprüfte Qualität, 3 Jahre Garantie, Lieferung in 1 bis 2 Werktagen und persönlicher Support.",
   "robots": null,
   "canonical": "https://raj.ch/about",
-  "ogTitle": "Über RAJ – Schweizer Marke aus dem Thurgau",
-  "ogDescription": "Schweizer Consumer-Electronics aus dem Thurgau. Präzision · Beständigkeit · Charakter.",
+  "ogTitle": "Über RAJ – Schweizer Marke für Apple-Zubehör aus Weinfelden",
+  "ogDescription": "RAJ ist eine Schweizer Marke für Apple-Zubehör aus Weinfelden. Geprüfte Qualität, 3 Jahre Garantie, Lieferung in 1 bis 2 Werktagen und persönlicher Support.",
   "ogUrl": "https://raj.ch/about",
   "ogImage": null,
   "ogImageWidth": null,
@@ -1118,10 +1119,10 @@
   "ogImageType": null,
   "ogImageAlt": null,
   "ogType": "article",
-  "twitterTitle": null,
-  "twitterDescription": null,
+  "twitterTitle": "Über RAJ – Schweizer Marke für Apple-Zubehör aus Weinfelden",
+  "twitterDescription": "RAJ ist eine Schweizer Marke für Apple-Zubehör aus Weinfelden. Geprüfte Qualität, 3 Jahre Garantie, Lieferung in 1 bis 2 Werktagen und persönlicher Support.",
   "twitterImage": null,
-  "h1": "Schweizer Marke.",
+  "h1": "Durchdacht bis ins Detail.",
   "jsonLd": [],
   "blocks": [
    {
@@ -1130,15 +1131,15 @@
    },
    {
     "tag": "h1",
-    "text": "Schweizer Marke."
+    "text": "Durchdacht bis ins Detail."
    },
    {
     "tag": "p",
-    "text": "Gegründet im Thurgau. Gebaut auf 16 Jahren Erfahrung in der Präzisionsindustrie. Kein Zubehör, ein Versprechen, das bleibt."
+    "text": "RAJ ist eine Schweizer Marke für Apple-Zubehör, gegründet 2026 in Weinfelden, Thurgau."
    },
    {
     "tag": "p",
-    "text": "EIN BRIEF"
+    "text": "UNSERE HALTUNG"
    },
    {
     "tag": "h2",
@@ -1146,111 +1147,107 @@
    },
    {
     "tag": "p",
-    "text": "16 Jahre lang habe ich Präzisionsteile für andere gebaut. Toleranzen im Hundertstel-Millimeter, für Produkte, die niemand je mit meinem Namen in Verbindung gebracht hat. In dieser Zeit habe ich gelernt, was ein Detail wert ist, das niemand sieht — aber jeder spürt, sobald es fehlt."
+    "text": "Hinter RAJ stehen über 16 Jahre Erfahrung in der Präzisionsindustrie. Toleranzen im Hundertstel-Millimeter, für Produkte, die niemand mit unserem Namen in Verbindung gebracht hat. Dabei haben wir gelernt, was ein Detail wert ist, das niemand sieht, aber jeder spürt, sobald es fehlt."
    },
    {
     "tag": "p",
-    "text": "Die meisten Dinge, die uns täglich umgeben, sind genau andersherum gebaut. Laut im Auftritt, dünn in der Substanz. Das Ladegerät, das nach drei Monaten wackelt. Das Kabel, das man jeden Morgen sucht. Die Hülle, die aussieht wie Carbon und sich anfühlt wie Verpackung. Technik, für die man sich fast entschuldigen möchte."
+    "text": "Die meisten Dinge, die uns täglich umgeben, sind andersherum gebaut. Laut im Auftritt, dünn in der Substanz. Das Ladegerät, das nach drei Monaten wackelt. Das Kabel, das man jeden Morgen sucht."
    },
    {
     "tag": "p",
-    "text": "Deshalb baue ich RAJ nach denselben Massstäben, die ich 16 Jahre lang für andere angewendet habe — nur diesmal für Menschen, die das direkt in der Hand halten. Klar im Design, ehrlich im Material, ohne versteckte Abstriche im Preis."
+    "text": "RAJ ist die Gegenbewegung. Dinge, die einfach da sind, wenn du sie brauchst. Ohne Nachdenken, ohne Ausrede."
    },
    {
     "tag": "p",
-    "text": "Das heisst auch: RAJ wird nie 20 Produkte gleichzeitig führen, nur damit das Sortiment grösser wirkt. Lieber wenige Dinge, die wir vollständig verstehen und für die wir geradestehen, bevor das nächste entsteht."
+    "text": "Jedes Produkt wählen, prüfen und begleiten wir mit denselben Massstäben. Klar im Design, ehrlich im Preis. Und wenn einmal etwas nicht stimmt, sind wir persönlich für dich da."
    },
    {
     "tag": "p",
-    "text": "TEAM RAJ GMBH"
+    "text": "Darum wird RAJ nie 20 Produkte gleichzeitig führen. Lieber wenige Dinge, für die wir geradestehen."
    },
    {
     "tag": "p",
-    "text": "WEINFELDEN, THURGAU"
+    "text": "TEAM RAJ · WEINFELDEN, THURGAU"
    },
    {
     "tag": "p",
-    "text": "URSPRUNG"
+    "text": "UNSER VERSPRECHEN"
    },
    {
     "tag": "h2",
-    "text": "Ein leiser Anfang im Thurgau."
+    "text": "Worauf du dich verlassen kannst."
+   },
+   {
+    "tag": "h3",
+    "text": "Geprüfte Qualität"
    },
    {
     "tag": "p",
-    "text": "Alles, was heute unverzichtbar wirkt, begann einmal im Stillen. RAJ entstand nicht in einem Startup-Loft, sondern aus über einem Jahrzehnt Erfahrung mit Toleranzen im Hundertstel-Millimeter-Bereich, übertragen auf Produkte, die man täglich anfasst."
+    "text": "Qi2.2-zertifiziert nach WPC-Standard. Materialien nach RoHS und REACH geprüft."
+   },
+   {
+    "tag": "h3",
+    "text": "3 Jahre Garantie"
    },
    {
     "tag": "p",
-    "text": "WAS UNS ANTREIBT"
+    "text": "auf den RAJ NEXUS. 30 Tage Rückgabe auf alle Produkte."
+   },
+   {
+    "tag": "h3",
+    "text": "Schnell bei dir"
+   },
+   {
+    "tag": "p",
+    "text": "Versand aus der Schweiz, Lieferung in 1 bis 2 Werktagen. Immer gratis."
+   },
+   {
+    "tag": "h3",
+    "text": "Persönlicher Support"
+   },
+   {
+    "tag": "p",
+    "text": "Keine Hotline, kein Ticketsystem. Du schreibst uns, wir antworten innerhalb von 24 Stunden."
+   },
+   {
+    "tag": "p",
+    "text": "DIE KOLLEKTION"
    },
    {
     "tag": "h2",
-    "text": "Unsere Grundsätze."
-   },
-   {
-    "tag": "p",
-    "text": "01"
+    "text": "Wenige Produkte. Jedes mit einem Grund."
    },
    {
     "tag": "h3",
-    "text": "Fokus"
+    "text": "RAJ NEXUS"
    },
    {
     "tag": "p",
-    "text": "Reduktion auf das Wesentliche. Als Schweizer Marke stehen wir für Lösungen, die bleiben."
-   },
-   {
-    "tag": "p",
-    "text": "02"
+    "text": "3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch und AirPods."
    },
    {
     "tag": "h3",
-    "text": "Qualität"
+    "text": "RAJ MATRIX"
    },
    {
     "tag": "p",
-    "text": "Anspruch ohne Kompromisse. Jedes Detail folgt einem klaren Qualitätsverständnis, sichtbar und spürbar."
-   },
-   {
-    "tag": "p",
-    "text": "03"
+    "text": "Hülle im Carbon-Look für iPhone 17 und 18 Pro."
    },
    {
     "tag": "h3",
-    "text": "Vertrauen"
+    "text": "RAJ APEX"
    },
    {
     "tag": "p",
-    "text": "Verlässlichkeit im Alltag. Dein Vertrauen ist unser Antrieb, wir hören zu und liefern."
+    "text": "Kabellose Ladehalterung fürs Auto. Bald verfügbar."
    },
    {
     "tag": "p",
-    "text": "04"
-   },
-   {
-    "tag": "h3",
-    "text": "Transparenz"
-   },
-   {
-    "tag": "p",
-    "text": "Klare Entscheidungen, klare Preise. Ohne versteckte Bedingungen, ohne leere Versprechen."
-   },
-   {
-    "tag": "p",
-    "text": "HERKUNFT"
+    "text": "GEGRÜNDET 2026·RAJ GMBH·WEINFELDEN TG·UID CHE-336.124.813"
    },
    {
     "tag": "h2",
-    "text": "Von hier. Für die Welt."
-   },
-   {
-    "tag": "p",
-    "text": "PRÄZISION · BESTÄNDIGKEIT · CHARAKTER"
-   },
-   {
-    "tag": "h2",
-    "text": "RAJ steht für Produkte, die funktionieren. Einfach. Ohne Kompromisse."
+    "text": "Fragen? Schreib uns direkt."
    }
   ]
  },
