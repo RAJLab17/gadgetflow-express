@@ -1,263 +1,271 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, MessageCircle, ShieldCheck, Truck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import workshopDetailAsset from "@/assets/about/workshop-detail.jpg.asset.json";
-const workshopDetail = workshopDetailAsset.url;
-import precisionCraftAsset from "@/assets/about/precision-craft.jpg.asset.json";
-const precisionCraft = precisionCraftAsset.url;
-import thurgauMapAsset from "@/assets/about-thurgau-clean.webp.asset.json";
-const thurgauMap = thurgauMapAsset.url;
+import { Button } from "@/components/ui/button";
+import nexusHero800Asset from "@/assets/products/nexus-hero-v2-800w.webp.asset.json";
+import nexusHero1200Asset from "@/assets/products/nexus-hero-v2-1200w.webp.asset.json";
+import matrixImageAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
+import matrixFallback from "@/assets/home/objekt-matrix-premium.webp";
+import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
 
-const L = {
-  bg: "#FAF8F5",
-  text: "#1A1A1A",
-  textMuted: "#6B6358",
-  border: "#E5DFD4",
-  gold: "#9b6b3f",
+const TITLE = "Über RAJ – Schweizer Marke für Apple-Zubehör aus Weinfelden";
+const DESCRIPTION =
+  "RAJ ist eine Schweizer Marke für Apple-Zubehör aus Weinfelden. Geprüfte Qualität, 3 Jahre Garantie, Lieferung in 1 bis 2 Werktagen und persönlicher Support.";
+
+/**
+ * Hero photo. Placeholder until the owner's own landscape photo (~1600×1000) is uploaded;
+ * replace these two entries to swap it.
+ */
+const HERO_IMAGE = {
+  src: nexusHero1200Asset.url,
+  srcSet: `${nexusHero800Asset.url} 800w, ${nexusHero1200Asset.url} 1200w`,
+  alt: "RAJ NEXUS 3-in-1 Ladestation mit iPhone, Apple Watch und AirPods",
 };
 
-const VALUES = [
-  { n: "01", title: "Fokus", copy: "Reduktion auf das Wesentliche. Als Schweizer Marke stehen wir für Lösungen, die bleiben." },
-  { n: "02", title: "Qualität", copy: "Anspruch ohne Kompromisse. Jedes Detail folgt einem klaren Qualitätsverständnis, sichtbar und spürbar." },
-  { n: "03", title: "Vertrauen", copy: "Verlässlichkeit im Alltag. Dein Vertrauen ist unser Antrieb, wir hören zu und liefern." },
-  { n: "04", title: "Transparenz", copy: "Klare Entscheidungen, klare Preise. Ohne versteckte Bedingungen, ohne leere Versprechen." },
+/** Team photo (portrait ~1000×1250). Set src once the owner's photo is uploaded. */
+const TEAM_IMAGE: { src: string; alt: string } | null = null;
+
+const MESSAGE = [
+  "Hinter RAJ stehen über 16 Jahre Erfahrung in der Präzisionsindustrie. Toleranzen im Hundertstel-Millimeter, für Produkte, die niemand mit unserem Namen in Verbindung gebracht hat. Dabei haben wir gelernt, was ein Detail wert ist, das niemand sieht, aber jeder spürt, sobald es fehlt.",
+  "Die meisten Dinge, die uns täglich umgeben, sind andersherum gebaut. Laut im Auftritt, dünn in der Substanz. Das Ladegerät, das nach drei Monaten wackelt. Das Kabel, das man jeden Morgen sucht.",
+  "RAJ ist die Gegenbewegung. Dinge, die einfach da sind, wenn du sie brauchst. Ohne Nachdenken, ohne Ausrede.",
+  "Jedes Produkt wählen, prüfen und begleiten wir mit denselben Massstäben. Klar im Design, ehrlich im Preis. Und wenn einmal etwas nicht stimmt, sind wir persönlich für dich da.",
+  "Darum wird RAJ nie 20 Produkte gleichzeitig führen. Lieber wenige Dinge, für die wir geradestehen.",
 ];
 
+const PROMISES = [
+  { icon: ShieldCheck, title: "Geprüfte Qualität", copy: "Qi2.2-zertifiziert nach WPC-Standard. Materialien nach RoHS und REACH geprüft." },
+  { icon: BadgeCheck, title: "3 Jahre Garantie", copy: "auf den RAJ NEXUS. 30 Tage Rückgabe auf alle Produkte." },
+  { icon: Truck, title: "Schnell bei dir", copy: "Versand aus der Schweiz, Lieferung in 1 bis 2 Werktagen. Immer gratis." },
+  { icon: MessageCircle, title: "Persönlicher Support", copy: "Keine Hotline, kein Ticketsystem. Du schreibst uns, wir antworten innerhalb von 24 Stunden." },
+];
+
+const COLLECTION = [
+  {
+    name: "RAJ NEXUS",
+    copy: "3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch und AirPods.",
+    link: "/nexus",
+    img: "/assets/products/nexus-bedside-night.webp",
+    alt: "RAJ NEXUS 3-in-1 Ladestation auf einem Nachttisch",
+    fallback: undefined as string | undefined,
+  },
+  {
+    name: "RAJ MATRIX",
+    copy: "Hülle im Carbon-Look für iPhone 17 und 18 Pro.",
+    link: "/matrix",
+    img: matrixImageAsset.url,
+    alt: "RAJ MATRIX Hülle im Carbon-Look mit goldenem Emblem",
+    fallback: matrixFallback,
+  },
+  {
+    name: "RAJ APEX",
+    copy: "Kabellose Ladehalterung fürs Auto. Bald verfügbar.",
+    link: "/apex",
+    img: apexCarImage,
+    alt: "RAJ APEX kabellose Ladehalterung im Auto",
+    fallback: undefined,
+  },
+];
+
+const FACTS = ["Gegründet 2026", "RAJ GmbH", "Weinfelden TG", "UID CHE-336.124.813"];
+
 const fade = {
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-80px" },
+  viewport: { once: true, margin: "-60px" },
   transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
 };
 
+const Eyebrow = ({ children }: { children: React.ReactNode }) => (
+  <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.32em] text-primary">{children}</p>
+);
+
 const AboutPage = () => {
   return (
-    <div style={{ background: L.bg, color: L.text }} className="min-h-screen font-light">
+    <div className="min-h-screen bg-background font-light text-foreground">
       <Helmet>
-        <title>Über RAJ – Schweizer Marke aus dem Thurgau</title>
-        <meta
-          name="description"
-          content="RAJ ist eine Schweizer Consumer-Electronics-Marke aus dem Thurgau. Präzision, Beständigkeit und Charakter, gebaut auf 16 Jahren Erfahrung."
-        />
+        <title>{TITLE}</title>
+        <meta name="description" content={DESCRIPTION} />
         <link rel="canonical" href="https://raj.ch/about" />
-        <meta property="og:title" content="Über RAJ – Schweizer Marke aus dem Thurgau" />
-        <meta property="og:description" content="Schweizer Consumer-Electronics aus dem Thurgau. Präzision · Beständigkeit · Charakter." />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://raj.ch/about" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
       </Helmet>
 
       <Header />
 
-      {/* ═══ 1. HERO ═══ */}
-      <section className="relative overflow-hidden border-b" style={{ borderColor: L.border }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-24 pb-20 md:pt-32 md:pb-28 grid md:grid-cols-12 gap-12 items-end">
-          <motion.div {...fade} className="md:col-span-7">
-            <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-8" style={{ color: L.gold }}>
-             Über RAJ
-            </p>
-            <h1 className="font-light tracking-tight leading-[0.95] text-[clamp(3rem,8vw,6.5rem)]">
-              Schweizer
-              <br />
-              <span className="italic" style={{ color: L.gold }}>Marke.</span>
+      <main>
+        {/* 1. HERO */}
+        <section className="mx-auto max-w-6xl px-5 pt-20 sm:px-8 md:pt-28">
+          <motion.div {...fade} className="mx-auto max-w-2xl text-center">
+            <Eyebrow>Über RAJ</Eyebrow>
+            <h1 className="text-[clamp(2.4rem,7vw,4.75rem)] font-light leading-[1.02] tracking-tight">
+              Durchdacht bis ins Detail.
             </h1>
-            <p className="mt-10 max-w-xl text-lg md:text-xl leading-relaxed" style={{ color: L.textMuted }}>
-              Gegründet im Thurgau. Gebaut auf 16 Jahren Erfahrung in der Präzisionsindustrie.
-              Kein Zubehör, ein Versprechen, das bleibt.
+            <p className="mx-auto mt-7 max-w-lg text-base leading-7 text-muted-foreground md:text-lg md:leading-8">
+              RAJ ist eine Schweizer Marke für Apple-Zubehör, gegründet 2026 in Weinfelden, Thurgau.
             </p>
           </motion.div>
-
-          <motion.div {...fade} transition={{ ...fade.transition, delay: 0.15 }} className="md:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+          <motion.div {...fade} transition={{ ...fade.transition, delay: 0.1 }} className="mt-14 md:mt-20">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-card sm:aspect-[16/10]">
               <img
-                src={workshopDetail}
-                alt="Präzisionsfertigung, CNC-Detail"
-                className="absolute inset-0 w-full h-full object-cover"
+                src={HERO_IMAGE.src}
+                srcSet={HERO_IMAGE.srcSet}
+                sizes="(max-width: 1200px) 100vw, 1152px"
+                alt={HERO_IMAGE.alt}
+                width={1600}
+                height={1000}
                 loading="eager"
-                width={1408}
-                height={1600}
+                fetchPriority="high"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 ring-1 ring-black/10" />
             </div>
           </motion.div>
-        </div>
-      </section>
+        </section>
 
-      {/* ═══ 2. BRIEF DES GRÜNDERS ═══ */}
-      <section className="border-b" style={{ borderColor: L.border }}>
-        <div className="mx-auto max-w-3xl px-6 lg:px-10 py-24 md:py-36">
-          <motion.p {...fade} className="text-[11px] tracking-[0.32em] uppercase font-medium mb-6" style={{ color: L.gold }}>
-           Ein Brief
-          </motion.p>
-          <motion.h2 {...fade} className="text-4xl md:text-5xl font-light tracking-tight leading-tight mb-14">
-            Warum RAJ existiert.
-          </motion.h2>
-
-          <div className="space-y-8 text-lg md:text-xl leading-[1.75]" style={{ color: L.textMuted }}>
-            <motion.p {...fade}>
-              16 Jahre lang habe ich Präzisionsteile für andere gebaut. Toleranzen im
-              Hundertstel-Millimeter, für Produkte, die niemand je mit meinem Namen in
-              Verbindung gebracht hat. In dieser Zeit habe ich gelernt, was ein Detail wert
-              ist, das niemand sieht — aber jeder spürt, sobald es fehlt.
-            </motion.p>
-
-            <motion.p {...fade}>
-              Die meisten Dinge, die uns täglich umgeben, sind genau andersherum gebaut.
-              Laut im Auftritt, dünn in der Substanz. Das Ladegerät, das nach drei Monaten
-              wackelt. Das Kabel, das man jeden Morgen sucht. Die Hülle, die aussieht wie
-              Carbon und sich anfühlt wie Verpackung. Technik, für die man sich fast
-              entschuldigen möchte.
-            </motion.p>
-
-            <motion.blockquote
-              {...fade}
-              className="border-l-2 pl-6 my-12 italic text-2xl md:text-3xl font-light leading-snug"
-              style={{ borderColor: L.gold, color: L.text }}
-            >
-              RAJ ist die Gegenbewegung. Unsere Vision ist einfach: Dinge, die einfach da
-              sind, wenn du sie brauchst. Ohne Nachdenken, ohne Ausrede.
-            </motion.blockquote>
-
-            <motion.p {...fade}>
-              Deshalb baue ich RAJ nach denselben Massstäben, die ich 16 Jahre lang für andere
-              angewendet habe — nur diesmal für Menschen, die das direkt in der Hand halten.
-              Klar im Design, ehrlich im Material, ohne versteckte Abstriche im Preis.
-            </motion.p>
-
-            <motion.p {...fade}>
-              Das heisst auch: RAJ wird nie 20 Produkte gleichzeitig führen, nur damit das
-              Sortiment grösser wirkt. Lieber wenige Dinge, die wir vollständig verstehen und
-              für die wir geradestehen, bevor das nächste entsteht.
-            </motion.p>
-          </div>
-
-          <motion.div {...fade} className="mt-16 pt-10 border-t" style={{ borderColor: L.border }}>
-            <p className="text-2xl md:text-3xl font-light tracking-tight" style={{ color: L.text }}>
-              TEAM RAJ GMBH
-            </p>
-            <div className="mt-4">
-              <p className="text-xs tracking-[0.2em] uppercase" style={{ color: L.textMuted }}>Weinfelden, Thurgau</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ═══ 3. STORY / URSPRUNG ═══ */}
-      <section className="border-b" style={{ borderColor: L.border }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32 grid md:grid-cols-12 gap-12 items-center">
-          <motion.div {...fade} className="md:col-span-6 order-2 md:order-1">
-            <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-6" style={{ color: L.gold }}>
-             Ursprung
-            </p>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight leading-tight mb-8">
-              Ein leiser Anfang im Thurgau.
-            </h2>
-            <p className="text-lg leading-relaxed" style={{ color: L.textMuted }}>
-              Alles, was heute unverzichtbar wirkt, begann einmal im Stillen. RAJ entstand nicht
-              in einem Startup-Loft, sondern aus über einem Jahrzehnt Erfahrung mit Toleranzen im
-              Hundertstel-Millimeter-Bereich, übertragen auf Produkte, die man täglich anfasst.
-            </p>
-          </motion.div>
-          <motion.div {...fade} transition={{ ...fade.transition, delay: 0.15 }} className="md:col-span-6 order-1 md:order-2">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-              <img
-                src={precisionCraft}
-                alt="Handwerk & Präzision"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                width={1408}
-                height={1600}
-              />
-              <div className="absolute inset-0 ring-1 ring-black/10" />
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ═══ 4. GRUNDSÄTZE ═══ */}
-      <section className="border-b" style={{ borderColor: L.border }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
-          <motion.div {...fade} className="mb-16 md:mb-20">
-            <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-4" style={{ color: L.gold }}>
-             Was uns antreibt
-            </p>
-            <h2 className="text-4xl md:text-5xl font-light tracking-tight">Unsere Grundsätze.</h2>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
-            {VALUES.map((v, i) => (
-              <motion.div
-                key={v.n}
-                {...fade}
-                transition={{ ...fade.transition, delay: i * 0.08 }}
-                className="border-t pt-6"
-                style={{ borderColor: L.border }}
-              >
-                <p className="text-xs tracking-[0.25em] font-medium mb-6" style={{ color: L.gold }}>{v.n}</p>
-                <h3 className="text-xl font-medium mb-3">{v.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: L.textMuted }}>{v.copy}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ 5. VON HIER, Karte ═══ */}
-      <section className="border-b" style={{ borderColor: L.border }}>
-        <div className="mx-auto max-w-7xl px-6 lg:px-10 py-24 md:py-32">
-          <motion.div {...fade} className="mb-14 text-center">
-            <p className="text-[11px] tracking-[0.32em] uppercase font-medium mb-4" style={{ color: L.gold }}>
-             Herkunft
-            </p>
-            <h2 className="text-4xl md:text-5xl font-light tracking-tight">Von hier. Für die Welt.</h2>
-          </motion.div>
-
-          <motion.div {...fade} className="relative rounded-sm overflow-hidden border" style={{ borderColor: L.border }}>
-            <div className="relative aspect-[16/9] md:aspect-[16/7]">
-              <img
-                src={thurgauMap}
-                alt="RAJ, Swiss Brand mit Sitz im Kanton Thurgau"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
-                <div className="inline-flex items-center gap-3 text-[10px] md:text-xs tracking-[0.32em] uppercase font-medium" style={{ color: L.gold }}>
-                  <span className="h-px w-8" style={{ background: L.gold, opacity: 0.5 }} />
-                  Swiss Brand · Kanton Thurgau
-                </div>
+        {/* 2. BOTSCHAFT DES TEAMS */}
+        <section className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-36">
+          <div className="grid gap-14 md:grid-cols-12 md:gap-16">
+            <motion.div {...fade} className="md:col-span-7">
+              <Eyebrow>Unsere Haltung</Eyebrow>
+              <h2 className="mb-10 text-3xl font-light tracking-tight md:text-5xl">Warum RAJ existiert.</h2>
+              <div className="space-y-6 text-base leading-[1.8] text-muted-foreground md:text-lg">
+                {MESSAGE.map((p) => (
+                  <p key={p.slice(0, 24)}>{p}</p>
+                ))}
               </div>
+              <blockquote className="my-12 border-l-2 border-primary pl-6 text-2xl font-light italic leading-snug text-primary md:text-3xl">
+                «Dinge, die einfach da sind, wenn du sie brauchst.»
+              </blockquote>
+              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                Team RAJ · Weinfelden, Thurgau
+              </p>
+            </motion.div>
+            <motion.div {...fade} transition={{ ...fade.transition, delay: 0.1 }} className="md:col-span-5 md:pt-24">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-card">
+                {TEAM_IMAGE && (
+                  <img
+                    src={TEAM_IMAGE.src}
+                    alt={TEAM_IMAGE.alt}
+                    width={1000}
+                    height={1250}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                )}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* 3. UNSER VERSPRECHEN */}
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 md:py-32">
+            <motion.div {...fade} className="mb-12 md:mb-16">
+              <Eyebrow>Unser Versprechen</Eyebrow>
+              <h2 className="text-3xl font-light tracking-tight md:text-5xl">Worauf du dich verlassen kannst.</h2>
+            </motion.div>
+            <div className="grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 lg:gap-8">
+              {PROMISES.map(({ icon: Icon, title, copy }, i) => (
+                <motion.div
+                  key={title}
+                  {...fade}
+                  transition={{ ...fade.transition, delay: i * 0.06 }}
+                  className="border-t border-border pt-6"
+                >
+                  <Icon className="mb-5 h-6 w-6 text-primary" strokeWidth={1.1} aria-hidden />
+                  <h3 className="mb-2 text-base font-medium md:text-lg">{title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{copy}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 4. DIE KOLLEKTION */}
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-6xl py-24 md:px-8 md:py-32">
+            <motion.div {...fade} className="mb-12 px-5 md:mb-16 md:px-0">
+              <Eyebrow>Die Kollektion</Eyebrow>
+              <h2 className="text-3xl font-light tracking-tight md:text-5xl">Wenige Produkte. Jedes mit einem Grund.</h2>
+            </motion.div>
+            <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
+              {COLLECTION.map((p) => (
+                <Link
+                  key={p.name}
+                  to={p.link}
+                  className="group block w-[78%] shrink-0 snap-start sm:w-[46%] md:w-auto"
+                  aria-label={`${p.name} entdecken`}
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-card">
+                    <img
+                      src={p.img}
+                      alt={p.alt}
+                      loading="lazy"
+                      decoding="async"
+                      onError={
+                        p.fallback
+                          ? (e) => {
+                              if (e.currentTarget.src !== p.fallback) e.currentTarget.src = p.fallback!;
+                            }
+                          : undefined
+                      }
+                      className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
+                    />
+                  </div>
+                  <div className="mt-5 flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-lg font-medium tracking-tight">{p.name}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{p.copy}</p>
+                    </div>
+                    <ArrowUpRight
+                      className="mt-1 h-4 w-4 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      strokeWidth={1.5}
+                      aria-hidden
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 5. FAKTEN */}
+        <section className="border-t border-border">
+          <p className="mx-auto max-w-6xl px-5 py-8 text-center text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:px-8">
+            {FACTS.map((f, i) => (
+              <span key={f} className="inline-block">
+                {i > 0 && <span className="mx-2.5 text-primary" aria-hidden>·</span>}
+                {f}
+              </span>
+            ))}
+          </p>
+        </section>
+
+        {/* 6. ABSCHLUSS */}
+        <section className="border-t border-border">
+          <motion.div {...fade} className="mx-auto max-w-2xl px-5 py-24 text-center md:py-32">
+            <h2 className="mb-10 text-3xl font-light tracking-tight md:text-4xl">Fragen? Schreib uns direkt.</h2>
+            <div className="flex flex-row justify-center gap-3">
+              <Button asChild size="lg" className="rounded-full px-7">
+                <Link to="/kontakt">Kontakt</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full px-7">
+                <Link to="/produkte">Produkte entdecken</Link>
+              </Button>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ═══ 6. CTA ═══ */}
-      <section>
-        <div className="mx-auto max-w-3xl px-6 lg:px-10 py-24 md:py-32 text-center">
-          <motion.p {...fade} className="text-[11px] md:text-xs tracking-[0.32em] uppercase font-medium mb-8 inline-flex items-center gap-3" style={{ color: L.gold }}>
-            <span className="h-px w-8" style={{ background: L.gold, opacity: 0.5 }} />
-            Präzision · Beständigkeit · Charakter
-            <span className="h-px w-8" style={{ background: L.gold, opacity: 0.5 }} />
-          </motion.p>
-          <motion.h2 {...fade} className="text-3xl md:text-4xl font-light tracking-tight leading-snug mb-12">
-            RAJ steht für Produkte, die funktionieren.
-            <br />
-            Einfach. Ohne Kompromisse.
-          </motion.h2>
-          <motion.div {...fade}>
-            <Link
-              to="/produkte"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-medium text-sm tracking-wide transition-all hover:gap-4"
-              style={{ background: L.text, color: L.bg }}
-            >
-              Unsere Produkte entdecken
-              <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>
