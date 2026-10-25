@@ -42,7 +42,7 @@ import {
   BUNDLE_DISCOUNT,
   BUNDLE_DISCOUNT_CODE,
   CASE_VARIANT_IDS,
-  MATRIX_DELIVERY_TEXT,
+  MATRIX_DELIVERY_TEXT_NO_DATE,
   MATRIX_TRUST_DESKTOP,
   MATRIX_TRUST_MOBILE,
   PaymentMethodsBar,
@@ -533,7 +533,7 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
 type MatrixReview = { id: string; customer_name: string; rating: number; title: string; comment: string; created_at: string };
 
 const MatrixMobileInfo = () => {
-  const delivery = MATRIX_DELIVERY_TEXT;
+  const delivery = MATRIX_DELIVERY_TEXT_NO_DATE;
   const [reviews, setReviews] = useState<MatrixReview[]>([]);
   useEffect(() => {
     supabase
@@ -804,7 +804,7 @@ const MatrixPage = () => {
       },
       shippingDetails: {
         "@type": "OfferShippingDetails",
-        description: MATRIX_DELIVERY_TEXT,
+        description: MATRIX_DELIVERY_TEXT_NO_DATE,
         shippingRate: { "@type": "MonetaryAmount", value: "0", currency: "CHF" },
         shippingDestination: { "@type": "DefinedRegion", addressCountry: "CH" },
         deliveryTime: {
@@ -1299,7 +1299,7 @@ const MatrixPage = () => {
                       )}
                     </Button>
                     <p className="hidden lg:block mt-2 text-center text-[12px]" style={{ color: H.text }}>
-                      🚚 {MATRIX_DELIVERY_TEXT}
+                      🚚 {MATRIX_DELIVERY_TEXT_NO_DATE}
                     </p>
                     <p className="hidden lg:block mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
                       {MATRIX_TRUST_DESKTOP}

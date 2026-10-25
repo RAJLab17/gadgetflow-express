@@ -14,6 +14,8 @@ export const BUNDLE_DISCOUNT = 15;
 export const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
 /** Lieferhinweis unter dem Kaufbutton und in der FAQ. */
 export const MATRIX_DELIVERY_TEXT = "Versand ab Dienstag, 20. Oktober · Lieferung in 1–2 Werktagen";
+/** Lieferhinweis auf /matrix: nur die Lieferzeit, ohne Startdatum. */
+export const MATRIX_DELIVERY_TEXT_NO_DATE = "Lieferung in 1–2 Werktagen";
 /** Trust-Zeilen unter dem Kaufbutton (Mobile / Desktop). */
 export const MATRIX_TRUST_MOBILE = "30 Tage Rückgabe · Schweizer Marke · Gratis Versand";
 export const MATRIX_TRUST_DESKTOP = "Sichere Bezahlung · 30 Tage Rückgabe";
