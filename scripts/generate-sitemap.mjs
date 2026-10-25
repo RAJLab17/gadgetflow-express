@@ -135,7 +135,7 @@ function buildImagesSitemap(entries, siteUrl) {
 // absolute raj.ch CDN URLs referenced by the page (and by src/assets modules it
 // imports) are added. Hashed Vite imports are skipped (address changes per build).
 // ---------------------------------------------------------------------------
-const EXCLUDE = /(logo|icon|favicon|payment|\/pay|badge|qi2-mark|qi2-logo|social\/|-share\.|placeholder|signature|thumb)/i;
+const EXCLUDE = /(logo|icon|favicon|payment|\/pay|badge|qi2-mark|qi2-logo|social\/|-share\.|placeholder|signature|thumb|blitz-mark)/i;
 
 function routeModules() {
   const app = readFileSync(resolve(ROOT, "src/App.tsx"), "utf8");
