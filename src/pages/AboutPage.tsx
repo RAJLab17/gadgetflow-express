@@ -243,8 +243,8 @@ const AboutPage = () => {
         <section className="border-t border-border">
           <p className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-1.5 gap-y-1 px-3 py-8 text-[10px] uppercase tracking-[0.06em] sm:gap-x-2.5 sm:text-[11px] sm:tracking-[0.18em] text-muted-foreground sm:px-8">
             {FACTS.map((f, i) => (
-              <span key={f} className="inline-flex items-center gap-1.5 sm:gap-2.5">
-                {i > 0 && <span className="text-primary" aria-hidden>·</span>}
+              <span key={f} className={`inline-flex items-center justify-center gap-1.5 sm:gap-2.5 ${i === FACTS.length - 1 ? "basis-full sm:basis-auto" : ""}`}>
+                {i > 0 && <span className={`text-primary ${i === FACTS.length - 1 ? "hidden sm:inline" : ""}`} aria-hidden>·</span>}
                 {f}
               </span>
             ))}
