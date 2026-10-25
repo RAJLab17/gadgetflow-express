@@ -198,7 +198,7 @@ const AboutPage = () => {
               <Eyebrow>Die Kollektion</Eyebrow>
               <h2 className="text-3xl font-light tracking-tight md:text-5xl">Wenige Produkte. Jedes mit einem Grund.</h2>
             </motion.div>
-            <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
+            <div className="flex snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
               {COLLECTION.map((p) => (
                 <Link
                   key={p.name}
@@ -241,10 +241,10 @@ const AboutPage = () => {
 
         {/* 5. FAKTEN */}
         <section className="border-t border-border">
-          <p className="mx-auto max-w-6xl px-5 py-8 text-center text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:px-8">
+          <p className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-2.5 gap-y-1 px-5 py-8 text-[11px] uppercase tracking-[0.18em] text-muted-foreground sm:px-8">
             {FACTS.map((f, i) => (
-              <span key={f} className="inline-block">
-                {i > 0 && <span className="mx-2.5 text-primary" aria-hidden>·</span>}
+              <span key={f} className="inline-flex items-center gap-2.5">
+                {i > 0 && <span className="text-primary" aria-hidden>·</span>}
                 {f}
               </span>
             ))}
