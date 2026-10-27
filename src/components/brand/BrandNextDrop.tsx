@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImgAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
-import matrixCollection480 from "@/assets/home/matrix-collection-480.webp.asset.json";
-import matrixCollection800 from "@/assets/home/matrix-collection-800.webp.asset.json";
+import nexusCard480 from "@/assets/home/nexus-card-480.webp.asset.json";
+import nexusCard800 from "@/assets/home/nexus-card-800.webp.asset.json";
+import matrixCollection480 from "@/assets/home/matrix-collection-v2-480.webp.asset.json";
+import matrixCollection800 from "@/assets/home/matrix-collection-v2-800.webp.asset.json";
 import airpodsRender from "@/assets/matrix/airpods-cherry-bolt.webp";
 import airpodsPhoto from "@/assets/matrix/airpods-cherry.png";
 import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
@@ -56,6 +58,22 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
           {/* NEXUS — Hauptobjekt */}
           <Link to="/nexus" className={`group block ${card}`}>
             <div className="relative mb-6 overflow-hidden rounded-sm">
+              {carousel ? (
+              <div className="w-full h-[min(40svh,360px)] flex items-center justify-center" style={{ background: "#ffffff" }}>
+                <img
+                  src={nexusCard480.url}
+                  srcSet={`${nexusCard480.url} 480w, ${nexusCard800.url} 800w`}
+                  sizes="82vw"
+                  alt="RAJ NEXUS 3-in-1 Wireless Charger mit iPhone, Apple Watch und AirPods"
+                  width={800}
+                  height={800}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              ) : (
               <img
                 src={nexusImg}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger auf dem Nachttisch"
@@ -66,6 +84,7 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
                 decoding="async"
                 className={`${imgH} transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]`}
               />
+              )}
               <div className="absolute top-4 left-4">
                 <span
                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"
@@ -117,7 +136,7 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
           <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
               {carousel ? (
-              <div className="w-full h-[min(40svh,360px)] flex items-center justify-center" style={{ background: "#f4f3f1" }}>
+              <div className="w-full h-[min(40svh,360px)] flex items-center justify-center" style={{ background: "#f6f1e9" }}>
                 <img
                   src={matrixCollection480.url}
                   srcSet={`${matrixCollection480.url} 480w, ${matrixCollection800.url} 800w`}
