@@ -99,7 +99,7 @@ const ProductDetailsAccordion = ({ value, onValueChange, reviewStats, topReviews
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="reviews" className="border-border/60">
+          <AccordionItem id="bewertungen" value="reviews" className="scroll-mt-28 border-border/60">
             <AccordionTrigger className="text-base font-light hover:no-underline py-5">
               <span className="flex items-center gap-2">
                 <MessageSquare className="w-4 h-4" strokeWidth={1.5} />

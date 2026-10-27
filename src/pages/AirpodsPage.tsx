@@ -1,4 +1,5 @@
 import ProductFaqSection from "@/components/ProductFaqSection";
+import { ProductCustomerPhotos, ProductReviewQuote } from "@/components/reviews/ProductReviewHighlights";
 import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import { reviewSchema } from "@/lib/reviewProducts";
@@ -445,6 +446,7 @@ const AirpodsPage = () => {
                       <span className="whitespace-nowrap text-xl font-light text-foreground md:text-[clamp(22px,2vw,28px)]">CHF {AIRPODS_PRICE}.–</span>
                     </div>
                     <ProductRating productId="airpods-case" />
+                    <ProductCustomerPhotos productId="airpods-case" />
                     <p aria-hidden="true" className="mt-1 text-xs leading-4 text-foreground md:text-sm md:italic" style={{ color: undefined }}>
                       Carbon Hülle für AirPods 4 &amp; 5
                     </p>
@@ -592,6 +594,7 @@ const AirpodsPage = () => {
                         </>
                       )}
                     </Button>
+                    <ProductReviewQuote productId="airpods-case" />
                     <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {MATRIX_DELIVERY_TEXT}</p>
                     <p className="mt-1 text-center text-[11px] lg:hidden" style={{ color: H.textMuted }}>{MATRIX_TRUST_MOBILE}</p>
                     <p className="mt-1 hidden text-center text-[11px] lg:block" style={{ color: H.textMuted }}>{MATRIX_TRUST_DESKTOP}</p>

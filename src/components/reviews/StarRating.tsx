@@ -14,6 +14,10 @@ const StarRating = ({ value, onChange, size = 28, readOnly = false, className }:
   const [hover, setHover] = useState(0);
   const display = hover || value;
 
+  if (readOnly) return <span className={cn("inline-flex items-center gap-1", className)} role="img" aria-label={`${value} von 5 Sternen`}>
+    {[1, 2, 3, 4, 5].map(n => <Star key={n} size={size} strokeWidth={1.5} className={n <= value ? "review-star" : "fill-transparent text-border"} />)}
+  </span>;
+
   return (
     <div className={cn("flex items-center gap-1", className)} role="radiogroup" aria-label="Sterne-Bewertung">
       {[1, 2, 3, 4, 5].map((n) => {
@@ -39,7 +43,7 @@ const StarRating = ({ value, onChange, size = 28, readOnly = false, className }:
               size={size}
               className={cn(
                 "transition-colors",
-                active ? "fill-[#d4a574] text-[#d4a574]" : "fill-transparent text-stone-300"
+                active ? "review-star" : "fill-transparent text-border"
               )}
               strokeWidth={1.5}
             />

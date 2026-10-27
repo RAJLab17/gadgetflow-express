@@ -19,6 +19,10 @@
 
     --primary: 32 42% 42%;
     --primary-foreground: 40 30% 97%;
+    --review-star: #d4a574;
+    --review-photo-overlay: rgba(0, 0, 0, 0.85);
+    --review-photo-foreground: #ffffff;
+    --review-photo-close: rgba(255, 255, 255, 0.1);
 
     --secondary: 35 20% 90%;
     --secondary-foreground: 30 10% 20%;
@@ -412,3 +416,8 @@
   letter-spacing: 0.26em;
   text-indent: 0.26em;
 }
+
+.review-star { color: var(--review-star); fill: var(--review-star); }
+.review-photo-overlay { background: var(--review-photo-overlay); }
+.review-photo-caption, .review-photo-close { color: var(--review-photo-foreground); }
+.review-photo-close { background: var(--review-photo-close); }
