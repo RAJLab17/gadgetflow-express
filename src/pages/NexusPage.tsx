@@ -67,6 +67,9 @@ import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
 import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
 import { scrollToReviewsWhenStable } from "@/components/reviews/reviewAnchor";
+import ReviewModal from "@/components/reviews/ReviewModal";
+import { Button } from "@/components/ui/button";
+import { MessageSquare } from "lucide-react";
 import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
@@ -643,6 +646,16 @@ const NexusPage = () => {
 
   // Dynamic AggregateRating + Review for Product JSON-LD (from approved Supabase reviews)
   const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>({ total: 17, average: 5.0 });
+  const [showcaseReviewOpen, setShowcaseReviewOpen] = useState(false);
+  // #bewertungen and ?bewertung=1 target the top showcase (falls back to the full list where the showcase is hidden).
+  useEffect(() => {
+    const wantsForm = new URLSearchParams(window.location.search).get("bewertung") === "1";
+    const hash = window.location.hash;
+    if (!wantsForm && hash !== "#bewertungen" && hash !== "#alle-bewertungen") return;
+    const stop = scrollToReviewsWhenStable(hash === "#alle-bewertungen" && !wantsForm ? "alle-bewertungen" : "bewertungen");
+    if (wantsForm) setShowcaseReviewOpen(true);
+    return stop;
+  }, []);
   const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
   const [heroReviews, setHeroReviews] = useState<HeroReview[]>([]);
   const [heroReviewIdx, setHeroReviewIdx] = useState(0);
@@ -1226,7 +1239,7 @@ const NexusPage = () => {
 
       {/* ═══ DESKTOP: static reviews block ═══ */}
       {heroReviews.length > 0 && (
-        <section className="hidden lg:block px-8 py-20" style={{ background: H.bg, color: H.text, borderTop: `1px solid ${H.border}` }} aria-labelledby="nexus-reviews-heading">
+        <section id="bewertungen" className="hidden lg:block px-8 py-20" style={{ background: H.bg, color: H.text, borderTop: `1px solid ${H.border}` }} aria-labelledby="nexus-reviews-heading">
           <div className="mx-auto" style={{ maxWidth: 1280 }}>
             <div className="flex items-end justify-between gap-6 mb-8">
               <div>
@@ -1237,14 +1250,17 @@ const NexusPage = () => {
                   {(reviewStats?.average ?? 5).toFixed(1)} · {reviewStats?.total ?? heroReviews.length} Bewertungen
                 </h2>
               </div>
+              <div className="flex items-center gap-6">
+              <Button onClick={() => setShowcaseReviewOpen(true)}><MessageSquare size={16} className="mr-2" />Bewertung schreiben</Button>
               <button
                 type="button"
-                onClick={() => scrollToReviewsWhenStable("bewertungen")}
+                onClick={() => { history.replaceState(null, "", `${location.pathname}${location.search}#alle-bewertungen`); scrollToReviewsWhenStable("alle-bewertungen"); }}
                 className="text-sm transition-opacity hover:opacity-70"
                 style={{ color: H.gold, fontWeight: 500, background: "none", border: 0, cursor: "pointer" }}
               >
                 Alle {reviewStats?.total ?? heroReviews.length} Bewertungen ansehen →
               </button>
+              </div>
             </div>
             <div className="grid grid-cols-3 gap-6">
               {(() => {
@@ -1286,8 +1302,7 @@ const NexusPage = () => {
         </div>
       </section>
 
-      {/* ═══ Kundenbewertungen ═══ */}
-      <ProductReviews productId="nexus" />
+      <ReviewModal open={showcaseReviewOpen} productId="nexus" onOpenChange={setShowcaseReviewOpen} />
 
       {/* ═══ 3. STORY ═══ */}
       <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
@@ -1408,6 +1423,9 @@ const NexusPage = () => {
           <p className="mt-6 text-[11px] sm:text-xs" style={{ color: D.muted, letterSpacing: "0.04em" }}>Kostenloser Versand · 30 Tage Rückgabe · 3 Jahre Garantie</p>
         </div>
       </section>
+
+      {/* ═══ Alle Kundenbewertungen ═══ */}
+      <ProductReviews productId="nexus" anchorId="alle-bewertungen" handleDeepLink={false} />
 
       <footer style={{ background: D.bg, borderTop: `1px solid ${D.border}` }} className="py-10 px-5 text-center">
         <a href="https://raj.ch" aria-label="RAJ — Home" className="inline-flex items-center justify-center">
