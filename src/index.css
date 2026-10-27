@@ -522,3 +522,4 @@
 .mobile-review-text { font-size: 13px; line-height: 1.5; color: var(--home-hero-white); margin-top: 8px; }
 .mobile-review-name { font-size: 11px; color: var(--home-hero-muted); margin-top: 10px; }
 .mobile-reviews-link { display: inline-flex; align-items: center; gap: 6px; height: 40px; margin: 12px 24px 0; font-size: 11px; font-weight: 500; color: var(--home-hero-gold); }
+.mobile-reviews-track { align-items: flex-start; }
