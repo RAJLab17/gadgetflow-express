@@ -65,7 +65,8 @@ import payApplePay from "@/assets/payments/apple-pay.svg";
 import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
-import NexusRatingBadge from "@/components/NexusRatingBadge";
+import { ProductRating } from "@/components/reviews/ProductReviews";
+import { ProductCustomerPhotos, ProductReviewQuote } from "@/components/reviews/ProductReviewHighlights";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
@@ -902,6 +903,8 @@ const NexusPage = () => {
                   3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
                 </span>
               </DesktopTitle>
+              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductCustomerPhotos productId="nexus" />
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
                 {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
                   <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 11px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 11, color: H.text }}>
@@ -923,11 +926,12 @@ const NexusPage = () => {
                 <span style={{ fontSize: 27.2, lineHeight: "51px", color: H.text, fontWeight: 300, letterSpacing: "-.02em" }}>CHF {REGULAR_PRICE}.–</span>
               </div>
               <div style={{ marginTop: 8 }}>
-                <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
+                
               </div>
               <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="group w-full inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.01] active:scale-[0.98]" style={{ marginTop: 22, padding: "18px 40px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
                 Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
               </a>
+              <ProductReviewQuote productId="nexus" />
               <p style={{ marginTop: 10, fontSize: 12, color: H.textMuted, textAlign: "center" }}>Passt zu iPhone 12–18 · Apple Watch · AirPods mit kabellosem Case</p>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginTop: 10, flexWrap: "wrap" }}>
                 {[payVisa, payMastercard, payAmex, payApplePay, payGooglePay, payTwint, payKlarna].map((src, i) => (
@@ -970,6 +974,8 @@ const NexusPage = () => {
                 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
               </span>
             </TabletTitle>
+              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductCustomerPhotos productId="nexus" />
 
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
@@ -1000,13 +1006,14 @@ const NexusPage = () => {
               </div>
             </div>
             <div style={{ marginTop: 10 }}>
-              <NexusRatingBadge gold={H.gold} textColor={H.textMuted} size={14} />
+              
             </div>
 
 
             <a href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="group w-fit inline-flex items-center justify-center gap-2 transition-all duration-500 hover:scale-[1.015] active:scale-[0.98]" style={{ marginTop: 26, padding: "18px 52px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
               Jetzt kaufen <span className="transition-transform duration-500 group-hover:translate-x-1" style={{ fontSize: 13 }}>→</span>
             </a>
+            <ProductReviewQuote productId="nexus" />
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 14 }}>
               {[
@@ -1132,6 +1139,8 @@ const NexusPage = () => {
               3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
             </span>
           </MobileTitle>
+              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductCustomerPhotos productId="nexus" />
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
               <ZoomFrame zoomSrc={HERO_ZOOM_IMAGES[heroSlideIdx].src} onOpen={() => setGalleryLightbox(true)} objectFit="cover" iconStyle={{ right: "auto", left: 12, bottom: 12 }}>
@@ -1169,23 +1178,12 @@ const NexusPage = () => {
               <span style={{ fontSize: 19.2, color: H.text, fontWeight: 300, letterSpacing: "-.02em", lineHeight: "24px" }}>CHF {REGULAR_PRICE}.–</span>
             </div>
 
-            {/* Rating */}
-            {reviewStats && reviewStats.total > 0 && (
-              <Link to="/reviews" aria-label={`${reviewStats.average.toFixed(1)} von 5 Sternen, ${reviewStats.total} Bewertungen lesen`} className="flex items-center justify-center transition-opacity hover:opacity-80" style={{ gap: 8, paddingTop: 2 }}>
-                <div className="flex" style={{ gap: 2 }}>
-                  {[0,1,2,3,4].map((i) => (
-                    <span key={i} style={{ color: H.gold, fontSize: 11, lineHeight: 1 }}>★</span>
-                  ))}
-                </div>
-                <span style={{ fontSize: 11, letterSpacing: "0.02em", color: H.text }}>
-                  {reviewStats.average.toFixed(1)} <span style={{ color: H.textMuted, margin: "0 4px" }}>|</span> {reviewStats.total} {reviewStats.total === 1 ? "Bewertung" : "Bewertungen"}
-                </span>
-              </Link>
-            )}
+
           </div>
           <a ref={mainBuyRef} href="#checkout" onClick={(e) => { e.preventDefault(); if (!buyProcessing) quickBuy(); }} className="w-full inline-flex items-center justify-center gap-2 transition-all duration-500 active:scale-[0.98]" style={{ padding: "12px 20px", borderRadius: 100, background: `linear-gradient(160deg, #c8946b 0%, ${H.goldLight} 60%, #7a4e2a 100%)`, color: "#0a0908", letterSpacing: ".2em", fontSize: 11, fontWeight: 700, textTransform: "uppercase", textDecoration: "none", animation: "raj-glow 3.4s ease-in-out infinite" }}>
             Jetzt kaufen →
           </a>
+          <ProductReviewQuote productId="nexus" />
           <div className="flex flex-nowrap justify-center gap-1.5 mt-2 mb-2 px-1">
             {[
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
@@ -1243,7 +1241,7 @@ const NexusPage = () => {
               </div>
               <button
                 type="button"
-                onClick={() => { setDetailsAccordionValue("reviews"); setTimeout(() => document.getElementById("product-details")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }}
+                onClick={() => { setDetailsAccordionValue("reviews"); setTimeout(() => document.getElementById("bewertungen")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }}
                 className="text-sm transition-opacity hover:opacity-70"
                 style={{ color: H.gold, fontWeight: 500, background: "none", border: 0, cursor: "pointer" }}
               >

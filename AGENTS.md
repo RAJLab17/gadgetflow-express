@@ -25,3 +25,5 @@
 - sitemap-images.xml auto-collects each sitemap route's CDN asset pointers, public/ image paths and absolute raj.ch CDN URLs from its page module (via App.tsx) plus manual site-urls.ts images, skipping logos/icons/payment/thumbs and hashed Vite imports; only permanent addresses may enter the sitemap.
 - /airpods-case shares MATRIX commerce constants, variant IDs, delivery/trust copy and payment bar via src/components/matrix/matrixCommerce.tsx.
 - Main product images on /matrix, /nexus and /airpods-case use the shared ProductZoom (ZoomFrame hover magnifier + ProductLightbox) fed with full-resolution sources, so zoom behaviour stays identical across pages and mobile scrolling stays unblocked.
+
+- Product rating links, photo strips and latest five-star quotes share the approved-only product query; reviewHighlights isolates products and the shared review photo lightbox serves both strips and review cards.

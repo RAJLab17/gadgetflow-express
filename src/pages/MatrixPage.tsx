@@ -1,4 +1,5 @@
 import ProductFaqSection from "@/components/ProductFaqSection";
+import { ProductCustomerPhotos, ProductReviewQuote } from "@/components/reviews/ProductReviewHighlights";
 import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import { reviewSchema } from "@/lib/reviewProducts";
@@ -928,6 +929,7 @@ const MatrixPage = () => {
                     <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
                     </div>
                     <ProductRating productId="matrix" />
+                    <ProductCustomerPhotos productId="matrix" />
                   </div>
 
 
@@ -1298,6 +1300,7 @@ const MatrixPage = () => {
                         </>
                       )}
                     </Button>
+                    <ProductReviewQuote productId="matrix" />
                     <p className="hidden lg:block mt-2 text-center text-[12px]" style={{ color: H.text }}>
                       🚚 {MATRIX_DELIVERY_TEXT_NO_DATE}
                     </p>

@@ -39,7 +39,7 @@ const StarRating = ({ value, onChange, size = 28, readOnly = false, className }:
               size={size}
               className={cn(
                 "transition-colors",
-                active ? "fill-[#d4a574] text-[#d4a574]" : "fill-transparent text-stone-300"
+                active ? "review-star" : "fill-transparent text-border"
               )}
               strokeWidth={1.5}
             />

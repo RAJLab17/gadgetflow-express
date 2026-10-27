@@ -416,3 +416,8 @@
   letter-spacing: 0.26em;
   text-indent: 0.26em;
 }
+
+.review-star { color: var(--review-star); fill: var(--review-star); }
+.review-photo-overlay { background: var(--review-photo-overlay); }
+.review-photo-caption, .review-photo-close { color: var(--review-photo-foreground); }
+.review-photo-close { background: var(--review-photo-close); }
