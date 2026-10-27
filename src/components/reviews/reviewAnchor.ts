@@ -2,7 +2,7 @@
 export function scrollToReviewsWhenStable(requestedId: string): () => void {
   // A target hidden at this breakpoint (e.g. a desktop-only showcase) falls back to the full list.
   const visible = (el: HTMLElement | null) => !!el && el.getClientRects().length > 0;
-  const id = !visible(document.getElementById(requestedId)) && visible(document.getElementById("alle-bewertungen")) ? "alle-bewertungen" : requestedId;
+  const resolve = () => !visible(document.getElementById(requestedId)) && visible(document.getElementById("alle-bewertungen")) ? "alle-bewertungen" : requestedId;
   let stopped = false;
   let loadedAt = 0;
   let timer = 0;
@@ -14,7 +14,7 @@ export function scrollToReviewsWhenStable(requestedId: string): () => void {
   };
   const align = (smooth: boolean) => {
     if (stopped) return;
-    const el = document.getElementById(id);
+    const el = document.getElementById(resolve());
     if (!el) return;
     const target = Math.max(0, el.getBoundingClientRect().top + window.scrollY - offset());
     if (Math.abs(window.scrollY - target) < 4) return;
@@ -30,7 +30,7 @@ export function scrollToReviewsWhenStable(requestedId: string): () => void {
     window.removeEventListener("load", onLoad);
   };
   const imagesAbove = () => {
-    const el = document.getElementById(id);
+    const el = document.getElementById(resolve());
     if (!el) return Promise.resolve();
     const top = el.getBoundingClientRect().top + window.scrollY;
     const pending = Array.from(document.images).filter((img) => !img.complete && img.getBoundingClientRect().top + window.scrollY < top);
