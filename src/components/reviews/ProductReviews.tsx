@@ -18,17 +18,18 @@ export function ProductRating({ productId, onNavigate }: { productId: ReviewProd
   </a></Button>;
 }
 
-export default function ProductReviews({ productId }: { productId: ReviewProductId }) {
+export default function ProductReviews({ productId, anchorId = "bewertungen", handleDeepLink = true }: { productId: ReviewProductId; anchorId?: string; handleDeepLink?: boolean }) {
   const { reviews, stats, isPending, isError, refetch } = useProductReviews(productId);
   const [open, setOpen] = useState(false);
   useEffect(() => {
+    if (!handleDeepLink) return;
     const params = new URLSearchParams(window.location.search);
     const wantsForm = params.get("bewertung") === "1";
     if (!wantsForm && window.location.hash !== "#bewertungen") return;
     const stop = scrollToReviewsWhenStable("bewertungen");
     if (wantsForm) setOpen(true);
     return stop;
-  }, []);
+  }, [handleDeepLink]);
   const [rating, setRating] = useState("all");
   const [sort, setSort] = useState("newest");
   const { showControls } = reviewHighlights(reviews, productId);
@@ -36,7 +37,7 @@ export default function ProductReviews({ productId }: { productId: ReviewProduct
     const list = reviews.filter(r => !showControls || rating === "all" || r.rating === Number(rating));
     return list.sort((a, b) => showControls && sort === "helpful" ? b.helpful_count - a.helpful_count : showControls && sort === "top" ? b.rating - a.rating : showControls && sort === "low" ? a.rating - b.rating : +new Date(b.created_at) - +new Date(a.created_at));
   }, [reviews, rating, sort, showControls]);
-  return <section id="bewertungen" className="scroll-mt-28 border-t border-border">
+  return <section id={anchorId} className="scroll-mt-28 border-t border-border">
     <div className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       <h2 className="text-3xl font-light text-foreground">Bewertungen</h2>
       {isPending ? <p className="mt-6 text-sm text-muted-foreground">Bewertungen werden geladen…</p> : isError ? <div className="mt-6"><p>Bewertungen konnten nicht geladen werden.</p><Button variant="outline" onClick={() => refetch()}>Erneut versuchen</Button></div> : stats.total ? <>
