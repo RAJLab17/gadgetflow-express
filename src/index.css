@@ -499,3 +499,21 @@
 @keyframes charging-orbit { to { transform: rotate(360deg); } }
 @media (max-width: 359px) { .charging-devices { gap: 12px; } .mobile-charging-moment { padding-left: 16px; padding-right: 16px; } }
 @media (prefers-reduced-motion: reduce) { .charging-ring-complete, .charging-apex-shimmer { animation: none; } }
+
+/* Mobile homepage MATRIX moment */
+.mobile-matrix-moment { background: var(--home-hero-ink); color: var(--home-hero-white); padding: 8px 24px 52px; text-align: center; }
+.matrix-moment-title { font-size: 27px; line-height: 1.25; font-weight: 400; max-width: 330px; margin: 0 auto; }
+.matrix-moment-title span { color: var(--home-hero-gold); }
+.matrix-moment-cases { position: relative; height: 290px; max-width: 340px; margin: 26px auto 8px; }
+.matrix-moment-cases img { position: absolute; bottom: 0; width: 64%; height: auto; object-fit: contain; opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(.2,.7,.2,1); }
+.matrix-case-back { left: 4%; bottom: 22px !important; }
+.matrix-case-front { right: 4%; z-index: 1; transition-delay: 0.18s !important; }
+.matrix-moment-cases.is-visible img { opacity: 1; transform: none; }
+.matrix-moment-points { list-style: none; display: grid; gap: 10px; max-width: 300px; margin: 18px auto 0; text-align: left; }
+.matrix-moment-points li { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.45; color: var(--home-hero-muted); }
+.matrix-moment-points svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; color: var(--home-hero-gold); }
+.matrix-moment-price { font-size: 18px; margin-top: 24px; }
+.matrix-moment-rating { font-size: 11px; color: var(--home-hero-muted); margin-top: 6px; }
+.matrix-moment-rating span { color: var(--home-hero-gold); font-size: 13px; }
+.mobile-matrix-moment .matrix-moment-button { margin-top: 20px; height: 46px; padding: 0 26px; border-radius: 6px; font-size: 12px; background: var(--home-hero-button); color: var(--home-hero-ink); }
+@media (prefers-reduced-motion: reduce) { .matrix-moment-cases img { opacity: 1; transform: none; transition: none; } }
