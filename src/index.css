@@ -30,6 +30,10 @@
     --home-hero-button: #c9a876;
     --home-hero-shade: linear-gradient(180deg, transparent 0%, transparent 35%, rgba(0, 0, 0, 0.32) 45%, rgba(0, 0, 0, 0.86) 72%, #050505 100%);
     --home-hero-metal: linear-gradient(110deg, #d7ad82 0%, #d7ad82 43%, #fff7ea 49%, #ffffff 50%, #fff7ea 51%, #d7ad82 57%, #d7ad82 100%);
+    --charging-track: rgba(215, 173, 130, 0.13);
+    --charging-gold-end: #fae5c9;
+    --charging-glow: rgba(215, 173, 130, 0.3);
+    --charging-divider: linear-gradient(90deg, transparent, rgba(215, 173, 130, 0.35), transparent);
 
     --secondary: 35 20% 90%;
     --secondary-foreground: 30 10% 20%;
@@ -469,3 +473,29 @@
 @media (prefers-reduced-motion: reduce) {
   .mobile-brand-hero-image, .mobile-brand-hero-metal { animation: none; }
 }
+
+.mobile-charging-moment { background: var(--home-hero-ink); color: var(--home-hero-white); padding: 42px 24px 48px; text-align: center; }
+.charging-eyebrow { color: var(--home-hero-gold); font-size: 10px; letter-spacing: 0.22em; margin-bottom: 26px; }
+.charging-devices { display: flex; justify-content: center; gap: 20px; }
+.charging-ring { position: relative; width: 80px; height: 80px; flex-shrink: 0; border-radius: 50%; }
+.charging-ring-track { position: absolute; inset: 0; width: 80px; height: 80px; fill: none; }
+.charging-track { stroke: var(--charging-track); stroke-width: 1; }
+.charging-progress { stroke-width: 1.6; stroke-linecap: round; }
+.charging-gold-start { stop-color: var(--home-hero-gold); }
+.charging-gold-end { stop-color: var(--charging-gold-end); }
+.charging-ring-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--home-hero-muted); }
+.charging-ring-content svg { width: 25px; height: 25px; stroke-width: 1.2; }
+.charging-ring-content span { font-size: 10px; line-height: 1; color: var(--home-hero-gold); font-variant-numeric: tabular-nums; }
+.charging-ring-complete { animation: charging-complete 700ms ease-out both; }
+.charging-product-name { font-size: 10px; letter-spacing: 0.15em; color: var(--home-hero-gold); margin-top: 14px; }
+.charging-divider { height: 1px; background: var(--charging-divider); max-width: 280px; margin: 26px auto; }
+.charging-apex { display: flex; flex-direction: column; align-items: center; }
+.charging-apex-shimmer { stroke: var(--home-hero-gold); stroke-width: 1.3; stroke-dasharray: 2 5 2 5 2 84; stroke-linecap: round; transform-origin: center; animation: charging-orbit 12s linear infinite; }
+.charging-apex-description { color: var(--home-hero-muted); font-size: 12px; margin-top: 8px; }
+.charging-moment-title { font-size: 25px; line-height: 1.25; font-weight: 400; max-width: 330px; margin: 28px auto 0; }
+.charging-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 20px; margin-top: 20px; }
+.charging-links a { padding: 0; height: 32px; font-size: 11px; font-weight: 500; color: var(--home-hero-gold); }
+@keyframes charging-complete { 0%, 100% { box-shadow: 0 0 0 transparent; } 45% { box-shadow: 0 0 22px var(--charging-glow); } }
+@keyframes charging-orbit { to { transform: rotate(360deg); } }
+@media (max-width: 359px) { .charging-devices { gap: 12px; } .mobile-charging-moment { padding-left: 16px; padding-right: 16px; } }
+@media (prefers-reduced-motion: reduce) { .charging-ring-complete, .charging-apex-shimmer { animation: none; } }
