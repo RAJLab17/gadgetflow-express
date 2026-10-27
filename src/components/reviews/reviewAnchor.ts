@@ -1,5 +1,8 @@
 /** Scroll to a section after images above it settle; keep correcting until ~2s after window load unless the user scrolls. */
+let activeStop: (() => void) | null = null;
+
 export function scrollToReviewsWhenStable(requestedId: string): () => void {
+  activeStop?.();
   // A target hidden at this breakpoint (e.g. a desktop-only showcase) falls back to the full list.
   const visible = (el: HTMLElement | null) => !!el && el.getClientRects().length > 0;
   const resolve = () => !visible(document.getElementById(requestedId)) && visible(document.getElementById("alle-bewertungen")) ? "alle-bewertungen" : requestedId;
@@ -59,5 +62,6 @@ export function scrollToReviewsWhenStable(requestedId: string): () => void {
     });
   }));
   const start = Date.now();
+  activeStop = stop;
   return stop;
 }
