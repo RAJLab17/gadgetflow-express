@@ -1,6 +1,8 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { observeMediaQuery } from "@/lib/mediaQuery";
+import MobileBrandHero from "./MobileBrandHero";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#d7ad82";
@@ -14,6 +16,14 @@ const BrandHero = () => {
   const ref = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia("(max-width: 767px)").matches);
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(query.matches);
+    update();
+    return observeMediaQuery(query, update);
+  }, []);
 
   // Sanftes Ausblenden des Hero-Inhalts beim Scrollen — ruhig, nicht springend.
   useEffect(() => {
@@ -39,6 +49,8 @@ const BrandHero = () => {
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
+
+  if (isMobile) return <MobileBrandHero />;
 
   return (
     <section
