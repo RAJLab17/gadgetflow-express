@@ -17,7 +17,9 @@ export function ProductCustomerPhotos({ productId }: { productId: ReviewProductI
       <img src={review.photo_url ?? undefined} alt={`Kundenfoto von ${reviewFirstName(review.customer_name)}`} width={48} height={48} loading="lazy" decoding="async" className="h-full w-full object-cover" />
     </Button>)}
     {extraPhotos > 0 && <Button type="button" variant="outline" aria-label={`${extraPhotos} weitere Kundenfotos`} onClick={() => setSelected(photos[4] ?? null)} className="h-12 w-12 shrink-0 rounded-md p-0 text-xs">+{extraPhotos}</Button>}
-    <ReviewPhotoLightbox review={selected} onClose={() => setSelected(null)} />
+    <ReviewPhotoLightbox review={selected} onClose={() => setSelected(null)}
+      onPrevious={photos.length > 1 ? () => setSelected(photos[(photos.findIndex(photo => photo.id === selected?.id) - 1 + photos.length) % photos.length] ?? null) : undefined}
+      onNext={photos.length > 1 ? () => setSelected(photos[(photos.findIndex(photo => photo.id === selected?.id) + 1) % photos.length] ?? null) : undefined} />
   </div>;
 }
 
