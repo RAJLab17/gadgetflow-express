@@ -1348,9 +1348,8 @@ const NexusPage = () => {
           <ProductDetailsAccordion
             value={detailsAccordionValue}
             onValueChange={setDetailsAccordionValue}
-            reviewStats={reviewStats}
-            topReviews={topReviews}
           />
+
         </Suspense>
       </section>
       <section id="faq" className="py-20 md:py-28 px-5" style={{ background: L.bg, color: L.text, borderTop: `1px solid ${L.border}` }} aria-labelledby="nexus-faq-heading">
