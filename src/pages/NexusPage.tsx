@@ -646,6 +646,16 @@ const NexusPage = () => {
 
   // Dynamic AggregateRating + Review for Product JSON-LD (from approved Supabase reviews)
   const [reviewStats, setReviewStats] = useState<{ total: number; average: number } | null>({ total: 17, average: 5.0 });
+  const [showcaseReviewOpen, setShowcaseReviewOpen] = useState(false);
+  // #bewertungen and ?bewertung=1 target the top showcase (falls back to the full list where the showcase is hidden).
+  useEffect(() => {
+    const wantsForm = new URLSearchParams(window.location.search).get("bewertung") === "1";
+    const hash = window.location.hash;
+    if (!wantsForm && hash !== "#bewertungen" && hash !== "#alle-bewertungen") return;
+    const stop = scrollToReviewsWhenStable(hash === "#alle-bewertungen" && !wantsForm ? "alle-bewertungen" : "bewertungen");
+    if (wantsForm) setShowcaseReviewOpen(true);
+    return stop;
+  }, []);
   const [topReviews, setTopReviews] = useState<Array<{ customer_name: string; created_at: string; comment: string | null; title: string | null; rating: number }>>([]);
   const [heroReviews, setHeroReviews] = useState<HeroReview[]>([]);
   const [heroReviewIdx, setHeroReviewIdx] = useState(0);
