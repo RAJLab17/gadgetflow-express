@@ -955,7 +955,7 @@ const NexusPage = () => {
                 {[
                   { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
                   { i: null, t: "Swiss Brand" },
-                  { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–4 Werktagen" },
+                  { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–3 Werktagen" },
                 ].map((b) => (
                   <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 11.5, color: H.text }}>
                     {b.i} {b.t}
@@ -1031,7 +1031,7 @@ const NexusPage = () => {
               {[
                 { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
                 { i: null, t: "Swiss Brand" },
-                { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–4 Werktagen" },
+                { i: <span style={{ fontSize: 13, lineHeight: 1 }}>🚚</span>, t: "Lieferung in 2–3 Werktagen" },
               ].map((b) => (
                 <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "7px 13px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 11.5, color: H.text, boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
                   {b.i} {b.t}
@@ -1199,7 +1199,7 @@ const NexusPage = () => {
             {[
               { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🔄</span>, t: "30 Tage Rückgabe" },
               { i: null, t: "Swiss Brand" },
-              { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🚚</span>, t: "2–4 Werktage" },
+              { i: <span style={{ fontSize: 10, lineHeight: 1 }}>🚚</span>, t: "2–3 Werktage" },
             ].map((b) => (
               <span key={b.t} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 7px", borderRadius: 100, border: `1px solid ${H.border}`, background: H.surface, fontSize: 9.5, color: H.text, whiteSpace: "nowrap", boxShadow: "0 2px 12px rgba(26,26,26,.04)" }}>
                 {b.i} {b.t}

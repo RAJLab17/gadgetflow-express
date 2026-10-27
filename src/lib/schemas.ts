@@ -74,8 +74,8 @@ export const PRODUCT_NEXUS_JSON_LD = {
       shippingDestination: { "@type": "DefinedRegion", addressCountry: "CH" },
       deliveryTime: {
         "@type": "ShippingDeliveryTime",
-        handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "d" },
-        transitTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 3, unitCode: "d" },
+        handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 0, unitCode: "d" },
+        transitTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 3, unitCode: "d" },
       },
     },
   },
