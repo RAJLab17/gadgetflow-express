@@ -904,7 +904,7 @@ const NexusPage = () => {
                   3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
                 </span>
               </DesktopTitle>
-              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductRating productId="nexus" />
               <ProductCustomerPhotos productId="nexus" />
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
                 {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
@@ -974,7 +974,7 @@ const NexusPage = () => {
                 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
               </span>
             </TabletTitle>
-              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductRating productId="nexus" />
               <ProductCustomerPhotos productId="nexus" />
 
 
@@ -1138,7 +1138,7 @@ const NexusPage = () => {
               3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
             </span>
           </MobileTitle>
-              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductRating productId="nexus" />
               <ProductCustomerPhotos productId="nexus" />
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
