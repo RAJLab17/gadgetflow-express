@@ -35,7 +35,7 @@ const sections = [
   {
     title: "5. Lieferung und Versand",
       content: [
-      "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdrücklich anders angegeben. Der Versand innerhalb der Schweiz ist kostenlos, ohne Mindestbestellwert. Die Lieferzeit beträgt 2–4 Werktage.",
+      "Die Lieferung erfolgt ausschliesslich an Lieferadressen innerhalb der Schweiz, sofern nicht ausdrücklich anders angegeben. Der Versand innerhalb der Schweiz ist kostenlos, ohne Mindestbestellwert. Die Lieferzeit beträgt 2–3 Werktage.",
     ],
   },
   {
