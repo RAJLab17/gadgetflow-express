@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
@@ -16,17 +17,26 @@ const GOLD_SOFT = "#d7ad82";
  * Warme Premium-Stillleben, versetztes Raster: NEXUS im Fokus (kaufbar),
  * MATRIX als "Jetzt verfügbar", APEX als "Bald verfügbar".
  */
-const BrandNextDrop = () => {
+const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carousel" }) => {
   const headRef = useReveal<HTMLDivElement>();
+  const carousel = variant === "carousel";
+  const [active, setActive] = useState(0);
+  const card = carousel ? "snap-start shrink-0 w-[82%]" : "";
+  const imgH = carousel ? "w-full h-[min(40svh,360px)] object-cover" : "w-full aspect-[3/4] object-cover";
+  const onScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const w = (el.firstElementChild as HTMLElement | null)?.offsetWidth ?? el.clientWidth;
+    setActive(Math.min(2, Math.max(0, Math.round(el.scrollLeft / (w + 16)))));
+  };
 
   return (
     <section
-      className="relative pt-10 md:pt-12 pb-12 md:pb-16 mt-0 z-20 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #0a0908 0%, #121009 100%)" }}
+      className={carousel ? "relative pt-5 pb-8 overflow-hidden" : "relative hidden md:block pt-10 md:pt-12 pb-12 md:pb-16 mt-0 z-20 overflow-hidden"}
+      style={carousel ? undefined : { background: "linear-gradient(180deg, #0a0908 0%, #121009 100%)" }}
     >
-      <div className="container mx-auto px-6 sm:px-10 max-w-[1240px] relative z-10">
+      <div className={carousel ? "relative z-10" : "container mx-auto px-6 sm:px-10 max-w-[1240px] relative z-10"}>
         {/* Header — Editorial hairline */}
-        <div
+        {!carousel && <div
           ref={headRef}
           className="reveal border-b pb-3 md:pb-4 mb-8 md:mb-12"
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
@@ -34,20 +44,25 @@ const BrandNextDrop = () => {
           <h2 className="text-2xl md:text-3xl font-normal italic text-white tracking-normal">
             Die Kollektion
           </h2>
-        </div>
+        </div>}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-8 gap-y-10 md:gap-y-20">
+        <div
+          onScroll={carousel ? onScroll : undefined}
+          aria-label={carousel ? "Die Kollektion" : undefined}
+          className={carousel ? "mobile-collection-track flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 scroll-px-6" : "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-8 gap-y-10 md:gap-y-20"}
+        >
           {/* NEXUS — Hauptobjekt */}
-          <Link to="/nexus" className="group block">
+          <Link to="/nexus" className={`group block ${card}`}>
             <div className="relative mb-6 overflow-hidden rounded-sm">
               <img
                 src={nexusImg}
                 alt="RAJ NEXUS 3-in-1 Wireless Charger auf dem Nachttisch"
                 width={1200}
                 height={1200}
-                loading="lazy"
+                loading={carousel ? "eager" : "lazy"}
+                fetchPriority={carousel ? "high" : undefined}
                 decoding="async"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                className={`${imgH} transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]`}
               />
               <div className="absolute top-4 left-4">
                 <span
@@ -96,7 +111,7 @@ const BrandNextDrop = () => {
           </Link>
 
           {/* MATRIX — Verfügbar (versetzt) */}
-          <div className="md:mt-16">
+          <div className={carousel ? card : "md:mt-16"}>
           <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
               <img
@@ -106,7 +121,7 @@ const BrandNextDrop = () => {
                 height={1800}
                 loading="lazy"
                 decoding="async"
-                className="w-full aspect-[3/4] object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
+                className={`${imgH} transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]`}
               />
               <div className="absolute top-4 left-4">
                 <span
@@ -205,8 +220,8 @@ const BrandNextDrop = () => {
 
 
           {/* APEX — Bald verfügbar (weiter versetzt) */}
-          <Link to="/apex" className="group block lg:mt-32">
-            <div className="relative mb-6 aspect-[3/4] overflow-hidden rounded-sm">
+          <Link to="/apex" className={`group block lg:mt-32 ${card}`}>
+            <div className={`relative mb-6 overflow-hidden rounded-sm ${carousel ? "h-[min(40svh,360px)]" : "aspect-[3/4]"}`}>
               <img
                 src={apexCarImg}
                 alt="RAJ APEX MagSafe Auto-Ladehalterung im Fahrzeug"
@@ -252,8 +267,17 @@ const BrandNextDrop = () => {
           </Link>
         </div>
 
+        {carousel && (
+          <div className="mt-5 flex justify-center gap-2" aria-hidden="true">
+            {[0, 1, 2].map((i) => (
+              <span key={i} className="h-1.5 rounded-full transition-all duration-300"
+                style={{ width: i === active ? 18 : 6, background: i === active ? GOLD_SOFT : "rgba(255,255,255,0.25)" }} />
+            ))}
+          </div>
+        )}
+
         {/* Ganze Kollektion */}
-        <div className="mt-10 md:mt-12 flex justify-center">
+        <div className={carousel ? "mt-6 flex justify-center" : "mt-10 md:mt-12 flex justify-center"}>
           <Link
             to="/produkte"
              className="group inline-flex items-center gap-2 text-[11px] uppercase font-semibold tracking-[0.14em] pb-1 border-b transition-colors"
