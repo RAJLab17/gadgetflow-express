@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImgAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
+import matrixCherryMobile from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-mobile.webp.asset.json";
 import airpodsRender from "@/assets/matrix/airpods-cherry-bolt.webp";
 import airpodsPhoto from "@/assets/matrix/airpods-cherry.png";
 import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
@@ -114,6 +115,19 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
           <div className={carousel ? card : "md:mt-16"}>
           <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
+              {carousel ? (
+              <div className="w-full h-[min(40svh,360px)] flex items-center justify-center p-[9%]" style={{ background: "#faf9f7" }}>
+                <img
+                  src={matrixCherryMobile.url}
+                  alt="RAJ MATRIX Hülle Cherry Carbon mit iPhone 18 Pro in Dark Cherry"
+                  width={600}
+                  height={600}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              ) : (
               <img
                 src={matrixImg}
                 alt="RAJ MATRIX Carbon-Case in Cherry Carbon mit goldenem Blitz"
@@ -123,6 +137,7 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
                 decoding="async"
                 className={`${imgH} transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]`}
               />
+              )}
               <div className="absolute top-4 left-4">
                 <span
                   className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"
