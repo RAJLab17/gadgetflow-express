@@ -15,8 +15,8 @@ export default function MobileBrandHero() {
 
   return (
     <section className="mobile-brand-hero" aria-labelledby="mobile-brand-title">
-      <img className="mobile-brand-hero-image" src="/assets/hero/mobile-bedside.webp"
-        alt="RAJ NEXUS Ladestation auf einem Nachttisch" width={800} height={1434}
+      <img className="mobile-brand-hero-image" src="/assets/hero/mobile-laptop.webp"
+        alt="RAJ NEXUS Ladestation neben einem Laptop" width={828} height={1472}
         fetchPriority="high" loading="eager" decoding="async" />
       <div className="mobile-brand-hero-shade" aria-hidden="true" />
       <div className="mobile-brand-hero-content">
