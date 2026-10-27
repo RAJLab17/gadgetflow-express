@@ -18,10 +18,10 @@ const PillarCard = ({
   return (
     <div
       ref={ref}
-      className="reveal group relative bg-[#f5efe6] p-10 md:p-14 transition-all duration-700 hover:bg-white cursor-default"
+      className="reveal group relative bg-[#f5efe6] p-6 md:p-14 transition-all duration-700 hover:bg-white cursor-default"
       style={{ transitionDelay: `${i * 100}ms` }}
     >
-      <div className="flex items-center gap-3 mb-12">
+      <div className="flex items-center gap-3 mb-5 md:mb-12">
         <span className="text-[10px] font-light uppercase" style={{ color: GOLD, letterSpacing: "0.4em" }}>
           {p.n}
         </span>
@@ -29,18 +29,18 @@ const PillarCard = ({
       </div>
 
       <h3
-        className="text-4xl md:text-5xl font-extralight mb-8 leading-[1.05]"
+        className="text-4xl md:text-5xl font-extralight mb-3 md:mb-8 leading-[1.05]"
         style={{ color: "#1a1612", letterSpacing: "-0.015em" }}
       >
         {p.title}
       </h3>
 
-      <p className="text-lg md:text-xl font-light leading-snug mb-8 italic" style={{ color: "#1a1612" }}>
+      <p className="text-lg md:text-xl font-light leading-snug mb-4 md:mb-8 italic" style={{ color: "#1a1612" }}>
         {lead}
       </p>
 
       <div
-        className="w-10 h-px mb-6 transition-all duration-500 group-hover:w-20"
+        className="w-10 h-px mb-3 md:mb-6 transition-all duration-500 group-hover:w-20"
         style={{ background: GOLD }}
       />
 
@@ -76,7 +76,7 @@ const BrandPillars = () => {
   const headlineRef = useReveal<HTMLHeadingElement>();
 
   return (
-    <section className="relative py-32 md:py-44 overflow-hidden" style={{ background: "#f5efe6" }}>
+    <section className="relative py-16 md:py-44 overflow-hidden" style={{ background: "#f5efe6" }}>
       <div className="container mx-auto px-6 sm:px-10 max-w-7xl">
         <p
           ref={eyebrowRef}
@@ -88,7 +88,7 @@ const BrandPillars = () => {
 
         <h2
           ref={headlineRef}
-          className="reveal text-4xl sm:text-6xl md:text-7xl font-extralight leading-[0.95] tracking-[-0.02em] max-w-4xl mb-20 md:mb-28"
+          className="reveal text-4xl sm:text-6xl md:text-7xl font-extralight leading-[0.95] tracking-[-0.02em] max-w-4xl mb-10 md:mb-28"
           style={{ color: "#1a1612" }}
         >
           {t("brand.pillars.headline.l1")}

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useProductReviews } from "@/hooks/useProductReviews";
+import { Truck, RotateCcw, ShieldCheck, Smartphone } from "lucide-react";
 import BrandNextDrop from "./BrandNextDrop";
 
 /** Mobile-only homepage hero: compact title, live approved rating total and the collection carousel. */
@@ -22,6 +23,12 @@ export default function MobileBrandHero() {
         )}
       </div>
       <BrandNextDrop variant="carousel" />
+      <ul className="mobile-trust-bar mobile-collection-track" aria-label="Vorteile">
+        <li><Truck aria-hidden="true" strokeWidth={1.4} />Lieferung 2–3 Werktage</li>
+        <li><RotateCcw aria-hidden="true" strokeWidth={1.4} />30 Tage testen</li>
+        <li><ShieldCheck aria-hidden="true" strokeWidth={1.4} />3 Jahre Garantie (NEXUS)</li>
+        <li><Smartphone aria-hidden="true" strokeWidth={1.4} />TWINT &amp; Apple Pay</li>
+      </ul>
     </section>
   );
 }
