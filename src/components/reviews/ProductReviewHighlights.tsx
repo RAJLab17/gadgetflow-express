@@ -22,12 +22,3 @@ export function ProductCustomerPhotos({ productId }: { productId: ReviewProductI
       onNext={photos.length > 1 ? () => setSelected(photos[(photos.findIndex(photo => photo.id === selected?.id) + 1) % photos.length] ?? null) : undefined} />
   </div>;
 }
-
-export function ProductReviewQuote({ productId }: { productId: ReviewProductId }) {
-  const { reviews } = useProductReviews(productId);
-  const { quote } = reviewHighlights(reviews, productId);
-  if (!quote) return null;
-  return <p className="mt-2 min-w-0 truncate text-xs italic text-foreground" title={`«${quote.title}» – ${reviewFirstName(quote.customer_name)}${quote.verified_purchase ? ", verifizierter Kauf" : ""}`}>
-    «{quote.title}» – {reviewFirstName(quote.customer_name)}{quote.verified_purchase ? ", verifizierter Kauf" : ""}
-  </p>;
-}
