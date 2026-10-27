@@ -1,6 +1,7 @@
 import { ArrowUpRight, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import matrixImageAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
 import apexCarImage from "@/assets/home/objekt-apex-correct.jpg";
@@ -144,6 +145,8 @@ const CollectionCard = ({ milestone, index }: { milestone: Milestone; index: num
 
 const RajRoadmap = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
+  const shown = isMobile ? milestones.filter(m => m.status !== "locked") : milestones;
 
   return (
     <section id="ecosystem" className="dark relative overflow-hidden bg-background py-20 text-foreground scroll-mt-24 md:py-28">
@@ -161,8 +164,8 @@ const RajRoadmap = () => {
         </div>
 
         <div className="scrollbar-hide -mx-6 overflow-x-auto px-6 pb-4 sm:-mx-10 sm:px-10 xl:mx-0 xl:overflow-visible xl:px-0">
-          <div className="grid w-max grid-cols-7 gap-4 xl:w-full">
-            {milestones.map((milestone, index) => (
+          <div className={`grid w-max ${isMobile ? "grid-cols-3" : "grid-cols-7"} gap-4 xl:w-full`}>
+            {shown.map((milestone, index) => (
               <CollectionCard key={milestone.name} milestone={milestone} index={index} />
             ))}
           </div>

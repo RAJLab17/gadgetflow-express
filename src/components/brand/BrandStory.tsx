@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useReveal } from "@/lib/reveal";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const GOLD = "#9b6b3f";
 const GOLD_SOFT = "#c8946b";
@@ -60,6 +61,25 @@ const BrandStory = () => {
   const eyebrowRef = useReveal<HTMLParagraphElement>();
   const headlineRef = useReveal<HTMLHeadingElement>();
   const tailRef = useReveal<HTMLDivElement>();
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <section className="relative py-16 px-6" style={{ background: "linear-gradient(180deg, #0a0908 0%, #14110e 50%, #1a1612 100%)" }}>
+        <h2 className="text-3xl font-extralight text-white leading-[1.1] tracking-[-0.02em]">
+          {t("brand.story.headline.l1")}
+          <br />
+          <span className="italic" style={{ color: GOLD_SOFT }}>{t("brand.story.headline.l2")}</span>
+        </h2>
+        <p className="mt-5 text-base text-white/55 font-light leading-relaxed">
+          Zurückhaltend gestaltetes Apple-Zubehör aus dem Thurgau – Substanz statt Lärm, gemacht, um zu bleiben.
+        </p>
+        <Link to="/about" className="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase" style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}>
+          Über RAJ <ArrowUpRight className="w-4 h-4" />
+        </Link>
+      </section>
+    );
+  }
 
   return (
     <section
