@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/lib/reveal";
 import matrixImgAsset from "@/assets/home/matrix-cherry-raj-home.png.asset.json";
-import matrixCherryMobile from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-mobile.webp.asset.json";
+import matrixCollection480 from "@/assets/home/matrix-collection-480.webp.asset.json";
+import matrixCollection800 from "@/assets/home/matrix-collection-800.webp.asset.json";
 import airpodsRender from "@/assets/matrix/airpods-cherry-bolt.webp";
 import airpodsPhoto from "@/assets/matrix/airpods-cherry.png";
 import apexCarImg from "@/assets/home/objekt-apex-correct.jpg";
@@ -116,12 +117,14 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
           <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
               {carousel ? (
-              <div className="w-full h-[min(40svh,360px)] flex items-center justify-center p-[9%]" style={{ background: "#faf9f7" }}>
+              <div className="w-full h-[min(40svh,360px)] flex items-center justify-center" style={{ background: "#f4f3f1" }}>
                 <img
-                  src={matrixCherryMobile.url}
-                  alt="RAJ MATRIX Hülle Cherry Carbon mit iPhone 18 Pro in Dark Cherry"
-                  width={600}
-                  height={600}
+                  src={matrixCollection480.url}
+                  srcSet={`${matrixCollection480.url} 480w, ${matrixCollection800.url} 800w`}
+                  sizes="82vw"
+                  alt="RAJ MATRIX Hüllen in Cherry Carbon und Onyx Carbon mit passenden AirPods Cases"
+                  width={800}
+                  height={800}
                   loading="lazy"
                   decoding="async"
                   className="max-w-full max-h-full object-contain"
@@ -155,7 +158,7 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
                 </span>
               </div>
               {/* AirPods 4 & 5 Case — Inset neben dem iPhone-Case */}
-              <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1.5">
+              <div className={`absolute bottom-4 right-4 flex-col items-center gap-1.5 ${carousel ? "hidden" : "flex"}`}>
                 <div
                   className="relative w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden"
                   style={{

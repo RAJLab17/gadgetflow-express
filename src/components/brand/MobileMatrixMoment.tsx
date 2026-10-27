@@ -4,8 +4,8 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useProductReviews } from "@/hooks/useProductReviews";
-import onyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-mobile.webp.asset.json";
-import cherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-mobile.webp.asset.json";
+import onyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
+import cherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json";
 
 const POINTS = [
   "Carbon-Look mit goldenen Aluminium-Knöpfen",
@@ -35,8 +35,8 @@ function MatrixMomentContent() {
         Die Hülle als <span className="font-serif italic">Teil des Systems.</span>
       </h2>
       <div ref={ref} className={`matrix-moment-cases ${visible ? "is-visible" : ""}`}>
-        <img className="matrix-case-back" src={cherry.url} alt="RAJ MATRIX Hülle Cherry Carbon mit iPhone 18 Pro in Dark Cherry" width={600} height={600} loading="lazy" decoding="async" />
-        <img className="matrix-case-front" src={onyx.url} alt="RAJ MATRIX Hülle Onyx Carbon mit iPhone 18 Pro in Dark Grey" width={600} height={600} loading="lazy" decoding="async" />
+        <span className="matrix-case-back"><img src={cherry.url} alt="RAJ MATRIX Hülle Cherry Carbon mit iPhone 18 Pro in Dark Cherry" width={600} height={600} loading="lazy" decoding="async" /></span>
+        <span className="matrix-case-front"><img src={onyx.url} alt="RAJ MATRIX Hülle Onyx Carbon mit iPhone 18 Pro in Dark Grey" width={600} height={600} loading="lazy" decoding="async" /></span>
       </div>
       <ul className="matrix-moment-points">
         {POINTS.map(p => <li key={p}><Check aria-hidden="true" strokeWidth={1.4} />{p}</li>)}
