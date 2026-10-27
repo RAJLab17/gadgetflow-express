@@ -1,26 +1,13 @@
 import { Link } from "react-router-dom";
-import { FileText, Star, MessageSquare } from "lucide-react";
+import { FileText } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
-type ReviewSummary = {
-  customer_name: string;
-  rating: number;
-  title: string;
-  comment: string;
-  created_at: string;
-};
 
 type ProductDetailsAccordionProps = {
   value?: string;
   onValueChange?: (value: string) => void;
-  reviewStats?: { total: number; average: number } | null;
-  topReviews?: ReviewSummary[];
 };
 
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString("de-CH", { day: "2-digit", month: "long", year: "numeric" });
-
-const ProductDetailsAccordion = ({ value, onValueChange, reviewStats, topReviews }: ProductDetailsAccordionProps) => {
+const ProductDetailsAccordion = ({ value, onValueChange }: ProductDetailsAccordionProps) => {
   return (
     <section id="product-details" className="py-20 md:py-28 px-6 border-t border-border/60">
       <div className="max-w-3xl mx-auto">
