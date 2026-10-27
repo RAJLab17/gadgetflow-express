@@ -1,5 +1,5 @@
 import ProductFaqSection from "@/components/ProductFaqSection";
-import { ProductCustomerPhotos, ProductReviewQuote } from "@/components/reviews/ProductReviewHighlights";
+import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
 import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import { reviewSchema } from "@/lib/reviewProducts";
@@ -594,7 +594,6 @@ const AirpodsPage = () => {
                         </>
                       )}
                     </Button>
-                    <ProductReviewQuote productId="airpods-case" />
                     <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {MATRIX_DELIVERY_TEXT}</p>
                     <p className="mt-1 text-center text-[11px] lg:hidden" style={{ color: H.textMuted }}>{MATRIX_TRUST_MOBILE}</p>
                     <p className="mt-1 hidden text-center text-[11px] lg:block" style={{ color: H.textMuted }}>{MATRIX_TRUST_DESKTOP}</p>

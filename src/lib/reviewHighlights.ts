@@ -10,7 +10,6 @@ export function reviewHighlights(reviews: PublicReview[], productId: ReviewProdu
     photos,
     visiblePhotos: photos.slice(0, 4),
     extraPhotos: Math.max(0, photos.length - 4),
-    quote: own.find(review => review.rating === 5),
     showControls: own.length >= 10,
   };
 }

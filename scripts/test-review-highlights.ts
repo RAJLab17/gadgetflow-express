@@ -17,14 +17,12 @@ test('filters and sorting start at exactly ten own reviews', () => {
   expect(reviewHighlights([...nine, review(20, 'nexus')], 'matrix').showControls).toBe(false);
   expect(reviewHighlights([...nine, review(10)], 'matrix').showControls).toBe(true);
 });
-test('quote is the newest five-star review from exactly the selected product', () => {
+test('customer photos come only from the selected product', () => {
   const result = reviewHighlights([review(4), review(9, 'matrix', 4), review(7), review(12, 'nexus')], 'matrix');
-  expect(result.quote?.id).toBe('7');
   expect(result.photos.some(r => r.product_id !== 'matrix')).toBe(false);
 });
-test('no matching photos or five-star review produces no highlights', () => {
+test('no matching photos produces no customer photo strip', () => {
   const result = reviewHighlights([review(1, 'airpods-case', 4, false), review(2, 'nexus')], 'airpods-case');
   expect(result.photos).toEqual([]);
-  expect(result.quote).toBeUndefined();
   expect(result.extraPhotos).toBe(0);
 });
