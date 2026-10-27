@@ -17,3 +17,4 @@
 - [x] NEXUS: Link «Für Firmen: Mengenpreise ab 10 Stück.» unter dem Kaufbereich entfernt (Desktop, Tablet, Mobil); Footer-Link «Für Firmen» und Firmen-Seite unverändert; Suchmaschinen-Kopie neu erfasst
 - [x] /matrix: «Versand ab Dienstag, 20. Oktober» entfernt (Kaufbereich, FAQ, Structured Data, Suchmaschinen-Kopie, llms.txt-MATRIX-Eintrag); /airpods-case bewusst unverändert gelassen
 - [x] Zitat unter dem Kaufbutton («Modernes Design» – Vanessa, verifizierter Kauf) auf /matrix, /nexus und /airpods-case entfernt; Sternzeile, Kundenfotos und Bewertungsbereich unverändert; Tests und Browser-Check bestanden, nicht veröffentlicht
+- [x] Startseite Mobile: NEXUS-Kartenfoto zurück auf das Nachttisch-Foto (nexus-bedside-night.webp) und passender Vorlade-Link zurückgesetzt; MATRIX-, AirPods- und APEX-Karten sowie Desktop unverändert; Browser-Check und Build OK, nicht veröffentlicht
