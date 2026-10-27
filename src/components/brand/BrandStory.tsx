@@ -72,7 +72,7 @@ const BrandStory = () => {
           <span className="italic" style={{ color: GOLD_SOFT }}>{t("brand.story.headline.l2")}</span>
         </h2>
         <p className="mt-5 text-base text-white/55 font-light leading-relaxed">
-          Zurückhaltend gestaltetes Apple-Zubehör aus dem Thurgau – Substanz statt Lärm, gemacht, um zu bleiben.
+          Eine Schweizer Marke aus dem Thurgau. Substanz statt Lärm, gemacht, um zu bleiben.
         </p>
         <Link to="/about" className="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase" style={{ color: GOLD_SOFT, letterSpacing: "0.25em" }}>
           Über RAJ <ArrowUpRight className="w-4 h-4" />
