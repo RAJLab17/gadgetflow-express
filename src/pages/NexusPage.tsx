@@ -70,7 +70,6 @@ import { scrollToReviewsWhenStable } from "@/components/reviews/reviewAnchor";
 import ReviewModal from "@/components/reviews/ReviewModal";
 import { Button } from "@/components/ui/button";
 import { MessageSquare } from "lucide-react";
-import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
@@ -918,7 +917,6 @@ const NexusPage = () => {
                 </span>
               </DesktopTitle>
               <ProductRating productId="nexus" />
-              <ProductCustomerPhotos productId="nexus" />
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
                 {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
                   <span key={b} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 11px", borderRadius: 100, border: "1px solid rgba(26,26,26,.1)", background: "#FFFFFF", fontSize: 11, color: H.text }}>
@@ -988,7 +986,6 @@ const NexusPage = () => {
               </span>
             </TabletTitle>
               <ProductRating productId="nexus" />
-              <ProductCustomerPhotos productId="nexus" />
 
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
@@ -1152,7 +1149,6 @@ const NexusPage = () => {
             </span>
           </MobileTitle>
               <ProductRating productId="nexus" />
-              <ProductCustomerPhotos productId="nexus" />
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
               <ZoomFrame zoomSrc={HERO_ZOOM_IMAGES[heroSlideIdx].src} onOpen={() => setGalleryLightbox(true)} objectFit="cover" iconStyle={{ right: "auto", left: 12, bottom: 12 }}>
