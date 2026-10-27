@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import LuxuryTopBar from "@/components/brand/LuxuryTopBar";
 import BrandHero from "@/components/brand/BrandHero";
 import MobileChargingMoment from "@/components/brand/MobileChargingMoment";
+import MobileMatrixMoment from "@/components/brand/MobileMatrixMoment";
 import BrandNextDrop from "@/components/brand/BrandNextDrop";
 import BrandStory from "@/components/brand/BrandStory";
 import BrandPillars from "@/components/brand/BrandPillars";
@@ -61,6 +62,7 @@ const Index = () => {
         <main>
           <BrandHero />
           <MobileChargingMoment />
+          <MobileMatrixMoment />
           <BrandNextDrop />
           <BrandStory />
           <BrandPillars />

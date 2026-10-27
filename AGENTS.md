@@ -1,5 +1,5 @@
 # Architecture rules
-- Homepage mobile hero mounts only below 768px via the shared media-query observer and reuses the approved review query; its route-gated preload matches the rendered bedside image to avoid loading a desktop hero on mobile.
+- Homepage mobile hero mounts only below 768px via the shared media-query observer and reuses the approved review query; its route-gated preload matches the rendered mobile hero image to avoid loading a desktop hero on mobile.
 - Mobile charging moment uses SVG rings and a visibility-triggered frame counter with a session-storage guard and memory fallback; reduced motion completes NEXUS instantly while APEX never fills.
 - Product reviews share an approved-only query and exact-product schema builder; submission verifies Shopify order number, email and trusted variant IDs server-side, while existing NEXUS records remain untouched.
 - Retired comparison URLs retain a non-sitemap crawler snapshot canonicalized to the replacement article alongside BrowserRouter navigation, since client navigation is not an HTTP 301.
