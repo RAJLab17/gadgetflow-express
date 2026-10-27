@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Startseite: nur unter 768px bildfüllenden Hero mit Text, Buttons, einmaligen Animationen und live freigegebenen Bewertungen umsetzen und prüfen; Desktop unverändert, nicht veröffentlichen.
+
 - [x] Produktbezogene Sternzeilen, Kundenfotos und neuestes 5-Sterne-Zitat auf MATRIX, AirPods und NEXUS ergänzen; Filter erst ab 10 Bewertungen; prüfen, nicht veröffentlichen.
 
 - [x] Mobile Kaufleisten auf MATRIX, NEXUS und AirPods umgesetzt; Scrollen, Auswahl, Overlay-Vorrang und echte Kassenöffnung auf allen drei Seiten geprüft. Produktbild-Dateien werden in der lokalen Testansicht nicht ausgeliefert; ausgewählte Bildadressen geprüft.
