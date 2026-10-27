@@ -452,7 +452,7 @@ const ShopPreview = () => {
               <AccordionItem value="versand" className="border-border/60">
                 <AccordionTrigger className="text-base font-light hover:no-underline py-5">Versand & Rückgabe</AccordionTrigger>
                 <AccordionContent className="text-muted-foreground font-light pb-6 text-sm space-y-3">
-                  <p><span className="text-foreground/80">Gratis Versand</span> in der ganzen Schweiz · Lieferung in 2–4 Werktagen via Schweizer Post.</p>
+                  <p><span className="text-foreground/80">Gratis Versand</span> in der ganzen Schweiz · Lieferung in 2–3 Werktagen via Schweizer Post.</p>
                   <p><span className="text-foreground/80">30 Tage Rückgaberecht</span> — kostenlos, ohne Wenn und Aber. Wir senden dir ein Retourenetikett zu.</p>
                   <p>Versand erfolgt klimaneutral. Verpackung ist plastikfrei.</p>
                   <Link to="/versand" className="inline-block text-primary hover:underline mt-2">Vollständige Versandbedingungen →</Link>

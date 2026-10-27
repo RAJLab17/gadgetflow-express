@@ -24,8 +24,8 @@ class MatrixShippingTests(unittest.TestCase):
         for route, product in self.products():
             with self.subTest(route=route):
                 delivery = product["offers"]["shippingDetails"]["deliveryTime"]
-                self.assertEqual(delivery["transitTime"]["minValue"], 1)
-                self.assertEqual(delivery["transitTime"]["maxValue"], 2)
+                self.assertEqual(delivery["transitTime"]["minValue"], 2)
+                self.assertEqual(delivery["transitTime"]["maxValue"], 3)
                 self.assertEqual(delivery["transitTime"]["unitCode"], "d")
                 self.assertEqual(delivery["handlingTime"]["minValue"], 0)
                 self.assertEqual(delivery["handlingTime"]["maxValue"], 0)
@@ -35,7 +35,7 @@ class MatrixShippingTests(unittest.TestCase):
         snapshot = json.loads((ROOT / "src/content/prerender-snapshot.json").read_text())
         matrix = json.dumps(snapshot["/matrix"], ensure_ascii=False)
         self.assertNotIn("Versand ab", matrix)
-        self.assertIn("Lieferung in 1–2 Werktagen", matrix)
+        self.assertIn("Lieferung in 2–3 Werktagen", matrix)
 
 
 if __name__ == "__main__":

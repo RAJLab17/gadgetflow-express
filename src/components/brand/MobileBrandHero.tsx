@@ -13,7 +13,7 @@ export default function MobileBrandHero() {
           <span className="block">Energie,</span>
           <span className="mobile-brand-hero-metal font-serif italic font-light block">in Form gegossen.</span>
         </h1>
-        <p className="mobile-brand-hero-description">Apple-Zubehör einer Schweizer Marke. Geliefert in 1–2 Werktagen.</p>
+        <p className="mobile-brand-hero-description">Apple-Zubehör einer Schweizer Marke. Geliefert in 2–3 Werktagen.</p>
         {isSuccess && stats.total > 0 && (
           <Link to="/reviews" className="mobile-brand-hero-rating items-center">
             <span className="mobile-brand-hero-stars" aria-hidden="true">★★★★★</span>

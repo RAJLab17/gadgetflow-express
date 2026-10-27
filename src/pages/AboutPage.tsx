@@ -14,7 +14,7 @@ import blitzMarkAsset from "@/assets/about/raj-blitz-mark.webp.asset.json";
 
 const TITLE = "Über RAJ – Schweizer Marke für Apple-Zubehör aus Weinfelden";
 const DESCRIPTION =
-  "RAJ ist eine Schweizer Marke für Apple-Zubehör aus Weinfelden. Geprüfte Qualität, 3 Jahre Garantie, Lieferung in 1 bis 2 Werktagen und persönlicher Support.";
+  "RAJ ist eine Schweizer Marke für Apple-Zubehör aus Weinfelden. Geprüfte Qualität, 3 Jahre Garantie, Lieferung in 2 bis 3 Werktagen und persönlicher Support.";
 
 /**
  * Hero photo. Placeholder until the owner's own landscape photo (~1600×1000) is uploaded;
@@ -43,7 +43,7 @@ const MESSAGE = [
 const PROMISES = [
   { icon: ShieldCheck, title: "Geprüfte Qualität", copy: "Qi2.2-zertifiziert nach WPC-Standard. Materialien nach RoHS und REACH geprüft." },
   { icon: BadgeCheck, title: "3 Jahre Garantie", copy: "auf den RAJ NEXUS. 30 Tage Rückgabe auf alle Produkte." },
-  { icon: Truck, title: "Schnell bei dir", copy: "Versand aus der Schweiz, Lieferung in 1 bis 2 Werktagen. Immer gratis." },
+  { icon: Truck, title: "Schnell bei dir", copy: "Versand aus der Schweiz, Lieferung in 2 bis 3 Werktagen. Immer gratis." },
   { icon: MessageCircle, title: "Persönlicher Support", copy: "Keine Hotline, kein Ticketsystem. Du schreibst uns, wir antworten innerhalb von 24 Stunden." },
 ];
 

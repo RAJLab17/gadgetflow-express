@@ -33,7 +33,7 @@ const VersandPage = () => {
           </div>
           <ul>
             <Item icon={ShieldCheck} title="Kostenloser Versand" desc="In der gesamten Schweiz – ohne Mindestbestellwert." />
-            <Item icon={Clock} title="2–4 Werktage Lieferzeit" desc="Schnelle und zuverlässige Lieferung direkt zu dir." />
+            <Item icon={Clock} title="2–3 Werktage Lieferzeit" desc="Schnelle und zuverlässige Lieferung direkt zu dir." />
             <Item icon={Globe} title="Schweizer Markt im Fokus" desc="Internationaler Versand folgt zu einem späteren Zeitpunkt." />
           </ul>
         </div>
@@ -47,6 +47,8 @@ const VersandPage = () => {
           <ul>
             <Item icon={Clock} title="30 Tage Rückgaberecht" desc="Ab Erhalt der Ware – unkompliziert und fair." />
             <Item icon={Package} title="Ausprobieren erlaubt" desc="30 Tage Rückgabe, auch wenn du das Produkt ausprobiert hast, solange es ohne Gebrauchsspuren, vollständig und in der Originalverpackung ist." />
+            <Item icon={Mail} title="Kostenlose Rücksendung" desc="Die Rücksendung ist für dich kostenlos. Melde deine Rückgabe per E-Mail an info@raj.ch, du erhältst von uns eine Rücksendeetikette zum Ausdrucken." />
+            <Item icon={RotateCcw} title="Umtausch möglich" desc="Falsches Modell oder andere Farbe? Wir tauschen innerhalb von 30 Tagen kostenlos um." />
             <Item icon={ShieldCheck} title="Schnelle Rückerstattung" desc="Über das ursprüngliche Zahlungsmittel innerhalb von 3–5 Werktagen." />
             <Item
               icon={Mail}
