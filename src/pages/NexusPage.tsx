@@ -65,7 +65,8 @@ import payApplePay from "@/assets/payments/apple-pay.svg";
 import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
-import { ProductRating } from "@/components/reviews/ProductReviews";
+import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
+import { scrollToReviewsWhenStable } from "@/components/reviews/reviewAnchor";
 import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
@@ -1238,7 +1239,7 @@ const NexusPage = () => {
               </div>
               <button
                 type="button"
-                onClick={() => { setDetailsAccordionValue("reviews"); setTimeout(() => document.getElementById("bewertungen")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }}
+                onClick={() => scrollToReviewsWhenStable("bewertungen")}
                 className="text-sm transition-opacity hover:opacity-70"
                 style={{ color: H.gold, fontWeight: 500, background: "none", border: 0, cursor: "pointer" }}
               >
@@ -1284,6 +1285,9 @@ const NexusPage = () => {
           <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl leading-tight tracking-tight" style={{ color: L.text, fontWeight: 300 }}>Power. Always There.</p>
         </div>
       </section>
+
+      {/* ═══ Kundenbewertungen ═══ */}
+      <ProductReviews productId="nexus" />
 
       {/* ═══ 3. STORY ═══ */}
       <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
