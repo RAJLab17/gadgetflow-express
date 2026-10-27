@@ -19,6 +19,10 @@
 
     --primary: 32 42% 42%;
     --primary-foreground: 40 30% 97%;
+    --review-star: #d4a574;
+    --review-photo-overlay: rgba(0, 0, 0, 0.85);
+    --review-photo-foreground: #ffffff;
+    --review-photo-close: rgba(255, 255, 255, 0.1);
 
     --secondary: 35 20% 90%;
     --secondary-foreground: 30 10% 20%;
