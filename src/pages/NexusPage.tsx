@@ -65,7 +65,8 @@ import payApplePay from "@/assets/payments/apple-pay.svg";
 import payGooglePay from "@/assets/payments/google-pay.svg";
 import payTwint from "@/assets/payments/twint.png";
 import payKlarna from "@/assets/payments/klarna.svg";
-import { ProductRating } from "@/components/reviews/ProductReviews";
+import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
+import { scrollToReviewsWhenStable } from "@/components/reviews/reviewAnchor";
 import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
 import NexusHeroChipsMobile from "@/components/nexus/NexusChargeCardsMobile";
 import Qi2CertifiedBadge from "@/components/nexus/Qi2CertifiedBadge";
@@ -903,7 +904,7 @@ const NexusPage = () => {
                   3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
                 </span>
               </DesktopTitle>
-              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductRating productId="nexus" />
               <ProductCustomerPhotos productId="nexus" />
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 14 }}>
                 {["Qi2.2 · 25 W", "3 Jahre Garantie", "MagSafe"].map((b) => (
@@ -973,7 +974,7 @@ const NexusPage = () => {
                 3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
               </span>
             </TabletTitle>
-              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductRating productId="nexus" />
               <ProductCustomerPhotos productId="nexus" />
 
 
@@ -1137,7 +1138,7 @@ const NexusPage = () => {
               3-in-1 Qi2.2 Ladestation für iPhone, Apple Watch &amp; AirPods
             </span>
           </MobileTitle>
-              <ProductRating productId="nexus" onNavigate={() => setDetailsAccordionValue("reviews")} />
+              <ProductRating productId="nexus" />
               <ProductCustomerPhotos productId="nexus" />
           <div style={{ position: "relative", width: "calc(100% + 40px)", marginLeft: -20, marginRight: -20, marginBottom: 6, height: 320, maxHeight: "58svh", minHeight: 260, borderRadius: 0, overflow: "hidden", boxShadow: "0 30px 80px -30px rgba(0,0,0,.16)" }}>
             <div style={{ position: "absolute", inset: 0 }}>
@@ -1238,7 +1239,7 @@ const NexusPage = () => {
               </div>
               <button
                 type="button"
-                onClick={() => { setDetailsAccordionValue("reviews"); setTimeout(() => document.getElementById("bewertungen")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); }}
+                onClick={() => scrollToReviewsWhenStable("bewertungen")}
                 className="text-sm transition-opacity hover:opacity-70"
                 style={{ color: H.gold, fontWeight: 500, background: "none", border: 0, cursor: "pointer" }}
               >
@@ -1284,6 +1285,9 @@ const NexusPage = () => {
           <p className="text-center mt-12 md:mt-16 text-3xl md:text-5xl leading-tight tracking-tight" style={{ color: L.text, fontWeight: 300 }}>Power. Always There.</p>
         </div>
       </section>
+
+      {/* ═══ Kundenbewertungen ═══ */}
+      <ProductReviews productId="nexus" />
 
       {/* ═══ 3. STORY ═══ */}
       <section style={{ background: D.bg, color: D.beige }} className="py-24 md:py-44 px-5">
@@ -1344,9 +1348,8 @@ const NexusPage = () => {
           <ProductDetailsAccordion
             value={detailsAccordionValue}
             onValueChange={setDetailsAccordionValue}
-            reviewStats={reviewStats}
-            topReviews={topReviews}
           />
+
         </Suspense>
       </section>
       <section id="faq" className="py-20 md:py-28 px-5" style={{ background: L.bg, color: L.text, borderTop: `1px solid ${L.border}` }} aria-labelledby="nexus-faq-heading">
