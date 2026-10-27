@@ -652,7 +652,7 @@ const NexusPage = () => {
     const wantsForm = new URLSearchParams(window.location.search).get("bewertung") === "1";
     const hash = window.location.hash;
     if (!wantsForm && hash !== "#bewertungen" && hash !== "#alle-bewertungen") return;
-    const stop = scrollToReviewsWhenStable(hash === "#alle-bewertungen" && !wantsForm ? "alle-bewertungen" : "bewertungen");
+    const stop = wantsForm ? scrollToReviewsWhenStable("bewertungen", "bewertungen-mobil") : scrollToReviewsWhenStable(hash === "#alle-bewertungen" ? "alle-bewertungen" : "bewertungen");
     if (wantsForm) setShowcaseReviewOpen(true);
     return stop;
   }, []);
@@ -1214,7 +1214,7 @@ const NexusPage = () => {
               </span>
             ))}
           </div>
-          <div className="mt-4 -mx-5 px-5 py-6 rounded-t-2xl" style={{ background: D.bg, color: D.beige }}>
+          <div id="bewertungen-mobil" className="mt-4 -mx-5 px-5 py-6 rounded-t-2xl" style={{ background: D.bg, color: D.beige }}>
             {activeHeroReview && (
               <LatestMarcelReview
                 key={`hero-rev-dark-${heroReviewIdx}`}
