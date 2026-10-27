@@ -158,7 +158,7 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
                 </span>
               </div>
               {/* AirPods 4 & 5 Case — Inset neben dem iPhone-Case */}
-              <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1.5">
+              <div className={`absolute bottom-4 right-4 flex-col items-center gap-1.5 ${carousel ? "hidden" : "flex"}`}>
                 <div
                   className="relative w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden"
                   style={{
