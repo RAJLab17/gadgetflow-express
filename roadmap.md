@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Mobile Bewertungsfläche inhaltsabhängig kürzen, transparentes 1000px-Logo erstellen und die genannten Marken-/NEXUS-FAQ-Texte angleichen; prüfen, nicht veröffentlichen.
+
 - [x] Mobiler Lade-Moment direkt unter dem Hero: NEXUS-Ringe einmal pro Besuch, APEX ungefüllt, reduzierte Bewegung und beide Links geprüft; Desktop unverändert, nicht veröffentlicht.
 
 - [x] Startseite: nur unter 768px bildfüllenden Hero mit Text, Buttons, einmaligen Animationen und live freigegebenen Bewertungen umgesetzt; Desktop pixelgleich, nicht veröffentlicht.
