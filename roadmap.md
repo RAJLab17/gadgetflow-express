@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Mobile Bewertungsfläche an sichtbare Karten angepasst (Abstand unter 24px beim Wischen), transparentes 1000px-Logo mit 8% seitlichem Rand erstellt und Marken-/NEXUS-FAQ-Texte samt Suchmaschinen-Kopie angeglichen; Browser und Fehlerprüfung OK, nicht veröffentlicht.
+
 - [x] Mobiler Lade-Moment direkt unter dem Hero: NEXUS-Ringe einmal pro Besuch, APEX ungefüllt, reduzierte Bewegung und beide Links geprüft; Desktop unverändert, nicht veröffentlicht.
 
 - [x] Startseite: nur unter 768px bildfüllenden Hero mit Text, Buttons, einmaligen Animationen und live freigegebenen Bewertungen umgesetzt; Desktop pixelgleich, nicht veröffentlicht.

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import type { PublicReview } from "@/components/reviews/ReviewCard";
@@ -23,13 +24,45 @@ const shorten = (text: string) => (text.length > 150 ? `${text.slice(0, 147).tri
 function ReviewsContent() {
   const { reviews, isSuccess } = useProductReviews();
   const picks = pickHomeReviews(reviews);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let frame = 0;
+    const update = () => {
+      const bounds = track.getBoundingClientRect();
+      const cards = Array.from(track.querySelectorAll<HTMLElement>(".mobile-review-card"));
+      const visible = cards.filter(card => {
+        const rect = card.getBoundingClientRect();
+        return rect.right > bounds.left + 24 && rect.left < bounds.right - 24;
+      });
+      const height = Math.max(0, ...visible.map(card => card.getBoundingClientRect().height));
+      if (height) track.style.height = `${Math.ceil(height) + 28}px`;
+    };
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    const observer = new ResizeObserver(schedule);
+    track.querySelectorAll(".mobile-review-card").forEach(card => observer.observe(card));
+    track.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      track.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
+  }, [reviews, isSuccess]);
   if (!isSuccess || picks.length < 3) return null;
 
   return (
     <section className="mobile-reviews-moment" aria-labelledby="mobile-reviews-title">
       <p className="charging-eyebrow">Bewertungen</p>
       <h2 id="mobile-reviews-title" className="mobile-reviews-title">Was Kunden sagen</h2>
-      <div className="mobile-reviews-track mobile-collection-track">
+      <div ref={trackRef} className="mobile-reviews-track mobile-collection-track">
         {picks.map(r => (
           <article key={r.id} className="mobile-review-card">
             {r.photo_url && <img src={r.photo_url} alt={`Kundenfoto zu ${NAMES[r.product_id]}`} loading="lazy" decoding="async" className="mobile-review-photo" />}

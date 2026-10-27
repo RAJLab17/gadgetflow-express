@@ -267,7 +267,7 @@ const ProduktePage = () => {
           </section>
 
           <section className="mx-auto mt-28 max-w-6xl border-t border-border px-5 pt-14 text-center sm:px-8 md:mt-40 md:pt-20">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">Swiss Luxury Tech</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">SWISS BRAND · APPLE ECOSYSTEM</p>
             <h2 className="mx-auto mt-5 max-w-2xl text-3xl font-light leading-tight text-foreground md:text-5xl">
               Für ein Setup, das ruhiger aussieht und besser funktioniert.
             </h2>

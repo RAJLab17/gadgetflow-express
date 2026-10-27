@@ -171,7 +171,7 @@ const BrandHero = () => {
                  className="text-[10px] sm:text-[11px] uppercase font-semibold"
                  style={{ letterSpacing: "0.2em", color: GOLD_SOFT }}
               >
-                RAJ — Swiss Luxury Tech
+                RAJ — SWISS BRAND · APPLE ECOSYSTEM
               </p>
             </div>
           </aside>

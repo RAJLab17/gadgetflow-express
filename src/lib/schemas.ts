@@ -123,7 +123,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Wo kann ich den RAJ NEXUS kaufen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS ist ausschliesslich über raj.ch erhältlich – direkt vom Hersteller, ohne Zwischenhändler. Versand innerhalb der Schweiz.",
+        text: "Der RAJ NEXUS ist ausschliesslich über raj.ch erhältlich – direkt von RAJ, ohne Zwischenhändler. Versand innerhalb der Schweiz.",
       },
     },
     {
