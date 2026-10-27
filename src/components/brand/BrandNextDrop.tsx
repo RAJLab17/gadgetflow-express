@@ -95,7 +95,7 @@ const BrandNextDrop = () => {
             </div>
           </Link>
 
-          {/* MATRIX — Jetzt verfügbar (versetzt) */}
+          {/* MATRIX — Verfügbar (versetzt) */}
           <div className="md:mt-16">
           <Link to="/matrix" className="group block">
             <div className="relative mb-6 overflow-hidden rounded-sm">
@@ -110,17 +110,18 @@ const BrandNextDrop = () => {
               />
               <div className="absolute top-4 left-4">
                 <span
-                   className="px-3 py-1 rounded-full text-[10px] uppercase font-semibold italic border"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] uppercase font-semibold border"
                   style={{
-                     letterSpacing: "0.12em",
-                    color: "#f0d9b8",
-                    background: "rgba(155,107,63,0.22)",
-                    borderColor: "rgba(200,148,107,0.35)",
+                    letterSpacing: "0.12em",
+                    color: "#f5f5f0",
+                    background: "rgba(10,9,8,0.45)",
+                    borderColor: "rgba(255,255,255,0.15)",
                     backdropFilter: "blur(8px)",
                     WebkitBackdropFilter: "blur(8px)",
                   }}
                 >
-                  Jetzt verfügbar
+                  <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: GOLD_SOFT }} />
+                  Verfügbar
                 </span>
               </div>
               {/* AirPods 4 & 5 Case — Inset neben dem iPhone-Case */}
@@ -161,6 +162,20 @@ const BrandNextDrop = () => {
               </div>
                <span className="text-base font-medium" style={{ color: GOLD_SOFT }}>
                 CHF 59.–
+              </span>
+            </div>
+            <div className="mt-4">
+              <span
+                className="inline-flex items-center gap-2 py-2.5 px-6 rounded-full text-[10px] uppercase font-bold transition-transform duration-300 group-hover:scale-[1.03]"
+                style={{
+                  background: `linear-gradient(160deg, ${GOLD_SOFT} 0%, ${GOLD} 60%, #7a4e2a 100%)`,
+                  color: "#0a0908",
+                  letterSpacing: "0.2em",
+                  boxShadow: `0 12px 32px -10px ${GOLD}aa`,
+                }}
+              >
+                Kaufen
+                <span style={{ fontSize: "12px" }}>→</span>
               </span>
             </div>
             </Link>
