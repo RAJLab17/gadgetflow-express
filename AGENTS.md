@@ -12,7 +12,7 @@
 - Product share images use the shared shareImages metadata helper and CDN asset pointers; capture image dimensions, MIME type and alt text in the SEO snapshot so runtime and crawler tags stay identical.
 - MATRIX render images share responsive asset mappings between the instant view and React, with route-gated preloads and separate small purchase thumbnails; this prevents duplicate initial downloads and loading full non-selected finishes.
 
-- MATRIX, NEXUS and AirPods use MobileProductBuyBar with page-owned selection data and clicks delegated to the original purchase control; IntersectionObserver shows it only below 768px after that control exits above, while visible modal overlays suppress it, avoiding duplicate commerce or tracking logic.
+- MATRIX, NEXUS and AirPods use MobileProductBuyBar with page-owned selection data and clicks delegated to the original purchase control; IntersectionObserver shows it only below 768px after the first scroll whenever that control is off screen (above or below), while visible modal overlays suppress it, avoiding duplicate commerce or tracking logic.
 - Keep the MATRIX delivery message in a named constant so shipping copy can change independently of the layout.
 - Gate MATRIX lifestyle galleries by exact model, case finish and device color on both layouts so photos cannot leak into other selections.
 - Serve MATRIX lifestyle photos as optimised WebP with separate thumbnail and mobile sizes; mount only the current viewport gallery, give mobile slides real native-lazy image sources hidden until loaded, and eagerly load the next slide on touch or activation; mandatory snapping with always-stop prevents partial slides and hidden unloaded images prevent broken-image text.
