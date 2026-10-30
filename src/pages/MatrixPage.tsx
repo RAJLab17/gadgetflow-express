@@ -983,9 +983,6 @@ const MatrixPage = () => {
                         );
                       })}
                     </div>
-                    <p className="mt-1.5 text-[12px] md:hidden" style={{ color: H.textMuted }}>
-                      17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max.
-                    </p>
                   </div>
 
                   {/* Gerätefarbe — nur Bildvorschau */}
