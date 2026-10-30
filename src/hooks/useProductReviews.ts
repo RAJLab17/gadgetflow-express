@@ -1,10 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
+import { useSyncExternalStore } from "react";
+import { reviewsAllowed, subscribeReviewGate } from "@/lib/reviewLoadGate";
 import { supabase } from "@/integrations/supabase/client";
 import type { PublicReview } from "@/components/reviews/ReviewCard";
 import type { ReviewProductId } from "@/lib/reviewProducts";
 
 export function useProductReviews(productId?: ReviewProductId) {
+  const allowed = useSyncExternalStore(subscribeReviewGate, reviewsAllowed, () => true);
   const query = useQuery({
+    enabled: allowed,
     queryKey: ["approved-product-reviews"],
     queryFn: async () => {
       const reviews: PublicReview[] = [];
