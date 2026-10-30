@@ -122,8 +122,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-muted-foreground leading-relaxed">
-              Präzision in Form gegossen.<br />
-              Leistung, auf den Punkt gebracht.
+              RAJ GmbH, Weinfelden, Thurgau
             </p>
             <div className="flex items-center gap-4 mt-4">
               <a href="https://www.instagram.com/raj_swiss_" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">

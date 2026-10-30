@@ -93,7 +93,7 @@ const ReviewCard = ({ review }: { review: PublicReview }) => {
           <div className="mt-4 rounded-lg border border-stone-200 bg-stone-50 p-4">
             <div className="mb-1 flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-stone-600">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#d4a574]" />
-              Antwort von Raj
+              Antwort vom Team RAJ
             </div>
             <p className="text-[14px] leading-relaxed text-stone-700">{review.founder_response}</p>
           </div>

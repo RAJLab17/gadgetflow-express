@@ -1,5 +1,5 @@
 import { useEffect, useState, type RefObject } from "react";
-import { Loader2, ShoppingCart } from "lucide-react";
+import { Loader2, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { observeMediaQuery } from "@/lib/mediaQuery";
 import { mobileBuyBarVisible } from "./mobileBuyBarVisibility";
@@ -64,8 +64,8 @@ export default function MobileProductBuyBar({ mainBuyRef, name, image, imageAlt,
           aria-busy={busy}
           className="mobile-product-buybar-button h-11 shrink-0 gap-1.5 rounded-full px-3 text-[11px] font-semibold active:scale-[0.97] motion-reduce:transform-none"
         >
-          {busy ? <Loader2 className="animate-spin" /> : <ShoppingCart />}
-          In den Warenkorb
+          {busy ? <Loader2 className="animate-spin" /> : <ShoppingBag />}
+          Jetzt kaufen
         </Button>
       </aside>
     </>
