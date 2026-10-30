@@ -995,7 +995,7 @@ const MatrixPage = () => {
                         type="button"
                         onClick={() => setShowDevicePicker(true)}
                         aria-expanded={false}
-                        className="md:hidden text-[13px] underline underline-offset-2"
+                        className="matrix-color-link md:hidden text-[13px] underline underline-offset-2"
                         style={{ color: H.text }}
                       >
                         Mit deiner iPhone-Farbe ansehen
