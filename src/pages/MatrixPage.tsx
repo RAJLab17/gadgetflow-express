@@ -936,13 +936,13 @@ const MatrixPage = () => {
                         className="mt-1 hidden text-sm italic md:block"
                         style={{ color: H.gold, fontWeight: 400, letterSpacing: "normal", lineHeight: 1.43 }}
                       >
-                        <span className="block">Die schlanke MagSafe-Hülle im Carbon-Design.</span>
+                        <span className="block">Die schlanke MagSafe Carbon-Hülle</span>
                       </span>
                       <span
                         className="mt-1 block text-[14px] md:hidden"
                         style={{ fontWeight: 400, letterSpacing: "normal", color: H.text, lineHeight: 1.4 }}
                       >
-                        <span className="block">Die schlanke MagSafe-Hülle im Carbon-Design.</span>
+                        <span className="block">Die schlanke MagSafe Carbon-Hülle</span>
                       </span>
                     </h1>
                     <span className="text-[22px] font-semibold text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
