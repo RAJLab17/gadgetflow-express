@@ -108,8 +108,27 @@ const prerenderPlugin = (): PluginOption => {
       const asset = bundle["index.html"];
       if (!asset || asset.type !== "asset") return;
       const base = String(asset.source);
+      // /matrix LCP: fetch the lazy page chunk and its static imports in
+      // parallel with the entry bundle instead of after it (removes a waterfall).
+      const routeChunkPreloads: Record<string, string> = {};
+      const matrixChunk = Object.values(bundle).find(
+        (c) => c.type === "chunk" && c.isDynamicEntry && c.facadeModuleId?.endsWith("/src/pages/MatrixPage.tsx"),
+      );
+      if (matrixChunk && matrixChunk.type === "chunk") {
+        const files = new Set<string>();
+        const walk = (name: string) => {
+          if (files.has(name)) return;
+          const c = bundle[name];
+          if (!c || c.type !== "chunk" || c.isEntry) return;
+          files.add(name);
+          c.imports.forEach(walk);
+        };
+        walk(matrixChunk.fileName);
+        routeChunkPreloads["/matrix"] = [...files].map((f) => `<link rel="modulepreload" crossorigin href="/${f}">`).join("");
+      }
       for (const [route, snap] of Object.entries(snapshot)) {
-        const html = withShell(renderRouteHtml(base, snap), route);
+        let html = withShell(renderRouteHtml(base, snap), route);
+        if (routeChunkPreloads[route]) html = html.replace("</head>", routeChunkPreloads[route] + "</head>");
         if (route === "/") {
           asset.source = html;
           continue;
