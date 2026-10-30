@@ -54,7 +54,7 @@ function CardGold({ size = 18 }: { size?: number }) {
 
 const items = [
   { Icon: TruckGold, label: "Gratis Versand", labelLg: "Gratis Versand" },
-  { Icon: ShieldCheckGold, label: "30 Tage testen", labelLg: "30 Tage testen" },
+  { Icon: ShieldCheckGold, label: "30 Tage Rückgabe", labelLg: "30 Tage Rückgabe" },
   { Icon: CardGold, label: "TWINT · Apple Pay", labelLg: "TWINT & Apple Pay" },
 ];
 
@@ -89,11 +89,11 @@ export default function NexusTrustBar() {
       <div className="sm:hidden grid grid-cols-3 items-center" style={{ padding: "8px 6px", gap: 2 }}>
         {items.map(({ Icon, label }) => (
           <div key={label} className="flex items-center justify-center min-w-0" style={{ gap: 4 }}>
-            <span className="shrink-0"><Icon size={13} /></span>
+            <span className="shrink-0"><Icon size={14} /></span>
             <span
               className="min-w-0 text-center"
               style={{
-                fontSize: "clamp(7.5px, 2.35vw, 9.5px)",
+                fontSize: "clamp(10px, 2.7vw, 11px)",
                 color: BEIGE,
                 fontWeight: 600,
                 letterSpacing: ".02em",

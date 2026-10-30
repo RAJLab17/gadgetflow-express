@@ -13,7 +13,7 @@ export const BUNDLE_DISCOUNT = 15;
 /** Shopify Rabattcode, der den Bundle-Rabatt im Checkout anwendet. */
 export const BUNDLE_DISCOUNT_CODE = "MATRIXBUNDLE";
 /** Lieferhinweis unter dem Kaufbutton und in der FAQ. */
-export const MATRIX_DELIVERY_TEXT = "Versand ab Dienstag, 20. Oktober · Lieferung in 2–3 Werktagen";
+export const MATRIX_DELIVERY_TEXT = "Lieferung in 2–3 Werktagen";
 /** Lieferhinweis auf /matrix: nur die Lieferzeit, ohne Startdatum. */
 export const MATRIX_DELIVERY_TEXT_NO_DATE = "Lieferung in 2–3 Werktagen";
 /** Trust-Zeilen unter dem Kaufbutton (Mobile / Desktop). */

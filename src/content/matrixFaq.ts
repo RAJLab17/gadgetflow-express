@@ -12,7 +12,7 @@ export const MATRIX_FAQ: FaqItem[] = [
   },
   {
     q: "Woraus besteht die Hülle?",
-    a: "Aus einer leichten, schlagfesten Hartschale aus Polycarbonat mit Carbon-Struktur. Die Knöpfe sind aus goldeloxiertem Aluminium, der Kameraring aus Metall. Unten links sitzt der goldene RAJ Blitz.",
+    a: "Aus einer leichten, schlagfesten Hartschale aus Polycarbonat im Carbon-Design. Die Knöpfe sind aus goldeloxiertem Aluminium, der Kameraring aus Metall. Unten links sitzt der goldene RAJ Blitz.",
   },
   {
     q: "Wie gut schützt sie Kamera und Display?",
@@ -55,7 +55,7 @@ export const AIRPODS_FAQ: FaqItem[] = [
   },
   {
     q: "Wie schnell wird geliefert und was kostet der Versand?",
-    a: "Die RAJ MATRIX AirPods-Hülle wird innerhalb der Schweiz kostenlos versendet, ohne Mindestbestellwert. Versand ab Dienstag, 20. Oktober · Lieferung in 2–3 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du die AirPods-Hülle zusammen mit einer MATRIX iPhone-Hülle, sparst du CHF 15.–. Alle Details findest du auf unserer Seite zu Versand und Rückgabe.",
+    a: "Die RAJ MATRIX AirPods-Hülle wird innerhalb der Schweiz kostenlos versendet, ohne Mindestbestellwert. Lieferung in 2–3 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du die AirPods-Hülle zusammen mit einer MATRIX iPhone-Hülle, sparst du CHF 15.–. Alle Details findest du auf unserer Seite zu Versand und Rückgabe.",
   },
   {
     q: "Kann ich die Hülle zurückgeben?",
