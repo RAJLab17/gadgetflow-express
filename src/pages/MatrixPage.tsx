@@ -8,7 +8,7 @@ import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, us
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X } from "lucide-react";
+import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X, Truck, RotateCcw, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
@@ -547,7 +547,28 @@ const MatrixMobileInfo = () => {
       .then(({ data }) => setReviews((data as MatrixReview[]) ?? []));
   }, []);
   return (
-    <div className="lg:hidden">
+    <>
+    <div className="md:hidden">
+      <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[13px]" style={{ color: H.text }}>
+        <Truck className="h-3.5 w-3.5 shrink-0" style={{ color: H.gold }} aria-hidden />
+        Gratis Versand · Lieferung in 2–3 Werktagen
+      </p>
+      <PaymentMethodsBar />
+      <div className="mt-3 grid grid-cols-3 gap-2">
+        {[
+          { Icon: Truck, t: "2–3 Werktage", s: "mit der Post" },
+          { Icon: RotateCcw, t: "30 Tage Rückgabe", s: "Etikette gratis" },
+          { Icon: MapPin, t: "Support aus", s: "Weinfelden TG" },
+        ].map(({ Icon, t, s }) => (
+          <div key={t} className="rounded-xl p-3 text-center" style={{ background: "#fff", border: `1px solid ${H.line}` }}>
+            <Icon className="mx-auto h-5 w-5" style={{ color: H.gold }} aria-hidden />
+            <p className="mt-1.5 text-[12px] font-semibold leading-tight" style={{ color: H.text }}>{t}</p>
+            <p className="mt-0.5 text-[11px] leading-tight" style={{ color: H.textMuted }}>{s}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="hidden md:block lg:hidden">
       <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {delivery}</p>
       <p className="mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
         {MATRIX_TRUST_MOBILE}
@@ -571,6 +592,7 @@ const MatrixMobileInfo = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
@@ -608,6 +630,7 @@ const MatrixPage = () => {
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
   const secondModel = MODELS.find((m) => m.id === (secondModelId ?? modelId))!;
   const secondCaseFinish = CASE_FINISHES.find((c) => c.id === (secondCaseId ?? caseId))!;
+  const [showDevicePicker, setShowDevicePicker] = useState(false);
   const currentTotal = twoCasesSelected ? TWO_CASES_TOTAL : airpodsSelected ? bundleTotal : caseFinish.price;
   const caseThumbSrc =
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
@@ -908,7 +931,7 @@ const MatrixPage = () => {
                   <div className="order-1 mb-0.5 md:mb-0.5">
                     <div className="flex items-baseline justify-between gap-4 md:block">
                     <h1
-                      className="font-light leading-[0.95] text-[19px] md:text-[clamp(30px,3vw,42px)]"
+                      className="font-light leading-[0.95] text-[26px] md:text-[clamp(30px,3vw,42px)] max-md:font-medium"
                       style={{ letterSpacing: "-0.02em" }}
                     >
                       <span style={{ color: H.gold }}>MATRIX</span>{" "}
@@ -920,13 +943,13 @@ const MatrixPage = () => {
                         <span className="block">Die Hülle als Teil des Systems</span>
                       </span>
                       <span
-                        className="mt-1 block text-xs leading-4 text-foreground md:hidden"
-                        style={{ fontWeight: 400, letterSpacing: "normal" }}
+                        className="mt-1 block text-[14px] md:hidden"
+                        style={{ fontWeight: 400, letterSpacing: "normal", color: H.text, lineHeight: 1.4 }}
                       >
                         <span className="block">Die Hülle als Teil des Systems</span>
                       </span>
                     </h1>
-                    <span className="text-xl font-light text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
+                    <span className="text-[22px] font-semibold text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
                     </div>
                     <ProductRating productId="matrix" />
                     <ProductCustomerPhotos productId="matrix" />
@@ -946,13 +969,13 @@ const MatrixPage = () => {
                             key={m.id}
                             onClick={() => selectModel(m.id)}
                             aria-pressed={active}
-                            className="text-left px-2.5 py-2 rounded-lg transition-all duration-300 md:px-4 md:py-2.5"
+                            className="text-left px-2.5 py-2 min-h-[44px] rounded-lg transition-all duration-300 md:min-h-0 md:px-4 md:py-2.5"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
                             }}
                           >
-                            <span className="block text-xs font-medium md:text-sm">iPhone {m.short}</span>
+                            <span className="block text-[13px] font-medium md:text-sm">iPhone {m.short}</span>
                             <span className="hidden mt-0.5 text-[11px] md:block" style={{ color: H.textMuted }}>
                               {m.status}
                             </span>
@@ -960,10 +983,25 @@ const MatrixPage = () => {
                         );
                       })}
                     </div>
+                    <p className="mt-1.5 text-[12px] md:hidden" style={{ color: H.textMuted }}>
+                      17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max.
+                    </p>
                   </div>
 
                   {/* Gerätefarbe — nur Bildvorschau */}
                   <div className="order-5 matrix-preview">
+                    {!showDevicePicker && (
+                      <button
+                        type="button"
+                        onClick={() => setShowDevicePicker(true)}
+                        aria-expanded={false}
+                        className="md:hidden text-[13px] underline underline-offset-2"
+                        style={{ color: H.text }}
+                      >
+                        Mit deiner iPhone-Farbe ansehen
+                      </button>
+                    )}
+                    <div className={showDevicePicker ? "" : "hidden md:block"}>
                     <div className="flex items-baseline justify-between mb-1 md:mb-3">
                       <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
                         <span className="hidden md:inline">Gerätefarbe</span>
@@ -991,6 +1029,7 @@ const MatrixPage = () => {
                         );
                       })}
                     </div>
+                    </div>
                   </div>
 
                   {/* Hüllenfinish */}
@@ -1012,7 +1051,7 @@ const MatrixPage = () => {
                             key={c.id}
                             onClick={() => setCaseId(c.id)}
                             aria-pressed={active}
-                            className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg transition-all duration-300 md:gap-4 md:px-4 md:py-2.5"
+                            className="w-full flex items-center gap-2 px-2.5 py-2 min-h-[44px] rounded-lg transition-all duration-300 md:min-h-0 md:gap-4 md:px-4 md:py-2.5"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
@@ -1031,7 +1070,7 @@ const MatrixPage = () => {
                                 style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent 0 2px, rgba(255,255,255,.35) 2px 3px, rgba(0,0,0,.18) 3px 4px)" }}
                               />
                             </span>
-                            <span className="min-w-0 flex-1 text-left text-xs font-medium md:text-sm">{c.name}</span>
+                            <span className="min-w-0 flex-1 text-left text-[13px] font-medium md:text-sm">{c.name}</span>
                             <span className="hidden text-xs md:inline" style={{ color: H.textMuted }}>
                               CHF {c.price}.–
                             </span>
@@ -1108,7 +1147,7 @@ const MatrixPage = () => {
                               setTwoCasesSelected(false);
                               if (!opt.bundle) setShowAirpodsColor(false);
                             }}
-                            className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-300"
+                            className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 min-h-[64px] text-left transition-all duration-300"
                             style={{
                               border: `1px solid ${active ? H.gold : H.line}`,
                               background: active ? "rgba(155,107,63,0.06)" : "transparent",
@@ -1137,7 +1176,7 @@ const MatrixPage = () => {
                               {active && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
                             </span>
                             <span className="min-w-0 flex-1">
-                              <span className="block text-sm font-medium">{opt.label}</span>
+                              <span className="block text-[15px] font-medium md:text-sm">{opt.label}</span>
                               {opt.bundle && (
                                 <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>
                                   AirPods 4 &amp; 5 · {airpodsCase.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
@@ -1155,7 +1194,7 @@ const MatrixPage = () => {
                               )}
                               {opt.bundle && (
                                 <span
-                                  className="rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.08em]"
+                                  className="rounded-full px-1.5 py-0.5 text-[10px] md:text-[9px] font-semibold uppercase tracking-[0.08em]"
                                   style={{ background: H.gold, color: "#fff" }}
                                 >
                                   Spare CHF {BUNDLE_DISCOUNT}
@@ -1211,7 +1250,7 @@ const MatrixPage = () => {
                           setAirpodsSelected(false);
                           setShowAirpodsColor(false);
                         }}
-                        className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-all duration-300"
+                        className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 min-h-[64px] text-left transition-all duration-300"
                         style={{
                           border: `1px solid ${twoCasesSelected ? H.gold : H.line}`,
                           background: twoCasesSelected ? "rgba(155,107,63,0.06)" : "transparent",
@@ -1238,13 +1277,13 @@ const MatrixPage = () => {
                           {twoCasesSelected && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block text-sm font-medium">2 Hüllen</span>
+                          <span className="block text-[15px] font-medium md:text-sm">2 Hüllen</span>
                           <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>Für dich und deine Liebsten</span>
                         </span>
                         <span className="shrink-0 flex flex-col items-end gap-0.5">
                           <span className="text-sm font-semibold">CHF {TWO_CASES_TOTAL}.–</span>
                           <span className="text-[11px] line-through" style={{ color: H.textMuted }}>CHF {caseFinish.price * 2}.–</span>
-                          <span className="rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.08em]" style={{ background: H.gold, color: "#fff" }}>
+                          <span className="rounded-full px-1.5 py-0.5 text-[10px] md:text-[9px] font-semibold uppercase tracking-[0.08em]" style={{ background: H.gold, color: "#fff" }}>
                             Spare CHF {caseFinish.price * 2 - TWO_CASES_TOTAL}
                           </span>
                         </span>
@@ -1284,7 +1323,7 @@ const MatrixPage = () => {
                       type="button"
                       onClick={handleBuy}
                       disabled={isBuying}
-                      className="matrix-main-buy h-11 md:h-auto w-full inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-xl text-xs font-semibold uppercase tracking-[0.12em] transition-all active:scale-[0.98] md:py-3 md:text-sm md:tracking-[0.15em]"
+                      className="matrix-main-buy h-14 md:h-auto w-full inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-xl text-[16px] font-semibold normal-case tracking-normal transition-all active:scale-[0.98] md:uppercase md:py-3 md:text-sm md:tracking-[0.15em]"
                       style={{
                         background: H.gold,
                         color: "#fff",
@@ -1296,7 +1335,8 @@ const MatrixPage = () => {
                       ) : (
                         <>
                           <ShoppingBag className="w-4 h-4" />
-                          <span>JETZT KAUFEN · CHF {currentTotal}.–</span>
+                          <span className="md:hidden">Jetzt kaufen · CHF {currentTotal}.–</span>
+                          <span className="hidden md:inline">JETZT KAUFEN · CHF {currentTotal}.–</span>
                         </>
                       )}
                     </Button>
@@ -1317,24 +1357,10 @@ const MatrixPage = () => {
             </div>
           </section>
 
-          <ProductReviews productId="matrix" />
-          <ProductFaqSection
-            title="Fragen zur MATRIX"
-            items={MATRIX_FAQ}
-            accordion
-            linksAsList
-            links={[
-              { to: "/blog/iphone-17-pro-huelle-iphone-18-pro", label: "Passt eine iPhone 17 Pro Hülle aufs iPhone 18 Pro?" },
-              { to: "/nexus", label: "RAJ NEXUS Ladestation" },
-              { to: "/qi2-erklaert", label: "Qi2.2 erklärt" },
-              { to: "/versand", label: "Versand & Rückgabe" },
-            ]}
-          />
-
           {/* Matrix-Tabelle */}
           <section className="border-t" style={{ borderColor: H.line }}>
-            <div className="container mx-auto px-6 max-w-5xl py-14 md:py-20">
-              <h2 className="font-light tracking-tight mb-8" style={{ fontSize: "clamp(28px,3.5vw,44px)" }}>
+            <div className="container mx-auto px-6 max-w-5xl py-10 md:py-20">
+              <h2 className="font-light tracking-tight mb-8 text-[24px] md:text-[clamp(28px,3.5vw,44px)]">
                 Die Matrix
               </h2>
               {/* Mobile: kompakte Tabelle, passt auf 390 px */}
@@ -1440,9 +1466,24 @@ const MatrixPage = () => {
             </div>
           </section>
 
+          <ProductReviews productId="matrix" compactMobile />
+          <ProductFaqSection
+            title="Fragen zur MATRIX"
+            items={MATRIX_FAQ}
+            accordion
+            linksAsList
+            compactMobile
+            links={[
+              { to: "/blog/iphone-17-pro-huelle-iphone-18-pro", label: "Passt eine iPhone 17 Pro Hülle aufs iPhone 18 Pro?" },
+              { to: "/nexus", label: "RAJ NEXUS Ladestation" },
+              { to: "/qi2-erklaert", label: "Qi2.2 erklärt" },
+              { to: "/versand", label: "Versand & Rückgabe" },
+            ]}
+          />
+
           {/* Systempassung */}
           <section className="border-t" style={{ borderColor: H.line }}>
-            <div className="container mx-auto px-6 max-w-5xl py-14 md:py-20">
+            <div className="container mx-auto px-6 max-w-5xl py-10 md:py-20">
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {

@@ -18,7 +18,7 @@ export function ProductRating({ productId, onNavigate }: { productId: ReviewProd
   </a></Button>;
 }
 
-export default function ProductReviews({ productId, anchorId = "bewertungen", handleDeepLink = true }: { productId: ReviewProductId; anchorId?: string; handleDeepLink?: boolean }) {
+export default function ProductReviews({ productId, anchorId = "bewertungen", handleDeepLink = true, compactMobile = false }: { productId: ReviewProductId; anchorId?: string; handleDeepLink?: boolean; compactMobile?: boolean }) {
   const { reviews, stats, isPending, isError, refetch } = useProductReviews(productId);
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -38,8 +38,8 @@ export default function ProductReviews({ productId, anchorId = "bewertungen", ha
     return list.sort((a, b) => showControls && sort === "helpful" ? b.helpful_count - a.helpful_count : showControls && sort === "top" ? b.rating - a.rating : showControls && sort === "low" ? a.rating - b.rating : +new Date(b.created_at) - +new Date(a.created_at));
   }, [reviews, rating, sort, showControls]);
   return <section id={anchorId} className="scroll-mt-28 border-t border-border">
-    <div className="mx-auto max-w-3xl px-6 py-12 md:py-16">
-      <h2 className="text-3xl font-light text-foreground">Bewertungen</h2>
+    <div className={`mx-auto max-w-3xl px-6 ${compactMobile ? "py-10" : "py-12"} md:py-16`}>
+      <h2 className={`${compactMobile ? "text-[24px] md:text-3xl" : "text-3xl"} font-light text-foreground`}>Bewertungen</h2>
       {isPending ? <p className="mt-6 text-sm text-muted-foreground">Bewertungen werden geladen…</p> : isError ? <div className="mt-6"><p>Bewertungen konnten nicht geladen werden.</p><Button variant="outline" onClick={() => refetch()}>Erneut versuchen</Button></div> : stats.total ? <>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
           <div><p className="text-4xl font-light">{stats.average.toFixed(1)}</p><StarRating value={Math.round(stats.average)} readOnly size={20} /><p className="mt-2 text-sm text-muted-foreground">Basierend auf {stats.total} {stats.total === 1 ? "Bewertung" : "Bewertungen"}</p></div>

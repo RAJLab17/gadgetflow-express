@@ -16,12 +16,14 @@ const ProductFaqSection = ({
   accordion = false,
   links = LINKS,
   linksAsList = false,
+  compactMobile = false,
 }: {
   title: string;
   items: FaqItem[];
   accordion?: boolean;
   links?: FaqLink[];
   linksAsList?: boolean;
+  compactMobile?: boolean;
 }) => {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -33,8 +35,8 @@ const ProductFaqSection = ({
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
-      <div className="container mx-auto max-w-3xl px-6 py-14 md:py-20">
-        <h2 className="mb-8 font-light tracking-tight" style={{ fontSize: "clamp(28px,3.5vw,44px)" }}>{title}</h2>
+      <div className={`container mx-auto max-w-3xl px-6 ${compactMobile ? "py-10" : "py-14"} md:py-20`}>
+        <h2 className={`mb-8 font-light tracking-tight ${compactMobile ? "text-[24px] md:text-[clamp(28px,3.5vw,44px)]" : "text-[clamp(28px,3.5vw,44px)]"}`}>{title}</h2>
         <div className="space-y-8">
           {items.map(({ q, a }, index) => accordion ? (
             <details key={q} open={index === 0} className="group">
