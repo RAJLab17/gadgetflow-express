@@ -8,7 +8,7 @@ import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, us
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X, Truck, RotateCcw, MapPin } from "lucide-react";
+import { Check, ArrowUpRight, ShoppingBag, Loader2, X, Truck, RotateCcw, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
