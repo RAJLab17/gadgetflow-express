@@ -20,27 +20,28 @@ export default function MobileProductBuyBar({ mainBuyRef, name, image, imageAlt,
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
     let intersects = true;
-    let bottom = Infinity;
+    let hasScrolled = window.scrollY > 0;
     const update = () => {
       const overlayOpen = document.body.style.overflow === "hidden" ||
         Array.from(document.querySelectorAll<HTMLElement>('[role="dialog"], [role="alertdialog"], [aria-modal="true"], [data-cookie-banner]'))
           .some((element) => element.getClientRects().length > 0 && getComputedStyle(element).visibility !== "hidden" && element.getAttribute("data-state") !== "closed");
-      setVisible(mobileBuyBarVisible(media.matches, intersects, bottom, overlayOpen));
+      setVisible(mobileBuyBarVisible(media.matches, intersects, hasScrolled, overlayOpen));
     };
     const button = mainBuyRef.current;
     if (!button || typeof IntersectionObserver === "undefined") return;
     const intersection = new IntersectionObserver(([entry]) => {
       if (!entry) return;
       intersects = entry.isIntersecting;
-      bottom = entry.boundingClientRect.bottom;
       update();
     });
     intersection.observe(button);
     const mutations = new MutationObserver(update);
     mutations.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "data-state", "aria-hidden"] });
+    const onScroll = () => { if (!hasScrolled && window.scrollY > 0) { hasScrolled = true; update(); } };
+    window.addEventListener("scroll", onScroll, { passive: true });
     const stopMedia = observeMediaQuery(media, update);
     update();
-    return () => { intersection.disconnect(); mutations.disconnect(); stopMedia(); };
+    return () => { intersection.disconnect(); mutations.disconnect(); window.removeEventListener("scroll", onScroll); stopMedia(); };
   }, [mainBuyRef]);
 
   return (

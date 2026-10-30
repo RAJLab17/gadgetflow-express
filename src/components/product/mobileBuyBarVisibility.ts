@@ -1,4 +1,4 @@
-/** Never cover the first view or duplicate a visible main purchase control. */
-export function mobileBuyBarVisible(mobile: boolean, intersects: boolean, buttonBottom: number, overlayOpen: boolean) {
-  return mobile && !intersects && buttonBottom <= 0 && !overlayOpen;
+/** Hidden on the untouched first view and while the main purchase control is on screen. */
+export function mobileBuyBarVisible(mobile: boolean, intersects: boolean, hasScrolled: boolean, overlayOpen: boolean) {
+  return mobile && hasScrolled && !intersects && !overlayOpen;
 }

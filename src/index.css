@@ -327,10 +327,15 @@
   .matrix-device > img {
     transform: scale(0.86);
   }
-  .matrix-options > div.order-3 button {
-    min-height: 30px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+  .matrix-options > div.order-3 button,
+  .matrix-options > div.order-4 button {
+    min-height: 44px;
+  }
+  .matrix-color-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
   }
   .matrix-preview button:not(.matrix-color-link) {
     width: 24px;
