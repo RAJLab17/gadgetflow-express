@@ -2,6 +2,7 @@ import ProductFaqSection from "@/components/ProductFaqSection";
 import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
 import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
 import { useProductReviews } from "@/hooks/useProductReviews";
+import { holdReviewsUntilImage, releaseReviews } from "@/lib/reviewLoadGate";
 import { reviewSchema } from "@/lib/reviewProducts";
 import { MATRIX_FAQ } from "@/content/matrixFaq";
 import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
@@ -262,6 +263,7 @@ const RENDERS: Record<string, string> = {
 
 let variantsWarming = false;
 const warmVariantImages = () => {
+  releaseReviews();
   if (variantsWarming) return;
   variantsWarming = true;
   const start = () => {
@@ -593,6 +595,7 @@ const MatrixMobileInfo = () => {
 
 /* ── Page ─────────────────────────────────────────────────────────────── */
 const MatrixPage = () => {
+  useState(() => { holdReviewsUntilImage(); return null; });
   const { reviews: productReviews } = useProductReviews("matrix");
   useEffect(() => {
     trackViewItem({ item_id: "RAJ-MTX", item_name: "RAJ MATRIX iPhone Case", price: 59 });
@@ -944,8 +947,10 @@ const MatrixPage = () => {
                     </h1>
                     <span className="text-[22px] font-semibold text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
                     </div>
-                    <ProductRating productId="matrix" />
-                    <ProductCustomerPhotos productId="matrix" />
+                    <div className="min-h-[88px]">
+                      <ProductRating productId="matrix" />
+                      <ProductCustomerPhotos productId="matrix" />
+                    </div>
                   </div>
 
 
