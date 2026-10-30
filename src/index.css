@@ -332,11 +332,11 @@
     padding-top: 3px;
     padding-bottom: 3px;
   }
-  .matrix-preview button {
+  .matrix-preview button:not(.matrix-color-link) {
     width: 24px;
     height: 24px;
   }
-  .matrix-preview button[aria-pressed="false"] {
+  .matrix-preview button:not(.matrix-color-link)[aria-pressed="false"] {
     box-shadow: none !important;
   }
   .matrix-preview button[aria-pressed="true"] {
