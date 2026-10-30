@@ -4,35 +4,35 @@ export type FaqItem = { q: string; a: string };
 export const MATRIX_FAQ: FaqItem[] = [
   {
     q: "Passt die MATRIX auf iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle passt auf das iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Das iPhone 17 Pro und das iPhone 18 Pro nutzen die identische Hülle, ebenso das iPhone 17 Pro Max und das iPhone 18 Pro Max – die Passform ist jeweils genau gleich. Wähle oben trotzdem dein Modell aus, damit deine Bestellung eindeutig zugeordnet ist und Tasten sowie Kamera-Aussparungen exakt sitzen. Im Kameraplateau und in den Aussparungen bleibt die Farbe deines iPhones sichtbar, sodass die Hülle zu jeder Gerätefarbe passt. Für andere iPhone-Modelle bieten wir die MATRIX derzeit nicht an.",
+    a: "Ja. 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max. Im Kameraplateau bleibt die Farbe deines iPhones sichtbar. Für andere Modelle gibt es die MATRIX derzeit nicht.",
   },
   {
-    q: "Funktioniert MagSafe und Qi2.2 kabelloses Laden mit der Hülle?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle unterstützt MagSafe und Qi2.2 vollständig. Ein eingebauter N52-Magnetring hält dein iPhone sicher auf MagSafe-Ladegeräten, Haltern und im Auto. Kabelloses Laden funktioniert direkt durch die Hülle, mit Qi2.2 und bis zu 25 W, ohne die Hülle abzunehmen. Du musst die Hülle zum Laden also nie abnehmen. Der Magnetring ist zudem auf die Ladestation RAJ NEXUS und die Autohalterung RAJ APEX abgestimmt, damit das iPhone immer in derselben Position einrastet. Was Qi2.2 genau bedeutet, erklären wir in unserem Qi2.2-Ratgeber.",
+    q: "Funktionieren MagSafe und kabelloses Laden mit der Hülle?",
+    a: "Ja. Ein N52-Magnetring hält das iPhone sicher auf MagSafe-Ladegeräten und Haltern. Kabelloses Laden mit Qi2.2 und bis zu 25 W funktioniert direkt durch die Hülle.",
   },
   {
     q: "Woraus besteht die Hülle?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle ist eine robuste Hartschale aus Polycarbonat mit Carbon-Finish – leicht, schlagfest und mit griffiger Oberfläche. Du hast die Wahl zwischen Cherry Carbon und Onyx Carbon. Die Knöpfe sind aus Aluminium und goldeloxiert, der Kameraring ist aus Metall. Im Inneren sitzt ein N52-Magnetring für MagSafe und Qi2.2. Als Erkennungszeichen trägt jede Hülle den goldenen RAJ Blitz unten links. Durch das Kameraplateau bleibt die Originalfarbe deines iPhones sichtbar, sodass Hülle und Gerät optisch zusammenspielen.",
+    a: "Aus einer leichten, schlagfesten Hartschale aus Polycarbonat mit Carbon-Struktur. Die Knöpfe sind aus goldeloxiertem Aluminium, der Kameraring aus Metall. Unten links sitzt der goldene RAJ Blitz.",
   },
   {
     q: "Wie gut schützt sie Kamera und Display?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle hat einen erhöhten Rand um Kamera und Display, der beides beim Ablegen auf dem Tisch schützt. Zusätzlich umrahmt ein Kameraring aus Metall das Kameraplateau. Die Hülle ist eine robuste Hartschale aus Polycarbonat mit Carbon-Finish – leicht, schlagfest und mit griffiger Oberfläche. Sie ist passgenau für das gewählte Modell gefertigt, sodass Tasten und Kamera-Aussparungen exakt sitzen; die Tasten sind als goldeloxierte Aluminium-Knöpfe ausgeführt. Der MagSafe-Magnetring bleibt auch mit Hülle voll nutzbar. Wenn dich der Schutz im Alltag nicht überzeugt, kannst du die Hülle innerhalb von 30 Tagen zurückgeben.",
+    a: "Ein erhöhter Rand schützt Kamera und Display, wenn das iPhone auf dem Tisch liegt. Ein Metallring umrahmt das Kameraplateau. Überzeugt dich der Schutz nicht, gibst du die Hülle innerhalb von 30 Tagen zurück.",
   },
   {
-    q: "Cherry Carbon oder Onyx Carbon – welche Farbe?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle gibt es in zwei Finishes: Cherry Carbon und Onyx Carbon. Cherry Carbon ist ein warmer Kirschton mit sichtbarer Carbon-Struktur, Onyx Carbon ein dunkles, fast schwarzes Finish. Beide Varianten haben goldeloxierte Aluminium-Knöpfe sowie den goldenen RAJ Blitz und kosten gleich viel, CHF 59.–. Da die Gerätefarbe im Kameraplateau sichtbar bleibt, lohnt sich ein Blick auf die Vorschau oben: Dort siehst du jede Kombination mit deiner iPhone-Farbe. Die passende MATRIX AirPods-Hülle gibt es in denselben zwei Finishes.",
+    q: "Cherry Carbon oder Onyx Carbon?",
+    a: "Cherry Carbon ist ein gedeckter, warmer Kirschton mit sichtbarer Struktur, Onyx Carbon ist fast schwarz. Beide haben goldene Knöpfe und kosten CHF 59.–. Oben siehst du jede Farbe zusammen mit deiner iPhone-Farbe.",
   },
   {
     q: "Wie schnell wird geliefert und was kostet der Versand?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle wird innerhalb der Schweiz kostenlos versendet. Lieferung in 2–3 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du zwei Hüllen oder die Hülle zusammen mit der AirPods-Hülle, wird der Bundle-Preis im Checkout automatisch berechnet. Alle Details zu Lieferung und Rückgabe findest du auf unserer Seite zu Versand und Rückgabe.",
+    a: "Der Versand innerhalb der Schweiz ist gratis, die Lieferung dauert 2 bis 3 Werktage mit der Post. Bezahlen kannst du mit Karte, Apple Pay, Google Pay oder TWINT. Bundle-Preise werden im Checkout automatisch abgezogen.",
   },
   {
     q: "Kann ich die Hülle zurückgeben?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle kannst du innerhalb von 30 Tagen ab Erhalt zurückgeben. Es gilt: 30 Tage Rückgabe – auch wenn du die Hülle ausprobiert hast, solange sie ohne Gebrauchsspuren und in der Originalverpackung ist. So kannst du in Ruhe prüfen, ob Passform, Haptik und Farbe zu deinem iPhone passen. Die Rückerstattung erfolgt über das ursprüngliche Zahlungsmittel innerhalb von 3–5 Werktagen. Wie du eine Rückgabe meldest, steht auf unserer Seite zu Versand und Rückgabe. Bei Fragen hilft dir unser Support aus der Schweiz gerne weiter.",
+    a: "Ja, innerhalb von 30 Tagen ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette bekommst du gratis von uns. Das Geld ist innert 3 bis 5 Werktagen zurück.",
   },
   {
-    q: "Passt die MATRIX zur RAJ NEXUS Ladestation?",
-    a: "Die RAJ MATRIX Carbon-Look-Hülle ist auf die RAJ NEXUS Ladestation abgestimmt. Der Magnetring der MATRIX sitzt so, dass das iPhone auf dem NEXUS in derselben Position einrastet, mit oder ohne Hülle. Geladen wird mit Qi2.2 direkt durch die Hülle hindurch. Der RAJ NEXUS ist eine 3-in-1 Ladestation, die iPhone, Apple Watch und AirPods gleichzeitig kabellos lädt, und kostet CHF 99.–. Ausserdem passt die MATRIX zur Autohalterung RAJ APEX, die voraussichtlich ab Ende November 2026 erhältlich ist.",
+    q: "Passt die MATRIX zum RAJ NEXUS?",
+    a: "Ja. Der Magnetring sitzt so, dass das iPhone auf dem NEXUS in derselben Position einrastet, mit oder ohne Hülle. Geladen wird mit Qi2.2 durch die Hülle.",
   },
 ];
 

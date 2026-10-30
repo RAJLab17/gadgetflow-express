@@ -8,7 +8,7 @@ import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, us
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { Link } from "react-router-dom";
-import { Check, Minus, ArrowUpRight, ShoppingBag, Loader2, X, Truck, RotateCcw, MapPin } from "lucide-react";
+import { Check, ArrowUpRight, ShoppingBag, Loader2, X, Truck, RotateCcw, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
@@ -148,10 +148,10 @@ interface Model {
 }
 
 const MODELS: Model[] = [
-  { id: "17pro", short: "17 Pro", name: "iPhone 17 Pro", gen: "17", status: "Verfügbar" },
-  { id: "17promax", short: "17 Pro Max", name: "iPhone 17 Pro Max", gen: "17", status: "Verfügbar" },
-  { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", gen: "18", status: "Vorbestellung" },
-  { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", gen: "18", status: "Vorbestellung" },
+  { id: "17pro", short: "17 Pro", name: "iPhone 17 Pro", gen: "17", status: "Sofort lieferbar" },
+  { id: "17promax", short: "17 Pro Max", name: "iPhone 17 Pro Max", gen: "17", status: "Sofort lieferbar" },
+  { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", gen: "18", status: "Sofort lieferbar" },
+  { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", gen: "18", status: "Sofort lieferbar" },
 ];
 
 interface DeviceFinish {
@@ -191,7 +191,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "cherry",
     name: "Cherry Carbon",
-    material: "Carbon, Cherry · Aluminium-Knöpfe in Gold",
+    material: "Carbon-Struktur, Cherry · Aluminium-Knöpfe in Gold",
     base: "#7b4b60",
     weave: "#a66f83",
     edge: "#4f2b3a",
@@ -200,7 +200,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "onyx",
     name: "Onyx Carbon",
-    material: "Carbon, Schwarz · Aluminium-Knöpfe in Gold",
+    material: "Carbon-Struktur, Schwarz · Aluminium-Knöpfe in Gold",
     base: "#16171a",
     weave: "#33363c",
     edge: "#08090a",
@@ -232,19 +232,12 @@ const TWO_CASES_DISCOUNT_CODE = "MATRIX2";
 
 
 
-interface Row {
-  label: string;
-  values: Record<string, string | boolean>;
-}
-
-const MATRIX_ROWS: Row[] = [
-  { label: "MagSafe Magnetring (N52)", values: { cherry: true, onyx: true } },
-  { label: "Qi2.2 · 25 W ohne Verlust", values: { cherry: true, onyx: true } },
-  { label: "RAJ NEXUS kompatibel", values: { cherry: true, onyx: true } },
-  { label: "RAJ APEX kompatibel", values: { cherry: true, onyx: true } },
-  { label: "Knöpfe", values: { cherry: "Aluminium, goldeloxiert", onyx: "Aluminium, goldeloxiert" } },
-  { label: "Kameraring Metall", values: { cherry: true, onyx: true } },
-  { label: "Gerätefarbe im Plateau sichtbar", values: { cherry: true, onyx: true } },
+const MATRIX_INCLUDED = [
+  "Starker N52-Magnetring für MagSafe-Zubehör",
+  "Kabellos laden mit Qi2.2 direkt durch die Hülle",
+  "Erhöhter Rand schützt Kamera und Display",
+  "Knöpfe aus goldeloxiertem Aluminium, Kameraring aus Metall",
+  "Abgestimmt auf die RAJ NEXUS Ladestation",
 ];
 
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
@@ -808,7 +801,7 @@ const MatrixPage = () => {
     name: "RAJ MATRIX Carbon Hülle MagSafe",
     brand: { "@type": "Brand", name: "RAJ" },
     description:
-      "RAJ MATRIX — MagSafe-Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS und RAJ APEX.",
+      "RAJ MATRIX, Hülle mit Carbon-Struktur für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, MagSafe- und Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS.",
     image: [`https://raj.ch${matrixShareAsset.url}`, `https://raj.ch${cherryDarkcherry18Asset.url}`, `https://raj.ch${onyxDarkgrey18Asset.url}`],
     url: "https://raj.ch/matrix",
     ...reviewSchema("matrix", productReviews),
@@ -843,16 +836,16 @@ const MatrixPage = () => {
   return (
     <>
       <Helmet>
-        <title>RAJ MATRIX — MagSafe Cases für iPhone 17 & 18 Pro | RAJ</title>
+        <title>RAJ MATRIX Hülle für iPhone 17 Pro & 18 Pro, MagSafe-kompatibel | RAJ</title>
         <meta
           name="description"
-          content="RAJ MATRIX Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Zwei Carbon-Finishes mit goldenen Knöpfen und Qi2.2 mit 25 W."
+          content="Hülle mit Carbon-Struktur für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. MagSafe-kompatibel, Qi2.2 Laden durch die Hülle, goldene Aluminium-Knöpfe. CHF 59.–, gratis Versand."
         />
         <link rel="canonical" href="https://raj.ch/matrix" />
-        <meta property="og:title" content="RAJ MATRIX — MagSafe Cases für iPhone 17 & 18 Pro" />
+        <meta property="og:title" content="RAJ MATRIX Hülle für iPhone 17 Pro & 18 Pro, MagSafe-kompatibel" />
         <meta
           property="og:description"
-          content="Zwei Carbon-Finishes, vier Modelle, ein System. Qi2.2 mit 25 W, abgestimmt auf RAJ NEXUS und RAJ APEX."
+          content="Hülle mit Carbon-Struktur, MagSafe-kompatibel, für iPhone 17 Pro bis 18 Pro Max. Abgestimmt auf den RAJ NEXUS."
         />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/matrix" />
@@ -940,13 +933,13 @@ const MatrixPage = () => {
                         className="mt-1 hidden text-sm italic md:block"
                         style={{ color: H.gold, fontWeight: 400, letterSpacing: "normal", lineHeight: 1.43 }}
                       >
-                        <span className="block">Die Hülle als Teil des Systems</span>
+                        <span className="block">Hülle mit Carbon-Struktur, MagSafe-kompatibel, für iPhone 17 Pro bis 18 Pro Max</span>
                       </span>
                       <span
                         className="mt-1 block text-[14px] md:hidden"
                         style={{ fontWeight: 400, letterSpacing: "normal", color: H.text, lineHeight: 1.4 }}
                       >
-                        <span className="block">Die Hülle als Teil des Systems</span>
+                        <span className="block">Hülle mit Carbon-Struktur, MagSafe-kompatibel, für iPhone 17 Pro bis 18 Pro Max</span>
                       </span>
                     </h1>
                     <span className="text-[22px] font-semibold text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
@@ -1354,112 +1347,20 @@ const MatrixPage = () => {
             </div>
           </section>
 
-          {/* Matrix-Tabelle */}
+          {/* Das steckt drin */}
           <section className="border-t" style={{ borderColor: H.line }}>
             <div className="container mx-auto px-6 max-w-5xl py-10 md:py-20">
               <h2 className="font-light tracking-tight mb-8 text-[24px] md:text-[clamp(28px,3.5vw,44px)]">
-                Die Matrix
+                Das steckt drin
               </h2>
-              {/* Mobile: kompakte Tabelle, passt auf 390 px */}
-              <table className="w-full border-collapse text-[12px] lg:hidden">
-                <thead>
-                  <tr>
-                    <th className="text-left font-normal pb-3 pr-2 align-bottom" style={{ color: H.textMuted }}>
-                      <span className="text-[9px] uppercase tracking-[0.2em]">Merkmal</span>
-                    </th>
-                    {CASE_FINISHES.map((c) => (
-                      <th key={c.id} className="pb-3 px-1 align-bottom w-[26%]">
-                        <span
-                          className="mx-auto mb-1.5 block w-4 h-4 rounded-full"
-                          style={{ background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`, boxShadow: `0 0 0 1px ${H.lineStrong}` }}
-                        />
-                        <span className="block text-[11px] font-medium leading-tight">{c.name}</span>
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {MATRIX_ROWS.map((row) => (
-                    <tr key={row.label} className="border-t" style={{ borderColor: H.line }}>
-                      <td className="py-3 pr-2 leading-snug" style={{ color: H.text }}>{row.label}</td>
-                      {CASE_FINISHES.map((c) => {
-                        const v = row.values[c.id];
-                        return (
-                          <td key={c.id} className="py-3 px-1 text-center leading-snug">
-                            {typeof v === "boolean" ? (
-                              v ? <Check className="w-4 h-4 mx-auto" style={{ color: H.gold }} /> : <Minus className="w-4 h-4 mx-auto" style={{ color: H.line }} />
-                            ) : (
-                              <span className="text-[11px]" style={{ color: H.textMuted }}>{v}</span>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  ))}
-                  <tr className="border-t" style={{ borderColor: H.line }}>
-                    <td className="py-3 pr-2">Preis</td>
-                    {CASE_FINISHES.map((c) => (
-                      <td key={c.id} className="py-3 px-1 text-center font-medium">CHF {c.price}.–</td>
-                    ))}
-                  </tr>
-                </tbody>
-              </table>
-              <div className="hidden lg:block overflow-x-auto -mx-6 px-6">
-                <table className="w-full min-w-[640px] border-collapse text-sm">
-                  <thead>
-                    <tr>
-                      <th className="text-left font-normal pb-4 pr-4 align-bottom" style={{ color: H.textMuted }}>
-                        <span className="text-[10px] uppercase tracking-[0.28em]">Merkmal</span>
-                      </th>
-                      {CASE_FINISHES.map((c) => (
-                        <th key={c.id} className="pb-4 px-3 align-bottom">
-                          <span
-                            className="mx-auto mb-2 block w-5 h-5 rounded-full"
-                            style={{
-                              background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`,
-                              boxShadow: `0 0 0 1px ${H.lineStrong}`,
-                            }}
-                          />
-                          <span className="block text-xs font-medium">{c.name}</span>
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {MATRIX_ROWS.map((row) => (
-                      <tr key={row.label} className="border-t" style={{ borderColor: H.line }}>
-                        <td className="py-4 pr-4" style={{ color: H.text }}>
-                          {row.label}
-                        </td>
-                        {CASE_FINISHES.map((c) => {
-                          const v = row.values[c.id];
-                          return (
-                            <td key={c.id} className="py-4 px-3 text-center">
-                              {typeof v === "boolean" ? (
-                                v ? (
-                                  <Check className="w-4 h-4 mx-auto" style={{ color: H.gold }} />
-                                ) : (
-                                  <Minus className="w-4 h-4 mx-auto" style={{ color: H.line }} />
-                                )
-                              ) : (
-                                <span style={{ color: H.textMuted }}>{v}</span>
-                              )}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    ))}
-                    <tr className="border-t" style={{ borderColor: H.line }}>
-                      <td className="py-4 pr-4">Preis</td>
-                      {CASE_FINISHES.map((c) => (
-                        <td key={c.id} className="py-4 px-3 text-center font-medium">
-                          CHF {c.price}.–
-                        </td>
-                      ))}
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <ul className="space-y-4">
+                {MATRIX_INCLUDED.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[15px] leading-snug" style={{ color: H.text }}>
+                    <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: H.gold }} aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 
@@ -1481,17 +1382,12 @@ const MatrixPage = () => {
           {/* Systempassung */}
           <section className="border-t" style={{ borderColor: H.line }}>
             <div className="container mx-auto px-6 max-w-5xl py-10 md:py-20">
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="mx-auto max-w-xl">
                 {[
                   {
                     name: "RAJ NEXUS",
                     text: "Der Magnetring der MATRIX ist auf den NEXUS abgestimmt. Das iPhone rastet in derselben Position ein, mit oder ohne Hülle.",
                     link: "/nexus",
-                  },
-                  {
-                    name: "RAJ APEX",
-                    text: "Im Auto zählt Haltekraft. Die MATRIX ist auf den N52-Ring des APEX abgestimmt und bleibt auch auf Kopfsteinpflaster dort, wo sie hingehört.",
-                    link: "/apex",
                   },
                 ].map((s) => (
                   <Link
