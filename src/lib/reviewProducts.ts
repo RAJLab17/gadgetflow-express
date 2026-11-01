@@ -7,8 +7,8 @@ export type ReviewProductId = keyof typeof REVIEW_PRODUCTS;
 export function isReviewProduct(value: unknown): value is ReviewProductId {
   return typeof value === "string" && Object.prototype.hasOwnProperty.call(REVIEW_PRODUCTS, value);
 }
-export function reviewSchema(productId: ReviewProductId, reviews: Array<{ product_id: string; rating: number; customer_name: string; created_at: string; comment: string; title: string }>) {
-  const own = reviews.filter((review) => review.product_id === productId);
+export function reviewSchema(productId: ReviewProductId, reviews: Array<{ product_id: string; rating: number; customer_name: string; created_at: string; comment: string; title: string; source?: string }>) {
+  const own = reviews.filter((review) => review.product_id === productId && (!review.source || review.source === "raj"));
   if (!own.length) return {};
   return {
     aggregateRating: {

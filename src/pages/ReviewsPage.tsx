@@ -91,7 +91,7 @@ const ReviewsPage = () => {
             bestRating: 5,
             worstRating: 1,
           },
-          review: reviews.slice(0, 10).map((r) => ({
+          review: reviews.filter(r => !r.source || r.source === "raj").slice(0, 10).map((r) => ({
             "@type": "Review",
             author: { "@type": "Person", name: r.customer_name },
             datePublished: r.created_at,
