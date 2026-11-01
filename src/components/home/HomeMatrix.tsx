@@ -32,10 +32,10 @@ export default function HomeMatrix() {
     <HomeSection tone="white" id="matrix" className="home-matrix">
       <p className="home-product-eyebrow">RAJ MATRIX</p>
       <h2 className="home-matrix-title">Die Hülle als <span className="home-matrix-title-accent">Teil des <span className="home-matrix-title-last">Systems.</span></span></h2>
-      <div ref={ref} className={`home-matrix-cases ${visible ? "is-visible" : "is-pending"}`}>
+      <Link ref={ref} to="/matrix" aria-label="RAJ MATRIX ansehen" className={`home-matrix-cases ${visible ? "is-visible" : "is-pending"}`}>
         <span className="home-matrix-case home-matrix-case-back"><img src={cherry.url} alt="RAJ MATRIX Hülle Cherry Carbon mit iPhone 18 Pro in Dark Cherry" width={600} height={750} loading="lazy" decoding="async" /></span>
         <span className="home-matrix-case home-matrix-case-front"><img src={onyx.url} alt="RAJ MATRIX Hülle Onyx Carbon mit iPhone 18 Pro in Dark Grey" width={600} height={750} loading="lazy" decoding="async" /></span>
-      </div>
+      </Link>
       <ul className="home-matrix-points">{POINTS.map(point => <li key={point}><Check aria-hidden="true" strokeWidth={1.4} /><span>{point}</span></li>)}</ul>
       <p className="home-matrix-price">ab CHF 59.–</p>
       <p className="home-matrix-rating">

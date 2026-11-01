@@ -81,7 +81,8 @@ const HomeHero = () => {
         <div className="hh-glow" aria-hidden="true" />
 
         {/* Slide 1: MATRIX */}
-        <div className="hh-slide hh-slide--matrix">
+        <div className={`hh-slide hh-slide--matrix${activeSlide === 0 ? " is-active" : ""}`}>
+          <Link to="/matrix" className="hh-slide-link" aria-label="RAJ MATRIX ansehen" tabIndex={activeSlide === 0 ? 0 : -1}>
           <div className="hh-case-group">
           <span className="hh-case hh-case--cherry">
             <img
@@ -104,10 +105,12 @@ const HomeHero = () => {
             />
           </span>
           </div>
+          </Link>
         </div>
 
         {/* Slide 2: NEXUS */}
-        <div className="hh-slide hh-slide--nexus">
+        <div className={`hh-slide hh-slide--nexus${activeSlide === 1 ? " is-active" : ""}`}>
+          <Link to="/nexus" className="hh-slide-link" aria-label="RAJ NEXUS ansehen" tabIndex={activeSlide === 1 ? 0 : -1}>
           <div className="hh-nexus">
             <img
               className="hh-nexus-img"
@@ -131,10 +134,12 @@ const HomeHero = () => {
               <span className="hh-pill-sub">Qi2.2 · drei Geräte</span>
             </span>
           </div>
+          </Link>
         </div>
 
         {/* Slide 3: APEX */}
-        <div className="hh-slide hh-slide--apex">
+        <div className={`hh-slide hh-slide--apex${activeSlide === 2 ? " is-active" : ""}`}>
+          <Link to="/apex" className="hh-slide-link" aria-label="RAJ APEX vormerken" tabIndex={activeSlide === 2 ? 0 : -1}>
           <div className="hh-apex">
             <img
               src={apexCar}
@@ -145,21 +150,22 @@ const HomeHero = () => {
               decoding="async"
             />
           </div>
+          </Link>
         </div>
       </div>
 
       {/* Produktzeile + Fortschrittsbalken */}
       <div className="hh-meta">
         <div className="hh-products">
-          <p className="hh-product hh-product--matrix">
+          <Link to="/matrix" aria-label="RAJ MATRIX ansehen" className={`hh-product hh-product--matrix${activeSlide === 0 ? " is-active" : ""}`} tabIndex={activeSlide === 0 ? 0 : -1}>
             <span className="hh-pname">RAJ MATRIX</span>HÜLLE · AB CHF 59.–
-          </p>
-          <p className="hh-product hh-product--nexus">
+          </Link>
+          <Link to="/nexus" aria-label="RAJ NEXUS ansehen" className={`hh-product hh-product--nexus${activeSlide === 1 ? " is-active" : ""}`} tabIndex={activeSlide === 1 ? 0 : -1}>
             <span className="hh-pname">RAJ NEXUS</span>3-IN-1 · CHF 99.–
-          </p>
-          <p className="hh-product hh-product--apex">
-            <span className="hh-pname">RAJ APEX</span>FÜRS AUTO · BALD
-          </p>
+          </Link>
+          <Link to="/apex" aria-label="RAJ APEX vormerken" className={`hh-product hh-product--apex${activeSlide === 2 ? " is-active" : ""}`} tabIndex={activeSlide === 2 ? 0 : -1}>
+            <span className="hh-pname">RAJ APEX</span>FÜRS AUTO · VORMERKEN →
+          </Link>
         </div>
         <div className="hh-bars" aria-hidden="true">
           <span className="hh-bar"><span className="hh-fill hh-fill--matrix" /></span>
