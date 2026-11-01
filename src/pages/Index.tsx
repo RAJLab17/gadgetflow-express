@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LuxuryTopBar from "@/components/brand/LuxuryTopBar";
 import HomeHero from "@/components/home/HomeHero";
+import MobileTrustBar from "@/components/brand/MobileTrustBar";
 import MobileChargingMoment from "@/components/brand/MobileChargingMoment";
 import MobileMatrixMoment from "@/components/brand/MobileMatrixMoment";
 import MobileReviewsMoment from "@/components/brand/MobileReviewsMoment";
@@ -62,6 +63,7 @@ const Index = () => {
         <Header />
         <main>
           <HomeHero />
+          <MobileTrustBar />
           <MobileChargingMoment />
           <MobileMatrixMoment />
           <MobileReviewsMoment />
