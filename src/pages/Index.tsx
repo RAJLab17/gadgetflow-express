@@ -3,7 +3,7 @@ import { shareImageTags } from "@/lib/shareImages";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LuxuryTopBar from "@/components/brand/LuxuryTopBar";
-import BrandHero from "@/components/brand/BrandHero";
+import HomeHero from "@/components/home/HomeHero";
 import MobileChargingMoment from "@/components/brand/MobileChargingMoment";
 import MobileMatrixMoment from "@/components/brand/MobileMatrixMoment";
 import MobileReviewsMoment from "@/components/brand/MobileReviewsMoment";
@@ -61,7 +61,7 @@ const Index = () => {
       <div className="min-h-screen" style={{ background: "#0a0908" }}>
         <Header />
         <main>
-          <BrandHero />
+          <HomeHero />
           <MobileChargingMoment />
           <MobileMatrixMoment />
           <MobileReviewsMoment />

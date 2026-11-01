@@ -87,8 +87,8 @@ const HomeHero = () => {
             <img
               src={apexCar}
               alt="RAJ APEX Auto-Ladehalterung im Fahrzeug"
-              width={1600}
-              height={1067}
+              width={896}
+              height={1200}
               loading="lazy"
               decoding="async"
             />
