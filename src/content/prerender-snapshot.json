@@ -20,24 +20,32 @@
   "jsonLd": [],
   "blocks": [
    {
+    "tag": "p",
+    "text": "RAJ MATRIXHÜLLE · AB CHF 59.–"
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS3-IN-1 · CHF 99.–"
+   },
+   {
+    "tag": "p",
+    "text": "RAJ APEXFÜRS AUTO · BALD"
+   },
+   {
+    "tag": "p",
+    "text": "SCHWEIZER MARKE · WEINFELDEN"
+   },
+   {
     "tag": "h1",
     "text": "Energie, in Form gegossen."
    },
    {
     "tag": "p",
-    "text": "MANIFEST"
+    "text": "3-in-1 Ladestation und MagSafe-Hüllen für dein iPhone. Versand in 2–3 Werktagen, 30 Tage Rückgabe."
    },
    {
     "tag": "p",
-    "text": "Das Gewöhnliche überzeugt durch Lautstärke."
-   },
-   {
-    "tag": "p",
-    "text": "Das Aussergewöhnliche durch Stille."
-   },
-   {
-    "tag": "p",
-    "text": "RAJ — SWISS BRAND · APPLE ECOSYSTEM"
+    "text": "★★★★★ 5.0 · 24 Bewertungen"
    },
    {
     "tag": "h2",
@@ -282,7 +290,7 @@
   "blocks": [
    {
     "tag": "p",
-    "text": "3’410 Menschen haben den RAJ NEXUS bereits entdeckt"
+    "text": "3’411 Menschen haben den RAJ NEXUS bereits entdeckt"
    },
    {
     "tag": "h1",

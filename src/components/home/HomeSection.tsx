@@ -21,8 +21,8 @@ type HomeSectionProps = {
  * From 1024px: 120px vertical / 120px horizontal padding, content max 1200px centred.
  */
 const HomeSection = ({ tone, id, className, children }: HomeSectionProps) => (
-  <section id={id} className={className} style={TONE_STYLES[tone]}>
-    <div className="mx-auto w-full max-w-[1200px] px-5 py-14 lg:px-[120px] lg:py-[120px]">
+  <section id={id} className={`px-5 lg:px-16${className ? ` ${className}` : ""}`} style={TONE_STYLES[tone]}>
+    <div className="mx-auto w-full max-w-[1200px] py-14 lg:py-[120px]">
       {children}
     </div>
   </section>
