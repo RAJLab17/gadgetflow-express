@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
-import { Check, X, Trash2, MessageSquare, Download, ShieldCheck, RefreshCw, LogOut } from "lucide-react";
+import { Check, X, Trash2, MessageSquare, Download, ShieldCheck, RefreshCw, LogOut, Plus } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -27,6 +28,8 @@ interface AdminReview {
   created_at: string;
   photo_preview_url?: string | null;
   photo_path?: string | null;
+  source: "raj" | "google";
+  featured_home: boolean;
 }
 
 type Tab = "pending" | "approved" | "rejected";
@@ -39,6 +42,8 @@ const AdminReviewsPage = () => {
   const [loading, setLoading] = useState(false);
   const [responseFor, setResponseFor] = useState<string | null>(null);
   const [responseText, setResponseText] = useState("");
+  const [creating, setCreating] = useState(false);
+  const [manual, setManual] = useState({ customer_name: "", rating: 5, title: "", comment: "", created_at: new Date().toISOString().slice(0, 10), product_id: "nexus", source: "google" });
 
   const call = useCallback(
     async (path: string, init?: RequestInit) => {
@@ -106,6 +111,22 @@ const AdminReviewsPage = () => {
     } catch (e) {
       toast({ title: "Fehler", description: (e as Error).message, variant: "destructive" });
     }
+  };
+
+  const settings = async (review: AdminReview, changes: Partial<Pick<AdminReview, "source" | "featured_home">>) => {
+    try {
+      await call("?action=settings", { method: "POST", body: JSON.stringify({ id: review.id, source: changes.source ?? review.source, featured_home: changes.featured_home ?? review.featured_home }) });
+      await load();
+    } catch (e) { toast({ title: "Fehler", description: (e as Error).message, variant: "destructive" }); }
+  };
+  const createReview = async () => {
+    try {
+      await call("?action=create", { method: "POST", body: JSON.stringify({ ...manual, created_at: new Date(`${manual.created_at}T12:00:00Z`).toISOString() }) });
+      setCreating(false);
+      setTab("pending");
+      await load();
+      toast({ title: "Bewertung angelegt – wartet auf Freigabe" });
+    } catch (e) { toast({ title: "Fehler", description: (e as Error).message, variant: "destructive" }); }
   };
 
   const exportCsv = async () => {
@@ -191,6 +212,7 @@ const AdminReviewsPage = () => {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <h1 className="text-lg font-medium text-stone-900">Reviews Admin</h1>
           <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" onClick={() => setCreating(value => !value)}><Plus size={14} />Bewertung anlegen</Button>
             <Button variant="outline" size="sm" onClick={exportCsv}>
               <Download size={14} className="mr-1.5" />
               Emails als CSV
@@ -219,6 +241,18 @@ const AdminReviewsPage = () => {
       </header>
 
       <main className="mx-auto max-w-5xl px-6 py-8">
+        {creating && <form onSubmit={event => { event.preventDefault(); createReview(); }} className="mb-8 space-y-4 border border-border bg-background p-6">
+          <h2 className="text-lg font-medium">Bewertung anlegen</h2>
+          <label className="block text-sm">Vorname<Input required value={manual.customer_name} onChange={e => setManual({ ...manual, customer_name: e.target.value })} /></label>
+          <label className="block text-sm">Sterne<StarRating value={manual.rating} onChange={rating => setManual({ ...manual, rating })} /></label>
+          <label className="block text-sm">Titel<Input required value={manual.title} onChange={e => setManual({ ...manual, title: e.target.value })} /></label>
+          <label className="block text-sm">Text<Textarea required value={manual.comment} onChange={e => setManual({ ...manual, comment: e.target.value })} /></label>
+          <label className="block text-sm">Datum<Input required type="date" value={manual.created_at} onChange={e => setManual({ ...manual, created_at: e.target.value })} /></label>
+          <label className="block text-sm">Produkt<select className="ml-3 border border-input bg-background p-2" value={manual.product_id} onChange={e => setManual({ ...manual, product_id: e.target.value })}>{Object.entries(REVIEW_PRODUCTS).map(([id, name]) => <option key={id} value={id}>{name}</option>)}</select></label>
+          <label className="block text-sm">Quelle<select className="ml-3 border border-input bg-background p-2" value={manual.source} onChange={e => setManual({ ...manual, source: e.target.value })}><option value="raj">raj.ch</option><option value="google">Google</option></select></label>
+          <label className="flex items-center gap-3 text-sm"><Switch checked={false} disabled />Verifizierter Kauf</label>
+          <div className="flex gap-3"><Button type="submit">Anlegen</Button><Button type="button" variant="ghost" onClick={() => setCreating(false)}>Abbrechen</Button></div>
+        </form>}
         {loading ? (
           <p className="py-12 text-center text-sm text-stone-500">Lädt…</p>
         ) : reviews.length === 0 ? (
@@ -231,7 +265,7 @@ const AdminReviewsPage = () => {
                   <div>
                     <div className="flex items-center gap-2">
                       <StarRating value={r.rating} readOnly size={14} />
-                      {r.verified_purchase ? (
+                      {r.source === "google" ? <span className="text-xs text-muted-foreground">Google-Bewertung</span> : r.verified_purchase ? (
                         <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
                           Verifiziert
                         </span>
@@ -266,6 +300,10 @@ const AdminReviewsPage = () => {
                 </div>
 
                 <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-stone-700">{r.comment}</p>
+                <div className="mt-4 flex flex-wrap items-center gap-6">
+                  <label className="flex items-center gap-2 text-sm">Quelle<select aria-label={`Quelle von ${r.customer_name}`} className="border border-input bg-background p-2" value={r.source} onChange={e => settings(r, { source: e.target.value as "raj" | "google" })}><option value="raj">raj.ch</option><option value="google">Google</option></select></label>
+                  <label className="flex items-center gap-2 text-sm"><Switch aria-label={`Auf Startseite zeigen: ${r.customer_name}`} checked={r.featured_home} onCheckedChange={featured_home => settings(r, { featured_home })} />Auf Startseite zeigen</label>
+                </div>
 
                 {r.photo_preview_url && (
                   <a
