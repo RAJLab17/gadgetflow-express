@@ -29,4 +29,5 @@
 - Main product images on /matrix, /nexus and /airpods-case use the shared ProductZoom (ZoomFrame hover magnifier + ProductLightbox) fed with full-resolution sources, so zoom behaviour stays identical across pages and mobile scrolling stays unblocked.
 
 - Product rating links, photo strips and latest five-star quotes share the approved-only product query; reviewHighlights isolates products and the shared review photo lightbox serves both strips and review cards.
+- Review source and homepage selection are managed through the server-validated admin endpoint; all rating counts and schemas exclude Google quotes, and a database trigger prevents Google purchase badges. Homepage quote selection uses the shared approved query and pauses rotation offscreen, on hidden tabs and with reduced motion.
 - The mobile homepage review track measures currently visible cards on scroll and resize, so off-screen review photos do not reserve empty height above the reviews link.

@@ -10,6 +10,7 @@ test('homepage total sums approved reviews from all three products', () => {
     { id: 'm1', product_id: 'matrix', rating: 5 },
     { id: 'm2', product_id: 'matrix', rating: 4 },
     { id: 'a1', product_id: 'airpods-case', rating: 5 },
+    { id: 'g1', product_id: 'matrix', rating: 1, source: 'google' },
   ]);
   let total = -1;
   let average = -1;
@@ -32,6 +33,7 @@ test('homepage MATRIX rating uses only approved MATRIX reviews', () => {
     { id: 'm1', product_id: 'matrix', rating: 5 },
     { id: 'm2', product_id: 'matrix', rating: 4 },
     { id: 'a1', product_id: 'airpods-case', rating: 2 },
+    { id: 'g1', product_id: 'matrix', rating: 1, source: 'google' },
   ]);
   let total = -1;
   let average = -1;

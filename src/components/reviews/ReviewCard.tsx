@@ -3,7 +3,6 @@ import { ShieldCheck, ThumbsUp } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import StarRating from "./StarRating";
 import ReviewPhotoLightbox from "./ReviewPhotoLightbox";
-import { reviewSourceLabel } from "@/lib/homeReviews";
 
 export interface PublicReview {
   id: string;

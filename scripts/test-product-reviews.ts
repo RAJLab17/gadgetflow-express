@@ -23,3 +23,7 @@ test('NEXUS reviews cannot enter MATRIX schema', () => {
   expect(reviewSchema('matrix', reviews)).toEqual({});
   expect(reviewSchema('nexus', reviews).aggregateRating?.reviewCount).toBe(1);
 });
+test('Google quotes cannot enter Product rating schema', () => {
+  const reviews = [{ product_id: 'matrix', rating: 5, customer_name: 'Fixture', created_at: '2026-11-01', comment: 'Fixture only', title: 'Fixture', source: 'google' }];
+  expect(reviewSchema('matrix', reviews)).toEqual({});
+});
