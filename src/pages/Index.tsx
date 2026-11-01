@@ -21,11 +21,11 @@ const META = {
   },
   fr: {
     title: "RAJ — Power. Always there. | Technologie de luxe suisse",
-    desc: "RAJ est un atelier tech de luxe suisse. Objets premium de substance — à commencer par NEXUS. Précision, constance, caractère. Fabriqué en Suisse.",
+    desc: "RAJ est un atelier tech de luxe suisse. Objets premium de substance — à commencer par NEXUS. Précision, constance, caractère. Marque suisse.",
   },
   it: {
     title: "RAJ — Power. Always there. | Tecnologia di lusso svizzera",
-    desc: "RAJ è un atelier tech di lusso svizzero. Oggetti premium di sostanza — a partire da NEXUS. Precisione, costanza, carattere. Fatto in Svizzera.",
+    desc: "RAJ è un atelier tech di lusso svizzero. Oggetti premium di sostanza — a partire da NEXUS. Precisione, costanza, carattere. Marchio svizzero.",
   },
   en: {
     title: "RAJ — Power. Always there. | Swiss Luxury Technology",
