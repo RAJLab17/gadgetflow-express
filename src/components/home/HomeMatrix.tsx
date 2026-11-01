@@ -15,7 +15,7 @@ const POINTS = [
 ];
 
 export default function HomeMatrix() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   const [visible, setVisible] = useState(false);
   const { stats, isSuccess } = useProductReviews("matrix");
   useEffect(() => {
