@@ -16,6 +16,9 @@ import "@/styles/home-hero.css";
 const HomeHero = () => {
   const { stats, isSuccess } = useProductReviews();
   const [chargePct, setChargePct] = useState(0);
+  // Aktives Slide im 15s-Takt (MATRIX 0–4.4s, NEXUS 4.4–9.4s, APEX 9.4–14.4s,
+  // passend zu den CSS-Delays -0.6s/4.4s/9.4s). Nur das aktive Slide ist klickbar.
+  const [activeSlide, setActiveSlide] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
 
   // Ladering-Zähler: gleicher Takt wie der NEXUS-Slide (15s Zyklus, Start 4.4s,
@@ -41,6 +44,10 @@ const HomeHero = () => {
         const local = ((t % 15) + 15) % 15;
         const p = t < 0 || local <= 0.75 ? 0 : local >= 4.35 ? 100 : Math.round(((local - 0.75) / 3.6) * 100);
         setChargePct((prev) => (prev === p ? prev : p));
+        const slideT = (now - t0) / 1000;
+        const slideLocal = ((slideT + 0.6) % 15 + 15) % 15;
+        const idx = Math.min(2, Math.floor(slideLocal / 5));
+        setActiveSlide((prev) => (prev === idx ? prev : idx));
         lastUpdate = now;
       }
       raf = requestAnimationFrame(tick);
