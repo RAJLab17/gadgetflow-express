@@ -113,12 +113,17 @@
   animation: rajFloat 6.5s ease-in-out infinite;
 }
 .hh-nexus-reflect {
+  position: absolute;
+  top: 100%;
+  left: 0;
   width: 262px;
+  height: 110px;
   margin-top: 2px;
   transform: scaleY(-1);
+  transform-origin: top;
   opacity: 0.18;
-  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 55%);
-  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 55%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 80%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 80%);
 }
 .hh-nexus-floor {
   position: absolute;
@@ -461,6 +466,9 @@
   .hh-nexus-img,
   .hh-nexus-reflect {
     width: 380px;
+  }
+  .hh-nexus-reflect {
+    height: 150px;
   }
   .hh-nexus-floor {
     width: 440px;
