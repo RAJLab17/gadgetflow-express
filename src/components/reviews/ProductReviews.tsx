@@ -40,9 +40,9 @@ export default function ProductReviews({ productId, anchorId = "bewertungen", ha
   return <section id={anchorId} className="scroll-mt-28 border-t border-border">
     <div className={`mx-auto max-w-3xl px-6 ${compactMobile ? "py-10" : "py-12"} md:py-16`}>
       <h2 className={`${compactMobile ? "text-[24px] md:text-3xl" : "text-3xl"} font-light text-foreground`}>Bewertungen</h2>
-      {isPending ? <p className="mt-6 text-sm text-muted-foreground">Bewertungen werden geladen…</p> : isError ? <div className="mt-6"><p>Bewertungen konnten nicht geladen werden.</p><Button variant="outline" onClick={() => refetch()}>Erneut versuchen</Button></div> : stats.total ? <>
+      {isPending ? <p className="mt-6 text-sm text-muted-foreground">Bewertungen werden geladen…</p> : isError ? <div className="mt-6"><p>Bewertungen konnten nicht geladen werden.</p><Button variant="outline" onClick={() => refetch()}>Erneut versuchen</Button></div> : reviews.length ? <>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-          <div><p className="text-4xl font-light">{stats.average.toFixed(1)}</p><StarRating value={Math.round(stats.average)} readOnly size={20} /><p className="mt-2 text-sm text-muted-foreground">Basierend auf {stats.total} {stats.total === 1 ? "Bewertung" : "Bewertungen"}</p></div>
+          {stats.total > 0 && <div><p className="text-4xl font-light">{stats.average.toFixed(1)}</p><StarRating value={Math.round(stats.average)} readOnly size={20} /><p className="mt-2 text-sm text-muted-foreground">Basierend auf {stats.total} {stats.total === 1 ? "Bewertung" : "Bewertungen"}</p></div>}
           <Button onClick={() => setOpen(true)}><MessageSquare size={16} className="mr-2" />Bewertung schreiben</Button>
         </div>
         {showControls && <div className="mt-8 flex flex-wrap items-center justify-between gap-3">

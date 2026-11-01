@@ -1,4 +1,5 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { manualReviewSchema, reviewSettingsSchema } from './reviewInput.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -6,9 +7,9 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
 }
 
-const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
-const SERVICE_ROLE = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-const ADMIN_TOKEN = Deno.env.get('REVIEWS_ADMIN_TOKEN')!
+const SUPABASE_URL = Deno.env.get('SUPABASE_URL') ?? ''
+const SERVICE_ROLE = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+const ADMIN_TOKEN = Deno.env.get('REVIEWS_ADMIN_TOKEN') ?? ''
 const BUCKET = 'review-photos'
 const APPROVED_URL_TTL = 60 * 60 * 24 * 365 * 10 // 10 years
 const ADMIN_URL_TTL = 60 * 15 // 15 minutes for admin previews
@@ -86,8 +87,24 @@ Deno.serve(async (req) => {
 
     if (req.method === 'POST' && action !== 'resign_approved') {
       const body = await req.json().catch(() => ({}))
+      if (action === 'create') {
+        const parsed = manualReviewSchema.safeParse(body)
+        if (!parsed.success) return json({ error: 'invalid_review' }, 400)
+        const { data, error } = await supabase.from('reviews').insert({ ...parsed.data, verified_purchase: false, status: 'pending' }).select('id').single()
+        if (error) throw error
+        return json({ ok: true, id: data.id })
+      }
+      if (action === 'settings') {
+        const parsed = reviewSettingsSchema.safeParse(body)
+        if (!parsed.success) return json({ error: 'invalid_settings' }, 400)
+        const { id, source, featured_home } = parsed.data
+        const update = { source, featured_home, ...(source === 'google' ? { verified_purchase: false } : {}) }
+        const { error } = await supabase.from('reviews').update(update).eq('id', id)
+        if (error) throw error
+        return json({ ok: true })
+      }
       const id = body.id as string | undefined
-      if (!id) return json({ error: 'missing_id' }, 400)
+      if (!id || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) return json({ error: 'missing_id' }, 400)
 
       // Load current photo info for actions that need it
       const { data: current } = await supabase

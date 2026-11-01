@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Etappe 4: Set-Foto und Link, HomeReviews, Quellen/Startseiten-Auswahl und manuelles Anlegen im geschützten Admin; RAJ-only Zahlen, Google-Labels, Tests, Screenshots und LCP/CLS prüfen; nicht veröffentlichen.
+
 - [x] Etappe 3: HomeNexus, HomeTicker und HomeMatrix für alle Breiten eingesetzt; drei alte Mobile-Blöcke nur aus der Startseite entfernt; Ansichten, Links, LCP/CLS und Suchmaschinen-Kopie geprüft, nicht veröffentlicht.
 
 - [x] Mobile Bewertungsfläche an sichtbare Karten angepasst (Abstand unter 24px beim Wischen), transparentes 1000px-Logo mit 8% seitlichem Rand erstellt und Marken-/NEXUS-FAQ-Texte samt Suchmaschinen-Kopie angeglichen; Browser und Fehlerprüfung OK, nicht veröffentlicht.

@@ -7,7 +7,8 @@ import HomeHero from "@/components/home/HomeHero";
 import HomeNexus from "@/components/home/HomeNexus";
 import HomeTicker from "@/components/home/HomeTicker";
 import HomeMatrix from "@/components/home/HomeMatrix";
-import MobileReviewsMoment from "@/components/brand/MobileReviewsMoment";
+import HomeSet from "@/components/home/HomeSet";
+import HomeReviews from "@/components/home/HomeReviews";
 import BrandNextDrop from "@/components/brand/BrandNextDrop";
 import BrandStory from "@/components/brand/BrandStory";
 import BrandPillars from "@/components/brand/BrandPillars";
@@ -66,7 +67,8 @@ const Index = () => {
           <HomeNexus />
           <HomeTicker />
           <HomeMatrix />
-          <MobileReviewsMoment />
+          <HomeSet />
+          <HomeReviews />
           <BrandNextDrop />
           <BrandStory />
           <BrandPillars />

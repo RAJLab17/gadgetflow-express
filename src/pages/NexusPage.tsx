@@ -185,6 +185,7 @@ type HeroReview = {
   comment: string;
   photo_url: string | null;
   verified_purchase: boolean;
+  source?: "raj" | "google";
 };
 
 /**
@@ -260,7 +261,7 @@ const LatestMarcelReview = ({
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-1.5 mb-0.5">
               <span className="text-[11px] sm:text-xs font-medium" style={{ color: c.text }}>{review.customer_name}</span>
-              {review.verified_purchase && (
+              {review.source === "google" ? <span className="text-[9px] text-muted-foreground">Google-Bewertung</span> : review.verified_purchase && (
                 <span className="inline-flex items-center gap-1 text-[8px] sm:text-[9px] text-emerald-600 uppercase tracking-wider font-semibold">
                   <ShieldCheck size={10} /> Verifizierter Kauf
                 </span>
@@ -710,11 +711,12 @@ const NexusPage = () => {
           .from("reviews_public")
           .select("customer_name,created_at,comment,title,rating")
           .eq("product_id", "nexus")
+          .eq("source", "raj")
           .order("created_at", { ascending: false })
           .limit(10),
         sb
           .from("reviews_public")
-          .select("customer_name,rating,title,comment,photo_url,verified_purchase,created_at")
+          .select("customer_name,rating,title,comment,photo_url,verified_purchase,created_at,source")
           .eq("product_id", "nexus")
           .or(HERO_NAMES.map((n) => `customer_name.ilike.${n}%`).join(","))
           .order("created_at", { ascending: false })
@@ -811,7 +813,7 @@ const NexusPage = () => {
     <article key={r.customer_name} className="rounded-2xl p-6 flex flex-col" style={{ border: `1px solid ${H.border}`, background: H.surface, ...extraStyle }}>
       <div className="flex items-center justify-between gap-2">
         <span style={{ fontSize: 14, fontWeight: 500 }}>{r.customer_name}</span>
-        {r.verified_purchase && (
+        {r.source === "google" ? <span className="text-[11px] text-muted-foreground">Google-Bewertung</span> : r.verified_purchase && (
           <span className="inline-flex items-center gap-1 uppercase" style={{ fontSize: 9, letterSpacing: ".12em", fontWeight: 600, color: "#059669" }}><ShieldCheck size={11} /> Verifizierter Kauf</span>
         )}
       </div>

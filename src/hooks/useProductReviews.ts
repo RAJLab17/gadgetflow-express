@@ -4,6 +4,7 @@ import { reviewsAllowed, subscribeReviewGate } from "@/lib/reviewLoadGate";
 import { supabase } from "@/integrations/supabase/client";
 import type { PublicReview } from "@/components/reviews/ReviewCard";
 import type { ReviewProductId } from "@/lib/reviewProducts";
+import { isRajReview } from "@/lib/homeReviews";
 
 export function useProductReviews(productId?: ReviewProductId) {
   const allowed = useSyncExternalStore(subscribeReviewGate, reviewsAllowed, () => true);
@@ -22,8 +23,9 @@ export function useProductReviews(productId?: ReviewProductId) {
     staleTime: 30_000,
   });
   const reviews = (query.data ?? []).filter((review) => !productId || review.product_id === productId);
-  const stats = { total: reviews.length, average: reviews.length ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length : 0,
-    c5: reviews.filter(r => r.rating === 5).length, c4: reviews.filter(r => r.rating === 4).length,
-    c3: reviews.filter(r => r.rating === 3).length, c2: reviews.filter(r => r.rating === 2).length, c1: reviews.filter(r => r.rating === 1).length };
+  const counted = reviews.filter(isRajReview);
+  const stats = { total: counted.length, average: counted.length ? counted.reduce((sum, r) => sum + r.rating, 0) / counted.length : 0,
+    c5: counted.filter(r => r.rating === 5).length, c4: counted.filter(r => r.rating === 4).length,
+    c3: counted.filter(r => r.rating === 3).length, c2: counted.filter(r => r.rating === 2).length, c1: counted.filter(r => r.rating === 1).length };
   return { ...query, reviews, stats };
 }

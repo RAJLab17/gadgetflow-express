@@ -3,6 +3,7 @@ import { ShieldCheck, ThumbsUp } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import StarRating from "./StarRating";
 import ReviewPhotoLightbox from "./ReviewPhotoLightbox";
+import { reviewSourceLabel } from "@/lib/homeReviews";
 
 export interface PublicReview {
   id: string;
@@ -17,6 +18,8 @@ export interface PublicReview {
   founder_responded_at: string | null;
   created_at: string;
   photo_url?: string | null;
+  source?: "raj" | "google";
+  featured_home?: boolean;
 }
 
 const initials = (name: string) =>
@@ -53,7 +56,7 @@ const ReviewCard = ({ review }: { review: PublicReview }) => {
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span className="font-medium text-stone-900">{review.customer_name}</span>
-            {review.verified_purchase && (
+            {review.source === "google" ? <span className="text-[11px] text-muted-foreground">Google-Bewertung</span> : review.verified_purchase && (
               <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700">
                 <ShieldCheck size={12} strokeWidth={2} />
                 Verifizierter Kauf
