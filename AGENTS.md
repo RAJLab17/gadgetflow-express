@@ -1,5 +1,5 @@
 # Architecture rules
-- Homepage uses shared HomeSection-based product sections after HomeHero on all viewports, with homepage-only product styles and approved product-specific ratings; route-gated hero preloads must match the first rendered image to avoid duplicate downloads.
+- Homepage order is HomeHero, HomeNexus, HomeTicker, HomeMatrix, HomeSet, HomeReviews, HomeStory, HomeBusiness, then the global Footer; legacy Brand* sections stay in the repo but off the homepage. It uses shared HomeSection-based product sections after HomeHero on all viewports, with homepage-only product styles and approved product-specific ratings; route-gated hero preloads must match the first rendered image to avoid duplicate downloads.
 - Mobile charging moment uses SVG rings and a visibility-triggered frame counter with a session-storage guard and memory fallback; reduced motion completes NEXUS instantly while APEX never fills.
 - Product reviews share an approved-only query and exact-product schema builder; submission verifies Shopify order number, email and trusted variant IDs server-side, while existing NEXUS records remain untouched.
 - Retired comparison URLs retain a non-sitemap crawler snapshot canonicalized to the replacement article alongside BrowserRouter navigation, since client navigation is not an HTTP 301.
