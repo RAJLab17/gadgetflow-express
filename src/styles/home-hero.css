@@ -31,7 +31,7 @@
 .hh-glow {
   position: absolute;
   left: 50%;
-  top: 46%;
+  top: calc(100% - 52px - 135px);
   width: 300px;
   height: 300px;
   transform: translate(-50%, -50%);
@@ -77,18 +77,27 @@
 }
 
 /* MATRIX: Onyx hinten rechts, Cherry vorne links, leicht überlappend */
+.hh-case-group {
+  position: absolute;
+  left: 50%;
+  bottom: 52px;
+  width: 300px;
+  height: 270px;
+  transform: translateX(-50%);
+}
 .hh-case {
   position: absolute;
-  bottom: 52px;
+  bottom: 0;
   filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.65));
 }
 .hh-case--onyx {
-  right: 12%;
+  left: 128px;
+  bottom: 36px;
   width: 172px;
   transform: rotate(9deg);
 }
 .hh-case--cherry {
-  left: 12%;
+  left: 0;
   width: 178px;
   transform: rotate(-10deg);
   z-index: 1;
@@ -100,7 +109,7 @@
   animation: rajFloat 6s ease-in-out infinite;
 }
 
-/* NEXUS: freigestellt, mittig, mit Spiegelung und Bodenglow */
+/* NEXUS: freigestellt, mittig, mit Schlagschatten und Bodenglow */
 .hh-nexus {
   position: absolute;
   left: 50%;
@@ -110,20 +119,8 @@
 }
 .hh-nexus-img {
   width: 262px;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.65));
   animation: rajFloat 6.5s ease-in-out infinite;
-}
-.hh-nexus-reflect {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 262px;
-  height: 110px;
-  margin-top: 2px;
-  transform: scaleY(-1);
-  transform-origin: top;
-  opacity: 0.18;
-  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 80%);
-  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 80%);
 }
 .hh-nexus-floor {
   position: absolute;
@@ -139,8 +136,8 @@
 /* Glas-Pille mit Ladering */
 .hh-pill {
   position: absolute;
-  left: 14px;
-  top: 262px;
+  left: 12px;
+  top: 318px;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -201,16 +198,22 @@
   right: 0;
   height: 438px;
   overflow: hidden;
+  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%);
 }
 .hh-apex img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%), linear-gradient(to right, transparent, #000 8%, #000 92%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%), linear-gradient(to right, transparent, #000 8%, #000 92%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
   animation: hhApexZoom 15s ease-out 9.4s infinite both;
 }
 @keyframes hhApexZoom {
-  0% { transform: scale(1.12); }
-  33.3%, 100% { transform: scale(1); }
+  0% { transform: scale(1); }
+  33.3%, 100% { transform: scale(0.88); }
 }
 .hh-apex::before,
 .hh-apex::after {
@@ -447,32 +450,32 @@
     background: none; /* Verlauf liegt auf der Sektion */
   }
   .hh-glow {
+    top: calc(100% - 190px - 200px);
     width: 520px;
     height: 520px;
   }
 
-  .hh-case {
+  .hh-case-group {
     bottom: 190px;
+    width: 440px;
+    height: 400px;
   }
   .hh-case--onyx {
     width: 250px;
-    right: 10%;
+    left: 180px;
+    bottom: 54px;
   }
   .hh-case--cherry {
     width: 262px;
-    left: 10%;
+    left: 0;
   }
 
   .hh-nexus {
     bottom: 150px;
     width: 380px;
   }
-  .hh-nexus-img,
-  .hh-nexus-reflect {
+  .hh-nexus-img {
     width: 380px;
-  }
-  .hh-nexus-reflect {
-    height: 150px;
   }
   .hh-nexus-floor {
     width: 440px;
@@ -481,7 +484,7 @@
   .hh-pill {
     left: 32px;
     top: auto;
-    bottom: 110px;
+    bottom: 190px;
     gap: 12px;
     padding: 10px 18px 10px 10px;
   }
@@ -505,8 +508,10 @@
     right: 0;
     width: 880px;
     height: 100%;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%), linear-gradient(to right, transparent 0%, #000 42%);
+    mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%), linear-gradient(to right, transparent 0%, #000 42%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
   }
   .hh-apex::before {
     height: 160px;

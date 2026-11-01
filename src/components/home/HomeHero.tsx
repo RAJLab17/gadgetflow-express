@@ -75,6 +75,7 @@ const HomeHero = () => {
 
         {/* Slide 1: MATRIX */}
         <div className="hh-slide hh-slide--matrix">
+          <div className="hh-case-group">
           <span className="hh-case hh-case--cherry">
             <img
               src={cherry.url}
@@ -95,6 +96,7 @@ const HomeHero = () => {
               decoding="async"
             />
           </span>
+          </div>
         </div>
 
         {/* Slide 2: NEXUS */}
@@ -112,16 +114,6 @@ const HomeHero = () => {
               decoding="async"
             />
             <div className="hh-nexus-floor" aria-hidden="true" />
-            <img
-              className="hh-nexus-reflect"
-              src={nexus524}
-              alt=""
-              aria-hidden="true"
-              width={524}
-              height={593}
-              loading="lazy"
-              decoding="async"
-            />
           </div>
           <div className="hh-pill">
             <span className="hh-ring" aria-hidden="true">
