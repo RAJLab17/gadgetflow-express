@@ -11,41 +11,55 @@
   initial-value: 0;
 }
 
-/* Hero slides: 15s cycle, 3 slides of 5s each — fade in 0→4%, fade out 29→33.3% */
+/* Hero slides: 15s cycle, 3 slides of 5s each.
+   Enter: opacity 0→1 + translateY(18px) scale(0.96) → normal; leave: translateY(-10px) scale(1.02). */
 @keyframes rajSlide {
   0% {
     opacity: 0;
+    transform: translateY(18px) scale(0.96);
   }
   4% {
     opacity: 1;
+    transform: translateY(0) scale(1);
   }
   29% {
     opacity: 1;
+    transform: translateY(0) scale(1);
   }
   33.3% {
     opacity: 0;
+    transform: translateY(-10px) scale(1.02);
   }
   100% {
     opacity: 0;
+    transform: translateY(-10px) scale(1.02);
   }
 }
 
-/* Progress bars (width is the allowed exception) */
+/* Progress bars (width is the allowed exception): fill during the own slide only */
 @keyframes rajFill {
-  from {
+  0% {
     width: 0%;
   }
-  to {
+  33.3% {
     width: 100%;
+  }
+  99.9% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
   }
 }
 
-/* Charging ring: --rajP counts 0→100, consumed via conic-gradient */
+/* Charging ring: --rajP counts 0→100 during the NEXUS slide, then holds */
 @keyframes rajCharge {
-  from {
+  0%,
+  5% {
     --rajP: 0;
   }
-  to {
+  29%,
+  100% {
     --rajP: 100;
   }
 }

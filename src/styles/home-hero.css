@@ -1,0 +1,589 @@
+/*
+ * HomeHero (Etappe 2): 3-Slide-Bühne MATRIX → NEXUS → APEX, 15s Zyklus.
+ * Mobile (<1024px) und Desktop (≥1024px). Nur transform/opacity animiert
+ * (Ausnahme: Balkenbreite). Farben aus der RAJ-Palette (Etappe 1 Tokens).
+ */
+
+.home-hero {
+  background: #000000;
+  color: var(--raj-ivory);
+  overflow: hidden;
+}
+
+/* ---------- Bühne ---------- */
+.hh-stage {
+  position: relative;
+  height: 430px;
+  margin-top: 64px; /* direkt unter dem fixen Header */
+  overflow: visible;
+}
+
+/* Radiales Licht hinter der Bühne */
+.hh-stage::before {
+  content: "";
+  position: absolute;
+  inset: -20% -30%;
+  background: radial-gradient(ellipse 60% 55% at 50% 45%, #3A352E 0%, #24211D 38%, #100F0D 66%, #000000 100%);
+  pointer-events: none;
+}
+
+/* Goldener Schein, pulsiert alle 5s */
+.hh-glow {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180, 138, 78, 0.42) 0%, rgba(180, 138, 78, 0) 70%);
+  animation: rajPulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes rajPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* ---------- Slides ---------- */
+.hh-slide {
+  position: absolute;
+  inset: 0;
+  animation: rajSlide 15s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+.hh-slide--matrix {
+  animation-delay: -0.6s;
+}
+.hh-slide--nexus {
+  animation-delay: 4.4s;
+}
+.hh-slide--apex {
+  animation-delay: 9.4s;
+}
+
+.hh-slide img {
+  display: block;
+  height: auto;
+}
+
+/* MATRIX: Onyx hinten rechts, Cherry vorne links, leicht überlappend */
+.hh-case {
+  position: absolute;
+  bottom: 52px;
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.65));
+}
+.hh-case--onyx {
+  right: 12%;
+  width: 172px;
+  transform: rotate(9deg);
+}
+.hh-case--cherry {
+  left: 12%;
+  width: 178px;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+.hh-case--onyx img {
+  animation: rajFloat 7s ease-in-out infinite;
+}
+.hh-case--cherry img {
+  animation: rajFloat 6s ease-in-out infinite;
+}
+
+/* NEXUS: freigestellt, mittig, mit Spiegelung und Bodenglow */
+.hh-nexus {
+  position: absolute;
+  left: 50%;
+  bottom: 46px;
+  width: 262px;
+  transform: translateX(-50%);
+}
+.hh-nexus-img {
+  width: 262px;
+  animation: rajFloat 6.5s ease-in-out infinite;
+}
+.hh-nexus-reflect {
+  width: 262px;
+  margin-top: 2px;
+  transform: scaleY(-1);
+  opacity: 0.18;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 55%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 55%);
+}
+.hh-nexus-floor {
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 300px;
+  height: 60px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(180, 138, 78, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Glas-Pille mit Ladering */
+.hh-pill {
+  position: absolute;
+  left: 14px;
+  top: 262px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 999px;
+  background: rgba(18, 17, 15, 0.82);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(210, 174, 115, 0.35);
+}
+.hh-ring {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: conic-gradient(#D2AE73 calc(var(--rajP) * 1%), #2E2A25 0);
+  animation: rajCharge 15s linear infinite;
+  animation-delay: 4.4s;
+}
+.hh-ring::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #12110F;
+}
+.hh-ring-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--raj-ivory);
+  animation: rajCharge 15s linear infinite;
+  animation-delay: 4.4s;
+}
+.hh-ring-num::after {
+  counter-reset: p var(--rajP);
+  content: counter(p) "%";
+}
+.hh-pill-lines {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.hh-pill-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--raj-ivory);
+}
+.hh-pill-sub {
+  font-size: 11px;
+  color: #A39B8F;
+}
+
+/* APEX: randlos, reicht 8px hinter den Header, zoomt langsam aus */
+.hh-apex {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  height: 438px;
+  overflow: hidden;
+}
+.hh-apex img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: rajSlide 15s ease-in-out infinite, rajSlowZoom 5s ease-out 9.4s both;
+  animation-delay: 9.4s, 9.4s;
+}
+.hh-apex::before,
+.hh-apex::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.hh-apex::before {
+  top: 0;
+  height: 110px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent);
+}
+.hh-apex::after {
+  bottom: 0;
+  height: 240px;
+  background: linear-gradient(to bottom, transparent, #000000);
+}
+
+/* ---------- Produktzeile + Balken ---------- */
+.hh-meta {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px 0;
+}
+.hh-products {
+  position: relative;
+  height: 18px;
+  width: 100%;
+  max-width: 360px;
+}
+.hh-product {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #A39B8F;
+  white-space: nowrap;
+  animation: rajSlide 15s ease-in-out infinite;
+}
+.hh-product--matrix {
+  animation-delay: -0.6s;
+}
+.hh-product--nexus {
+  animation-delay: 4.4s;
+}
+.hh-product--apex {
+  animation-delay: 9.4s;
+}
+.hh-pname {
+  color: #D2AE73;
+  margin-right: 8px;
+}
+.hh-bars {
+  display: flex;
+  gap: 6px;
+  width: 170px;
+}
+.hh-bar {
+  flex: 1;
+  height: 2px;
+  background: #2E2A25;
+  overflow: hidden;
+}
+.hh-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #D2AE73;
+  animation: rajFill 15s linear infinite;
+}
+.hh-fill--matrix {
+  animation-delay: -0.6s;
+}
+.hh-fill--nexus {
+  animation-delay: 4.4s;
+}
+.hh-fill--apex {
+  animation-delay: 9.4s;
+}
+
+/* ---------- Textblock ---------- */
+.hh-text {
+  position: relative;
+  z-index: 2;
+  padding: 20px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+@media (min-width: 560px) and (max-width: 1023px) {
+  .hh-text {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+.hh-eyebrow {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--raj-gold-deep);
+  text-transform: uppercase;
+}
+.hh-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1;
+}
+.hh-title span {
+  display: block;
+  animation: rajUp 0.6s ease-out 0.1s both;
+}
+.hh-title .hh-title-line1 {
+  color: var(--raj-ivory);
+}
+.hh-title .hh-title-line2 {
+  font-style: italic;
+  color: var(--raj-gold);
+}
+.hh-lead {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--raj-muted-dark);
+}
+.hh-rating {
+  min-height: 20px; /* Platz reservieren, damit beim Laden nichts springt */
+  font-size: 13px;
+}
+.hh-rating a {
+  color: var(--raj-muted-dark);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hh-rating .hh-stars {
+  color: var(--raj-gold);
+  letter-spacing: 2px;
+}
+.hh-buttons {
+  display: flex;
+  gap: 10px;
+}
+.hh-btn {
+  flex: 1;
+  height: 56px;
+  border-radius: 999px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 1.2;
+}
+.hh-btn-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+.hh-btn-price {
+  font-size: 12px;
+}
+.hh-btn--nexus {
+  background: var(--raj-ivory);
+  color: #0D0C0B;
+}
+.hh-btn--matrix {
+  background: transparent;
+  border: 1px solid var(--raj-gold-deep);
+  color: var(--raj-ivory);
+}
+.hh-btn--matrix .hh-btn-price {
+  color: var(--raj-gold);
+}
+
+/* Scroll-Hinweis: feine Linie mit laufendem Goldstrich */
+.hh-scroll {
+  align-self: center;
+  width: 1px;
+  height: 36px;
+  background: rgba(243, 239, 231, 0.16);
+  overflow: hidden;
+}
+.hh-scroll::before {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 12px;
+  background: var(--raj-gold);
+  animation: rajScrollHint 2.2s ease-in-out infinite;
+}
+@keyframes rajScrollHint {
+  0% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(36px);
+  }
+}
+
+/* ---------- Desktop (ab 1024px) ---------- */
+@media (min-width: 1024px) {
+  .home-hero {
+    position: relative;
+    height: 760px;
+    background: radial-gradient(ellipse 60% 70% at 74% 46%, #3A352E 0%, #24211D 38%, #100F0D 66%, #000000 100%);
+  }
+  .hh-stage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 720px;
+    height: 100%;
+    margin-top: 0;
+  }
+  .hh-stage::before {
+    background: none; /* Verlauf liegt auf der Sektion */
+  }
+  .hh-glow {
+    width: 520px;
+    height: 520px;
+  }
+
+  .hh-case {
+    bottom: 190px;
+  }
+  .hh-case--onyx {
+    width: 250px;
+    right: 10%;
+  }
+  .hh-case--cherry {
+    width: 262px;
+    left: 10%;
+  }
+
+  .hh-nexus {
+    bottom: 150px;
+    width: 380px;
+  }
+  .hh-nexus-img,
+  .hh-nexus-reflect {
+    width: 380px;
+  }
+  .hh-nexus-floor {
+    width: 440px;
+    height: 90px;
+  }
+  .hh-pill {
+    left: 32px;
+    top: auto;
+    bottom: 110px;
+    gap: 12px;
+    padding: 10px 18px 10px 10px;
+  }
+  .hh-ring {
+    width: 56px;
+    height: 56px;
+  }
+  .hh-ring-num {
+    font-size: 14px;
+  }
+  .hh-pill-title {
+    font-size: 15px;
+  }
+  .hh-pill-sub {
+    font-size: 13px;
+  }
+
+  .hh-apex {
+    top: 0;
+    left: -160px; /* beginnt 160px links von der Bühne */
+    right: 0;
+    width: 880px;
+    height: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+  }
+  .hh-apex::before {
+    height: 160px;
+  }
+  .hh-apex::after {
+    height: 320px;
+  }
+
+  .hh-meta {
+    position: absolute;
+    top: 650px;
+    right: 0;
+    width: 720px;
+    padding: 0;
+  }
+  .hh-product {
+    font-size: 13px;
+  }
+  .hh-bars {
+    width: 220px;
+  }
+
+  .hh-text {
+    position: absolute;
+    left: 120px;
+    top: 200px;
+    width: 560px;
+    padding: 0;
+    gap: 22px;
+  }
+  .hh-eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+  .hh-title {
+    font-size: 92px;
+    line-height: 0.98;
+  }
+  .hh-lead {
+    font-size: 18px;
+    max-width: 470px;
+  }
+  .hh-buttons {
+    gap: 14px;
+  }
+  .hh-btn {
+    flex: 0 0 auto;
+    min-width: 210px;
+    height: 64px;
+    padding: 0 28px;
+  }
+  .hh-scroll {
+    display: none;
+  }
+}
+
+/* Reduced motion: nur Slide 1 sichtbar, keine Bewegung (Grundregeln in home-motion.css) */
+@media (prefers-reduced-motion: reduce) {
+  .hh-glow,
+  .hh-scroll::before,
+  .hh-case img,
+  .hh-nexus-img,
+  .hh-apex img,
+  .hh-product,
+  .hh-fill,
+  .hh-ring,
+  .hh-ring-num,
+  .hh-title span {
+    animation: none !important;
+  }
+  .hh-slide,
+  .hh-product {
+    opacity: 0;
+    transform: none;
+  }
+  .hh-slide--matrix,
+  .hh-product--matrix {
+    opacity: 1;
+  }
+  .hh-apex img {
+    transform: none;
+  }
+  .hh-fill {
+    width: 100%;
+  }
+  .hh-ring,
+  .hh-ring-num {
+    --rajP: 100;
+  }
+  .hh-scroll {
+    display: none;
+  }
+}
