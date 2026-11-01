@@ -20,7 +20,10 @@ export default function HomeReviews() {
   const ref = useRef<HTMLDivElement>(null);
   const active = Math.max(0, slides.findIndex(r => r.id === activeId));
   const running = inView && tabVisible && !reduced;
-  useEffect(() => observeMediaQuery(window.matchMedia("(prefers-reduced-motion: reduce)"), event => setReduced(event.matches)), []);
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    return observeMediaQuery(query, () => setReduced(query.matches));
+  }, []);
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
     const listener = () => setTabVisible(!document.hidden);
