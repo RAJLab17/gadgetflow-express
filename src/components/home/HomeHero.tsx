@@ -16,6 +16,9 @@ import "@/styles/home-hero.css";
 const HomeHero = () => {
   const { stats, isSuccess } = useProductReviews();
   const [chargePct, setChargePct] = useState(0);
+  // Aktives Slide im 15s-Takt (MATRIX 0–4.4s, NEXUS 4.4–9.4s, APEX 9.4–14.4s,
+  // passend zu den CSS-Delays -0.6s/4.4s/9.4s). Nur das aktive Slide ist klickbar.
+  const [activeSlide, setActiveSlide] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
 
   // Ladering-Zähler: gleicher Takt wie der NEXUS-Slide (15s Zyklus, Start 4.4s,
@@ -41,6 +44,10 @@ const HomeHero = () => {
         const local = ((t % 15) + 15) % 15;
         const p = t < 0 || local <= 0.75 ? 0 : local >= 4.35 ? 100 : Math.round(((local - 0.75) / 3.6) * 100);
         setChargePct((prev) => (prev === p ? prev : p));
+        const slideT = (now - t0) / 1000;
+        const slideLocal = ((slideT + 0.6) % 15 + 15) % 15;
+        const idx = Math.min(2, Math.floor(slideLocal / 5));
+        setActiveSlide((prev) => (prev === idx ? prev : idx));
         lastUpdate = now;
       }
       raf = requestAnimationFrame(tick);
@@ -74,7 +81,8 @@ const HomeHero = () => {
         <div className="hh-glow" aria-hidden="true" />
 
         {/* Slide 1: MATRIX */}
-        <div className="hh-slide hh-slide--matrix">
+        <div className={`hh-slide hh-slide--matrix${activeSlide === 0 ? " is-active" : ""}`}>
+          <Link to="/matrix" className="hh-slide-link" aria-label="RAJ MATRIX ansehen" tabIndex={activeSlide === 0 ? 0 : -1}>
           <div className="hh-case-group">
           <span className="hh-case hh-case--cherry">
             <img
@@ -97,10 +105,12 @@ const HomeHero = () => {
             />
           </span>
           </div>
+          </Link>
         </div>
 
         {/* Slide 2: NEXUS */}
-        <div className="hh-slide hh-slide--nexus">
+        <div className={`hh-slide hh-slide--nexus${activeSlide === 1 ? " is-active" : ""}`}>
+          <Link to="/nexus" className="hh-slide-link" aria-label="RAJ NEXUS ansehen" tabIndex={activeSlide === 1 ? 0 : -1}>
           <div className="hh-nexus">
             <img
               className="hh-nexus-img"
@@ -124,10 +134,12 @@ const HomeHero = () => {
               <span className="hh-pill-sub">Qi2.2 · drei Geräte</span>
             </span>
           </div>
+          </Link>
         </div>
 
         {/* Slide 3: APEX */}
-        <div className="hh-slide hh-slide--apex">
+        <div className={`hh-slide hh-slide--apex${activeSlide === 2 ? " is-active" : ""}`}>
+          <Link to="/apex" className="hh-slide-link" aria-label="RAJ APEX vormerken" tabIndex={activeSlide === 2 ? 0 : -1}>
           <div className="hh-apex">
             <img
               src={apexCar}
@@ -138,21 +150,22 @@ const HomeHero = () => {
               decoding="async"
             />
           </div>
+          </Link>
         </div>
       </div>
 
       {/* Produktzeile + Fortschrittsbalken */}
       <div className="hh-meta">
         <div className="hh-products">
-          <p className="hh-product hh-product--matrix">
+          <Link to="/matrix" aria-label="RAJ MATRIX ansehen" className={`hh-product hh-product--matrix${activeSlide === 0 ? " is-active" : ""}`} tabIndex={activeSlide === 0 ? 0 : -1}>
             <span className="hh-pname">RAJ MATRIX</span>HÜLLE · AB CHF 59.–
-          </p>
-          <p className="hh-product hh-product--nexus">
+          </Link>
+          <Link to="/nexus" aria-label="RAJ NEXUS ansehen" className={`hh-product hh-product--nexus${activeSlide === 1 ? " is-active" : ""}`} tabIndex={activeSlide === 1 ? 0 : -1}>
             <span className="hh-pname">RAJ NEXUS</span>3-IN-1 · CHF 99.–
-          </p>
-          <p className="hh-product hh-product--apex">
-            <span className="hh-pname">RAJ APEX</span>FÜRS AUTO · BALD
-          </p>
+          </Link>
+          <Link to="/apex" aria-label="RAJ APEX vormerken" className={`hh-product hh-product--apex${activeSlide === 2 ? " is-active" : ""}`} tabIndex={activeSlide === 2 ? 0 : -1}>
+            <span className="hh-pname">RAJ APEX</span>FÜRS AUTO · VORMERKEN →
+          </Link>
         </div>
         <div className="hh-bars" aria-hidden="true">
           <span className="hh-bar"><span className="hh-fill hh-fill--matrix" /></span>

@@ -7,9 +7,9 @@ export default function HomeNexus() {
   return (
     <HomeSection tone="ivory" id="nexus" className="home-nexus">
       <div className="home-nexus-layout">
-        <div className="home-nexus-photo">
+        <Link to="/nexus" className="home-nexus-photo" aria-label="RAJ NEXUS ansehen">
           <img src="/assets/products/nexus-bedside-night.webp" alt="RAJ NEXUS 3-in-1 Ladestation auf dem Nachttisch" width={1280} height={1120} loading="lazy" decoding="async" />
-        </div>
+        </Link>
         <div className="home-nexus-copy">
           <p className="home-product-eyebrow">RAJ NEXUS</p>
           <h2 className="home-nexus-title">Drei Geräte.<br />Ein Platz.</h2>

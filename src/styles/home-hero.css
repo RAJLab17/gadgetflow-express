@@ -58,8 +58,12 @@
   position: absolute;
   inset: 0;
   opacity: 0;
+  pointer-events: none;
   animation: rajSlide 15s ease-in-out infinite both;
   will-change: opacity, transform;
+}
+.hh-slide.is-active {
+  pointer-events: auto;
 }
 .hh-slide--matrix {
   animation-delay: -0.6s;
@@ -597,6 +601,32 @@
   .hh-meta {
     width: 460.8px;
   }
+}
+
+/* Produkt-Links: nur das aktive Slide bzw. die aktive Zeile ist klickbar.
+   Im Hero keine Vergrösserung beim Darüberfahren, nur der Mauszeiger. */
+.hh-slide-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: none;
+}
+.hh-slide.is-active .hh-slide-link {
+  pointer-events: auto;
+}
+.hh-product {
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: none;
+}
+.hh-product.is-active {
+  pointer-events: auto;
+}
+.hh-slide-link:focus-visible,
+.hh-product:focus-visible {
+  outline: 2px solid #D2AE73;
+  outline-offset: 4px;
+  border-radius: 12px;
 }
 
 /* Reduced motion: nur Slide 1 sichtbar, keine Bewegung (Grundregeln in home-motion.css) */

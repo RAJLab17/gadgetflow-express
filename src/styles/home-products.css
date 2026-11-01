@@ -12,7 +12,7 @@
 }
 .home-nexus > div { padding-top: 52px; padding-bottom: 56px; }
 .home-nexus-layout { display: grid; gap: 18px; }
-.home-nexus-photo { width: 100%; height: 350px; border-radius: 20px; overflow: hidden; background: var(--home-photo-bg); box-shadow: var(--home-photo-shadow); }
+.home-nexus-photo { display: block; width: 100%; height: 350px; border-radius: 20px; overflow: hidden; background: var(--home-photo-bg); box-shadow: var(--home-photo-shadow); cursor: pointer; }
 .home-nexus-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 62% 55%; }
 .home-nexus-copy { display: flex; flex-direction: column; gap: 10px; }
 .home-product-eyebrow { margin: 0; color: var(--raj-brown); font-size: 11px; letter-spacing: 3px; }
@@ -31,7 +31,7 @@
 .home-matrix-title { margin: 22px 0 0; font-size: 30px; font-weight: 400; line-height: 1.25; }
 .home-matrix-title-accent { display: block; font-family: "Playfair Display", Georgia, serif; font-style: italic; color: var(--raj-gold-text); }
 .home-matrix-title-last { display: block; }
-.home-matrix-cases { position: relative; width: 350px; max-width: 100%; height: 252px; margin: 28px auto 0; }
+.home-matrix-cases { display: block; position: relative; width: 350px; max-width: 100%; height: 252px; margin: 28px auto 0; cursor: pointer; }
 .home-matrix-case { position: absolute; width: 170px; height: 212px; }
 .home-matrix-case img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .home-matrix-case-back { left: 28px; top: -2px; transform: rotate(-6deg); filter: var(--home-cherry-shadow); }
@@ -88,4 +88,12 @@
   .home-ticker-copy { white-space: normal; text-align: center; padding-inline: 20px; }
   .home-ticker-copy[aria-hidden], .home-ticker-desktop-repeat { display: none; }
   .home-matrix-cases.is-pending .home-matrix-case img, .home-matrix-cases.is-visible .home-matrix-case img { animation: none; opacity: 1; transform: none; }
+}
+/* Klickbare Bildkarten: Fokusrahmen, Desktop-Hover 2% (nur transform, kein Layout) */
+.home-nexus-photo:focus-visible, .home-matrix-cases:focus-visible { outline: 2px solid #D2AE73; outline-offset: 4px; }
+@media (min-width: 1024px) and (hover: hover) {
+  .home-nexus-photo img { transition: transform 0.6s ease; }
+  .home-nexus-photo:hover img { transform: scale(1.02); }
+  .home-matrix-cases { transition: transform 0.6s ease; }
+  .home-matrix-cases:hover { transform: scale(1.02); }
 }
