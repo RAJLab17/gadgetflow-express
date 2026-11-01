@@ -177,12 +177,6 @@
   font-size: 12px;
   font-weight: 700;
   color: var(--raj-ivory);
-  animation: rajCharge 15s linear infinite;
-  animation-delay: 4.4s;
-}
-.hh-ring-num::after {
-  counter-reset: p var(--rajP);
-  content: counter(p) "%";
 }
 .hh-pill-lines {
   display: flex;

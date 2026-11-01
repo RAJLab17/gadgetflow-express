@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import onyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
@@ -14,6 +15,29 @@ import "@/styles/home-hero.css";
  */
 const HomeHero = () => {
   const { stats, isSuccess } = useProductReviews();
+  const [chargePct, setChargePct] = useState(0);
+
+  // Ladering-Zähler: gleicher Takt wie der NEXUS-Slide (15s Zyklus, Start 4.4s,
+  // 0 bis 0.75s → 0, linear bis 100 bei 4.35s, dann halten). Der Ring selbst
+  // läuft per CSS (rajCharge); die Zahl via JS, weil CSS-Counter den
+  // animierten Custom-Property-Wert nicht zuverlässig darstellen.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setChargePct(100);
+      return;
+    }
+    const t0 = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = (now - t0) / 1000 - 4.4;
+      const local = ((t % 15) + 15) % 15;
+      const p = t < 0 || local <= 0.75 ? 0 : local >= 4.35 ? 100 : Math.round(((local - 0.75) / 3.6) * 100);
+      setChargePct((prev) => (prev === p ? prev : p));
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
@@ -73,7 +97,7 @@ const HomeHero = () => {
           </div>
           <div className="hh-pill">
             <span className="hh-ring" aria-hidden="true">
-              <span className="hh-ring-num" />
+              <span className="hh-ring-num">{chargePct}%</span>
             </span>
             <span className="hh-pill-lines">
               <span className="hh-pill-title">Bis zu 25 W</span>
