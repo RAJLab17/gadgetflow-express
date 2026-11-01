@@ -57,7 +57,8 @@
 .hh-slide {
   position: absolute;
   inset: 0;
-  animation: rajSlide 15s ease-in-out infinite;
+  opacity: 0;
+  animation: rajSlide 15s ease-in-out infinite both;
   will-change: opacity, transform;
 }
 .hh-slide--matrix {
@@ -253,7 +254,8 @@
   letter-spacing: 2px;
   color: #A39B8F;
   white-space: nowrap;
-  animation: rajSlide 15s ease-in-out infinite;
+  opacity: 0;
+  animation: rajSlide 15s ease-in-out infinite both;
 }
 .hh-product--matrix {
   animation-delay: -0.6s;
