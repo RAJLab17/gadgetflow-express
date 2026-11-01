@@ -471,6 +471,7 @@
   }
 
   .hh-nexus {
+    left: 430px;
     bottom: 150px;
     width: 380px;
   }
@@ -482,13 +483,15 @@
     height: 90px;
   }
   .hh-pill {
-    left: 32px;
+    left: 24px;
     top: auto;
-    bottom: 190px;
-    gap: 12px;
-    padding: 10px 18px 10px 10px;
+    bottom: 240px;
+    width: 190px;
+    gap: 6px;
+    padding: 10px 6px;
   }
   .hh-ring {
+    flex-shrink: 0;
     width: 56px;
     height: 56px;
   }
