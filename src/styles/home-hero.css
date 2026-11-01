@@ -599,6 +599,32 @@
   }
 }
 
+/* Produkt-Links: nur das aktive Slide bzw. die aktive Zeile ist klickbar.
+   Im Hero keine Vergrösserung beim Darüberfahren, nur der Mauszeiger. */
+.hh-slide-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: none;
+}
+.hh-slide.is-active .hh-slide-link {
+  pointer-events: auto;
+}
+.hh-product {
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: none;
+}
+.hh-product.is-active {
+  pointer-events: auto;
+}
+.hh-slide-link:focus-visible,
+.hh-product:focus-visible {
+  outline: 2px solid #D2AE73;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
 /* Reduced motion: nur Slide 1 sichtbar, keine Bewegung (Grundregeln in home-motion.css) */
 @media (prefers-reduced-motion: reduce) {
   .hh-glow,
