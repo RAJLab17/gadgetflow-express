@@ -4,9 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LuxuryTopBar from "@/components/brand/LuxuryTopBar";
 import HomeHero from "@/components/home/HomeHero";
-import MobileTrustBar from "@/components/brand/MobileTrustBar";
-import MobileChargingMoment from "@/components/brand/MobileChargingMoment";
-import MobileMatrixMoment from "@/components/brand/MobileMatrixMoment";
+import HomeNexus from "@/components/home/HomeNexus";
+import HomeTicker from "@/components/home/HomeTicker";
+import HomeMatrix from "@/components/home/HomeMatrix";
 import MobileReviewsMoment from "@/components/brand/MobileReviewsMoment";
 import BrandNextDrop from "@/components/brand/BrandNextDrop";
 import BrandStory from "@/components/brand/BrandStory";
@@ -63,9 +63,9 @@ const Index = () => {
         <Header />
         <main>
           <HomeHero />
-          <MobileTrustBar />
-          <MobileChargingMoment />
-          <MobileMatrixMoment />
+          <HomeNexus />
+          <HomeTicker />
+          <HomeMatrix />
           <MobileReviewsMoment />
           <BrandNextDrop />
           <BrandStory />
