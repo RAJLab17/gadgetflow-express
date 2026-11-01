@@ -15,8 +15,8 @@
 .home-business-card { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 22px; border: 1px solid #3A352E; border-radius: 16px; text-decoration: none; max-width: 1200px; margin: 0 auto; transition: border-color .2s; }
 .home-business-card:hover, .home-business-card:focus-visible { border-color: #B48A4E; }
 .home-business-copy { display: flex; flex-direction: column; gap: 4px; text-align: left; }
-.home-business-title { font-size: 15px; font-weight: 700; color: #F3EFE7; }
-.home-business-sub { font-size: 13px; color: #A39B8F; line-height: 1.4; }
+.home-business-title { margin: 0; font-size: 15px; font-weight: 700; color: #F3EFE7; }
+.home-business-sub { margin: 0; font-size: 13px; color: #A39B8F; line-height: 1.4; }
 .home-business-arrow { flex-shrink: 0; width: 44px; height: 44px; border-radius: 999px; border: 1px solid #B48A4E; color: #D2AE73; display: inline-flex; align-items: center; justify-content: center; }
 .home-business-button { display: none; }
 
