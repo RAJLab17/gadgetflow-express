@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import HomeSection from "./HomeSection";
-import photo900 from "@/assets/home/raj-set-matrix-airpods-see-900.webp.asset.json";
-import photo1200 from "@/assets/home/raj-set-matrix-airpods-see-1200.webp.asset.json";
+import photo900 from "@/assets/home/raj-set-original-900.webp.asset.json";
+import photoLarge from "@/assets/home/raj-set-original-952.webp.asset.json";
 import "@/styles/home-social.css";
 
 export default function HomeSet() {
