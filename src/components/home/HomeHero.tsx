@@ -5,6 +5,7 @@ import cherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-f
 import nexus524 from "@/assets/home/raj-nexus-hero-cutout-524.webp";
 import nexus760 from "@/assets/home/raj-nexus-hero-cutout-760.webp";
 import apexCar from "@/assets/home/objekt-apex-correct.jpg";
+import "@/styles/home-motion.css";
 import "@/styles/home-hero.css";
 
 /**
