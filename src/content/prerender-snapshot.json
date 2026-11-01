@@ -1,11 +1,11 @@
 {
  "/": {
   "title": "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
-  "description": "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
+  "description": "RAJ ist eine Schweizer Marke aus Weinfelden: 3-in-1 Ladestation NEXUS mit Qi2.2 und bis zu 25 W sowie MagSafe-Hüllen MATRIX. Versand in 2–3 Werktagen, 30 Tage Rückgabe.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/",
   "ogTitle": "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
-  "ogDescription": "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
+  "ogDescription": "RAJ ist eine Schweizer Marke aus Weinfelden: 3-in-1 Ladestation NEXUS mit Qi2.2 und bis zu 25 W sowie MagSafe-Hüllen MATRIX. Versand in 2–3 Werktagen, 30 Tage Rückgabe.",
   "ogUrl": "https://raj.ch/",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "ogImageWidth": "1200",
@@ -14,7 +14,7 @@
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "website",
   "twitterTitle": "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
-  "twitterDescription": "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
+  "twitterDescription": "RAJ ist eine Schweizer Marke aus Weinfelden: 3-in-1 Ladestation NEXUS mit Qi2.2 und bis zu 25 W sowie MagSafe-Hüllen MATRIX. Versand in 2–3 Werktagen, 30 Tage Rückgabe.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "Energie, in Form gegossen.",
   "jsonLd": [],
@@ -89,7 +89,7 @@
    },
    {
     "tag": "p",
-    "text": "★★★★★ 5.0 · 6 Bewertungen"
+    "text": "★★★★★ 5.0 · 7 Bewertungen"
    },
    {
     "tag": "p",
@@ -109,223 +109,23 @@
    },
    {
     "tag": "p",
-    "text": "Sabrina · RAJ NEXUS · Verifizierter Kauf"
+    "text": "Matthias · RAJ MATRIX · Verifizierter Kauf"
+   },
+   {
+    "tag": "p",
+    "text": "HINTER RAJ"
    },
    {
     "tag": "h2",
-    "text": "Die Kollektion"
-   },
-   {
-    "tag": "h3",
-    "text": "NEXUS"
+    "text": "Eine echte Schweizer Marke für Wireless Charging. Eine Marke, mit der man sich identifizieren kann."
    },
    {
     "tag": "p",
-    "text": "3-in-1 Qi2.2 Wireless Charger"
-   },
-   {
-    "tag": "h3",
-    "text": "MATRIX"
+    "text": "Deshalb achten wir auf jedes Detail. Unser Team aus drei Personen arbeitet mit einem klaren Ziel: jedem Kunden ein besseres Erlebnis zu bieten und ihn mit unseren Produkten glücklich zu machen."
    },
    {
     "tag": "p",
-    "text": "Carbon-Cases für iPhone & AirPods"
-   },
-   {
-    "tag": "h3",
-    "text": "APEX"
-   },
-   {
-    "tag": "p",
-    "text": "MagSafe Auto-Ladehalterung"
-   },
-   {
-    "tag": "p",
-    "text": "— DIE GESCHICHTE"
-   },
-   {
-    "tag": "h2",
-    "text": "Wir bauen kein Zubehör. Wir bauen Begleiter."
-   },
-   {
-    "tag": "h3",
-    "text": "Ein leiser Anfang."
-   },
-   {
-    "tag": "p",
-    "text": "Alles, was heute unverzichtbar wirkt, begann einmal im Stillen. An einem Ort, der zu klein schien für eine grosse Idee. Unserer war im Thurgau. In der Schweiz. RAJ ist dieses Versprechen. Gebaut im Thurgau. Für die Welt."
-   },
-   {
-    "tag": "h3",
-    "text": "Substanz statt Lärm."
-   },
-   {
-    "tag": "p",
-    "text": "Wir wählten Zurückhaltung. Nicht als Stil, als Haltung. Materialien, die mit Anmut altern. Technik, die man nicht sieht, aber spürt. Jedes Detail bedacht, dann erneut bedacht."
-   },
-   {
-    "tag": "h3",
-    "text": "Gemacht, um zu bleiben."
-   },
-   {
-    "tag": "p",
-    "text": "Keine Saison. Kein Trend. Objekte, die bleiben. Neben deinem Bett, auf deinem Schreibtisch, in deinem Leben. Lange nachdem der nächste Launch vergessen ist."
-   },
-   {
-    "tag": "p",
-    "text": "Power. Always there."
-   },
-   {
-    "tag": "p",
-    "text": "— A SWISS BRAND"
-   },
-   {
-    "tag": "p",
-    "text": "ÜBER RAJ"
-   },
-   {
-    "tag": "p",
-    "text": "Eine Schweizer Marke aus dem Thurgau. Präzision, Beständigkeit, Charakter. Und ein Versprechen, das bleibt."
-   },
-   {
-    "tag": "p",
-    "text": "UNSER ECOSYSTEM"
-   },
-   {
-    "tag": "p",
-    "text": "Eine Welt. Eine Entscheidung. Ein Ecosystem, das bleibt. Für die, die das Richtige wollen."
-   },
-   {
-    "tag": "p",
-    "text": "— UNSERE PRINZIPIEN"
-   },
-   {
-    "tag": "h2",
-    "text": "Drei Werte. Eine Haltung."
-   },
-   {
-    "tag": "h3",
-    "text": "Präzision"
-   },
-   {
-    "tag": "p",
-    "text": "Kein Spielraum."
-   },
-   {
-    "tag": "p",
-    "text": "Kein Kompromiss. Materialien gewählt, nicht spezifiziert. Die Arbeit zeigt sich dort, wo niemand hinschaut."
-   },
-   {
-    "tag": "h3",
-    "text": "Beständigkeit"
-   },
-   {
-    "tag": "p",
-    "text": "Nicht für die Saison."
-   },
-   {
-    "tag": "p",
-    "text": "Für das Jahrzehnt. Schönheit, die sich ihren Platz über Jahre verdient."
-   },
-   {
-    "tag": "h3",
-    "text": "Charakter"
-   },
-   {
-    "tag": "p",
-    "text": "Leise. Aber mit Überzeugung."
-   },
-   {
-    "tag": "p",
-    "text": "Wir machen keine Ankündigungen. Wir liefern. Im Stillen gebaut. Im Alltag bewiesen. Nur Substanz. Da, wenn du sie brauchst."
-   },
-   {
-    "tag": "p",
-    "text": "— DIE RAJ KOLLEKTION"
-   },
-   {
-    "tag": "h2",
-    "text": "Gebaut für das, was kommt."
-   },
-   {
-    "tag": "p",
-    "text": "Von heute bis morgen. Eine Kollektion, die mit jedem Objekt weiterwächst."
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ NEXUS"
-   },
-   {
-    "tag": "p",
-    "text": "Hier beginnt es."
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ MATRIX"
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ APEX"
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ AURORA"
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ ATLAS"
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ ATELIER"
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ ELITE"
-   },
-   {
-    "tag": "p",
-    "text": "Es beginnt mit RAJ NEXUS. Alles andere ist bereits in Bewegung."
-   },
-   {
-    "tag": "p",
-    "text": "— JOURNAL"
-   },
-   {
-    "tag": "h2",
-    "text": "Neuigkeiten, Ideen, leise Gedanken."
-   },
-   {
-    "tag": "h3",
-    "text": "Passt eine iPhone 17 Pro Hülle auf das iPhone 18 Pro?"
-   },
-   {
-    "tag": "p",
-    "text": "Kurz gesagt: Bei der RAJ MATRIX ja. iPhone 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max. Worauf du bei anderen Hüllen achten musst."
-   },
-   {
-    "tag": "h3",
-    "text": "RAJ NEXUS – 3-in-1 Ladestation fürs iPhone 18 (Qi2.2, 25W)"
-   },
-   {
-    "tag": "p",
-    "text": "Die RAJ NEXUS lädt iPhone 18, Apple Watch und AirPods gleichzeitig – Qi2.2 mit bis zu 25W, MagSafe-fest, Schweizer Marke."
-   },
-   {
-    "tag": "h3",
-    "text": "MATRIX Carbon-Hülle iPhone 18 Pro & Pro Max – MagSafe"
-   },
-   {
-    "tag": "p",
-    "text": "Schlanker Carbon-Look, MagSafe-kompatibel, präzise Passform. Die MATRIX Hülle für iPhone 18 Pro und Pro Max."
-   },
-   {
-    "tag": "h3",
-    "text": "Beste 3-in-1 Wireless Ladestation Schweiz 2026 – Qi2.2 Vergleich"
-   },
-   {
-    "tag": "p",
-    "text": "Drei Geräte, ein Ladegerät. RAJ NEXUS, Anker, Belkin & ESR im direkten Qi2.2-Vergleich für die Schweiz."
+    "text": "Euer RAJ Team"
    }
   ]
  },
