@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import onyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
@@ -16,6 +16,7 @@ import "@/styles/home-hero.css";
 const HomeHero = () => {
   const { stats, isSuccess } = useProductReviews();
   const [chargePct, setChargePct] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
 
   // Ladering-Zähler: gleicher Takt wie der NEXUS-Slide (15s Zyklus, Start 4.4s,
   // 0 bis 0.75s → 0, linear bis 100 bei 4.35s, dann halten). Der Ring selbst
@@ -26,21 +27,48 @@ const HomeHero = () => {
       setChargePct(100);
       return;
     }
+    const hero = heroRef.current;
+    if (!hero) return;
     const t0 = performance.now();
     let raf = 0;
+    let inView = false;
+    let lastUpdate = -Infinity;
     const tick = (now: number) => {
-      const t = (now - t0) / 1000 - 4.4;
-      const local = ((t % 15) + 15) % 15;
-      const p = t < 0 || local <= 0.75 ? 0 : local >= 4.35 ? 100 : Math.round(((local - 0.75) / 3.6) * 100);
-      setChargePct((prev) => (prev === p ? prev : p));
+      raf = 0;
+      if (document.hidden || !inView) return;
+      if (now - lastUpdate >= 50) {
+        const t = (now - t0) / 1000 - 4.4;
+        const local = ((t % 15) + 15) % 15;
+        const p = t < 0 || local <= 0.75 ? 0 : local >= 4.35 ? 100 : Math.round(((local - 0.75) / 3.6) * 100);
+        setChargePct((prev) => (prev === p ? prev : p));
+        lastUpdate = now;
+      }
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    const syncVisibility = () => {
+      if (document.hidden || !inView) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      } else if (!raf) {
+        raf = requestAnimationFrame(tick);
+      }
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry?.isIntersecting ?? false;
+      syncVisibility();
+    });
+    observer.observe(hero);
+    document.addEventListener("visibilitychange", syncVisibility);
+    return () => {
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", syncVisibility);
+    };
   }, []);
 
   return (
-    <section className="home-hero" aria-labelledby="home-hero-title">
+    <section ref={heroRef} className="home-hero" aria-labelledby="home-hero-title">
+      <div className="hh-frame">
       {/* Bühne */}
       <div className="hh-stage">
         <div className="hh-glow" aria-hidden="true" />
@@ -170,6 +198,7 @@ const HomeHero = () => {
           </Link>
         </div>
         <div className="hh-scroll" aria-hidden="true" />
+      </div>
       </div>
     </section>
   );

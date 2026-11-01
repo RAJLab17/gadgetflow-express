@@ -206,7 +206,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: rajSlowZoom 5s ease-out 9.4s both; /* Sichtbarkeit steuert der Slide-Container */
+  animation: hhApexZoom 15s ease-out 9.4s infinite both;
+}
+@keyframes hhApexZoom {
+  0% { transform: scale(1.12); }
+  33.3%, 100% { transform: scale(1); }
 }
 .hh-apex::before,
 .hh-apex::after {
@@ -425,6 +429,12 @@
     height: 760px;
     background: radial-gradient(ellipse 60% 70% at 74% 46%, #3A352E 0%, #24211D 38%, #100F0D 66%, #000000 100%);
   }
+  .hh-frame {
+    position: relative;
+    max-width: 1440px;
+    height: 100%;
+    margin-inline: auto;
+  }
   .hh-stage {
     position: absolute;
     top: 0;
@@ -523,7 +533,7 @@
     position: absolute;
     left: 120px;
     top: 200px;
-    width: 560px;
+    width: 640px;
     padding: 0;
     gap: 22px;
   }
@@ -534,6 +544,9 @@
   .hh-title {
     font-size: 92px;
     line-height: 0.98;
+  }
+  .hh-title span {
+    white-space: nowrap;
   }
   .hh-lead {
     font-size: 18px;
@@ -550,6 +563,31 @@
   }
   .hh-scroll {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .hh-stage {
+    transform: scale(0.85);
+    transform-origin: right center;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hh-title {
+    font-size: 76px;
+  }
+  .hh-text {
+    top: 160px;
+  }
+  .hh-lead {
+    max-width: 420px;
+  }
+  .hh-stage {
+    transform: scale(0.7);
+  }
+  .hh-meta {
+    width: 504px;
   }
 }
 
