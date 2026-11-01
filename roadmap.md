@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Etappe 4: Set-Foto und Link, HomeReviews, Quellen/Startseiten-Auswahl und manuelles Anlegen im geschützten Admin; RAJ-only Zahlen, Google-Labels, Tests, Screenshots und LCP/CLS prüfen; nicht veröffentlichen.
+- [x] Etappe 4: Set-Foto und /matrix-Link, HomeReviews, Quellen/Startseiten-Auswahl und manuelles Anlegen im geschützten Admin umgesetzt; RAJ-only Zahlen, Google-Labels, Tests, Screenshots und LCP/CLS geprüft; nicht veröffentlicht.
 
 - [x] Etappe 3: HomeNexus, HomeTicker und HomeMatrix für alle Breiten eingesetzt; drei alte Mobile-Blöcke nur aus der Startseite entfernt; Ansichten, Links, LCP/CLS und Suchmaschinen-Kopie geprüft, nicht veröffentlicht.
 
