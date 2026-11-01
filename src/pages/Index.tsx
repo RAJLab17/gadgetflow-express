@@ -2,24 +2,20 @@ import { Helmet } from "react-helmet-async";
 import { shareImageTags } from "@/lib/shareImages";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LuxuryTopBar from "@/components/brand/LuxuryTopBar";
 import HomeHero from "@/components/home/HomeHero";
 import HomeNexus from "@/components/home/HomeNexus";
 import HomeTicker from "@/components/home/HomeTicker";
 import HomeMatrix from "@/components/home/HomeMatrix";
 import HomeSet from "@/components/home/HomeSet";
 import HomeReviews from "@/components/home/HomeReviews";
-import BrandNextDrop from "@/components/brand/BrandNextDrop";
-import BrandStory from "@/components/brand/BrandStory";
-import BrandPillars from "@/components/brand/BrandPillars";
-import RajRoadmap from "@/components/RajRoadmap";
-import BrandJournal from "@/components/brand/BrandJournal";
+import HomeStory from "@/components/home/HomeStory";
+import HomeBusiness from "@/components/home/HomeBusiness";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const META = {
   de: {
     title: "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
-    desc: "RAJ ist ein Schweizer Luxus-Tech-Atelier. Premium-Objekte mit Substanz — beginnend mit NEXUS. Präzision, Beständigkeit, Charakter. Schweizer Marke.",
+    desc: "RAJ ist eine Schweizer Marke aus Weinfelden: 3-in-1 Ladestation NEXUS mit Qi2.2 und bis zu 25 W sowie MagSafe-Hüllen MATRIX. Versand in 2–3 Werktagen, 30 Tage Rückgabe.",
   },
   fr: {
     title: "RAJ — Power. Always there. | Technologie de luxe suisse",
@@ -69,11 +65,8 @@ const Index = () => {
           <HomeMatrix />
           <HomeSet />
           <HomeReviews />
-          <BrandNextDrop />
-          <BrandStory />
-          <BrandPillars />
-          <RajRoadmap />
-          <BrandJournal />
+          <HomeStory />
+          <HomeBusiness />
         </main>
         <Footer />
       </div>
