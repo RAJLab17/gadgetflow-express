@@ -206,8 +206,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: rajSlide 15s ease-in-out infinite, rajSlowZoom 5s ease-out 9.4s both;
-  animation-delay: 9.4s, 9.4s;
+  animation: rajSlowZoom 5s ease-out 9.4s both; /* Sichtbarkeit steuert der Slide-Container */
 }
 .hh-apex::before,
 .hh-apex::after {
