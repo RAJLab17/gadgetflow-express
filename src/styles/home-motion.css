@@ -1,0 +1,193 @@
+/*
+ * Keyframes for the new homepage (Etappe 1 foundation).
+ * Imported only on the homepage; not wired to any element yet.
+ * Only transform and opacity are animated (exception: progress-bar width).
+ */
+
+/* Registered custom property so rajCharge can drive a conic-gradient counter */
+@property --rajP {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+
+/* Hero slides: 15s cycle, 3 slides of 5s each — fade in 0→4%, fade out 29→33.3% */
+@keyframes rajSlide {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  29% {
+    opacity: 1;
+  }
+  33.3% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Progress bars (width is the allowed exception) */
+@keyframes rajFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Charging ring: --rajP counts 0→100, consumed via conic-gradient */
+@keyframes rajCharge {
+  from {
+    --rajP: 0;
+  }
+  to {
+    --rajP: 100;
+  }
+}
+
+/* APEX photo: slow settle from 1.12 to 1 */
+@keyframes rajSlowZoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Gentle floating, 6–7s depending on the element's animation-duration */
+@keyframes rajFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Headline entering from below on load */
+@keyframes rajUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple fade-in on load */
+@keyframes rajFu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Ticker / marquee: 22s linear infinite, translate the strip by its half */
+@keyframes rajTicker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reviews: 6 items of 5s each in a 30s cycle — one review visible at a time */
+@keyframes rajRev {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  2.5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  14.2% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  16.7% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* Review dots following the same 30s cycle */
+@keyframes rajDot {
+  0%,
+  14.2% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  16.7%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raj-slide,
+  .raj-fill,
+  .raj-charge,
+  .raj-slow-zoom,
+  .raj-float,
+  .raj-up,
+  .raj-fu,
+  .raj-ticker,
+  .raj-rev,
+  .raj-dot {
+    animation: none !important;
+  }
+
+  /* With animations off, always show the first slide and the first review */
+  .raj-slide {
+    opacity: 0;
+  }
+  .raj-slide:first-child {
+    opacity: 1;
+  }
+  .raj-rev {
+    opacity: 0;
+    transform: none;
+  }
+  .raj-rev:first-child {
+    opacity: 1;
+  }
+  .raj-fill {
+    width: 100%;
+  }
+  .raj-charge {
+    --rajP: 100;
+  }
+  .raj-slow-zoom {
+    transform: none;
+  }
+  .raj-up,
+  .raj-fu {
+    opacity: 1;
+    transform: none;
+  }
+  .raj-dot {
+    opacity: 0.35;
+    transform: none;
+  }
+  .raj-dot:first-child {
+    opacity: 1;
+  }
+}
