@@ -262,6 +262,7 @@ export type Database = {
           comment: string
           created_at: string
           customer_name: string
+          featured_home: boolean
           founder_responded_at: string | null
           founder_response: string | null
           helpful_count: number
@@ -270,6 +271,7 @@ export type Database = {
           photo_url: string | null
           product_id: string
           rating: number
+          source: string
           status: string
           title: string
           updated_at: string
@@ -279,6 +281,7 @@ export type Database = {
           comment: string
           created_at?: string
           customer_name: string
+          featured_home?: boolean
           founder_responded_at?: string | null
           founder_response?: string | null
           helpful_count?: number
@@ -287,6 +290,7 @@ export type Database = {
           photo_url?: string | null
           product_id?: string
           rating: number
+          source?: string
           status?: string
           title: string
           updated_at?: string
@@ -296,6 +300,7 @@ export type Database = {
           comment?: string
           created_at?: string
           customer_name?: string
+          featured_home?: boolean
           founder_responded_at?: string | null
           founder_response?: string | null
           helpful_count?: number
@@ -304,6 +309,7 @@ export type Database = {
           photo_url?: string | null
           product_id?: string
           rating?: number
+          source?: string
           status?: string
           title?: string
           updated_at?: string
@@ -363,6 +369,7 @@ export type Database = {
           comment: string | null
           created_at: string | null
           customer_name: string | null
+          featured_home: boolean | null
           founder_responded_at: string | null
           founder_response: string | null
           helpful_count: number | null
@@ -370,6 +377,7 @@ export type Database = {
           photo_url: string | null
           product_id: string | null
           rating: number | null
+          source: string | null
           title: string | null
           verified_purchase: boolean | null
         }
@@ -377,6 +385,7 @@ export type Database = {
           comment?: string | null
           created_at?: string | null
           customer_name?: string | null
+          featured_home?: boolean | null
           founder_responded_at?: string | null
           founder_response?: string | null
           helpful_count?: number | null
@@ -384,6 +393,7 @@ export type Database = {
           photo_url?: string | null
           product_id?: string | null
           rating?: number | null
+          source?: string | null
           title?: string | null
           verified_purchase?: boolean | null
         }
@@ -391,6 +401,7 @@ export type Database = {
           comment?: string | null
           created_at?: string | null
           customer_name?: string | null
+          featured_home?: boolean | null
           founder_responded_at?: string | null
           founder_response?: string | null
           helpful_count?: number | null
@@ -398,6 +409,7 @@ export type Database = {
           photo_url?: string | null
           product_id?: string | null
           rating?: number | null
+          source?: string | null
           title?: string | null
           verified_purchase?: boolean | null
         }
