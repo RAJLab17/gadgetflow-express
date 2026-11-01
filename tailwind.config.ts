@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'system-ui', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
         serif: ['"Playfair Display"', 'Georgia', '"Times New Roman"', 'serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -57,6 +58,20 @@ export default {
         },
         surface: {
           elevated: "hsl(var(--surface-elevated))",
+        },
+        raj: {
+          black: "var(--raj-black)",
+          ivory: "var(--raj-ivory)",
+          white: "var(--raj-white)",
+          ink: "var(--raj-ink)",
+          gold: "var(--raj-gold)",
+          "gold-deep": "var(--raj-gold-deep)",
+          "gold-button": "var(--raj-gold-button)",
+          "gold-text": "var(--raj-gold-text)",
+          brown: "var(--raj-brown)",
+          "muted-dark": "var(--raj-muted-dark)",
+          "muted-light": "var(--raj-muted-light)",
+          "line-dark": "var(--raj-line-dark)",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

@@ -35,6 +35,20 @@
     --charging-glow: rgba(215, 173, 130, 0.3);
     --charging-divider: linear-gradient(90deg, transparent, rgba(215, 173, 130, 0.35), transparent);
 
+    /* RAJ design tokens for the new homepage sections */
+    --raj-black: #000000;
+    --raj-ivory: #F3EFE7;
+    --raj-white: #FAF8F5;
+    --raj-ink: #1A1816;
+    --raj-gold: #D2AE73;
+    --raj-gold-deep: #B48A4E;
+    --raj-gold-button: #C9A26B;
+    --raj-gold-text: #9C7440;
+    --raj-brown: #7A5C30;
+    --raj-muted-dark: #CFC7BA;
+    --raj-muted-light: #3A3632;
+    --raj-line-dark: #26231F;
+
     --secondary: 35 20% 90%;
     --secondary-foreground: 30 10% 20%;
 
