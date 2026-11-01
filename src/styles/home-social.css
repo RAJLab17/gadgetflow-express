@@ -70,3 +70,9 @@
   .home-review-slide { transition: none; transform: none; }
   .home-review-bar.is-active .home-review-bar-fill { animation: none; transform: scaleX(1); }
 }
+/* Klickbare Bildkarte: Fokusrahmen, Desktop-Hover 2% (nur transform, kein Layout) */
+.home-set-photo:focus-visible { outline: 2px solid #D2AE73; outline-offset: 4px; }
+@media (min-width: 1024px) and (hover: hover) {
+  .home-set-photo img { transition: transform 0.6s ease; }
+  .home-set-photo:hover img { transform: scale(1.02); }
+}
