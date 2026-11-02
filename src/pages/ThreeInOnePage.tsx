@@ -32,7 +32,7 @@ const ThreeInOnePage = () => {
       </Helmet>
     <PremiumPageLayout
       title="3-in-1 Ladestation iPhone Apple Watch AirPods Schweiz | RAJ"
-      metaDescription="Alle drei Apple-Geräte gleichzeitig laden. Die beste 3-in-1 Ladestation für iPhone, Apple Watch und AirPods in der Schweiz – Qi2.2 zertifiziert."
+      metaDescription="Alle drei Apple-Geräte gleichzeitig laden: worauf es bei einer 3-in-1 Ladestation für iPhone, Apple Watch und AirPods ankommt. Mit dem Qi2.2 zertifizierten RAJ NEXUS."
       canonical="https://raj.ch/3-in-1-ladestation-iphone-apple-watch-airpods"
       eyebrow="Guide"
       heading={<>3-in-1 Ladestation für iPhone, Apple Watch und AirPods – die beste Lösung 2026</>}

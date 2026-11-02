@@ -5,9 +5,9 @@ import PremiumPageLayout from "@/components/PremiumPageLayout";
 import { breadcrumbJsonLd, articleJsonLd } from "@/lib/schemas";
 
 const articleSchema = articleJsonLd({
-  headline: "3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich",
+  headline: "Beste 3-in-1 Ladestation finden: 5 Modelle im Vergleich",
   url: "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
-  dateModified: "2026-10-22",
+  dateModified: "2026-11-02",
 });
 
 const breadcrumb = breadcrumbJsonLd([
@@ -111,16 +111,16 @@ const Beste3in1ChargerPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <PremiumPageLayout
-        title="Beste 3-in-1 Ladestation Schweiz 2026: Qi2.2 Vergleich | RAJ"
-        metaDescription="Qi2.2 Ladestationen für iPhone, Apple Watch und AirPods im Überblick: Ladeleistung, Bauform und unsere Empfehlung. Ein Vergleich von RAJ, Stand Oktober 2026."
+        title="Beste 3-in-1 Ladestation finden: 5 Modelle im Vergleich (Schweiz) | RAJ"
+        metaDescription="iPhone, Apple Watch und AirPods gleichzeitig laden: 5 Modelle nach Qi-Standard, Ladeleistung und Preis verglichen. Ein Vergleich von RAJ, Anbieter des NEXUS."
         canonical="https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026"
         eyebrow="Vergleich · Oktober 2026"
-        heading="3-in-1 Wireless Ladestationen Schweiz 2026 – Qi2.2 Vergleich"
+        heading="Beste 3-in-1 Ladestation finden: 5 Modelle im Vergleich"
         intro={<>
-          <p className="mb-6 text-base font-medium leading-relaxed text-foreground">Transparenz: Dieser Vergleich stammt von RAJ, der Marke hinter NEXUS. Alle Angaben beruhen auf Herstellerangaben, nicht auf eigenen Labormessungen. Stand: Oktober 2026.</p>
+          <p className="mb-6 text-base font-medium leading-relaxed text-foreground">Transparenz: Dieser Vergleich stammt von RAJ. Wir verkaufen selbst den RAJ NEXUS. Wir haben die Angaben aus Herstellerdaten zusammengestellt und keinen unabhängigen Labortest durchgeführt.</p>
           <p>Drei Geräte, drei Kabel, drei Stecker – jede Nacht das gleiche Chaos auf dem Nachttisch. Eine 3-in-1 Wireless Ladestation lädt diese Geräte über einen einzigen Anschluss. Dieser Vergleich stellt Herstellerangaben zu Ladeleistung und Bauform gegenüber und ordnet den RAJ NEXUS als Ladestation einer Schweizer Marke ein.</p>
         </>}
-        meta={<p>Zuletzt aktualisiert: 19. Oktober 2026</p>}
+        meta={<p>Zuletzt aktualisiert: 2. November 2026</p>}
         width="wide"
       >
         <H2>Was ist eine 3-in-1 Wireless Ladestation?</H2>
