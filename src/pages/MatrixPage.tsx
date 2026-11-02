@@ -845,11 +845,13 @@ const MatrixPage = () => {
           content="Schlanke MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
         />
         <link rel="canonical" href="https://raj.ch/matrix" />
-        <meta property="og:title" content="RAJ MATRIX Hülle für iPhone 17 Pro & 18 Pro, MagSafe-kompatibel" />
+        <meta property="og:title" content="MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX" />
         <meta
           property="og:description"
-          content="Die schlanke MagSafe-Hülle im Carbon-Design für iPhone 17 Pro bis 18 Pro Max. Abgestimmt auf den RAJ NEXUS."
+          content="Schlanke MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
         />
+        <meta name="twitter:title" content="MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX" />
+        <meta name="twitter:description" content="Schlanke MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand." />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/matrix" />
         {shareImageTags(shareImages.matrix)}

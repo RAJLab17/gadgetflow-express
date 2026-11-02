@@ -5,7 +5,7 @@ import PremiumPageLayout from "@/components/PremiumPageLayout";
 import { breadcrumbJsonLd, articleJsonLd } from "@/lib/schemas";
 
 const articleSchema = articleJsonLd({
-  headline: "Beste 3-in-1 Ladestation finden: 5 Modelle im Vergleich",
+  headline: "Beste 3-in-1 Ladestation finden: 4 Modelle im Vergleich",
   url: "https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026",
   dateModified: "2026-11-02",
 });
@@ -111,11 +111,11 @@ const Beste3in1ChargerPage = () => {
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>
       <PremiumPageLayout
-        title="Beste 3-in-1 Ladestation finden: 5 Modelle im Vergleich (Schweiz) | RAJ"
-        metaDescription="iPhone, Apple Watch und AirPods gleichzeitig laden: 5 Modelle nach Qi-Standard, Ladeleistung und Preis verglichen. Ein Vergleich von RAJ, Anbieter des NEXUS."
+        title="Beste 3-in-1 Ladestation finden: 4 Modelle im Vergleich (Schweiz) | RAJ"
+        metaDescription="iPhone, Apple Watch und AirPods gleichzeitig laden: 4 Modelle nach Qi-Standard und Ladeleistung verglichen. Ein Vergleich von RAJ, Anbieter des RAJ NEXUS."
         canonical="https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026"
         eyebrow="Vergleich · Oktober 2026"
-        heading="Beste 3-in-1 Ladestation finden: 5 Modelle im Vergleich"
+        heading="Beste 3-in-1 Ladestation finden: 4 Modelle im Vergleich"
         intro={<>
           <p className="mb-6 text-base font-medium leading-relaxed text-foreground">Transparenz: Dieser Vergleich stammt von RAJ. Wir verkaufen selbst den RAJ NEXUS. Wir haben die Angaben aus Herstellerdaten zusammengestellt und keinen unabhängigen Labortest durchgeführt.</p>
           <p>Drei Geräte, drei Kabel, drei Stecker – jede Nacht das gleiche Chaos auf dem Nachttisch. Eine 3-in-1 Wireless Ladestation lädt diese Geräte über einen einzigen Anschluss. Dieser Vergleich stellt Herstellerangaben zu Ladeleistung und Bauform gegenüber und ordnet den RAJ NEXUS als Ladestation einer Schweizer Marke ein.</p>
