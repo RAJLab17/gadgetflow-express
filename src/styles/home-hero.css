@@ -667,6 +667,90 @@
   border-radius: 12px;
 }
 
+/* Restliche Desktop-Masse: unter 1440px bleiben die bisherigen Werte gültig. */
+@media (min-width: 1440px) {
+  .home-hero {
+    height: calc(760 * var(--k));
+  }
+  .hh-meta {
+    gap: calc(10 * var(--k));
+  }
+  .hh-products {
+    /* 13 × 1.4 = 18.2: etwas Reserve für die vollständige Schriftzeile. */
+    height: calc(20 * var(--k));
+    max-width: calc(360 * var(--k));
+  }
+  .hh-product {
+    line-height: 1.4;
+    letter-spacing: calc(2 * var(--k));
+  }
+  .hh-pname {
+    margin-right: calc(8 * var(--k));
+  }
+  .hh-bars {
+    gap: calc(6 * var(--k));
+  }
+  .hh-bar {
+    height: calc(2 * var(--k));
+  }
+  .hh-btn {
+    border-radius: calc(999 * var(--k));
+  }
+  .hh-btn-name {
+    font-size: calc(15 * var(--k));
+  }
+  .hh-btn-price {
+    font-size: calc(13 * var(--k));
+  }
+  .hh-rating {
+    font-size: calc(15 * var(--k));
+    min-height: calc(22.5 * var(--k));
+  }
+  .hh-rating a {
+    gap: calc(6 * var(--k));
+  }
+  .hh-rating .hh-stars {
+    font-size: inherit;
+    letter-spacing: calc(2 * var(--k));
+  }
+  .hh-eyebrow {
+    font-size: calc(12 * var(--k));
+    letter-spacing: calc(4 * var(--k));
+  }
+  .hh-lead {
+    font-size: calc(18 * var(--k));
+  }
+  .hh-text {
+    gap: calc(22 * var(--k));
+  }
+  .hh-case,
+  .hh-nexus-img {
+    filter: drop-shadow(0 calc(24 * var(--k)) calc(28 * var(--k)) rgba(0, 0, 0, 0.65));
+  }
+  .hh-nexus-floor {
+    bottom: calc(-14 * var(--k));
+  }
+  .hh-pill {
+    border-radius: calc(999 * var(--k));
+    -webkit-backdrop-filter: blur(calc(8 * var(--k)));
+    backdrop-filter: blur(calc(8 * var(--k)));
+  }
+  .hh-ring::before {
+    inset: calc(4 * var(--k));
+  }
+  .hh-slide-link:focus-visible,
+  .hh-product:focus-visible {
+    outline-width: calc(2 * var(--k));
+    outline-offset: calc(4 * var(--k));
+    border-radius: calc(12 * var(--k));
+  }
+}
+@media (min-width: 1441px) {
+  .home-hero {
+    height: clamp(calc(760 * var(--k)), 100svh, calc(1200 * var(--k)));
+  }
+}
+
 /* Reduced motion: nur Slide 1 sichtbar, keine Bewegung (Grundregeln in home-motion.css) */
 @media (prefers-reduced-motion: reduce) {
   .hh-glow,
