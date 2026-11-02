@@ -34,7 +34,7 @@ serve(async (req) => {
     const isApex = typeof product === 'string' && product.toLowerCase() === 'apex';
     const listId = isApex ? 14 : 8;
     const source = isApex ? 'RAJ APEX' : 'RAJ Runde 2';
-    console.log(`Adding to ${source} waitlist (list ${listId}):`, cleanEmail);
+    console.log(`Adding to waitlist (list ${listId})`);
 
     const brevoBody: Record<string, unknown> = {
       email: cleanEmail,
@@ -59,7 +59,7 @@ serve(async (req) => {
     });
 
     const responseText = await response.text();
-    console.log('Brevo response:', response.status, responseText);
+    console.log('Brevo response status:', response.status);
 
     if (response.ok || response.status === 201 || response.status === 204) {
       return new Response(
@@ -81,13 +81,13 @@ serve(async (req) => {
       } catch { /* ignore parse error */ }
     }
 
-    console.error('Brevo API error:', response.status, responseText);
+    console.error('Brevo API error status:', response.status);
     return new Response(
       JSON.stringify({ error: 'Anmeldung fehlgeschlagen', details: responseText }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Waitlist request failed');
     return new Response(
       JSON.stringify({ error: 'Interner Serverfehler' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }

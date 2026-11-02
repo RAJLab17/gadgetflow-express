@@ -88,9 +88,9 @@ serve(async (req) => {
           if (res.ok && data.draft_order) {
             shopifyDraftOrderId = String(data.draft_order.id);
           }
-          console.log('Shopify abandoned draft order:', shopifyDraftOrderId);
+          console.log('Shopify abandoned draft order created:', Boolean(shopifyDraftOrderId));
         } catch (e) {
-          console.error('Shopify abandoned draft order error:', e);
+          console.error('Shopify abandoned draft order failed');
         }
       }
 
@@ -131,7 +131,7 @@ serve(async (req) => {
       status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   } catch (error) {
-    console.error('Abandoned cart error:', error);
+    console.error('Abandoned cart request failed');
     return new Response(
       JSON.stringify({ error: 'Fehler', details: error instanceof Error ? error.message : 'Unknown' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }

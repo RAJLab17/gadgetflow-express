@@ -1,4 +1,6 @@
 # Architecture rules
+- The retired process-preorder endpoint remains deployed as a side-effect-free 410 handler; PreorderForm has no consumers, and current purchases use Shopify checkout instead.
+- Server diagnostics log only fixed messages, HTTP statuses or booleans, never submitted emails, raw provider payloads or exception objects, because these can contain customer data.
 - Homepage order is HomeHero, HomeNexus, HomeTicker, HomeMatrix, HomeSet, HomeReviews, HomeStory, HomeBusiness, then the global Footer; legacy Brand* sections stay in the repo but off the homepage. It uses shared HomeSection-based product sections after HomeHero on all viewports, with homepage-only product styles and approved product-specific ratings; route-gated hero preloads must match the first rendered image to avoid duplicate downloads.
 - Mobile charging moment uses SVG rings and a visibility-triggered frame counter with a session-storage guard and memory fallback; reduced motion completes NEXUS instantly while APEX never fills.
 - Product reviews share an approved-only query and exact-product schema builder; submission verifies Shopify order number, email and trusted variant IDs server-side, while existing NEXUS records remain untouched.

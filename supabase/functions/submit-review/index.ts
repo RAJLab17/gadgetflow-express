@@ -91,7 +91,7 @@ async function sendFounderNotification(data: {
       }),
     })
   } catch (e) {
-    console.error('notify send failed', e)
+    console.error('notify send failed')
   }
 }
 
@@ -152,7 +152,7 @@ Deno.serve(async (req) => {
       verifiedPurchase = await verifyPurchase(data.product_id, data.customer_email, SHOPIFY_ACCESS_TOKEN)
     } catch (e) {
       // Never block or reveal: store as not verified; admin decides.
-      console.error('purchase verification unavailable', e)
+      console.error('purchase verification unavailable')
     }
 
     const { data: review, error: insertErr } = await supabase

@@ -31,7 +31,7 @@ serve(async (req) => {
     }
 
     const cleanEmail = email.trim().toLowerCase();
-    console.log('Creating/updating contact for DOI:', cleanEmail);
+    console.log('Creating/updating contact for DOI');
 
     const brevoBody = {
       email: cleanEmail,
@@ -51,7 +51,7 @@ serve(async (req) => {
     });
 
     const responseText = await response.text();
-    console.log('Brevo response:', response.status, responseText);
+    console.log('Brevo response status:', response.status);
 
     // 201 = created, 204 = updated existing contact
     if (response.ok || response.status === 201 || response.status === 204) {
@@ -70,7 +70,7 @@ serve(async (req) => {
           body: JSON.stringify({ email: cleanEmail }),
         });
       } catch (dbErr) {
-        console.error('Failed to track signup in DB:', dbErr);
+        console.error('Failed to track signup in DB');
       }
 
       return new Response(
@@ -92,13 +92,13 @@ serve(async (req) => {
       } catch { /* ignore parse error */ }
     }
 
-    console.error('Brevo API error:', response.status, responseText);
+    console.error('Brevo API error status:', response.status);
     return new Response(
       JSON.stringify({ error: 'Anmeldung fehlgeschlagen', details: responseText }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Signup request failed');
     return new Response(
       JSON.stringify({ error: 'Interner Serverfehler' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }

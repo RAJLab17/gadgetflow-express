@@ -86,7 +86,7 @@ serve(async (req) => {
     });
 
     const responseText = await response.text();
-    console.log('Brevo SMTP response:', response.status, responseText);
+    console.log('Brevo SMTP response status:', response.status);
 
     if (response.ok) {
       return new Response(
@@ -95,13 +95,13 @@ serve(async (req) => {
       );
     }
 
-    console.error('Brevo SMTP API error:', response.status, responseText);
+    console.error('Brevo SMTP API error status:', response.status);
     return new Response(
       JSON.stringify({ error: 'E-Mail konnte nicht gesendet werden.' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Contact request failed');
     return new Response(
       JSON.stringify({ error: 'Interner Serverfehler' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
