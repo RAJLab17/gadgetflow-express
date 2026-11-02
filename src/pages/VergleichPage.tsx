@@ -29,7 +29,7 @@ const faqs = [
     a: "Qi2.2 – offiziell «Qi2 25W» genannt – ist die Weiterentwicklung von Qi2. Die hier genannten Qi2.2-Modelle unterstützen laut Herstellerangabe bis zu 25 W iPhone-Ladeleistung, die hier genannten Qi2-Modelle bis zu 15 W. Die Wattangaben sind keine Messung der tatsächlichen Ladedauer.",
   },
   {
-    q: "Gibt es einen 3-in-1 Charger aus der Schweiz?",
+    q: "Gibt es einen 3-in-1 Charger einer Schweizer Marke?",
     a: "RAJ ist eine Schweizer Marke aus Weinfelden, mit Support aus dem Thurgau.",
   },
   {
@@ -323,7 +323,7 @@ const VergleichPage = () => {
 
         <H3>RAJ NEXUS 3-in-1 Wireless Charger</H3>
         <P>
-          Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Swiss Brand mit Qi2.2-Zertifizierung. Das
+          Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Schweizer Marke mit Qi2.2-Zertifizierung. Das
           faltbare Design mit verstellbarem Winkel (0–75°) macht ihn sowohl für den Schreibtisch als auch
           für unterwegs geeignet. Laut Herstellerangabe unterstützt der NEXUS bis zu 25W für das iPhone
           sowie jeweils 5W für Apple Watch und AirPods. Der RAJ NEXUS ist für CHF 99 erhältlich, inklusive 3 Jahren
@@ -363,8 +363,7 @@ const VergleichPage = () => {
         <P>
           Alle Modelle sind kompakt. Der Anker MagGo ist faltbar. Der RAJ NEXUS bietet
           einen Verstellbereich 0–75° und ein faltbares Design für Stand- oder Flachnutzung.
-          Belkins UltraCharge Pro ist als festes Dock konzipiert und dadurch weniger für unterwegs
-          geeignet.
+          Belkins UltraCharge Pro ist als festes Dock konzipiert.
         </P>
 
         <H3>Verfügbarkeit in der Schweiz</H3>
@@ -387,7 +386,7 @@ const VergleichPage = () => {
             </div>
             <p className="text-foreground/85 font-light leading-relaxed text-[15px]">
               Für Käufer, die Wert auf eine Schweizer Marke legen, den Qi2.2-Standard wollen und
-              bereit sind, direkt beim Hersteller zu kaufen.
+              direkt bei RAJ kaufen möchten.
             </p>
           </div>
           <div className="bg-background p-8 md:p-10">
@@ -395,7 +394,7 @@ const VergleichPage = () => {
               Belkin
             </p>
             <p className="text-foreground/85 font-light leading-relaxed text-[15px]">
-              Der UltraCharge Pro ist ein festes Dock einer internationalen Marke mit Geräte-Versicherung
+              Der UltraCharge Pro ist ein festes Dock einer internationalen Marke
               und Verfügbarkeit über Schweizer Händler. Das BoostCharge Pro unterstützt laut Herstellerangabe
               15W iPhone-Ladeleistung.
             </p>
