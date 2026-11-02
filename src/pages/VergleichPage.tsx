@@ -34,7 +34,7 @@ const faqs = [
   },
   {
     q: "Welche Ladeleistung haben die Modelle laut Herstellerangabe?",
-    a: "Laut Herstellerangabe unterstützen RAJ NEXUS und Belkin UltraCharge Pro jeweils bis zu 25W iPhone-Ladeleistung. Anker MagGo und das ältere Belkin BoostCharge Pro unterstützen laut Herstellerangabe 15W. Diese Angaben sind keine Rangfolge und keine Messung der tatsächlichen Ladedauer.",
+    a: "Laut Herstellerangabe unterstützen RAJ NEXUS und Belkin UltraCharge Pro jeweils bis zu 25W iPhone-Ladeleistung. Anker MagGo Faltbar 3-in-1 (A2557) und das ältere Belkin BoostCharge Pro unterstützen laut Herstellerangabe 15W. Diese Angaben sind keine Rangfolge und keine Messung der tatsächlichen Ladedauer.",
   },
 ];
 
@@ -236,7 +236,7 @@ const ComparisonTable = () => (
               Belkin UltraCharge Pro
             </th>
             <th className="text-left py-5 px-4 align-bottom font-medium text-foreground/80">
-              Anker MagGo
+              Anker MagGo Faltbar 3-in-1 (A2557)
             </th>
           </tr>
         </thead>
@@ -314,7 +314,7 @@ const VergleichPage = () => {
           RAJ ist eine Schweizer Marke aus Weinfelden, mit Support aus dem Thurgau. Der RAJ NEXUS
           unterstützt Qi2.2 und laut Herstellerangabe bis zu 25W iPhone-Ladeleistung und kostet CHF 99.
           In diesem Vergleich stehen ausserdem das Belkin BoostCharge Pro (laut Herstellerangabe 15W),
-          das Belkin UltraCharge Pro (laut Herstellerangabe bis zu 25W) und der Anker MagGo
+          das Belkin UltraCharge Pro (laut Herstellerangabe bis zu 25W) und der Anker MagGo Faltbar 3-in-1 (A2557)
           (Qi2, laut Herstellerangabe 15W iPhone-Ladeleistung).
           Alle Modelle laden iPhone, Apple Watch und AirPods gleichzeitig.
         </Callout>
@@ -330,14 +330,14 @@ const VergleichPage = () => {
           Garantie.
         </P>
 
-        <H3>Anker MagGo 3-in-1</H3>
+        <H3>Anker MagGo Faltbar 3-in-1 (A2557)</H3>
         <P>
-          Die Anker MagGo 3-in-1 Ladestation ist
-          kompakt und faltbar – zusammengeklappt etwa so gross wie ein Kartenspiel. Mit Qi2-Zertifizierung
+          Die Anker MagGo Faltbar 3-in-1 (A2557) ist
+          kompakt und faltbar – eingeklappt laut Herstellerangabe 89 × 60 × 25 mm. Mit Qi2-Zertifizierung
           bietet sie laut Herstellerangabe 15W Ladeleistung für das iPhone und lädt auch Apple Watch und AirPods.
         </P>
 
-        <ImagePlaceholder label="Anker MagGo 3-in-1" />
+        <ImagePlaceholder label="Anker MagGo Faltbar 3-in-1 (A2557)" />
 
         <H2 id="vergleich">Vergleich auf einen Blick</H2>
         <ComparisonTable />
@@ -356,12 +356,12 @@ const VergleichPage = () => {
           Der RAJ NEXUS ist mit Qi2.2 zertifiziert. Die hier genannten Qi2.2-Modelle unterstützen
           laut Herstellerangabe bis zu 25 W iPhone-Ladeleistung, die hier genannten Qi2-Modelle bis zu 15 W.
           Belkins UltraCharge Pro unterstützt laut Herstellerangabe mit «Qi2 25W» bis zu 25 W,
-          das ältere BoostCharge Pro und der Anker MagGo unterstützen laut Herstellerangabe 15W.
+          das ältere BoostCharge Pro und der Anker MagGo Faltbar 3-in-1 (A2557) unterstützen laut Herstellerangabe 15W.
         </P>
 
         <H3>Design und Portabilität</H3>
         <P>
-          Alle Modelle sind kompakt. Der Anker MagGo ist faltbar. Der RAJ NEXUS bietet
+          Alle Modelle sind kompakt. Der Anker MagGo Faltbar 3-in-1 (A2557) ist faltbar. Der RAJ NEXUS bietet
           einen Verstellbereich 0–75° und ein faltbares Design für Stand- oder Flachnutzung.
           Belkins UltraCharge Pro ist als festes Dock konzipiert.
         </P>
@@ -401,7 +401,7 @@ const VergleichPage = () => {
           </div>
           <div className="bg-background p-8 md:p-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground font-medium mb-4">
-              Anker MagGo
+              Anker MagGo Faltbar 3-in-1 (A2557)
             </p>
             <p className="text-foreground/85 font-light leading-relaxed text-[15px]">
               Eine kompakte, faltbare Ladestation mit Qi2 und laut Herstellerangabe 15W iPhone-Ladeleistung.
@@ -431,7 +431,7 @@ const VergleichPage = () => {
             RAJ NEXUS
           </Link>{" "}
           unterstützt den Qi2.2-Standard und ist faltbar, mit Support aus dem Thurgau. Belkin bietet in
-          diesem Vergleich das BoostCharge Pro und das feste UltraCharge-Pro-Dock; der Anker MagGo ist faltbar.
+          diesem Vergleich das BoostCharge Pro und das feste UltraCharge-Pro-Dock; der Anker MagGo Faltbar 3-in-1 (A2557) ist faltbar.
           Für die Auswahl sind die unterstützten Geräte, die Bauform und die Herstellerangaben zum jeweiligen Modell relevant.
         </P>
 
@@ -457,6 +457,8 @@ const VergleichPage = () => {
         <p className="text-xs text-muted-foreground italic font-light leading-relaxed">
           Dieser Vergleich basiert auf Herstellerangaben zu den genannten Modellen. Wir haben keinen
           unabhängigen Labortest durchgeführt. Massgebend sind die Herstellerangaben zum jeweiligen Modell.
+          Herstellerangaben zum Anker MagGo Faltbar 3-in-1 (A2557):{" "}
+          <a href="https://www.anker.com/de/products/a2557-maggo-qi2-kabellose-ladestation-magsafe-kompatibel" className="underline hover:text-foreground">Anker-Produktseite (A2557)</a>.{" "}
           Der RAJ NEXUS ist
           über <a href="https://raj.ch" className="underline hover:text-foreground">raj.ch</a> erhältlich.
         </p>
