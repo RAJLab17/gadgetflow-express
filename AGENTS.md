@@ -24,6 +24,7 @@
 - Load every page module through lazyWithRetry and keep the app shell wrapped in an ErrorBoundary with a non-empty Suspense fallback; storage restrictions must not fail successful imports, and reload recovery requires a persistable guard to prevent loops.
 - No visible pre-bundle shells on any route: visitors only see React; crawler content lives in the per-route <noscript> snapshot, plus a static page background colour and first-image preloads that exactly match the first React <img> URL/srcset/sizes.
 - Crawler HTML per sitemap route (plus listed non-sitemap duplicates like /dokumente, /auto, /launch, /shop) comes from src/content/prerender-snapshot.json baked in by the raj-prerender Vite plugin (dev + build, <noscript> body, data-rh head tags); re-run scripts/capture-seo-snapshot.py after changing page SEO text, because non-JS crawlers otherwise see stale copy.
+- The /vergleich snapshot capture includes complete labelled table rows and FAQ answers from page-owned FAQPage data; scope this enrichment to that route so other crawler pages remain unchanged.
 
 - Responsive NEXUS title variants select the sole H1 using the shared media-query observer and render inactive titles as divs; this preserves all breakpoint layouts without duplicate DOM headings.
 - sitemap-images.xml auto-collects each sitemap route's CDN asset pointers, public/ image paths and absolute raj.ch CDN URLs from its page module (via App.tsx) plus manual site-urls.ts images, skipping logos/icons/payment/thumbs and hashed Vite imports; only permanent addresses may enter the sitemap.
