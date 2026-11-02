@@ -92,7 +92,6 @@ const ThreeInOnePage = () => {
                 ["iPhone", "25W", "15W", "15W"],
                 ["Apple Watch", "check", "check", "check"],
                 ["AirPods", "check", "check", "check"],
-                ["Preis CHF", "99.–", "ab 109.–", "ab 129.–"],
                 ["Swiss Brand", "check", "x", "x"],
               ].map(([label, a, b, c]) => (
                 <tr key={label} className="border-b border-border/50">
@@ -118,7 +117,7 @@ const ThreeInOnePage = () => {
             Fazit
           </h2>
           <p>
-            Für iPhone-Nutzer in der Schweiz die alle drei Apple-Geräte täglich laden: der RAJ NEXUS bietet den neuesten Standard und den günstigsten Preis, mit Schweizer Support aus dem Thurgau. Faltbar, kompakt, für Nachttisch und Schreibtisch.
+            Für iPhone-Nutzer in der Schweiz, die alle drei Apple-Geräte täglich laden: Der RAJ NEXUS unterstützt Qi2.2 und lädt iPhone, Apple Watch und AirPods gleichzeitig, mit Schweizer Support aus dem Thurgau. Faltbar, kompakt, für Nachttisch und Schreibtisch.
           </p>
         </section>
 

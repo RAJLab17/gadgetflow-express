@@ -263,7 +263,8 @@ const ApexPage = () => {
         <title>MagSafe Autohalterung mit Qi2.2 und 25 W | RAJ APEX Schweiz</title>
         <meta name="description" content="RAJ APEX: MagSafe Auto-Ladehalterung mit bis zu 25W. Wähle zwischen Dashboard-Montage (APEX Dash) oder Lüftungsdüse (APEX Vent). Swiss Brand." />
         <link rel="canonical" href="https://raj.ch/apex" />
-        <meta property="og:title" content="RAJ APEX — MagSafe Auto-Ladehalterung" />
+        <meta property="og:title" content="MagSafe Autohalterung mit Qi2.2 und 25 W | RAJ APEX Schweiz" />
+        <meta name="twitter:title" content="MagSafe Autohalterung mit Qi2.2 und 25 W | RAJ APEX Schweiz" />
         <meta property="og:description" content="Dein iPhone. Sicher am Ort. Egal welches Auto." />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/apex" />
