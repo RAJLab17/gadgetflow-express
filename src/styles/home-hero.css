@@ -581,6 +581,18 @@
   }
 }
 
+/* Grosse Bildschirme (ab 1441px): Hero füllt die Bildschirmhöhe,
+   Textblock und Bühne-Inhalt vertikal zentriert. */
+@media (min-width: 1441px) {
+  .home-hero {
+    height: clamp(calc(760 * var(--k)), 100svh, calc(1200 * var(--k)));
+  }
+  .hh-text {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
 @media (min-width: 1024px) and (max-width: 1439px) {
   .hh-stage {
     transform: scale(0.85);
