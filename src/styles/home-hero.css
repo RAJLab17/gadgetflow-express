@@ -436,7 +436,7 @@
     container-type: inline-size;
     /* Skalierungsfaktor: 1px bis 1440px Breite, wächst bis 1.25px ab 1800px */
     --k: clamp(1px, calc(100cqw / 1440), 1.25px);
-    height: clamp(calc(760 * var(--k)), 100svh, calc(1200 * var(--k)));
+    height: 760px;
     background: radial-gradient(ellipse 60% 70% at 74% 46%, #3A352E 0%, #24211D 38%, #100F0D 66%, #000000 100%);
   }
   .hh-frame {
@@ -547,8 +547,7 @@
   .hh-text {
     position: absolute;
     left: calc(120 * var(--k));
-    top: 50%;
-    transform: translateY(-50%);
+    top: calc(200 * var(--k));
     width: calc(640 * var(--k));
     padding: 0;
     gap: calc(22 * var(--k));
