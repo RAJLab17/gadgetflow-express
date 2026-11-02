@@ -24,19 +24,35 @@ import sys
 if len(sys.argv) > 1:
     paths = sys.argv[1:]  # explicit paths (may include non-sitemap duplicates)
 
-EXTRACT = r"""() => {
+EXTRACT = r"""(path) => {
   const m = (sel, attr='content') => document.head.querySelector(sel)?.getAttribute(attr) || null;
   const ld = [...document.head.querySelectorAll('script[type="application/ld+json"][data-rh]')]
     .map(s => s.textContent).filter(Boolean);
   const root = document.querySelector('main') || document.getElementById('root');
+  const comparison = path === '/vergleich';
+  const faqAnswers = new Map(comparison ? ld.flatMap(raw => {
+    const schema = JSON.parse(raw);
+    return schema['@type'] === 'FAQPage' ? schema.mainEntity.map(q => [q.name, q.acceptedAnswer.text]) : [];
+  }) : []);
   const skip = el => el.closest('header, footer, nav, [aria-hidden="true"], #matrix-shell, script, style, noscript');
   const blocks = []; let len = 0;
-  for (const el of root.querySelectorAll('h1, h2, h3, p, li, details > summary')) {
+  for (const el of root.querySelectorAll('h1, h2, h3, p, li, details > summary' + (comparison ? ', table' : ''))) {
     if (skip(el)) continue;
+    if (comparison && el.tagName === 'TABLE') {
+      const headers = [...el.querySelectorAll('thead th')].map(cell => cell.textContent.replace(/\s+/g, ' ').trim());
+      blocks.push({ tag: 'p', text: headers.join(' | ') });
+      for (const row of el.querySelectorAll('tbody tr')) {
+        const cells = [...row.querySelectorAll('td')].map(cell => cell.textContent.replace(/\s+/g, ' ').trim());
+        blocks.push({ tag: 'p', text: cells[0] + ': ' + cells.slice(1).map((value, i) => headers[i + 1] + ': ' + value).join(' | ') });
+      }
+      continue;
+    }
     const t = (el.closest('details') ? el.textContent : el.innerText || '').replace(/\s+/g, ' ').trim();
     if (!t || t.length < 2) continue;
     if (blocks.length && blocks[blocks.length-1].text === t) continue;
     blocks.push({ tag: el.tagName === 'SUMMARY' ? 'h3' : el.tagName.toLowerCase(), text: t });
+    const answer = faqAnswers.get(t);
+    if (answer) blocks.push({ tag: 'p', text: answer });
     len += t.length; if (len > 12000) break;
   }
   const h1 = [...document.querySelectorAll('h1')].map(h => (h.innerText||'').replace(/\s+/g,' ').trim()).find(Boolean) || null;
@@ -74,7 +90,7 @@ async def main():
             except Exception:
                 pass
             await page.wait_for_timeout(800)
-            data = await page.evaluate(EXTRACT)
+            data = await page.evaluate(EXTRACT, path)
             out[path] = data
             print(path, "|", data["title"], "|", data["canonical"], "|", data["h1"])
             await page.close()

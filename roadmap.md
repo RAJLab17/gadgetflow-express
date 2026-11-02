@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] /vergleich: angefragte Texte/Metadaten neutralisiert, Fremdpreise entfernt, vollständige Tabelle/FAQ für Crawler erfasst, Datum 2. November 2026; Datumstest und Browser/Crawler-Prüfung bestanden, nicht veröffentlicht.
+
 - [x] Nur Texte/Metadaten: Vergleich auf 4 Modelle korrigiert, Fremdpreiszeile und Preisvergleich im 3-in-1-Guide entfernt, OG/Twitter auf vier Seiten angeglichen (APEX-Beschreibungen unverändert), Crawler-Version und Browser geprüft; nicht veröffentlicht.
 
 - [x] Sicherheitsbefunde: alte Vorbestellfunktion ohne eingebundenes Formular deaktiviert (live 410, keine Seiteneffekte); E-Mail-/Payload-Logs entfernt; 22 Tests bestanden, aktive Funktionen geprüft; Basisscan 0, Bewertungshinweis auf Betreiberwunsch ignoriert. Tiefenscan läuft für den vor den Änderungen gespeicherten Stand; finale Codeanalyse steht noch aus.

@@ -3709,12 +3709,12 @@
   ]
  },
  "/vergleich": {
-  "title": "3-in-1 Charger Vergleich 2026: NEXUS, Belkin & Anker | RAJ",
-  "description": "RAJ NEXUS, Belkin UltraCharge Pro und Anker MagGo im Vergleich: Preis, Qi2.2, Ladeleistung und Verfügbarkeit in der Schweiz – aktualisiert Juli 2026.",
+  "title": "3-in-1 Ladestation Vergleich: RAJ NEXUS, Belkin & Anker | RAJ",
+  "description": "RAJ NEXUS, Belkin und Anker im Vergleich: Qi-Standard, Ladeleistung, Bauform und Support in der Schweiz. Ein Vergleich von RAJ, Anbieter des RAJ NEXUS.",
   "robots": "index, follow",
   "canonical": "https://raj.ch/vergleich",
-  "ogTitle": "3-in-1 Charger Vergleich 2026: NEXUS, Belkin & Anker | RAJ",
-  "ogDescription": "RAJ NEXUS, Belkin UltraCharge Pro und Anker MagGo im Vergleich: Preis, Qi2.2, Ladeleistung und Verfügbarkeit in der Schweiz – aktualisiert Juli 2026.",
+  "ogTitle": "3-in-1 Ladestation Vergleich: RAJ NEXUS, Belkin & Anker | RAJ",
+  "ogDescription": "RAJ NEXUS, Belkin und Anker im Vergleich: Qi-Standard, Ladeleistung, Bauform und Support in der Schweiz. Ein Vergleich von RAJ, Anbieter des RAJ NEXUS.",
   "ogUrl": "https://raj.ch/vergleich",
   "ogImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "ogImageWidth": "1200",
@@ -3722,15 +3722,15 @@
   "ogImageType": "image/jpeg",
   "ogImageAlt": "RAJ NEXUS 3-in-1 Wireless Charger für iPhone, Apple Watch und AirPods",
   "ogType": "article",
-  "twitterTitle": "3-in-1 Charger Vergleich 2026: NEXUS, Belkin & Anker | RAJ",
-  "twitterDescription": "RAJ NEXUS, Belkin UltraCharge Pro und Anker MagGo im Vergleich: Preis, Qi2.2, Ladeleistung und Verfügbarkeit in der Schweiz – aktualisiert Juli 2026.",
+  "twitterTitle": "3-in-1 Ladestation Vergleich: RAJ NEXUS, Belkin & Anker | RAJ",
+  "twitterDescription": "RAJ NEXUS, Belkin und Anker im Vergleich: Qi-Standard, Ladeleistung, Bauform und Support in der Schweiz. Ein Vergleich von RAJ, Anbieter des RAJ NEXUS.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg",
   "h1": "3-in-1 Wireless Charger im Vergleich.",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"3-in-1 Charger Vergleich 2026: NEXUS, Belkin & Anker | RAJ\",\"description\":\"RAJ NEXUS, Belkin UltraCharge Pro und Anker MagGo im Vergleich: Preis, Qi2.2, Ladeleistung und Verfügbarkeit in der Schweiz – aktualisiert Juli 2026.\",\"datePublished\":\"2026-05-02\",\"dateModified\":\"2026-07-19\",\"author\":{\"@type\":\"Organization\",\"name\":\"RAJ\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"RAJ\",\"url\":\"https://raj.ch\"},\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp\"],\"mainEntityOfPage\":\"https://raj.ch/vergleich\",\"url\":\"https://raj.ch/vergleich\"}",
    "{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://raj.ch\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://raj.ch/blog\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Vergleich: RAJ NEXUS vs Belkin vs Anker\",\"item\":\"https://raj.ch/vergleich\"}]}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp\"],\"description\":\"Schweizer 3-in-1 Wireless Charger mit Qi2.2-Zertifizierung, 25W für iPhone, 5W für Apple Watch und AirPods, verstellbarer Winkel 0–75°, faltbares Design.\",\"offers\":{\"@type\":\"Offer\",\"price\":\"99.00\",\"priceCurrency\":\"CHF\",\"availability\":\"https://schema.org/InStock\",\"url\":\"https://raj.ch/nexus\"}}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ist Qi2.2 besser als Qi2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Qi2.2 – offiziell «Qi2 25W» genannt – ist die Weiterentwicklung von Qi2: Statt bis zu 15 W lädt es iPhones mit bis zu 25 W und hat ein verbessertes Wärmemanagement.\"}},{\"@type\":\"Question\",\"name\":\"Welcher 3-in-1 Charger ist am günstigsten in der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Das ältere Belkin BoostCharge Pro, aktuell im Sale ab CHF 39.–, allerdings mit geringerer Ladeleistung (15W) für das iPhone.\"}},{\"@type\":\"Question\",\"name\":\"Gibt es einen 3-in-1 Charger aus der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, der RAJ NEXUS ist aktuell die einzige Schweizer Marke in diesem Vergleich, mit Support aus dem Thurgau.\"}},{\"@type\":\"Question\",\"name\":\"Welcher Charger lädt am schnellsten?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ NEXUS und Belkin UltraCharge Pro laden das iPhone beide mit bis zu 25W. Anker MagGo und das ältere Belkin BoostCharge Pro laden mit 15W.\"}}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"3-in-1 Ladestation Vergleich: RAJ NEXUS, Belkin & Anker | RAJ\",\"description\":\"RAJ NEXUS, Belkin und Anker im Vergleich: Qi-Standard, Ladeleistung, Bauform und Support in der Schweiz. Ein Vergleich von RAJ, Anbieter des RAJ NEXUS.\",\"datePublished\":\"2026-05-02\",\"dateModified\":\"2026-11-02\",\"author\":{\"@type\":\"Organization\",\"name\":\"RAJ\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"RAJ\",\"url\":\"https://raj.ch\"},\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp\"],\"mainEntityOfPage\":\"https://raj.ch/vergleich\",\"url\":\"https://raj.ch/vergleich\"}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ist Qi2.2 besser als Qi2?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Qi2.2 – offiziell «Qi2 25W» genannt – ist die Weiterentwicklung von Qi2. Die hier genannten Qi2.2-Modelle unterstützen laut Herstellerangabe bis zu 25 W iPhone-Ladeleistung, die hier genannten Qi2-Modelle bis zu 15 W. Die Wattangaben sind keine Messung der tatsächlichen Ladedauer.\"}},{\"@type\":\"Question\",\"name\":\"Gibt es einen 3-in-1 Charger aus der Schweiz?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"RAJ ist eine Schweizer Marke aus Weinfelden, mit Support aus dem Thurgau.\"}},{\"@type\":\"Question\",\"name\":\"Welche Ladeleistung haben die Modelle laut Herstellerangabe?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Laut Herstellerangabe unterstützen RAJ NEXUS und Belkin UltraCharge Pro jeweils bis zu 25W iPhone-Ladeleistung. Anker MagGo und das ältere Belkin BoostCharge Pro unterstützen laut Herstellerangabe 15W. Diese Angaben sind keine Rangfolge und keine Messung der tatsächlichen Ladedauer.\"}}]}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ NEXUS 3-in-1 Wireless Charger\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"image\":[\"https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp\",\"https://raj.ch/assets/nexus-real-topview-qi2-1200w-BOZmMyqC.webp\"],\"description\":\"3-in-1 Wireless Charger von RAJ, einer Schweizer Marke aus Weinfelden mit Support aus dem Thurgau. Qi2.2-Zertifizierung, laut Herstellerangabe bis zu 25W für iPhone und jeweils 5W für Apple Watch und AirPods, Verstellbereich 0–75°, faltbares Design.\",\"offers\":{\"@type\":\"Offer\",\"price\":\"99.00\",\"priceCurrency\":\"CHF\",\"availability\":\"https://schema.org/InStock\",\"url\":\"https://raj.ch/nexus\"}}"
   ],
   "blocks": [
    {
@@ -3743,7 +3743,15 @@
    },
    {
     "tag": "p",
-    "text": "ZULETZT AKTUALISIERT: JULI 2026"
+    "text": "Transparenz: Dieser Vergleich stammt von RAJ. Wir verkaufen selbst den RAJ NEXUS. Die Angaben stammen aus Herstellerdaten, wir haben keinen unabhängigen Labortest durchgeführt."
+   },
+   {
+    "tag": "p",
+    "text": "RAJ NEXUS vs. Belkin vs. Anker – Qi-Standard, Ladeleistung, Bauform und Support in der Schweiz."
+   },
+   {
+    "tag": "p",
+    "text": "ZULETZT AKTUALISIERT: 2. NOVEMBER 2026"
    },
    {
     "tag": "p",
@@ -3751,7 +3759,7 @@
    },
    {
     "tag": "p",
-    "text": "Kurz zusammengefasst: RAJ NEXUS (Qi2.2, 25W, CHF 99) ist die einzige Schweizer Marke der drei mit Schweizer Support. Belkin bietet zwei Modelle an: das ältere BoostCharge Pro (15W, ab CHF 39.–) und das neuere UltraCharge Pro (25W, CHF 90.90). Anker MagGo (Qi2, 15W, CHF 85.90) liegt preislich dazwischen. Alle Modelle laden iPhone, Apple Watch und AirPods gleichzeitig."
+    "text": "Kurz zusammengefasst: RAJ ist eine Schweizer Marke aus Weinfelden, mit Support aus dem Thurgau. Der RAJ NEXUS unterstützt Qi2.2 und laut Herstellerangabe bis zu 25W iPhone-Ladeleistung und kostet CHF 99. In diesem Vergleich stehen ausserdem das Belkin BoostCharge Pro (laut Herstellerangabe 15W), das Belkin UltraCharge Pro (laut Herstellerangabe bis zu 25W) und der Anker MagGo (Qi2, laut Herstellerangabe 15W iPhone-Ladeleistung). Alle Modelle laden iPhone, Apple Watch und AirPods gleichzeitig."
    },
    {
     "tag": "h2",
@@ -3763,7 +3771,7 @@
    },
    {
     "tag": "p",
-    "text": "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Swiss Brand mit Qi2.2-Zertifizierung. Das faltbare Design mit verstellbarem Winkel (0–75°) macht ihn sowohl für den Schreibtisch als auch für unterwegs geeignet. Das iPhone wird mit bis zu 25W geladen, Apple Watch und AirPods jeweils mit 5W. Der RAJ NEXUS ist für CHF 99 erhältlich, inklusive 3 Jahren Garantie."
+    "text": "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger einer Swiss Brand mit Qi2.2-Zertifizierung. Das faltbare Design mit verstellbarem Winkel (0–75°) macht ihn sowohl für den Schreibtisch als auch für unterwegs geeignet. Laut Herstellerangabe unterstützt der NEXUS bis zu 25W für das iPhone sowie jeweils 5W für Apple Watch und AirPods. Der RAJ NEXUS ist für CHF 99 erhältlich, inklusive 3 Jahren Garantie."
    },
    {
     "tag": "h3",
@@ -3771,7 +3779,7 @@
    },
    {
     "tag": "p",
-    "text": "Anker ist bekannt für ein gutes Preis-Leistungs-Verhältnis. Die MagGo 3-in-1 Ladestation ist kompakt und faltbar – zusammengeklappt etwa so gross wie ein Kartenspiel. Mit Qi2-Zertifizierung und 15W für das iPhone bietet sie die Kernfunktionen zu einem soliden Preis. In der Schweiz kostet sie CHF 85.90 (gebraucht bereits ab CHF 54.–)."
+    "text": "Die Anker MagGo 3-in-1 Ladestation ist kompakt und faltbar – zusammengeklappt etwa so gross wie ein Kartenspiel. Mit Qi2-Zertifizierung bietet sie laut Herstellerangabe 15W Ladeleistung für das iPhone und lädt auch Apple Watch und AirPods."
    },
    {
     "tag": "p",
@@ -3787,7 +3795,51 @@
    },
    {
     "tag": "p",
+    "text": "Eigenschaft | RAJ NEXUS | Belkin BoostCharge Pro | Belkin UltraCharge Pro | Anker MagGo"
+   },
+   {
+    "tag": "p",
+    "text": "Qi-Standard: RAJ NEXUS: Qi2.2 | Belkin BoostCharge Pro: Qi2 | Belkin UltraCharge Pro: Qi2 25W | Anker MagGo: Qi2"
+   },
+   {
+    "tag": "p",
+    "text": "iPhone Ladeleistung laut Herstellerangabe: RAJ NEXUS: Bis zu 25W | Belkin BoostCharge Pro: 15W | Belkin UltraCharge Pro: Bis zu 25W | Anker MagGo: 15W"
+   },
+   {
+    "tag": "p",
+    "text": "Apple Watch laut Herstellerangabe: RAJ NEXUS: 5W Fast Charge | Belkin BoostCharge Pro: 5W Fast Charge | Belkin UltraCharge Pro: 5W Fast Charge | Anker MagGo: 5W Fast Charge"
+   },
+   {
+    "tag": "p",
+    "text": "AirPods laut Herstellerangabe: RAJ NEXUS: 5W Qi | Belkin BoostCharge Pro: 5W Qi | Belkin UltraCharge Pro: 5W Qi | Anker MagGo: 5W Qi"
+   },
+   {
+    "tag": "p",
+    "text": "Garantie: RAJ NEXUS: 3 Jahre | Belkin BoostCharge Pro: Herstellergarantie | Belkin UltraCharge Pro: 2 Jahre + Geräteversicherung (2500 USD) | Anker MagGo: Herstellergarantie"
+   },
+   {
+    "tag": "p",
+    "text": "Faltbar: RAJ NEXUS: Ja | Belkin BoostCharge Pro: Teilweise | Belkin UltraCharge Pro: Nein (Dock-Design) | Anker MagGo: Ja"
+   },
+   {
+    "tag": "p",
+    "text": "Herkunft der Marke: RAJ NEXUS: Schweiz | Belkin BoostCharge Pro: USA | Belkin UltraCharge Pro: USA | Anker MagGo: China"
+   },
+   {
+    "tag": "p",
+    "text": "Support: RAJ NEXUS: Schweiz, Deutsch | Belkin BoostCharge Pro: International | Belkin UltraCharge Pro: International | Anker MagGo: International"
+   },
+   {
+    "tag": "p",
+    "text": "Verfügbar auf Digitec/Galaxus: RAJ NEXUS: Nein (nur raj.ch) | Belkin BoostCharge Pro: Ja | Belkin UltraCharge Pro: Ja | Anker MagGo: Ja"
+   },
+   {
+    "tag": "p",
     "text": "→ seitlich scrollen für den vollständigen Vergleich"
+   },
+   {
+    "tag": "p",
+    "text": "Dieser Vergleich umfasst nur die genannten Modelle. Andere Hersteller, auch Anker und Belkin, führen weitere Modelle mit anderen Ladeleistungen."
    },
    {
     "tag": "h2",
@@ -3795,19 +3847,11 @@
    },
    {
     "tag": "h3",
-    "text": "Preis"
-   },
-   {
-    "tag": "p",
-    "text": "Belkins älteres BoostCharge Pro ist aktuell die günstigste Option im Sale, allerdings mit der schwächeren 15W-Ladeleistung. Vergleicht man Modelle mit gleicher 25W-Leistungsklasse, liegen RAJ NEXUS (CHF 99) und Belkin UltraCharge Pro (CHF 90.90) sehr nah beieinander. Anker MagGo bietet mit CHF 85.90 bei 15W ein solides Mittelfeld-Angebot."
-   },
-   {
-    "tag": "h3",
     "text": "Technologie"
    },
    {
     "tag": "p",
-    "text": "Der RAJ NEXUS ist mit Qi2.2 zertifiziert – dem neuesten Standard des Wireless Power Consortium mit verbessertem Wärmemanagement und strengeren Sicherheitsprüfungen gegenüber dem ursprünglichen Qi2 (Qi v2.0): Qi2 unterstützt bis zu 15 W, Qi2.2 – offiziell «Qi2 25W» genannt – bis zu 25 W. Belkins UltraCharge Pro erreicht mit «Qi2 25W» ebenfalls bis zu 25 W, während das ältere BoostCharge Pro und der Anker MagGo bei 15W bleiben."
+    "text": "Der RAJ NEXUS ist mit Qi2.2 zertifiziert. Die hier genannten Qi2.2-Modelle unterstützen laut Herstellerangabe bis zu 25 W iPhone-Ladeleistung, die hier genannten Qi2-Modelle bis zu 15 W. Belkins UltraCharge Pro unterstützt laut Herstellerangabe mit «Qi2 25W» bis zu 25 W, das ältere BoostCharge Pro und der Anker MagGo unterstützen laut Herstellerangabe 15W."
    },
    {
     "tag": "h3",
@@ -3815,7 +3859,7 @@
    },
    {
     "tag": "p",
-    "text": "Alle Modelle sind kompakt. Der Anker MagGo ist besonders reisefreundlich. Der RAJ NEXUS bietet den grössten Verstellbereich (0–75°) und ein faltbares Design für Stand- oder Flachnutzung. Belkins UltraCharge Pro ist als festes Dock konzipiert und dadurch weniger für unterwegs geeignet."
+    "text": "Alle Modelle sind kompakt. Der Anker MagGo ist faltbar. Der RAJ NEXUS bietet einen Verstellbereich 0–75° und ein faltbares Design für Stand- oder Flachnutzung. Belkins UltraCharge Pro ist als festes Dock konzipiert und dadurch weniger für unterwegs geeignet."
    },
    {
     "tag": "h3",
@@ -3835,7 +3879,7 @@
    },
    {
     "tag": "p",
-    "text": "Für Käufer, die Wert auf ein Schweizer Produkt legen, den neuesten Qi2.2-Standard wollen und bereit sind, direkt beim Hersteller zu kaufen."
+    "text": "Für Käufer, die Wert auf eine Schweizer Marke legen, den Qi2.2-Standard wollen und bereit sind, direkt beim Hersteller zu kaufen."
    },
    {
     "tag": "p",
@@ -3843,7 +3887,7 @@
    },
    {
     "tag": "p",
-    "text": "Der UltraCharge Pro ist eine gute Wahl für alle, die eine etablierte Marke, sofortige Verfügbarkeit über Schweizer Retailer und die Geräte-Versicherung schätzen. Das günstigere BoostCharge Pro eignet sich, wenn 15W ausreichen und der Preis im Vordergrund steht."
+    "text": "Der UltraCharge Pro ist ein festes Dock einer internationalen Marke mit Geräte-Versicherung und Verfügbarkeit über Schweizer Händler. Das BoostCharge Pro unterstützt laut Herstellerangabe 15W iPhone-Ladeleistung."
    },
    {
     "tag": "p",
@@ -3851,7 +3895,7 @@
    },
    {
     "tag": "p",
-    "text": "Ideal für preisbewusste Käufer, die eine kompakte, bewährte Reise-Ladestation suchen."
+    "text": "Eine kompakte, faltbare Ladestation mit Qi2 und laut Herstellerangabe 15W iPhone-Ladeleistung."
    },
    {
     "tag": "h2",
@@ -3862,16 +3906,24 @@
     "text": "Ist Qi2.2 besser als Qi2?"
    },
    {
-    "tag": "h3",
-    "text": "Welcher 3-in-1 Charger ist am günstigsten in der Schweiz?"
+    "tag": "p",
+    "text": "Qi2.2 – offiziell «Qi2 25W» genannt – ist die Weiterentwicklung von Qi2. Die hier genannten Qi2.2-Modelle unterstützen laut Herstellerangabe bis zu 25 W iPhone-Ladeleistung, die hier genannten Qi2-Modelle bis zu 15 W. Die Wattangaben sind keine Messung der tatsächlichen Ladedauer."
    },
    {
     "tag": "h3",
     "text": "Gibt es einen 3-in-1 Charger aus der Schweiz?"
    },
    {
+    "tag": "p",
+    "text": "RAJ ist eine Schweizer Marke aus Weinfelden, mit Support aus dem Thurgau."
+   },
+   {
     "tag": "h3",
-    "text": "Welcher Charger lädt am schnellsten?"
+    "text": "Welche Ladeleistung haben die Modelle laut Herstellerangabe?"
+   },
+   {
+    "tag": "p",
+    "text": "Laut Herstellerangabe unterstützen RAJ NEXUS und Belkin UltraCharge Pro jeweils bis zu 25W iPhone-Ladeleistung. Anker MagGo und das ältere Belkin BoostCharge Pro unterstützen laut Herstellerangabe 15W. Diese Angaben sind keine Rangfolge und keine Messung der tatsächlichen Ladedauer."
    },
    {
     "tag": "h2",
@@ -3879,7 +3931,7 @@
    },
    {
     "tag": "p",
-    "text": "Alle vier Ladestationen erfüllen ihren Zweck gut. Die Unterschiede liegen im Detail: Preis, Ladeleistung, Zertifizierung und Verfügbarkeit. Wer den neuesten Standard (Qi2.2), ein Schweizer Produkt und einen fairen Preis sucht, findet im RAJ NEXUS eine überzeugende Option. Wer auf eine etablierte Marke mit sofortiger Lieferung setzt, greift zu Belkin. Und wer vor allem den Preis im Blick hat, ist bei Anker oder dem älteren Belkin-Modell richtig."
+    "text": "Die vier Ladestationen unterscheiden sich in Qi-Standard, Ladeleistung laut Herstellerangabe, Bauform und Support. Der RAJ NEXUS unterstützt den Qi2.2-Standard und ist faltbar, mit Support aus dem Thurgau. Belkin bietet in diesem Vergleich das BoostCharge Pro und das feste UltraCharge-Pro-Dock; der Anker MagGo ist faltbar. Für die Auswahl sind die unterstützten Geräte, die Bauform und die Herstellerangaben zum jeweiligen Modell relevant."
    },
    {
     "tag": "p",
@@ -3895,7 +3947,7 @@
    },
    {
     "tag": "p",
-    "text": "Dieser Vergleich wurde nach bestem Wissen erstellt. Preise und Lagerbestände wurden im Juli 2026 auf digitec.ch und galaxus.ch geprüft und können sich seither geändert haben. Der RAJ NEXUS ist über raj.ch erhältlich."
+    "text": "Dieser Vergleich basiert auf Herstellerangaben zu den genannten Modellen. Wir haben keinen unabhängigen Labortest durchgeführt. Massgebend sind die Herstellerangaben zum jeweiligen Modell. Der RAJ NEXUS ist über raj.ch erhältlich."
    }
   ]
  },
