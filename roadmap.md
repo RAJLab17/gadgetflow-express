@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Sicherheitsbefunde: Bestell-Aufrufe prüfen, ungenutzte Verarbeitung deaktivieren oder absichern, E-Mail-Logs entfernen, Anmeldung/Warteliste/Newsletter testen und Scan erneut ausführen; Bewertungslogik unverändert lassen.
+- [x] Sicherheitsbefunde: alte Vorbestellfunktion ohne eingebundenes Formular deaktiviert (live 410, keine Seiteneffekte); E-Mail-/Payload-Logs entfernt; 22 Tests bestanden, aktive Funktionen geprüft; Basisscan 0, Bewertungshinweis auf Betreiberwunsch ignoriert. Tiefenscan läuft für den vor den Änderungen gespeicherten Stand; finale Codeanalyse steht noch aus.
 
 - [x] Etappe 4: Set-Foto und /matrix-Link, HomeReviews, Quellen/Startseiten-Auswahl und manuelles Anlegen im geschützten Admin umgesetzt; RAJ-only Zahlen, Google-Labels, Tests, Screenshots und LCP/CLS geprüft; nicht veröffentlicht.
 
