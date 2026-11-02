@@ -70,7 +70,7 @@ serve(async (req) => {
         }),
       });
     } else {
-      console.log(`Newsletter signup (no RESEND_API_KEY configured): ${email}`);
+      console.log('Newsletter signup (no RESEND_API_KEY configured)');
     }
 
     return new Response(
@@ -78,7 +78,7 @@ serve(async (req) => {
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
-    console.error("Newsletter signup error:", error);
+    console.error("Newsletter signup request failed");
     return new Response(
       JSON.stringify({ error: "Ein Fehler ist aufgetreten" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }

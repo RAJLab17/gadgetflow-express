@@ -113,7 +113,7 @@ serve(async (req) => {
       metaError.message.toLowerCase().includes("api access blocked");
 
     if (!metaRes.ok) {
-      console.error("Meta CAPI error:", JSON.stringify(metaData));
+      console.error("Meta CAPI error status:", metaRes.status);
 
       if (isAccessBlocked) {
         return new Response(
@@ -138,7 +138,7 @@ serve(async (req) => {
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
-    console.error("CAPI function error:", error);
+    console.error("CAPI request failed");
     return new Response(
       JSON.stringify({ error: "Internal server error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
