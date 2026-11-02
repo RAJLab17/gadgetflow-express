@@ -524,57 +524,58 @@
     mask-composite: intersect;
   }
   .hh-apex::before {
-    height: 160px;
+    height: calc(160 * var(--k));
   }
   .hh-apex::after {
-    height: 320px;
+    height: calc(320 * var(--k));
   }
 
   .hh-meta {
     position: absolute;
-    top: 650px;
+    bottom: calc(110 * var(--k));
     right: 0;
-    width: 720px;
+    width: calc(720 * var(--k));
     padding: 0;
   }
   .hh-product {
-    font-size: 13px;
+    font-size: calc(13 * var(--k));
   }
   .hh-bars {
-    width: 220px;
+    width: calc(220 * var(--k));
   }
 
   .hh-text {
     position: absolute;
-    left: 120px;
-    top: 200px;
-    width: 640px;
+    left: calc(120 * var(--k));
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(640 * var(--k));
     padding: 0;
-    gap: 22px;
+    gap: calc(22 * var(--k));
   }
   .hh-eyebrow {
-    font-size: 12px;
-    letter-spacing: 4px;
+    font-size: calc(12 * var(--k));
+    letter-spacing: calc(4 * var(--k));
   }
   .hh-title {
-    font-size: 92px;
+    font-size: calc(92 * var(--k));
     line-height: 0.98;
   }
   .hh-title span {
     white-space: nowrap;
   }
   .hh-lead {
-    font-size: 18px;
-    max-width: 470px;
+    font-size: calc(18 * var(--k));
+    max-width: calc(470 * var(--k));
   }
   .hh-buttons {
-    gap: 14px;
+    gap: calc(14 * var(--k));
   }
   .hh-btn {
     flex: 0 0 auto;
-    min-width: 210px;
-    height: 64px;
-    padding: 0 28px;
+    min-width: calc(210 * var(--k));
+    height: calc(64 * var(--k));
+    padding: 0 calc(28 * var(--k));
   }
   .hh-scroll {
     display: none;
