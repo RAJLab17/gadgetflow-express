@@ -433,12 +433,15 @@
 @media (min-width: 1024px) {
   .home-hero {
     position: relative;
-    height: 760px;
+    container-type: inline-size;
+    /* Skalierungsfaktor: 1px bis 1440px Breite, wächst bis 1.25px ab 1800px */
+    --k: clamp(1px, calc(100cqw / 1440), 1.25px);
+    height: clamp(calc(760 * var(--k)), 100svh, calc(1000 * var(--k)));
     background: radial-gradient(ellipse 60% 70% at 74% 46%, #3A352E 0%, #24211D 38%, #100F0D 66%, #000000 100%);
   }
   .hh-frame {
     position: relative;
-    max-width: 1440px;
+    max-width: calc(1440 * var(--k));
     height: 100%;
     margin-inline: auto;
   }
@@ -446,7 +449,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 720px;
+    width: calc(720 * var(--k));
     height: 100%;
     margin-top: 0;
   }
@@ -454,66 +457,66 @@
     background: none; /* Verlauf liegt auf der Sektion */
   }
   .hh-glow {
-    top: calc(100% - 190px - 200px);
-    width: 520px;
-    height: 520px;
+    top: calc(100% - (190 * var(--k)) - (200 * var(--k)));
+    width: calc(520 * var(--k));
+    height: calc(520 * var(--k));
   }
 
   .hh-case-group {
-    bottom: 190px;
-    width: 440px;
-    height: 400px;
+    bottom: calc(190 * var(--k));
+    width: calc(440 * var(--k));
+    height: calc(400 * var(--k));
   }
   .hh-case--onyx {
-    width: 250px;
-    left: 180px;
-    bottom: 54px;
+    width: calc(250 * var(--k));
+    left: calc(180 * var(--k));
+    bottom: calc(54 * var(--k));
   }
   .hh-case--cherry {
-    width: 262px;
+    width: calc(262 * var(--k));
     left: 0;
   }
 
   .hh-nexus {
-    left: 430px;
-    bottom: 150px;
-    width: 380px;
+    left: calc(430 * var(--k));
+    bottom: calc(150 * var(--k));
+    width: calc(380 * var(--k));
   }
   .hh-nexus-img {
-    width: 380px;
+    width: calc(380 * var(--k));
   }
   .hh-nexus-floor {
-    width: 440px;
-    height: 90px;
+    width: calc(440 * var(--k));
+    height: calc(90 * var(--k));
   }
   .hh-pill {
-    left: 24px;
+    left: calc(24 * var(--k));
     top: auto;
-    bottom: 240px;
-    width: 190px;
-    gap: 6px;
-    padding: 10px 6px;
+    bottom: calc(240 * var(--k));
+    width: calc(190 * var(--k));
+    gap: calc(6 * var(--k));
+    padding: calc(10 * var(--k)) calc(6 * var(--k));
   }
   .hh-ring {
     flex-shrink: 0;
-    width: 56px;
-    height: 56px;
+    width: calc(56 * var(--k));
+    height: calc(56 * var(--k));
   }
   .hh-ring-num {
-    font-size: 14px;
+    font-size: calc(14 * var(--k));
   }
   .hh-pill-title {
-    font-size: 15px;
+    font-size: calc(15 * var(--k));
   }
   .hh-pill-sub {
-    font-size: 13px;
+    font-size: calc(13 * var(--k));
   }
 
   .hh-apex {
     top: 0;
-    left: -160px; /* beginnt 160px links von der Bühne */
+    left: calc(-160 * var(--k)); /* beginnt links von der Bühne */
     right: 0;
-    width: 880px;
+    width: calc(880 * var(--k));
     height: 100%;
     -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%), linear-gradient(to right, transparent 0%, #000 42%);
     mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 55%, transparent 100%), linear-gradient(to right, transparent 0%, #000 42%);
