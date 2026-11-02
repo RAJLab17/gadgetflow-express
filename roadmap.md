@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] /vergleich: fünf gezielte Formulierungen samt Crawler/FAQ-JSON-LD angeglichen, Browser und Datumstest bestanden; nicht veröffentlicht.
+- [ ] /vergleich: genaue Anker-15W-Modellbezeichnung ergänzen; wartet auf Modellnummer oder Herstellerlink vom Betreiber, vorhandene Angaben sind nicht eindeutig.
+
 - [x] /vergleich: angefragte Texte/Metadaten neutralisiert, Fremdpreise entfernt, vollständige Tabelle/FAQ für Crawler erfasst, Datum 2. November 2026; Datumstest und Browser/Crawler-Prüfung bestanden, nicht veröffentlicht.
 
 - [x] Nur Texte/Metadaten: Vergleich auf 4 Modelle korrigiert, Fremdpreiszeile und Preisvergleich im 3-in-1-Guide entfernt, OG/Twitter auf vier Seiten angeglichen (APEX-Beschreibungen unverändert), Crawler-Version und Browser geprüft; nicht veröffentlicht.
