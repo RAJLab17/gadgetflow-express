@@ -434,8 +434,8 @@
   .home-hero {
     position: relative;
     container-type: inline-size;
-    /* Skalierungsfaktor: 1px bis 1440px Breite, wächst bis 1.25px ab 1800px */
-    --k: clamp(1px, calc(100cqw / 1440), 1.25px);
+    /* Bis 1440px unverändert, danach proportional bis maximal 1.6px. */
+    --k: clamp(1px, calc(100cqw / 1440), 1.6px);
     height: 760px;
     background: radial-gradient(ellipse 60% 70% at 74% 46%, #3A352E 0%, #24211D 38%, #100F0D 66%, #000000 100%);
   }
@@ -590,6 +590,28 @@
   .hh-text {
     top: 50%;
     transform: translateY(-50%);
+  }
+  .hh-case-group,
+  .hh-nexus {
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+  .hh-glow {
+    top: 50%;
+  }
+  .hh-pill {
+    /* Gleicher Abstand zur NEXUS-Unterkante wie bei der 1440px-Bühne. */
+    top: calc(50% + (49.25 * var(--k)));
+    bottom: auto;
+  }
+  .hh-meta {
+    top: calc(50% + (200 * var(--k)) + (40 * var(--k)));
+    bottom: auto;
+  }
+  .hh-frame:has(.hh-slide--nexus.is-active) .hh-meta {
+    /* NEXUS: 380 × 861/760 = 430.5 skalierte Pixel Bildhöhe. */
+    top: calc(50% + (215.25 * var(--k)) + (40 * var(--k)));
   }
 }
 
