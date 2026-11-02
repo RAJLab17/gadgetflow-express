@@ -8,14 +8,14 @@
 - URL: https://raj.ch/nexus
 - Preis: CHF 99
 - Kompatibel: iPhone 12 bis 18 (inkl. Pro und Pro Max), Apple Watch, AirPods mit kabellosem Ladecase.
-- Eigenschaften: 3-in-1 Ladestation für iPhone, Apple Watch und AirPods. Qi2.2 zertifiziert, iPhone bis 25 W (iPhone 16 und neuer mit iOS 26; iPhone 16e und älter bis 15 W). Faltbar, StandBy-Modus.
+- Eigenschaften: 3-in-1 Ladestation für iPhone, Apple Watch und AirPods. Qi2.2 zertifiziert, iPhone laut Herstellerangabe bis 25 W (iPhone 16 und neuer mit iOS 26; iPhone 16e und älter bis 15 W). Faltbar, StandBy-Modus.
 - Lieferzeit: 2–3 Werktage, gratis Versand in der Schweiz.
 - Garantie: 3 Jahre.
 - Rückgabe: 30 Tage.
 
 ### RAJ MATRIX (iPhone Hülle)
 - URL: https://raj.ch/matrix
-- Beschreibung: Die schlanke MagSafe-Hülle im Carbon-Design.
+- Beschreibung: MagSafe Carbon-Hülle.
 - Preis: CHF 59.–. Bundle mit AirPods-Hülle CHF 79.–. 2 Hüllen CHF 99.–.
 - Kompatibel: iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro, iPhone 18 Pro Max.
 - Eigenschaften: Cherry Carbon oder Onyx Carbon, Aluminium-Knöpfe in Gold, N52-Magnetring für MagSafe-Zubehör, kabelloses Laden mit Qi2.2 direkt durch die Hülle, abgestimmt auf die RAJ NEXUS Ladestation.
@@ -26,7 +26,7 @@
 - URL: https://raj.ch/airpods-case
 - Preis: CHF 35. Mit MATRIX iPhone Hülle im Bundle CHF 79.
 - Kompatibel: AirPods 4 (mit und ohne aktive Geräuschunterdrückung) und AirPods 5.
-- Eigenschaften: Carbon-Look-Hülle in Cherry Carbon oder Onyx Carbon mit goldenem Blitz und goldenem Karabiner. Kabelloses Laden durch die Hülle, sofern das Ladecase es unterstützt.
+- Eigenschaften: Hülle in Cherry Carbon oder Onyx Carbon mit goldenem Blitz und goldenem Karabiner. Kabelloses Laden durch die Hülle, sofern das Ladecase es unterstützt.
 - Lieferzeit: Lieferung in 2–3 Werktagen. Gratis Versand in der Schweiz.
 - Rückgabe: 30 Tage.
 
@@ -34,7 +34,7 @@
 - URL: https://raj.ch/apex
 - Preis: CHF 69 (Schwarz), CHF 75 (Silber).
 - Kompatibel: iPhone mit MagSafe oder MagSafe-Hülle (z. B. RAJ MATRIX).
-- Eigenschaften: MagSafe Autohalterung.
+- Eigenschaften: MagSafe Autohalterung mit Qi2.2, laut Herstellerangabe bis zu 25 W.
 - Verfügbarkeit: Voraussichtlich ab Ende November 2026. Jetzt vormerken.
 
 ## Über RAJ
@@ -44,9 +44,9 @@ RAJ ist eine Schweizer Marke mit Qi2.2 3-in-1 Ladestation und Support aus dem Th
 
 RAJ plant Produktwelten für Apple-Nutzer:
 - **NEXUS** — 3-in-1 Qi2.2 Wireless Charger (verfügbar)
-- **MATRIX** — Die schlanke MagSafe-Hülle im Carbon-Design für iPhone 17 Pro bis 18 Pro Max (verfügbar) — https://raj.ch/matrix
-- **AURORA** — Carbon iPhone Cases, Roségold (in Vorbereitung)
-- **APEX** — MagSafe car mount. Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber). — https://raj.ch/apex
+- **MATRIX** — MagSafe Carbon-Hülle für iPhone 17 Pro bis 18 Pro Max (verfügbar) — https://raj.ch/matrix
+- **AURORA** — iPhone-Hüllen, Roségold (in Vorbereitung)
+- **APEX** — MagSafe Autohalterung mit Qi2.2. Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber). — https://raj.ch/apex
 - **ATLAS** — Travel & On-the-Go (geplant)
 - **ATELIER** — Workspace / Desk (geplant)
 
@@ -58,7 +58,7 @@ RAJ plant Produktwelten für Apple-Nutzer:
 - **International Shipping:** Not yet available; Switzerland-only for now
 
 ## Customer Reviews
-- **Aggregate Rating:** 5.0 out of 5 (verified reviews)
+- **Aggregate Rating:** 5.0 out of 5 (24 verified reviews)
 - Reviews are from verified purchasers and highlight build quality, packaging, and charging speed
 - Full reviews: https://raj.ch/reviews
 
@@ -68,12 +68,12 @@ RAJ plant Produktwelten für Apple-Nutzer:
 Yes. RAJ NEXUS is fully compatible with iPhone 12–18 series including all Pro and Pro Max models.
 
 **What is Qi2.2?**
-Qi2.2 is the latest wireless charging standard from the Wireless Power Consortium (WPC). It offers improved thermal management and up to 25W charging for compatible devices.
+Qi2.2 is a wireless charging standard from the Wireless Power Consortium (WPC), also known as Qi2 25W. It supports up to 25 W on compatible devices.
 
 **Does the MATRIX case work with MagSafe and wireless charging?**
-Yes. The MATRIX carbon case is MagSafe-compatible, so you can charge wirelessly (e.g. on the RAJ NEXUS) without removing the case.
+Yes. The MATRIX MagSafe Carbon-Hülle is MagSafe-compatible, so you can charge wirelessly (e.g. on the RAJ NEXUS) without removing the case.
 
-**Is this a Swiss product?**
+**Is RAJ a Swiss brand?**
 RAJ is a Swiss brand based in Thurgau. Support, communication and fulfilment are handled in Switzerland, in German.
 
 **Is there a warranty?**
@@ -81,14 +81,14 @@ Yes, RAJ NEXUS comes with a 3-year warranty.
 
 ## About RAJ
 
-RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Thurgau. RAJ brings premium accessories for the Apple ecosystem to Switzerland as a Swiss Brand focused on sustainable quality and uncompromising design. Core brand values: Präzision (Precision), Beständigkeit (Durability), Charakter (Character).
+RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Thurgau. RAJ brings premium accessories for the Apple ecosystem to Switzerland as a Swiss Brand. Core brand values: Präzision (Precision), Beständigkeit (Durability), Charakter (Character).
 
 ## Pages
 - [Startseite](https://raj.ch/): RAJ Brand & Produkte (NEXUS, MATRIX, Set, Kundenbewertungen, Hinter RAJ, Für Firmen)
 - [RAJ NEXUS](https://raj.ch/nexus): 3-in-1 Qi2.2 Wireless Charger
-- [RAJ MATRIX](https://raj.ch/matrix): Carbon-Finish iPhone Cases für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max, CHF 59; Bundle CHF 79; zwei Hüllen CHF 99
-- [MATRIX AirPods Case](https://raj.ch/airpods-case): Carbon-Finish Hülle für AirPods 4 & 5, CHF 35
-- [APEX](https://raj.ch/apex): MagSafe car mount. Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber).
+- [RAJ MATRIX](https://raj.ch/matrix): MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max, CHF 59; Bundle CHF 79; zwei Hüllen CHF 99
+- [MATRIX AirPods Case](https://raj.ch/airpods-case): Hülle in Cherry Carbon oder Onyx Carbon für AirPods 4 & 5, CHF 35
+- [APEX](https://raj.ch/apex): MagSafe Autohalterung mit Qi2.2. Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber).
 - [Qi2 erklärt](https://raj.ch/qi2-erklaert): Qi2 vs. Qi2.2
 - [Vergleich](https://raj.ch/vergleich): RAJ NEXUS vs. Belkin vs. Anker
 - [Reviews](https://raj.ch/reviews): Kundenbewertungen
@@ -96,11 +96,21 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 - [FAQ](https://raj.ch/faq): Häufige Fragen
 - [Versand](https://raj.ch/versand): Versand- und Lieferinformationen Schweiz
 - [Blog](https://raj.ch/blog): Ratgeber zu Wireless Charging und iPhone-Zubehör
+- [3-in-1 Ladestationen im Vergleich](https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026): Vier Modelle nach Qi-Standard und Ladeleistung, zusammengestellt von RAJ anhand von Herstellerangaben
+- [iPhone 17 Pro Hülle und iPhone 18 Pro](https://raj.ch/blog/iphone-17-pro-huelle-iphone-18-pro): Ratgeber zur Passform von Hüllen für iPhone 17 Pro und iPhone 18 Pro
+- [3-in-1 Ladestation für Apple-Geräte](https://raj.ch/3-in-1-ladestation-iphone-apple-watch-airpods): Ratgeber zum gleichzeitigen Laden von iPhone, Apple Watch und AirPods
+- [MagSafe Ladestation Schweiz](https://raj.ch/magsafe-ladestation-schweiz): Ratgeber zu MagSafe-Ladestationen und Qi-Standards
+- [Kabelloses Laden für Firmen](https://raj.ch/kabelloses-laden-firmen-schweiz): Informationen zu kabellosem Laden und RAJ-Angeboten für Firmen in der Schweiz
 - [AGB](https://raj.ch/agb): Allgemeine Geschäftsbedingungen
 - [Datenschutz](https://raj.ch/datenschutz): Datenschutzerklärung
 - [Impressum](https://raj.ch/impressum): Rechtliche Angaben
 
 ## Editorial Content
+- [3-in-1 Ladestationen im Vergleich](https://raj.ch/blog/bester-3in1-wireless-charger-schweiz-2026): Vier Modelle nach Qi-Standard und Ladeleistung, zusammengestellt von RAJ anhand von Herstellerangaben
+- [iPhone 17 Pro Hülle und iPhone 18 Pro](https://raj.ch/blog/iphone-17-pro-huelle-iphone-18-pro): Ratgeber zur Passform von Hüllen für iPhone 17 Pro und iPhone 18 Pro
+- [3-in-1 Ladestation für Apple-Geräte](https://raj.ch/3-in-1-ladestation-iphone-apple-watch-airpods): Ratgeber zum gleichzeitigen Laden von iPhone, Apple Watch und AirPods
+- [MagSafe Ladestation Schweiz](https://raj.ch/magsafe-ladestation-schweiz): Ratgeber zu MagSafe-Ladestationen und Qi-Standards
+- [Kabelloses Laden für Firmen](https://raj.ch/kabelloses-laden-firmen-schweiz): Informationen zu kabellosem Laden und RAJ-Angeboten für Firmen in der Schweiz
 - Qi2 vs Qi2.2 erklärt: https://raj.ch/qi2-erklaert
 - RAJ NEXUS vs Belkin vs Anker: https://raj.ch/vergleich
 - Ratgeber NEXUS – iPhone 18 Ladegerät: https://raj.ch/blog/nexus-iphone-18-ladegeraet
