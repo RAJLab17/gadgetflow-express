@@ -595,6 +595,7 @@
   }
   .hh-text {
     top: 160px;
+    transform: none;
   }
   .hh-lead {
     max-width: 420px;
