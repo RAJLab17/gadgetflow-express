@@ -1,7 +1,7 @@
 # Roadmap
 
 - [x] /vergleich: fünf gezielte Formulierungen samt Crawler/FAQ-JSON-LD angeglichen, Browser und Datumstest bestanden; nicht veröffentlicht.
-- [ ] /vergleich: bestätigtes Anker MagGo Faltbar 3-in-1 (A2557), Masse und Herstellerlink samt Crawler/JSON-LD übernehmen und prüfen; keine weiteren Änderungen.
+- [x] /vergleich: bestätigtes Anker MagGo Faltbar 3-in-1 (A2557), Masse und Herstellerlink samt Crawler/JSON-LD übernommen; Browser und Datumstest bestanden, nicht veröffentlicht.
 
 - [x] /vergleich: angefragte Texte/Metadaten neutralisiert, Fremdpreise entfernt, vollständige Tabelle/FAQ für Crawler erfasst, Datum 2. November 2026; Datumstest und Browser/Crawler-Prüfung bestanden, nicht veröffentlicht.
 
