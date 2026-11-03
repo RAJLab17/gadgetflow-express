@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 
 const HOVER_SCALE = 2.5;
 
-export type ZoomImage = { src: string; alt: string };
+export type ZoomImage = { src: string; alt: string; node?: ReactNode };
 
 /**
  * Wraps a main product image: mouse hover shows a 2.5x magnifier inside the
@@ -17,6 +17,7 @@ export const ZoomFrame = ({
   onOpen,
   children,
   overlayClassName = "absolute inset-0 h-full w-full",
+  hoverZoom = true,
   overlayStyle,
   objectFit = "contain",
   objectPosition = "50% 50%",
