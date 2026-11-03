@@ -571,8 +571,12 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               onOpen={() => setLightboxIndex(i)}
               objectFit={isLifestylePhoto(src) && !isRealPhoto(src) ? "cover" : "contain"}
               objectPosition={src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%"}
-              overlayClassName={isLifestylePhoto(src) || isRealPhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
+              overlayClassName={isDuo(src) || isLifestylePhoto(src) || isRealPhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
+              hoverZoom={!isDuo(src)}
             >
+            {isDuo(src) ? (
+              <DuoSlide eager={i <= prefetchThrough} />
+            ) : (
             <MatrixSwapImage
               src={renderSizes.get(src)?.mobile ?? getPhotoSizes(src)?.mobile ?? src}
               srcSet={isRealPhoto(src) ? realSrcSet(src) : renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
@@ -598,13 +602,14 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
                 } : {}),
               }}
             />
+            )}
             </ZoomFrame>
           </div>
         ))}
       </div>
       <ProductLightbox
         open={lightboxIndex !== null}
-        images={slides.map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name) }))}
+        images={slides.map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name), ...(isDuo(image) ? { node: <DuoSlide eager /> } : {}) }))}
         index={lightboxIndex ?? 0}
         onIndexChange={setLightboxIndex}
         onClose={() => setLightboxIndex(null)}
