@@ -50,6 +50,22 @@ import {
   PaymentMethodsBar,
 } from "@/components/matrix/matrixCommerce";
 import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
+import realCherrySetSee1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-1200.webp.asset.json";
+import realCherrySetSee800 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-800.webp.asset.json";
+import realCherrySetSee400 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-400.webp.asset.json";
+import realCherrySetSee200 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-200.webp.asset.json";
+import realCherryOnyxFels1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-1200.webp.asset.json";
+import realCherryOnyxFels800 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-800.webp.asset.json";
+import realCherryOnyxFels400 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-400.webp.asset.json";
+import realCherryOnyxFels200 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-200.webp.asset.json";
+import realCherryHandFels1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-1200.webp.asset.json";
+import realCherryHandFels800 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-800.webp.asset.json";
+import realCherryHandFels400 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-400.webp.asset.json";
+import realCherryHandFels200 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-200.webp.asset.json";
+import realOnyxHandSee1200 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-1200.webp.asset.json";
+import realOnyxHandSee800 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-800.webp.asset.json";
+import realOnyxHandSee400 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-400.webp.asset.json";
+import realOnyxHandSee200 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-200.webp.asset.json";
 import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
 import { observeMediaQuery } from "@/lib/mediaQuery";
 import BundleOfferImage from "@/components/matrix/BundleOfferImage";
@@ -71,8 +87,19 @@ const CHERRY_SKYBLUE_LIFESTYLE = lifestylePhotos.cherrySkyblue.map((photo) => ph
 const ONYX_DARKCHERRY_LIFESTYLE = lifestylePhotos.onyxDarkcherry.map((photo) => photo.full);
 const ONYX_DARKGREY_LIFESTYLE = lifestylePhotos.onyxDarkgrey.map((photo) => photo.full);
 const ONYX_SKYBLUE_LIFESTYLE = lifestylePhotos.onyxSkyblue.map((photo) => photo.full);
+/* Echte Lifestyle-Fotos (4:5), nur nach Hüllenfarbe; ungeschnitten (object-contain) im bestehenden Rahmen. */
+const REAL_CHERRYSETSEE = { full: realCherrySetSee1200.url, mobile: realCherrySetSee800.url, small: realCherrySetSee400.url, thumb: realCherrySetSee200.url, alt: "RAJ MATRIX Hülle und AirPods-Hülle in Cherry Carbon, in der Hand am See" };
+const REAL_CHERRYONYXFELS = { full: realCherryOnyxFels1200.url, mobile: realCherryOnyxFels800.url, small: realCherryOnyxFels400.url, thumb: realCherryOnyxFels200.url, alt: "RAJ MATRIX Hüllen in Cherry Carbon und Onyx Carbon am Fels" };
+const REAL_CHERRYHANDFELS = { full: realCherryHandFels1200.url, mobile: realCherryHandFels800.url, small: realCherryHandFels400.url, thumb: realCherryHandFels200.url, alt: "RAJ MATRIX Hülle in Cherry Carbon in der Hand" };
+const REAL_ONYXHANDSEE = { full: realOnyxHandSee1200.url, mobile: realOnyxHandSee800.url, small: realOnyxHandSee400.url, thumb: realOnyxHandSee200.url, alt: "RAJ MATRIX Hülle in Onyx Carbon an einem iPhone, in der Hand am See" };
+const REAL_PHOTOS = [REAL_CHERRYSETSEE, REAL_CHERRYONYXFELS, REAL_CHERRYHANDFELS, REAL_ONYXHANDSEE];
+const REAL_CHERRY_GALLERY = [REAL_CHERRYSETSEE.full, REAL_CHERRYONYXFELS.full, REAL_CHERRYHANDFELS.full];
+const REAL_ONYX_GALLERY = [REAL_ONYXHANDSEE.full, REAL_CHERRYONYXFELS.full];
+const getRealPhoto = (src: string) => REAL_PHOTOS.find((photo) => photo.full === src);
+const isRealPhoto = (src: string) => Boolean(getRealPhoto(src));
+const realSrcSet = (src: string) => { const p = getRealPhoto(src); return p ? `${p.small} 400w, ${p.mobile} 800w, ${p.full} 1200w` : undefined; };
 const photoSizes = Object.values(lifestylePhotos).flat();
-const getPhotoSizes = (src: string) => photoSizes.find((photo) => photo.full === src);
+const getPhotoSizes = (src: string) => getRealPhoto(src) ?? photoSizes.find((photo) => photo.full === src);
 const LIFESTYLE_SCENES: Record<keyof typeof lifestylePhotos, string[]> = {
   orange: ["in der Hand", "auf dem Holztisch neben einem Kaffee", "im Auto auf der Mittelkonsole", "in der Hosentasche"],
   blue: ["in der Hand", "auf dem Holztisch neben einem Notizbuch", "auf dem Marmortisch neben einem Kaffee", "auf einem hellen Sessel"],
@@ -93,6 +120,8 @@ const PHOTO_SCENES = new Map<string, string>(
   ),
 );
 const getPhotoAlt = (src: string, caseName: string, modelName: string, deviceName: string) => {
+  const real = getRealPhoto(src);
+  if (real) return real.alt;
   const scene = PHOTO_SCENES.get(src);
   return scene
     ? `RAJ MATRIX ${caseName} Hülle am ${modelName} (${deviceName}), ${scene}`
@@ -108,6 +137,9 @@ const getGalleryViewport = () => window.matchMedia("(min-width: 1024px)").matche
 // Lifestyle-Galerie vorübergehend ausgeblendet: nur das erste Produktbild zeigen.
 const LIFESTYLE_GALLERY_ENABLED = false;
 const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: DeviceFinish): string[] => {
+  // Echte Fotos nur nach Hüllenfarbe; die alten Listen bleiben ausgeschaltet.
+  if (caseFinish.id === "cherry") return REAL_CHERRY_GALLERY;
+  if (caseFinish.id === "onyx") return REAL_ONYX_GALLERY;
   if (!LIFESTYLE_GALLERY_ENABLED) return [];
   if (hasCherryOrangeLifestyle(model, caseFinish, device)) return CHERRY_ORANGE_LIFESTYLE;
   if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "blue") return CHERRY_BLUE_LIFESTYLE;
@@ -359,12 +391,12 @@ const DeviceMock = memo(({
       <ZoomFrame
         zoomSrc={selectedPhoto ?? src}
         onOpen={() => setLightboxOpen(true)}
-        objectFit={isLifestyle ? "cover" : "contain"}
+        objectFit={isLifestyle && !isRealPhoto(selectedPhoto ?? "") ? "cover" : "contain"}
         objectPosition={zoomObjectPosition}
       >
       <MatrixSwapImage
         src={selectedPhoto ?? src}
-        srcSet={selectedPhoto ? undefined : renderSrcSet(src)}
+        srcSet={selectedPhoto ? realSrcSet(selectedPhoto) : renderSrcSet(src)}
         sizes={renderImageSizes}
         alt={getPhotoAlt(selectedPhoto ?? src, caseFinish.name, model.name, device.name)}
         width={928}
@@ -373,7 +405,7 @@ const DeviceMock = memo(({
         fetchPriority="high"
         decoding="async"
         onLoad={warmVariantImages}
-        className={isLifestyle ? "absolute inset-0 h-full w-full object-cover" : "absolute inset-0 h-full w-full object-contain"}
+        className={isLifestyle ? `absolute inset-0 h-full w-full ${isRealPhoto(selectedPhoto ?? "") ? "object-contain" : "object-cover"}` : "absolute inset-0 h-full w-full object-contain"}
         style={{
           filter: "contrast(1.015) saturate(1.015)",
           objectPosition: selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
@@ -407,7 +439,7 @@ const DeviceMock = memo(({
               background: "#fff",
             }}
           >
-            <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className={`h-full w-full ${isRealPhoto(image) ? "object-contain" : "object-cover"}`} />
           </Button>
         ))}
       </div>
@@ -468,13 +500,13 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
             <ZoomFrame
               zoomSrc={src}
               onOpen={() => setLightboxIndex(i)}
-              objectFit={isLifestylePhoto(src) ? "cover" : "contain"}
+              objectFit={isLifestylePhoto(src) && !isRealPhoto(src) ? "cover" : "contain"}
               objectPosition={src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%"}
-              overlayClassName={isLifestylePhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
+              overlayClassName={isLifestylePhoto(src) || isRealPhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
             >
             <MatrixSwapImage
               src={renderSizes.get(src)?.mobile ?? getPhotoSizes(src)?.mobile ?? src}
-              srcSet={renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
+              srcSet={isRealPhoto(src) ? realSrcSet(src) : renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
               sizes="(max-width: 767px) calc(100vw - 40px), 480px"
               alt={getPhotoAlt(src, caseFinish.name, model.name, device.name)}
               width={928}
@@ -483,7 +515,9 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               fetchPriority={i === 0 ? "high" : undefined}
               decoding="async"
               onLoad={i === 0 ? warmVariantImages : undefined}
-              className={isLifestylePhoto(src)
+              className={isRealPhoto(src)
+                ? "absolute inset-0 h-full w-full object-contain"
+                : isLifestylePhoto(src)
                 ? "absolute inset-0 h-full w-full object-cover"
                 : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"}
               style={{
