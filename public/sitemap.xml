@@ -221,11 +221,29 @@
     <image:image>
       <image:loc>https://raj.ch/__l5e/assets-v1/d7e0383e-342b-4055-b96e-2380f1a45fac/onyx-skyblue-4-full.webp</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/4e5a0fca-06f5-4869-9af2-f70bcd0f0d08/matrix-cherry-set-see-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/837cbb96-ea93-4d57-8524-5f443de92009/matrix-cherry-onyx-fels-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/1f7e9eaf-a056-4eea-9dfb-b970d0b2c98d/matrix-cherry-hand-fels-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/99fd84e9-9e9e-4e12-99cc-f844eede4be3/matrix-onyx-hand-see-1200.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://raj.ch/airpods-case</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/b38d1cd4-d4b3-4b39-9fe7-3532c7ad4964/airpods-cherry-laub-1200.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://raj.ch/__l5e/assets-v1/4e5a0fca-06f5-4869-9af2-f70bcd0f0d08/matrix-cherry-set-see-1200.webp</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://raj.ch/__l5e/assets-v1/104658f6-21a2-44e0-93a8-d02cc2dd3744/airpods-cherry-product-1200.webp</image:loc>
     </image:image>

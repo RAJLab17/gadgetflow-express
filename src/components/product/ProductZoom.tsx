@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
 
 const HOVER_SCALE = 2.5;
 
-export type ZoomImage = { src: string; alt: string };
+export type ZoomImage = { src: string; alt: string; node?: ReactNode };
 
 /**
  * Wraps a main product image: mouse hover shows a 2.5x magnifier inside the
@@ -17,6 +17,7 @@ export const ZoomFrame = ({
   onOpen,
   children,
   overlayClassName = "absolute inset-0 h-full w-full",
+  hoverZoom = true,
   overlayStyle,
   objectFit = "contain",
   objectPosition = "50% 50%",
@@ -27,6 +28,7 @@ export const ZoomFrame = ({
   onOpen: () => void;
   children: ReactNode;
   overlayClassName?: string;
+  hoverZoom?: boolean;
   overlayStyle?: CSSProperties;
   objectFit?: "contain" | "cover";
   objectPosition?: string;
@@ -39,7 +41,7 @@ export const ZoomFrame = ({
   const overlayReady = origin !== null && loadedSrc === zoomSrc;
 
   const track = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType !== "mouse") return;
+    if (!hoverZoom || e.pointerType !== "mouse") return;
     const r = e.currentTarget.getBoundingClientRect();
     const x = Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100));
     const y = Math.min(100, Math.max(0, ((e.clientY - r.top) / r.height) * 100));
@@ -190,14 +192,23 @@ export const ProductLightbox = ({
           wrapperStyle={{ width: "100%", height: "100%" }}
           contentStyle={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
         >
-          <img
-            src={image.src}
-            alt={image.alt}
-            decoding="async"
-            draggable={false}
-            className="block select-none object-contain"
-            style={{ maxWidth: "100vw", maxHeight: "100svh", width: "auto", height: "auto" }}
-          />
+          {image.node ? (
+            <div
+              className="relative flex select-none items-center justify-center"
+              style={{ width: "min(90vw, 90svh, 680px)", aspectRatio: "1 / 1", background: "#FAF8F5" }}
+            >
+              {image.node}
+            </div>
+          ) : (
+            <img
+              src={image.src}
+              alt={image.alt}
+              decoding="async"
+              draggable={false}
+              className="block select-none object-contain"
+              style={{ maxWidth: "100vw", maxHeight: "100svh", width: "auto", height: "auto" }}
+            />
+          )}
         </TransformComponent>
       </TransformWrapper>
 

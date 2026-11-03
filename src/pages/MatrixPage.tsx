@@ -72,6 +72,8 @@ import BundleOfferImage from "@/components/matrix/BundleOfferImage";
 import MatrixSwapImage from "@/components/matrix/MatrixSwapImage";
 import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
+import duoCherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json";
+import duoOnyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
@@ -93,8 +95,12 @@ const REAL_CHERRYONYXFELS = { full: realCherryOnyxFels1200.url, mobile: realCher
 const REAL_CHERRYHANDFELS = { full: realCherryHandFels1200.url, mobile: realCherryHandFels800.url, small: realCherryHandFels400.url, thumb: realCherryHandFels200.url, alt: "RAJ MATRIX Hülle in Cherry Carbon in der Hand" };
 const REAL_ONYXHANDSEE = { full: realOnyxHandSee1200.url, mobile: realOnyxHandSee800.url, small: realOnyxHandSee400.url, thumb: realOnyxHandSee200.url, alt: "RAJ MATRIX Hülle in Onyx Carbon an einem iPhone, in der Hand am See" };
 const REAL_PHOTOS = [REAL_CHERRYSETSEE, REAL_CHERRYONYXFELS, REAL_CHERRYHANDFELS, REAL_ONYXHANDSEE];
-const REAL_CHERRY_GALLERY = [REAL_CHERRYSETSEE.full, REAL_CHERRYONYXFELS.full, REAL_CHERRYHANDFELS.full];
-const REAL_ONYX_GALLERY = [REAL_ONYXHANDSEE.full, REAL_CHERRYONYXFELS.full];
+/* Galerie-Bild 2: «Duo» – bestehende freigestellte Homepage-Bilder (Cherry -6°, Onyx +5°) auf #FAF8F5. */
+const DUO_SLIDE = "duo";
+const DUO_ALT = "RAJ MATRIX Hüllen in Cherry Carbon und Onyx Carbon nebeneinander";
+const isDuo = (src: string) => src === DUO_SLIDE;
+const REAL_CHERRY_GALLERY = [DUO_SLIDE, REAL_CHERRYSETSEE.full, REAL_CHERRYONYXFELS.full, REAL_CHERRYHANDFELS.full];
+const REAL_ONYX_GALLERY = [DUO_SLIDE, REAL_ONYXHANDSEE.full, REAL_CHERRYONYXFELS.full];
 const getRealPhoto = (src: string) => REAL_PHOTOS.find((photo) => photo.full === src);
 const isRealPhoto = (src: string) => Boolean(getRealPhoto(src));
 const realSrcSet = (src: string) => { const p = getRealPhoto(src); return p ? `${p.small} 400w, ${p.mobile} 800w, ${p.full} 1200w` : undefined; };
@@ -120,6 +126,7 @@ const PHOTO_SCENES = new Map<string, string>(
   ),
 );
 const getPhotoAlt = (src: string, caseName: string, modelName: string, deviceName: string) => {
+  if (isDuo(src)) return DUO_ALT;
   const real = getRealPhoto(src);
   if (real) return real.alt;
   const scene = PHOTO_SCENES.get(src);
@@ -344,6 +351,55 @@ const GoldBolt = forwardRef<HTMLImageElement, { airpods?: boolean }>(({ airpods 
 ));
 GoldBolt.displayName = "GoldBolt";
 
+/* Duo-Galeriebild: zwei bestehende freigestellte Hüllen (Cherry links -6°, Onyx rechts +5°)
+   mit den weichen Homepage-Schatten auf #FAF8F5; prozentbasiert, skaliert in jede Galeriegrösse. */
+const DuoSlide = ({ eager = false, small = false }: { eager?: boolean; small?: boolean }) => (
+  <div role="img" aria-label={DUO_ALT} className="absolute inset-0 overflow-hidden" style={{ background: "#FAF8F5" }}>
+    <img
+      src={duoCherry.url}
+      alt=""
+      width={600}
+      height={750}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      draggable={false}
+      className="absolute"
+      style={{
+        left: "6.5%",
+        top: "13%",
+        width: "51%",
+        height: "auto",
+        transform: "rotate(-6deg)",
+        filter: small
+          ? "drop-shadow(0 4px 6px rgba(43,39,37,0.18))"
+          : "drop-shadow(0 16px 22px rgba(43,39,37,0.18))",
+      }}
+    />
+    <img
+      src={duoOnyx.url}
+      alt=""
+      width={600}
+      height={750}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      draggable={false}
+      className="absolute"
+      style={{
+        left: "42%",
+        top: "25%",
+        width: "51%",
+        height: "auto",
+        transform: "rotate(5deg)",
+        zIndex: 1,
+        filter: small
+          ? "drop-shadow(-2px 4px 5px rgba(43,39,37,0.28))"
+          : "drop-shadow(-8px 16px 20px rgba(43,39,37,0.28))",
+      }}
+    />
+  </div>
+);
+
+
 
 const DeviceMock = memo(({
   device,
@@ -369,7 +425,11 @@ const DeviceMock = memo(({
 
   const isLifestyle = Boolean(selectedPhoto);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const zoomImages = (showLifestyle ? [src, ...lifestyle] : [src]).map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name) }));
+  const zoomImages = (showLifestyle ? [src, ...lifestyle] : [src]).map((image) => ({
+    src: image,
+    alt: getPhotoAlt(image, caseFinish.name, model.name, device.name),
+    ...(isDuo(image) ? { node: <DuoSlide eager /> } : {}),
+  }));
   const zoomObjectPosition = selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%";
 
   return (
@@ -393,7 +453,11 @@ const DeviceMock = memo(({
         onOpen={() => setLightboxOpen(true)}
         objectFit={isLifestyle && !isRealPhoto(selectedPhoto ?? "") ? "cover" : "contain"}
         objectPosition={zoomObjectPosition}
+        hoverZoom={!isDuo(selectedPhoto ?? "")}
       >
+      {isDuo(selectedPhoto ?? "") ? (
+        <DuoSlide eager />
+      ) : (
       <MatrixSwapImage
         src={selectedPhoto ?? src}
         srcSet={selectedPhoto ? realSrcSet(selectedPhoto) : renderSrcSet(src)}
@@ -411,6 +475,7 @@ const DeviceMock = memo(({
           objectPosition: selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
         }}
       />
+      )}
       </ZoomFrame>
 
     </div>
@@ -439,7 +504,11 @@ const DeviceMock = memo(({
               background: "#fff",
             }}
           >
-            <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className={`h-full w-full ${isRealPhoto(image) ? "object-contain" : "object-cover"}`} />
+            {isDuo(image) ? (
+              <span className="relative block h-full w-full"><DuoSlide small /></span>
+            ) : (
+              <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className={`h-full w-full ${isRealPhoto(image) ? "object-contain" : "object-cover"}`} />
+            )}
           </Button>
         ))}
       </div>
@@ -502,8 +571,12 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
               onOpen={() => setLightboxIndex(i)}
               objectFit={isLifestylePhoto(src) && !isRealPhoto(src) ? "cover" : "contain"}
               objectPosition={src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%"}
-              overlayClassName={isLifestylePhoto(src) || isRealPhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
+              overlayClassName={isDuo(src) || isLifestylePhoto(src) || isRealPhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
+              hoverZoom={!isDuo(src)}
             >
+            {isDuo(src) ? (
+              <DuoSlide eager={i <= prefetchThrough} />
+            ) : (
             <MatrixSwapImage
               src={renderSizes.get(src)?.mobile ?? getPhotoSizes(src)?.mobile ?? src}
               srcSet={isRealPhoto(src) ? realSrcSet(src) : renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
@@ -529,13 +602,14 @@ const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; ca
                 } : {}),
               }}
             />
+            )}
             </ZoomFrame>
           </div>
         ))}
       </div>
       <ProductLightbox
         open={lightboxIndex !== null}
-        images={slides.map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name) }))}
+        images={slides.map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name), ...(isDuo(image) ? { node: <DuoSlide eager /> } : {}) }))}
         index={lightboxIndex ?? 0}
         onIndexChange={setLightboxIndex}
         onClose={() => setLightboxIndex(null)}
