@@ -91,7 +91,7 @@ const H = {
 type FinishId = "cherry" | "onyx";
 type ModelId = "17pro" | "17promax" | "18pro" | "18promax";
 
-interface Slide { src: string; md: string; sm: string; thumb: string; alt: string }
+interface Slide { src: string; md: string; sm: string; thumb: string; alt: string; fit?: "cover" | "contain" }
 
 interface Finish {
   id: FinishId;
