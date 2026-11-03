@@ -95,8 +95,12 @@ const REAL_CHERRYONYXFELS = { full: realCherryOnyxFels1200.url, mobile: realCher
 const REAL_CHERRYHANDFELS = { full: realCherryHandFels1200.url, mobile: realCherryHandFels800.url, small: realCherryHandFels400.url, thumb: realCherryHandFels200.url, alt: "RAJ MATRIX Hülle in Cherry Carbon in der Hand" };
 const REAL_ONYXHANDSEE = { full: realOnyxHandSee1200.url, mobile: realOnyxHandSee800.url, small: realOnyxHandSee400.url, thumb: realOnyxHandSee200.url, alt: "RAJ MATRIX Hülle in Onyx Carbon an einem iPhone, in der Hand am See" };
 const REAL_PHOTOS = [REAL_CHERRYSETSEE, REAL_CHERRYONYXFELS, REAL_CHERRYHANDFELS, REAL_ONYXHANDSEE];
-const REAL_CHERRY_GALLERY = [REAL_CHERRYSETSEE.full, REAL_CHERRYONYXFELS.full, REAL_CHERRYHANDFELS.full];
-const REAL_ONYX_GALLERY = [REAL_ONYXHANDSEE.full, REAL_CHERRYONYXFELS.full];
+/* Galerie-Bild 2: «Duo» – bestehende freigestellte Homepage-Bilder (Cherry -6°, Onyx +5°) auf #FAF8F5. */
+const DUO_SLIDE = "duo";
+const DUO_ALT = "RAJ MATRIX Hüllen in Cherry Carbon und Onyx Carbon nebeneinander";
+const isDuo = (src: string) => src === DUO_SLIDE;
+const REAL_CHERRY_GALLERY = [DUO_SLIDE, REAL_CHERRYSETSEE.full, REAL_CHERRYONYXFELS.full, REAL_CHERRYHANDFELS.full];
+const REAL_ONYX_GALLERY = [DUO_SLIDE, REAL_ONYXHANDSEE.full, REAL_CHERRYONYXFELS.full];
 const getRealPhoto = (src: string) => REAL_PHOTOS.find((photo) => photo.full === src);
 const isRealPhoto = (src: string) => Boolean(getRealPhoto(src));
 const realSrcSet = (src: string) => { const p = getRealPhoto(src); return p ? `${p.small} 400w, ${p.mobile} 800w, ${p.full} 1200w` : undefined; };
@@ -122,6 +126,7 @@ const PHOTO_SCENES = new Map<string, string>(
   ),
 );
 const getPhotoAlt = (src: string, caseName: string, modelName: string, deviceName: string) => {
+  if (isDuo(src)) return DUO_ALT;
   const real = getRealPhoto(src);
   if (real) return real.alt;
   const scene = PHOTO_SCENES.get(src);
