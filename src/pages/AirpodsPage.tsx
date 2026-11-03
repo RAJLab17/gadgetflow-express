@@ -34,6 +34,14 @@ import {
 import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
 import BundleOfferImage, { bundlePhoneThumb, originalAirpodsThumbs } from "@/components/matrix/BundleOfferImage";
+import apLaub1200 from "@/assets/matrix/real-lifestyle/airpods-cherry-laub-1200.webp.asset.json";
+import apLaub800 from "@/assets/matrix/real-lifestyle/airpods-cherry-laub-800.webp.asset.json";
+import apLaub400 from "@/assets/matrix/real-lifestyle/airpods-cherry-laub-400.webp.asset.json";
+import apLaub200 from "@/assets/matrix/real-lifestyle/airpods-cherry-laub-200.webp.asset.json";
+import apSetSee1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-1200.webp.asset.json";
+import apSetSee800 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-800.webp.asset.json";
+import apSetSee400 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-400.webp.asset.json";
+import apSetSee200 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-200.webp.asset.json";
 import apCherryProduct1200 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-1200.webp.asset.json";
 import apCherryProduct800 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-800.webp.asset.json";
 import apCherryProduct400 from "@/assets/matrix/airpods-gallery/airpods-cherry-product-400.webp.asset.json";
@@ -83,7 +91,7 @@ const H = {
 type FinishId = "cherry" | "onyx";
 type ModelId = "17pro" | "17promax" | "18pro" | "18promax";
 
-interface Slide { src: string; md: string; sm: string; thumb: string; alt: string }
+interface Slide { src: string; md: string; sm: string; thumb: string; alt: string; fit?: "cover" | "contain" }
 
 interface Finish {
   id: FinishId;
@@ -115,9 +123,8 @@ const FINISHES: Finish[] = [
     sku: "RAJ-MTX-AP4-CHY",
     slides: [
       { src: apCherryProduct1200.url, md: apCherryProduct800.url, sm: apCherryProduct400.url, thumb: apCherryProduct200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner" },
-      { src: apCherryDesk1200.url, md: apCherryDesk800.url, sm: apCherryDesk400.url, thumb: apCherryDesk200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon auf einem Holztisch neben einem Laptop und Notizbuch" },
-      { src: apCherryBag1200.url, md: apCherryBag800.url, sm: apCherryBag400.url, thumb: apCherryBag200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon in einer geöffneten Handtasche" },
-      { src: apCherryBedside1200.url, md: apCherryBedside800.url, sm: apCherryBedside400.url, thumb: apCherryBedside200.url, alt: "MATRIX AirPods Hülle in Cherry Carbon auf einem Marmortablett neben einer Nachttischlampe" },
+      { src: apLaub1200.url, md: apLaub800.url, sm: apLaub400.url, thumb: apLaub200.url, alt: "RAJ Hülle für AirPods in Cherry Carbon mit goldenem Karabiner im Herbstlaub", fit: "contain" as const },
+      { src: apSetSee1200.url, md: apSetSee800.url, sm: apSetSee400.url, thumb: apSetSee200.url, alt: "RAJ MATRIX Hülle und AirPods-Hülle in Cherry Carbon, in der Hand am See", fit: "contain" as const },
     ],
   },
   {
@@ -131,10 +138,8 @@ const FINISHES: Finish[] = [
     sku: "RAJ-MTX-AP4-ONX",
     slides: [
       { src: apOnyxProduct1200.url, md: apOnyxProduct800.url, sm: apOnyxProduct400.url, thumb: apOnyxProduct200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon" },
-      { src: apOnyxDesk1200.url, md: apOnyxDesk800.url, sm: apOnyxDesk400.url, thumb: apOnyxDesk200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon auf einem Holztisch neben Sonnenbrille und Schlüsseln" },
-      { src: apOnyxBag1200.url, md: apOnyxBag800.url, sm: apOnyxBag400.url, thumb: apOnyxBag200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon in einer braunen Ledertasche neben Notizbuch und Stift" },
-      { src: apOnyxCafe1200.url, md: apOnyxCafe800.url, sm: apOnyxCafe400.url, thumb: apOnyxCafe200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon auf einem Marmortisch neben einer Kaffeetasse" },
-      { src: apOnyxCar1200.url, md: apOnyxCar800.url, sm: apOnyxCar400.url, thumb: apOnyxCar200.url, alt: "MATRIX AirPods Hülle in Onyx Carbon auf der Mittelkonsole eines Autos" },
+      { src: apLaub1200.url, md: apLaub800.url, sm: apLaub400.url, thumb: apLaub200.url, alt: "RAJ Hülle für AirPods in Cherry Carbon mit goldenem Karabiner im Herbstlaub", fit: "contain" as const },
+      { src: apSetSee1200.url, md: apSetSee800.url, sm: apSetSee400.url, thumb: apSetSee200.url, alt: "RAJ MATRIX Hülle und AirPods-Hülle in Cherry Carbon, in der Hand am See", fit: "contain" as const },
     ],
   },
 ];
@@ -199,7 +204,7 @@ const Gallery = ({ finish }: { finish: Finish }) => {
       >
         {slides.map((slide, i) => (
           <div key={slide.src} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
-            <ZoomFrame zoomSrc={slide.src} onOpen={() => setLightboxIndex(i)} objectFit="cover">
+            <ZoomFrame zoomSrc={slide.src} onOpen={() => setLightboxIndex(i)} objectFit={slide.fit ?? "cover"}>
             <img
               data-airpods-hero={i === 0 ? "" : undefined}
               src={slide.src}
@@ -217,7 +222,7 @@ const Gallery = ({ finish }: { finish: Finish }) => {
                  next.delete(slide.src);
                  return next;
                })}
-               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-200 motion-reduce:transition-none ${loadedImages.has(slide.src) ? "opacity-100" : "opacity-0"}`}
+               className={`absolute inset-0 h-full w-full ${slide.fit === "contain" ? "object-contain" : "object-cover"} transition-opacity duration-200 motion-reduce:transition-none ${loadedImages.has(slide.src) ? "opacity-100" : "opacity-0"}`}
             />
             </ZoomFrame>
           </div>
@@ -240,7 +245,7 @@ const Gallery = ({ finish }: { finish: Finish }) => {
           <div className="mt-4 hidden flex-wrap justify-center gap-2 pb-3 lg:flex" aria-label="Produktbilder">
             {slides.map((slide, i) => (
               <Button key={slide.src} type="button" variant="outline" aria-label={`Bild ${i + 1}`} aria-pressed={active === i} onClick={() => goTo(i)} className="h-[68px] w-[68px] overflow-hidden rounded-lg p-0" style={{ borderColor: active === i ? H.gold : H.line, background: "#fff" }}>
-                <img src={slide.thumb} alt={`Vorschau: ${slide.alt}`} width={200} height={200} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                <img src={slide.thumb} alt={`Vorschau: ${slide.alt}`} width={200} height={200} loading="lazy" decoding="async" className={`h-full w-full ${slide.fit === "contain" ? "object-contain" : "object-cover"}`} />
               </Button>
             ))}
           </div>
