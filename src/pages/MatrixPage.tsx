@@ -72,6 +72,8 @@ import BundleOfferImage from "@/components/matrix/BundleOfferImage";
 import MatrixSwapImage from "@/components/matrix/MatrixSwapImage";
 import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
+import duoCherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json";
+import duoOnyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
 
 const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
 const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
