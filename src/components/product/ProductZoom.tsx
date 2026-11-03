@@ -192,14 +192,23 @@ export const ProductLightbox = ({
           wrapperStyle={{ width: "100%", height: "100%" }}
           contentStyle={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}
         >
-          <img
-            src={image.src}
-            alt={image.alt}
-            decoding="async"
-            draggable={false}
-            className="block select-none object-contain"
-            style={{ maxWidth: "100vw", maxHeight: "100svh", width: "auto", height: "auto" }}
-          />
+          {image.node ? (
+            <div
+              className="relative flex select-none items-center justify-center"
+              style={{ width: "min(90vw, 90svh, 680px)", aspectRatio: "1 / 1", background: "#FAF8F5" }}
+            >
+              {image.node}
+            </div>
+          ) : (
+            <img
+              src={image.src}
+              alt={image.alt}
+              decoding="async"
+              draggable={false}
+              className="block select-none object-contain"
+              style={{ maxWidth: "100vw", maxHeight: "100svh", width: "auto", height: "auto" }}
+            />
+          )}
         </TransformComponent>
       </TransformWrapper>
 
