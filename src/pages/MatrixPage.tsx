@@ -351,6 +351,55 @@ const GoldBolt = forwardRef<HTMLImageElement, { airpods?: boolean }>(({ airpods 
 ));
 GoldBolt.displayName = "GoldBolt";
 
+/* Duo-Galeriebild: zwei bestehende freigestellte Hüllen (Cherry links -6°, Onyx rechts +5°)
+   mit den weichen Homepage-Schatten auf #FAF8F5; prozentbasiert, skaliert in jede Galeriegrösse. */
+const DuoSlide = ({ eager = false, small = false }: { eager?: boolean; small?: boolean }) => (
+  <div aria-hidden={false} className="absolute inset-0 overflow-hidden" style={{ background: "#FAF8F5" }}>
+    <img
+      src={duoCherry.url}
+      alt=""
+      width={600}
+      height={750}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      draggable={false}
+      className="absolute"
+      style={{
+        left: "6.5%",
+        top: "13%",
+        width: "51%",
+        height: "auto",
+        transform: "rotate(-6deg)",
+        filter: small
+          ? "drop-shadow(0 4px 6px rgba(43,39,37,0.18))"
+          : "drop-shadow(0 16px 22px rgba(43,39,37,0.18))",
+      }}
+    />
+    <img
+      src={duoOnyx.url}
+      alt=""
+      width={600}
+      height={750}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      draggable={false}
+      className="absolute"
+      style={{
+        left: "42%",
+        top: "25%",
+        width: "51%",
+        height: "auto",
+        transform: "rotate(5deg)",
+        zIndex: 1,
+        filter: small
+          ? "drop-shadow(-2px 4px 5px rgba(43,39,37,0.28))"
+          : "drop-shadow(-8px 16px 20px rgba(43,39,37,0.28))",
+      }}
+    />
+  </div>
+);
+
+
 
 const DeviceMock = memo(({
   device,
