@@ -354,7 +354,7 @@ GoldBolt.displayName = "GoldBolt";
 /* Duo-Galeriebild: zwei bestehende freigestellte Hüllen (Cherry links -6°, Onyx rechts +5°)
    mit den weichen Homepage-Schatten auf #FAF8F5; prozentbasiert, skaliert in jede Galeriegrösse. */
 const DuoSlide = ({ eager = false, small = false }: { eager?: boolean; small?: boolean }) => (
-  <div aria-hidden={false} className="absolute inset-0 overflow-hidden" style={{ background: "#FAF8F5" }}>
+  <div role="img" aria-label={DUO_ALT} className="absolute inset-0 overflow-hidden" style={{ background: "#FAF8F5" }}>
     <img
       src={duoCherry.url}
       alt=""
