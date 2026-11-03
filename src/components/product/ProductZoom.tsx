@@ -28,6 +28,7 @@ export const ZoomFrame = ({
   onOpen: () => void;
   children: ReactNode;
   overlayClassName?: string;
+  hoverZoom?: boolean;
   overlayStyle?: CSSProperties;
   objectFit?: "contain" | "cover";
   objectPosition?: string;
@@ -40,7 +41,7 @@ export const ZoomFrame = ({
   const overlayReady = origin !== null && loadedSrc === zoomSrc;
 
   const track = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (e.pointerType !== "mouse") return;
+    if (!hoverZoom || e.pointerType !== "mouse") return;
     const r = e.currentTarget.getBoundingClientRect();
     const x = Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100));
     const y = Math.min(100, Math.max(0, ((e.clientY - r.top) / r.height) * 100));
