@@ -425,7 +425,11 @@ const DeviceMock = memo(({
 
   const isLifestyle = Boolean(selectedPhoto);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const zoomImages = (showLifestyle ? [src, ...lifestyle] : [src]).map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name) }));
+  const zoomImages = (showLifestyle ? [src, ...lifestyle] : [src]).map((image) => ({
+    src: image,
+    alt: getPhotoAlt(image, caseFinish.name, model.name, device.name),
+    ...(isDuo(image) ? { node: <DuoSlide eager /> } : {}),
+  }));
   const zoomObjectPosition = selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%";
 
   return (
@@ -449,7 +453,11 @@ const DeviceMock = memo(({
         onOpen={() => setLightboxOpen(true)}
         objectFit={isLifestyle && !isRealPhoto(selectedPhoto ?? "") ? "cover" : "contain"}
         objectPosition={zoomObjectPosition}
+        hoverZoom={!isDuo(selectedPhoto ?? "")}
       >
+      {isDuo(selectedPhoto ?? "") ? (
+        <DuoSlide eager />
+      ) : (
       <MatrixSwapImage
         src={selectedPhoto ?? src}
         srcSet={selectedPhoto ? realSrcSet(selectedPhoto) : renderSrcSet(src)}
@@ -467,6 +475,7 @@ const DeviceMock = memo(({
           objectPosition: selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
         }}
       />
+      )}
       </ZoomFrame>
 
     </div>
@@ -495,7 +504,11 @@ const DeviceMock = memo(({
               background: "#fff",
             }}
           >
-            <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className={`h-full w-full ${isRealPhoto(image) ? "object-contain" : "object-cover"}`} />
+            {isDuo(image) ? (
+              <span className="relative block h-full w-full"><DuoSlide small /></span>
+            ) : (
+              <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className={`h-full w-full ${isRealPhoto(image) ? "object-contain" : "object-cover"}`} />
+            )}
           </Button>
         ))}
       </div>
