@@ -5,15 +5,17 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { HERO_CAROUSEL_SLIDES, HeroSwipeImage } from './NexusHeroCarousel';
 import NexusHeroChipsMobile from './NexusChargeCardsMobile';
 import Qi2CertifiedBadge from './Qi2CertifiedBadge';
+import { useIsMobile } from '@/hooks/use-mobile';
 const zoomImages = HERO_CAROUSEL_SLIDES.map(s => ({ src: s.srcSet.split(',').pop()?.trim().split(/\s+/)[0] || s.src, alt: s.alt }));
 export default function NexusGallery() {
  const [index,setIndex]=useState(0); const [open,setOpen]=useState(false);
+ const mobile = useIsMobile();
  const slide = HERO_CAROUSEL_SLIDES[index];
  if (!slide) return null;
  const light = index === 1 || index === 3;
  return <div className="nx-gallery nx-gallery-original"><div className="nx-gallery-frame">
- <ZoomFrame zoomSrc={zoomImages[index]?.src || slide.src} objectFit={slide.fit ?? 'cover'} objectPosition={slide.position ?? (index === 0 ? 'center 30%' : 'center')} onOpen={()=>setOpen(true)} iconStyle={{right:'auto',left:12,bottom:12}}>
- <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={index} onChange={setIndex} sizes="(max-width: 768px) 266px, 700px" priority objectFit="cover" objectPosition={index === 0 ? 'center 30%' : 'center'}/>
+ <ZoomFrame zoomSrc={zoomImages[index]?.src || slide.src} objectFit={(mobile ? slide.mobileFit : slide.fit) ?? 'cover'} objectPosition={(mobile ? slide.mobilePosition : slide.position) ?? (mobile && index === 0 ? 'center 30%' : 'center')} onOpen={()=>setOpen(true)} iconStyle={{right:'auto',left:12,bottom:12}}>
+ <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={index} onChange={setIndex} sizes="(max-width: 768px) 266px, 700px" priority objectFit="cover" objectPosition={mobile && index === 0 ? 'center 30%' : 'center'}/>
  </ZoomFrame>
  {slide.showChips !== false && <div className={`nx-original-chips ${index === 0 ? 'nx-original-chips-first' : ''}`}><NexusHeroChipsMobile/></div>}
  <div className={`nx-original-certified ${light ? 'nx-original-certified-light' : ''}`}><Qi2CertifiedBadge size={34} compact variant={light?'light':'dark'}/><span>Zertifiziert</span></div>
