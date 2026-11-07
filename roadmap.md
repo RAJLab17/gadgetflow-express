@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] MATRIX: requested CSS-only compact gallery and readable text; verify 390px buy position, page height, real-photo fill and unchanged sticky model guard, no publication.
+
 - [x] MATRIX: mobile-first gallery, selection validation, simplified bundles and Black Friday switch; existing checkout and variant IDs unchanged.
 - [x] MATRIX: editorial product sections, dynamic verified reviews and FAQ/schema/crawler consistency.
 - [x] MATRIX: all 24 model/finish/offer combinations passed real Shopify checkout; Black Friday true with identical two-case checkout passed, false retained; mobile main/sticky model guards and reviews checked; 390px buy Y 1333px, total height 7982px; not published. Legacy shared buybar test predates current visibility rules and fails unchanged; dedicated browser guard checks passed.
