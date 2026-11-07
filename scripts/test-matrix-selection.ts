@@ -10,3 +10,5 @@ test('single case total is CHF 59',()=>expect(matrixTotal(false,false)).toBe(59)
 test('AirPods bundle total is CHF 79',()=>expect(matrixTotal(true,false)).toBe(79));
 test('two case total is CHF 99',()=>expect(matrixTotal(false,true)).toBe(99));
 test('Black Friday presentation defaults off',()=>expect(BLACK_FRIDAY_MODE).toBe(false));
+test('two case original price is CHF 118',async()=>{const { MATRIX_PRICES }=await import('../src/components/matrix/matrixConfig');expect(MATRIX_PRICES.twoOriginal).toBe(118);});
+test('AirPods bundle original price is CHF 94',async()=>{const { MATRIX_PRICES }=await import('../src/components/matrix/matrixConfig');expect(MATRIX_PRICES.airpodsOriginal).toBe(94);});

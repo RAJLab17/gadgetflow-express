@@ -5,7 +5,6 @@ import { reviewSchema } from "@/lib/reviewProducts";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
-import { Link } from "react-router-dom";
 import { Layers, Sparkles, Magnet, LockKeyhole, Loader2, X, Truck, RotateCcw, MapPin, PencilRuler } from "lucide-react";
 import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
@@ -41,7 +40,7 @@ import {
   CASE_VARIANT_IDS,
   MATRIX_DELIVERY_TEXT_NO_DATE,
 } from "@/components/matrix/matrixCommerce";
-import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
+import { airpodsThumbs, renderSizes } from "@/assets/matrix/responsiveRenders";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
 
 import MatrixGallery from '@/components/matrix/MatrixGallery';
