@@ -1,5 +1,9 @@
 # Roadmap
 
+- [ ] MATRIX: mobile-first gallery, selection validation, simplified bundles and Black Friday switch; existing checkout and variant IDs unchanged.
+- [ ] MATRIX: editorial product sections, dynamic verified reviews and FAQ/schema/crawler consistency.
+- [ ] MATRIX: test all model/finish/bundle/URL cases, screenshots and mobile buy-button/page measurements; do not publish.
+
 - [x] /vergleich: fünf gezielte Formulierungen samt Crawler/FAQ-JSON-LD angeglichen, Browser und Datumstest bestanden; nicht veröffentlicht.
 - [x] /vergleich: bestätigtes Anker MagGo Faltbar 3-in-1 (A2557), Masse und Herstellerlink samt Crawler/JSON-LD übernommen; Browser und Datumstest bestanden, nicht veröffentlicht.
 
