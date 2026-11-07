@@ -1,15 +1,12 @@
-import ProductFaqSection from "@/components/ProductFaqSection";
 import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
-import ProductReviews, { ProductRating } from "@/components/reviews/ProductReviews";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import { holdReviewsUntilImage, releaseReviews } from "@/lib/reviewLoadGate";
 import { reviewSchema } from "@/lib/reviewProducts";
-import { MATRIX_FAQ } from "@/content/matrixFaq";
-import { forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { shareImages, shareImageTags } from "@/lib/shareImages";
 import { Link } from "react-router-dom";
-import { Check, ArrowUpRight, ShoppingBag, Loader2, X, Truck, RotateCcw, MapPin } from "lucide-react";
+import { Layers, Sparkles, Magnet, LockKeyhole, Loader2, X, Truck, RotateCcw, MapPin, PencilRuler } from "lucide-react";
 import { toast } from "sonner";
 import { createShopifyCart, addLineToShopifyCart } from "@/lib/shopify";
 import type { CartItem } from "@/lib/shopify";
@@ -18,7 +15,6 @@ import { goToCheckout, openCheckoutTab } from "@/lib/checkout";
 import { trackAddToCart, trackBeginCheckout, trackViewItem } from "@/lib/ga-ecommerce";
 
 import { Button } from "@/components/ui/button";
-import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import NexusTrustBar from "@/components/nexus/NexusTrustBar";
 import Footer from "@/components/Footer";
@@ -38,7 +34,6 @@ import onyxDarkgrey18Asset from "@/assets/matrix/uploaded-renders/18-onyx-darkgr
 import onyxSkyblue18Asset from "@/assets/matrix/uploaded-renders/18-onyx-skyblue-v2-full.webp.asset.json";
 import airpodsCherry from "@/assets/matrix/airpods-cherry-bolt.webp";
 import airpodsOnyx from "@/assets/matrix/airpods-onyx-original-bolt.webp";
-import rajBoltOriginal from "@/assets/matrix/raj-bolt-original.png";
 import {
   AIRPODS_VARIANT_IDS,
   BUNDLE_DISCOUNT,
@@ -49,7 +44,6 @@ import {
   MATRIX_TRUST_MOBILE,
   PaymentMethodsBar,
 } from "@/components/matrix/matrixCommerce";
-import { lifestylePhotos } from "@/assets/matrix/lifestylePhotos";
 import realCherrySetSee1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-1200.webp.asset.json";
 import realCherrySetSee800 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-800.webp.asset.json";
 import realCherrySetSee400 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-400.webp.asset.json";
@@ -68,115 +62,17 @@ import realOnyxHandSee400 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-
 import realOnyxHandSee200 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-200.webp.asset.json";
 import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
 import { observeMediaQuery } from "@/lib/mediaQuery";
-import BundleOfferImage from "@/components/matrix/BundleOfferImage";
 import MatrixSwapImage from "@/components/matrix/MatrixSwapImage";
-import { ProductLightbox, ZoomFrame } from "@/components/product/ProductZoom";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
-import duoCherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json";
-import duoOnyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
 
-const CHERRY_ORANGE_LIFESTYLE = lifestylePhotos.orange.map((photo) => photo.full);
-const hasCherryOrangeLifestyle = (model: Model, caseFinish: CaseFinish, device: DeviceFinish) =>
-  (model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "orange";
-const CHERRY_BLUE_LIFESTYLE = lifestylePhotos.blue.map((photo) => photo.full);
-const CHERRY_SILVER_LIFESTYLE = lifestylePhotos.silver.map((photo) => photo.full);
-const ONYX_ORANGE_LIFESTYLE = lifestylePhotos.onyxOrange.map((photo) => photo.full);
-const ONYX_BLUE_LIFESTYLE = lifestylePhotos.onyxBlue.map((photo) => photo.full);
-const ONYX_SILVER_LIFESTYLE = lifestylePhotos.onyxSilver.map((photo) => photo.full);
-const CHERRY_DARKCHERRY_LIFESTYLE = lifestylePhotos.cherryDarkcherry.map((photo) => photo.full);
-const CHERRY_DARKGREY_LIFESTYLE = lifestylePhotos.cherryDarkgrey.map((photo) => photo.full);
-const CHERRY_SKYBLUE_LIFESTYLE = lifestylePhotos.cherrySkyblue.map((photo) => photo.full);
-const ONYX_DARKCHERRY_LIFESTYLE = lifestylePhotos.onyxDarkcherry.map((photo) => photo.full);
-const ONYX_DARKGREY_LIFESTYLE = lifestylePhotos.onyxDarkgrey.map((photo) => photo.full);
-const ONYX_SKYBLUE_LIFESTYLE = lifestylePhotos.onyxSkyblue.map((photo) => photo.full);
-/* Echte Lifestyle-Fotos (4:5), nur nach Hüllenfarbe; ungeschnitten (object-contain) im bestehenden Rahmen. */
-const REAL_CHERRYSETSEE = { full: realCherrySetSee1200.url, mobile: realCherrySetSee800.url, small: realCherrySetSee400.url, thumb: realCherrySetSee200.url, alt: "RAJ MATRIX Hülle und AirPods-Hülle in Cherry Carbon, in der Hand am See" };
-const REAL_CHERRYONYXFELS = { full: realCherryOnyxFels1200.url, mobile: realCherryOnyxFels800.url, small: realCherryOnyxFels400.url, thumb: realCherryOnyxFels200.url, alt: "RAJ MATRIX Hüllen in Cherry Carbon und Onyx Carbon am Fels" };
-const REAL_CHERRYHANDFELS = { full: realCherryHandFels1200.url, mobile: realCherryHandFels800.url, small: realCherryHandFels400.url, thumb: realCherryHandFels200.url, alt: "RAJ MATRIX Hülle in Cherry Carbon in der Hand" };
-const REAL_ONYXHANDSEE = { full: realOnyxHandSee1200.url, mobile: realOnyxHandSee800.url, small: realOnyxHandSee400.url, thumb: realOnyxHandSee200.url, alt: "RAJ MATRIX Hülle in Onyx Carbon an einem iPhone, in der Hand am See" };
-const REAL_PHOTOS = [REAL_CHERRYSETSEE, REAL_CHERRYONYXFELS, REAL_CHERRYHANDFELS, REAL_ONYXHANDSEE];
-/* Galerie-Bild 2: «Duo» – bestehende freigestellte Homepage-Bilder (Cherry -6°, Onyx +5°) auf #FAF8F5. */
-const DUO_SLIDE = "duo";
-const DUO_ALT = "RAJ MATRIX Hüllen in Cherry Carbon und Onyx Carbon nebeneinander";
-const isDuo = (src: string) => src === DUO_SLIDE;
-const REAL_CHERRY_GALLERY = [DUO_SLIDE, REAL_CHERRYSETSEE.full, REAL_CHERRYONYXFELS.full, REAL_CHERRYHANDFELS.full];
-const REAL_ONYX_GALLERY = [DUO_SLIDE, REAL_ONYXHANDSEE.full, REAL_CHERRYONYXFELS.full];
-const getRealPhoto = (src: string) => REAL_PHOTOS.find((photo) => photo.full === src);
-const isRealPhoto = (src: string) => Boolean(getRealPhoto(src));
-const realSrcSet = (src: string) => { const p = getRealPhoto(src); return p ? `${p.small} 400w, ${p.mobile} 800w, ${p.full} 1200w` : undefined; };
-const photoSizes = Object.values(lifestylePhotos).flat();
-const getPhotoSizes = (src: string) => getRealPhoto(src) ?? photoSizes.find((photo) => photo.full === src);
-const LIFESTYLE_SCENES: Record<keyof typeof lifestylePhotos, string[]> = {
-  orange: ["in der Hand", "auf dem Holztisch neben einem Kaffee", "im Auto auf der Mittelkonsole", "in der Hosentasche"],
-  blue: ["in der Hand", "auf dem Holztisch neben einem Notizbuch", "auf dem Marmortisch neben einem Kaffee", "auf einem hellen Sessel"],
-  silver: ["in der Hand", "auf dem Holztisch neben einem Notizbuch", "auf einem hellen Steintisch", "in der Handtasche"],
-  onyxOrange: ["in der Hand", "in der Ledertasche", "auf dem Schreibtisch neben einem Füllfederhalter", "im Auto auf der Mittelkonsole"],
-  onyxBlue: ["in der Hand", "auf dem Schreibtisch neben dem Laptop", "im Auto auf der Mittelkonsole", "in der Ledertasche"],
-  onyxSilver: ["in der Hand", "auf dem Schreibtisch neben einem Füllfederhalter", "auf einem runden Steintisch", "im Auto auf der Mittelkonsole"],
-  cherryDarkcherry: ["in der Hand", "in der Hand am Café-Tisch", "im Auto auf der Mittelkonsole", "auf dem Marmortisch neben dem Laptop"],
-  cherryDarkgrey: ["in der Hand am Café-Tisch", "in der Hand im Wohnzimmer", "im Auto auf der Mittelkonsole", "auf dem Holztisch neben einem Notizbuch"],
-  cherrySkyblue: ["in der Hand", "auf dem Marmortisch mit Schmuck", "in der Handtasche", "auf dem Café-Tisch neben einem Cappuccino"],
-  onyxDarkcherry: ["in der Hand", "in der Ledertasche", "im Auto auf der Mittelkonsole", "auf dem Holztisch neben dem Laptop"],
-  onyxDarkgrey: ["in der Hand", "im Auto auf der Mittelkonsole", "in der Ledertasche", "auf dem Café-Tisch neben einem Cappuccino"],
-  onyxSkyblue: ["in der Hand", "auf dem Holztisch neben dem Laptop", "im Auto auf der Mittelkonsole", "in der Hosentasche"],
-};
-const PHOTO_SCENES = new Map<string, string>(
-  (Object.keys(LIFESTYLE_SCENES) as Array<keyof typeof lifestylePhotos>).flatMap((key) =>
-    lifestylePhotos[key].map((photo, i) => [photo.full, LIFESTYLE_SCENES[key][i]] as [string, string]),
-  ),
-);
-const getPhotoAlt = (src: string, caseName: string, modelName: string, deviceName: string) => {
-  if (isDuo(src)) return DUO_ALT;
-  const real = getRealPhoto(src);
-  if (real) return real.alt;
-  const scene = PHOTO_SCENES.get(src);
-  return scene
-    ? `RAJ MATRIX ${caseName} Hülle am ${modelName} (${deviceName}), ${scene}`
-    : `RAJ MATRIX ${caseName} Hülle für ${modelName} in ${deviceName}`;
-};
-
-const subscribeGalleryViewport = (onChange: () => void) => {
-  const query = window.matchMedia("(min-width: 1024px)");
-  return observeMediaQuery(query, onChange);
-};
-const getGalleryViewport = () => window.matchMedia("(min-width: 1024px)").matches;
-
-// Lifestyle-Galerie vorübergehend ausgeblendet: nur das erste Produktbild zeigen.
-const LIFESTYLE_GALLERY_ENABLED = false;
-const getLifestylePhotos = (model: Model, caseFinish: CaseFinish, device: DeviceFinish): string[] => {
-  // Echte Fotos nur nach Hüllenfarbe; die alten Listen bleiben ausgeschaltet.
-  if (caseFinish.id === "cherry") return REAL_CHERRY_GALLERY;
-  if (caseFinish.id === "onyx") return REAL_ONYX_GALLERY;
-  if (!LIFESTYLE_GALLERY_ENABLED) return [];
-  if (hasCherryOrangeLifestyle(model, caseFinish, device)) return CHERRY_ORANGE_LIFESTYLE;
-  if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "cherry" && device.id === "blue") return CHERRY_BLUE_LIFESTYLE;
-  if ((model.id === "17pro" || model.id === "17promax" || model.id === "18pro" || model.id === "18promax") && caseFinish.id === "cherry" && device.id === "silver") return CHERRY_SILVER_LIFESTYLE;
-  if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "onyx" && device.id === "orange") return ONYX_ORANGE_LIFESTYLE;
-  if ((model.id === "17pro" || model.id === "17promax") && caseFinish.id === "onyx" && device.id === "blue") return ONYX_BLUE_LIFESTYLE;
-  if ((model.id === "17pro" || model.id === "17promax" || model.id === "18pro" || model.id === "18promax") && caseFinish.id === "onyx" && device.id === "silver") return ONYX_SILVER_LIFESTYLE;
-  if ((model.id === "18pro" || model.id === "18promax") && caseFinish.id === "cherry" && device.id === "darkcherry") return CHERRY_DARKCHERRY_LIFESTYLE;
-  if ((model.id === "18pro" || model.id === "18promax") && caseFinish.id === "cherry" && device.id === "darkgrey") return CHERRY_DARKGREY_LIFESTYLE;
-  if ((model.id === "18pro" || model.id === "18promax") && caseFinish.id === "cherry" && device.id === "skyblue") return CHERRY_SKYBLUE_LIFESTYLE;
-  if ((model.id === "18pro" || model.id === "18promax") && caseFinish.id === "onyx" && device.id === "darkcherry") return ONYX_DARKCHERRY_LIFESTYLE;
-  if ((model.id === "18pro" || model.id === "18promax") && caseFinish.id === "onyx" && device.id === "darkgrey") return ONYX_DARKGREY_LIFESTYLE;
-  if ((model.id === "18pro" || model.id === "18promax") && caseFinish.id === "onyx" && device.id === "skyblue") return ONYX_SKYBLUE_LIFESTYLE;
-  return [];
-};
-const isLifestylePhoto = (src: string) => CHERRY_ORANGE_LIFESTYLE.includes(src) || CHERRY_BLUE_LIFESTYLE.includes(src) || CHERRY_SILVER_LIFESTYLE.includes(src) || ONYX_ORANGE_LIFESTYLE.includes(src) || ONYX_BLUE_LIFESTYLE.includes(src) || ONYX_SILVER_LIFESTYLE.includes(src) || CHERRY_DARKCHERRY_LIFESTYLE.includes(src) || CHERRY_DARKGREY_LIFESTYLE.includes(src) || CHERRY_SKYBLUE_LIFESTYLE.includes(src) || ONYX_DARKCHERRY_LIFESTYLE.includes(src) || ONYX_DARKGREY_LIFESTYLE.includes(src) || ONYX_SKYBLUE_LIFESTYLE.includes(src);
-
-/* ── Design tokens (aligned with /produkte editorial system) ─────────── */
-const H = {
-  bg: "#faf9f7",
-  gold: "#9b6b3f",
-  goldLight: "#e0bd79",
-  cherry: "#7b4b60",
-  line: "rgba(43,39,37,0.10)",
-  lineStrong: "rgba(43,39,37,0.22)",
-  text: "#2b2725",
-  textMuted: "rgba(43,39,37,0.55)",
-};
-
-/* ── Data ─────────────────────────────────────────────────────────────── */
+import MatrixGallery from '@/components/matrix/MatrixGallery';
+import MatrixEditorial from '@/components/matrix/MatrixEditorial';
+import { MATRIX_FAQ } from '@/components/matrix/matrixFaq';
+import { BLACK_FRIDAY_MODE, matrixUrlSelection, matrixTotal } from '@/components/matrix/matrixConfig';
+import { verifiedMatrixReviews } from '@/components/matrix/MatrixReviews';
+import StarRating from '@/components/reviews/StarRating';
+import { Checkbox } from '@/components/ui/checkbox';
+import '@/components/matrix/matrix-page.css';
 type ModelId = "17pro" | "17promax" | "18pro" | "18promax";
 
 interface Model {
@@ -272,14 +168,6 @@ const TWO_CASES_DISCOUNT_CODE = "MATRIX2";
 
 
 
-const MATRIX_INCLUDED = [
-  "Starker N52-Magnetring für MagSafe-Zubehör",
-  "Kabellos laden mit Qi2.2 direkt durch die Hülle",
-  "Erhöhter Rand schützt Kamera und Display",
-  "Knöpfe aus goldeloxiertem Aluminium, Kameraring aus Metall",
-  "Abgestimmt auf die RAJ NEXUS Ladestation",
-];
-
 /* ── Visual: Produktrender (Gerät in Hülle) ───────────────────────────── */
 const RENDERS: Record<string, string> = {
   // Gen 17
@@ -328,390 +216,18 @@ const warmVariantImages = () => {
   else window.addEventListener("load", idle, { once: true });
 };
 
-/* Originalkontur des goldenen MATRIX-Emblems, direkt aus dem Produktfoto. */
-const GoldBolt = forwardRef<HTMLImageElement, { airpods?: boolean }>(({ airpods = false }, ref) => (
-  <img
-    ref={ref}
-    aria-hidden="true"
-    src={rajBoltOriginal}
-    alt=""
-    className="absolute pointer-events-none"
-    style={{
-      left: airpods ? "50%" : "34.5%",
-      top: airpods ? "52%" : undefined,
-      bottom: airpods ? undefined : "12.5%",
-      width: airpods ? "5.2%" : "4.15%",
-      height: "auto",
-      transform: airpods ? "translate(-50%, -50%)" : undefined,
-      opacity: 1,
-      mixBlendMode: "normal",
-      filter: "drop-shadow(0 0.5px 0 rgba(255,248,214,0.95)) drop-shadow(0 1px 1px rgba(92,53,16,0.3))",
-    }}
-  />
-));
-GoldBolt.displayName = "GoldBolt";
-
-/* Duo-Galeriebild: zwei bestehende freigestellte Hüllen (Cherry links -6°, Onyx rechts +5°)
-   mit den weichen Homepage-Schatten auf #FAF8F5; prozentbasiert, skaliert in jede Galeriegrösse. */
-const DuoSlide = ({ eager = false, small = false }: { eager?: boolean; small?: boolean }) => (
-  <div role="img" aria-label={DUO_ALT} className="absolute inset-0 overflow-hidden" style={{ background: "#FAF8F5" }}>
-    <img
-      src={duoCherry.url}
-      alt=""
-      width={600}
-      height={750}
-      loading={eager ? "eager" : "lazy"}
-      decoding="async"
-      draggable={false}
-      className="absolute"
-      style={{
-        left: "6.5%",
-        top: "13%",
-        width: "51%",
-        height: "auto",
-        transform: "rotate(-6deg)",
-        filter: small
-          ? "drop-shadow(0 4px 6px rgba(43,39,37,0.18))"
-          : "drop-shadow(0 16px 22px rgba(43,39,37,0.18))",
-      }}
-    />
-    <img
-      src={duoOnyx.url}
-      alt=""
-      width={600}
-      height={750}
-      loading={eager ? "eager" : "lazy"}
-      decoding="async"
-      draggable={false}
-      className="absolute"
-      style={{
-        left: "42%",
-        top: "25%",
-        width: "51%",
-        height: "auto",
-        transform: "rotate(5deg)",
-        zIndex: 1,
-        filter: small
-          ? "drop-shadow(-2px 4px 5px rgba(43,39,37,0.28))"
-          : "drop-shadow(-8px 16px 20px rgba(43,39,37,0.28))",
-      }}
-    />
-  </div>
-);
-
-
-
-const DeviceMock = memo(({
-  device,
-  caseFinish,
-  model,
-}: {
-  device: DeviceFinish;
-  caseFinish: CaseFinish;
-  model: Model;
-}) => {
-  const renderKey = `${model.gen}-${caseFinish.id}-${device.id}`;
-  const generationRenders = useMemo(
-    () => Object.entries(RENDERS).filter(([key]) => key.startsWith(`${model.gen}-`)),
-    [model.gen],
-  );
-  const generationFallback = generationRenders[0]?.[1];
-  const src = RENDERS[renderKey] ?? generationFallback ?? Object.values(RENDERS)[0];
-  const [photo, setPhoto] = useState(0);
-  const lifestyle = getLifestylePhotos(model, caseFinish, device);
-  const showLifestyle = lifestyle.length > 0;
-  useEffect(() => setPhoto(0), [model.id, caseFinish.id, device.id]);
-  const selectedPhoto = showLifestyle && photo > 0 ? lifestyle[photo - 1] : undefined;
-
-  const isLifestyle = Boolean(selectedPhoto);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const zoomImages = (showLifestyle ? [src, ...lifestyle] : [src]).map((image) => ({
-    src: image,
-    alt: getPhotoAlt(image, caseFinish.name, model.name, device.name),
-    ...(isDuo(image) ? { node: <DuoSlide eager /> } : {}),
-  }));
-  const zoomObjectPosition = selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%";
-
-  return (
-    <div className="w-full">
-    <div className={isLifestyle ? undefined : "px-1 pt-0 pb-0 md:px-10 md:pt-14 md:pb-8"}>
-    <div
-      className={
-        isLifestyle
-          ? "matrix-device relative mx-auto w-full transition-[width] duration-500 ease-out"
-          : "matrix-device relative mx-auto w-full max-w-[286px] md:max-w-none transition-[width] duration-500 ease-out"
-      }
-      style={isLifestyle ? { aspectRatio: "1 / 1" } : { width: "min(100%, 380px)", aspectRatio: "1 / 1" }}
-    >
-      <div
-        aria-hidden
-        className="absolute left-1/2 -translate-x-1/2 bottom-[3%] w-[58%] h-8 rounded-[50%] pointer-events-none"
-        style={{ background: "radial-gradient(50% 50% at 50% 50%, rgba(43,39,37,0.22), transparent 72%)", filter: "blur(3px)" }}
-      />
-      <ZoomFrame
-        zoomSrc={selectedPhoto ?? src}
-        onOpen={() => setLightboxOpen(true)}
-        objectFit={isLifestyle && !isRealPhoto(selectedPhoto ?? "") ? "cover" : "contain"}
-        objectPosition={zoomObjectPosition}
-        hoverZoom={!isDuo(selectedPhoto ?? "")}
-      >
-      {isDuo(selectedPhoto ?? "") ? (
-        <DuoSlide eager />
-      ) : (
-      <MatrixSwapImage
-        src={selectedPhoto ?? src}
-        srcSet={selectedPhoto ? realSrcSet(selectedPhoto) : renderSrcSet(src)}
-        sizes={renderImageSizes}
-        alt={getPhotoAlt(selectedPhoto ?? src, caseFinish.name, model.name, device.name)}
-        width={928}
-        height={1152}
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        onLoad={warmVariantImages}
-        className={isLifestyle ? `absolute inset-0 h-full w-full ${isRealPhoto(selectedPhoto ?? "") ? "object-contain" : "object-cover"}` : "absolute inset-0 h-full w-full object-contain"}
-        style={{
-          filter: "contrast(1.015) saturate(1.015)",
-          objectPosition: selectedPhoto === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
-        }}
-      />
-      )}
-      </ZoomFrame>
-
-    </div>
-    </div>
-    <ProductLightbox
-      open={lightboxOpen}
-      images={zoomImages}
-      index={showLifestyle ? photo : 0}
-      onIndexChange={setPhoto}
-      onClose={() => setLightboxOpen(false)}
-    />
-    {showLifestyle && (
-      <div className="mt-4 flex flex-wrap justify-center gap-2 pb-1" aria-label="Produktbilder">
-        {[src, ...lifestyle].map((image, i) => (
-          <Button
-            key={image}
-            type="button"
-            variant="outline"
-            aria-label={`Bild ${i + 1}`}
-            aria-pressed={photo === i}
-            onClick={() => setPhoto(i)}
-            className="h-[68px] w-[68px] shrink-0 overflow-hidden rounded-lg p-0 transition-all duration-200 hover:opacity-90"
-            style={{
-              borderColor: photo === i ? H.gold : H.line,
-              boxShadow: photo === i ? `0 0 0 1px ${H.gold}` : "none",
-              background: "#fff",
-            }}
-          >
-            {isDuo(image) ? (
-              <span className="relative block h-full w-full"><DuoSlide small /></span>
-            ) : (
-              <img src={getPhotoSizes(image)?.thumb ?? renderSizes.get(image)?.thumb ?? image} alt={`Vorschau: ${getPhotoAlt(image, caseFinish.name, model.name, device.name)}`} width={136} height={136} loading="lazy" decoding="async" className={`h-full w-full ${isRealPhoto(image) ? "object-contain" : "object-cover"}`} />
-            )}
-          </Button>
-        ))}
-      </div>
-    )}
-    </div>
-  );
-});
-DeviceMock.displayName = "DeviceMock";
-
-/* ── Mobile: wischbare Galerie (aktuelles Bild zuerst, dann gleiche Hüllenfarbe) ── */
-const MobileGallery = ({ device, caseFinish, model }: { device: DeviceFinish; caseFinish: CaseFinish; model: Model }) => {
-  const slides = useMemo(() => {
-    const prefix = `${model.gen}-${caseFinish.id}-`;
-    const main = RENDERS[`${prefix}${device.id}`] ?? Object.entries(RENDERS).find(([k]) => k.startsWith(`${model.gen}-`))?.[1] ?? Object.values(RENDERS)[0];
-    const rest = Object.entries(RENDERS)
-      .filter(([k, v]) => k.startsWith(prefix) && v !== main)
-      .map(([, v]) => v);
-    const lifestyle = getLifestylePhotos(model, caseFinish, device);
-    const showLifestyle = lifestyle.length > 0;
-    // Lifestyle-Auswahl: keine Render anderer Gerätefarben hinzufügen.
-    if (showLifestyle) return [main, ...lifestyle];
-    if (!LIFESTYLE_GALLERY_ENABLED) return [main];
-    return [main, ...lifestyle, ...Array.from(new Set(rest))];
-  }, [model.id, model.gen, caseFinish.id, device.id]);
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(0);
-  const [prefetchThrough, setPrefetchThrough] = useState(0);
-
-  useEffect(() => {
-    setActive(0);
-    setPrefetchThrough(0);
-    scrollerRef.current?.scrollTo({ left: 0 });
-  }, [slides]);
-
-  const preloadNext = () => setPrefetchThrough((current) => Math.max(current, active + 1));
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
-  const onScroll = () => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const nextActive = Math.max(0, Math.min(slides.length - 1, Math.round(el.scrollLeft / el.clientWidth)));
-    setActive(nextActive);
-    if (nextActive > 0) setPrefetchThrough((current) => Math.max(current, nextActive + 1));
-  };
-
-  return (
-    <div>
-      <div
-        ref={scrollerRef}
-        onScroll={onScroll}
-        onPointerDown={preloadNext}
-        onTouchStart={preloadNext}
-        className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        aria-roledescription="carousel"
-      >
-        {slides.map((src, i) => (
-          <div key={i} className="relative w-full shrink-0 snap-center [scroll-snap-stop:always]" style={{ aspectRatio: "1 / 1" }}>
-            <ZoomFrame
-              zoomSrc={src}
-              onOpen={() => setLightboxIndex(i)}
-              objectFit={isLifestylePhoto(src) && !isRealPhoto(src) ? "cover" : "contain"}
-              objectPosition={src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%"}
-              overlayClassName={isDuo(src) || isLifestylePhoto(src) || isRealPhoto(src) ? "absolute inset-0 h-full w-full" : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px]"}
-              hoverZoom={!isDuo(src)}
-            >
-            {isDuo(src) ? (
-              <DuoSlide eager={i <= prefetchThrough} />
-            ) : (
-            <MatrixSwapImage
-              src={renderSizes.get(src)?.mobile ?? getPhotoSizes(src)?.mobile ?? src}
-              srcSet={isRealPhoto(src) ? realSrcSet(src) : renderSizes.has(src) ? `${renderSizes.get(src)?.mobile} 800w` : getPhotoSizes(src) ? `${getPhotoSizes(src)?.mobile} 480w, ${src} 768w` : undefined}
-              sizes="(max-width: 767px) calc(100vw - 40px), 480px"
-              alt={getPhotoAlt(src, caseFinish.name, model.name, device.name)}
-              width={928}
-              height={1152}
-              loading={i <= prefetchThrough ? "eager" : "lazy"}
-              fetchPriority={i === 0 ? "high" : undefined}
-              decoding="async"
-              onLoad={i === 0 ? warmVariantImages : undefined}
-              className={isRealPhoto(src)
-                ? "absolute inset-0 h-full w-full object-contain"
-                : isLifestylePhoto(src)
-                ? "absolute inset-0 h-full w-full object-cover"
-                : "absolute inset-0 mx-auto h-full w-full max-w-[286px] md:max-w-[380px] object-contain"}
-              style={{
-                filter: "contrast(1.015) saturate(1.015)",
-                left: 0,
-                right: 0,
-                ...(isLifestylePhoto(src) ? {
-                  objectPosition: src === CHERRY_ORANGE_LIFESTYLE[0] ? "50% 22%" : "50% 50%",
-                } : {}),
-              }}
-            />
-            )}
-            </ZoomFrame>
-          </div>
-        ))}
-      </div>
-      <ProductLightbox
-        open={lightboxIndex !== null}
-        images={slides.map((image) => ({ src: image, alt: getPhotoAlt(image, caseFinish.name, model.name, device.name), ...(isDuo(image) ? { node: <DuoSlide eager /> } : {}) }))}
-        index={lightboxIndex ?? 0}
-        onIndexChange={setLightboxIndex}
-        onClose={() => setLightboxIndex(null)}
-      />
-      {slides.length > 1 && (
-        <div className="flex justify-center gap-1.5 pb-2 pt-1">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              aria-label={`Bild ${i + 1}`}
-              onClick={() => scrollerRef.current?.scrollTo({ left: i * (scrollerRef.current?.clientWidth ?? 0), behavior: "smooth" })}
-              className="h-1.5 rounded-full transition-all"
-              style={{ width: i === active ? 18 : 6, background: i === active ? H.gold : H.line }}
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
-
-/* ── Mobile: Lieferzeile, Trust, FAQ, Bewertungen ── */
-type MatrixReview = { id: string; customer_name: string; rating: number; title: string; comment: string; created_at: string };
-
-const MatrixMobileInfo = () => {
-  const delivery = MATRIX_DELIVERY_TEXT_NO_DATE;
-  const [reviews, setReviews] = useState<MatrixReview[]>([]);
-  useEffect(() => {
-    supabase
-      .from("reviews")
-      .select("id, customer_name, rating, title, comment, created_at")
-      .eq("product_id", "matrix")
-      .eq("status", "approved")
-      .order("created_at", { ascending: false })
-      .limit(5)
-      .then(({ data }) => setReviews((data as MatrixReview[]) ?? []));
-  }, []);
-  return (
-    <>
-    <div className="md:hidden">
-      <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[13px]" style={{ color: H.text }}>
-        <Truck className="h-3.5 w-3.5 shrink-0" style={{ color: H.gold }} aria-hidden />
-        Gratis Versand · Lieferung in 2–3 Werktagen
-      </p>
-      <PaymentMethodsBar />
-      <div className="mt-3 grid grid-cols-3 gap-2">
-        {[
-          { Icon: Truck, t: "2–3 Werktage", s: "mit der Post" },
-          { Icon: RotateCcw, t: "30 Tage Rückgabe", s: "Etikette gratis" },
-          { Icon: MapPin, t: "Support aus", s: "Weinfelden TG" },
-        ].map(({ Icon, t, s }) => (
-          <div key={t} className="rounded-xl p-3 text-center" style={{ background: "#fff", border: `1px solid ${H.line}` }}>
-            <Icon className="mx-auto h-5 w-5" style={{ color: H.gold }} aria-hidden />
-            <p className="mt-1.5 text-[12px] font-semibold leading-tight" style={{ color: H.text }}>{t}</p>
-            <p className="mt-0.5 text-[11px] leading-tight" style={{ color: H.textMuted }}>{s}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-    <div className="hidden md:block lg:hidden">
-      <p className="mt-2 text-center text-[12px]" style={{ color: H.text }}>🚚 {delivery}</p>
-      <p className="mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
-        {MATRIX_TRUST_MOBILE}
-      </p>
-      <PaymentMethodsBar />
-      {reviews.length > 0 && (
-        <div className="mt-5">
-          <p className="text-[10px] uppercase tracking-[0.28em] mb-2" style={{ color: H.textMuted }}>Bewertungen</p>
-          <div className="space-y-2">
-            {reviews.map((r) => (
-              <div key={r.id} className="rounded-lg p-3" style={{ border: `1px solid ${H.line}` }}>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-[12px] font-medium">{r.customer_name}</span>
-                  <span className="text-[12px]" style={{ color: H.gold }}>{"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}</span>
-                </div>
-                {r.title && <p className="mt-1 text-[12px] font-medium">{r.title}</p>}
-                <p className="mt-1 text-[12px] leading-relaxed" style={{ color: H.textMuted }}>{r.comment}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-    </>
-  );
-};
-
-
-
-/* ── Page ─────────────────────────────────────────────────────────────── */
 const MatrixPage = () => {
   useState(() => { holdReviewsUntilImage(); return null; });
   const { reviews: productReviews } = useProductReviews("matrix");
   useEffect(() => {
     trackViewItem({ item_id: "RAJ-MTX", item_name: "RAJ MATRIX iPhone Case", price: 59 });
   }, []);
-  const isDesktopGallery = useSyncExternalStore(subscribeGalleryViewport, getGalleryViewport, () => false);
-  const [modelId, setModelId] = useState<ModelId>("18pro");
-  const [deviceId, setDeviceId] = useState("darkcherry");
-  const [caseId, setCaseId] = useState("cherry");
+  const [initialSelection] = useState(() => matrixUrlSelection(window.location.search));
+  const [modelError,setModelError] = useState(false);
+  const modelPickerRef = useRef<HTMLDivElement>(null);
+  const [modelId, setModelId] = useState<ModelId | null>(initialSelection.model);
+  const [deviceId, setDeviceId] = useState("silver");
+  const [caseId, setCaseId] = useState(initialSelection.color);
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
   const [showAirpodsColor, setShowAirpodsColor] = useState(false);
@@ -719,23 +235,23 @@ const MatrixPage = () => {
   const [secondModelId, setSecondModelId] = useState<ModelId | null>(null);
   const [secondCaseId, setSecondCaseId] = useState<string | null>(null);
   const [isBuying, setIsBuying] = useState(false);
-  const [isBuyingAirpods, setIsBuyingAirpods] = useState(false);
+
   const mainBuyRef = useRef<HTMLButtonElement>(null);
   const { pending, confirmed, track: trackCheckout, dismiss: dismissOrder, dismissPending } = usePendingCheckout();
 
-  const model = MODELS.find((m) => m.id === modelId)!;
+  const model = MODELS.find((m) => m.id === modelId) ?? MODELS[0];
   const finishes = useMemo(
     () => DEVICE_FINISHES.filter((f) => f.gens.includes(model.gen)),
     [model.gen]
   );
   const device = finishes.find((f) => f.id === deviceId) ?? finishes[0];
-  const caseFinish = CASE_FINISHES.find((c) => c.id === caseId)!;
+  const caseFinish = CASE_FINISHES.find((c) => c.id === caseId) ?? CASE_FINISHES[0];
   const airpodsCase = AIRPODS_CASES[airpodsColorId ?? caseFinish.id];
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
-  const secondModel = MODELS.find((m) => m.id === (secondModelId ?? modelId))!;
-  const secondCaseFinish = CASE_FINISHES.find((c) => c.id === (secondCaseId ?? caseId))!;
+  const secondModel = MODELS.find((m) => m.id === (secondModelId ?? modelId)) ?? model;
+  const secondCaseFinish = CASE_FINISHES.find((c) => c.id === (secondCaseId ?? caseId)) ?? caseFinish;
   const [showDevicePicker, setShowDevicePicker] = useState(false);
-  const currentTotal = twoCasesSelected ? TWO_CASES_TOTAL : airpodsSelected ? bundleTotal : caseFinish.price;
+  const currentTotal = matrixTotal(airpodsSelected, twoCasesSelected);
   const caseThumbSrc =
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
     Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
@@ -743,6 +259,7 @@ const MatrixPage = () => {
 
   const handleBuy = useCallback(async () => {
     if (isBuying) return;
+    if (!modelId) { setModelError(true); modelPickerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
     setIsBuying(true);
     // Open the tab synchronously inside the user gesture so popup blockers
     // (esp. mobile Safari) can't suppress it; we navigate it once we have the URL.
@@ -830,76 +347,11 @@ const MatrixPage = () => {
   }, [isBuying, modelId, caseId, caseFinish, model, airpodsSelected, airpodsCase, bundleTotal, trackCheckout, twoCasesSelected, secondModel, secondCaseFinish]);
 
 
-  const handleAirpodsBuy = useCallback(async () => {
-    if (isBuyingAirpods) return;
-    setIsBuyingAirpods(true);
-    const checkoutTab = openCheckoutTab();
-    const fail = (message: string) => {
-      checkoutTab?.close();
-      toast.error("Kauf konnte nicht gestartet werden", { description: message });
-    };
-
-    try {
-      const variantId = AIRPODS_VARIANT_IDS[airpodsCase.id];
-      if (!variantId) {
-        fail("Dieses Finish ist derzeit nicht verfügbar.");
-        return;
-      }
-
-      trackAddToCart([{ item_id: variantId, item_name: "RAJ MATRIX AirPods 4 & 5 Case", item_variant: airpodsCase.name, price: airpodsCase.price }]);
-      const reference = makeOrderReference();
-      const product = {
-        node: {
-          id: "gid://shopify/Product/16139790549317",
-          title: "RAJ MATRIX AirPods 4 & 5 Case",
-          description: "Carbon-Finish Hülle für AirPods 4 & 5",
-          handle: "raj-matrix-airpods-4-case",
-          priceRange: { minVariantPrice: { amount: String(airpodsCase.price), currencyCode: "CHF" } },
-          images: { edges: [] },
-          variants: { edges: [] },
-          options: [{ name: "Finish", values: Object.values(AIRPODS_CASES).map((item) => item.name) }],
-        },
-      };
-      const item: CartItem = {
-        lineId: null,
-        product,
-        variantId,
-        variantTitle: airpodsCase.name,
-        price: { amount: String(airpodsCase.price), currencyCode: "CHF" },
-        quantity: 1,
-        selectedOptions: [{ name: "Finish", value: airpodsCase.name }],
-      };
-      const cart = await createShopifyCart(item, undefined, [
-        { key: "RAJ Referenz", value: reference },
-        { key: "Quelle", value: "raj.ch/matrix-airpods-einzelkauf" },
-      ]);
-      if (!cart) {
-        fail("Der Warenkorb konnte nicht erstellt werden. Bitte versuche es erneut.");
-        return;
-      }
-
-      trackCheckout({
-        cartId: cart.cartId,
-        reference,
-        summary: airpodsCase.name,
-        total: `CHF ${airpodsCase.price}.–`,
-        startedAt: Date.now(),
-      });
-
-      goToCheckout(checkoutTab, cart.checkoutUrl);
-    } catch (error) {
-      console.error("AirPods Case purchase failed:", error);
-      fail("Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.");
-    } finally {
-      setIsBuyingAirpods(false);
-    }
-  }, [airpodsCase, isBuyingAirpods, trackCheckout]);
-
-
   const selectModel = (id: ModelId) => {
     const next = MODELS.find((m) => m.id === id);
     if (!next) return;
     setModelId(id);
+    setModelError(false);
     if (!DEVICE_FINISHES.find((f) => f.id === deviceId)?.gens.includes(next.gen)) {
       const fallback = DEVICE_FINISHES.find((f) => f.gens.includes(next.gen));
       if (fallback) setDeviceId(fallback.id);
@@ -915,7 +367,7 @@ const MatrixPage = () => {
       "RAJ MATRIX, schlanke MagSafe-Hülle im Carbon-Design für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, MagSafe- und Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS.",
     image: [`https://raj.ch${matrixShareAsset.url}`, `https://raj.ch${cherryDarkcherry18Asset.url}`, `https://raj.ch${onyxDarkgrey18Asset.url}`],
     url: "https://raj.ch/matrix",
-    ...reviewSchema("matrix", productReviews),
+    ...reviewSchema("matrix", verifiedMatrixReviews(productReviews)),
     offers: {
       "@type": "Offer",
       url: "https://raj.ch/matrix",
@@ -964,587 +416,39 @@ const MatrixPage = () => {
         <meta property="og:url" content="https://raj.ch/matrix" />
         {shareImageTags(shareImages.matrix)}
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:MATRIX_FAQ.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))})}</script>
       </Helmet>
 
-      <div style={{ background: H.bg, color: H.text }} className="matrix-page min-h-screen">
+      <div className="mx-page min-h-screen">
         <Header topSlot={<NexusTrustBar />} />
-
-        <main className="pt-24 md:pt-28">
-          {/* Hero + Konfigurator */}
-          <section>
-            <div className="container mx-auto px-4 md:px-6 max-w-5xl pt-2 md:pt-8 pb-5 md:pb-16">
-              <div className="grid md:grid-cols-12 gap-3 md:gap-14 items-start">
-                {/* Bühne */}
-                <div className="md:col-span-6 md:sticky md:top-28">
-                  <div
-                    className="relative overflow-hidden rounded-md md:rounded-lg"
-                    style={{
-                      background:
-                        caseFinish.id === "cherry"
-                          ? "linear-gradient(155deg, #fff 0%, #faf6f7 52%, #eee5e7 100%)"
-                          : "linear-gradient(155deg, #fff 0%, #f7f6f4 52%, #e9e7e3 100%)",
-                      border: `1px solid ${H.line}`,
-                      boxShadow:
-                        "0 1px 0 rgba(255,255,255,0.95) inset, 0 28px 70px -36px rgba(43,39,37,0.34)",
-                    }}
-                  >
-                    {/* Goldene Haarlinie oben */}
-                    <div
-                      aria-hidden
-                      className="absolute top-0 left-0 right-0 h-px"
-                      style={{
-                        background: `linear-gradient(90deg, transparent, ${H.gold}, transparent)`,
-                        opacity: 0.5,
-                      }}
-                    />
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 pointer-events-none"
-                      style={{
-                        background:
-                          caseFinish.id === "cherry"
-                            ? "radial-gradient(60% 48% at 50% 43%, rgba(118,69,86,0.13) 0%, rgba(250,249,247,0) 72%)"
-                            : "radial-gradient(60% 48% at 50% 43%, rgba(155,107,63,0.12) 0%, rgba(250,249,247,0) 72%)",
-                      }}
-                    />
-                    <div className="relative hidden lg:flex items-center justify-center p-0">
-                      {isDesktopGallery && <DeviceMock device={device} caseFinish={caseFinish} model={model} />}
-                    </div>
-                    <div className="relative lg:hidden px-1 md:px-10 md:pt-14 md:pb-8">
-                      {!isDesktopGallery && <MobileGallery device={device} caseFinish={caseFinish} model={model} />}
-                    </div>
-                    {/* Plakette */}
-                    <div
-                      className="relative border-t px-4 py-1.5 md:px-10 md:py-5 hidden md:flex items-center justify-between gap-3 md:gap-4"
-                      style={{ borderColor: H.line, background: "rgba(255,255,255,0.55)" }}
-                    >
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.3em]" style={{ color: H.gold }}>
-                          {caseFinish.name}
-                        </p>
-                        <p className="mt-1 text-xs font-light md:mt-1.5 md:text-sm" style={{ color: H.text }}>
-                          {model.name} · {device.name}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Auswahl */}
-                <div className="matrix-options md:col-span-6 flex flex-col gap-2 md:block md:space-y-3 md:gap-0">
-
-                  {/* Intro */}
-                  <div className="order-1 mb-0.5 md:mb-0.5">
-                    <div className="flex items-baseline justify-between gap-4 md:block">
-                    <h1
-                      className="font-light leading-[0.95] text-[26px] md:text-[clamp(30px,3vw,42px)] max-md:font-medium"
-                      style={{ letterSpacing: "-0.02em" }}
-                    >
-                      <span style={{ color: H.gold }}>MATRIX</span>{" "}
-                      <span
-
-                        className="mt-1 hidden text-sm italic md:block"
-                        style={{ color: H.gold, fontWeight: 400, letterSpacing: "normal", lineHeight: 1.43 }}
-                      >
-                        <span className="block">Die schlanke MagSafe Carbon-Hülle</span>
-                      </span>
-                      <span
-                        className="mt-1 block text-[14px] md:hidden"
-                        style={{ fontWeight: 400, letterSpacing: "normal", color: H.text, lineHeight: 1.4 }}
-                      >
-                        <span className="block">Die schlanke MagSafe Carbon-Hülle</span>
-                      </span>
-                    </h1>
-                    <span className="text-[22px] font-semibold text-foreground whitespace-nowrap md:hidden">CHF {caseFinish.price}.–</span>
-                    </div>
-                    <div className="min-h-[88px]">
-                      <ProductRating productId="matrix" />
-                      <ProductCustomerPhotos productId="matrix" />
-                    </div>
-                  </div>
-
-
-                  {/* Modell */}
-                  <div className="order-3">
-                    <p className="text-[10px] uppercase tracking-[0.28em] mb-1 md:mb-3" style={{ color: H.textMuted }}>
-                      Modell
-                    </p>
-                    <div className="grid grid-cols-2 gap-2">
-                      {MODELS.map((m) => {
-                        const active = m.id === modelId;
-                        return (
-                          <button
-                            key={m.id}
-                            onClick={() => selectModel(m.id)}
-                            aria-pressed={active}
-                            className="text-left px-2.5 py-2 min-h-[44px] rounded-lg transition-all duration-300 md:min-h-0 md:px-4 md:py-2.5"
-                            style={{
-                              border: `1px solid ${active ? H.gold : H.line}`,
-                              background: active ? "rgba(155,107,63,0.06)" : "transparent",
-                            }}
-                          >
-                            <span className="block text-[13px] font-medium md:text-sm">iPhone {m.short}</span>
-                            <span className="hidden mt-0.5 text-[11px] md:block" style={{ color: H.textMuted }}>
-                              {m.status}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Gerätefarbe — nur Bildvorschau */}
-                  <div className="order-5 matrix-preview">
-                    {!showDevicePicker && (
-                      <button
-                        type="button"
-                        onClick={() => setShowDevicePicker(true)}
-                        aria-expanded={false}
-                        className="matrix-color-link md:hidden text-[13px] underline underline-offset-2"
-                        style={{ color: H.text }}
-                      >
-                        Mit deiner iPhone-Farbe ansehen
-                      </button>
-                    )}
-                    <div className={showDevicePicker ? "" : "hidden md:block"}>
-                    <div className="flex items-baseline justify-between mb-1 md:mb-3">
-                      <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
-                        <span className="hidden md:inline">Gerätefarbe</span>
-                        <span className="md:hidden normal-case tracking-normal">Vorschau mit deiner iPhone-Farbe</span>
-                      </p>
-                      <p className="text-xs" style={{ color: H.text }}>{device.name}</p>
-                    </div>
-                    <div className="flex flex-wrap gap-2.5 md:gap-3">
-                      {finishes.map((f) => {
-                        const active = f.id === device.id;
-                        return (
-                          <button
-                            key={f.id}
-                            onClick={() => setDeviceId(f.id)}
-                            aria-label={f.name}
-                            aria-pressed={active}
-                            className="relative w-8 h-8 rounded-full transition-transform duration-300 hover:scale-105 md:w-9 md:h-9"
-                            style={{
-                              background: `linear-gradient(145deg, ${f.body}, ${f.bodyEdge})`,
-                              boxShadow: active
-                                ? `0 0 0 1.5px ${H.bg}, 0 0 0 3px ${H.gold}`
-                                : `0 0 0 1px ${H.lineStrong}`,
-                            }}
-                          />
-                        );
-                      })}
-                    </div>
-                    </div>
-                  </div>
-
-                  {/* Hüllenfinish */}
-                  <div className="order-4">
-                    <div className="flex items-baseline justify-between mb-1 md:mb-3">
-                      <p className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.textMuted }}>
-                        <span className="hidden md:inline">Finish</span>
-                        <span className="md:hidden normal-case tracking-normal">Farbe der Hülle</span>
-                      </p>
-                      <p className="hidden text-xs md:block" style={{ color: H.text }}>
-                        {caseFinish.material}
-                      </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2 md:block md:space-y-2">
-                      {CASE_FINISHES.map((c) => {
-                        const active = c.id === caseId;
-                        return (
-                          <button
-                            key={c.id}
-                            onClick={() => setCaseId(c.id)}
-                            aria-pressed={active}
-                            className="w-full flex items-center gap-2 px-2.5 py-2 min-h-[44px] rounded-lg transition-all duration-300 md:min-h-0 md:gap-4 md:px-4 md:py-2.5"
-                            style={{
-                              border: `1px solid ${active ? H.gold : H.line}`,
-                              background: active ? "rgba(155,107,63,0.06)" : "transparent",
-                            }}
-                          >
-                            <span
-                              className="relative w-5 h-5 rounded-full shrink-0 overflow-hidden md:w-6 md:h-6"
-                              style={{
-                                background: `linear-gradient(145deg, ${c.weave}, ${c.base} 55%, ${c.edge})`,
-                                boxShadow: `0 0 0 1px ${H.lineStrong}`,
-                              }}
-                            >
-                              <span
-                                aria-hidden
-                                className="absolute inset-0 opacity-35"
-                                style={{ backgroundImage: "repeating-linear-gradient(135deg, transparent 0 2px, rgba(255,255,255,.35) 2px 3px, rgba(0,0,0,.18) 3px 4px)" }}
-                              />
-                            </span>
-                            <span className="min-w-0 flex-1 text-left text-[13px] font-medium md:text-sm">{c.name}</span>
-                            <span className="hidden text-xs md:inline" style={{ color: H.textMuted }}>
-                              CHF {c.price}.–
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                    {/* CTA */}
-                  <div className="order-6 pt-1 border-t md:pt-3" style={{ borderColor: H.line }}>
-                    {confirmed && (
-                      <div
-                        className="relative mb-5 rounded-xl p-4"
-                        style={{ background: "rgba(155,107,63,0.08)", boxShadow: `0 0 0 1px ${H.lineStrong}` }}
-                      >
-                        <button
-                          type="button"
-                          onClick={dismissOrder}
-                          aria-label="Bestätigung schliessen"
-                          className="absolute top-3 right-3 opacity-50 hover:opacity-100 transition-opacity"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                        <div className="flex items-center gap-2">
-                          <Check className="w-4 h-4" style={{ color: H.gold }} />
-                          <p className="text-sm font-semibold">Bestellung eingegangen</p>
-                        </div>
-                        <p className="mt-2 text-xs leading-relaxed" style={{ color: H.textMuted }}>
-                          {confirmed.summary} · {confirmed.total}
-                        </p>
-                        <p className="mt-1 text-xs" style={{ color: H.textMuted }}>
-                          Referenz <span className="font-mono font-semibold" style={{ color: H.text }}>{confirmed.reference}</span> — dieselbe Referenz steht bei der Bestellung im Shopify Admin, die Bestellnummer und Bestätigung erhältst du per E-Mail.
-                        </p>
-                      </div>
-                    )}
-                    {pending && !confirmed && (
-                      <div
-                        className="relative mb-5 rounded-xl p-4 flex items-start gap-3"
-                        style={{ background: "rgba(43,39,37,0.04)", boxShadow: `0 0 0 1px ${H.line}` }}
-                      >
-                        <button
-                          type="button"
-                          onClick={dismissPending}
-                          aria-label="Hinweis schliessen"
-                          className="absolute top-3 right-3 opacity-50 hover:opacity-100 transition-opacity"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                        <Loader2 className="w-4 h-4 mt-0.5 animate-spin" style={{ color: H.gold }} />
-                        <div className="pr-6">
-                          <p className="text-sm font-medium">Checkout läuft</p>
-                          <p className="mt-1 text-xs leading-relaxed" style={{ color: H.textMuted }}>
-                            Schliesse die Zahlung im Shopify-Tab ab. Sobald die Bestellung durch ist, erscheint hier die Bestätigung mit Referenz {pending.reference}.
-                          </p>
-                        </div>
-                      </div>
-                    )}
-
-                    <div role="radiogroup" aria-label="Paket wählen" className="mb-3 flex flex-col gap-2">
-                      {[
-                        { bundle: false, label: "Nur die Hülle" },
-                        { bundle: true, label: "Hülle + AirPods Case" },
-                      ].map((opt) => {
-                        const active = !twoCasesSelected && airpodsSelected === opt.bundle;
-                        return (
-                          <button
-                            key={opt.label}
-                            type="button"
-                            role="radio"
-                            aria-checked={active}
-                            onClick={() => {
-                              setAirpodsSelected(opt.bundle);
-                              setTwoCasesSelected(false);
-                              if (!opt.bundle) setShowAirpodsColor(false);
-                            }}
-                            className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 min-h-[64px] text-left transition-all duration-300"
-                            style={{
-                              border: `1px solid ${active ? H.gold : H.line}`,
-                              background: active ? "rgba(155,107,63,0.06)" : "transparent",
-                            }}
-                          >
-                            <span
-                              className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg"
-                              style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}
-                            >
-                              {opt.bundle ? (
-                                <BundleOfferImage seamless phoneSrc={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} finishId={caseFinish.id} finishName={caseFinish.name} />
-                              ) : <MatrixSwapImage
-                                src={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc}
-                                width={160}
-                                height={160}
-                                loading="lazy"
-                                decoding="async"
-                                alt={opt.bundle ? `RAJ MATRIX AirPods Case in ${CASE_FINISHES.find((c) => c.id === (airpodsColorId ?? caseFinish.id))?.name ?? caseFinish.name}` : `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name}`}
-                                className="absolute inset-0 h-full w-full object-contain"
-                              />}
-                            </span>
-                            <span
-                              className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center"
-                              style={{ borderColor: active ? H.gold : H.lineStrong }}
-                            >
-                              {active && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
-                            </span>
-                            <span className="min-w-0 flex-1">
-                              <span className="block text-[15px] font-medium md:text-sm">{opt.label}</span>
-                              {opt.bundle && (
-                                <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>
-                                  AirPods 4 &amp; 5 · {airpodsCase.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
-                                </span>
-                              )}
-                            </span>
-                            <span className="shrink-0 flex flex-col items-end gap-0.5">
-                              <span className="text-sm font-semibold">
-                                CHF {opt.bundle ? bundleTotal : caseFinish.price}.–
-                              </span>
-                              {opt.bundle && (
-                                <span className="text-[11px] line-through" style={{ color: H.textMuted }}>
-                                  CHF {caseFinish.price + airpodsCase.price}.–
-                                </span>
-                              )}
-                              {opt.bundle && (
-                                <span
-                                  className="rounded-full px-1.5 py-0.5 text-[10px] md:text-[9px] font-semibold uppercase tracking-[0.08em]"
-                                  style={{ background: H.gold, color: "#fff" }}
-                                >
-                                  Spare CHF {BUNDLE_DISCOUNT}
-                                </span>
-                              )}
-                            </span>
-                          </button>
-                        );
-                      })}
-                      {airpodsSelected && !twoCasesSelected && (
-                        <div className="px-1">
-                          <button
-                            type="button"
-                            onClick={() => setShowAirpodsColor((v) => !v)}
-                            aria-expanded={showAirpodsColor}
-                            className="text-[11px] underline underline-offset-2"
-                            style={{ color: H.textMuted }}
-                          >
-                            Andere Farbe für AirPods
-                          </button>
-                          {showAirpodsColor && (
-                            <div className="mt-2 flex items-center gap-2">
-                              {Object.values(AIRPODS_CASES).map((option) => {
-                                const isActive = option.id === airpodsCase.id;
-                                return (
-                                  <button
-                                    key={option.id}
-                                    type="button"
-                                    onClick={() => setAirpodsColorId(option.id)}
-                                    aria-pressed={isActive}
-                                    className="px-3 py-1.5 rounded-full text-[11px] transition-all duration-300"
-                                    style={{
-                                      border: `1px solid ${isActive ? H.gold : H.line}`,
-                                      color: isActive ? H.gold : H.textMuted,
-                                      background: isActive ? "rgba(155,107,63,0.08)" : "transparent",
-                                    }}
-                                  >
-                                    {option.id === "cherry" ? "Cherry Carbon" : "Onyx Carbon"}
-                                  </button>
-                                );
-                              })}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                      <button
-                        type="button"
-                        role="radio"
-                        aria-checked={twoCasesSelected}
-                        onClick={() => {
-                          if (!twoCasesSelected) { setSecondModelId(modelId); setSecondCaseId(caseId); }
-                          setTwoCasesSelected(true);
-                          setAirpodsSelected(false);
-                          setShowAirpodsColor(false);
-                        }}
-                        className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 min-h-[64px] text-left transition-all duration-300"
-                        style={{
-                          border: `1px solid ${twoCasesSelected ? H.gold : H.line}`,
-                          background: twoCasesSelected ? "rgba(155,107,63,0.06)" : "transparent",
-                        }}
-                      >
-                        <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg flex" style={{ background: "#f1ede8", border: `1px solid ${H.line}` }}>
-                          {(() => {
-                            const otherCaseId = caseFinish.id === "cherry" ? "onyx" : "cherry";
-                            const leftFull = RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`];
-                            const rightFull = RENDERS[`${model.gen}-${otherCaseId}-${device.id}`];
-                            if (!leftFull || !rightFull) {
-                              return <MatrixSwapImage src={twoCaseThumbs[model.gen]} alt="RAJ MATRIX Onyx Carbon und Cherry Carbon Hülle nebeneinander" width={160} height={160} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-contain" />;
-                            }
-                            const otherName = otherCaseId === "cherry" ? "Cherry Carbon" : "Onyx Carbon";
-                            return (
-                              <>
-                                <span className="relative h-full w-1/2"><MatrixSwapImage src={renderSizes.get(leftFull)?.thumb ?? leftFull} alt={`RAJ MATRIX ${caseFinish.name} Hülle`} width={80} height={160} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-contain scale-[1.35]" /></span>
-                                <span className="relative h-full w-1/2"><MatrixSwapImage src={renderSizes.get(rightFull)?.thumb ?? rightFull} alt={`RAJ MATRIX ${otherName} Hülle`} width={80} height={160} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-contain scale-[1.35]" /></span>
-                              </>
-                            );
-                          })()}
-                        </span>
-                        <span className="h-4 w-4 shrink-0 rounded-full border flex items-center justify-center" style={{ borderColor: twoCasesSelected ? H.gold : H.lineStrong }}>
-                          {twoCasesSelected && <span className="h-2 w-2 rounded-full" style={{ background: H.gold }} />}
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          <span className="block text-[15px] font-medium md:text-sm">2 Hüllen</span>
-                          <span className="block mt-0.5 text-[11px]" style={{ color: H.textMuted }}>Für dich und deine Liebsten</span>
-                        </span>
-                        <span className="shrink-0 flex flex-col items-end gap-0.5">
-                          <span className="text-sm font-semibold">CHF {TWO_CASES_TOTAL}.–</span>
-                          <span className="text-[11px] line-through" style={{ color: H.textMuted }}>CHF {caseFinish.price * 2}.–</span>
-                          <span className="rounded-full px-1.5 py-0.5 text-[10px] md:text-[9px] font-semibold uppercase tracking-[0.08em]" style={{ background: H.gold, color: "#fff" }}>
-                            Spare CHF {caseFinish.price * 2 - TWO_CASES_TOTAL}
-                          </span>
-                        </span>
-                      </button>
-                      {twoCasesSelected && (
-                        <div className="rounded-lg px-3 py-3" style={{ border: `1px solid ${H.line}` }}>
-                          <p className="text-[10px] uppercase tracking-[0.28em] mb-2" style={{ color: H.textMuted }}>Zweite Hülle</p>
-                          <div className="grid grid-cols-2 gap-1.5">
-                            {MODELS.map((m) => {
-                              const on = m.id === secondModel.id;
-                              return (
-                                <button key={m.id} type="button" aria-pressed={on} onClick={() => setSecondModelId(m.id)}
-                                  className="rounded-md px-2 py-1.5 text-[12px] transition-all duration-300"
-                                  style={{ border: `1px solid ${on ? H.gold : H.line}`, color: on ? H.gold : H.text, background: on ? "rgba(155,107,63,0.08)" : "transparent" }}>
-                                  {m.name}
-                                </button>
-                              );
-                            })}
-                          </div>
-                          <div className="mt-2 flex items-center gap-2">
-                            {CASE_FINISHES.map((c) => {
-                              const on = c.id === secondCaseFinish.id;
-                              return (
-                                <button key={c.id} type="button" aria-pressed={on} onClick={() => setSecondCaseId(c.id)}
-                                  className="px-3 py-1.5 rounded-full text-[11px] transition-all duration-300"
-                                  style={{ border: `1px solid ${on ? H.gold : H.line}`, color: on ? H.gold : H.textMuted, background: on ? "rgba(155,107,63,0.08)" : "transparent" }}>
-                                  {c.name}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <Button
-                      ref={mainBuyRef}
-                      type="button"
-                      onClick={handleBuy}
-                      disabled={isBuying}
-                      className="matrix-main-buy h-14 md:h-auto w-full inline-flex items-center justify-center gap-2 py-2.5 px-6 rounded-xl text-[16px] font-semibold normal-case tracking-normal transition-all active:scale-[0.98] md:uppercase md:py-3 md:text-sm md:tracking-[0.15em]"
-                      style={{
-                        background: H.gold,
-                        color: "#fff",
-                        opacity: isBuying ? 0.7 : 1,
-                      }}
-                    >
-                      {isBuying ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                      ) : (
-                        <>
-                          <ShoppingBag className="w-4 h-4" />
-                          <span className="md:hidden">Jetzt kaufen · CHF {currentTotal}.–</span>
-                          <span className="hidden md:inline">JETZT KAUFEN · CHF {currentTotal}.–</span>
-                        </>
-                      )}
-                    </Button>
-                    <p className="hidden lg:block mt-2 text-center text-[12px]" style={{ color: H.text }}>
-                      🚚 {MATRIX_DELIVERY_TEXT_NO_DATE}
-                    </p>
-                    <p className="hidden lg:block mt-1 text-center text-[11px]" style={{ color: H.textMuted }}>
-                      {MATRIX_TRUST_DESKTOP}
-                    </p>
-                    <MatrixMobileInfo />
-                  </div>
-
-                  <div className="order-7 mt-3 md:mt-6 hidden lg:block">
-                    <PaymentMethodsBar />
-                  </div>
-                </div>
+        <main>
+          <section className="mx-purchase">
+            <MatrixGallery src={caseThumbSrc} finish={caseId} alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`} onFirstLoad={warmVariantImages}/>
+            <div className="mx-options">
+              <div><div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle im Carbon-Design</p></div><div className="mx-price">CHF {currentTotal}.–{(airpodsSelected || twoCasesSelected) && <del>statt CHF {twoCasesSelected ? 118 : 94}.–</del>}</div></div>
+                {verifiedMatrixReviews(productReviews).length > 0 && <Button asChild variant="link" className="mx-rating"><a href="#bewertungen"><StarRating readOnly size={14} value={Math.round(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length)}/><span>{(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length).toFixed(1)} · {verifiedMatrixReviews(productReviews).length} Bewertungen</span></a></Button>}
               </div>
-            </div>
-          </section>
-
-          {/* Das steckt drin */}
-          <section className="border-t" style={{ borderColor: H.line }}>
-            <div className="container mx-auto px-6 max-w-5xl py-10 md:py-20">
-              <h2 className="font-light tracking-tight mb-8 text-[24px] md:text-[clamp(28px,3.5vw,44px)]">
-                Das steckt drin
-              </h2>
-              <ul className="space-y-4">
-                {MATRIX_INCLUDED.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[15px] leading-snug" style={{ color: H.text }}>
-                    <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: H.gold }} aria-hidden />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          <ProductReviews productId="matrix" compactMobile />
-          <ProductFaqSection
-            title="Fragen zur MATRIX"
-            items={MATRIX_FAQ}
-            accordion
-            linksAsList
-            compactMobile
-            links={[
-              { to: "/blog/iphone-17-pro-huelle-iphone-18-pro", label: "Passt eine iPhone 17 Pro Hülle aufs iPhone 18 Pro?" },
-              { to: "/nexus", label: "RAJ NEXUS Ladestation" },
-              { to: "/qi2-erklaert", label: "Qi2.2 erklärt" },
-              { to: "/versand", label: "Versand & Rückgabe" },
-            ]}
-          />
-
-          {/* Systempassung */}
-          <section className="border-t" style={{ borderColor: H.line }}>
-            <div className="container mx-auto px-6 max-w-5xl py-10 md:py-20">
-              <div className="mx-auto max-w-xl">
-                {[
-                  {
-                    name: "RAJ NEXUS",
-                    text: "Der Magnetring der MATRIX ist auf den NEXUS abgestimmt. Das iPhone rastet in derselben Position ein, mit oder ohne Hülle.",
-                    link: "/nexus",
-                  },
-                ].map((s) => (
-                  <Link
-                    key={s.name}
-                    to={s.link}
-                    className="group block p-8 rounded-xl transition-colors duration-300"
-                    style={{ border: `1px solid ${H.line}`, background: "#ffffff" }}
-                  >
-                    <span className="text-[10px] uppercase tracking-[0.28em]" style={{ color: H.gold }}>
-                      Systempassung
-                    </span>
-                    <h3 className="mt-4 font-light" style={{ fontSize: "clamp(24px,2.4vw,32px)" }}>
-                      {s.name}
-                    </h3>
-                    <p className="mt-4 text-sm leading-relaxed" style={{ color: H.textMuted }}>
-                      {s.text}
-                    </p>
-                    <span
-                      className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em]"
-                      style={{ color: H.gold }}
-                    >
-                      Entdecken <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </Link>
-                ))}
+              <div className="mx-photos"><ProductCustomerPhotos productId="matrix" /></div>
+              <ul className="mx-points">{[{Icon:Layers,text:'Carbon-Design, matt und griffig'},{Icon:Sparkles,text:'Goldene Tasten und Kameraring aus eloxiertem Aluminium'},{Icon:Magnet,text:'Kompatibel mit MagSafe und Qi2.2, bis zu 25 W'}].map(({Icon,text})=><li key={text}><Icon strokeWidth={1.5}/><span>{text}</span></li>)}</ul>
+              <div ref={modelPickerRef} className={`mx-models ${modelError ? 'is-invalid' : ''}`}><p className="mx-model-label">{modelId ? `Dein iPhone · ${model.name}` : 'Welches iPhone hast du?'}</p><div className="mx-model-grid">{MODELS.map(m=><Button key={m.id} variant="outline" className="mx-model-button" aria-pressed={modelId===m.id} onClick={()=>selectModel(m.id)}>{m.name}</Button>)}</div>{modelError && <p role="alert" className="mx-model-error">Bitte wähle zuerst dein iPhone-Modell</p>}</div>
+              <div className="mx-colors"><div><p className="mx-color-label">Hülle · {caseFinish.name}</p><div className="mx-swatches">{CASE_FINISHES.map(c=><Button key={c.id} variant="ghost" className="mx-swatch" aria-label={c.name} aria-pressed={caseId===c.id} onClick={()=>{setCaseId(c.id);setAirpodsColorId(null);}}><span className={`mx-swatch-dot mx-swatch-${c.id}`}/></Button>)}</div></div><div><p className="mx-color-label">iPhone · {device.name}</p><div className="mx-swatches">{finishes.map(f=><Button key={f.id} variant="ghost" className="mx-swatch" aria-label={f.name} aria-pressed={device.id===f.id} onClick={()=>setDeviceId(f.id)}><span className={`mx-swatch-dot mx-swatch-${f.id}`}/></Button>)}</div></div></div>
+              <div className="mx-bundles"><label className="mx-airpods"><Checkbox aria-label="Passendes AirPods Case dazu" checked={airpodsSelected} onCheckedChange={checked=>{setAirpodsSelected(checked===true);setTwoCasesSelected(false);setAirpodsColorId(null);}}/><img src={airpodsCase.thumb} alt={`AirPods Case ${caseFinish.name}`} width={40} height={48} loading="lazy"/><span className="mx-airpods-text"><strong>Passendes AirPods Case dazu</strong><small>AirPods 4 und 5 · {caseFinish.name}</small></span><span className="mx-addon-price">+ CHF 20.–<del>35.–</del></span></label>
+                <Button variant={BLACK_FRIDAY_MODE ? 'outline' : 'link'} className={BLACK_FRIDAY_MODE ? 'mx-bf' : 'mx-two-link'} aria-pressed={twoCasesSelected} onClick={()=>{setTwoCasesSelected(!twoCasesSelected);setAirpodsSelected(false);if(!twoCasesSelected){setSecondModelId(modelId);setSecondCaseId(caseId);}}}>{BLACK_FRIDAY_MODE ? <><span><span className="mx-bf-badge">BLACK FRIDAY</span>2 Hüllen für CHF 99.–<small>Eine für dich, eine zum Verschenken</small></span><del>118.–</del></> : <span>Zwei Hüllen? CHF 99.– statt 118.– ›</span>}</Button>
+                {twoCasesSelected && <div className="mx-second"><p className="mx-second-label">Zweite Hülle</p><div className="mx-model-grid">{MODELS.map(m=><Button key={m.id} variant="outline" className="mx-model-button" aria-pressed={secondModel.id===m.id} onClick={()=>setSecondModelId(m.id)}>{m.name}</Button>)}</div><div className="mx-second-colors">{CASE_FINISHES.map(c=><Button key={c.id} variant="outline" aria-pressed={secondCaseFinish.id===c.id} onClick={()=>setSecondCaseId(c.id)}>{c.name}</Button>)}</div></div>}
               </div>
+              {confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Bestätigung schliessen" onClick={dismissOrder}><X size={16}/></Button><p>Bestellung eingegangen</p><p>{confirmed.summary} · {confirmed.total}</p></div>}
+              {pending && !confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Hinweis schliessen" onClick={dismissPending}><X size={16}/></Button><p>Checkout läuft</p></div>}
+              <Button ref={mainBuyRef} className="mx-buy" onClick={handleBuy} disabled={isBuying}>{isBuying ? <Loader2 className="animate-spin" size={18}/> : `Jetzt kaufen · CHF ${currentTotal}.–`}</Button>
+              <div className="mx-payment"><span><LockKeyhole size={11}/> Sichere Zahlung</span>{['TWINT','Apple Pay','Visa','Mastercard'].map(p=><b key={p}>{p}</b>)}</div>
+              <div className="mx-trust">{[{Icon:Truck,text:'Gratis Versand, 2 bis 3 Tage'},{Icon:RotateCcw,text:'30 Tage gratis Rückgabe'},{Icon:MapPin,text:'Support aus der Schweiz'},{Icon:PencilRuler,text:'Gestaltet in der Schweiz'}].map(({Icon,text})=><div key={text}><Icon strokeWidth={1.5}/><span>{text}</span></div>)}</div>
             </div>
           </section>
+          <MatrixEditorial/>
         </main>
-
-        <Footer />
-        <MobileProductBuyBar
-          mainBuyRef={mainBuyRef}
-          name={`MATRIX · ${caseFinish.name}${twoCasesSelected ? " · 2 Hüllen" : airpodsSelected ? " + AirPods" : ""}`}
-          image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc}
-          imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`}
-          price={currentTotal}
-          busy={isBuying}
-        />
+        <Footer/>
+        <MobileProductBuyBar mainBuyRef={mainBuyRef} name={`MATRIX · ${modelId ? model.short : 'Modell wählen'} · ${caseFinish.name}${twoCasesSelected ? ' · 2 Hüllen' : airpodsSelected ? ' + AirPods' : ''}`} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`} price={currentTotal} busy={isBuying}/>
       </div>
     </>
   );
 };
-
 export default MatrixPage;
