@@ -616,12 +616,12 @@
   ]
  },
  "/airpods-case": {
-  "title": "MATRIX AirPods 4 & 5 Case – Carbon | RAJ",
-  "description": "MATRIX Carbon Case für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon mit goldenem Blitz. Kostenloser Versand in der Schweiz.",
+  "title": "MATRIX AirPods 4 & 5 Case – Carbon-Design | RAJ",
+  "description": "MATRIX Hülle im Carbon-Design für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon mit goldenem Blitz. Kostenloser Versand in der Schweiz.",
   "robots": null,
   "canonical": "https://raj.ch/airpods-case",
-  "ogTitle": "MATRIX AirPods 4 & 5 Case – Carbon | RAJ",
-  "ogDescription": "Carbon-Schutz für AirPods 4 & 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.",
+  "ogTitle": "MATRIX AirPods 4 & 5 Case – Carbon-Design | RAJ",
+  "ogDescription": "Hülle im Carbon-Design für AirPods 4 & 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.",
   "ogUrl": "https://raj.ch/airpods-case",
   "ogImage": "https://raj.ch/__l5e/assets-v1/b8f774f2-944d-45b9-b88a-e8f79c2a6af0/raj-airpods-share.jpg",
   "ogImageWidth": "1200",
@@ -629,102 +629,142 @@
   "ogImageType": "image/jpeg",
   "ogImageAlt": "RAJ MATRIX Cherry Carbon Hülle für AirPods 4 & 5 mit goldenem Blitz",
   "ogType": "product",
-  "twitterTitle": null,
-  "twitterDescription": null,
+  "twitterTitle": "MATRIX AirPods 4 & 5 Case – Carbon-Design | RAJ",
+  "twitterDescription": "Hülle im Carbon-Design für AirPods 4 & 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/b8f774f2-944d-45b9-b88a-e8f79c2a6af0/raj-airpods-share.jpg",
-  "h1": "MATRIX AirPods Case – Carbon-Look Hülle für AirPods 4 & 5",
+  "h1": "MATRIX AirPods Case",
   "jsonLd": [
-   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ MATRIX Carbon Hülle für AirPods 4 & 5\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"description\":\"Carbon Case für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.\",\"sku\":\"RAJ-MTX-AP4-CHY\",\"image\":[\"https://raj.ch/__l5e/assets-v1/b8f774f2-944d-45b9-b88a-e8f79c2a6af0/raj-airpods-share.jpg\",\"https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp\",\"https://raj.ch/__l5e/assets-v1/85b897bc-20a7-43f1-b648-9423827acb9b/airpods-onyx-original-bolt.webp\",\"https://raj.ch/__l5e/assets-v1/3b607b5f-575f-43ee-b2b7-9f62e6a09faa/airpods-cherry-desk-1200.webp\",\"https://raj.ch/__l5e/assets-v1/3562fdd2-2166-44ad-aece-3024d803e35a/airpods-cherry-bag-1200.webp\",\"https://raj.ch/__l5e/assets-v1/4c377f61-6568-49d2-83af-8266f8e7a435/airpods-cherry-bedside-1200.webp\",\"https://raj.ch/__l5e/assets-v1/0941d081-5ca5-4ad6-8e86-3d86de3b7971/airpods-onyx-desk-1200.webp\"],\"url\":\"https://raj.ch/airpods-case\",\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/airpods-case\",\"priceCurrency\":\"CHF\",\"price\":35,\"availability\":\"https://schema.org/InStock\",\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"description\":\"Lieferung in 2–3 Werktagen\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":0,\"maxValue\":0,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":2,\"maxValue\":3,\"unitCode\":\"d\"}}}}}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Passt die Hülle auf AirPods 4 und AirPods 5?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Die RAJ MATRIX AirPods-Hülle passt auf AirPods 4 – mit und ohne aktive Geräuschunterdrückung – sowie auf AirPods 5. Laut Apples technischen Daten haben die Ladecases dieser Modelle identische Abmessungen, deshalb sitzt dieselbe Hülle bei allen drei Varianten passgenau. Für andere AirPods-Modelle bieten wir sie nicht an. Die Hülle gibt es in Cherry Carbon und Onyx Carbon, jeweils mit goldenem RAJ Blitz, passend zur MATRIX iPhone-Hülle. Sie kostet CHF 35.–. Zusammen mit einer MATRIX iPhone-Hülle im Bundle zahlst du CHF 79.– statt CHF 94.–.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich die AirPods durch die Hülle kabellos laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Die RAJ MATRIX AirPods-Hülle lässt kabelloses Laden zu: Kabelloses Laden funktioniert durch die Hülle hindurch, zum Beispiel auf der RAJ NEXUS – sofern dein Ladecase kabelloses Laden unterstützt (bei AirPods 4 nur das Modell mit aktiver Geräuschunterdrückung). Du musst die Hülle zum Laden also nicht abnehmen. Der RAJ NEXUS ist eine 3-in-1 Ladestation, die iPhone, Apple Watch und AirPods gleichzeitig kabellos lädt; das iPhone lädt dort mit Qi2.2. Wie die verschiedenen Ladestandards funktionieren, erklären wir in unserem Qi2.2-Ratgeber.\"}},{\"@type\":\"Question\",\"name\":\"Wofür ist der Karabiner?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Die RAJ MATRIX AirPods-Hülle kommt mit einem goldenen Karabiner. Damit kannst du dein AirPods Case an Tasche, Rucksack oder Schlüsselbund befestigen und hast es unterwegs immer griffbereit. Der Karabiner ist aus eloxiertem Aluminium und lässt sich abnehmen, wenn du die Hülle lieber ohne trägst. Der goldene Ton passt zum RAJ Blitz auf der Hülle und zu den goldeloxierten Aluminium-Knöpfen der MATRIX iPhone-Hülle, sodass beide Hüllen als Set zusammenpassen. Die Hülle ist in Cherry Carbon und Onyx Carbon erhältlich.\"}},{\"@type\":\"Question\",\"name\":\"Woraus besteht die Hülle?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Die RAJ MATRIX AirPods-Hülle ist eine robuste Hartschale aus Polycarbonat mit Carbon-Finish – leicht, schlagfest und mit griffiger Oberfläche. Das Finish entspricht der MATRIX iPhone-Hülle, wahlweise in Cherry Carbon oder Onyx Carbon. Auf der Hülle sitzt der goldene RAJ Blitz, dazu kommt ein abnehmbarer Karabiner aus eloxiertem Aluminium. Wenn du beide Hüllen kaufst, wählt die MATRIX-Seite die AirPods-Farbe automatisch passend zu deiner iPhone-Hülle, du kannst sie aber auch frei kombinieren. So entsteht ein einheitliches Set für iPhone und AirPods.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell wird geliefert und was kostet der Versand?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Die RAJ MATRIX AirPods-Hülle wird innerhalb der Schweiz kostenlos versendet, ohne Mindestbestellwert. Lieferung in 2–3 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du die AirPods-Hülle zusammen mit einer MATRIX iPhone-Hülle, sparst du CHF 15.–. Alle Details findest du auf unserer Seite zu Versand und Rückgabe.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich die Hülle zurückgeben?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Die RAJ MATRIX AirPods-Hülle kannst du innerhalb von 30 Tagen ab Erhalt zurückgeben. Es gilt: 30 Tage Rückgabe – auch wenn du die Hülle ausprobiert hast, solange sie ohne Gebrauchsspuren und in der Originalverpackung ist. So kannst du in Ruhe prüfen, ob Passform, Haptik und Farbe zu deinen AirPods passen. Die Rückerstattung erfolgt über das ursprüngliche Zahlungsmittel innerhalb von 3–5 Werktagen. Wie du eine Rückgabe meldest, steht auf unserer Seite zu Versand und Rückgabe. Bei Fragen hilft dir unser Support aus der Schweiz gerne weiter.\"}}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ MATRIX Hülle im Carbon-Design für AirPods 4 & 5\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"description\":\"Hülle im Carbon-Design für AirPods 4 und AirPods 5 in Cherry Carbon oder Onyx Carbon mit goldenem RAJ Blitz.\",\"sku\":\"RAJ-MTX-AP4-CHY\",\"image\":[\"https://raj.ch/__l5e/assets-v1/b8f774f2-944d-45b9-b88a-e8f79c2a6af0/raj-airpods-share.jpg\",\"https://raj.ch/__l5e/assets-v1/70f4701b-7082-4733-bd95-32c87cda3cf3/airpods-cherry-bolt.webp\",\"https://raj.ch/__l5e/assets-v1/85b897bc-20a7-43f1-b648-9423827acb9b/airpods-onyx-original-bolt.webp\",\"https://raj.ch/__l5e/assets-v1/3b607b5f-575f-43ee-b2b7-9f62e6a09faa/airpods-cherry-desk-1200.webp\",\"https://raj.ch/__l5e/assets-v1/3562fdd2-2166-44ad-aece-3024d803e35a/airpods-cherry-bag-1200.webp\",\"https://raj.ch/__l5e/assets-v1/4c377f61-6568-49d2-83af-8266f8e7a435/airpods-cherry-bedside-1200.webp\",\"https://raj.ch/__l5e/assets-v1/0941d081-5ca5-4ad6-8e86-3d86de3b7971/airpods-onyx-desk-1200.webp\"],\"url\":\"https://raj.ch/airpods-case\",\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/airpods-case\",\"priceCurrency\":\"CHF\",\"price\":35,\"availability\":\"https://schema.org/InStock\",\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"description\":\"Gratis Versand, 2 bis 3 Tage\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":0,\"maxValue\":0,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":2,\"maxValue\":3,\"unitCode\":\"d\"}}}}}",
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Passt die Hülle auf meine AirPods?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, auf AirPods 4 (mit und ohne aktive Geräuschunterdrückung) und AirPods 5. Die Ladecases haben laut Apple dieselben Masse. Für AirPods Pro gibt es die Hülle nicht.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich kabellos laden, ohne die Hülle abzunehmen?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, wenn dein Ladecase kabelloses Laden unterstützt: AirPods 4 mit ANC und AirPods 5. Zum Beispiel auf dem RAJ NEXUS.\"}},{\"@type\":\"Question\",\"name\":\"Ist das echtes Carbon?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nein. Es ist eine Hartschale aus Polycarbonat im Carbon-Design, gleich wie die MATRIX iPhone Hülle. Der Karabiner ist aus eloxiertem Aluminium.\"}},{\"@type\":\"Question\",\"name\":\"Wofür ist der Karabiner?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Damit hängst du das Case an Tasche, Rucksack oder Schlüsselbund. Du kannst ihn abnehmen.\"}},{\"@type\":\"Question\",\"name\":\"Wann kommt meine Bestellung?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Gratis Versand mit der Post in 2 bis 3 Werktagen, mit Sendungsverfolgung.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich zurückgeben?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"30 Tage ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette ist gratis.\"}}]}"
   ],
   "blocks": [
    {
     "tag": "h1",
-    "text": "MATRIX AirPods Case – Carbon-Look Hülle für AirPods 4 & 5"
+    "text": "MATRIX AirPods Case"
    },
    {
     "tag": "p",
-    "text": "KOMPATIBEL"
+    "text": "Hülle im Carbon-Design für AirPods 4 und 5"
+   },
+   {
+    "tag": "li",
+    "text": "Gleiches Carbon-Design wie die MATRIX iPhone Hülle"
+   },
+   {
+    "tag": "li",
+    "text": "Goldener Karabiner aus eloxiertem Aluminium, abnehmbar"
+   },
+   {
+    "tag": "li",
+    "text": "Kabellos laden durch die Hülle*"
    },
    {
     "tag": "p",
-    "text": "Farbe der Hülle"
+    "text": "Passt auf AirPods 4, AirPods 4 mit ANC und AirPods 5. Nicht für AirPods Pro."
    },
    {
     "tag": "p",
-    "text": "🚚 Lieferung in 2–3 Werktagen"
+    "text": "Farbe · Cherry Carbon"
    },
    {
     "tag": "p",
-    "text": "30 Tage Rückgabe · Schweizer Marke · Gratis Versand"
+    "text": "* wenn dein Ladecase kabelloses Laden unterstützt: AirPods 4 mit ANC und AirPods 5."
    },
    {
     "tag": "p",
-    "text": "Sichere Bezahlung · 30 Tage Rückgabe"
-   },
-   {
-    "tag": "p",
-    "text": "SICHERE ZAHLUNGSMETHODEN"
+    "text": "DAS SET"
    },
    {
     "tag": "h2",
-    "text": "Bewertungen"
+    "text": "iPhone und AirPods im gleichen Look."
    },
    {
     "tag": "p",
-    "text": "Noch keine Bewertungen. Du hast die MATRIX gekauft? Wir freuen uns über deine Meinung."
+    "text": "Gleiche Struktur, gleiche Farbe, goldener RAJ Blitz auf beiden. Zusammen für CHF 79.– statt 94.–."
    },
    {
     "tag": "h2",
-    "text": "Fragen zur MATRIX AirPods-Hülle"
-   },
-   {
-    "tag": "h3",
-    "text": "Passt die Hülle auf AirPods 4 und AirPods 5?"
+    "text": "Was Kundinnen sagen"
    },
    {
     "tag": "p",
-    "text": "Die RAJ MATRIX AirPods-Hülle passt auf AirPods 4 – mit und ohne aktive Geräuschunterdrückung – sowie auf AirPods 5. Laut Apples technischen Daten haben die Ladecases dieser Modelle identische Abmessungen, deshalb sitzt dieselbe Hülle bei allen drei Varianten passgenau. Für andere AirPods-Modelle bieten wir sie nicht an. Die Hülle gibt es in Cherry Carbon und Onyx Carbon, jeweils mit goldenem RAJ Blitz, passend zur MATRIX iPhone-Hülle. Sie kostet CHF 35.–. Zusammen mit einer MATRIX iPhone-Hülle im Bundle zahlst du CHF 79.– statt CHF 94.–."
-   },
-   {
-    "tag": "h3",
-    "text": "Kann ich die AirPods durch die Hülle kabellos laden?"
+    "text": "«Die Handyhülle und das AirPods-Case sehen einfach super aus, fühlen sich hochwertig an und sind perfekt verarbeitet.»"
    },
    {
     "tag": "p",
-    "text": "Die RAJ MATRIX AirPods-Hülle lässt kabelloses Laden zu: Kabelloses Laden funktioniert durch die Hülle hindurch, zum Beispiel auf der RAJ NEXUS – sofern dein Ladecase kabelloses Laden unterstützt (bei AirPods 4 nur das Modell mit aktiver Geräuschunterdrückung). Du musst die Hülle zum Laden also nicht abnehmen. Der RAJ NEXUS ist eine 3-in-1 Ladestation, die iPhone, Apple Watch und AirPods gleichzeitig kabellos lädt; das iPhone lädt dort mit Qi2.2. Wie die verschiedenen Ladestandards funktionieren, erklären wir in unserem Qi2.2-Ratgeber."
+    "text": "Das AirPods Case ist neu und hat noch keine eigenen Bewertungen. Du hast es gekauft? Wir freuen uns über deine ehrliche Meinung."
+   },
+   {
+    "tag": "h2",
+    "text": "Auf einen Blick"
+   },
+   {
+    "tag": "h2",
+    "text": "Häufige Fragen"
    },
    {
     "tag": "h3",
-    "text": "Wofür ist der Karabiner?"
+    "text": "Passt die Hülle auf meine AirPods?+"
    },
    {
     "tag": "p",
-    "text": "Die RAJ MATRIX AirPods-Hülle kommt mit einem goldenen Karabiner. Damit kannst du dein AirPods Case an Tasche, Rucksack oder Schlüsselbund befestigen und hast es unterwegs immer griffbereit. Der Karabiner ist aus eloxiertem Aluminium und lässt sich abnehmen, wenn du die Hülle lieber ohne trägst. Der goldene Ton passt zum RAJ Blitz auf der Hülle und zu den goldeloxierten Aluminium-Knöpfen der MATRIX iPhone-Hülle, sodass beide Hüllen als Set zusammenpassen. Die Hülle ist in Cherry Carbon und Onyx Carbon erhältlich."
+    "text": "Ja, auf AirPods 4 (mit und ohne aktive Geräuschunterdrückung) und AirPods 5. Die Ladecases haben laut Apple dieselben Masse. Für AirPods Pro gibt es die Hülle nicht."
    },
    {
     "tag": "h3",
-    "text": "Woraus besteht die Hülle?"
+    "text": "Kann ich kabellos laden, ohne die Hülle abzunehmen?+"
    },
    {
     "tag": "p",
-    "text": "Die RAJ MATRIX AirPods-Hülle ist eine robuste Hartschale aus Polycarbonat mit Carbon-Finish – leicht, schlagfest und mit griffiger Oberfläche. Das Finish entspricht der MATRIX iPhone-Hülle, wahlweise in Cherry Carbon oder Onyx Carbon. Auf der Hülle sitzt der goldene RAJ Blitz, dazu kommt ein abnehmbarer Karabiner aus eloxiertem Aluminium. Wenn du beide Hüllen kaufst, wählt die MATRIX-Seite die AirPods-Farbe automatisch passend zu deiner iPhone-Hülle, du kannst sie aber auch frei kombinieren. So entsteht ein einheitliches Set für iPhone und AirPods."
+    "text": "Ja, wenn dein Ladecase kabelloses Laden unterstützt: AirPods 4 mit ANC und AirPods 5. Zum Beispiel auf dem RAJ NEXUS."
    },
    {
     "tag": "h3",
-    "text": "Wie schnell wird geliefert und was kostet der Versand?"
+    "text": "Ist das echtes Carbon?+"
    },
    {
     "tag": "p",
-    "text": "Die RAJ MATRIX AirPods-Hülle wird innerhalb der Schweiz kostenlos versendet, ohne Mindestbestellwert. Lieferung in 2–3 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du die AirPods-Hülle zusammen mit einer MATRIX iPhone-Hülle, sparst du CHF 15.–. Alle Details findest du auf unserer Seite zu Versand und Rückgabe."
+    "text": "Nein. Es ist eine Hartschale aus Polycarbonat im Carbon-Design, gleich wie die MATRIX iPhone Hülle. Der Karabiner ist aus eloxiertem Aluminium."
    },
    {
     "tag": "h3",
-    "text": "Kann ich die Hülle zurückgeben?"
+    "text": "Wofür ist der Karabiner?+"
    },
    {
     "tag": "p",
-    "text": "Die RAJ MATRIX AirPods-Hülle kannst du innerhalb von 30 Tagen ab Erhalt zurückgeben. Es gilt: 30 Tage Rückgabe – auch wenn du die Hülle ausprobiert hast, solange sie ohne Gebrauchsspuren und in der Originalverpackung ist. So kannst du in Ruhe prüfen, ob Passform, Haptik und Farbe zu deinen AirPods passen. Die Rückerstattung erfolgt über das ursprüngliche Zahlungsmittel innerhalb von 3–5 Werktagen. Wie du eine Rückgabe meldest, steht auf unserer Seite zu Versand und Rückgabe. Bei Fragen hilft dir unser Support aus der Schweiz gerne weiter."
+    "text": "Damit hängst du das Case an Tasche, Rucksack oder Schlüsselbund. Du kannst ihn abnehmen."
+   },
+   {
+    "tag": "h3",
+    "text": "Wann kommt meine Bestellung?+"
+   },
+   {
+    "tag": "p",
+    "text": "Gratis Versand mit der Post in 2 bis 3 Werktagen, mit Sendungsverfolgung."
+   },
+   {
+    "tag": "h3",
+    "text": "Kann ich zurückgeben?+"
+   },
+   {
+    "tag": "p",
+    "text": "30 Tage ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette ist gratis."
+   },
+   {
+    "tag": "p",
+    "text": "PASST ZUSAMMEN"
+   },
+   {
+    "tag": "h2",
+    "text": "RAJ NEXUS 3-in-1 Ladestation"
+   },
+   {
+    "tag": "p",
+    "text": "Lädt deine AirPods durch die Hülle, zusammen mit iPhone und Apple Watch."
+   },
+   {
+    "tag": "p",
+    "text": "CHF 99.–"
    }
   ]
  },
