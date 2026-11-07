@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] MATRIX: requested CSS-only compact gallery and readable text; verify 390px buy position, page height, real-photo fill and unchanged sticky model guard, no publication.
+- [x] MATRIX: requested CSS-only compact gallery and readable text; real-photo fill and main/sticky model guards verified, sticky selected bundle CHF 79, 19 selection tests passed, build OK; with loaded reviews/photos at 390px buy Y 1181px and page height 7900px. Target 950–1000px is not reached with the prescribed sizes and unchanged section order; no publication.
 
 - [x] MATRIX: mobile-first gallery, selection validation, simplified bundles and Black Friday switch; existing checkout and variant IDs unchanged.
 - [x] MATRIX: editorial product sections, dynamic verified reviews and FAQ/schema/crawler consistency.
