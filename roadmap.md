@@ -1,8 +1,8 @@
 # Roadmap
 
-- [ ] MATRIX: mobile-first gallery, selection validation, simplified bundles and Black Friday switch; existing checkout and variant IDs unchanged.
-- [ ] MATRIX: editorial product sections, dynamic verified reviews and FAQ/schema/crawler consistency.
-- [ ] MATRIX: test all model/finish/bundle/URL cases, screenshots and mobile buy-button/page measurements; do not publish.
+- [x] MATRIX: mobile-first gallery, selection validation, simplified bundles and Black Friday switch; existing checkout and variant IDs unchanged.
+- [x] MATRIX: editorial product sections, dynamic verified reviews and FAQ/schema/crawler consistency.
+- [x] MATRIX: all 24 model/finish/offer combinations passed real Shopify checkout; Black Friday true with identical two-case checkout passed, false retained; mobile main/sticky model guards and reviews checked; 390px buy Y 1333px, total height 7982px; not published. Legacy shared buybar test predates current visibility rules and fails unchanged; dedicated browser guard checks passed.
 
 - [x] /vergleich: fünf gezielte Formulierungen samt Crawler/FAQ-JSON-LD angeglichen, Browser und Datumstest bestanden; nicht veröffentlicht.
 - [x] /vergleich: bestätigtes Anker MagGo Faltbar 3-in-1 (A2557), Masse und Herstellerlink samt Crawler/JSON-LD übernommen; Browser und Datumstest bestanden, nicht veröffentlicht.
