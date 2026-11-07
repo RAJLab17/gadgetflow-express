@@ -1,0 +1,9 @@
+import { useRef, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { ProductLightbox, ZoomFrame } from '@/components/product/ProductZoom';
+import { NEXUS_GALLERY } from './nexusContent';
+export default function NexusGallery() {
+ const [index,setIndex]=useState(0); const [open,setOpen]=useState(false); const track=useRef<HTMLDivElement>(null);
+ const go=(i:number)=>{setIndex(i);track.current?.scrollTo({left:i*track.current.clientWidth,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
+ return <div className="nx-gallery"><div className="nx-gallery-frame"><div ref={track} className="nx-gallery-track" onScroll={()=>{const el=track.current;if(el?.clientWidth)setIndex(Math.round(el.scrollLeft/el.clientWidth));}}>{NEXUS_GALLERY.map((s,i)=><div className="nx-gallery-slide" key={s.src}><ZoomFrame zoomSrc={'full' in s?s.full:s.src} objectFit={'studio' in s && s.studio?'contain':'cover'} onOpen={()=>{setIndex(i);setOpen(true);}}><img className={'studio' in s && s.studio?'nx-gallery-studio':'nx-gallery-photo'} src={s.src} srcSet={'srcSet' in s?s.srcSet:undefined} sizes={'sizes' in s?s.sizes:undefined} alt={s.alt} width={1200} height={1500} loading={i===0?'eager':'lazy'} fetchPriority={i===0?'high':'auto'} decoding="async"/></ZoomFrame></div>)}</div><span className="nx-gallery-count">{index+1} / {NEXUS_GALLERY.length}</span><span className="nx-certified">ZERTIFIZIERT</span></div><div className="nx-thumbnails">{NEXUS_GALLERY.map((s,i)=><Button variant="outline" className="nx-thumb" aria-label={`Bild ${i+1} anzeigen`} aria-pressed={i===index} key={s.src} onClick={()=>go(i)}><img src={'thumb' in s?s.thumb:s.src} alt={s.alt} width={44} height={44} loading="lazy"/></Button>)}</div><ProductLightbox open={open} images={NEXUS_GALLERY.map(s=>({src:'full' in s?s.full:s.src,alt:s.alt}))} index={index} onIndexChange={go} onClose={()=>setOpen(false)}/></div>;
+}
