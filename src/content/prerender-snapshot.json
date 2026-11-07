@@ -383,167 +383,139 @@
   "twitterTitle": "MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX",
   "twitterDescription": "Schlanke MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand.",
   "twitterImage": "https://raj.ch/__l5e/assets-v1/889e1d7c-9c1c-4fc2-8983-c6b7bcd8be92/raj-matrix-share.jpg",
-  "h1": "MATRIX Die schlanke MagSafe Carbon-Hülle",
+  "h1": "MATRIX",
   "jsonLd": [
    "{\"@context\":\"https://schema.org\",\"@type\":\"Product\",\"name\":\"RAJ MATRIX Carbon Hülle MagSafe\",\"brand\":{\"@type\":\"Brand\",\"name\":\"RAJ\"},\"description\":\"RAJ MATRIX, schlanke MagSafe-Hülle im Carbon-Design für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, MagSafe- und Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS.\",\"image\":[\"https://raj.ch/__l5e/assets-v1/889e1d7c-9c1c-4fc2-8983-c6b7bcd8be92/raj-matrix-share.jpg\",\"https://raj.ch/__l5e/assets-v1/92d7bef2-3f0d-4790-b395-276c106f849b/18-cherry-darkcherry-norm-full.webp\",\"https://raj.ch/__l5e/assets-v1/fdf9f07a-b828-43af-a818-9a0b9dc69da7/18-onyx-darkgrey-v2-full.webp\"],\"url\":\"https://raj.ch/matrix\",\"offers\":{\"@type\":\"Offer\",\"url\":\"https://raj.ch/matrix\",\"priceCurrency\":\"CHF\",\"price\":59,\"availability\":\"https://schema.org/InStock\",\"hasMerchantReturnPolicy\":{\"@type\":\"MerchantReturnPolicy\",\"applicableCountry\":\"CH\",\"returnPolicyCategory\":\"https://schema.org/MerchantReturnFiniteReturnWindow\",\"merchantReturnDays\":30,\"returnMethod\":\"https://schema.org/ReturnByMail\",\"returnFees\":\"https://schema.org/FreeReturn\"},\"shippingDetails\":{\"@type\":\"OfferShippingDetails\",\"description\":\"Lieferung in 2–3 Werktagen\",\"shippingRate\":{\"@type\":\"MonetaryAmount\",\"value\":\"0\",\"currency\":\"CHF\"},\"shippingDestination\":{\"@type\":\"DefinedRegion\",\"addressCountry\":\"CH\"},\"deliveryTime\":{\"@type\":\"ShippingDeliveryTime\",\"handlingTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":0,\"maxValue\":0,\"unitCode\":\"d\"},\"transitTime\":{\"@type\":\"QuantitativeValue\",\"minValue\":2,\"maxValue\":3,\"unitCode\":\"d\"}}}}}",
-   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Passt die MATRIX auf iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max. Im Kameraplateau bleibt die Farbe deines iPhones sichtbar. Für andere Modelle gibt es die MATRIX derzeit nicht.\"}},{\"@type\":\"Question\",\"name\":\"Funktionieren MagSafe und kabelloses Laden mit der Hülle?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Ein N52-Magnetring hält das iPhone sicher auf MagSafe-Ladegeräten und Haltern. Kabelloses Laden mit Qi2.2 und bis zu 25 W funktioniert direkt durch die Hülle.\"}},{\"@type\":\"Question\",\"name\":\"Woraus besteht die Hülle?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Aus einer leichten, schlagfesten Hartschale aus Polycarbonat im Carbon-Design. Die Knöpfe sind aus goldeloxiertem Aluminium, der Kameraring aus Metall. Unten links sitzt der goldene RAJ Blitz.\"}},{\"@type\":\"Question\",\"name\":\"Wie gut schützt sie Kamera und Display?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ein erhöhter Rand schützt Kamera und Display, wenn das iPhone auf dem Tisch liegt. Ein Metallring umrahmt das Kameraplateau. Überzeugt dich der Schutz nicht, gibst du die Hülle innerhalb von 30 Tagen zurück.\"}},{\"@type\":\"Question\",\"name\":\"Cherry Carbon oder Onyx Carbon?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cherry Carbon ist ein gedeckter, warmer Kirschton mit sichtbarer Struktur, Onyx Carbon ist fast schwarz. Beide haben goldene Knöpfe und kosten CHF 59.–. Oben siehst du jede Farbe zusammen mit deiner iPhone-Farbe.\"}},{\"@type\":\"Question\",\"name\":\"Wie schnell wird geliefert und was kostet der Versand?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der Versand innerhalb der Schweiz ist gratis, die Lieferung dauert 2 bis 3 Werktage mit der Post. Bezahlen kannst du mit Karte, Apple Pay, Google Pay oder TWINT. Bundle-Preise werden im Checkout automatisch abgezogen.\"}},{\"@type\":\"Question\",\"name\":\"Kann ich die Hülle zurückgeben?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja, innerhalb von 30 Tagen ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette bekommst du gratis von uns. Das Geld ist innert 3 bis 5 Werktagen zurück.\"}},{\"@type\":\"Question\",\"name\":\"Passt die MATRIX zum RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der Magnetring sitzt so, dass das iPhone auf dem NEXUS in derselben Position einrastet, mit oder ohne Hülle. Geladen wird mit Qi2.2 durch die Hülle.\"}}]}"
+   "{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Ist das echtes Carbon?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Nein. MATRIX hat ein Carbon-Design: eine Hartschale aus Polycarbonat mit feiner Carbon-Struktur, matt und griffig. Tasten und Kameraring sind aus eloxiertem Aluminium.\"}},{\"@type\":\"Question\",\"name\":\"Passt sie auf mein iPhone?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"MATRIX gibt es für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso die beiden Pro Max. Für andere Modelle gibt es sie derzeit nicht.\"}},{\"@type\":\"Question\",\"name\":\"Funktionieren MagSafe und kabelloses Laden?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der N52-Magnetring hält das iPhone auf MagSafe-Ladegeräten und Haltern. Laden mit Qi2.2 und bis zu 25 W funktioniert durch die Hülle.\"}},{\"@type\":\"Question\",\"name\":\"Schützt sie die Kamera?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ein erhöhter Rand schützt Kamera und Display, wenn das iPhone auf dem Tisch liegt. Die Kamera ist von einem Ring aus eloxiertem Aluminium umrahmt.\"}},{\"@type\":\"Question\",\"name\":\"Cherry Carbon oder Onyx Carbon?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Cherry Carbon ist ein gedeckter, warmer Kirschton mit sichtbarer Struktur, Onyx Carbon ist fast schwarz. Beide haben goldene Knöpfe und kosten CHF 59.–. Oben siehst du jede Farbe zusammen mit deiner iPhone-Farbe.\"}},{\"@type\":\"Question\",\"name\":\"Passt die MATRIX zum RAJ NEXUS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Ja. Der Magnetring sitzt so, dass das iPhone auf dem NEXUS in derselben Position einrastet, mit oder ohne Hülle. Geladen wird mit Qi2.2 durch die Hülle.\"}},{\"@type\":\"Question\",\"name\":\"Wann kommt meine Bestellung?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Der Versand in der Schweiz ist gratis. Die Post liefert in 2 bis 3 Werktagen, du bekommst eine Sendungsverfolgung per E-Mail.\"}},{\"@type\":\"Question\",\"name\":\"Wie funktioniert die Rückgabe?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"30 Tage ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette bekommst du gratis. Das Geld ist innert 3 bis 5 Werktagen zurück.\"}}]}"
   ],
   "blocks": [
    {
-    "tag": "p",
-    "text": "CHERRY CARBON"
-   },
-   {
-    "tag": "p",
-    "text": "iPhone 18 Pro · Dark Cherry"
-   },
-   {
     "tag": "h1",
-    "text": "MATRIX Die schlanke MagSafe Carbon-Hülle"
+    "text": "MATRIX"
    },
    {
     "tag": "p",
-    "text": "MODELL"
+    "text": "MagSafe Hülle im Carbon-Design"
+   },
+   {
+    "tag": "li",
+    "text": "Carbon-Design, matt und griffig"
+   },
+   {
+    "tag": "li",
+    "text": "Goldene Tasten und Kameraring aus eloxiertem Aluminium"
+   },
+   {
+    "tag": "li",
+    "text": "Kompatibel mit MagSafe und Qi2.2, bis zu 25 W"
    },
    {
     "tag": "p",
-    "text": "GERÄTEFARBE"
+    "text": "Welches iPhone hast du?"
    },
    {
     "tag": "p",
-    "text": "Dark Cherry"
+    "text": "Hülle · Cherry Carbon"
    },
    {
     "tag": "p",
-    "text": "FINISH"
+    "text": "iPhone · Silver"
    },
    {
     "tag": "p",
-    "text": "Carbon-Design, Cherry · Aluminium-Knöpfe in Gold"
-   },
-   {
-    "tag": "p",
-    "text": "🚚 Lieferung in 2–3 Werktagen"
-   },
-   {
-    "tag": "p",
-    "text": "Sichere Bezahlung · 30 Tage Rückgabe"
-   },
-   {
-    "tag": "p",
-    "text": "Gratis Versand · Lieferung in 2–3 Werktagen"
-   },
-   {
-    "tag": "p",
-    "text": "Sichere Zahlungsmethoden"
-   },
-   {
-    "tag": "p",
-    "text": "2–3 Werktage"
-   },
-   {
-    "tag": "p",
-    "text": "mit der Post"
-   },
-   {
-    "tag": "p",
-    "text": "30 Tage Rückgabe"
-   },
-   {
-    "tag": "p",
-    "text": "Etikette gratis"
-   },
-   {
-    "tag": "p",
-    "text": "Support aus"
-   },
-   {
-    "tag": "p",
-    "text": "Weinfelden TG"
-   },
-   {
-    "tag": "p",
-    "text": "🚚 Lieferung in 2–3 Werktagen"
-   },
-   {
-    "tag": "p",
-    "text": "30 Tage Rückgabe · Schweizer Marke · Gratis Versand"
-   },
-   {
-    "tag": "p",
-    "text": "Sichere Zahlungsmethoden"
-   },
-   {
-    "tag": "p",
-    "text": "Bewertungen"
-   },
-   {
-    "tag": "p",
-    "text": "Wunderschöne Produkte & erstklassiger Service!"
-   },
-   {
-    "tag": "p",
-    "text": "Wunderschöne Produkte mit toller Qualität! Die Handyhülle und das AirPods-Case sehen einfach super aus, fühlen sich hochwertig an und sind perfekt verarbeitet. Auch der Versand ist top: Die Bestellung kommt sehr schnell an und ist liebevoll und wunderschön verpackt. Bin rundum zufrieden und bestelle jederzeit gerne wieder! :)"
-   },
-   {
-    "tag": "p",
-    "text": "Knaller"
-   },
-   {
-    "tag": "p",
-    "text": "Paket angekommen und die Hülle sitzt!"
-   },
-   {
-    "tag": "p",
-    "text": "Gute Kombination"
-   },
-   {
-    "tag": "p",
-    "text": "Ich muss sagen bin höchst erfreut über die Verpackung und dem Produkt, es fühlte sich gut an es zu auspacken und es passt perfekt zu meinem Iphone 18 pro schwarz, die Farbkonturen ergänzen sich gut, sehr gute Arbeit und Besten Dank!"
-   },
-   {
-    "tag": "p",
-    "text": "Schwarz + Gold"
-   },
-   {
-    "tag": "p",
-    "text": "Onyx Carbon sieht zusammen mit den goldenen Tasten einfach super aus."
-   },
-   {
-    "tag": "p",
-    "text": "Modernes Design"
-   },
-   {
-    "tag": "p",
-    "text": "Die Kombination aus Carbonmuster und dezenten Akzenten gefällt mir sehr."
-   },
-   {
-    "tag": "p",
-    "text": "SICHERE ZAHLUNGSMETHODEN"
+    "text": "WARUM MATRIX"
    },
    {
     "tag": "h2",
-    "text": "Das steckt drin"
+    "text": "Schlank. Griffig. Mit goldenen Details."
    },
    {
-    "tag": "li",
-    "text": "Starker N52-Magnetring für MagSafe-Zubehör"
+    "tag": "h3",
+    "text": "Carbon-Design"
    },
    {
-    "tag": "li",
-    "text": "Kabellos laden mit Qi2.2 direkt durch die Hülle"
+    "tag": "p",
+    "text": "Feine Struktur, matt und griffig. Hartschale aus Polycarbonat, leicht und schlank."
    },
    {
-    "tag": "li",
-    "text": "Erhöhter Rand schützt Kamera und Display"
+    "tag": "h3",
+    "text": "Goldene Details"
    },
    {
-    "tag": "li",
-    "text": "Knöpfe aus goldeloxiertem Aluminium, Kameraring aus Metall"
+    "tag": "p",
+    "text": "Tasten aus goldeloxiertem Aluminium. Kameraring aus eloxiertem Aluminium. Der goldene RAJ Blitz unten links."
    },
    {
-    "tag": "li",
-    "text": "Abgestimmt auf die RAJ NEXUS Ladestation"
+    "tag": "h3",
+    "text": "MagSafe mit N52-Magnetring"
+   },
+   {
+    "tag": "p",
+    "text": "Hält sicher auf MagSafe-Ladegeräten und Haltern. Lädt mit Qi2.2 und bis zu 25 W durch die Hülle."
+   },
+   {
+    "tag": "h3",
+    "text": "Schützt, wo es zählt"
+   },
+   {
+    "tag": "p",
+    "text": "Erhöhter Rand um Kamera und Display, wenn das iPhone auf dem Tisch liegt."
+   },
+   {
+    "tag": "p",
+    "text": "ECHTE FOTOS"
+   },
+   {
+    "tag": "h2",
+    "text": "So sieht sie im Alltag aus."
+   },
+   {
+    "tag": "p",
+    "text": "Keine Renderings: aufgenommen mit der MATRIX, wie du sie bekommst."
+   },
+   {
+    "tag": "h2",
+    "text": "Auf einen Blick"
+   },
+   {
+    "tag": "p",
+    "text": "Polycarbonat-Hartschale, Carbon-Design"
+   },
+   {
+    "tag": "p",
+    "text": "Aluminium, goldeloxiert"
+   },
+   {
+    "tag": "p",
+    "text": "Aluminium, eloxiert"
+   },
+   {
+    "tag": "p",
+    "text": "N52-Ring, MagSafe-kompatibel"
+   },
+   {
+    "tag": "p",
+    "text": "Qi2.2, bis zu 25 W"
+   },
+   {
+    "tag": "p",
+    "text": "Erhöhter Rand für Kamera und Display"
+   },
+   {
+    "tag": "p",
+    "text": "iPhone 17 Pro, 17 Pro Max, 18 Pro, 18 Pro Max"
+   },
+   {
+    "tag": "p",
+    "text": "Gestaltet in der Schweiz von RAJ"
+   },
+   {
+    "tag": "h3",
+    "text": "Welches Modell passt?"
+   },
+   {
+    "tag": "p",
+    "text": "iPhone 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max. Im Kameraplateau bleibt die Farbe deines iPhones sichtbar."
    },
    {
     "tag": "h2",
@@ -555,43 +527,43 @@
    },
    {
     "tag": "h2",
-    "text": "Fragen zur MATRIX"
+    "text": "Häufige Fragen"
    },
    {
     "tag": "h3",
-    "text": "Passt die MATRIX auf iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max?"
+    "text": "Ist das echtes Carbon?+"
    },
    {
     "tag": "p",
-    "text": "Ja. 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso 17 Pro Max und 18 Pro Max. Im Kameraplateau bleibt die Farbe deines iPhones sichtbar. Für andere Modelle gibt es die MATRIX derzeit nicht."
+    "text": "Nein. MATRIX hat ein Carbon-Design: eine Hartschale aus Polycarbonat mit feiner Carbon-Struktur, matt und griffig. Tasten und Kameraring sind aus eloxiertem Aluminium."
    },
    {
     "tag": "h3",
-    "text": "Funktionieren MagSafe und kabelloses Laden mit der Hülle?"
+    "text": "Passt sie auf mein iPhone?+"
    },
    {
     "tag": "p",
-    "text": "Ja. Ein N52-Magnetring hält das iPhone sicher auf MagSafe-Ladegeräten und Haltern. Kabelloses Laden mit Qi2.2 und bis zu 25 W funktioniert direkt durch die Hülle."
+    "text": "MATRIX gibt es für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. 17 Pro und 18 Pro nutzen dieselbe Hülle, ebenso die beiden Pro Max. Für andere Modelle gibt es sie derzeit nicht."
    },
    {
     "tag": "h3",
-    "text": "Woraus besteht die Hülle?"
+    "text": "Funktionieren MagSafe und kabelloses Laden?+"
    },
    {
     "tag": "p",
-    "text": "Aus einer leichten, schlagfesten Hartschale aus Polycarbonat im Carbon-Design. Die Knöpfe sind aus goldeloxiertem Aluminium, der Kameraring aus Metall. Unten links sitzt der goldene RAJ Blitz."
+    "text": "Ja. Der N52-Magnetring hält das iPhone auf MagSafe-Ladegeräten und Haltern. Laden mit Qi2.2 und bis zu 25 W funktioniert durch die Hülle."
    },
    {
     "tag": "h3",
-    "text": "Wie gut schützt sie Kamera und Display?"
+    "text": "Schützt sie die Kamera?+"
    },
    {
     "tag": "p",
-    "text": "Ein erhöhter Rand schützt Kamera und Display, wenn das iPhone auf dem Tisch liegt. Ein Metallring umrahmt das Kameraplateau. Überzeugt dich der Schutz nicht, gibst du die Hülle innerhalb von 30 Tagen zurück."
+    "text": "Ein erhöhter Rand schützt Kamera und Display, wenn das iPhone auf dem Tisch liegt. Die Kamera ist von einem Ring aus eloxiertem Aluminium umrahmt."
    },
    {
     "tag": "h3",
-    "text": "Cherry Carbon oder Onyx Carbon?"
+    "text": "Cherry Carbon oder Onyx Carbon?+"
    },
    {
     "tag": "p",
@@ -599,23 +571,7 @@
    },
    {
     "tag": "h3",
-    "text": "Wie schnell wird geliefert und was kostet der Versand?"
-   },
-   {
-    "tag": "p",
-    "text": "Der Versand innerhalb der Schweiz ist gratis, die Lieferung dauert 2 bis 3 Werktage mit der Post. Bezahlen kannst du mit Karte, Apple Pay, Google Pay oder TWINT. Bundle-Preise werden im Checkout automatisch abgezogen."
-   },
-   {
-    "tag": "h3",
-    "text": "Kann ich die Hülle zurückgeben?"
-   },
-   {
-    "tag": "p",
-    "text": "Ja, innerhalb von 30 Tagen ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette bekommst du gratis von uns. Das Geld ist innert 3 bis 5 Werktagen zurück."
-   },
-   {
-    "tag": "h3",
-    "text": "Passt die MATRIX zum RAJ NEXUS?"
+    "text": "Passt die MATRIX zum RAJ NEXUS?+"
    },
    {
     "tag": "p",
@@ -623,11 +579,39 @@
    },
    {
     "tag": "h3",
-    "text": "RAJ NEXUS"
+    "text": "Wann kommt meine Bestellung?+"
    },
    {
     "tag": "p",
-    "text": "Der Magnetring der MATRIX ist auf den NEXUS abgestimmt. Das iPhone rastet in derselben Position ein, mit oder ohne Hülle."
+    "text": "Der Versand in der Schweiz ist gratis. Die Post liefert in 2 bis 3 Werktagen, du bekommst eine Sendungsverfolgung per E-Mail."
+   },
+   {
+    "tag": "h3",
+    "text": "Wie funktioniert die Rückgabe?+"
+   },
+   {
+    "tag": "p",
+    "text": "30 Tage ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette bekommst du gratis. Das Geld ist innert 3 bis 5 Werktagen zurück."
+   },
+   {
+    "tag": "p",
+    "text": "PASST ZUSAMMEN"
+   },
+   {
+    "tag": "h2",
+    "text": "RAJ NEXUS 3-in-1 Ladestation"
+   },
+   {
+    "tag": "p",
+    "text": "Der Magnetring der MATRIX ist auf den NEXUS abgestimmt. iPhone, Apple Watch und AirPods laden gleichzeitig."
+   },
+   {
+    "tag": "p",
+    "text": "CHF 99.–"
+   },
+   {
+    "tag": "p",
+    "text": "Mehr erfahren"
    }
   ]
  },
