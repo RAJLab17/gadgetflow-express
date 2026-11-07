@@ -40,29 +40,8 @@ import {
   BUNDLE_DISCOUNT_CODE,
   CASE_VARIANT_IDS,
   MATRIX_DELIVERY_TEXT_NO_DATE,
-  MATRIX_TRUST_DESKTOP,
-  MATRIX_TRUST_MOBILE,
-  PaymentMethodsBar,
 } from "@/components/matrix/matrixCommerce";
-import realCherrySetSee1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-1200.webp.asset.json";
-import realCherrySetSee800 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-800.webp.asset.json";
-import realCherrySetSee400 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-400.webp.asset.json";
-import realCherrySetSee200 from "@/assets/matrix/real-lifestyle/matrix-cherry-set-see-200.webp.asset.json";
-import realCherryOnyxFels1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-1200.webp.asset.json";
-import realCherryOnyxFels800 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-800.webp.asset.json";
-import realCherryOnyxFels400 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-400.webp.asset.json";
-import realCherryOnyxFels200 from "@/assets/matrix/real-lifestyle/matrix-cherry-onyx-fels-200.webp.asset.json";
-import realCherryHandFels1200 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-1200.webp.asset.json";
-import realCherryHandFels800 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-800.webp.asset.json";
-import realCherryHandFels400 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-400.webp.asset.json";
-import realCherryHandFels200 from "@/assets/matrix/real-lifestyle/matrix-cherry-hand-fels-200.webp.asset.json";
-import realOnyxHandSee1200 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-1200.webp.asset.json";
-import realOnyxHandSee800 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-800.webp.asset.json";
-import realOnyxHandSee400 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-400.webp.asset.json";
-import realOnyxHandSee200 from "@/assets/matrix/real-lifestyle/matrix-onyx-hand-see-200.webp.asset.json";
 import { airpodsThumbs, twoCaseThumbs, renderSizes, renderSrcSet, renderImageSizes } from "@/assets/matrix/responsiveRenders";
-import { observeMediaQuery } from "@/lib/mediaQuery";
-import MatrixSwapImage from "@/components/matrix/MatrixSwapImage";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
 
 import MatrixGallery from '@/components/matrix/MatrixGallery';
@@ -230,7 +209,6 @@ const MatrixPage = () => {
   const [caseId, setCaseId] = useState(initialSelection.color);
   const [airpodsSelected, setAirpodsSelected] = useState(false);
   const [airpodsColorId, setAirpodsColorId] = useState<string | null>(null);
-  const [showAirpodsColor, setShowAirpodsColor] = useState(false);
   const [twoCasesSelected, setTwoCasesSelected] = useState(false);
   const [secondModelId, setSecondModelId] = useState<ModelId | null>(null);
   const [secondCaseId, setSecondCaseId] = useState<string | null>(null);
@@ -250,7 +228,6 @@ const MatrixPage = () => {
   const bundleTotal = caseFinish.price + airpodsCase.price - BUNDLE_DISCOUNT;
   const secondModel = MODELS.find((m) => m.id === (secondModelId ?? modelId)) ?? model;
   const secondCaseFinish = CASE_FINISHES.find((c) => c.id === (secondCaseId ?? caseId)) ?? caseFinish;
-  const [showDevicePicker, setShowDevicePicker] = useState(false);
   const currentTotal = matrixTotal(airpodsSelected, twoCasesSelected);
   const caseThumbSrc =
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
