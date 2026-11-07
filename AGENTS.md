@@ -36,3 +36,4 @@
 - Review source and homepage selection are managed through the server-validated admin endpoint; all rating counts and schemas exclude Google quotes, and a database trigger prevents Google purchase badges. Homepage quote selection uses the shared approved query and pauses rotation offscreen, on hidden tabs and with reduced motion.
 - The mobile homepage review track measures currently visible cards on scroll and resize, so off-screen review photos do not reserve empty height above the reviews link.
 - NEXUS page-owned gallery, editorial content, FAQ/schema and review presentation live in NEXUS-only modules; reuse the existing quick-buy and mobile buy bar to keep commerce and other pages independent.
+- AirPods page-owned content, gallery and editorial modules isolate styling and set-model validation; preserve shared commerce constants and delegate sticky purchases to the original button.
