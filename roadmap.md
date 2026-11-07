@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] MATRIX: requested CSS-only compact gallery and readable text; real-photo fill and main/sticky model guards verified, sticky selected bundle CHF 79, 19 selection tests passed, build OK; with loaded reviews/photos at 390px buy Y 1181px and page height 7900px. Target 950–1000px is not reached with the prescribed sizes and unchanged section order; no publication.
+
 - [x] MATRIX: mobile-first gallery, selection validation, simplified bundles and Black Friday switch; existing checkout and variant IDs unchanged.
 - [x] MATRIX: editorial product sections, dynamic verified reviews and FAQ/schema/crawler consistency.
 - [x] MATRIX: all 24 model/finish/offer combinations passed real Shopify checkout; Black Friday true with identical two-case checkout passed, false retained; mobile main/sticky model guards and reviews checked; 390px buy Y 1333px, total height 7982px; not published. Legacy shared buybar test predates current visibility rules and fails unchanged; dedicated browser guard checks passed.
