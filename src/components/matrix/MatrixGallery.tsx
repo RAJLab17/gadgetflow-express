@@ -7,7 +7,7 @@ import { matrixRealPhotos,realPhotoSrcSet } from './matrixRealPhotos';
 import duoCherry from '@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json';
 import duoOnyx from '@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json';
 const DUO_ALT='RAJ MATRIX Hüllen in Cherry Carbon und Onyx Carbon nebeneinander';
-const Duo = () => <div role="img" aria-label={DUO_ALT} className="mx-duo"><img src={renderSizes.get(duoCherry.url)?.mobile ?? duoCherry.url} alt="" width={1200} height={1500} loading="lazy" className="mx-duo-cherry"/><img src={renderSizes.get(duoOnyx.url)?.mobile ?? duoOnyx.url} alt="" width={1200} height={1500} loading="lazy" className="mx-duo-onyx"/></div>;
+const Duo = () => <div role="img" aria-label={DUO_ALT} className="mx-page mx-duo"><img src={renderSizes.get(duoCherry.url)?.mobile ?? duoCherry.url} alt="" width={1200} height={1500} loading="lazy" className="mx-duo-cherry"/><img src={renderSizes.get(duoOnyx.url)?.mobile ?? duoOnyx.url} alt="" width={1200} height={1500} loading="lazy" className="mx-duo-onyx"/></div>;
 export default function MatrixGallery({src,finish,alt,onFirstLoad}:{src:string;finish:string;alt:string;onFirstLoad:()=>void}) {
  const scroller=useRef<HTMLDivElement>(null); const [active,setActive]=useState(0); const [lightbox,setLightbox]=useState<number|null>(null);
  const photos=[finish==='cherry' ? matrixRealPhotos.cherryHand : matrixRealPhotos.onyxHand,matrixRealPhotos.rock,matrixRealPhotos.set];

@@ -8,7 +8,7 @@
 - Company FAQ visible answers and FAQPage structured data derive from the same page-local entries to prevent inconsistent offer terms.
 - Blog sitemap entries may supply a page-specific lastmod independently of publication dates, so significant article updates do not change the blog index's publication history.
 - MATRIX variant and offer images use MatrixSwapImage to retain decoded previous pixels during asynchronous swaps; warm only 800w renders at low priority after the first image and window load to protect initial loading.
-- MATRIX native FAQ accordions use MATRIX_FAQ content with all answers embedded and the first question open; snapshot capture includes closed answers so crawler text and FAQPage stay consistent.
+- MATRIX native FAQ accordions and FAQPage schema derive from the MATRIX-local FAQ module with all answers embedded and the first question open; snapshot capture includes closed answers so crawler text remains consistent without changing AirPods FAQs.
 - MATRIX and AirPods bundle offer cards use BundleOfferImage with original-product AirPods thumbnails and page-owned phone selections, keeping their presentation identical without coupling checkout logic.
 - Deduplicate React/ReactDOM and prebundle app-shell providers together in Vite so lazy navigation cannot mix React hook dispatchers from separate dependency generations.
 - Product share images use the shared shareImages metadata helper and CDN asset pointers; capture image dimensions, MIME type and alt text in the SEO snapshot so runtime and crawler tags stay identical.
@@ -16,7 +16,7 @@
 
 - MATRIX, NEXUS and AirPods use MobileProductBuyBar with page-owned selection data and clicks delegated to the original purchase control; IntersectionObserver shows it only below 768px after the first scroll whenever that control is off screen (above or below), while visible modal overlays suppress it, avoiding duplicate commerce or tracking logic.
 - Keep the MATRIX delivery message in a named constant so shipping copy can change independently of the layout.
-- Gate MATRIX lifestyle galleries by exact model, case finish and device color on both layouts so photos cannot leak into other selections.
+- MATRIX selection/configuration, gallery and editorial/review layouts live in MATRIX-only modules; first renders depend on model/device/finish while the five-slide real-photo gallery depends only on finish, so other pages remain independent.
 - Gallery position 2 on /matrix is a DOM-composed "Duo" slide (DuoSlide) reusing the two homepage cut-out images (Cherry -6°, Onyx +5°, soft drop shadows on #FAF8F5) in both finishes, with no new image file; the lightbox renders it via the ZoomImage node field, keeping galleries asset-based otherwise.
 - Serve MATRIX lifestyle photos as optimised WebP with separate thumbnail and mobile sizes; mount only the current viewport gallery, give mobile slides real native-lazy image sources hidden until loaded, and eagerly load the next slide on touch or activation; mandatory snapping with always-stop prevents partial slides and hidden unloaded images prevent broken-image text.
 - Subscribe to media-query changes through the shared legacy-compatible observer so older Safari/WebViews cannot crash viewport-dependent rendering.
