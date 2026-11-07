@@ -1,0 +1,11 @@
+import { test, expect } from 'bun:test';
+import { NEXUS_POWER, NEXUS_PRICE } from '../src/components/nexus/nexusContent';
+import { nexusReviewData } from '../src/components/nexus/nexusReviewData';
+import type { PublicReview } from '../src/components/reviews/ReviewCard';
+test('NEXUS costs CHF 99',()=>expect(NEXUS_PRICE).toBe(99));
+test('no power adapter is included',()=>expect(NEXUS_POWER.includedAdapter).toBe(false));
+test('full performance requires at least 30 W',()=>expect(NEXUS_POWER.minimumWatts).toBe(30));
+test('NEXUS has three years warranty',()=>expect(NEXUS_POWER.warrantyYears).toBe(3));
+const row=(name:string,source:'raj'|'google',rating:number,verified:boolean):PublicReview=>({id:name,product_id:'nexus',customer_name:name,source,rating,verified_purchase:verified,title:'',comment:'',created_at:'2026-11-07',helpful_count:0,founder_response:null,founder_responded_at:null});
+test('Google quotes do not affect rating counts, average or verified total',()=>{const d=nexusReviewData([row('Marcel','raj',5,true),row('Google','google',1,true)]);expect(d.rated.length).toBe(1);expect(d.average).toBe(5);expect(d.verified).toBe(1);expect(d.google).toBe(1);});
+test('initial reviews are Christoph, Thomas M. and Chris M.',()=>{const d=nexusReviewData([row('Chris M.','raj',5,true),row('Other','raj',5,true),row('Thomas M.','raj',5,true),row('Christoph','raj',5,true)]);expect(d.ordered.slice(0,3).map(r=>r.customer_name)).toEqual(['Christoph','Thomas M.','Chris M.']);});
