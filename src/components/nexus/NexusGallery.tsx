@@ -1,9 +1,22 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ProductLightbox, ZoomFrame } from '@/components/product/ProductZoom';
-import { NEXUS_GALLERY } from './nexusContent';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { HERO_CAROUSEL_SLIDES, HeroSwipeImage } from './NexusHeroCarousel';
+import NexusHeroChipsMobile from './NexusChargeCardsMobile';
+import Qi2CertifiedBadge from './Qi2CertifiedBadge';
+const zoomImages = HERO_CAROUSEL_SLIDES.map(s => ({ src: s.srcSet.split(',').pop()?.trim().split(/\s+/)[0] || s.src, alt: s.alt }));
 export default function NexusGallery() {
- const [index,setIndex]=useState(0); const [open,setOpen]=useState(false); const track=useRef<HTMLDivElement>(null);
- const go=(i:number)=>{setIndex(i);track.current?.scrollTo({left:i*track.current.clientWidth,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
- return <div className="nx-gallery"><div className="nx-gallery-frame"><div ref={track} className="nx-gallery-track" onScroll={()=>{const el=track.current;if(el?.clientWidth)setIndex(Math.round(el.scrollLeft/el.clientWidth));}}>{NEXUS_GALLERY.map((s,i)=><div className="nx-gallery-slide" key={s.src}><ZoomFrame zoomSrc={'full' in s?s.full:s.src} objectFit={'studio' in s && s.studio?'contain':'cover'} onOpen={()=>{setIndex(i);setOpen(true);}}><img className={'studio' in s && s.studio?'nx-gallery-studio':'nx-gallery-photo'} src={s.src} srcSet={'srcSet' in s?s.srcSet:undefined} sizes={'sizes' in s?s.sizes:undefined} alt={s.alt} width={1200} height={1500} loading={i===0?'eager':'lazy'} fetchPriority={i===0?'high':'auto'} decoding="async"/></ZoomFrame></div>)}</div><span className="nx-gallery-count">{index+1} / {NEXUS_GALLERY.length}</span><span className="nx-certified">ZERTIFIZIERT</span></div><div className="nx-thumbnails">{NEXUS_GALLERY.map((s,i)=><Button variant="outline" className="nx-thumb" aria-label={`Bild ${i+1} anzeigen`} aria-pressed={i===index} key={s.src} onClick={()=>go(i)}><img src={'thumb' in s?s.thumb:s.src} alt={s.alt} width={44} height={44} loading="lazy"/></Button>)}</div><ProductLightbox open={open} images={NEXUS_GALLERY.map(s=>({src:'full' in s?s.full:s.src,alt:s.alt}))} index={index} onIndexChange={go} onClose={()=>setOpen(false)}/></div>;
+ const [index,setIndex]=useState(0); const [open,setOpen]=useState(false);
+ const slide = HERO_CAROUSEL_SLIDES[index];
+ if (!slide) return null;
+ const light = index === 1 || index === 3;
+ return <div className="nx-gallery nx-gallery-original"><div className="nx-gallery-frame">
+ <ZoomFrame zoomSrc={zoomImages[index]?.src || slide.src} objectFit={slide.fit ?? 'cover'} objectPosition={slide.position ?? (index === 0 ? 'center 30%' : 'center')} onOpen={()=>setOpen(true)} iconStyle={{right:'auto',left:12,bottom:12}}>
+ <HeroSwipeImage slides={HERO_CAROUSEL_SLIDES} index={index} onChange={setIndex} sizes="(max-width: 768px) 266px, 700px" priority objectFit="cover" objectPosition={index === 0 ? 'center 30%' : 'center'}/>
+ </ZoomFrame>
+ {slide.showChips !== false && <div className={`nx-original-chips ${index === 0 ? 'nx-original-chips-first' : ''}`}><NexusHeroChipsMobile/></div>}
+ <div className={`nx-original-certified ${light ? 'nx-original-certified-light' : ''}`}><Qi2CertifiedBadge size={34} compact variant={light?'light':'dark'}/><span>Zertifiziert</span></div>
+ {[-1,1].map(dir=><Button variant="outline" className={`nx-gallery-arrow ${dir<0?'nx-gallery-prev':'nx-gallery-next'}`} aria-label={dir<0?'Vorheriges Bild':'Nächstes Bild'} key={dir} onClick={()=>setIndex((index+dir+HERO_CAROUSEL_SLIDES.length)%HERO_CAROUSEL_SLIDES.length)}>{dir<0?<ChevronLeft size={18}/>:<ChevronRight size={18}/>}</Button>)}
+ </div><div className="nx-thumbnails" role="tablist" aria-label="Produktbilder">{HERO_CAROUSEL_SLIDES.map((s,i)=><Button variant="outline" role="tab" className="nx-thumb" aria-label={`Bild ${i+1} anzeigen`} aria-selected={i===index} key={s.src} onClick={()=>setIndex(i)}><img src={s.thumb} alt={`Vorschau: ${s.alt}`} width={48} height={48} loading="lazy" decoding="async"/></Button>)}</div><ProductLightbox open={open} images={zoomImages} index={index} onIndexChange={setIndex} onClose={()=>setOpen(false)}/></div>;
 }
