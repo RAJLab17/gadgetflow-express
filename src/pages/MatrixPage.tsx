@@ -42,6 +42,7 @@ import {
 } from "@/components/matrix/matrixCommerce";
 import { airpodsThumbs, renderSizes } from "@/assets/matrix/responsiveRenders";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
+import MobileSelectionPreview from "@/components/product/MobileSelectionPreview";
 
 import MatrixGallery from '@/components/matrix/MatrixGallery';
 import MatrixEditorial from '@/components/matrix/MatrixEditorial';
@@ -194,7 +195,11 @@ const warmVariantImages = () => {
   else window.addEventListener("load", idle, { once: true });
 };
 
+const PREVIEW_IMAGES = Array.from(new Set(Object.values(RENDERS).map(src => renderSizes.get(src)?.thumb ?? src)));
+
 const MatrixPage = () => {
+  const [previewRevision, setPreviewRevision] = useState(0);
+  const previewChange = () => setPreviewRevision(value => value + 1);
   useState(() => { holdReviewsUntilImage(); return null; });
   const { reviews: productReviews } = useProductReviews("matrix");
   useEffect(() => {
@@ -326,6 +331,7 @@ const MatrixPage = () => {
   const selectModel = (id: ModelId) => {
     const next = MODELS.find((m) => m.id === id);
     if (!next) return;
+    if (modelId !== id) previewChange();
     setModelId(id);
     setModelError(false);
     if (!DEVICE_FINISHES.find((f) => f.id === deviceId)?.gens.includes(next.gen)) {
@@ -407,7 +413,7 @@ const MatrixPage = () => {
               <div className="mx-photos"><ProductCustomerPhotos productId="matrix" /></div>
               <ul className="mx-points">{[{Icon:Layers,text:'Carbon-Design, matt und griffig'},{Icon:Sparkles,text:'Goldene Tasten und Kameraring aus eloxiertem Aluminium'},{Icon:Magnet,text:'Kompatibel mit MagSafe und Qi2.2, bis zu 25 W'}].map(({Icon,text})=><li key={text}><Icon strokeWidth={1.5}/><span>{text}</span></li>)}</ul>
               <div ref={modelPickerRef} className={`mx-models ${modelError ? 'is-invalid' : ''}`}><p className="mx-model-label">{modelId ? `Dein iPhone · ${model.name}` : 'Welches iPhone hast du?'}</p><div className="mx-model-grid">{MODELS.map(m=><Button key={m.id} variant="outline" className="mx-model-button" aria-pressed={modelId===m.id} onClick={()=>selectModel(m.id)}>{m.name}</Button>)}</div>{modelError && <p role="alert" className="mx-model-error">Bitte wähle zuerst dein iPhone-Modell</p>}</div>
-              <div className="mx-colors"><div><p className="mx-color-label">Hülle · {caseFinish.name}</p><div className="mx-swatches">{CASE_FINISHES.map(c=><Button key={c.id} variant="ghost" className="mx-swatch" aria-label={c.name} aria-pressed={caseId===c.id} onClick={()=>{setCaseId(c.id);setAirpodsColorId(null);}}><span className={`mx-swatch-dot mx-swatch-${c.id}`}/></Button>)}</div></div><div><p className="mx-color-label">iPhone · {device.name}</p><div className="mx-swatches">{finishes.map(f=><Button key={f.id} variant="ghost" className="mx-swatch" aria-label={f.name} aria-pressed={device.id===f.id} onClick={()=>setDeviceId(f.id)}><span className={`mx-swatch-dot mx-swatch-${f.id}`}/></Button>)}</div></div></div>
+              <div className="mx-colors"><div><p className="mx-color-label">Hülle · {caseFinish.name}</p><div className="mx-swatches">{CASE_FINISHES.map(c=><Button key={c.id} variant="ghost" className="mx-swatch" aria-label={c.name} aria-pressed={caseId===c.id} onClick={()=>{if(caseId!==c.id)previewChange();setCaseId(c.id);setAirpodsColorId(null);}}><span className={`mx-swatch-dot mx-swatch-${c.id}`}/></Button>)}</div></div><div><p className="mx-color-label">iPhone · {device.name}</p><div className="mx-swatches">{finishes.map(f=><Button key={f.id} variant="ghost" className="mx-swatch" aria-label={f.name} aria-pressed={device.id===f.id} onClick={()=>{if(device.id!==f.id)previewChange();setDeviceId(f.id);}}><span className={`mx-swatch-dot mx-swatch-${f.id}`}/></Button>)}</div></div></div>
               <div className="mx-bundles"><label className="mx-airpods"><Checkbox aria-label="Passendes AirPods Case dazu" checked={airpodsSelected} onCheckedChange={checked=>{setAirpodsSelected(checked===true);setTwoCasesSelected(false);setAirpodsColorId(null);}}/><img src={airpodsCase.thumb} alt={`AirPods Case ${caseFinish.name}`} width={40} height={48} loading="lazy"/><span className="mx-airpods-text"><strong>Passendes AirPods Case dazu</strong><small>AirPods 4 und 5 · {caseFinish.name}</small></span><span className="mx-addon-price">+ CHF 20.–<del>35.–</del></span></label>
                 <Button variant={BLACK_FRIDAY_MODE ? 'outline' : 'link'} className={BLACK_FRIDAY_MODE ? 'mx-bf' : 'mx-two-link'} aria-pressed={twoCasesSelected} onClick={()=>{setTwoCasesSelected(!twoCasesSelected);setAirpodsSelected(false);if(!twoCasesSelected){setSecondModelId(modelId);setSecondCaseId(caseId);}}}>{BLACK_FRIDAY_MODE ? <><span><span className="mx-bf-badge">BLACK FRIDAY</span>2 Hüllen für CHF 99.–<small>Eine für dich, eine zum Verschenken</small></span><del>118.–</del></> : <span>Zwei Hüllen? CHF 99.– statt 118.– ›</span>}</Button>
                 {twoCasesSelected && <div className="mx-second"><p className="mx-second-label">Zweite Hülle</p><div className="mx-model-grid">{MODELS.map(m=><Button key={m.id} variant="outline" className="mx-model-button" aria-pressed={secondModel.id===m.id} onClick={()=>setSecondModelId(m.id)}>{m.name}</Button>)}</div><div className="mx-second-colors">{CASE_FINISHES.map(c=><Button key={c.id} variant="outline" aria-pressed={secondCaseFinish.id===c.id} onClick={()=>setSecondCaseId(c.id)}>{c.name}</Button>)}</div></div>}
@@ -422,7 +428,8 @@ const MatrixPage = () => {
           <MatrixEditorial/>
         </main>
         <Footer/>
-        <MobileProductBuyBar mainBuyRef={mainBuyRef} name={`MATRIX · ${modelId ? model.short : 'Modell wählen'} · ${caseFinish.name}${twoCasesSelected ? ' · 2 Hüllen' : airpodsSelected ? ' + AirPods' : ''}`} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`} price={currentTotal} busy={isBuying}/>
+        <MobileSelectionPreview gallerySelector=".mx-gallery-frame" revision={previewRevision} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} label={`${caseId === "cherry" ? "Cherry" : "Onyx"} · ${device.name}`} announcement={`${caseFinish.name} auf iPhone ${device.name}${modelId ? ` · ${model.name}` : ""}`} preloadImages={PREVIEW_IMAGES}/>
+        <MobileProductBuyBar mainBuyRef={mainBuyRef} name={`MATRIX · ${modelId ? model.short : 'Modell wählen'} · ${caseFinish.name} · ${device.name}${twoCasesSelected ? ' · 2 Hüllen' : airpodsSelected ? ' + AirPods' : ''}`} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`} price={currentTotal} busy={isBuying}/>
       </div>
     </>
   );
