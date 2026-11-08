@@ -199,3 +199,7 @@
 .mx-photos>div>button img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 }
 
+.mx-preview-label{color:var(--mx-muted);min-height:34px}
+.mx-preview-hint{color:var(--mx-muted)}
+.mx-swatch-disabled{display:inline-flex;align-items:center;justify-content:center;opacity:.35;pointer-events:none;cursor:not-allowed}
+.mx-swatch-placeholder{background:#b9b4ad;display:block}
