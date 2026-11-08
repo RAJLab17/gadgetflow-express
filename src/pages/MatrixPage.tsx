@@ -421,7 +421,7 @@ const MatrixPage = () => {
               {confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Bestätigung schliessen" onClick={dismissOrder}><X size={16}/></Button><p>Bestellung eingegangen</p><p>{confirmed.summary} · {confirmed.total}</p></div>}
               {pending && !confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Hinweis schliessen" onClick={dismissPending}><X size={16}/></Button><p>Checkout läuft</p></div>}
               <Button ref={mainBuyRef} className="mx-buy" onClick={handleBuy} disabled={isBuying}>{isBuying ? <Loader2 className="animate-spin" size={18}/> : `Jetzt kaufen · CHF ${currentTotal}.–`}</Button>
-              <div className="mx-payment"><span><LockKeyhole size={11}/> Sichere Zahlung</span>{['TWINT','Apple Pay','Visa','Mastercard'].map(p=><b key={p}>{p}</b>)}</div>
+              <div className="mx-payment"><span><LockKeyhole size={11}/> Sichere Zahlung</span>{['TWINT','Klarna','Apple Pay','Visa','Mastercard'].map(p=><b key={p}>{p}</b>)}</div>
               <div className="mx-trust">{[{Icon:Truck,text:'Gratis Versand, 2 bis 3 Tage'},{Icon:RotateCcw,text:'30 Tage gratis Rückgabe'},{Icon:MapPin,text:'Support aus der Schweiz'},{Icon:PencilRuler,text:'Gestaltet in der Schweiz'}].map(({Icon,text})=><div key={text}><Icon strokeWidth={1.5}/><span>{text}</span></div>)}</div>
             </div>
           </section>
