@@ -16,7 +16,7 @@ import MobileProductBuyBar from '@/components/product/MobileProductBuyBar';
 import NexusTrustBar from '@/components/nexus/NexusTrustBar';
 import NexusGallery from '@/components/nexus/NexusGallery';
 import NexusEditorial from '@/components/nexus/NexusEditorial';
-import { NEXUS_PRICE, NEXUS_PACKAGE, NEXUS_FAQ, NEXUS_GALLERY } from '@/components/nexus/nexusContent';
+import { NEXUS_PRICE, NEXUS_FAQ, NEXUS_GALLERY } from '@/components/nexus/nexusContent';
 import { nexusReviewData } from '@/components/nexus/nexusReviewData';
 import logo from '@/assets/logo-transparent.webp';
 import '@/components/nexus/nexus-page.css';
