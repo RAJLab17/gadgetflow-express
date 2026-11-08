@@ -4,7 +4,7 @@ import hero1200 from '@/assets/products/nexus-hero-v2-1200w.webp.asset.json';
 import bedside from '@/assets/nexus-carousel/slide-3-900.webp';
 import bedsideFull from '@/assets/nexus-carousel/slide-3-1400.webp';
 import desk from '@/assets/products/nexus-desk-writing-1000w.webp';
-import folds from '@/assets/products/nexus-real-folds-white.webp';
+import folds from '@/assets/products/nexus-real-folds-white-tight.webp';
 import sofa from '@/assets/products/nexus-sidetable-enjoy-680w.webp';
 import skyline from '@/assets/products/nexus-office-skyline-680w.webp';
 export const NEXUS_PRICE = 99;
