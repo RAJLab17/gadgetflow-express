@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] MATRIX/AirPods: mobile off-screen selection preview, current buy-bar selection; verify 390px timer, gallery return, desktop and unchanged purchases; do not publish.
+
 - [x] NEXUS: original six-slide top hero gallery restored with original crops and mobile 320px/desktop square framing; purchase-area Marcel quote removed only; both buttons reached real NEXUS CHF 99 checkout, all six images loaded, desktop no overflow, 6 tests passed; 390px buy y=816px, page height=6422px; no publication.
 
 - [x] AirPods: compact page, corrected wording/gallery/FAQ and Sabrina fallback; all 10 real checkout cases passed (2 single CHF 35, 8 sets CHF 79 with exact variants), main/sticky no-model guards passed, desktop no overflow, 13 tests passed; 390px single buy y=1034px and page height=5632px, crawler updated, no publication. Studio set composes existing phone and AirPods images because no combined asset was found.
