@@ -106,7 +106,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "cherry",
     name: "Cherry Carbon",
-    material: "Carbon-Design, Cherry · Aluminium-Knöpfe in Gold",
+    material: "Echte Carbon-Oberfläche, Cherry · Aluminium-Knöpfe in Gold",
     base: "#7b4b60",
     weave: "#a66f83",
     edge: "#4f2b3a",
@@ -115,7 +115,7 @@ const CASE_FINISHES: CaseFinish[] = [
   {
     id: "onyx",
     name: "Onyx Carbon",
-    material: "Carbon-Design, Schwarz · Aluminium-Knöpfe in Gold",
+    material: "Echte Carbon-Oberfläche, Schwarz · Aluminium-Knöpfe in Gold",
     base: "#16171a",
     weave: "#33363c",
     edge: "#08090a",
@@ -341,9 +341,10 @@ const MatrixPage = () => {
     "@context": "https://schema.org",
     "@type": "Product",
     name: "RAJ MATRIX Carbon Hülle MagSafe",
+    material: "Polycarbonat-Hartschale mit echter Carbon-Oberfläche",
     brand: { "@type": "Brand", name: "RAJ" },
     description:
-      "RAJ MATRIX, schlanke MagSafe-Hülle im Carbon-Design für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, MagSafe- und Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS.",
+      "RAJ MATRIX, schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Cherry Carbon und Onyx Carbon mit goldenen Aluminium-Knöpfen, MagSafe- und Qi2.2-kompatibel, abgestimmt auf RAJ NEXUS.",
     image: [`https://raj.ch${matrixShareAsset.url}`, `https://raj.ch${cherryDarkcherry18Asset.url}`, `https://raj.ch${onyxDarkgrey18Asset.url}`],
     url: "https://raj.ch/matrix",
     ...reviewSchema("matrix", verifiedMatrixReviews(productReviews)),
@@ -381,16 +382,16 @@ const MatrixPage = () => {
         <title>MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX</title>
         <meta
           name="description"
-          content="Schlanke MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
+          content="Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
         />
         <link rel="canonical" href="https://raj.ch/matrix" />
         <meta property="og:title" content="MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX" />
         <meta
           property="og:description"
-          content="Schlanke MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
+          content="Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
         />
         <meta name="twitter:title" content="MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX" />
-        <meta name="twitter:description" content="Schlanke MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand." />
+        <meta name="twitter:description" content="Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand." />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/matrix" />
         {shareImageTags(shareImages.matrix)}
@@ -404,11 +405,11 @@ const MatrixPage = () => {
           <section className="mx-purchase">
             <MatrixGallery src={caseThumbSrc} finish={caseId} alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`} onFirstLoad={warmVariantImages}/>
             <div className="mx-options">
-              <div><div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle im Carbon-Design</p></div><div className="mx-price">CHF {currentTotal}.–{(airpodsSelected || twoCasesSelected) && <del>statt CHF {twoCasesSelected ? 118 : 94}.–</del>}</div></div>
+              <div><div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price">CHF {currentTotal}.–{(airpodsSelected || twoCasesSelected) && <del>statt CHF {twoCasesSelected ? 118 : 94}.–</del>}</div></div>
                 {verifiedMatrixReviews(productReviews).length > 0 && <Button asChild variant="link" className="mx-rating"><a href="#bewertungen"><StarRating readOnly size={14} value={Math.round(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length)}/><span>{(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length).toFixed(1)} · {verifiedMatrixReviews(productReviews).length} Bewertungen</span></a></Button>}
               </div>
               <div className="mx-photos"><ProductCustomerPhotos productId="matrix" /></div>
-              <ul className="mx-points">{[{Icon:Layers,text:'Carbon-Design, matt und griffig'},{Icon:Sparkles,text:'Goldene Tasten und Kameraring aus eloxiertem Aluminium'},{Icon:Magnet,text:'Kompatibel mit MagSafe und Qi2.2, bis zu 25 W'}].map(({Icon,text})=><li key={text}><Icon strokeWidth={1.5}/><span>{text}</span></li>)}</ul>
+              <ul className="mx-points">{[{Icon:Layers,text:'Echte Carbon-Oberfläche, matt und griffig'},{Icon:Sparkles,text:'Goldene Tasten und Kameraring aus eloxiertem Aluminium'},{Icon:Magnet,text:'Kompatibel mit MagSafe und Qi2.2, bis zu 25 W'}].map(({Icon,text})=><li key={text}><Icon strokeWidth={1.5}/><span>{text}</span></li>)}</ul>
               <div ref={modelPickerRef} className={`mx-models ${modelError ? 'is-invalid' : ''}`}><p className="mx-model-label">{modelId ? `Dein iPhone · ${model.name}` : 'Welches iPhone hast du?'}</p><div className="mx-model-grid">{MODELS.map(m=><Button key={m.id} variant="outline" className="mx-model-button" aria-pressed={modelId===m.id} onClick={()=>selectModel(m.id)}>{m.name}</Button>)}</div>{modelError && <p role="alert" className="mx-model-error">Bitte wähle zuerst dein iPhone-Modell</p>}</div>
               <div className="mx-colors"><div><p className="mx-color-label">Hülle · {caseFinish.name}</p><div className="mx-swatches">{CASE_FINISHES.map(c=><Button key={c.id} variant="ghost" className="mx-swatch" aria-label={c.name} aria-pressed={caseId===c.id} onClick={()=>{if(caseId!==c.id)previewChange();setCaseId(c.id);setAirpodsColorId(null);}}><span className={`mx-swatch-dot mx-swatch-${c.id}`}/></Button>)}</div></div><div><p className="mx-color-label mx-preview-label">Vorschau in deiner iPhone-Farbe · {modelId?device.name:<span className="mx-preview-hint">Erst Modell wählen</span>}</p><div className="mx-swatches">{modelId?finishes.map(f=><Button key={f.id} variant="ghost" className="mx-swatch" aria-label={f.name} aria-pressed={device.id===f.id} onClick={()=>{if(device.id!==f.id)previewChange();setDeviceId(f.id);}}><span className={`mx-swatch-dot mx-swatch-${f.id}`}/></Button>):[0,1,2].map(i=><span key={i} className="mx-swatch mx-swatch-disabled" role="button" aria-disabled="true" aria-label="iPhone-Farbe: erst Modell wählen"><span className="mx-swatch-dot mx-swatch-placeholder"/></span>)}</div></div></div>
               <div className="mx-bundles"><label className="mx-airpods"><Checkbox aria-label="Passendes AirPods Case dazu" checked={airpodsSelected} onCheckedChange={checked=>{setAirpodsSelected(checked===true);setTwoCasesSelected(false);setAirpodsColorId(null);}}/><img src={airpodsCase.thumb} alt={`AirPods Case ${caseFinish.name}`} width={40} height={48} loading="lazy"/><span className="mx-airpods-text"><strong>Passendes AirPods Case dazu</strong><small>AirPods 4 und 5 · {caseFinish.name}</small></span><span className="mx-addon-price">+ CHF 20.–<del>35.–</del></span></label>

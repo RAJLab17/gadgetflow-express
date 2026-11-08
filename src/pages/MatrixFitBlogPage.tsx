@@ -37,7 +37,7 @@ const SECTIONS: { q: string; a: string; faq: boolean }[] = [
   },
   {
     q: "Schützt die Hülle Kamera und Display?",
-    a: "Die RAJ MATRIX ist eine robuste Hartschale aus Polycarbonat mit Carbon-Finish. Sie ist leicht, schlagfest und hat eine griffige Oberfläche, damit dir das iPhone nicht so leicht aus der Hand rutscht. Um Kamera und Display ist der Rand erhöht. Legst du das iPhone auf den Tisch, liegen also nicht die Kameralinsen oder das Glas direkt auf, sondern der Rand der Hülle. Das schützt im Alltag vor Kratzern. Trägst du dein iPhone oft zusammen mit Schlüsseln in der Tasche, empfehlen wir für das Display zusätzlich eine Schutzfolie.",
+    a: "Die RAJ MATRIX ist eine robuste Hartschale aus Polycarbonat mit echter Carbon-Oberfläche. Sie ist leicht, schlagfest und hat eine griffige Oberfläche, damit dir das iPhone nicht so leicht aus der Hand rutscht. Um Kamera und Display ist der Rand erhöht. Legst du das iPhone auf den Tisch, liegen also nicht die Kameralinsen oder das Glas direkt auf, sondern der Rand der Hülle. Das schützt im Alltag vor Kratzern. Trägst du dein iPhone oft zusammen mit Schlüsseln in der Tasche, empfehlen wir für das Display zusätzlich eine Schutzfolie.",
     faq: true,
   },
   {

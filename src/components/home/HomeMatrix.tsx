@@ -9,7 +9,7 @@ import cherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-f
 import "@/styles/home-products.css";
 
 const POINTS = [
-  "Carbon-Design mit goldenen Aluminium-Knöpfen",
+  "Echte Carbon-Oberfläche mit goldenen Aluminium-Knöpfen",
   "MagSafe-kompatibel: hält sicher am RAJ NEXUS",
   "Passt auf iPhone 17 Pro bis 18 Pro Max",
 ];

@@ -12,7 +12,7 @@ export const MATRIX_FAQ: FaqItem[] = [
   },
   {
     q: "Woraus besteht die Hülle?",
-    a: "Aus einer leichten, schlagfesten Hartschale aus Polycarbonat im Carbon-Design. Die Knöpfe sind aus goldeloxiertem Aluminium, der Kameraring aus Metall. Unten links sitzt der goldene RAJ Blitz.",
+    a: "Aus einer leichten, schlagfesten Hartschale aus Polycarbonat mit echter Carbon-Oberfläche. Die Knöpfe sind aus goldeloxiertem Aluminium, der Kameraring aus Metall. Unten links sitzt der goldene RAJ Blitz.",
   },
   {
     q: "Wie gut schützt sie Kamera und Display?",
@@ -51,7 +51,7 @@ export const AIRPODS_FAQ: FaqItem[] = [
   },
   {
     q: "Woraus besteht die Hülle?",
-    a: "Die RAJ MATRIX AirPods-Hülle ist eine robuste Hartschale aus Polycarbonat mit Carbon-Finish – leicht, schlagfest und mit griffiger Oberfläche. Das Finish entspricht der MATRIX iPhone-Hülle, wahlweise in Cherry Carbon oder Onyx Carbon. Auf der Hülle sitzt der goldene RAJ Blitz, dazu kommt ein abnehmbarer Karabiner aus eloxiertem Aluminium. Wenn du beide Hüllen kaufst, wählt die MATRIX-Seite die AirPods-Farbe automatisch passend zu deiner iPhone-Hülle, du kannst sie aber auch frei kombinieren. So entsteht ein einheitliches Set für iPhone und AirPods.",
+    a: "Die RAJ MATRIX AirPods-Hülle ist eine robuste Hartschale aus Polycarbonat mit echter Carbon-Oberfläche – leicht, schlagfest und mit griffiger Oberfläche. Die Carbon-Oberfläche entspricht der MATRIX iPhone-Hülle, wahlweise in Cherry Carbon oder Onyx Carbon. Auf der Hülle sitzt der goldene RAJ Blitz, dazu kommt ein abnehmbarer Karabiner aus eloxiertem Aluminium. Wenn du beide Hüllen kaufst, wählt die MATRIX-Seite die AirPods-Farbe automatisch passend zu deiner iPhone-Hülle, du kannst sie aber auch frei kombinieren. So entsteht ein einheitliches Set für iPhone und AirPods.",
   },
   {
     q: "Wie schnell wird geliefert und was kostet der Versand?",

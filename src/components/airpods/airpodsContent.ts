@@ -120,7 +120,7 @@ export const slideSrcSet = (s: Slide) => `${s.sm} 400w, ${s.md} 800w, ${s.src} 1
 export const AIRPODS_FAQ = [
  ['Passt die Hülle auf meine AirPods?','Ja, auf AirPods 4 (mit und ohne aktive Geräuschunterdrückung) und AirPods 5. Die Ladecases haben laut Apple dieselben Masse. Für AirPods Pro gibt es die Hülle nicht.'],
  ['Kann ich kabellos laden, ohne die Hülle abzunehmen?','Ja, wenn dein Ladecase kabelloses Laden unterstützt: AirPods 4 mit ANC und AirPods 5. Zum Beispiel auf dem RAJ NEXUS.'],
- ['Ist das echtes Carbon?','Nein. Es ist eine Hartschale aus Polycarbonat im Carbon-Design, gleich wie die MATRIX iPhone Hülle. Der Karabiner ist aus eloxiertem Aluminium.'],
+ ['Ist das echtes Carbon?','Ja. Die Oberfläche ist aus echtem Carbon, gleich wie bei der MATRIX iPhone Hülle, auf einer Hartschale aus Polycarbonat. Der Karabiner ist aus eloxiertem Aluminium.'],
  ['Wofür ist der Karabiner?','Damit hängst du das Case an Tasche, Rucksack oder Schlüsselbund. Du kannst ihn abnehmen.'],
  ['Wann kommt meine Bestellung?','Gratis Versand mit der Post in 2 bis 3 Werktagen, mit Sendungsverfolgung.'],
  ['Kann ich zurückgeben?','30 Tage ab Erhalt, ohne Gebrauchsspuren und in der Originalverpackung. Die Rücksendeetikette ist gratis.'],

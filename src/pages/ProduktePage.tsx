@@ -46,14 +46,14 @@ const products: Product[] = [
     name: "MATRIX",
     tagline: "Schutz mit Charakter.",
     description:
-      "Carbon Hülle für iPhone 17 und 18 Pro / Pro Max. Cherry Carbon oder Onyx Carbon, goldene Knöpfe, MagSafe-kompatibel.",
+      "Hülle aus echtem Carbon für iPhone 17 und 18 Pro / Pro Max. Cherry Carbon oder Onyx Carbon, goldene Knöpfe, MagSafe-kompatibel.",
     price: "ab CHF 59.–",
     status: "Jetzt verfügbar",
     link: "/matrix",
     img: matrixImg,
     imgAlt: "RAJ MATRIX Carbon-Case in Cherry Carbon mit goldenen Details auf einem Podest",
     specs: [
-      { label: "Material", value: "Carbon" },
+      { label: "Material", value: "Polycarbonat mit echter Carbon-Oberfläche" },
       { label: "Modelle", value: "iPhone 17/18 Pro" },
     ],
   },
@@ -62,14 +62,14 @@ const products: Product[] = [
     name: "MATRIX AirPods",
     tagline: "",
     description:
-      "Carbon Hülle für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon, mit goldenem Karabiner.",
+      "Hülle aus echtem Carbon für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon, mit goldenem Karabiner.",
     price: "CHF 35.–",
     status: "Jetzt verfügbar",
     link: "/airpods-case",
     img: `https://raj.ch${airpodsCherryProduct.url}`,
     imgAlt: "MATRIX AirPods Hülle in Cherry Carbon mit goldenem Karabiner",
     specs: [
-      { label: "Material", value: "Carbon" },
+      { label: "Material", value: "Polycarbonat mit echter Carbon-Oberfläche" },
       { label: "Modelle", value: "AirPods 4 & 5" },
     ],
   },

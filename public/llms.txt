@@ -15,7 +15,7 @@
 
 ### RAJ MATRIX (iPhone Hülle)
 - URL: https://raj.ch/matrix
-- Beschreibung: MagSafe Carbon-Hülle.
+- Beschreibung: MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Hartschale aus Polycarbonat.
 - Preis: CHF 59.–. Bundle mit AirPods-Hülle CHF 79.–. 2 Hüllen CHF 99.–.
 - Kompatibel: iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro, iPhone 18 Pro Max.
 - Eigenschaften: Cherry Carbon oder Onyx Carbon, Aluminium-Knöpfe in Gold, N52-Magnetring für MagSafe-Zubehör, kabelloses Laden mit Qi2.2 direkt durch die Hülle, abgestimmt auf die RAJ NEXUS Ladestation.
@@ -26,7 +26,7 @@
 - URL: https://raj.ch/airpods-case
 - Preis: CHF 35. Mit MATRIX iPhone Hülle im Bundle CHF 79.
 - Kompatibel: AirPods 4 (mit und ohne aktive Geräuschunterdrückung) und AirPods 5.
-- Eigenschaften: Hülle in Cherry Carbon oder Onyx Carbon mit goldenem Blitz und goldenem Karabiner. Kabelloses Laden durch die Hülle, sofern das Ladecase es unterstützt.
+- Eigenschaften: Polycarbonat-Hartschale mit echter Carbon-Oberfläche in Cherry Carbon oder Onyx Carbon mit goldenem Blitz und goldenem Karabiner. Kabelloses Laden durch die Hülle, sofern das Ladecase es unterstützt.
 - Lieferzeit: Lieferung in 2–3 Werktagen. Gratis Versand in der Schweiz.
 - Rückgabe: 30 Tage.
 
@@ -134,4 +134,4 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 - **Response time:** within 24h, in German
 
 ## Last Updated
-02.11.2026
+08.11.2026
