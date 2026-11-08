@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] MATRIX/AirPods: confirmed real carbon surface on polycarbonate shell throughout public content, metadata and schemas; synchronize crawler, verify unchanged commerce/layout, do not publish.
+- [x] MATRIX/AirPods: real carbon surface on polycarbonate shell corrected in public pages, metadata, schemas, llms.txt and crawler; 390px views, 28 selection tests and unchanged prices/IDs checked; not published.
 
 - [x] MATRIX/AirPods: mobile selection preview and current buy-bar selection; 390px correct images, timer restart/expiry, gallery-image-1 return, visible-gallery suppression, no automatic scroll or added height, reduced motion and desktop verified; 33 tests passed, real checkout totals CHF 59/79 confirmed, build OK; not published.
 
