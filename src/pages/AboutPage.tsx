@@ -58,10 +58,10 @@ const COLLECTION = [
   },
   {
     name: "RAJ MATRIX",
-    copy: "Hülle im Carbon-Look für iPhone 17 und 18 Pro.",
+    copy: "Hülle aus echtem Carbon für iPhone 17 und 18 Pro.",
     link: "/matrix",
     img: matrixImageAsset.url,
-    alt: "RAJ MATRIX Hülle im Carbon-Look mit goldenem Emblem",
+    alt: "RAJ MATRIX Hülle aus echtem Carbon mit goldenem Emblem",
     fallback: matrixFallback,
   },
   {

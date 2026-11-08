@@ -8,7 +8,7 @@ import onyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp
 import cherry from "@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json";
 
 const POINTS = [
-  "Carbon-Look mit goldenen Aluminium-Knöpfen",
+  "Echte Carbon-Oberfläche mit goldenen Aluminium-Knöpfen",
   "MagSafe: hält sicher am RAJ NEXUS",
   "Passt auf iPhone 17 Pro bis 18 Pro Max",
 ];

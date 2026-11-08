@@ -40,7 +40,7 @@ const MatrixBlogPage = () => {
       </Helmet>
       <PremiumPageLayout
         title="MATRIX Carbon-Hülle iPhone 18 Pro & Pro Max – MagSafe | RAJ"
-        metaDescription="Die RAJ MATRIX Carbon-Hülle für iPhone 18 Pro und Pro Max: schlanker Hightech-Look, MagSafe-kompatibel, präzise Passform. Schweizer Marke."
+        metaDescription="Die RAJ MATRIX Carbon-Hülle für iPhone 18 Pro und Pro Max: echte Carbon-Oberfläche auf Polycarbonat, MagSafe-kompatibel, präzise Passform. Schweizer Marke."
         canonical="https://raj.ch/blog/matrix-iphone-18-case"
         eyebrow="Ratgeber"
         heading="Die RAJ MATRIX Carbon-Hülle für iPhone 18 Pro und Pro Max"
@@ -48,9 +48,9 @@ const MatrixBlogPage = () => {
         meta={<p>Zuletzt aktualisiert: Juni 2026</p>}
         width="wide"
       >
-        <H2>Der Carbon-Look, der nie aus der Mode kommt</H2>
+        <H2>Echtes Carbon, das nie aus der Mode kommt</H2>
         <P>
-          Die geflochtene Carbon-Struktur kennt man aus dem Motorsport, aus Supersportwagen und aus hochwertiger
+          Die Oberfläche der MATRIX besteht aus echtem Carbon auf einer Hartschale aus Polycarbonat. Die geflochtene Carbon-Struktur kennt man aus dem Motorsport, aus Supersportwagen und aus hochwertiger
           Technik. Sie steht für Leichtigkeit, Stärke und Stil. Auf deinem iPhone 18 Pro oder iPhone 18 Pro Max
           wirkt dieser Look edel und unaufdringlich zugleich – ein Case, das auffällt, ohne aufzutragen. Und es
           fühlt sich genauso gut an, wie es aussieht: angenehm griffig, mit sicherem Halt in der Hand.
@@ -120,7 +120,7 @@ const MatrixBlogPage = () => {
 
         <H2>Fazit</H2>
         <P>
-          Die RAJ MATRIX Carbon-Hülle für iPhone 18 Pro und Pro Max verbindet den zeitlosen Carbon-Look mit einem
+          Die RAJ MATRIX Carbon-Hülle für iPhone 18 Pro und Pro Max verbindet eine Oberfläche aus echtem Carbon auf einer Polycarbonat-Hartschale mit einem
           schlanken, griffigen Design, präziser Passform und MagSafe-Kompatibilität. Kein Kompromiss zwischen Stil
           und Schutz – sondern beides in einer Hülle, die zu deinem Apple-Ökosystem passt.
         </P>

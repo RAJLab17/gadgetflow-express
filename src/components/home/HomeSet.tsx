@@ -11,7 +11,7 @@ export default function HomeSet() {
       <Link to="/matrix" className="home-set-photo" aria-label="Set ansehen"><img src={photo900.url} srcSet={`${photo900.url} 900w, ${photoLarge.url} 952w`} sizes="(max-width: 1023px) 350px, 480px" width={952} height={1269} loading="lazy" decoding="async" alt="RAJ MATRIX Hülle und AirPods-Hülle in Cherry Carbon, in der Hand am See" /></Link>
       <div className="home-set-copy">
         <p className="home-set-eyebrow">DAS SET</p>
-        <h2 className="home-set-title">Hülle und AirPods-Hülle.<span>Im selben Carbon-Design.</span></h2>
+        <h2 className="home-set-title">Hülle und AirPods-Hülle.<span>Beide aus echtem Carbon.</span></h2>
         <div className="home-set-buy"><p className="home-set-price">CHF 79.–<del>CHF 94.–</del></p><Button asChild className="home-set-button"><Link to="/matrix">Set ansehen</Link></Button></div>
       </div>
     </div>

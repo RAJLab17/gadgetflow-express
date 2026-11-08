@@ -80,7 +80,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     path: "/blog/matrix-iphone-18-case",
     title: "MATRIX Carbon-Hülle iPhone 18 Pro & Pro Max – MagSafe",
     excerpt:
-      "Schlanker Carbon-Look, MagSafe-kompatibel, präzise Passform. Die MATRIX Hülle für iPhone 18 Pro und Pro Max.",
+      "Echte Carbon-Oberfläche auf Polycarbonat, MagSafe-kompatibel, präzise Passform. Die MATRIX Hülle für iPhone 18 Pro und Pro Max.",
     date: "19.06.2026",
     dateISO: "2026-06-19",
     priority: 0.85,
