@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] MATRIX/AirPods: mobile off-screen selection preview, current buy-bar selection; verify 390px timer, gallery return, desktop and unchanged purchases; do not publish.
+- [x] MATRIX/AirPods: mobile selection preview and current buy-bar selection; 390px correct images, timer restart/expiry, gallery-image-1 return, visible-gallery suppression, no automatic scroll or added height, reduced motion and desktop verified; 33 tests passed, real checkout totals CHF 59/79 confirmed, build OK; not published.
 
 - [x] NEXUS: original six-slide top hero gallery restored with original crops and mobile 320px/desktop square framing; purchase-area Marcel quote removed only; both buttons reached real NEXUS CHF 99 checkout, all six images loaded, desktop no overflow, 6 tests passed; 390px buy y=816px, page height=6422px; no publication.
 
