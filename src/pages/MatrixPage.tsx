@@ -1,5 +1,6 @@
 import {useBlackWeekCatalog,weekCartItem} from "@/hooks/useBlackWeekCatalog";
 import {useCartStore} from "@/stores/cartStore";
+import {blackWeekMatrixLines} from '@/lib/blackWeek';
 import { ProductCustomerPhotos } from "@/components/reviews/ProductReviewHighlights";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import { holdReviewsUntilImage, releaseReviews } from "@/lib/reviewLoadGate";
@@ -253,7 +254,13 @@ const MatrixPage = () => {
         const phone=variants.find(v=>v.id===CASE_VARIANT_IDS[modelId]?.[caseId]);
         const pods=variants.find(v=>v.id===AIRPODS_VARIANT_IDS[caseId]);
         if(!phone || (freeCase&&!pods)) throw new Error("Produktdaten werden noch geladen");
-        await useCartStore.getState().addOffer([weekCartItem(phone,weekQuantity),...(freeCase&&pods?[weekCartItem(pods,weekQuantity)]:[])]);
+        const lines=blackWeekMatrixLines(phone.id,pods?.id??'',weekQuantity,freeCase);
+        const items=lines.map(line=>{
+          const variant=variants.find(v=>v.id===line.merchandiseId);
+          if(!variant)throw new Error('Variante nicht verfügbar');
+          return weekCartItem(variant,line.quantity);
+        });
+        await useCartStore.getState().addOffer(items);
       }catch{toast.error("Der Warenkorb konnte nicht aktualisiert werden. Bitte versuche es erneut.");}finally{setIsBuying(false);}
       return;
     }

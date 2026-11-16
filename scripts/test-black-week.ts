@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { blackWeekActive, blackWeekDiscountCodes, BLACK_WEEK_START, BLACK_WEEK_END } from '../src/lib/blackWeek';
+import { blackWeekActive, blackWeekDiscountCodes, blackWeekMatrixLines, BLACK_WEEK_START, BLACK_WEEK_END } from '../src/lib/blackWeek';
 describe('Black Week rules', () => {
   test('starts at Zurich midnight on 18 November', () => {
     expect(BLACK_WEEK_START).toBe(Date.parse('2026-11-17T23:00:00Z'));
@@ -16,4 +16,6 @@ describe('Black Week rules', () => {
   test('emergency overrides preview', () => expect(blackWeekActive(BLACK_WEEK_START, 'vorschau', true)).toBe(false));
   test('normal bundles retain exact codes', () => expect(blackWeekDiscountCodes(['MATRIXBUNDLE','MATRIX2'], false)).toEqual(['MATRIXBUNDLE','MATRIX2']));
   test('Black Week removes conflicting bundle codes', () => expect(blackWeekDiscountCodes(['MATRIXBUNDLE','MATRIX2'], true)).toEqual([]));
+  test('two MATRIX cases get two matching AirPods cases', () => expect(blackWeekMatrixLines('matrix-onyx','airpods-onyx',2,true)).toEqual([{merchandiseId:'matrix-onyx',quantity:2},{merchandiseId:'airpods-onyx',quantity:2}]));
+  test('free case can be deselected', () => expect(blackWeekMatrixLines('matrix-cherry','airpods-cherry',1,false)).toEqual([{merchandiseId:'matrix-cherry',quantity:1}]));
 });

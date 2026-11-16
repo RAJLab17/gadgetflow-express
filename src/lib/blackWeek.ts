@@ -20,3 +20,6 @@ export function isBlackWeek(): boolean {
 export function blackWeekDiscountCodes(codes?: string[], active = isBlackWeek()) {
   return active ? codes?.filter(code => !['MATRIXBUNDLE', 'MATRIX2'].includes(code.toUpperCase())) : codes;
 }
+export function blackWeekMatrixLines(phoneId: string, caseId: string, quantity: number, includeCase: boolean) {
+  return [{ merchandiseId: phoneId, quantity }, ...(includeCase ? [{merchandiseId: caseId, quantity}] : [])];
+}
