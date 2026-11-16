@@ -36,6 +36,8 @@
     --charging-divider: linear-gradient(90deg, transparent, rgba(215, 173, 130, 0.35), transparent);
 
     /* RAJ design tokens for the new homepage sections */
+    --bw-dark: #141210;
+    --bw-white: #ffffff;
     --raj-black: #000000;
     --raj-ivory: #F3EFE7;
     --raj-white: #FAF8F5;

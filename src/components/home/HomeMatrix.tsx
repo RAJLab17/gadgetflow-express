@@ -1,3 +1,4 @@
+import {useBlackWeekCatalog} from "@/hooks/useBlackWeekCatalog";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
@@ -15,6 +16,8 @@ const POINTS = [
 ];
 
 export default function HomeMatrix() {
+  const {active:blackWeek,nexus,variants}=useBlackWeekCatalog();
+  const matrix=variants.find(v=>v.product.handle==="raj-matrix-case");
   const ref = useRef<HTMLAnchorElement>(null);
   const [visible, setVisible] = useState(false);
   const { stats, isSuccess } = useProductReviews("matrix");
@@ -37,7 +40,7 @@ export default function HomeMatrix() {
         <span className="home-matrix-case home-matrix-case-front"><img src={onyx.url} alt="RAJ MATRIX Hülle Onyx Carbon mit iPhone 18 Pro in Dark Grey" width={600} height={750} loading="lazy" decoding="async" /></span>
       </Link>
       <ul className="home-matrix-points">{POINTS.map(point => <li key={point}><Check aria-hidden="true" strokeWidth={1.4} /><span>{point}</span></li>)}</ul>
-      <p className="home-matrix-price">ab CHF 59.–</p>
+      <p className="home-matrix-price">ab CHF {blackWeek ? matrix ? Number(matrix.price.amount) : "…" : 59}.–</p>
       <p className="home-matrix-rating">
         {isSuccess && stats.total > 0 && <Link to="/reviews?product=matrix"><span className="home-matrix-stars" aria-hidden="true">★★★★★</span><span>{stats.average.toFixed(1)} · {stats.total} {stats.total === 1 ? "Bewertung" : "Bewertungen"}</span></Link>}
       </p>
