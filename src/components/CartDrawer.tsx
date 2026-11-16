@@ -11,6 +11,7 @@ import { goToCheckout } from "@/lib/checkout";
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const blackWeek = useBlackWeek();
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const { items, shopifyTotal, lineCosts, discounts, isLoading, isSyncing, updateQuantity, removeItem, syncCart, getCheckoutUrl } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const localTotal = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
@@ -18,7 +19,9 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
   const totalPrice = blackWeek && shopifyTotal !== null ? Number(shopifyTotal) : localTotal;
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
   useEffect(() => {
-    const open = () => setIsOpen(true);
+    const open = () => {
+      if (triggerRef.current && triggerRef.current.getClientRects().length > 0) setIsOpen(true);
+    };
     window.addEventListener(OPEN_CART_EVENT, open);
     return () => window.removeEventListener(OPEN_CART_EVENT, open);
   }, []);
@@ -39,6 +42,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
+          ref={triggerRef}
           variant="outline"
           size="icon"
           className={`relative ${triggerClassName ?? ""}`}
