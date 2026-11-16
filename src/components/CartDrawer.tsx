@@ -5,17 +5,24 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
+import { useBlackWeek } from "@/hooks/useBlackWeek";
 import { goToCheckout } from "@/lib/checkout";
+import { trackBeginCheckout } from '@/lib/ga-ecommerce';
 
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
+  const blackWeek = useBlackWeek();
   const [isOpen, setIsOpen] = useState(false);
-  const { items, isLoading, isSyncing, updateQuantity, removeItem, syncCart, getCheckoutUrl } = useCartStore();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const { items, shopifyTotal, lineCosts, discounts, isLoading, isSyncing, updateQuantity, removeItem, syncCart, getCheckoutUrl } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
+  const localTotal = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
 
+  const totalPrice = blackWeek && shopifyTotal !== null ? Number(shopifyTotal) : localTotal;
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
   useEffect(() => {
-    const open = () => setIsOpen(true);
+    const open = () => {
+      if (triggerRef.current && triggerRef.current.getClientRects().length > 0) setIsOpen(true);
+    };
     window.addEventListener(OPEN_CART_EVENT, open);
     return () => window.removeEventListener(OPEN_CART_EVENT, open);
   }, []);
@@ -28,6 +35,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     lastClick.current = now;
     const checkoutUrl = getCheckoutUrl();
     if (!checkoutUrl) return;
+    if (blackWeek) trackBeginCheckout(items.map(item=>({item_id:item.variantId,item_name:item.product.node.title,item_variant:item.variantTitle,quantity:item.quantity,price:Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount??item.price.amount)/(lineCosts.find(l=>l.merchandise.id===item.variantId)?.quantity??1)})));
     setIsOpen(false);
     goToCheckout(null, checkoutUrl);
   };
@@ -36,6 +44,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
+          ref={triggerRef}
           variant="outline"
           size="icon"
           className={`relative ${triggerClassName ?? ""}`}
@@ -95,7 +104,8 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
                           <h4 className="font-medium text-[#f5f3ee] text-sm leading-tight">{item.product.node.title}</h4>
                           <p className="text-xs text-[#c9b99a]/80 mt-1">{item.selectedOptions.map(o => o.value).join(' • ')}</p>
                         </div>
-                        <p className="text-sm font-semibold text-[#9b6b3f]">{item.price.currencyCode} {parseFloat(item.price.amount).toFixed(2)}</p>
+                        <p className="text-sm font-semibold text-[#9b6b3f]">{item.price.currencyCode} {blackWeek && lineCosts.find(l=>l.merchandise.id===item.variantId) ? (Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)/item.quantity).toFixed(2) : parseFloat(item.price.amount).toFixed(2)}</p>
+                        {blackWeek && lineCosts.find(l=>l.merchandise.id===item.variantId)?.discountAllocations.map((d,i)=><p className="bw-cart-discount" key={i}>{Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)===0 && item.product.node.handle.includes("airpods") ? "AirPods Case gratis" : d.title??d.code??"Rabatt"} · −CHF {Number(d.discountedAmount.amount).toFixed(2)}</p>)}
                       </div>
                       <div className="flex flex-col items-end justify-between flex-shrink-0 gap-2">
                         <Button variant="ghost" size="icon" className="h-7 w-7 text-[#c9b99a]/70 hover:text-[#f5f3ee] hover:bg-[#2b2725]/50" onClick={() => removeItem(item.variantId)} aria-label="Artikel entfernen">
@@ -115,6 +125,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
                   ))}
                 </div>
               </div>
+              {blackWeek && discounts.map((d,i)=><p key={i} className="bw-cart-discount">{d.title??d.code??"Rabatt"} · −CHF {Number(d.discountedAmount.amount).toFixed(2)}</p>)}
               <div className="flex-shrink-0 space-y-4 pt-5 border-t border-[#2b2725] bg-[#0a0908]">
                 <div className="flex justify-between items-center">
                   <span className="text-[#c9b99a] text-sm">Gesamt</span>

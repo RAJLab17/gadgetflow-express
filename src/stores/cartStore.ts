@@ -10,12 +10,21 @@ import {
   storefrontApiRequest,
   CART_QUERY,
   normalizeCheckoutUrl,
+  clearBlackWeekBundleCodes,
 } from '@/lib/shopify';
 
 export type { CartItem, ShopifyProduct };
+import { isBlackWeek } from '@/lib/blackWeek';
+import { trackAddToCart } from '@/lib/ga-ecommerce';
+export interface CartDiscount {title?:string;code?:string;discountedAmount:{amount:string;currencyCode:string};}
+export interface CartLineCost {id:string;quantity:number;cost:{totalAmount:{amount:string;currencyCode:string}};discountAllocations:CartDiscount[];merchandise:{id:string};}
 
 interface CartStore {
   items: CartItem[];
+  shopifyTotal: string | null;
+  lineCosts: CartLineCost[];
+  discounts: CartDiscount[];
+  addOffer: (items: CartItem[]) => Promise<void>;
   cartId: string | null;
   checkoutUrl: string | null;
   isLoading: boolean;
@@ -32,6 +41,19 @@ export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
       items: [],
+      shopifyTotal: null, lineCosts: [], discounts: [],
+      addOffer: async (items) => {
+        const existing = get().cartId;
+        if(existing) await clearBlackWeekBundleCodes(existing);
+        for(const item of items) {
+          const previousQuantity=get().items.find(i=>i.variantId===item.variantId)?.quantity??0;
+          await get().addItem(item);
+          if((get().items.find(i=>i.variantId===item.variantId)?.quantity??0)<previousQuantity+item.quantity) throw new Error("Artikel konnte nicht hinzugefügt werden");
+        }
+        await get().syncCart();
+        trackAddToCart(items.map(item=>({item_id:item.variantId,item_name:item.product.node.title,item_variant:item.variantTitle,quantity:item.quantity,price:Number(get().lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount??item.price.amount)/(get().lineCosts.find(l=>l.merchandise.id===item.variantId)?.quantity??1)})));
+        window.dispatchEvent(new Event("raj:open-cart"));
+      },
       cartId: null,
       checkoutUrl: null,
       isLoading: false,
@@ -75,6 +97,7 @@ export const useCartStore = create<CartStore>()(
           console.error('Failed to add item:', error);
         } finally {
           set({ isLoading: false });
+          if(isBlackWeek()) await get().syncCart();
         }
       },
 
@@ -94,7 +117,8 @@ export const useCartStore = create<CartStore>()(
             });
           } else if (result.cartNotFound) { clearCart(); }
         } catch (error) { console.error('Failed to update quantity:', error); }
-        finally { set({ isLoading: false }); }
+        finally { set({ isLoading: false });
+          if(isBlackWeek()) await get().syncCart(); }
       },
 
       removeItem: async (variantId) => {
@@ -112,10 +136,11 @@ export const useCartStore = create<CartStore>()(
               : set({ items: newItems, checkoutUrl: result.checkoutUrl ?? get().checkoutUrl });
           } else if (result.cartNotFound) { clearCart(); }
         } catch (error) { console.error('Failed to remove item:', error); }
-        finally { set({ isLoading: false }); }
+        finally { set({ isLoading: false });
+          if(isBlackWeek()) await get().syncCart(); }
       },
 
-      clearCart: () => set({ items: [], cartId: null, checkoutUrl: null }),
+      clearCart: () => set({ items: [], cartId: null, checkoutUrl: null, shopifyTotal:null,lineCosts:[],discounts:[] }),
       getCheckoutUrl: () => {
         const url = get().checkoutUrl;
         return url ? normalizeCheckoutUrl(url) : null;
@@ -126,13 +151,14 @@ export const useCartStore = create<CartStore>()(
         if (!cartId || isSyncing) return;
         set({ isSyncing: true });
         try {
+          if(isBlackWeek()) await clearBlackWeekBundleCodes(cartId);
           const data = await storefrontApiRequest(CART_QUERY, { id: cartId });
           if (!data) return;
           const cart = data?.data?.cart;
           if (!cart || cart.totalQuantity === 0) {
             clearCart();
           } else {
-            set({ checkoutUrl: cart.checkoutUrl ? normalizeCheckoutUrl(cart.checkoutUrl) : get().checkoutUrl });
+            set({ checkoutUrl: cart.checkoutUrl ? normalizeCheckoutUrl(cart.checkoutUrl) : get().checkoutUrl, shopifyTotal: cart.cost?.totalAmount?.amount ?? null, lineCosts:cart.lines?.edges?.map((e: {node:CartLineCost})=>e.node)??[], discounts:cart.discountAllocations??[] });
           }
         } catch (error) { console.error('Failed to sync cart:', error); }
         finally { set({ isSyncing: false }); }

@@ -1,3 +1,6 @@
+import {isBlackWeek} from "@/lib/blackWeek";
+import {fetchBlackWeekCatalog,weekCartItem} from "@/hooks/useBlackWeekCatalog";
+import {useCartStore} from "@/stores/cartStore";
 import { useCallback, useRef, useState } from "react";
 import { toast } from "sonner";
 import { CartItem, createShopifyCart, fetchProductVariantInfo } from "@/lib/shopify";
@@ -18,6 +21,7 @@ export function useQuickBuy() {
     setIsProcessing(true);
     const checkoutTab = openCheckoutTab();
     try {
+      if(isBlackWeek()){const variants=await fetchBlackWeekCatalog();const nexus=variants.find(v=>v.product.handle==="raj-3-in-1-wireless-charger");if(!nexus)throw new Error("NEXUS nicht verfügbar");await useCartStore.getState().addOffer([weekCartItem(nexus)]);return;}
       const variant = await fetchProductVariantInfo("raj-3-in-1-wireless-charger");
       if (!variant?.availableForSale) {
         checkoutTab?.close();

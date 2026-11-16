@@ -9,7 +9,7 @@ const HomeStory = () => (
       <img className="home-story-logo" src={logo} alt="RAJ Logo" width={240} height={200} loading="lazy" decoding="async" />
       <p id="home-story-eyebrow" className="home-story-eyebrow">HINTER RAJ</p>
       <h2 className="home-story-title">
-        Eine echte Schweizer Marke für Wireless Charging. Eine Marke, mit der man sich <em>identifizieren kann.</em>
+        Gestaltet in der Schweiz. Eine Marke, mit der man sich <em>identifizieren kann.</em>
       </h2>
       <p className="home-story-text">
         Deshalb achten wir auf jedes Detail. Unser Team aus drei Personen arbeitet mit einem klaren Ziel: jedem Kunden ein besseres Erlebnis zu bieten und ihn mit unseren Produkten glücklich zu machen.

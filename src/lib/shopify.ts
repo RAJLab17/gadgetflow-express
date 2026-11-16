@@ -1,7 +1,8 @@
 import { toast } from "sonner";
 import { getOriginCartAttributes } from "@/lib/attribution";
+import { blackWeekDiscountCodes } from '@/lib/blackWeek';
 
-const SHOPIFY_API_VERSION = '2025-07';
+const SHOPIFY_API_VERSION = '2026-10';
 const SHOPIFY_STORE_PERMANENT_DOMAIN = 'kcvjif-10.myshopify.com';
 const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
 const SHOPIFY_STOREFRONT_TOKEN = '647b7b3c3f87465056274c4546111d38';
@@ -135,6 +136,10 @@ const CART_QUERY = `
       id
       checkoutUrl
       totalQuantity
+      discountCodes { code applicable }
+      cost { totalAmount { amount currencyCode } subtotalAmount { amount currencyCode } }
+      discountAllocations { discountedAmount { amount currencyCode } ... on CartAutomaticDiscountAllocation { title } ... on CartCodeDiscountAllocation { code } }
+      lines(first: 100) { edges { node { id quantity cost { totalAmount { amount currencyCode } } discountAllocations { discountedAmount { amount currencyCode } ... on CartAutomaticDiscountAllocation { title } ... on CartCodeDiscountAllocation { code } } merchandise { ... on ProductVariant { id title price { amount currencyCode } selectedOptions { name value } product { id title handle description featuredImage { url altText } } } } } } }
     }
   }
 `;
@@ -226,7 +231,8 @@ export async function createShopifyCart(
 
   const attempt = async (extra: Array<{ key: string; value: string }>) => {
     const input: Record<string, unknown> = { lines: [{ quantity: item.quantity, merchandiseId: item.variantId }] };
-    if (discountCodes?.length) input.discountCodes = discountCodes;
+    const allowedCodes = blackWeekDiscountCodes(discountCodes);
+    if (allowedCodes?.length) input.discountCodes = allowedCodes;
     const all = [...(attributes ?? []), ...extra];
     if (all.length) input.attributes = all;
     const data = await storefrontApiRequest(CART_CREATE_MUTATION, { input });
@@ -322,4 +328,13 @@ export async function fetchProductVariantInfo(handle: string): Promise<ProductVa
     console.error('Failed to fetch product variant info:', error);
     return null;
   }
+}
+
+export async function clearBlackWeekBundleCodes(cartId: string) {
+  const current = await storefrontApiRequest(CART_QUERY, {id:cartId});
+  const codes: string[] = (current?.data?.cart?.discountCodes ?? []).map((c: {code:string})=>c.code);
+  const allowed = blackWeekDiscountCodes(codes);
+  if (allowed?.length === codes.length) return;
+  const result = await storefrontApiRequest(`mutation($id:ID!,$codes:[String!]!){cartDiscountCodesUpdate(cartId:$id,discountCodes:$codes){userErrors{message}}}`,{id:cartId,codes:allowed??[]});
+  if(result?.data?.cartDiscountCodesUpdate?.userErrors?.length) throw new Error('Rabattcodes konnten nicht entfernt werden');
 }

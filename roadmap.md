@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Black Week: Zurich dates/overrides/emergency, live Shopify prices/cost/allocations, gated homepage/product offers and drawer; 45 tests, real normal-mode MATRIXBUNDLE/MATRIX2 checkouts, campaign code-free carts, 390px sticky purchases and desktop overflow checked; not published.
+- [ ] Black Week: confirm automatic free-case/second-NEXUS discounts and CHF 89/99 pricing after Shopify activation on 18 November; currently Shopify returns CHF 99, no compareAtPrice and no automatic allocations, so actual CHF 59/158 promotion totals cannot yet be verified.
+
 - [x] MATRIX/AirPods: real carbon surface on polycarbonate shell corrected in public pages, metadata, schemas, llms.txt and crawler; 390px views, 28 selection tests and unchanged prices/IDs checked; not published.
 
 - [x] MATRIX/AirPods: mobile selection preview and current buy-bar selection; 390px correct images, timer restart/expiry, gallery-image-1 return, visible-gallery suppression, no automatic scroll or added height, reduced motion and desktop verified; 33 tests passed, real checkout totals CHF 59/79 confirmed, build OK; not published.

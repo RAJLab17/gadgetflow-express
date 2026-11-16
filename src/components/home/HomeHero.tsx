@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
 import { Link } from "react-router-dom";
 import { useProductReviews } from "@/hooks/useProductReviews";
 import onyx from "@/assets/matrix/uploaded-renders/18-onyx-darkgrey-v2-full.webp.asset.json";
@@ -14,6 +15,10 @@ import "@/styles/home-hero.css";
  * über dem Textblock. Ersetzt BrandHero; die alte Datei bleibt erhalten.
  */
 const HomeHero = () => {
+  const {active:blackWeek,nexus,variants} = useBlackWeekCatalog();
+  const matrix = variants.find(v=>v.product.handle==="raj-matrix-case");
+  const nexusPrice = blackWeek ? nexus ? Number(nexus.price.amount) : "…" : 99;
+  const matrixPrice = blackWeek ? matrix ? Number(matrix.price.amount) : "…" : 59;
   const { stats, isSuccess } = useProductReviews();
   const [chargePct, setChargePct] = useState(0);
   // Aktives Slide im 15s-Takt (MATRIX 0–4.4s, NEXUS 4.4–9.4s, APEX 9.4–14.4s,
@@ -158,10 +163,10 @@ const HomeHero = () => {
       <div className="hh-meta">
         <div className="hh-products">
           <Link to="/matrix" aria-label="RAJ MATRIX ansehen" className={`hh-product hh-product--matrix${activeSlide === 0 ? " is-active" : ""}`} tabIndex={activeSlide === 0 ? 0 : -1}>
-            <span className="hh-pname">RAJ MATRIX</span>HÜLLE · AB CHF 59.–
+            <span className="hh-pname">RAJ MATRIX</span>HÜLLE · AB CHF {matrixPrice}.–
           </Link>
           <Link to="/nexus" aria-label="RAJ NEXUS ansehen" className={`hh-product hh-product--nexus${activeSlide === 1 ? " is-active" : ""}`} tabIndex={activeSlide === 1 ? 0 : -1}>
-            <span className="hh-pname">RAJ NEXUS</span>3-IN-1 · CHF 99.–
+            <span className="hh-pname">RAJ NEXUS</span>3-IN-1 · CHF {nexusPrice}.–
           </Link>
           <Link to="/apex" aria-label="RAJ APEX vormerken" className={`hh-product hh-product--apex${activeSlide === 2 ? " is-active" : ""}`} tabIndex={activeSlide === 2 ? 0 : -1}>
             <span className="hh-pname">RAJ APEX</span>FÜRS AUTO · VORMERKEN →
@@ -176,7 +181,7 @@ const HomeHero = () => {
 
       {/* Textblock */}
       <div className="hh-text">
-        <p className="hh-eyebrow">Schweizer Marke · Weinfelden</p>
+        <p className="hh-eyebrow">Gestaltet in der Schweiz · Weinfelden</p>
         <h1 id="home-hero-title" className="hh-title">
           <span className="hh-title-line1">Energie,</span>
           <span className="hh-title-line2">in Form gegossen.</span>
@@ -195,11 +200,11 @@ const HomeHero = () => {
         <div className="hh-buttons">
           <Link to="/nexus" className="hh-btn hh-btn--nexus">
             <span className="hh-btn-name">NEXUS</span>
-            <span className="hh-btn-price">CHF 99.–</span>
+            <span className="hh-btn-price">CHF {nexusPrice}.–</span>
           </Link>
           <Link to="/matrix" className="hh-btn hh-btn--matrix">
             <span className="hh-btn-name">MATRIX</span>
-            <span className="hh-btn-price">CHF 59.–</span>
+            <span className="hh-btn-price">CHF {matrixPrice}.–</span>
           </Link>
         </div>
         <div className="hh-scroll" aria-hidden="true" />

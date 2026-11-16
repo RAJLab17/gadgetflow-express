@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { shareImageTags } from "@/lib/shareImages";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HomeBlackWeek from "@/components/home/HomeBlackWeek";
 import HomeHero from "@/components/home/HomeHero";
 import HomeNexus from "@/components/home/HomeNexus";
 import HomeTicker from "@/components/home/HomeTicker";
@@ -14,8 +15,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const META = {
   de: {
-    title: "RAJ — Power. Always there. | Schweizer Marke für Apple-Zubehör",
-    desc: "RAJ ist eine Schweizer Marke aus Weinfelden: 3-in-1 Ladestation NEXUS mit Qi2.2 und bis zu 25 W sowie MagSafe-Hüllen MATRIX. Versand in 2–3 Werktagen, 30 Tage Rückgabe.",
+    title: "RAJ — Power. Always there. | Gestaltet in der Schweiz · Apple-Zubehör",
+    desc: "RAJ aus Weinfelden. Gestaltet in der Schweiz: 3-in-1 Ladestation NEXUS mit Qi2.2 und bis zu 25 W sowie MagSafe-Hüllen MATRIX. Versand in 2–3 Werktagen, 30 Tage Rückgabe.",
   },
   fr: {
     title: "RAJ — Power. Always there. | Technologie de luxe suisse",
@@ -60,6 +61,7 @@ const Index = () => {
         <Header />
         <main>
           <HomeHero />
+          <HomeBlackWeek />
           <HomeNexus />
           <HomeTicker />
           <HomeMatrix />
