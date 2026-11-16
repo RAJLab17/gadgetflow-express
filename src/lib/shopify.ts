@@ -329,3 +329,12 @@ export async function fetchProductVariantInfo(handle: string): Promise<ProductVa
     return null;
   }
 }
+
+export async function clearBlackWeekBundleCodes(cartId: string) {
+  const current = await storefrontApiRequest(CART_QUERY, {id:cartId});
+  const codes: string[] = (current?.data?.cart?.discountCodes ?? []).map((c: {code:string})=>c.code);
+  const allowed = blackWeekDiscountCodes(codes);
+  if (allowed?.length === codes.length) return;
+  const result = await storefrontApiRequest(`mutation($id:ID!,$codes:[String!]!){cartDiscountCodesUpdate(cartId:$id,discountCodes:$codes){userErrors{message}}}`,{id:cartId,codes:allowed??[]});
+  if(result?.data?.cartDiscountCodesUpdate?.userErrors?.length) throw new Error('Rabattcodes konnten nicht entfernt werden');
+}
