@@ -7,6 +7,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
 import { useBlackWeek } from "@/hooks/useBlackWeek";
 import { goToCheckout } from "@/lib/checkout";
+import { trackBeginCheckout } from '@/lib/ga-ecommerce';
 
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const blackWeek = useBlackWeek();
@@ -34,6 +35,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
     lastClick.current = now;
     const checkoutUrl = getCheckoutUrl();
     if (!checkoutUrl) return;
+    if (blackWeek) trackBeginCheckout(items.map(item=>({item_id:item.variantId,item_name:item.product.node.title,item_variant:item.variantTitle,quantity:item.quantity,price:Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount??item.price.amount)/(lineCosts.find(l=>l.merchandise.id===item.variantId)?.quantity??1)})));
     setIsOpen(false);
     goToCheckout(null, checkoutUrl);
   };

@@ -15,6 +15,7 @@ import {
 
 export type { CartItem, ShopifyProduct };
 import { isBlackWeek } from '@/lib/blackWeek';
+import { trackAddToCart } from '@/lib/ga-ecommerce';
 export interface CartDiscount {title?:string;code?:string;discountedAmount:{amount:string;currencyCode:string};}
 export interface CartLineCost {id:string;quantity:number;cost:{totalAmount:{amount:string;currencyCode:string}};discountAllocations:CartDiscount[];merchandise:{id:string};}
 
@@ -45,10 +46,12 @@ export const useCartStore = create<CartStore>()(
         const existing = get().cartId;
         if(existing) await clearBlackWeekBundleCodes(existing);
         for(const item of items) {
+          const previousQuantity=get().items.find(i=>i.variantId===item.variantId)?.quantity??0;
           await get().addItem(item);
-          if(!get().items.some(i=>i.variantId===item.variantId)) throw new Error("Artikel konnte nicht hinzugefügt werden");
+          if((get().items.find(i=>i.variantId===item.variantId)?.quantity??0)<previousQuantity+item.quantity) throw new Error("Artikel konnte nicht hinzugefügt werden");
         }
         await get().syncCart();
+        trackAddToCart(items.map(item=>({item_id:item.variantId,item_name:item.product.node.title,item_variant:item.variantTitle,quantity:item.quantity,price:Number(get().lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount??item.price.amount)/(get().lineCosts.find(l=>l.merchandise.id===item.variantId)?.quantity??1)})));
         window.dispatchEvent(new Event("raj:open-cart"));
       },
       cartId: null,
