@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
+import { chfShort } from "@/lib/livePrice";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -11,6 +13,9 @@ import logo from "@/assets/logo-new-400w.webp";
 
 const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot?: React.ReactNode } = {}) => {
   const blackWeek = useBlackWeek();
+  const { nexus: liveNexus } = useBlackWeekCatalog();
+  const nexusNow = chfShort(liveNexus?.price.amount);
+  const nexusWas = liveNexus?.compareAtPrice && Number(liveNexus.compareAtPrice.amount) > Number(liveNexus.price.amount) ? ` statt ${chfShort(liveNexus.compareAtPrice.amount)}` : '';
   const { quickBuy } = useQuickBuy();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -122,7 +127,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
             : "bg-transparent"
       } ${isDarkPage ? "[&_*]:!text-white" : ""}`}
     >
-      {blackWeek && <Button asChild variant="link" className="bw-announcement w-full rounded-none h-auto"><Link to="/#black-week" onClick={event=>{const section=document.getElementById('black-week');if(!section)return;event.preventDefault();const headerHeight=document.querySelector('header')?.getBoundingClientRect().height??134;window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-headerHeight-8,behavior:'smooth'});}}><span className="bw-desktop">Black Week bis 30.11.: AirPods Case gratis zu jeder MATRIX · NEXUS 89.– statt 99.– · Gratis Versand</span><span className="bw-mobile">Black Week: Case gratis zur MATRIX · NEXUS 89.–</span></Link></Button>}
+      {blackWeek && <Button asChild variant="link" className="bw-announcement w-full rounded-none h-auto"><Link to="/#black-week" onClick={event=>{const section=document.getElementById('black-week');if(!section)return;event.preventDefault();const headerHeight=document.querySelector('header')?.getBoundingClientRect().height??134;window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-headerHeight-8,behavior:'smooth'});}}><span className="bw-desktop">Black Week bis 30.11.: AirPods Case gratis zu jeder MATRIX · NEXUS {nexusNow}{nexusWas} · Gratis Versand</span><span className="bw-mobile">Black Week: Case gratis zur MATRIX · NEXUS {nexusNow}</span></Link></Button>}
       {/* Optional top strip (e.g. trust ticker) — sits above the logo/nav row */}
       {topSlot && <div className="w-full">{topSlot}</div>}
 

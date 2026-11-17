@@ -17,7 +17,8 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const localTotal = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
 
-  const totalPrice = blackWeek && shopifyTotal !== null ? Number(shopifyTotal) : localTotal;
+  // Always show Shopify's calculated amounts once synced, so the cart never differs from checkout.
+  const totalPrice = shopifyTotal !== null ? Number(shopifyTotal) : localTotal;
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
   useEffect(() => {
     const open = () => {
@@ -104,8 +105,8 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
                           <h4 className="font-medium text-[#f5f3ee] text-sm leading-tight">{item.product.node.title}</h4>
                           <p className="text-xs text-[#c9b99a]/80 mt-1">{item.selectedOptions.map(o => o.value).join(' • ')}</p>
                         </div>
-                        <p className="text-sm font-semibold text-[#9b6b3f]">{item.price.currencyCode} {blackWeek && lineCosts.find(l=>l.merchandise.id===item.variantId) ? (Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)/item.quantity).toFixed(2) : parseFloat(item.price.amount).toFixed(2)}</p>
-                        {blackWeek && lineCosts.find(l=>l.merchandise.id===item.variantId)?.discountAllocations.map((d,i)=><p className="bw-cart-discount" key={i}>{Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)===0 && item.product.node.handle.includes("airpods") ? "AirPods Case gratis" : d.title??d.code??"Rabatt"} · −CHF {Number(d.discountedAmount.amount).toFixed(2)}</p>)}
+                        <p className="text-sm font-semibold text-[#9b6b3f]">{item.price.currencyCode} {lineCosts.find(l=>l.merchandise.id===item.variantId) ? (Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)/item.quantity).toFixed(2) : parseFloat(item.price.amount).toFixed(2)}</p>
+                        {lineCosts.find(l=>l.merchandise.id===item.variantId)?.discountAllocations.map((d,i)=><p className="bw-cart-discount" key={i}>{Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)===0 && item.product.node.handle.includes("airpods") ? "AirPods Case gratis" : d.title??d.code??"Rabatt"} · −CHF {Number(d.discountedAmount.amount).toFixed(2)}</p>)}
                       </div>
                       <div className="flex flex-col items-end justify-between flex-shrink-0 gap-2">
                         <Button variant="ghost" size="icon" className="h-7 w-7 text-[#c9b99a]/70 hover:text-[#f5f3ee] hover:bg-[#2b2725]/50" onClick={() => removeItem(item.variantId)} aria-label="Artikel entfernen">

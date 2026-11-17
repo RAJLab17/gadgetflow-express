@@ -17,7 +17,7 @@ export const MATRIX_DELIVERY_TEXT = "Lieferung in 2–3 Werktagen";
 /** Lieferhinweis auf /matrix: nur die Lieferzeit, ohne Startdatum. */
 export const MATRIX_DELIVERY_TEXT_NO_DATE = "Lieferung in 2–3 Werktagen";
 /** Trust-Zeilen unter dem Kaufbutton (Mobile / Desktop). */
-export const MATRIX_TRUST_MOBILE = "30 Tage Rückgabe · Schweizer Marke · Gratis Versand";
+export const MATRIX_TRUST_MOBILE = "30 Tage Rückgabe · Gestaltet in der Schweiz · Gratis Versand";
 export const MATRIX_TRUST_DESKTOP = "Sichere Bezahlung · 30 Tage Rückgabe";
 
 /* ── Shopify Variant ID mapping ─────────────────────────────────────── */

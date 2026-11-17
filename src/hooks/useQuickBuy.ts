@@ -1,4 +1,5 @@
 import {isBlackWeek} from "@/lib/blackWeek";
+import { chf } from '@/lib/livePrice';
 import {fetchBlackWeekCatalog,weekCartItem} from "@/hooks/useBlackWeekCatalog";
 import {useCartStore} from "@/stores/cartStore";
 import { useCallback, useRef, useState } from "react";
@@ -28,6 +29,8 @@ export function useQuickBuy() {
         toast.error("NEXUS ist derzeit nicht verfügbar.");
         return;
       }
+      const live = (await fetchBlackWeekCatalog().catch(() => [])).find(v => v.id === variant.variantId);
+      const liveAmount = live?.price.amount;
       const reference = makeOrderReference();
       const product: CartItem["product"] = {
         node: {
@@ -35,7 +38,7 @@ export function useQuickBuy() {
           title: "RAJ NEXUS 3-in-1 Qi2.2 Wireless Charger",
           description: "3-in-1 Qi2.2 Wireless Charger",
           handle: "raj-3-in-1-wireless-charger",
-          priceRange: { minVariantPrice: { amount: "99", currencyCode: "CHF" } },
+          priceRange: { minVariantPrice: { amount: liveAmount ?? "0", currencyCode: "CHF" } },
           images: { edges: [] },
           variants: { edges: [] },
           options: [],
@@ -46,7 +49,7 @@ export function useQuickBuy() {
         product,
         variantId: variant.variantId,
         variantTitle: "Space Black",
-        price: { amount: "99", currencyCode: "CHF" },
+        price: { amount: liveAmount ?? "0", currencyCode: "CHF" },
         quantity: 1,
         selectedOptions: [],
       }, undefined, [
@@ -58,7 +61,7 @@ export function useQuickBuy() {
         toast.error("Der Checkout konnte nicht geöffnet werden. Bitte versuche es erneut.");
         return;
       }
-      track({ cartId: cart.cartId, reference, summary: "RAJ NEXUS", total: "CHF 99.–", startedAt: Date.now() });
+      track({ cartId: cart.cartId, reference, summary: "RAJ NEXUS", total: liveAmount ? chf(liveAmount) : "…", startedAt: Date.now() });
       goToCheckout(checkoutTab, cart.checkoutUrl);
     } catch (error) {
       checkoutTab?.close();
