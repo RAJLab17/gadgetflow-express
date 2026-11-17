@@ -7,7 +7,6 @@ import desk from '@/assets/products/nexus-desk-writing-1000w.webp';
 import folds from '@/assets/products/nexus-real-folds-white-tight.webp';
 import sofa from '@/assets/products/nexus-sidetable-enjoy-680w.webp';
 import skyline from '@/assets/products/nexus-office-skyline-680w.webp';
-export const NEXUS_PRICE = 99;
 export const NEXUS_PACKAGE = 'Im Paket: NEXUS und USB-C Kabel. Kein Netzteil dabei: du brauchst ein USB-C Netzteil mit mindestens 30 W.';
 export const NEXUS_POWER = { minimumWatts: 30, includedAdapter: false, warrantyYears: 3 };
 export const NEXUS_GALLERY = [
@@ -28,7 +27,7 @@ export const NEXUS_FAQ = [
  ['Wie lange gilt die Garantie?','3 Jahre. Bei einem Defekt meldest du dich bei unserem Support.'],
  ['Versand, Rückgabe und Zahlung','Gratis Versand mit der Post in 2 bis 3 Werktagen. 30 Tage gratis Rückgabe. Bezahlen mit TWINT, Karte oder Apple Pay.'],
  ['Was ist der RAJ NEXUS?','Der RAJ NEXUS ist eine 3-in-1 Ladestation für iPhone, Apple Watch und AirPods mit Qi2.2 und bis zu 25 W. Er ist bei RAJ GmbH aus Weinfelden TG erhältlich.'],
- ['Was kostet der RAJ NEXUS in der Schweiz?','Der RAJ NEXUS kostet CHF 99. Im Paket sind NEXUS und USB-C Kabel, ohne Netzteil. Für volle Leistung brauchst du ein USB-C Power-Delivery-Netzteil mit mindestens 30 W.'],
+ ['Was kostet der RAJ NEXUS in der Schweiz?','Der RAJ NEXUS kostet {{NEXUS}}. Im Paket sind NEXUS und USB-C Kabel, ohne Netzteil. Für volle Leistung brauchst du ein USB-C Power-Delivery-Netzteil mit mindestens 30 W.'],
  ['Wo kann ich den RAJ NEXUS kaufen?','Auf raj.ch direkt von RAJ. Versand innerhalb der Schweiz.'],
  ['Was ist der Unterschied zwischen Qi2 und Qi2.2?','Qi2 lädt iPhones mit bis zu 15 W, Qi2.2 mit bis zu 25 W – ab iPhone 16 mit iOS 26. Für volle Leistung braucht NEXUS ein USB-C Power-Delivery-Netzteil mit mindestens 30 W.'],
 ] as const;

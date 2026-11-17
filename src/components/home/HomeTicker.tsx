@@ -1,7 +1,7 @@
 import "@/styles/home-motion.css";
 import "@/styles/home-products.css";
 
-const TEXT = "GRATIS VERSAND · 30 TAGE RÜCKGABE · TWINT & APPLE PAY · SCHWEIZER MARKE · 3 JAHRE GARANTIE AUF NEXUS ·";
+const TEXT = "GRATIS VERSAND · 30 TAGE RÜCKGABE · TWINT & APPLE PAY · GESTALTET IN DER SCHWEIZ · 3 JAHRE GARANTIE AUF NEXUS ·";
 
 export default function HomeTicker() {
   return (

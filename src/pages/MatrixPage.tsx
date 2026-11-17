@@ -50,7 +50,8 @@ import MobileSelectionPreview from "@/components/product/MobileSelectionPreview"
 import MatrixGallery from '@/components/matrix/MatrixGallery';
 import MatrixEditorial from '@/components/matrix/MatrixEditorial';
 import { MATRIX_FAQ } from '@/components/matrix/matrixFaq';
-import { BLACK_FRIDAY_MODE, matrixUrlSelection, matrixTotal } from '@/components/matrix/matrixConfig';
+import { BLACK_FRIDAY_MODE, matrixUrlSelection, MATRIX_TWO_DISCOUNT } from '@/components/matrix/matrixConfig';
+import { chf, chfShort, amount, fillPrices } from '@/lib/livePrice';
 import { verifiedMatrixReviews } from '@/components/matrix/MatrixReviews';
 import StarRating from '@/components/reviews/StarRating';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -201,7 +202,7 @@ const warmVariantImages = () => {
 const PREVIEW_IMAGES = Array.from(new Set(Object.values(RENDERS).map(src => renderSizes.get(src)?.thumb ?? src)));
 
 const MatrixPage = () => {
-  const {active:blackWeek,variants,nexus} = useBlackWeekCatalog();
+  const {active:blackWeek,variants,nexus,matrix:liveMatrix} = useBlackWeekCatalog();
   const [freeCase,setFreeCase] = useState(true);
   const [weekQuantity,setWeekQuantity] = useState(1);
   const [previewRevision, setPreviewRevision] = useState(0);
@@ -239,7 +240,14 @@ const MatrixPage = () => {
   const secondModel = MODELS.find((m) => m.id === (secondModelId ?? modelId)) ?? model;
   const secondCaseFinish = CASE_FINISHES.find((c) => c.id === (secondCaseId ?? caseId)) ?? caseFinish;
   const weekVariant = variants.find(v=>v.id===CASE_VARIANT_IDS[modelId??"17pro"]?.[caseId]);
-  const currentTotal = blackWeek ? Number(weekVariant?.price.amount??0)*weekQuantity : matrixTotal(airpodsSelected, twoCasesSelected);
+  // All prices come from Shopify; bundle totals = live prices minus the existing code amounts.
+  const liveSingle = amount(weekVariant?.price) ?? amount(liveMatrix?.price);
+  const liveAp = amount(variants.find(v=>v.id===AIRPODS_VARIANT_IDS[airpodsCase.id])?.price);
+  const bundleLive = liveSingle!=null&&liveAp!=null ? liveSingle+liveAp-BUNDLE_DISCOUNT : null;
+  const twoLive = liveSingle!=null ? liveSingle*2-MATRIX_TWO_DISCOUNT : null;
+  const currentTotal = blackWeek ? (weekVariant ? Number(weekVariant.price.amount)*weekQuantity : null) : twoCasesSelected ? twoLive : airpodsSelected ? bundleLive : liveSingle;
+  const originalTotal = liveSingle==null ? null : twoCasesSelected ? liveSingle*2 : liveAp!=null ? liveSingle+liveAp : null;
+  const matrixDescription = `Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. ${liveMatrix ? `${chf(liveMatrix.price.amount)}, gratis Versand.` : 'Gratis Versand.'}`;
   const caseThumbSrc =
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
     Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
@@ -375,7 +383,7 @@ const MatrixPage = () => {
       "@type": "Offer",
       url: "https://raj.ch/matrix",
       priceCurrency: "CHF",
-      price: 59,
+      price: liveMatrix ? Number(liveMatrix.price.amount) : undefined,
       availability: "https://schema.org/InStock",
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
@@ -405,21 +413,21 @@ const MatrixPage = () => {
         <title>MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX</title>
         <meta
           name="description"
-          content="Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
+          content={matrixDescription}
         />
         <link rel="canonical" href="https://raj.ch/matrix" />
         <meta property="og:title" content="MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX" />
         <meta
           property="og:description"
-          content="Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand."
+          content={matrixDescription}
         />
         <meta name="twitter:title" content="MagSafe Carbon-Hülle für iPhone 18 Pro & 17 Pro (Max) | RAJ MATRIX" />
-        <meta name="twitter:description" content="Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. CHF 59, gratis Versand." />
+        <meta name="twitter:description" content={matrixDescription} />
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/matrix" />
         {shareImageTags(shareImages.matrix)}
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:MATRIX_FAQ.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))})}</script>
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:MATRIX_FAQ.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:fillPrices(f.a,{MATRIX:amount(liveMatrix?.price)})}}))})}</script>
       </Helmet>
 
       <div className="mx-page min-h-screen">
@@ -428,21 +436,21 @@ const MatrixPage = () => {
           <section className="mx-purchase">
             <MatrixGallery src={caseThumbSrc} finish={caseId} alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`} onFirstLoad={warmVariantImages}/>
             <div className="mx-options">
-              <div><div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price">CHF {currentTotal}.–{blackWeek&&freeCase&&<small className="bw-price-note">inkl. AirPods Case gratis</small>}{!blackWeek&&(airpodsSelected || twoCasesSelected) && <del>statt CHF {twoCasesSelected ? 118 : 94}.–</del>}</div></div>
+              <div><div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price">{chf(currentTotal)}{blackWeek&&freeCase&&<small className="bw-price-note">inkl. AirPods Case gratis</small>}{!blackWeek&&(airpodsSelected || twoCasesSelected) && <del>statt {chf(originalTotal)}</del>}</div></div>
                 {verifiedMatrixReviews(productReviews).length > 0 && <Button asChild variant="link" className="mx-rating"><a href="#bewertungen"><StarRating readOnly size={14} value={Math.round(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length)}/><span>{(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length).toFixed(1)} · {verifiedMatrixReviews(productReviews).length} Bewertungen</span></a></Button>}
               </div>
               <div className="mx-photos"><ProductCustomerPhotos productId="matrix" /></div>
               <ul className="mx-points">{[{Icon:Layers,text:'Echte Carbon-Oberfläche, matt und griffig'},{Icon:Sparkles,text:'Goldene Tasten und Kameraring aus eloxiertem Aluminium'},{Icon:Magnet,text:'Kompatibel mit MagSafe und Qi2.2, bis zu 25 W'}].map(({Icon,text})=><li key={text}><Icon strokeWidth={1.5}/><span>{text}</span></li>)}</ul>
               <div ref={modelPickerRef} className={`mx-models ${modelError ? 'is-invalid' : ''}`}><p className="mx-model-label">{modelId ? `Dein iPhone · ${model.name}` : 'Welches iPhone hast du?'}</p><div className="mx-model-grid">{MODELS.map(m=><Button key={m.id} variant="outline" className="mx-model-button" aria-pressed={modelId===m.id} onClick={()=>selectModel(m.id)}>{m.name}</Button>)}</div>{modelError && <p role="alert" className="mx-model-error">Bitte wähle zuerst dein iPhone-Modell</p>}</div>
               <div className="mx-colors"><div><p className="mx-color-label">Hülle · {caseFinish.name}</p><div className="mx-swatches">{CASE_FINISHES.map(c=><Button key={c.id} variant="ghost" className="mx-swatch" aria-label={c.name} aria-pressed={caseId===c.id} onClick={()=>{if(caseId!==c.id)previewChange();setCaseId(c.id);setAirpodsColorId(null);}}><span className={`mx-swatch-dot mx-swatch-${c.id}`}/></Button>)}</div></div><div><p className="mx-color-label mx-preview-label">Vorschau in deiner iPhone-Farbe · {modelId?device.name:<span className="mx-preview-hint">Erst Modell wählen</span>}</p><div className="mx-swatches">{modelId?finishes.map(f=><Button key={f.id} variant="ghost" className="mx-swatch" aria-label={f.name} aria-pressed={device.id===f.id} onClick={()=>{if(device.id!==f.id)previewChange();setDeviceId(f.id);}}><span className={`mx-swatch-dot mx-swatch-${f.id}`}/></Button>):[0,1,2].map(i=><span key={i} className="mx-swatch mx-swatch-disabled" role="button" aria-disabled="true" aria-label="iPhone-Farbe: erst Modell wählen"><span className="mx-swatch-dot mx-swatch-placeholder"/></span>)}</div></div></div>
-              {blackWeek ? <div className="mx-bundles"><label className="mx-airpods"><Checkbox aria-label="AirPods Case gratis dazu" checked={freeCase} onCheckedChange={v=>setFreeCase(v===true)}/><img src={AIRPODS_CASES[caseId].thumb} alt={`AirPods Case ${caseFinish.name}`} width={40} height={48} loading="lazy"/><span className="mx-airpods-text"><strong>AirPods Case gratis dazu · im Wert von CHF 35</strong><small>AirPods 4 und 5 · {caseFinish.name}</small></span></label><div className="bw-choice-grid">{[1,2].map(q=><Button key={q} variant="outline" aria-pressed={weekQuantity===q} onClick={()=>setWeekQuantity(q)}>{q===1?"1 Hülle":"2 Hüllen"}</Button>)}</div></div> : <div className="mx-bundles"><label className="mx-airpods"><Checkbox aria-label="Passendes AirPods Case dazu" checked={airpodsSelected} onCheckedChange={checked=>{setAirpodsSelected(checked===true);setTwoCasesSelected(false);setAirpodsColorId(null);}}/><img src={airpodsCase.thumb} alt={`AirPods Case ${caseFinish.name}`} width={40} height={48} loading="lazy"/><span className="mx-airpods-text"><strong>Passendes AirPods Case dazu</strong><small>AirPods 4 und 5 · {caseFinish.name}</small></span><span className="mx-addon-price">+ CHF 20.–<del>35.–</del></span></label>
-                <Button variant={BLACK_FRIDAY_MODE ? 'outline' : 'link'} className={BLACK_FRIDAY_MODE ? 'mx-bf' : 'mx-two-link'} aria-pressed={twoCasesSelected} onClick={()=>{setTwoCasesSelected(!twoCasesSelected);setAirpodsSelected(false);if(!twoCasesSelected){setSecondModelId(modelId);setSecondCaseId(caseId);}}}>{BLACK_FRIDAY_MODE ? <><span><span className="mx-bf-badge">BLACK FRIDAY</span>2 Hüllen für CHF 99.–<small>Eine für dich, eine zum Verschenken</small></span><del>118.–</del></> : <span>Zwei Hüllen? CHF 99.– statt 118.– ›</span>}</Button>
+              {blackWeek ? <div className="mx-bundles"><label className="mx-airpods"><Checkbox aria-label="AirPods Case gratis dazu" checked={freeCase} onCheckedChange={v=>setFreeCase(v===true)}/><img src={AIRPODS_CASES[caseId].thumb} alt={`AirPods Case ${caseFinish.name}`} width={40} height={48} loading="lazy"/><span className="mx-airpods-text"><strong>AirPods Case gratis dazu · im Wert von {chf(liveAp)}</strong><small>AirPods 4 und 5 · {caseFinish.name}</small></span></label><div className="bw-choice-grid">{[1,2].map(q=><Button key={q} variant="outline" aria-pressed={weekQuantity===q} onClick={()=>setWeekQuantity(q)}>{q===1?"1 Hülle":"2 Hüllen"}</Button>)}</div></div> : <div className="mx-bundles"><label className="mx-airpods"><Checkbox aria-label="Passendes AirPods Case dazu" checked={airpodsSelected} onCheckedChange={checked=>{setAirpodsSelected(checked===true);setTwoCasesSelected(false);setAirpodsColorId(null);}}/><img src={airpodsCase.thumb} alt={`AirPods Case ${caseFinish.name}`} width={40} height={48} loading="lazy"/><span className="mx-airpods-text"><strong>Passendes AirPods Case dazu</strong><small>AirPods 4 und 5 · {caseFinish.name}</small></span><span className="mx-addon-price">+ {chf(liveAp!=null?liveAp-BUNDLE_DISCOUNT:null)}<del>{chfShort(liveAp)}</del></span></label>
+                <Button variant={BLACK_FRIDAY_MODE ? 'outline' : 'link'} className={BLACK_FRIDAY_MODE ? 'mx-bf' : 'mx-two-link'} aria-pressed={twoCasesSelected} onClick={()=>{setTwoCasesSelected(!twoCasesSelected);setAirpodsSelected(false);if(!twoCasesSelected){setSecondModelId(modelId);setSecondCaseId(caseId);}}}>{BLACK_FRIDAY_MODE ? <><span><span className="mx-bf-badge">BLACK FRIDAY</span>2 Hüllen für {chf(twoLive)}<small>Eine für dich, eine zum Verschenken</small></span><del>{chfShort(liveSingle!=null?liveSingle*2:null)}</del></> : <span>Zwei Hüllen? {chf(twoLive)} statt {chfShort(liveSingle!=null?liveSingle*2:null)} ›</span>}</Button>
                 {twoCasesSelected && <div className="mx-second"><p className="mx-second-label">Zweite Hülle</p><div className="mx-model-grid">{MODELS.map(m=><Button key={m.id} variant="outline" className="mx-model-button" aria-pressed={secondModel.id===m.id} onClick={()=>setSecondModelId(m.id)}>{m.name}</Button>)}</div><div className="mx-second-colors">{CASE_FINISHES.map(c=><Button key={c.id} variant="outline" aria-pressed={secondCaseFinish.id===c.id} onClick={()=>setSecondCaseId(c.id)}>{c.name}</Button>)}</div></div>}
               </div>}
               {confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Bestätigung schliessen" onClick={dismissOrder}><X size={16}/></Button><p>Bestellung eingegangen</p><p>{confirmed.summary} · {confirmed.total}</p></div>}
               {pending && !confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Hinweis schliessen" onClick={dismissPending}><X size={16}/></Button><p>Checkout läuft</p></div>}
-              <Button ref={mainBuyRef} className="mx-buy" onClick={handleBuy} disabled={isBuying||(blackWeek&&!weekVariant)}>{isBuying ? <Loader2 className="animate-spin" size={18}/> : `Jetzt kaufen · CHF ${currentTotal}.–`}</Button>
-              {blackWeek&&<div className="bw-upsell"><span>NEXUS 3-in-1 dazu: {nexus?`CHF ${Number(nexus.price.amount)}${nexus.compareAtPrice?` statt ${Number(nexus.compareAtPrice.amount)}`:""}`:"…"}</span><Button variant="outline" disabled={!nexus||isBuying} onClick={async()=>{if(!nexus)return;setIsBuying(true);try{await useCartStore.getState().addOffer([weekCartItem(nexus)]);}catch{toast.error("NEXUS konnte nicht hinzugefügt werden.");}finally{setIsBuying(false);}}}>Hinzufügen</Button></div>}
+              <Button ref={mainBuyRef} className="mx-buy" onClick={handleBuy} disabled={isBuying||(blackWeek&&!weekVariant)}>{isBuying ? <Loader2 className="animate-spin" size={18}/> : `Jetzt kaufen · ${chf(currentTotal)}`}</Button>
+              {blackWeek&&<div className="bw-upsell"><span>NEXUS 3-in-1 dazu: {nexus?`${chf(nexus.price.amount)}${nexus.compareAtPrice?` statt ${chfShort(nexus.compareAtPrice.amount)}`:""}`:"…"}</span><Button variant="outline" disabled={!nexus||isBuying} onClick={async()=>{if(!nexus)return;setIsBuying(true);try{await useCartStore.getState().addOffer([weekCartItem(nexus)]);}catch{toast.error("NEXUS konnte nicht hinzugefügt werden.");}finally{setIsBuying(false);}}}>Hinzufügen</Button></div>}
               <div className="mx-payment"><span><LockKeyhole size={11}/> Sichere Zahlung</span>{['TWINT','Klarna','Apple Pay','Visa','Mastercard'].map(p=><b key={p}>{p}</b>)}</div>
               <div className="mx-trust">{[{Icon:Truck,text:'Gratis Versand, 2 bis 3 Tage'},{Icon:RotateCcw,text:'30 Tage gratis Rückgabe'},{Icon:MapPin,text:'Support aus der Schweiz'},{Icon:PencilRuler,text:'Gestaltet in der Schweiz'}].map(({Icon,text})=><div key={text}><Icon strokeWidth={1.5}/><span>{text}</span></div>)}</div>
             </div>
