@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Desktop image framing: preserve full NEXUS gallery and editorial photos; inspect MATRIX, AirPods and homepage at 390/1280/1440/1895px, with before/after screenshots; no commerce changes or publication.
+
 - [x] Black Week: Zurich dates/overrides/emergency, live Shopify prices/cost/allocations, gated homepage/product offers and drawer; 45 tests, real normal-mode MATRIXBUNDLE/MATRIX2 checkouts, campaign code-free carts, 390px sticky purchases and desktop overflow checked; not published.
 - [ ] Black Week: confirm automatic free-case/second-NEXUS discounts and CHF 89/99 pricing after Shopify activation on 18 November; currently Shopify returns CHF 99, no compareAtPrice and no automatic allocations, so actual CHF 59/158 promotion totals cannot yet be verified.
 
