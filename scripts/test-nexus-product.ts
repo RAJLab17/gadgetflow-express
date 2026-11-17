@@ -1,8 +1,8 @@
 import { test, expect } from 'bun:test';
-import { NEXUS_POWER, NEXUS_PRICE } from '../src/components/nexus/nexusContent';
+import { NEXUS_POWER, NEXUS_FAQ } from '../src/components/nexus/nexusContent';
 import { nexusReviewData } from '../src/components/nexus/nexusReviewData';
 import type { PublicReview } from '../src/components/reviews/ReviewCard';
-test('NEXUS costs CHF 99',()=>expect(NEXUS_PRICE).toBe(99));
+test('NEXUS price in FAQ comes from Shopify, not a fixed 99',()=>{const a=NEXUS_FAQ.map(([,x])=>x).join(' ');expect(a).toContain('{{NEXUS}}');expect(a).not.toContain('CHF 99');});
 test('no power adapter is included',()=>expect(NEXUS_POWER.includedAdapter).toBe(false));
 test('full performance requires at least 30 W',()=>expect(NEXUS_POWER.minimumWatts).toBe(30));
 test('NEXUS has three years warranty',()=>expect(NEXUS_POWER.warrantyYears).toBe(3));
