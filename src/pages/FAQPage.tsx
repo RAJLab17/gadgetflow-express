@@ -1,12 +1,14 @@
 import { useState, useRef, useEffect } from "react";
+import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
+import { amount, fillPrices } from "@/lib/livePrice";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Plus, Minus } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
 
 const faqData = [
-  { question: "Was ist der RAJ NEXUS?", answer: "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand." },
-  { question: "Was kostet der RAJ NEXUS in der Schweiz?", answer: "Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil." },
+  { question: "Was ist der RAJ NEXUS?", answer: "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von der RAJ GmbH aus Weinfelden TG." },
+  { question: "Was kostet der RAJ NEXUS in der Schweiz?", answer: "Der RAJ NEXUS kostet {{NEXUS}}. Im Paket sind NEXUS und USB-C Kabel, ohne Netzteil. Für volle Leistung brauchst du ein USB-C Netzteil mit mindestens 30 W." },
   { question: "Was ist der Unterschied zwischen Qi2 und Qi2.2?", answer: "Qi2.2 ist die Weiterentwicklung von Qi2 mit verbesserter Energieeffizienz, besserem Wärmemanagement und strengeren Sicherheitsprüfungen. Qi2 lädt iPhones mit bis zu 15 W, Qi2.2 mit bis zu 25 W – ab iPhone 16 mit iOS 26." },
   { question: "Wie schnell lädt der RAJ NEXUS mein iPhone?", answer: "Der RAJ NEXUS lädt ein iPhone mit bis zu 25W kabellos – das ist bis zu 5x schneller als ein herkömmliches Qi-Ladegerät mit 5W. Ein iPhone ist in ca. 1,5 Stunden vollständig geladen." },
   { question: "Was ist Qi2 und was unterscheidet es von normalem Wireless Charging?", answer: "Das ursprüngliche Qi2 (Qi v2.0) ist ein Standard für kabelloses Laden mit Magnetausrichtung und bis zu 15 W Ladeleistung. Qi2.2 – offiziell «Qi2 25W» genannt – unterstützt bis zu 25 W bei kompatiblen Geräten." },
@@ -20,7 +22,7 @@ const faqData = [
   { question: "Wird RAJ in Zukunft weitere Produkte bringen?", answer: "Ja. RAJ steht für kontinuierliche Innovation im Bereich Premium Wireless Charging. Weitere Produkte sind bereits in Entwicklung — bleib über unseren Newsletter auf dem Laufenden und sei der Erste, der von neuen Launches erfährt." },
   
   { question: "Warum ist Qi2.2 besser als normales MagSafe?", answer: "MagSafe lädt iPhones mit bis zu 15W. Qi2.2 unterstützt bis zu 25W bei kompatiblen Geräten und bietet verbessertes Wärmemanagement — das Gerät bleibt kühler beim Laden. Zudem ist Qi2.2 ein offener Standard, der von allen WPC-Mitgliedern genutzt werden kann." },
-  { question: "Wie unterscheidet sich der RAJ NEXUS von Belkin und Anker?", answer: "RAJ NEXUS ist Qi2.2-zertifiziert, Belkin und Anker setzen noch auf Qi2. Zudem bietet RAJ Support auf Deutsch direkt aus dem Thurgau. Der RAJ NEXUS kostet CHF 99 — günstiger als Belkin (ab CHF 109) und Anker (ab CHF 129)." },
+  { question: "Wie unterscheidet sich der RAJ NEXUS von Belkin und Anker?", answer: "RAJ NEXUS ist Qi2.2-zertifiziert, Belkin und Anker setzen noch auf Qi2. Zudem bietet RAJ Support auf Deutsch direkt aus dem Thurgau. Der RAJ NEXUS kostet {{NEXUS}} — günstiger als Belkin (ab CHF 109) und Anker (ab CHF 129)." },
   { question: "Welches Netzteil empfiehlt RAJ für optimales Laden?", answer: "Wir empfehlen ein USB-C Netzteil mit mindestens 30W Power Delivery (PD). Ein 20W iPhone-Netzteil reicht für das iPhone allein, ist aber bei gleichzeitigem Laden aller drei Geräte nicht optimal." },
   { question: "Was bedeutet CE-Zertifizierung?", answer: "CE steht für Conformité Européenne und bestätigt, dass das Produkt alle europäischen Sicherheits- und Qualitätsstandards erfüllt. Der RAJ NEXUS ist CE-zertifiziert und entspricht allen geltenden EU- und Schweizer Normen." },
   { question: "Ist kabelloses Laden sicher für den Akku?", answer: "Ja. Moderne Qi2.2-Charger kommunizieren aktiv mit dem iPhone und passen die Ladeleistung automatisch an — das schont den Akku. Der RAJ NEXUS verfügt zudem über integrierten Überhitzungsschutz." },
@@ -30,7 +32,7 @@ const faqData = [
   { question: "Wie lange ist die Garantie?", answer: "Der RAJ NEXUS kommt mit 3 Jahren Garantie gemäss Schweizer Recht. Bei Fragen oder Defekten: founder@raj.ch." },
 ];
 
-const faqJsonLd = {
+const buildFaqJsonLd = (faqData: { question: string; answer: string }[]) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: faqData.map((f) => ({
@@ -38,7 +40,7 @@ const faqJsonLd = {
     name: f.question,
     acceptedAnswer: { "@type": "Answer", text: f.answer },
   })),
-};
+});
 
 const FAQItem = ({ item, isOpen, onToggle, index }: {
   item: typeof faqData[0]; isOpen: boolean; onToggle: () => void; index: number;
@@ -76,11 +78,13 @@ const FAQItem = ({ item, isOpen, onToggle, index }: {
 
 const FAQPage = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { nexus } = useBlackWeekCatalog();
+  const liveFaq = faqData.map(f => ({ ...f, answer: fillPrices(f.answer, { NEXUS: amount(nexus?.price) }) }));
 
   return (
     <>
       <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(buildFaqJsonLd(liveFaq))}</script>
       </Helmet>
     <PremiumPageLayout
       title="FAQ – RAJ | Häufig gestellte Fragen"
@@ -91,7 +95,7 @@ const FAQPage = () => {
       intro="Antworten auf alles rund um RAJ und unsere Produkte."
     >
       <div>
-        {faqData.map((item, index) => (
+        {liveFaq.map((item, index) => (
           <FAQItem
             key={index}
             item={item}

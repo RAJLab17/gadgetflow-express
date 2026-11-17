@@ -13,7 +13,7 @@ export const PRODUCT_NEXUS_JSON_LD = {
   "@type": "Product",
   name: "RAJ NEXUS 3-in-1 Wireless Charger",
   description:
-    "Premium 3-in-1 wireless charging station for iPhone, Apple Watch, and AirPods. Qi2.2 certified with up to 25W fast charging. Foldable, adjustable design. Swiss Brand.",
+    "Premium 3-in-1 wireless charging station for iPhone, Apple Watch, and AirPods. Qi2.2 certified with up to 25W fast charging. Foldable, adjustable design.",
   image: ["https://raj.ch/__l5e/assets-v1/97f0b3a9-fba5-4a82-b109-6c82e5582779/nexus-hero-v2-1200w.webp", "https://raj.ch/__l5e/assets-v1/cdddfd2f-1578-429b-ae0b-b80fb4355cd5/raj-nexus-share.jpg"],
   brand: { "@type": "Brand", name: "RAJ" },
   manufacturer: {
@@ -90,7 +90,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Was ist der RAJ NEXUS?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von einer Swiss Brand.",
+        text: "Der RAJ NEXUS ist ein 3-in-1 Wireless Charger der gleichzeitig ein iPhone, eine Apple Watch und AirPods kabellos lädt. Er ist Qi2.2-zertifiziert und stammt von der RAJ GmbH aus Weinfelden TG.",
       },
     },
     {
@@ -98,7 +98,7 @@ export const FAQ_NEXUS_JSON_LD = {
       name: "Was kostet der RAJ NEXUS in der Schweiz?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Der RAJ NEXUS kostet CHF 99. Der Preis beinhaltet das Ladegerät und ein USB-C Netzteil.",
+        text: "Den aktuellen Preis des RAJ NEXUS findest du auf raj.ch/nexus. Im Paket sind NEXUS und USB-C Kabel, ohne Netzteil.",
       },
     },
 
