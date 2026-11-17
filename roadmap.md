@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Fluid desktop/tablet image and purchase layouts for home/NEXUS/MATRIX/AirPods; check 768/900/1024/1280/1440/1680/1920px at 900px height and unchanged 390px mobile; presentation only, no publication.
+- [x] Fluid desktop/tablet home/NEXUS/MATRIX/AirPods: 1360px purchase grids, 55/45 desktop/equal tablet, aspect-ratio/contain imagery, compact tablet navigation; desktop MATRIX photos below trust, duplicate campaign top spacing corrected. All 64 combinations at 390/768/900/1024/1280/1440/1680/1920px, 900px height, bw=aus/vorschau checked; all desktop/tablet main buttons within viewport, all gallery slides checked, no horizontal overflow/runtime errors; 43 tests passed, mobile rules and commerce unchanged, not published.
 
 - [x] Desktop image framing: NEXUS full-image 3:2 area with separate overlay rail, square editorial photos and full MATRIX cross-sell photo; all six NEXUS/five MATRIX/six AirPods slides and all four pages checked at 390/1280/1440/1895px, no horizontal overflow, 6 NEXUS tests passed; commerce and mobile styles unchanged, not published.
 
