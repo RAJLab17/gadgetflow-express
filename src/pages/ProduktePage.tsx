@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
+import { amount, fillPrices } from "@/lib/livePrice";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import Header from "@/components/Header";
@@ -91,7 +93,10 @@ const products: Product[] = [
   },
 ];
 
-const ProductDetails = ({ product }: { product: Product }) => (
+const ProductDetails = ({ product }: { product: Product }) => {
+  const { nexus, matrix, airpods } = useBlackWeekCatalog();
+  const livePrices = { NEXUS: amount(nexus?.price), MATRIX: amount(matrix?.price), AIRPODS: amount(airpods?.price) };
+  return (
   <div className="px-1 pt-6 text-center md:px-3 md:pt-8">
     <div className="mb-4 flex items-center justify-center gap-3">
       <span className="h-px w-7 bg-primary" aria-hidden />
@@ -129,7 +134,8 @@ const ProductDetails = ({ product }: { product: Product }) => (
       </Link>
     </div>
   </div>
-);
+  );
+};
 
 const ProduktePage = () => {
   const [nexus, matrix, airpods, apex] = products;
