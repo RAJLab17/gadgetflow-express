@@ -211,7 +211,7 @@
 .mx-gallery-slide{height:auto;aspect-ratio:1}
 .mx-gallery-main{max-width:76%;max-height:94%}
 .mx-page .mx-gallery .mx-gallery-real{object-fit:contain}
-.mx-options{gap:clamp(10px,1vw,14px)}
+.mx-options{gap:clamp(8px,0.7vw,10px)}
 .mx-heading h1{font-size:clamp(38px,4cqi,52px)}
 .mx-section:not(.mx-specs):not(.mx-reviews):not(.mx-faq){max-width:1360px;padding-inline:clamp(24px,3vw,40px)}
 .mx-trust{grid-template-columns:repeat(2,minmax(0,1fr))}
