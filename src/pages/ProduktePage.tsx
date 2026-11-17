@@ -31,7 +31,7 @@ const products: Product[] = [
     tagline: "Drei Geräte. Ein Objekt.",
     description:
       "Das 3-in-1 Ladeobjekt für den Nachttisch. Offiziell Qi2.2-zertifiziert, 25 Watt, präzise gefertigt.",
-    price: "CHF 99",
+    price: "{{NEXUS}}",
     status: "Verfügbar",
     link: "/nexus",
     img: "/assets/products/nexus-bedside-night.webp",
@@ -47,7 +47,7 @@ const products: Product[] = [
     tagline: "Schutz mit Charakter.",
     description:
       "Hülle aus echtem Carbon für iPhone 17 und 18 Pro / Pro Max. Cherry Carbon oder Onyx Carbon, goldene Knöpfe, MagSafe-kompatibel.",
-    price: "ab CHF 59.–",
+    price: "ab {{MATRIX}}",
     status: "Jetzt verfügbar",
     link: "/matrix",
     img: matrixImg,
@@ -63,7 +63,7 @@ const products: Product[] = [
     tagline: "",
     description:
       "Hülle aus echtem Carbon für AirPods 4 & 5. Cherry Carbon oder Onyx Carbon, mit goldenem Karabiner.",
-    price: "CHF 35.–",
+    price: "{{AIRPODS}}",
     status: "Jetzt verfügbar",
     link: "/airpods-case",
     img: `https://raj.ch${airpodsCherryProduct.url}`,
@@ -119,7 +119,7 @@ const ProductDetails = ({ product }: { product: Product }) => (
     </dl>
 
     <div className="mt-7 flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
-      <span className="whitespace-nowrap text-xl font-light text-foreground">{product.price}</span>
+      <span className="whitespace-nowrap text-xl font-light text-foreground">{fillPrices(product.price, livePrices)}</span>
       <Link
         to={product.link}
         className="group inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-foreground"
