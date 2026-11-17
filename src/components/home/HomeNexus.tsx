@@ -6,8 +6,7 @@ import HomeSection from "./HomeSection";
 import "@/styles/home-products.css";
 
 export default function HomeNexus() {
-  const {active:blackWeek,nexus,variants}=useBlackWeekCatalog();
-  const matrix=variants.find(v=>v.product.handle==="raj-matrix-case");
+  const {nexus}=useBlackWeekCatalog();
   return (
     <HomeSection tone="ivory" id="nexus" className="home-nexus">
       <div className="home-nexus-layout">

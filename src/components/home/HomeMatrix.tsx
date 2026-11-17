@@ -17,7 +17,6 @@ const POINTS = [
 ];
 
 export default function HomeMatrix() {
-  const {active:blackWeek,nexus,variants}=useBlackWeekCatalog();
   const {matrix}=useBlackWeekCatalog();
   const ref = useRef<HTMLAnchorElement>(null);
   const [visible, setVisible] = useState(false);
