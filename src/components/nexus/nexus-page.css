@@ -32,7 +32,7 @@
 .nx-gallery-original .nx-original-chips>div>div:last-child{top:10px!important;bottom:auto!important;left:auto!important;right:0!important}
 .nx-original-certified{bottom:23px;right:16px;color:var(--nx-ink)}
 .nx-original-certified-light img{filter:brightness(0)}
-.nx-gallery-arrow{top:calc((100% - 90px) / 2 - 22px)}
+.nx-gallery-arrow{top:10px}
 .nx-use-cases img{height:auto;aspect-ratio:1;object-fit:contain;background:var(--nx-paper)}
 .nx-pair-card>img{height:auto;aspect-ratio:4/5;object-fit:contain}
 }
