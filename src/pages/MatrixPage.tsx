@@ -51,7 +51,7 @@ import MatrixGallery from '@/components/matrix/MatrixGallery';
 import MatrixEditorial from '@/components/matrix/MatrixEditorial';
 import { MATRIX_FAQ } from '@/components/matrix/matrixFaq';
 import { BLACK_FRIDAY_MODE, matrixUrlSelection, MATRIX_TWO_DISCOUNT } from '@/components/matrix/matrixConfig';
-import { chf, chfShort, amount } from '@/lib/livePrice';
+import { chf, chfShort, amount, fillPrices } from '@/lib/livePrice';
 import { verifiedMatrixReviews } from '@/components/matrix/MatrixReviews';
 import StarRating from '@/components/reviews/StarRating';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -427,7 +427,7 @@ const MatrixPage = () => {
         <meta property="og:url" content="https://raj.ch/matrix" />
         {shareImageTags(shareImages.matrix)}
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:MATRIX_FAQ.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:f.a}}))})}</script>
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:MATRIX_FAQ.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:fillPrices(f.a,{MATRIX:amount(liveMatrix?.price)})}}))})}</script>
       </Helmet>
 
       <div className="mx-page min-h-screen">
