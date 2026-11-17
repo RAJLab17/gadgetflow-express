@@ -247,7 +247,7 @@ const MatrixPage = () => {
   const twoLive = liveSingle!=null ? liveSingle*2-MATRIX_TWO_DISCOUNT : null;
   const currentTotal = blackWeek ? (weekVariant ? Number(weekVariant.price.amount)*weekQuantity : null) : twoCasesSelected ? twoLive : airpodsSelected ? bundleLive : liveSingle;
   const originalTotal = liveSingle==null ? null : twoCasesSelected ? liveSingle*2 : liveAp!=null ? liveSingle+liveAp : null;
-  const matrixDescription = `Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. ${liveMatrix ? `${chf(liveMatrix.price.amount)}, ` : ''}Gratis Versand.`;
+  const matrixDescription = `Schlanke MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Polycarbonat-Hartschale für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max. Qi2.2 Laden durch die Hülle, goldfarbene Aluminium-Knöpfe. ${liveMatrix ? `${chf(liveMatrix.price.amount)}, gratis Versand.` : 'Gratis Versand.'}`;
   const caseThumbSrc =
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
     Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
