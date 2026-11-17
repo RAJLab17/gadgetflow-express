@@ -16,3 +16,6 @@ export function matrixUrlSelection(search: string) {
   return { model, color: rawColor === 'onyx' ? 'onyx' : 'cherry' };
 }
 export function matrixTotal(airpods: boolean, two: boolean) { return two ? MATRIX_PRICES.two : airpods ? MATRIX_PRICES.airpods : MATRIX_PRICES.single; }
+
+/** Amount the MATRIX2 code takes off two cases (two single prices − 19); totals derive from live Shopify prices. */
+export const MATRIX_TWO_DISCOUNT = 19;
