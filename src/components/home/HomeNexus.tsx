@@ -1,4 +1,5 @@
 import {useBlackWeekCatalog} from "@/hooks/useBlackWeekCatalog";
+import { chf, chfShort, amount, fillPrices } from '@/lib/livePrice';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import HomeSection from "./HomeSection";
@@ -18,7 +19,7 @@ export default function HomeNexus() {
           <h2 className="home-nexus-title">Drei Geräte.<br />Ein Platz.</h2>
           <p className="home-nexus-description">Lädt iPhone, Apple Watch und AirPods gleichzeitig. Qi2.2 mit bis zu 25 W, magnetisch ausgerichtet.</p>
           <div className="home-nexus-buy">
-            <p className="home-nexus-price">{blackWeek ? nexus ? `CHF ${Number(nexus.price.amount)}.–` : "…" : "CHF 99.–"}{blackWeek&&nexus?.compareAtPrice&&<del> · statt CHF {Number(nexus.compareAtPrice.amount)}.–</del>}</p>
+            <p className="home-nexus-price">{chf(nexus?.price.amount)}{nexus?.compareAtPrice&&<del> · statt CHF {Number(nexus.compareAtPrice.amount)}.–</del>}</p>
             <Button asChild className="home-nexus-button"><Link to="/nexus">Jetzt kaufen</Link></Button>
           </div>
         </div>
