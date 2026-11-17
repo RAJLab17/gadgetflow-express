@@ -1,4 +1,5 @@
 import { useEffect, useState, type RefObject } from "react";
+import { chf } from "@/lib/livePrice";
 import { Loader2, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { observeMediaQuery } from "@/lib/mediaQuery";
@@ -9,7 +10,7 @@ interface Props {
   name: string;
   image: string;
   imageAlt: string;
-  price: number;
+  price: number | null;
   busy: boolean;
   nexus?: boolean;
 }
@@ -55,7 +56,7 @@ export default function MobileProductBuyBar({ mainBuyRef, name, image, imageAlt,
         <img src={image} alt={imageAlt} width={40} height={40} loading="lazy" decoding="async" className="h-10 w-10 shrink-0 rounded-lg object-contain" />
         <div className="min-w-0 flex-1 leading-tight">
           <p className="mobile-product-buybar-name font-semibold uppercase">{name}</p>
-          <p className="mt-1 text-sm font-semibold tabular-nums text-primary">CHF {price}.–</p>
+          <p className="mt-1 text-sm font-semibold tabular-nums text-primary">{chf(price)}</p>
         </div>
         <Button
           type="button"
