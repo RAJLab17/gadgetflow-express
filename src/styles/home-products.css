@@ -97,3 +97,21 @@
   .home-matrix-cases { transition: transform 0.6s ease; }
   .home-matrix-cases:hover { transform: scale(1.02); }
 }
+
+/* Fluid homepage product areas; untouched below 768px. */
+@media(min-width:768px){
+  .home-nexus,.home-matrix{padding-inline:clamp(24px,3vw,40px)}
+  .home-nexus>div,.home-matrix>div{max-width:1280px;padding-block:clamp(52px,6vw,96px);container-type:inline-size}
+  .home-nexus-layout{grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:clamp(24px,4vw,64px);align-items:center}
+  .home-nexus-photo{height:auto;aspect-ratio:1;}
+  .home-nexus-photo img{object-fit:contain;object-position:center}
+  .home-nexus-title{font-size:clamp(36px,4.5cqi,64px)}
+  .home-nexus-description{font-size:18px;max-width:none}
+  .home-nexus-buy{flex-wrap:wrap;gap:clamp(12px,2vw,28px)}
+  .home-matrix-title{font-size:clamp(36px,4cqi,56px);white-space:normal}
+  .home-matrix-cases{width:48%;height:auto;aspect-ratio:7/5;min-width:350px;margin-top:clamp(28px,3vw,48px)}
+  .home-matrix-case{width:48%;height:auto;aspect-ratio:4/5}
+  .home-matrix-case-back{left:8%;top:0}
+  .home-matrix-case-front{left:43%;top:10.5%}
+  .home-matrix-points{gap:clamp(20px,3vw,48px)}
+}

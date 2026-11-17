@@ -203,3 +203,23 @@
 .mx-preview-hint{color:var(--mx-muted)}
 .mx-swatch-disabled{display:inline-flex;align-items:center;justify-content:center;opacity:.35;pointer-events:none;cursor:not-allowed}
 .mx-swatch-placeholder{background:#b9b4ad;display:block}
+
+/* Fluid desktop/tablet framing; mobile crops and purchase behaviour stay intact. */
+@media(min-width:768px){
+.mx-purchase{max-width:1360px;width:100%;container-type:inline-size;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);padding:clamp(16px,2vw,28px) clamp(24px,3vw,40px) clamp(36px,4vw,56px)}
+.mx-gallery{min-width:0}
+.mx-gallery-slide{height:auto;aspect-ratio:1}
+.mx-gallery-main{max-width:76%;max-height:94%}
+.mx-page .mx-gallery .mx-gallery-real{object-fit:contain}
+.mx-options{gap:clamp(8px,0.7vw,10px)}
+.mx-options>.mx-photos{order:1;margin-top:0}
+.mx-heading h1{font-size:clamp(38px,4cqi,52px)}
+.mx-section:not(.mx-specs):not(.mx-reviews):not(.mx-faq){max-width:1360px;padding-inline:clamp(24px,3vw,40px)}
+.mx-trust{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mx-trust div{flex-direction:row}
+}
+@media(min-width:1024px){
+.mx-purchase{grid-template-columns:minmax(0,55fr) minmax(0,45fr)}
+.mx-trust{grid-template-columns:repeat(4,minmax(0,1fr))}
+.mx-trust div{flex-direction:column}
+}

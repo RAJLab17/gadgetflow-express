@@ -151,7 +151,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-10 whitespace-nowrap">
             <Link
               to="/produkte"
               className="relative hdr-text text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 group"

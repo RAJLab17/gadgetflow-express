@@ -581,6 +581,7 @@
   }
 }
 
+
 /* Grosse Bildschirme (ab 1441px): Hero füllt die Bildschirmhöhe,
    Textblock und Bühne-Inhalt vertikal zentriert. */
 @media (min-width: 1441px) {
@@ -787,4 +788,25 @@
   .hh-scroll {
     display: none;
   }
+}
+
+/* A capped fluid stage keeps products and both purchase links inside the viewport. */
+@media(min-width:1024px){
+  .home-hero{--k:clamp(.72px,calc(100cqw / 1440),1px);height:clamp(700px,92svh,820px)}
+  .hh-frame{width:100%;max-width:1360px}
+  .hh-stage{width:55%;transform:none}
+  .hh-text{left:clamp(24px,3vw,40px);top:50%;transform:translateY(-50%);width:45%;gap:clamp(14px,1.5vw,22px)}
+  .hh-title{font-size:clamp(62px,6cqi,84px)}
+  .hh-title span{white-space:normal}
+  .hh-lead{font-size:18px;max-width:90%}
+  .hh-buttons{flex-wrap:wrap}
+  .hh-btn{flex:1;min-width:0;padding-inline:16px}
+  .hh-btn-name{font-size:15px}
+  .hh-btn-price{font-size:13px}
+  .hh-rating{font-size:15px}
+  .hh-case-group,.hh-nexus{top:50%;bottom:auto;left:50%;transform:translate(-50%,-50%)}
+  .hh-glow{top:50%}
+  .hh-pill{top:calc(50% + (49.25 * var(--k)));bottom:auto}
+  .hh-meta{width:55%;top:calc(50% + (240 * var(--k)));bottom:auto}
+  .hh-frame:has(.hh-slide--nexus.is-active) .hh-meta{top:calc(50% + (255.25 * var(--k)))}
 }

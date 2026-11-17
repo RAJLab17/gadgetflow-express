@@ -37,3 +37,19 @@
 .nx-pair-card>img{height:auto;aspect-ratio:4/5;object-fit:contain}
 }
 @media(prefers-reduced-motion:reduce){.nx-page *{scroll-behavior:auto!important}}
+
+/* Fluid purchase columns only above mobile; the image rail stays independent. */
+@media(min-width:768px){
+.nx-purchase{max-width:1360px;width:100%;container-type:inline-size;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);padding:clamp(16px,2vw,28px) clamp(24px,3vw,40px) clamp(36px,4vw,56px)}
+.nx-options{gap:clamp(12px,1.2vw,16px)}
+.nx-heading h1{font-size:clamp(38px,4cqi,52px)}
+.nx-gallery-original .nx-gallery-frame{padding-top:0;aspect-ratio:3/2;box-sizing:content-box}
+.nx-section:not(.nx-details):not(.nx-reviews):not(.nx-faq){max-width:1360px;padding-inline:clamp(24px,3vw,40px)}
+.nx-trust{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nx-trust>div{flex-direction:row}
+}
+@media(min-width:1024px){
+.nx-purchase{grid-template-columns:minmax(0,55fr) minmax(0,45fr)}
+.nx-trust{grid-template-columns:repeat(4,minmax(0,1fr))}
+.nx-trust>div{flex-direction:column}
+}
