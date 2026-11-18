@@ -1,6 +1,7 @@
 import { toast } from "sonner";
 import { getOriginCartAttributes } from "@/lib/attribution";
 import { blackWeekDiscountCodes } from '@/lib/blackWeek';
+import { cartLineUpdates } from '@/lib/cartPricing';
 
 const SHOPIFY_API_VERSION = '2026-10';
 const SHOPIFY_STORE_PERMANENT_DOMAIN = 'kcvjif-10.myshopify.com';
@@ -139,7 +140,7 @@ const CART_QUERY = `
       discountCodes { code applicable }
       cost { totalAmount { amount currencyCode } subtotalAmount { amount currencyCode } }
       discountAllocations { discountedAmount { amount currencyCode } ... on CartAutomaticDiscountAllocation { title } ... on CartCodeDiscountAllocation { code } }
-      lines(first: 100) { edges { node { id quantity cost { totalAmount { amount currencyCode } } discountAllocations { discountedAmount { amount currencyCode } ... on CartAutomaticDiscountAllocation { title } ... on CartCodeDiscountAllocation { code } } merchandise { ... on ProductVariant { id title price { amount currencyCode } selectedOptions { name value } product { id title handle description featuredImage { url altText } } } } } } }
+      lines(first: 100) { edges { node { id quantity cost { totalAmount { amount currencyCode } subtotalAmount { amount currencyCode } } discountAllocations { discountedAmount { amount currencyCode } ... on CartAutomaticDiscountAllocation { title } ... on CartCodeDiscountAllocation { code } } merchandise { ... on ProductVariant { id title price { amount currencyCode } selectedOptions { name value } product { id title handle description featuredImage { url altText } } } } } } }
     }
   }
 `;
@@ -272,8 +273,8 @@ export async function addLineToShopifyCart(cartId: string, item: CartItem): Prom
   return { success: true, lineId: newLine?.node?.id, checkoutUrl: checkoutUrl ? normalizeCheckoutUrl(checkoutUrl) : undefined };
 }
 
-export async function updateShopifyCartLine(cartId: string, lineId: string, quantity: number): Promise<{ success: boolean; checkoutUrl?: string; cartNotFound?: boolean }> {
-  const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, { cartId, lines: [{ id: lineId, quantity }] });
+export async function updateShopifyCartLine(cartId: string, lineIds: string[], quantity: number): Promise<{ success: boolean; checkoutUrl?: string; cartNotFound?: boolean }> {
+  const data = await storefrontApiRequest(CART_LINES_UPDATE_MUTATION, { cartId, lines: cartLineUpdates(lineIds, quantity) });
   const userErrors = data?.data?.cartLinesUpdate?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) { console.error('Update line failed:', userErrors); return { success: false }; }
@@ -281,8 +282,8 @@ export async function updateShopifyCartLine(cartId: string, lineId: string, quan
   return { success: true, checkoutUrl: checkoutUrl ? normalizeCheckoutUrl(checkoutUrl) : undefined };
 }
 
-export async function removeLineFromShopifyCart(cartId: string, lineId: string): Promise<{ success: boolean; checkoutUrl?: string; cartNotFound?: boolean }> {
-  const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, { cartId, lineIds: [lineId] });
+export async function removeLineFromShopifyCart(cartId: string, lineIds: string[]): Promise<{ success: boolean; checkoutUrl?: string; cartNotFound?: boolean }> {
+  const data = await storefrontApiRequest(CART_LINES_REMOVE_MUTATION, { cartId, lineIds });
   const userErrors = data?.data?.cartLinesRemove?.userErrors || [];
   if (isCartNotFoundError(userErrors)) return { success: false, cartNotFound: true };
   if (userErrors.length > 0) { console.error('Remove line failed:', userErrors); return { success: false }; }

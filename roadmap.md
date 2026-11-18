@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Correct Black Week drawer totals, crossed-out subtotals and grouped discounts; all five live Shopify carts checked in the browser at CHF 89/158/49/98/138, including CHF 20/35/70 discounts. The requested MATRIX totals CHF 59/118/148 require a Shopify price of CHF 59; all variants currently return CHF 49, unchanged.
+
 - [x] Replace the Black Week NEXUS bedside photo with the existing 9:41 cutout and preserve full mobile product imagery without moving the main purchase buttons down.
 
 - [x] Black Week visibility: announcement, homepage offer copy and product labels use the existing campaign flag and Shopify prices; regular mode stays unchanged.
@@ -13,7 +15,7 @@
 - [x] Desktop image framing: NEXUS full-image 3:2 area with separate overlay rail, square editorial photos and full MATRIX cross-sell photo; all six NEXUS/five MATRIX/six AirPods slides and all four pages checked at 390/1280/1440/1895px, no horizontal overflow, 6 NEXUS tests passed; commerce and mobile styles unchanged, not published.
 
 - [x] Black Week: Zurich dates/overrides/emergency, live Shopify prices/cost/allocations, gated homepage/product offers and drawer; 45 tests, real normal-mode MATRIXBUNDLE/MATRIX2 checkouts, campaign code-free carts, 390px sticky purchases and desktop overflow checked; not published.
-- [ ] Black Week: confirm automatic free-case/second-NEXUS discounts and CHF 89/99 pricing after Shopify activation on 18 November; currently Shopify returns CHF 99, no compareAtPrice and no automatic allocations, so actual CHF 59/158 promotion totals cannot yet be verified.
+- [x] Black Week: confirmed automatic free-case/second-NEXUS discounts and CHF 89 NEXUS pricing after Shopify activation on 18 November.
 
 - [x] MATRIX/AirPods: real carbon surface on polycarbonate shell corrected in public pages, metadata, schemas, llms.txt and crawler; 390px views, 28 selection tests and unchanged prices/IDs checked; not published.
 

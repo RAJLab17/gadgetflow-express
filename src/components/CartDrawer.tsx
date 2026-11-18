@@ -8,6 +8,7 @@ import { OPEN_CART_EVENT } from "@/hooks/useQuickBuy";
 import { useBlackWeek } from "@/hooks/useBlackWeek";
 import { goToCheckout } from "@/lib/checkout";
 import { trackBeginCheckout } from '@/lib/ga-ecommerce';
+import { getCartLinePricing, groupCartDiscounts } from '@/lib/cartPricing';
 
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const blackWeek = useBlackWeek();
@@ -15,10 +16,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
   const triggerRef = useRef<HTMLButtonElement>(null);
   const { items, shopifyTotal, lineCosts, discounts, isLoading, isSyncing, updateQuantity, removeItem, syncCart, getCheckoutUrl } = useCartStore();
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const localTotal = items.reduce((sum, item) => sum + (parseFloat(item.price.amount) * item.quantity), 0);
-
-  // Always show Shopify's calculated amounts once synced, so the cart never differs from checkout.
-  const totalPrice = shopifyTotal !== null ? Number(shopifyTotal) : localTotal;
+  const pending = isLoading || isSyncing;
   useEffect(() => { if (isOpen) syncCart(); }, [isOpen, syncCart]);
   useEffect(() => {
     const open = () => {
@@ -93,7 +91,9 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
             <>
               <div className="flex-1 overflow-y-auto pr-2 min-h-0">
                 <div className="space-y-5">
-                  {items.map((item) => (
+                  {items.map((item) => {
+                    const pricing = getCartLinePricing(lineCosts.filter(line => line.merchandise.id === item.variantId), item.product.node.handle);
+                    return (
                     <div key={item.variantId} className="flex gap-4 p-3 rounded-xl border border-[#2b2725] bg-[#141210]/60">
                       <div className="w-20 h-20 bg-[#1a1815] rounded-lg overflow-hidden flex-shrink-0 border border-[#2b2725]/50">
                         {item.product.node.images?.edges?.[0]?.node && (
@@ -105,32 +105,36 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
                           <h4 className="font-medium text-[#f5f3ee] text-sm leading-tight">{item.product.node.title}</h4>
                           <p className="text-xs text-[#c9b99a]/80 mt-1">{item.selectedOptions.map(o => o.value).join(' • ')}</p>
                         </div>
-                        <p className="text-sm font-semibold text-[#9b6b3f]">{item.price.currencyCode} {lineCosts.find(l=>l.merchandise.id===item.variantId) ? (Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)/item.quantity).toFixed(2) : parseFloat(item.price.amount).toFixed(2)}</p>
-                        {lineCosts.find(l=>l.merchandise.id===item.variantId)?.discountAllocations.map((d,i)=><p className="bw-cart-discount" key={i}>{Number(lineCosts.find(l=>l.merchandise.id===item.variantId)?.cost.totalAmount.amount)===0 && item.product.node.handle.includes("airpods") ? "AirPods Case gratis" : d.title??d.code??"Rabatt"} · −CHF {Number(d.discountedAmount.amount).toFixed(2)}</p>)}
+                        <p className="text-sm font-semibold text-[#9b6b3f]">
+                          {pricing ? `${pricing.total.currencyCode} ${pricing.total.amount}` : '…'}
+                          {pricing?.beforeDiscount && <del className="ml-2 text-xs font-normal text-[#c9b99a]">{pricing.beforeDiscount.currencyCode} {pricing.beforeDiscount.amount}</del>}
+                        </p>
+                        {pricing?.discounts.map(discount => <p className="bw-cart-discount" key={discount.key}>{discount.title} · −{discount.currencyCode} {discount.amount}</p>)}
                       </div>
                       <div className="flex flex-col items-end justify-between flex-shrink-0 gap-2">
-                        <Button variant="ghost" size="icon" className="h-7 w-7 text-[#c9b99a]/70 hover:text-[#f5f3ee] hover:bg-[#2b2725]/50" onClick={() => removeItem(item.variantId)} aria-label="Artikel entfernen">
+                        <Button variant="ghost" size="icon" className="h-7 w-7 text-[#c9b99a]/70 hover:text-[#f5f3ee] hover:bg-[#2b2725]/50" disabled={pending || !pricing} onClick={() => removeItem(item.variantId)} aria-label="Artikel entfernen">
                           <Trash2 className="h-4 w-4" />
                         </Button>
                         <div className="flex items-center gap-1.5">
-                          <Button variant="outline" size="icon" className="h-7 w-7 rounded-md border-[#2b2725] bg-[#141210] hover:bg-[#2b2725] hover:text-[#f5f3ee] text-[#c9b99a]" onClick={() => updateQuantity(item.variantId, item.quantity - 1)} aria-label="Menge verringern">
+                          <Button variant="outline" size="icon" className="h-7 w-7 rounded-md border-[#2b2725] bg-[#141210] hover:bg-[#2b2725] hover:text-[#f5f3ee] text-[#c9b99a]" disabled={pending || !pricing} onClick={() => updateQuantity(item.variantId, item.quantity - 1)} aria-label="Menge verringern">
                             <Minus className="h-3 w-3" />
                           </Button>
                           <span className="w-6 text-center text-sm text-[#f5f3ee]">{item.quantity}</span>
-                          <Button variant="outline" size="icon" className="h-7 w-7 rounded-md border-[#2b2725] bg-[#141210] hover:bg-[#2b2725] hover:text-[#f5f3ee] text-[#c9b99a]" onClick={() => updateQuantity(item.variantId, item.quantity + 1)} aria-label="Menge erhöhen">
+                          <Button variant="outline" size="icon" className="h-7 w-7 rounded-md border-[#2b2725] bg-[#141210] hover:bg-[#2b2725] hover:text-[#f5f3ee] text-[#c9b99a]" disabled={pending || !pricing} onClick={() => updateQuantity(item.variantId, item.quantity + 1)} aria-label="Menge erhöhen">
                             <Plus className="h-3 w-3" />
                           </Button>
                         </div>
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
-              {blackWeek && discounts.map((d,i)=><p key={i} className="bw-cart-discount">{d.title??d.code??"Rabatt"} · −CHF {Number(d.discountedAmount.amount).toFixed(2)}</p>)}
+              {blackWeek && groupCartDiscounts(discounts).map(discount => <p key={discount.key} className="bw-cart-discount">{discount.title} · −{discount.currencyCode} {discount.amount}</p>)}
               <div className="flex-shrink-0 space-y-4 pt-5 border-t border-[#2b2725] bg-[#0a0908]">
                 <div className="flex justify-between items-center">
                   <span className="text-[#c9b99a] text-sm">Gesamt</span>
-                  <span className="text-2xl font-semibold text-[#f5f3ee]">{items[0]?.price.currencyCode || 'CHF'} {totalPrice.toFixed(2)}</span>
+                  <span className="text-2xl font-semibold text-[#f5f3ee]">{shopifyTotal ? `${shopifyTotal.currencyCode} ${Number(shopifyTotal.amount).toFixed(2)}` : '…'}</span>
                 </div>
                 <Button onClick={handleCheckout} className="w-full h-12 text-sm tracking-widest uppercase font-medium bg-[#9b6b3f] hover:bg-[#7c5230] text-white border border-[#9b6b3f]/50 rounded-full transition-colors" size="lg" disabled={items.length === 0 || isLoading || isSyncing}>
                   {isLoading || isSyncing ? <Loader2 className="w-4 h-4 animate-spin" /> : <><ExternalLink className="w-4 h-4 mr-2" />Zur Kasse</>}
