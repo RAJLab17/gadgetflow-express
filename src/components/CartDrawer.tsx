@@ -9,6 +9,7 @@ import { useBlackWeek } from "@/hooks/useBlackWeek";
 import { goToCheckout } from "@/lib/checkout";
 import { trackBeginCheckout } from '@/lib/ga-ecommerce';
 import { getCartLinePricing, groupCartDiscounts } from '@/lib/cartPricing';
+import { getVariantLabel } from '@/lib/variantLabel';
 
 export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } = {}) => {
   const blackWeek = useBlackWeek();
@@ -93,6 +94,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
                 <div className="space-y-5">
                   {items.map((item) => {
                     const pricing = getCartLinePricing(lineCosts.filter(line => line.merchandise.id === item.variantId), item.product.node.handle);
+                    const variantLabel = getVariantLabel(item);
                     return (
                     <div key={item.variantId} className="flex gap-4 p-3 rounded-xl border border-[#2b2725] bg-[#141210]/60">
                       <div className="w-20 h-20 bg-[#1a1815] rounded-lg overflow-hidden flex-shrink-0 border border-[#2b2725]/50">
@@ -103,7 +105,7 @@ export const CartDrawer = ({ triggerClassName }: { triggerClassName?: string } =
                       <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
                         <div>
                           <h4 className="font-medium text-[#f5f3ee] text-sm leading-tight">{item.product.node.title}</h4>
-                          <p className="text-xs text-[#c9b99a]/80 mt-1">{item.selectedOptions.map(o => o.value).join(' • ')}</p>
+                          {variantLabel && <p className="text-xs text-[#c9b99a]/80 mt-1">{variantLabel}</p>}
                         </div>
                         <p className="text-sm font-semibold text-[#9b6b3f]">
                           {pricing ? `${pricing.total.currencyCode} ${pricing.total.amount}` : '…'}
