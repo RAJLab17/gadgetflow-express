@@ -51,7 +51,7 @@
   #root :is(.home-nexus-title, .home-matrix-title, .home-set-title, .home-story-title, .bw-home h2,
     .nx-page h2, .mx-page h2, .ap-page h2) { font-size: var(--commerce-title); }
   #root :is(.home-nexus-description, .home-story-text, .home-matrix-points, .home-business-sub,
-    .bw-card p, .bw-set-line, .nx-use-cases p, .ap-use-cases p, .mx-feature p, .mx-real > p:not(.mx-label),
+    .bw-offer-detail, .bw-set-line, .nx-use-cases p, .ap-use-cases p, .mx-feature p, .mx-real > p:not(.mx-label),
     .nx-faq details p, .mx-faq details p, .ap-faq details p, .nx-review p, .mx-review p, .ap-review p) {
     font-size: var(--commerce-body);
   }
@@ -65,9 +65,8 @@
   #root .home-review-slide { position: relative; grid-area: 1 / 1; min-height: 380px; }
   #root .home-business-card { padding: clamp(36px, 3vw, 64px); }
 
-  #root .bw-home-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #root .bw-card img { height: auto; aspect-ratio: 16 / 10; object-fit: contain; }
-  #root .bw-card > div { padding: clamp(24px, 2vw, 44px); }
+  #root .bw-card-copy { padding: clamp(24px, 2vw, 44px); }
+  #root .bw-set { margin-top: var(--commerce-gap); }
 
   #root :is(.nx-purchase, .mx-purchase, .ap-purchase) {
     grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);

@@ -38,6 +38,9 @@
     /* RAJ design tokens for the new homepage sections */
     --bw-dark: #141210;
     --bw-white: #ffffff;
+    --bw-offer-stage: 37.895 37.255% 90%;
+    --bw-offer-card: 30 13% 12%;
+    --bw-offer-border: 34 16% 25%;
     --raj-black: #000000;
     --raj-ivory: #F3EFE7;
     --raj-white: #FAF8F5;

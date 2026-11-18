@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Redesigned the homepage Black Week offers; verified uncropped 4:3 imagery, live Shopify CHF 49/89/158/138 and CHF 193 separate prices, product links and campaign-off state at 390/1440/1920px; not published.
+
 - [x] Verified MATRIX CHF 49/59 on all eight Shopify variants and both campaign modes at 390/1440px; Black Week carts CHF 49/138 and CHF 193 regular-price reference. Current normal-view quotes are CHF 49 and CHF 79; the planned CHF 75/89 depend on the merchant's Shopify changes from 1 December. No Shopify mutations to products or discounts and no publication.
 
 - [x] Correct Black Week drawer totals, crossed-out subtotals and grouped discounts; all five live Shopify carts checked in the browser at CHF 89/158/49/98/138, including CHF 20/35/70 discounts. The requested MATRIX totals CHF 59/118/148 require a Shopify price of CHF 59; all variants currently return CHF 49, unchanged.

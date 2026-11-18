@@ -9,6 +9,9 @@ export function chf(value?: number | string | null): string {
 export const chfShort = (value?: number | string | null) => chf(value).replace('CHF ', '');
 export const amount = (money?: { amount: string } | null) => (money ? Number(money.amount) : null);
 
+export const pricePerUnit = (total: number | null, quantity: number) =>
+  total === null || quantity <= 0 ? null : total / quantity;
+
 export function comparisonAmount(variant?: { price: { amount: string }; compareAtPrice?: { amount: string } | null }) {
   const price = amount(variant?.price);
   const comparison = amount(variant?.compareAtPrice);

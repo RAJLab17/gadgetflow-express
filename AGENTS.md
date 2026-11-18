@@ -46,3 +46,4 @@
 - Display NEXUS/MATRIX/AirPods catalog prices via useBlackWeekCatalog and livePrice; useCartTotal quotes selected bundle lines and their checkout code via Shopify so checkout and display share pricing rules.
 - The drawer uses Shopify line and cart costs directly and groups non-zero allocations by title, so quantity and split discounts cannot misstate cart prices.
 - Format raw Shopify variants for display at the UI boundary via getVariantLabel; preserve the original data for commerce and tracking.
+- The homepage campaign composes existing product photography in shared 4:3 offer frames, independent of Shopify quote and checkout logic.
