@@ -7,7 +7,7 @@ import { chf, chfShort, pricePerUnit, regularPriceTotal } from '@/lib/livePrice'
 import { Button } from '@/components/ui/button';
 import matrixCherry from '@/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json';
 import airpodsCherry from '@/assets/home/black-week-airpods-cherry.webp.asset.json';
-import nexusStudio from '@/assets/home/black-week-nexus-transparent.webp.asset.json';
+import nexusStudio from '@/assets/home/black-week-nexus-clean.webp.asset.json';
 import '@/styles/black-week.css';
 
 const NEXUS_PAIR_QUANTITY = 2;
@@ -16,7 +16,7 @@ function OfferProducts({ selection }: { selection: 'matrix' | 'nexus' | 'trio' }
   const decorative = selection === 'trio';
   return <>
     {selection !== 'matrix' && (
-      <img className="bw-charger" src={nexusStudio.url} alt={decorative ? '' : 'RAJ NEXUS mit iPhone mit grünem Ladering, Apple Watch und AirPods'} width={444} height={549} loading="lazy" decoding="async" />
+      <img className="bw-charger" src={nexusStudio.url} alt={decorative ? '' : 'RAJ NEXUS mit iPhone mit grünem Ladering, Apple Watch und AirPods'} width={444} height={510} loading="lazy" decoding="async" />
     )}
     {selection !== 'nexus' && <>
       <img className="bw-phone" src={matrixCherry.url} alt={decorative ? '' : 'RAJ MATRIX Hülle in Cherry Carbon'} width={1122} height={1402} loading="lazy" decoding="async" />

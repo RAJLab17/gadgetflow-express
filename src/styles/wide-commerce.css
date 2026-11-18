@@ -1,7 +1,7 @@
 /* One content edge for the homepage bands and product pages, above the existing desktop layout. */
 @media (min-width: 1441px) {
   #root {
-    --commerce-width: min(92vw, 1680px);
+    --commerce-width: min(92vw, 1840px);
     --commerce-gap: clamp(44px, 3.2vw, 72px);
     --commerce-section-space: clamp(64px, 5.6vw, 112px);
     --commerce-title: clamp(46px, 3.35vw, 64px);
@@ -75,5 +75,4 @@
   #root :is(.nx-heading, .mx-heading, .ap-heading) h1 { font-size: var(--commerce-title); }
   #root :is(.nx-subtitle, .mx-subtitle, .ap-subtitle, .nx-points, .ap-points) { font-size: var(--commerce-body); }
   #root :is(.nx-pair-card, .mx-pair-card, .ap-pair-card) > img { height: auto; object-fit: contain; }
-  #root .mx-real-track img { object-fit: contain; }
 }
