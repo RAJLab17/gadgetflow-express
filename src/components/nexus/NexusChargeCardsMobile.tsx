@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Mobile-only floating charge chips — overlay on top of the hero image.
- * Mirrors the desktop ChargeChip floaters, but compact so they fit on 411px.
+ * Charge chips over the hero image, with compact sizing on mobile.
  *
  * Performance:
  * - Animation only starts when parent is in viewport (IntersectionObserver)
@@ -143,7 +142,7 @@ function MiniChip({ label, icon, startVal, phase, style, active }: ChipProps) {
   );
 }
 
-export default function NexusHeroChipsMobile() {
+export default function NexusHeroChipsMobile({ desktop = false }: { desktop?: boolean }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -180,7 +179,7 @@ export default function NexusHeroChipsMobile() {
         active={visible}
       />
       <MiniChip
-        label="Watch"
+        label={desktop ? "Apple Watch" : "Watch"}
         icon={<IconWatch />}
         startVal={79}
         phase={0.4}
@@ -189,7 +188,7 @@ export default function NexusHeroChipsMobile() {
         active={visible}
       />
       <MiniChip
-        label="AirPods"
+        label={desktop ? "AirPods Pro" : "AirPods"}
         icon={<IconPods />}
         startVal={71}
         phase={0.75}
