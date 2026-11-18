@@ -7,16 +7,20 @@ import NexusHeroChipsMobile from './NexusChargeCardsMobile';
 import Qi2CertifiedBadge from './Qi2CertifiedBadge';
 import { useIsMobile } from '@/hooks/use-mobile';
 const zoomImages = HERO_CAROUSEL_SLIDES.map(s => ({ src: s.srcSet.split(',').pop()?.trim().split(/\s+/)[0] || s.src, alt: s.alt }));
-const desktopSlides = HERO_CAROUSEL_SLIDES.map(s => ({ ...s, fit: 'contain' as const, position: 'center' }));
+const gallerySlides = HERO_CAROUSEL_SLIDES.map((s, i) => ({
+ ...s, fit: 'contain' as const, position: 'center',
+ mobileFit: 'contain' as const, mobilePosition: 'center', mobileZoom: undefined,
+ mobileBg: i === 1 || i === 3 ? 'var(--nx-dark)' : s.mobileBg,
+}));
 export default function NexusGallery() {
  const [index,setIndex]=useState(0); const [open,setOpen]=useState(false);
  const mobile = useIsMobile();
- const slide = HERO_CAROUSEL_SLIDES[index];
+ const slide = gallerySlides[index];
  if (!slide) return null;
  const light = index === 1 || index === 3;
  return <div className="nx-gallery nx-gallery-original"><div className="nx-gallery-frame">
- <ZoomFrame zoomSrc={zoomImages[index]?.src || slide.src} objectFit={mobile ? slide.mobileFit ?? 'cover' : 'contain'} objectPosition={mobile ? slide.mobilePosition ?? (index === 0 ? 'center 30%' : 'center') : 'center'} onOpen={()=>setOpen(true)} iconStyle={{right:'auto',left:12,bottom:12}}>
- <HeroSwipeImage slides={mobile ? HERO_CAROUSEL_SLIDES : desktopSlides} index={index} onChange={setIndex} sizes="(max-width: 768px) 266px, 700px" priority objectFit="cover" objectPosition={mobile && index === 0 ? 'center 30%' : 'center'}/>
+ <ZoomFrame zoomSrc={zoomImages[index]?.src || slide.src} objectFit="contain" onOpen={()=>setOpen(true)} iconStyle={{right:'auto',left:12,bottom:12}}>
+ <HeroSwipeImage slides={gallerySlides} index={index} onChange={setIndex} sizes="(max-width: 768px) 266px, 700px" priority/>
  </ZoomFrame>
  {slide.showChips !== false && <div className={`nx-original-chips ${index === 0 ? 'nx-original-chips-first' : ''}`}><NexusHeroChipsMobile desktop={!mobile}/></div>}
  <div className={`nx-original-certified ${light ? 'nx-original-certified-light' : ''}`}><Qi2CertifiedBadge size={34} compact variant={light?'light':'dark'}/><span>Zertifiziert</span></div>

@@ -185,6 +185,8 @@
 .mx-airpods>button{min-width:20px;min-height:20px}
 
 @media(max-width:767px){
+.mx-page .mx-gallery .mx-gallery-real,.mx-feature img{object-fit:contain}
+.mx-pair-card>img{aspect-ratio:1;object-fit:contain}
 .mx-options{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:6px}
 .mx-options>*{grid-column:1/-1}
 .mx-options>div:first-child{display:contents}

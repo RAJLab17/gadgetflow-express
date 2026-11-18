@@ -219,6 +219,7 @@
   0% { transform: scale(1); }
   33.3%, 100% { transform: scale(0.88); }
 }
+@media(max-width:767px){.hh-apex img{object-fit:contain}}
 .hh-apex::before,
 .hh-apex::after {
   content: "";

@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Replace the Black Week NEXUS bedside photo with the existing 9:41 cutout and preserve full mobile product imagery without moving the main purchase buttons down.
+
 - [x] Black Week visibility: announcement, homepage offer copy and product labels use the existing campaign flag and Shopify prices; regular mode stays unchanged.
 
 - [x] Restore NEXUS desktop in-image overlays and rectangular editorial cards without cropping; verified at 768–2560px, mobile at 390px unchanged, not published.

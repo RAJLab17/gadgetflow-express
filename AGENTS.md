@@ -38,7 +38,8 @@
 - Review source and homepage selection are managed through the server-validated admin endpoint; all rating counts and schemas exclude Google quotes, and a database trigger prevents Google purchase badges. Homepage quote selection uses the shared approved query and pauses rotation offscreen, on hidden tabs and with reduced motion.
 - The mobile homepage review track measures currently visible cards on scroll and resize, so off-screen review photos do not reserve empty height above the reviews link.
 - NEXUS page-owned gallery, editorial content, FAQ/schema and review presentation live in NEXUS-only modules; the top gallery reuses NexusHeroCarousel slide data and swipe rendering to preserve original crops/order, while editorial photos remain independent; reuse the existing quick-buy and mobile buy bar to keep commerce and other pages independent.
-- NEXUS desktop gallery uses a fluid 3:2 frame and contain fitting with the original in-image overlay positions; mobile rendering stays unchanged.
+- NEXUS uses a fluid 3:2 desktop frame and fixed-height mobile frame with contain fitting at both sizes, preserving original controls and in-image overlays.
+- Fit mobile gallery images inside stable frames so full photos remain visible without shifting purchase controls when slides change.
 - For responsive layout work, change only the width and size of images, galleries and overlays; preserve their appearance and composition to avoid unintended redesigns.
 - AirPods page-owned content, gallery and editorial modules isolate styling and set-model validation; preserve shared commerce constants and delegate sticky purchases to the original button.
 - Keep wide homepage and product section edges in wide-commerce.css: one 92vw/1680px cap above 1440px, full-width bands and 55/45 purchase grids; preserve existing smaller layouts and keep gallery scaling separate from commerce.

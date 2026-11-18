@@ -21,6 +21,10 @@
 .nx-gallery-original .nx-thumb{width:48px;height:48px;border-radius:8px;background:var(--nx-paper);border:1.5px solid var(--nx-gallery-border);box-shadow:0 1px 4px var(--nx-gallery-shadow);flex-shrink:0}
 .nx-gallery-original .nx-thumb[aria-selected=true]{border-color:var(--nx-original-gold);box-shadow:0 4px 14px var(--nx-gallery-active-shadow);transform:translateY(-1px)}
 .nx-gallery-arrow{display:none}
+@media(max-width:767px){
+.nx-use-cases img:not(.nx-studio){height:auto;aspect-ratio:1;object-fit:contain}
+.nx-pair-card>img{height:auto;aspect-ratio:4/5;object-fit:contain}
+}
 @media(min-width:768px){
 .nx-gallery-original .nx-gallery-frame{width:100%;margin:0;height:auto;min-height:0;max-height:none;aspect-ratio:3/2;border-radius:16px;box-shadow:0 40px 100px -40px var(--nx-gallery-shadow),0 0 0 1px var(--nx-gallery-edge)}
 .nx-gallery-original .nx-thumbnails{flex-wrap:wrap;gap:8px;margin-top:12px;padding:2px}

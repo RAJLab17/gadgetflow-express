@@ -19,6 +19,8 @@
 @media(max-width:767px){.bw-announcement .bw-desktop{display:none}.bw-announcement .bw-mobile{display:inline}.bw-home{padding:36px 20px}.bw-home h2{font-size:28px}.bw-home-grid{grid-template-columns:1fr;gap:16px}.bw-card img{height:200px}.bw-card>div{padding:20px}.bw-upsell{flex-wrap:wrap}.black-week-active .mx-purchase,.black-week-active .nx-purchase,.black-week-active .ap-purchase{padding-top:140px}}
 @media(max-width:767px){.black-week-active header .bw-announcement{font-size:13px}.bw-hero-offer{font-size:12px}}
 .bw-choice-grid>button{min-height:44px}
+.bw-card img.bw-nexus-render{object-fit:contain;background:var(--raj-white);padding:12px}
+@media(max-width:767px){.bw-home .bw-card img{height:auto;aspect-ratio:4/5;object-fit:contain;background:var(--raj-white)}}
 
 /* The page already reserves the header height; only add the announcement once. */
 @media(min-width:768px){
