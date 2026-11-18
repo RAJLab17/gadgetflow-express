@@ -57,7 +57,7 @@ const Index = () => {
         <meta name="twitter:description" content={meta.desc} />
       </Helmet>
 
-      <div className="min-h-screen" style={{ background: "#0a0908" }}>
+      <div className="home-page min-h-screen" style={{ background: "#0a0908" }}>
         <Header />
         <main>
           <HomeHero />

@@ -1,0 +1,80 @@
+/* One content edge for the homepage bands and product pages, above the existing desktop layout. */
+@media (min-width: 1441px) {
+  #root {
+    --commerce-width: min(92vw, 1680px);
+    --commerce-gap: clamp(44px, 3.2vw, 72px);
+    --commerce-section-space: clamp(64px, 5.6vw, 112px);
+    --commerce-title: clamp(46px, 3.35vw, 64px);
+    --commerce-body: clamp(16px, 1vw, 19px);
+    --commerce-prose: min(100%, 760px);
+  }
+
+  #root :is(.hh-frame, .bw-home-inner, .home-nexus > div, .home-matrix > div, .home-set > div,
+    .home-reviews > div, .home-story-inner, .home-business-card, .home-ticker,
+    .home-page > footer .container, .nx-purchase, .mx-purchase, .ap-purchase, .nx-section, .mx-section, .ap-section) {
+    width: var(--commerce-width);
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  #root :is(.bw-home, .home-nexus, .home-matrix, .home-set, .home-reviews, .home-story, .home-business,
+    .home-page > footer .container, .nx-purchase, .mx-purchase, .ap-purchase, .nx-section, .mx-section, .ap-section) {
+    padding-inline: 0;
+  }
+
+  #root :is(.bw-home, .home-nexus > div, .home-matrix > div, .home-set > div, .home-reviews > div,
+    .nx-section, .mx-section, .ap-section) {
+    padding-block: var(--commerce-section-space);
+  }
+
+  #root .home-hero {
+    --k: clamp(1px, calc(var(--commerce-width) / 1160), 1.45px);
+    height: clamp(780px, 92svh, 1000px);
+  }
+  #root .hh-text { left: 0; width: 45%; gap: clamp(22px, 1.5vw, 34px); }
+  #root .hh-stage { width: 55%; }
+  #root .hh-title { font-size: clamp(84px, 5.45vw, 104px); }
+  #root :is(.hh-eyebrow, .hh-title span, .hh-rating .hh-stars) { letter-spacing: 0; }
+  #root .hh-lead { font-size: var(--commerce-body); max-width: var(--commerce-prose); }
+  #root .hh-case-group { width: calc(510 * var(--k)); }
+  #root .hh-case--cherry { width: calc(295 * var(--k)); }
+  #root .hh-case--onyx { width: calc(283 * var(--k)); left: calc(215 * var(--k)); }
+  #root :is(.hh-nexus, .hh-nexus-img) { width: calc(420 * var(--k)); }
+  #root .hh-pill { left: 0; }
+  #root .hh-apex { inset: 0; width: 100%; }
+  #root .hh-apex img { object-fit: contain; object-position: center 30%; }
+  #root .hh-meta { top: auto; bottom: clamp(30px, 4vh, 56px); }
+
+  #root :is(.home-nexus-layout, .home-set-layout, .bw-home-grid, .nx-use-cases, .ap-use-cases, .mx-features) {
+    gap: var(--commerce-gap);
+  }
+  #root :is(.home-nexus-title, .home-matrix-title, .home-set-title, .home-story-title, .bw-home h2,
+    .nx-page h2, .mx-page h2, .ap-page h2) { font-size: var(--commerce-title); }
+  #root :is(.home-nexus-description, .home-story-text, .home-matrix-points, .home-business-sub,
+    .bw-card p, .bw-set-line, .nx-use-cases p, .ap-use-cases p, .mx-feature p, .mx-real > p:not(.mx-label),
+    .nx-faq details p, .mx-faq details p, .ap-faq details p, .nx-review p, .mx-review p, .ap-review p) {
+    font-size: var(--commerce-body);
+  }
+  #root :is(.home-story-text, .home-nexus-description, .home-story-title, .home-review-copy,
+    .nx-faq details p, .mx-faq details p, .ap-faq details p, .nx-review p, .mx-review p, .ap-review p) {
+    max-width: var(--commerce-prose);
+  }
+  #root .home-matrix-points li { max-width: none; }
+  #root .home-review-photo { height: clamp(390px, 25vw, 480px); }
+  #root .home-reviews-stage { height: auto; display: grid; }
+  #root .home-review-slide { position: relative; grid-area: 1 / 1; min-height: 380px; }
+  #root .home-business-card { padding: clamp(36px, 3vw, 64px); }
+
+  #root .bw-home-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #root .bw-card img { height: auto; aspect-ratio: 16 / 10; object-fit: contain; }
+  #root .bw-card > div { padding: clamp(24px, 2vw, 44px); }
+
+  #root :is(.nx-purchase, .mx-purchase, .ap-purchase) {
+    grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+    column-gap: var(--commerce-gap);
+  }
+  #root :is(.nx-heading, .mx-heading, .ap-heading) h1 { font-size: var(--commerce-title); }
+  #root :is(.nx-subtitle, .mx-subtitle, .ap-subtitle, .nx-points, .ap-points) { font-size: var(--commerce-body); }
+  #root :is(.nx-pair-card, .mx-pair-card, .ap-pair-card) > img { height: auto; object-fit: contain; }
+  #root .mx-real-track img { object-fit: contain; }
+}

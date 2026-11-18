@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary";
 import "./index.css";
+import "./styles/wide-commerce.css";
 import { captureAttribution } from "./lib/attribution";
 
 captureAttribution();
