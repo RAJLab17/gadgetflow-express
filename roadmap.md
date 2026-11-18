@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Black Week visibility: announcement, homepage offer copy and product labels use the existing campaign flag and Shopify prices; regular mode stays unchanged.
+
 - [x] Restore NEXUS desktop in-image overlays and rectangular editorial cards without cropping; verified at 768–2560px, mobile at 390px unchanged, not published.
 
 - [x] Wide desktop round two: shared 92vw/1680px edges above 1440px on Home/NEXUS/MATRIX/AirPods, scaled hero/product media, 16:10 campaign card images and NEXUS amount-only strikethrough. Checked both campaign modes at 390/1280/1440/1680/1920/2560px; desktop purchase buttons in view, existing mobile homepage overflow unchanged, 43 tests passed; not published.

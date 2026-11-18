@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { chf, chfShort, amount, fillPrices } from '@/lib/livePrice';
+import { chf, chfShort } from '@/lib/livePrice';
 import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
 import { Link } from "react-router-dom";
 import { useProductReviews } from "@/hooks/useProductReviews";
@@ -16,9 +16,10 @@ import "@/styles/home-hero.css";
  * über dem Textblock. Ersetzt BrandHero; die alte Datei bleibt erhalten.
  */
 const HomeHero = () => {
-  const {nexus,matrix} = useBlackWeekCatalog();
+  const {active: blackWeek, nexus, matrix} = useBlackWeekCatalog();
   const nexusPrice = chf(nexus?.price.amount);
   const matrixPrice = chf(matrix?.price.amount);
+  const nexusCompareAt = nexus?.compareAtPrice?.amount;
   const { stats, isSuccess } = useProductReviews();
   const [chargePct, setChargePct] = useState(0);
   // Aktives Slide im 15s-Takt (MATRIX 0–4.4s, NEXUS 4.4–9.4s, APEX 9.4–14.4s,
@@ -181,7 +182,7 @@ const HomeHero = () => {
 
       {/* Textblock */}
       <div className="hh-text">
-        <p className="hh-eyebrow">Gestaltet in der Schweiz · Weinfelden</p>
+        <p className={`hh-eyebrow${blackWeek ? " bw-hero-eyebrow" : ""}`}>{blackWeek ? "Black Week · bis 30. November" : "Gestaltet in der Schweiz · Weinfelden"}</p>
         <h1 id="home-hero-title" className="hh-title">
           <span className="hh-title-line1">Energie,</span>
           <span className="hh-title-line2">in Form gegossen.</span>
@@ -189,6 +190,7 @@ const HomeHero = () => {
         <p className="hh-lead">
           3-in-1 Ladestation und MagSafe-Hüllen für dein iPhone. Versand in 2–3 Werktagen, 30 Tage Rückgabe.
         </p>
+        {blackWeek && <p className="bw-hero-offer">AirPods Case gratis zu jeder MATRIX · NEXUS {nexusPrice.replace(/\.–$/, "")}{nexusCompareAt && <> statt <del>{chfShort(nexusCompareAt).replace(/\.–$/, "")}</del></>}</p>}
         <p className="hh-rating">
           {isSuccess && stats.total > 0 && (
             <Link to="/reviews">
@@ -199,12 +201,12 @@ const HomeHero = () => {
         </p>
         <div className="hh-buttons">
           <Link to="/nexus" className="hh-btn hh-btn--nexus">
-            <span className="hh-btn-name">NEXUS</span>
-            <span className="hh-btn-price">{nexusPrice}</span>
+            <span className="hh-btn-name">NEXUS{blackWeek && ` · ${nexusPrice}`}</span>
+            {blackWeek ? (nexusCompareAt && <small className="bw-hero-button-note">statt <del>{chfShort(nexusCompareAt)}</del></small>) : <span className="hh-btn-price">{nexusPrice}</span>}
           </Link>
           <Link to="/matrix" className="hh-btn hh-btn--matrix">
-            <span className="hh-btn-name">MATRIX</span>
-            <span className="hh-btn-price">{matrixPrice}</span>
+            <span className="hh-btn-name">MATRIX{blackWeek && ` · ${matrixPrice}`}</span>
+            {blackWeek ? <small className="bw-hero-button-note">+ AirPods Case gratis</small> : <span className="hh-btn-price">{matrixPrice}</span>}
           </Link>
         </div>
         <div className="hh-scroll" aria-hidden="true" />

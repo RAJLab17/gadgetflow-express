@@ -127,7 +127,7 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
             : "bg-transparent"
       } ${isDarkPage ? "[&_*]:!text-white" : ""}`}
     >
-      {blackWeek && <Button asChild variant="link" className="bw-announcement w-full rounded-none h-auto"><Link to="/#black-week" onClick={event=>{const section=document.getElementById('black-week');if(!section)return;event.preventDefault();const headerHeight=document.querySelector('header')?.getBoundingClientRect().height??134;window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-headerHeight-8,behavior:'smooth'});}}><span className="bw-desktop">Black Week bis 30.11.: AirPods Case gratis zu jeder MATRIX · NEXUS {nexusNow}{nexusWas} · Gratis Versand</span><span className="bw-mobile">Black Week: Case gratis zur MATRIX · NEXUS {nexusNow}</span></Link></Button>}
+      {blackWeek && <Button asChild variant="link" className="bw-announcement w-full rounded-none h-auto"><Link to="/#black-week" onClick={event=>{const section=document.getElementById('black-week');if(!section)return;event.preventDefault();const headerHeight=document.querySelector('header')?.getBoundingClientRect().height??134;window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-headerHeight-8,behavior:'smooth'});}}><span className="bw-desktop"><strong>Black Week</strong> bis 30.11.: AirPods Case gratis zu jeder MATRIX · NEXUS {nexusNow}{nexusWas} · Gratis Versand</span><span className="bw-mobile"><strong>Black Week</strong>: Case gratis zur MATRIX · NEXUS {nexusNow}</span></Link></Button>}
       {/* Optional top strip (e.g. trust ticker) — sits above the logo/nav row */}
       {topSlot && <div className="w-full">{topSlot}</div>}
 

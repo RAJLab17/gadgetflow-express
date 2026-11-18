@@ -436,7 +436,7 @@ const MatrixPage = () => {
           <section className="mx-purchase">
             <MatrixGallery src={caseThumbSrc} finish={caseId} alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`} onFirstLoad={warmVariantImages}/>
             <div className="mx-options">
-              <div><div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price">{chf(currentTotal)}{blackWeek&&freeCase&&<small className="bw-price-note">inkl. AirPods Case gratis</small>}{!blackWeek&&(airpodsSelected || twoCasesSelected) && <del>statt {chf(originalTotal)}</del>}</div></div>
+              <div>{blackWeek && <p className="bw-product-label">Black Week · AirPods Case gratis</p>}<div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price">{chf(currentTotal)}{blackWeek&&freeCase&&<small className="bw-price-note">inkl. AirPods Case gratis</small>}{!blackWeek&&(airpodsSelected || twoCasesSelected) && <del>statt {chf(originalTotal)}</del>}</div></div>
                 {verifiedMatrixReviews(productReviews).length > 0 && <Button asChild variant="link" className="mx-rating"><a href="#bewertungen"><StarRating readOnly size={14} value={Math.round(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length)}/><span>{(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length).toFixed(1)} · {verifiedMatrixReviews(productReviews).length} Bewertungen</span></a></Button>}
               </div>
               <div className="mx-photos"><ProductCustomerPhotos productId="matrix" /></div>
