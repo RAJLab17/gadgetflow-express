@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { chf, chfShort } from '@/lib/livePrice';
+import { PriceComparison } from "@/components/product/PriceComparison";
+import { chf, chfShort, comparisonAmount } from '@/lib/livePrice';
 import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
 import { Link } from "react-router-dom";
 import { useProductReviews } from "@/hooks/useProductReviews";
@@ -15,11 +16,13 @@ import "@/styles/home-hero.css";
  * HomeHero (Etappe 2): 3-Slide-Bühne (MATRIX → NEXUS → APEX, 15s Zyklus)
  * über dem Textblock. Ersetzt BrandHero; die alte Datei bleibt erhalten.
  */
+const wholePrice = (value?: number | string | null) => chfShort(value).replace(/\.–$/, "");
+
 const HomeHero = () => {
   const {active: blackWeek, nexus, matrix} = useBlackWeekCatalog();
   const nexusPrice = chf(nexus?.price.amount);
   const matrixPrice = chf(matrix?.price.amount);
-  const nexusCompareAt = nexus?.compareAtPrice?.amount;
+  const nexusCompareAt = comparisonAmount(nexus);
   const { stats, isSuccess } = useProductReviews();
   const [chargePct, setChargePct] = useState(0);
   // Aktives Slide im 15s-Takt (MATRIX 0–4.4s, NEXUS 4.4–9.4s, APEX 9.4–14.4s,
@@ -164,7 +167,7 @@ const HomeHero = () => {
       <div className="hh-meta">
         <div className="hh-products">
           <Link to="/matrix" aria-label="RAJ MATRIX ansehen" className={`hh-product hh-product--matrix${activeSlide === 0 ? " is-active" : ""}`} tabIndex={activeSlide === 0 ? 0 : -1}>
-            <span className="hh-pname">RAJ MATRIX</span>HÜLLE · AB {matrixPrice}
+            <span className="hh-pname">RAJ MATRIX</span>HÜLLE · AB {matrixPrice}<PriceComparison product={matrix} format={chfShort}/>
           </Link>
           <Link to="/nexus" aria-label="RAJ NEXUS ansehen" className={`hh-product hh-product--nexus${activeSlide === 1 ? " is-active" : ""}`} tabIndex={activeSlide === 1 ? 0 : -1}>
             <span className="hh-pname">RAJ NEXUS</span>3-IN-1 · {nexusPrice}
@@ -190,7 +193,7 @@ const HomeHero = () => {
         <p className="hh-lead">
           3-in-1 Ladestation und MagSafe-Hüllen für dein iPhone. Versand in 2–3 Werktagen, 30 Tage Rückgabe.
         </p>
-        {blackWeek && <p className="bw-hero-offer">AirPods Case gratis zu jeder MATRIX · NEXUS {nexusPrice.replace(/\.–$/, "")}{nexusCompareAt && <> statt <del>{chfShort(nexusCompareAt).replace(/\.–$/, "")}</del></>}</p>}
+        {blackWeek && <p className="bw-hero-offer">MATRIX {wholePrice(matrix?.price.amount)}<PriceComparison product={matrix} format={wholePrice}/> + AirPods Case gratis · NEXUS {wholePrice(nexus?.price.amount)}<PriceComparison product={nexus} format={wholePrice}/></p>}
         <p className="hh-rating">
           {isSuccess && stats.total > 0 && (
             <Link to="/reviews">
@@ -206,7 +209,7 @@ const HomeHero = () => {
           </Link>
           <Link to="/matrix" className="hh-btn hh-btn--matrix">
             <span className="hh-btn-name">MATRIX{blackWeek && ` · ${matrixPrice}`}</span>
-            {blackWeek ? <small className="bw-hero-button-note">+ AirPods Case gratis</small> : <span className="hh-btn-price">{matrixPrice}</span>}
+            {blackWeek ? <small className="bw-hero-button-note"><PriceComparison product={matrix} format={chfShort}/> + Case gratis</small> : <span className="hh-btn-price">{matrixPrice}<PriceComparison product={matrix} format={chfShort}/></span>}
           </Link>
         </div>
         <div className="hh-scroll" aria-hidden="true" />

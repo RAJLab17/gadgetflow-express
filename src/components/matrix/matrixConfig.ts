@@ -1,6 +1,5 @@
 import { CASE_VARIANT_IDS } from './matrixCommerce';
 export const BLACK_FRIDAY_MODE = false;
-export const MATRIX_PRICES = { single: 59, airpods: 79, two: 99, airpodsOriginal: 94, twoOriginal: 118 } as const;
 export type MatrixModelId = '17pro' | '17promax' | '18pro' | '18promax';
 export function matrixUrlSelection(search: string) {
   const params = new URLSearchParams(search);
@@ -15,7 +14,3 @@ export function matrixUrlSelection(search: string) {
   const rawColor = params.get('color')?.toLowerCase().replace(/[\s_-]|carbon/g, '');
   return { model, color: rawColor === 'onyx' ? 'onyx' : 'cherry' };
 }
-export function matrixTotal(airpods: boolean, two: boolean) { return two ? MATRIX_PRICES.two : airpods ? MATRIX_PRICES.airpods : MATRIX_PRICES.single; }
-
-/** Amount the MATRIX2 code takes off two cases (two single prices − 19); totals derive from live Shopify prices. */
-export const MATRIX_TWO_DISCOUNT = 19;

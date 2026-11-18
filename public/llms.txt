@@ -16,7 +16,7 @@
 ### RAJ MATRIX (iPhone Hülle)
 - URL: https://raj.ch/matrix
 - Beschreibung: MagSafe-Hülle mit echter Carbon-Oberfläche auf einer Hartschale aus Polycarbonat.
-- Preis: CHF 59.–. Bundle mit AirPods-Hülle CHF 79.–. 2 Hüllen CHF 99.–.
+- Aktuelle Einzel-, Vergleichs- und Setpreise: siehe Produktseite.
 - Kompatibel: iPhone 17 Pro, iPhone 17 Pro Max, iPhone 18 Pro, iPhone 18 Pro Max.
 - Eigenschaften: Cherry Carbon oder Onyx Carbon, Aluminium-Knöpfe in Gold, N52-Magnetring für MagSafe-Zubehör, kabelloses Laden mit Qi2.2 direkt durch die Hülle, abgestimmt auf die RAJ NEXUS Ladestation.
 - Lieferzeit: Gratis Versand in der Schweiz, Lieferung in 2–3 Werktagen.
@@ -24,7 +24,7 @@
 
 ### RAJ MATRIX AirPods Case
 - URL: https://raj.ch/airpods-case
-- Preis: CHF 35. Mit MATRIX iPhone Hülle im Bundle CHF 79.
+- Preis: CHF 35. Aktueller Setpreis mit MATRIX iPhone Hülle: siehe Produktseite.
 - Kompatibel: AirPods 4 (mit und ohne aktive Geräuschunterdrückung) und AirPods 5.
 - Eigenschaften: Polycarbonat-Hartschale mit echter Carbon-Oberfläche in Cherry Carbon oder Onyx Carbon mit goldenem Blitz und goldenem Karabiner. Kabelloses Laden durch die Hülle, sofern das Ladecase es unterstützt.
 - Lieferzeit: Lieferung in 2–3 Werktagen. Gratis Versand in der Schweiz.
@@ -86,7 +86,7 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 ## Pages
 - [Startseite](https://raj.ch/): RAJ Brand & Produkte (NEXUS, MATRIX, Set, Kundenbewertungen, Hinter RAJ, Für Firmen)
 - [RAJ NEXUS](https://raj.ch/nexus): 3-in-1 Qi2.2 Wireless Charger
-- [RAJ MATRIX](https://raj.ch/matrix): MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max, CHF 59; Bundle CHF 79; zwei Hüllen CHF 99
+- [RAJ MATRIX](https://raj.ch/matrix): MagSafe Carbon-Hülle für iPhone 17 Pro, 17 Pro Max, 18 Pro und 18 Pro Max; aktuelle Einzel- und Setpreise auf der Produktseite
 - [MATRIX AirPods Case](https://raj.ch/airpods-case): Hülle in Cherry Carbon oder Onyx Carbon für AirPods 4 & 5, CHF 35
 - [APEX](https://raj.ch/apex): MagSafe Autohalterung mit Qi2.2. Voraussichtlich ab Ende November 2026. CHF 69 (Schwarz), CHF 75 (Silber).
 - [Qi2 erklärt](https://raj.ch/qi2-erklaert): Qi2 vs. Qi2.2
@@ -134,4 +134,4 @@ RAJ GmbH is a Swiss consumer electronics brand founded in 2026 in Weinfelden, Th
 - **Response time:** within 24h, in German
 
 ## Last Updated
-08.11.2026
+18.11.2026

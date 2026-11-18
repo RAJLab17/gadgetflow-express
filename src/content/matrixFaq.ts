@@ -20,7 +20,7 @@ export const MATRIX_FAQ: FaqItem[] = [
   },
   {
     q: "Cherry Carbon oder Onyx Carbon?",
-    a: "Cherry Carbon ist ein gedeckter, warmer Kirschton mit sichtbarer Struktur, Onyx Carbon ist fast schwarz. Beide haben goldene Knöpfe und kosten CHF 59.–. Oben siehst du jede Farbe zusammen mit deiner iPhone-Farbe.",
+    a: "Cherry Carbon ist ein gedeckter, warmer Kirschton mit sichtbarer Struktur, Onyx Carbon ist fast schwarz. Beide haben goldene Knöpfe. Oben siehst du jede Farbe zusammen mit deiner iPhone-Farbe.",
   },
   {
     q: "Wie schnell wird geliefert und was kostet der Versand?",
@@ -39,7 +39,7 @@ export const MATRIX_FAQ: FaqItem[] = [
 export const AIRPODS_FAQ: FaqItem[] = [
   {
     q: "Passt die Hülle auf AirPods 4 und AirPods 5?",
-    a: "Die RAJ MATRIX AirPods-Hülle passt auf AirPods 4 – mit und ohne aktive Geräuschunterdrückung – sowie auf AirPods 5. Laut Apples technischen Daten haben die Ladecases dieser Modelle identische Abmessungen, deshalb sitzt dieselbe Hülle bei allen drei Varianten passgenau. Für andere AirPods-Modelle bieten wir sie nicht an. Die Hülle gibt es in Cherry Carbon und Onyx Carbon, jeweils mit goldenem RAJ Blitz, passend zur MATRIX iPhone-Hülle. Sie kostet CHF 35.–. Zusammen mit einer MATRIX iPhone-Hülle im Bundle zahlst du CHF 79.– statt CHF 94.–.",
+    a: "Die RAJ MATRIX AirPods-Hülle passt auf AirPods 4 – mit und ohne aktive Geräuschunterdrückung – sowie auf AirPods 5. Laut Apples technischen Daten haben die Ladecases dieser Modelle identische Abmessungen, deshalb sitzt dieselbe Hülle bei allen drei Varianten passgenau. Für andere AirPods-Modelle bieten wir sie nicht an. Die Hülle gibt es in Cherry Carbon und Onyx Carbon, jeweils mit goldenem RAJ Blitz, passend zur MATRIX iPhone-Hülle. Sie kostet CHF 35.–. Den aktuellen Bundle-Preis findest du auf der Produktseite.",
   },
   {
     q: "Kann ich die AirPods durch die Hülle kabellos laden?",
@@ -55,7 +55,7 @@ export const AIRPODS_FAQ: FaqItem[] = [
   },
   {
     q: "Wie schnell wird geliefert und was kostet der Versand?",
-    a: "Die RAJ MATRIX AirPods-Hülle wird innerhalb der Schweiz kostenlos versendet, ohne Mindestbestellwert. Lieferung in 2–3 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Bestellst du die AirPods-Hülle zusammen mit einer MATRIX iPhone-Hülle, sparst du CHF 15.–. Alle Details findest du auf unserer Seite zu Versand und Rückgabe.",
+    a: "Die RAJ MATRIX AirPods-Hülle wird innerhalb der Schweiz kostenlos versendet, ohne Mindestbestellwert. Lieferung in 2–3 Werktagen mit der Post. Wir liefern derzeit nur innerhalb der Schweiz. Bezahlen kannst du sicher mit Visa, Mastercard, American Express, Apple Pay, Google Pay, TWINT oder Klarna. Alle Details findest du auf unserer Seite zu Versand und Rückgabe.",
   },
   {
     q: "Kann ich die Hülle zurückgeben?",

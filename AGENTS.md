@@ -43,6 +43,6 @@
 - For responsive layout work, change only the width and size of images, galleries and overlays; preserve their appearance and composition to avoid unintended redesigns.
 - AirPods page-owned content, gallery and editorial modules isolate styling and set-model validation; preserve shared commerce constants and delegate sticky purchases to the original button.
 - Keep wide homepage and product section edges in wide-commerce.css: one 92vw/1680px cap above 1440px, full-width bands and 55/45 purchase grids; preserve existing smaller layouts and keep gallery scaling separate from commerce.
-- Displayed NEXUS/MATRIX/AirPods prices always come from the cached Shopify catalog via useBlackWeekCatalog and lib/livePrice ("…" while loading, {{KEY}} tokens in FAQ copy); bundle totals derive from live prices minus the existing code amounts, so page, cart and checkout cannot diverge.
+- Display NEXUS/MATRIX/AirPods catalog prices via useBlackWeekCatalog and livePrice; useCartTotal quotes selected bundle lines and their checkout code via Shopify so checkout and display share pricing rules.
 - The drawer uses Shopify line and cart costs directly and groups non-zero allocations by title, so quantity and split discounts cannot misstate cart prices.
 - Format raw Shopify variants for display at the UI boundary via getVariantLabel; preserve the original data for commerce and tracking.

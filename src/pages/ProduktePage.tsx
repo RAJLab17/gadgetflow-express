@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
+import { PriceComparison } from "@/components/product/PriceComparison";
 import { amount, fillPrices } from "@/lib/livePrice";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
@@ -96,6 +97,7 @@ const products: Product[] = [
 const ProductDetails = ({ product }: { product: Product }) => {
   const { nexus, matrix, airpods } = useBlackWeekCatalog();
   const livePrices = { NEXUS: amount(nexus?.price), MATRIX: amount(matrix?.price), AIRPODS: amount(airpods?.price) };
+  const variant = product.link === '/matrix' ? matrix : product.link === '/nexus' ? nexus : product.link === '/airpods-case' ? airpods : undefined;
   return (
   <div className="px-1 pt-6 text-center md:px-3 md:pt-8">
     <div className="mb-4 flex items-center justify-center gap-3">
@@ -124,7 +126,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
     </dl>
 
     <div className="mt-7 flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
-      <span className="whitespace-nowrap text-xl font-light text-foreground">{fillPrices(product.price, livePrices)}</span>
+      <span className="text-xl font-light text-foreground">{fillPrices(product.price, livePrices)}<PriceComparison product={variant}/></span>
       <Link
         to={product.link}
         className="group inline-flex items-center gap-2 border-b border-primary pb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary transition-colors hover:text-foreground"

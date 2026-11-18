@@ -1,3 +1,6 @@
+import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
+import { PriceComparison } from "@/components/product/PriceComparison";
+import { chf, comparisonAmount } from "@/lib/livePrice";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
@@ -42,7 +45,7 @@ const SECTIONS: { q: string; a: string; faq: boolean }[] = [
   },
   {
     q: "Was kostet die RAJ MATRIX und wie schnell ist sie da?",
-    a: "Die RAJ MATRIX kostet CHF 59. Zwei Hüllen bekommst du zusammen für CHF 99, zum Beispiel für dich und deine Partnerin oder deinen Partner. Im Set mit der passenden MATRIX AirPods-Hülle zahlst du CHF 79. Der Versand innerhalb der Schweiz ist kostenlos, und die aktuelle Lieferzeit siehst du direkt auf der Produktseite. Gefällt dir die Hülle nicht, kannst du sie innerhalb von 30 Tagen zurückgeben, auch wenn du sie ausprobiert hast. Sie sollte einfach keine Gebrauchsspuren haben und in der Originalverpackung zurückkommen. Bezahlen kannst du mit TWINT, Apple Pay oder Karte.",
+    a: "{{MATRIX_PRICE}} Die aktuellen Preise für zwei Hüllen und das Set mit AirPods Case findest du auf der Produktseite. Der Versand innerhalb der Schweiz ist kostenlos, und die aktuelle Lieferzeit siehst du direkt auf der Produktseite. Gefällt dir die Hülle nicht, kannst du sie innerhalb von 30 Tagen zurückgeben, auch wenn du sie ausprobiert hast. Sie sollte einfach keine Gebrauchsspuren haben und in der Originalverpackung zurückkommen. Bezahlen kannst du mit TWINT, Apple Pay oder Karte.",
     faq: true,
   },
   {
@@ -70,17 +73,22 @@ const breadcrumb = breadcrumbJsonLd([
   { name: "iPhone 17 Pro Hülle auf iPhone 18 Pro", url: URL },
 ]);
 
-const faqJsonLd = {
+const MatrixFitBlogPage = () => {
+  const { matrix } = useBlackWeekCatalog();
+  const comparison = comparisonAmount(matrix);
+  const price = matrix ? `Die RAJ MATRIX kostet ${chf(matrix.price.amount)}${comparison === null ? "" : ` statt ${chf(comparison)}`}.` : "Den aktuellen Preis findest du auf der Produktseite.";
+  const sections = SECTIONS.map(section => ({ ...section, a: section.a.replace("{{MATRIX_PRICE}}", price) }));
+  const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: SECTIONS.filter((s) => s.faq).map((s) => ({
+  mainEntity: sections.filter((s) => s.faq).map((s) => ({
     "@type": "Question",
     name: s.q,
     acceptedAnswer: { "@type": "Answer", text: s.a },
   })),
 };
 
-const MatrixFitBlogPage = () => (
+  return (
   <>
     <Helmet>
       <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
@@ -98,10 +106,10 @@ const MatrixFitBlogPage = () => (
       meta={<p>Autor: RAJ Team, Weinfelden · <time dateTime={DATE_ISO}>{DATE}</time></p>}
       width="wide"
     >
-      {SECTIONS.map((s) => (
+      {sections.map((s) => (
         <section key={s.q}>
           <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mt-16 mb-6">{s.q}</h2>
-          <p className="text-foreground/85 font-light leading-relaxed mb-5 text-[15px] md:text-base">{s.a}</p>
+          <p className="text-foreground/85 font-light leading-relaxed mb-5 text-[15px] md:text-base">{s.a.includes(price) ? <>{matrix ? <>Die RAJ MATRIX kostet {chf(matrix.price.amount)}<PriceComparison product={matrix}/>.</> : price}{s.a.slice(price.length)}</> : s.a}</p>
         </section>
       ))}
 
@@ -116,7 +124,7 @@ const MatrixFitBlogPage = () => (
         />
         <div className="flex-1 text-center sm:text-left">
           <p className="text-lg md:text-xl font-light tracking-tight text-foreground">RAJ MATRIX Carbon Hülle MagSafe</p>
-          <p className="text-foreground/85 font-light mt-1 mb-4">CHF 59</p>
+          <p className="text-foreground/85 font-light mt-1 mb-4">{chf(matrix?.price.amount)}<PriceComparison product={matrix}/></p>
           <Link
             to="/matrix"
             className="group inline-flex items-center gap-2 px-7 py-4 bg-primary text-primary-foreground text-sm font-medium tracking-wide hover:opacity-90 transition-opacity"
@@ -140,6 +148,7 @@ const MatrixFitBlogPage = () => (
       </p>
     </PremiumPageLayout>
   </>
-);
+  );
+};
 
 export default MatrixFitBlogPage;

@@ -1,4 +1,4 @@
-import { AIRPODS_VARIANT_IDS, BUNDLE_DISCOUNT } from "@/components/matrix/matrixCommerce";
+import { AIRPODS_VARIANT_IDS } from "@/components/matrix/matrixCommerce";
 import apLaub1200 from "@/assets/matrix/real/airpods-cherry-laub-1200.webp.asset.json";
 import apLaub800 from "@/assets/matrix/real/airpods-cherry-laub-800.webp.asset.json";
 import apLaub400 from "@/assets/matrix/real/airpods-cherry-laub-400.webp.asset.json";
@@ -110,8 +110,6 @@ export const MODELS: { id: ModelId; short: string; name: string; status: string 
   { id: "18pro", short: "18 Pro", name: "iPhone 18 Pro", status: "Vorbestellung" },
   { id: "18promax", short: "18 Pro Max", name: "iPhone 18 Pro Max", status: "Vorbestellung" },
 ];
-
-export const BUNDLE_TOTAL = AIRPODS_PRICE + IPHONE_CASE_PRICE - BUNDLE_DISCOUNT;
 
 export const GALLERY_SIZES = "(max-width: 767px) 100vw, 460px";
 export const slideSrcSet = (s: Slide) => `${s.sm} 400w, ${s.md} 800w, ${s.src} 1200w`;

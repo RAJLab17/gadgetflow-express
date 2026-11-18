@@ -1,3 +1,6 @@
+import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
+import { PriceComparison } from "@/components/product/PriceComparison";
+import { chf } from "@/lib/livePrice";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
@@ -14,6 +17,7 @@ const POINTS = [
 ];
 
 function MatrixMomentContent() {
+  const { matrix } = useBlackWeekCatalog();
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const { stats, isSuccess } = useProductReviews("matrix");
@@ -41,7 +45,7 @@ function MatrixMomentContent() {
       <ul className="matrix-moment-points">
         {POINTS.map(p => <li key={p}><Check aria-hidden="true" strokeWidth={1.4} />{p}</li>)}
       </ul>
-      <p className="matrix-moment-price">ab CHF 59.–</p>
+      <p className="matrix-moment-price">ab {chf(matrix?.price.amount)}<PriceComparison product={matrix}/></p>
       {isSuccess && stats.total > 0 && (
         <p className="matrix-moment-rating">
           <span aria-hidden="true">★★★★★</span> {stats.average.toFixed(1)} · {stats.total} {stats.total === 1 ? "Bewertung" : "Bewertungen"}

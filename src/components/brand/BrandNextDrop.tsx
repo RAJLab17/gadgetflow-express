@@ -1,3 +1,6 @@
+import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
+import { PriceComparison } from "@/components/product/PriceComparison";
+import { chf } from "@/lib/livePrice";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
@@ -20,6 +23,7 @@ const GOLD_SOFT = "#d7ad82";
  * MATRIX als "Jetzt verfügbar", APEX als "Bald verfügbar".
  */
 const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carousel" }) => {
+  const { matrix } = useBlackWeekCatalog();
   const headRef = useReveal<HTMLDivElement>();
   const carousel = variant === "carousel";
   const [active, setActive] = useState(0);
@@ -194,7 +198,7 @@ const BrandNextDrop = ({ variant = "default" }: { variant?: "default" | "carouse
                 </p>
               </div>
                <span className="text-base font-medium" style={{ color: GOLD_SOFT }}>
-                CHF 59.–
+                {chf(matrix?.price.amount)}<PriceComparison product={matrix}/>
               </span>
             </div>
             <div className="mt-4">
