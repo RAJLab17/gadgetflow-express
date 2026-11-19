@@ -14,7 +14,7 @@
 - MATRIX and AirPods bundle offer cards use BundleOfferImage with original-product AirPods thumbnails and page-owned phone selections, keeping their presentation identical without coupling checkout logic.
 - Deduplicate React/ReactDOM and prebundle app-shell providers together in Vite so lazy navigation cannot mix React hook dispatchers from separate dependency generations.
 - Product share images use the shared shareImages metadata helper and CDN asset pointers; capture image dimensions, MIME type and alt text in the SEO snapshot so runtime and crawler tags stay identical.
-- MATRIX render images share responsive asset mappings between the instant view and React, with route-gated preloads and separate small purchase thumbnails; this prevents duplicate initial downloads and loading full non-selected finishes.
+- MATRIX shares the default gallery source between its preload and React; selection links load their matching eager render instead, so no unused default is preloaded. Purchase thumbnails stay separate.
 
 - MATRIX, NEXUS and AirPods use MobileProductBuyBar with page-owned selection data and clicks delegated to the original purchase control; IntersectionObserver shows it only below 768px after the first scroll whenever that control is off screen (above or below), while visible modal overlays suppress it, avoiding duplicate commerce or tracking logic.
 - Keep the MATRIX delivery message in a named constant so shipping copy can change independently of the layout.

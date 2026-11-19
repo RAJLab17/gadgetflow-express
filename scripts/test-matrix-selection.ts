@@ -1,6 +1,7 @@
 import { test, expect } from 'bun:test';
 import { BLACK_FRIDAY_MODE,matrixUrlSelection } from '../src/components/matrix/matrixConfig';
 import { CASE_VARIANT_IDS } from '../src/components/matrix/matrixCommerce';
+import { matrixDefaultGalleryRender, renderSrcSet } from '../src/assets/matrix/responsiveRenders';
 test('the eight Shopify case IDs remain unchanged',()=>expect(CASE_VARIANT_IDS).toEqual({
  '17pro':{cherry:'gid://shopify/ProductVariant/59116736545093',onyx:'gid://shopify/ProductVariant/59116736577861'},
  '17promax':{cherry:'gid://shopify/ProductVariant/59116736610629',onyx:'gid://shopify/ProductVariant/59116736643397'},
@@ -8,6 +9,11 @@ test('the eight Shopify case IDs remain unchanged',()=>expect(CASE_VARIANT_IDS).
  '18promax':{cherry:'gid://shopify/ProductVariant/59116736741701',onyx:'gid://shopify/ProductVariant/59116736774469'},
 }));
 test('no model is selected without URL parameters',()=>expect(matrixUrlSelection('').model).toBeNull());
+test('the default Cherry Carbon preview shows the iPhone 18 in Dark Cherry',()=>{
+  expect(matrixUrlSelection('').color).toBe('cherry');
+  expect(matrixDefaultGalleryRender).toEndWith('/18-cherry-darkcherry-norm-full.webp');
+  expect(renderSrcSet(matrixDefaultGalleryRender)).toContain('/18-cherry-darkcherry-norm-mobile.webp 800w');
+});
 test('unknown variant cannot preselect a model',()=>expect(matrixUrlSelection('?variant=123').model).toBeNull());
 for(const [model,finishes] of Object.entries(CASE_VARIANT_IDS)) for(const [color,id] of Object.entries(finishes)) test(`Shopping variant selects ${model} ${color}`,()=>{expect(matrixUrlSelection('?variant='+id.split('/').pop())).toEqual({model,color});expect(matrixUrlSelection('?variant='+encodeURIComponent(id))).toEqual({model,color});});
 test('model and color parameters remain supported',()=>expect(matrixUrlSelection('?model=iPhone%2017%20Pro%20Max&color=Onyx%20Carbon')).toEqual({model:'17promax',color:'onyx'}));

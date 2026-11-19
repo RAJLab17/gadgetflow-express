@@ -8,8 +8,7 @@ import { generateSitemap } from "./scripts/generate-sitemap.mjs";
 import heroWebp400 from "./src/assets/products/nexus-hero-v2-400w.webp.asset.json";
 import heroWebp800 from "./src/assets/products/nexus-hero-v2-800w.webp.asset.json";
 import heroWebp1200 from "./src/assets/products/nexus-hero-v2-1200w.webp.asset.json";
-import matrixFirstRender from "./src/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-full.webp.asset.json";
-import matrixMobileRender from "./src/assets/matrix/uploaded-renders/18-cherry-darkcherry-norm-mobile.webp.asset.json";
+import { matrixDefaultGalleryRender, renderImageSizes, renderSizes, renderSrcSet } from "./src/assets/matrix/responsiveRenders";
 import ap400 from "./src/assets/matrix/airpods-gallery/airpods-cherry-product-400.webp.asset.json";
 import ap800 from "./src/assets/matrix/airpods-gallery/airpods-cherry-product-800.webp.asset.json";
 import ap1200 from "./src/assets/matrix/airpods-gallery/airpods-cherry-product-1200.webp.asset.json";
@@ -26,7 +25,8 @@ const withFacts = (html: string, route: string) => PRODUCT_FACTS[route]
   ? html.replace(/(<noscript>\s*<div style="max-width:800px[^>]*>\s*<h1>[\s\S]*?<\/h1>)/, `$1${PRODUCT_FACTS[route]}`)
   : html;
 // Static first-image preloads; must match the first React <img> src/srcset/sizes exactly.
-const matrixPreload = `<link rel="preload" as="image" href="${matrixMobileRender.url}" imagesrcset="${matrixMobileRender.url} 800w, ${matrixFirstRender.url} 1200w" imagesizes="(max-width: 1023px) 266px, 1200px" fetchpriority="high">`;
+// Selection links load their own eager image; never preload the default for them.
+const matrixPreload = `<script>(function(){var p=new URLSearchParams(location.search);if(p.has('variant')||p.has('model')||p.has('color'))return;var l=document.createElement('link');l.rel='preload';l.as='image';l.href=${JSON.stringify(renderSizes.get(matrixDefaultGalleryRender)?.mobile ?? matrixDefaultGalleryRender)};l.imageSrcset=${JSON.stringify(renderSrcSet(matrixDefaultGalleryRender))};l.imageSizes=${JSON.stringify(renderImageSizes)};l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
 const nexusPreload = `<link rel="preload" as="image" href="${heroWebp800.url}" imagesrcset="${heroWebp400.url} 400w, ${heroWebp800.url} 800w, ${heroWebp1200.url} 1200w" imagesizes="(max-width: 768px) 266px, 700px" fetchpriority="high">`;
 const ROUTE_PRELOADS: Record<string, string> = { "/airpods-case": airpodsPreload, "/matrix": matrixPreload, "/nexus": nexusPreload };
 // Page colour painted before the bundle so there is no white flash.
@@ -65,7 +65,7 @@ const heroPreloadPlugin = (): PluginOption => ({
       // Single responsive preload — matches the <img srcset/sizes> on the
       // Nexus hero exactly, so the preloaded resource is guaranteed to be
       // reused instead of triggering a second download.
-       const preloadTag = `<script>(function(){var _p=location.pathname.replace(/\\/$/,'');if(_p==='/matrix'||_p==='/airpods-case'||_p==='/nexus')return;var home=_p===''&&!new URLSearchParams(location.search).has('mode');var l=document.createElement('link');l.rel='preload';l.as='image';if(home){l.href=${JSON.stringify(matrixFirstRender.url)};}else{l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes='100vw';}l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
+       const preloadTag = `<script>(function(){var _p=location.pathname.replace(/\\/$/,'');if(_p==='/matrix'||_p==='/airpods-case'||_p==='/nexus')return;var home=_p===''&&!new URLSearchParams(location.search).has('mode');var l=document.createElement('link');l.rel='preload';l.as='image';if(home){l.href=${JSON.stringify(matrixDefaultGalleryRender)};}else{l.href=${JSON.stringify(url800)};l.imageSrcset=${JSON.stringify(srcset)};l.imageSizes='100vw';}l.setAttribute('fetchpriority','high');document.head.appendChild(l);})();</script>`;
 
       // Static LCP fallback: inject a real <img> into #root so the browser
       // can paint the hero BEFORE React hydrates (~3s render-delay saved on

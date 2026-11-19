@@ -45,7 +45,7 @@ import {
   CASE_VARIANT_IDS,
   MATRIX_DELIVERY_TEXT_NO_DATE,
 } from "@/components/matrix/matrixCommerce";
-import { airpodsThumbs, renderSizes } from "@/assets/matrix/responsiveRenders";
+import { airpodsThumbs, matrixDefaultGalleryRender, renderSizes } from "@/assets/matrix/responsiveRenders";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
 import MobileSelectionPreview from "@/components/product/MobileSelectionPreview";
 
@@ -257,6 +257,12 @@ const MatrixPage = () => {
     RENDERS[`${model.gen}-${caseFinish.id}-${device.id}`] ??
     Object.entries(RENDERS).find(([key]) => key.startsWith(`${model.gen}-${caseFinish.id}-`))?.[1] ??
     Object.values(RENDERS)[0];
+  // Show the studio preview without setting a purchase model.
+  const showDefaultGalleryRender = modelId === null && caseId === "cherry";
+  const gallerySrc = showDefaultGalleryRender ? matrixDefaultGalleryRender : caseThumbSrc;
+  const galleryAlt = showDefaultGalleryRender
+    ? "RAJ MATRIX Cherry Carbon auf einem iPhone 18 Pro in Dark Cherry"
+    : `RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`;
 
   const handleBuy = useCallback(async () => {
     if (isBuying) return;
@@ -439,7 +445,7 @@ const MatrixPage = () => {
         <Header topSlot={<NexusTrustBar />} />
         <main>
           <section className="mx-purchase">
-            <MatrixGallery src={caseThumbSrc} finish={caseId} alt={`RAJ MATRIX ${caseFinish.name} Hülle für ${model.name} in ${device.name}`} onFirstLoad={warmVariantImages}/>
+            <MatrixGallery src={gallerySrc} finish={caseId} alt={galleryAlt} onFirstLoad={warmVariantImages}/>
             <div className="mx-options">
               <div>{blackWeek && <p className="bw-product-label">Black Week · {chfShort(liveSingle).replace(/\.–$/, "")}<PriceComparison product={singleVariant} format={value=>chfShort(value).replace(/\.–$/, "")}/> + AirPods Case gratis</p>}<div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price">{chf(currentTotal)}{blackWeek&&freeCase&&<small className="bw-price-note">inkl. AirPods Case gratis</small>}{comparison !== null && (blackWeek ? weekQuantity === 1 : !airpodsSelected && !twoCasesSelected) && <small className="bw-price-note"><PriceComparison product={singleVariant}/></small>}</div></div>
                 {verifiedMatrixReviews(productReviews).length > 0 && <Button asChild variant="link" className="mx-rating"><a href="#bewertungen"><StarRating readOnly size={14} value={Math.round(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length)}/><span>{(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length).toFixed(1)} · {verifiedMatrixReviews(productReviews).length} Bewertungen</span></a></Button>}
