@@ -20,29 +20,27 @@ export default function MobileProductBuyBar({ mainBuyRef, name, image, imageAlt,
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
-    let intersects = true;
-    let hasScrolled = window.scrollY > 0;
+    const button = mainBuyRef.current;
+    if (!button || typeof IntersectionObserver === "undefined") return;
     const update = () => {
+      const rect = button.getBoundingClientRect();
+      const headerHeight = document.querySelector('[data-site-header]')?.getBoundingClientRect().bottom ?? 0;
+      const intersects = rect.bottom > headerHeight && rect.top < window.innerHeight;
       const overlayOpen = document.body.style.overflow === "hidden" ||
         Array.from(document.querySelectorAll<HTMLElement>('[role="dialog"], [role="alertdialog"], [aria-modal="true"], [data-cookie-banner]'))
           .some((element) => element.getClientRects().length > 0 && getComputedStyle(element).visibility !== "hidden" && element.getAttribute("data-state") !== "closed");
-      setVisible(mobileBuyBarVisible(media.matches, intersects, hasScrolled, overlayOpen));
+      setVisible(mobileBuyBarVisible(media.matches, intersects, rect.bottom, overlayOpen, headerHeight));
     };
-    const button = mainBuyRef.current;
-    if (!button || typeof IntersectionObserver === "undefined") return;
-    const intersection = new IntersectionObserver(([entry]) => {
-      if (!entry) return;
-      intersects = entry.isIntersecting;
-      update();
-    });
+    const intersection = new IntersectionObserver(update);
     intersection.observe(button);
     const mutations = new MutationObserver(update);
     mutations.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["style", "class", "data-state", "aria-hidden"] });
-    const onScroll = () => { if (!hasScrolled && window.scrollY > 0) { hasScrolled = true; update(); } };
+    const onScroll = update;
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", update);
     const stopMedia = observeMediaQuery(media, update);
     update();
-    return () => { intersection.disconnect(); mutations.disconnect(); window.removeEventListener("scroll", onScroll); stopMedia(); };
+    return () => { intersection.disconnect(); mutations.disconnect(); window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", update); stopMedia(); };
   }, [mainBuyRef]);
 
   return (

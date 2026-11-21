@@ -470,7 +470,7 @@ const MatrixPage = () => {
         </main>
         <Footer/>
         <MobileSelectionPreview gallerySelector=".mx-gallery-frame" revision={previewRevision} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} label={`${caseId === "cherry" ? "Cherry" : "Onyx"} · ${device.name}`} announcement={`${caseFinish.name} auf iPhone ${device.name}${modelId ? ` · ${model.name}` : ""}`} preloadImages={PREVIEW_IMAGES}/>
-        <MobileProductBuyBar mainBuyRef={mainBuyRef} name={`MATRIX · ${modelId ? model.short : 'Modell wählen'} · ${caseFinish.name} · ${device.name}${blackWeek ? `${weekQuantity===2?' · 2 Hüllen':''}${freeCase?' + AirPods gratis':''}` : twoCasesSelected ? ' · 2 Hüllen' : airpodsSelected ? ' + AirPods' : ''}`} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`} price={currentTotal} busy={isBuying}/>
+        <MobileProductBuyBar mainBuyRef={mainBuyRef} name={`MATRIX · ${caseId === 'cherry' ? 'Cherry' : 'Onyx'}`} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`} price={currentTotal} busy={isBuying}/>
       </div>
     </>
   );

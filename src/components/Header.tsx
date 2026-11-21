@@ -156,13 +156,13 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
             : "bg-transparent"
       } ${isDarkPage ? "[&_*]:!text-white" : ""}`}
     >
-      {blackWeek && <Button asChild variant="link" className="bw-announcement w-full rounded-none h-auto"><Link to="/#black-week" onClick={event=>{const section=document.getElementById('black-week');if(!section)return;event.preventDefault();const headerHeight=document.querySelector('header')?.getBoundingClientRect().height??134;window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-headerHeight-8,behavior:'smooth'});}}><span className="bw-desktop"><strong>Black Week</strong> bis 30.11.: MATRIX {matrixNow}<PriceComparison product={matrix} format={chfShort}/> + AirPods Case gratis · NEXUS {nexusNow}<PriceComparison product={liveNexus} format={chfShort}/> · Gratis Versand</span><span className="bw-mobile"><strong>Black Week</strong>: MATRIX {matrixNow} + Case gratis · NEXUS {nexusNow}</span></Link></Button>}
+      {blackWeek && <Button asChild variant="link" className="bw-announcement w-full rounded-none h-auto"><Link to="/#black-week" onClick={event=>{const section=document.getElementById('black-week');if(!section)return;event.preventDefault();const headerHeight=headerRef.current?.getBoundingClientRect().height??0;window.scrollTo({top:window.scrollY+section.getBoundingClientRect().top-headerHeight-8,behavior:'smooth'});}}><span className="bw-desktop"><strong>Black Week</strong> bis 30.11.: MATRIX {matrixNow}<PriceComparison product={matrix} format={chfShort}/> + AirPods Case gratis · NEXUS {nexusNow}<PriceComparison product={liveNexus} format={chfShort}/> · Gratis Versand</span><span className="bw-mobile"><strong>Black Week</strong>: MATRIX {matrixNow} + Case gratis</span></Link></Button>}
       {/* Optional top strip (e.g. trust ticker) — sits above the logo/nav row */}
-      {topSlot && <div className="w-full">{topSlot}</div>}
+      {topSlot && <div className="site-header-trust w-full">{topSlot}</div>}
 
       <div className="w-full px-2 sm:px-4">
 
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="site-header-nav flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="https://raj.ch" className="flex items-center gap-2 shrink-0 -ml-2 sm:-ml-1" aria-label="RAJ Home">
             <img

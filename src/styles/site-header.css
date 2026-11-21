@@ -16,6 +16,28 @@
   }
 }
 @media (max-width: 767px) {
+  #root header[data-site-header] { width: 100%; }
+  #root .site-header-nav { height: 64px; }
+  .black-week-active #root .site-header-trust { display: none; }
+  .black-week-active #root header .bw-announcement {
+    min-height: 36px;
+    height: 36px;
+    white-space: nowrap;
+    padding-inline: 6px;
+    font-size: 13px;
+    gap: 0;
+  }
+  #root .bw-product-label { display: block; width: fit-content; white-space: normal; }
+  #root :is(.home-nexus-layout, .home-nexus-copy, .home-nexus-buy, .hh-text, .hh-btn, .nx-options, .mx-options, .ap-options) { min-width: 0; }
+  #root .hh-btn { white-space: normal; text-align: center; padding-inline: 8px; }
+  #root .hh-products { height: 36px; }
+  #root .hh-product { white-space: normal; letter-spacing: 0; line-height: 1.4; }
+  #root .home-nexus-buy { flex-wrap: wrap; }
+  #root .home-nexus-price { white-space: normal; }
+  #root .home-ticker { max-width: 100%; }
+  #root .home-matrix-case { width: 48%; height: auto; aspect-ratio: 4 / 5; }
+  #root .home-matrix-case-back { left: 4%; }
+  #root .home-matrix-case-front { left: 45%; }
   #root :is(.mx-purchase, .nx-purchase, .ap-purchase) { padding-top: 0; }
   #root :is(.mx-gallery-frame, .nx-gallery-frame, .ap-gallery-frame) {
     padding-top: 0;
@@ -26,4 +48,22 @@
   /* Remove the old vertical centring strip without resizing the product. */
   #root .mx-gallery-main { margin-block: 0; object-position: center top; }
   #root .nx-gallery-frame img { object-position: center top !important; }
+  #root :is(.ap-gallery-studio, .ap-gallery-photo) { object-position: center top; }
+  #root .nx-gallery-original .nx-thumbnails { gap: 6px; }
+  #root .mx-options { grid-template-columns: minmax(0, 1fr); }
+  #root .mx-page .mx-rating { grid-column: 1; white-space: normal; flex-wrap: wrap; }
+  #root .mx-options > .mx-photos { grid-column: 1; justify-self: start; }
+  #root .mx-heading { align-items: start; }
+  #root .mx-heading > div { min-width: 0; }
+  #root .mx-price { max-width: 48%; text-align: right; }
+  #root .mx-price .bw-price-note { white-space: normal; }
+  #root .mx-price del { display: inline; }
+  #root .mx-colors { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  #root .mx-preview-label { min-height: 0; }
+  #root .mobile-product-buybar-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0; }
+}
+@media (max-width: 359px) {
+  #root .hh-buttons { flex-direction: column; }
+  #root .hh-btn { flex: none; width: 100%; }
+  #root .nx-gallery-original .nx-thumb { width: 40px; height: 40px; }
 }

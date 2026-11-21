@@ -17,7 +17,7 @@
 - Product share images use the shared shareImages metadata helper and CDN asset pointers; capture image dimensions, MIME type and alt text in the SEO snapshot so runtime and crawler tags stay identical.
 - MATRIX shares the default gallery source between its preload and React; selection links load their matching eager render instead, so no unused default is preloaded. Purchase thumbnails stay separate.
 
-- MATRIX, NEXUS and AirPods use MobileProductBuyBar with page-owned selection data and clicks delegated to the original purchase control; IntersectionObserver shows it only below 768px after the first scroll whenever that control is off screen (above or below), while visible modal overlays suppress it, avoiding duplicate commerce or tracking logic.
+- MATRIX, NEXUS and AirPods use MobileProductBuyBar with page-owned selection data and clicks delegated to the original purchase control; show it only below 768px once that control exits above the measured header, never before reaching it; visible modal overlays suppress it, avoiding duplicate commerce or tracking logic.
 - Keep the MATRIX delivery message in a named constant so shipping copy can change independently of the layout.
 - MATRIX selection/configuration, gallery and editorial/review layouts live in MATRIX-only modules; first renders depend on model/device/finish while the five-slide real-photo gallery depends only on finish, so other pages remain independent.
 - Gallery position 2 on /matrix is a DOM-composed "Duo" slide (DuoSlide) reusing the two homepage cut-out images (Cherry -6°, Onyx +5°, soft drop shadows on #FAF8F5) in both finishes, with no new image file; the lightbox renders it via the ZoomImage node field, keeping galleries asset-based otherwise.

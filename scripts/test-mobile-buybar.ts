@@ -6,4 +6,6 @@ assert.equal(mobileBuyBarVisible(true, false, -1, false), true, "Visible after t
 assert.equal(mobileBuyBarVisible(true, true, 300, false), false, "Hidden while the main button is visible");
 assert.equal(mobileBuyBarVisible(false, false, -1, false), false, "Never visible at 768px and above");
 assert.equal(mobileBuyBarVisible(true, false, -1, true), false, "Overlays take precedence");
+assert.equal(mobileBuyBarVisible(true, false, 110, false, 110), true, "Visible once the original button exits above the measured header");
+assert.equal(mobileBuyBarVisible(true, false, 111, false, 110), false, "Hidden while any of the original button remains below the header");
 console.log("Mobile buy bar visibility rules passed");
