@@ -1,0 +1,29 @@
+:root { --site-header-h: 0px; }
+
+/* Reserve the measured fixed header once, independent of campaign or page. */
+#root header[data-site-header] ~ main {
+  padding-top: var(--site-header-h);
+}
+#root :is(main [id], .mx-models, .ap-models, .mx-reviews, .nx-reviews, .ap-reviews, .nx-faq, .ap-faq) {
+  scroll-margin-top: var(--site-header-h);
+}
+#root .home-hero { padding-top: 0; }
+#root .hh-stage { margin-top: 0; }
+
+@media (min-width: 768px) {
+  #root :is(.mx-gallery, .nx-gallery, .ap-gallery) {
+    top: var(--site-header-h);
+  }
+}
+@media (max-width: 767px) {
+  #root :is(.mx-purchase, .nx-purchase, .ap-purchase) { padding-top: 0; }
+  #root :is(.mx-gallery-frame, .nx-gallery-frame, .ap-gallery-frame) {
+    padding-top: 0;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  /* Remove the old vertical centring strip without resizing the product. */
+  #root .mx-gallery-main { margin-block: 0; object-position: center top; }
+  #root .nx-gallery-frame img { object-position: center top !important; }
+}

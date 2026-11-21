@@ -107,7 +107,7 @@ const AboutPage = () => {
 
       <main>
         {/* 1. HERO */}
-        <section className="mx-auto max-w-6xl px-5 pt-20 sm:px-8 md:pt-28">
+        <section className="mx-auto max-w-6xl px-5 sm:px-8">
           <motion.div {...fade} className="mx-auto max-w-2xl text-center">
             <Eyebrow>Über RAJ</Eyebrow>
             <h1 className="text-[clamp(2.4rem,7vw,4.75rem)] font-light leading-[1.02] tracking-tight">

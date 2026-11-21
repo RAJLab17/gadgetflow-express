@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Priority: measured header height replaces fixed offsets site-wide; mobile galleries start within 0–1px without top strips. 131 browser checks passed across four phone sizes with 100/120/130% fonts, both campaign modes, orientation/resize, desktop and nine shared pages; 21 product tests passed; not published.
+
 - [x] Cleaned the Black Week NEXUS cutout, matched offer shadows, and verified uncropped editorial pictures, the MATRIX charger photo and the 1840px cap on all four pages at 390/1440/1895/2360px; 37 tests passed; not published.
 
 - [x] Redesigned the homepage Black Week offers; verified uncropped 4:3 imagery, live Shopify CHF 49/89/158/138 and CHF 193 separate prices, product links and campaign-off state at 390/1440/1920px; not published.

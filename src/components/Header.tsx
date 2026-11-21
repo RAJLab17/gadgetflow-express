@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { useBlackWeekCatalog } from "@/hooks/useBlackWeekCatalog";
 import { PriceComparison } from "@/components/product/PriceComparison";
 import { chfShort } from "@/lib/livePrice";
@@ -10,6 +10,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import { useBlackWeek } from "@/hooks/useBlackWeek";
 import "@/styles/black-week.css";
+import "@/styles/site-header.css";
 import logo from "@/assets/logo-new-400w.webp";
 
 const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot?: React.ReactNode } = {}) => {
@@ -23,10 +24,35 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isMobileSupportOpen, setIsMobileSupportOpen] = useState(false);
   const supportCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const location = useLocation();
   const { lang, setLang, t } = useLanguage();
   const isNexusPage = location.pathname.startsWith("/nexus");
   const isDarkPage = location.pathname === "/" || location.pathname.startsWith("/about") || location.pathname.startsWith("/nexus");
+
+  useLayoutEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+    let disposed = false;
+    const measure = () => {
+      if (disposed) return;
+      document.documentElement.style.setProperty("--site-header-h", `${header.getBoundingClientRect().height}px`);
+    };
+    measure();
+    const observer = typeof ResizeObserver === "undefined" ? undefined : new ResizeObserver(measure);
+    observer?.observe(header);
+    window.addEventListener("resize", measure);
+    window.addEventListener("orientationchange", measure);
+    document.fonts?.addEventListener("loadingdone", measure);
+    void document.fonts?.ready.then(measure);
+    return () => {
+      disposed = true;
+      observer?.disconnect();
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("orientationchange", measure);
+      document.fonts?.removeEventListener("loadingdone", measure);
+    };
+  }, []);
 
   const supportLinks = [
     { label: t("header.faq"), href: "/faq" },
@@ -118,6 +144,8 @@ const Header = ({ bottomSlot, topSlot }: { bottomSlot?: React.ReactNode; topSlot
 
   return (
     <header
+      ref={headerRef}
+      data-site-header
       className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled
           ? isDarkPage

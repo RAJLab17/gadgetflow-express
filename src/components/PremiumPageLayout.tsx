@@ -76,7 +76,7 @@ const PremiumPageLayout = ({
       <div className="min-h-screen bg-background text-foreground">
         <Header />
 
-        <main className={heroImage ? "pb-24" : "pt-24 md:pt-32 pb-24"}>
+        <main className="pb-24">
           {/* Hero */}
           {heroImage ? (
             <section className="relative w-full overflow-hidden bg-[#0a0a0a] text-white">
@@ -111,7 +111,7 @@ const PremiumPageLayout = ({
                 />
               </div>
 
-              <div className="relative px-6 md:px-12 lg:px-20 pt-32 md:pt-40 pb-32 md:pb-56 min-h-[80vh] md:min-h-[90vh] flex items-center">
+              <div className="relative px-6 md:px-12 lg:px-20 pb-32 md:pb-56 min-h-[80vh] md:min-h-[90vh] flex items-center">
                 <div className={`${maxW} md:ml-[18%] lg:ml-[22%]`}>
                   <motion.div
                     initial={{ opacity: 0, y: 16 }}

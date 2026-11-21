@@ -1,4 +1,5 @@
 # Architecture rules
+- Header measures its height with ResizeObserver into --site-header-h; pages reserve it once and anchors/sticky galleries reuse it to avoid font-dependent gaps.
 - Black Week uses one Zurich-window/URL/session override policy and a global emergency switch; campaign purchases use the existing Zustand drawer with Shopify cost/allocations and filtered bundle codes, while normal purchase paths stay unchanged.
 - MATRIX and AirPods use a shared presentation-only selection preview driven by explicit user-change revisions and gallery intersection; page-owned image sources and original buy controls prevent coupling to checkout.
 - The retired process-preorder endpoint remains deployed as a side-effect-free 410 handler; PreorderForm has no consumers, and current purchases use Shopify checkout instead.

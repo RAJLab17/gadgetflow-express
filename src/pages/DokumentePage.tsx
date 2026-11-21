@@ -60,7 +60,7 @@ const DokumentePage = () => {
 
       <Header />
 
-      <main className="container mx-auto px-4 pt-32 pb-24">
+      <main className="container mx-auto px-4 pb-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

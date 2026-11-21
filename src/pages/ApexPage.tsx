@@ -278,11 +278,11 @@ const ApexPage = () => {
 
       <main style={{ background: "#FFFFFF", color: H.text }}>
         {/* HERO */}
-        <section className="pt-[120px] md:pt-[152px] pb-12 md:pb-20">
+        <section className="pb-12 md:pb-20">
           <div className="mx-auto max-w-[1240px] px-5 lg:px-8">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
               {/* LEFT — image (sticky on desktop) */}
-              <div className="relative order-1 lg:col-span-6 min-w-0 mx-auto w-full max-w-[340px] sm:max-w-[420px] lg:max-w-none lg:sticky lg:top-24">
+              <div className="relative order-1 lg:col-span-6 min-w-0 mx-auto w-full max-w-[340px] sm:max-w-[420px] lg:max-w-none lg:sticky lg:top-[var(--site-header-h)]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={variant.id}

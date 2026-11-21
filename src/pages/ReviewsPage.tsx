@@ -117,8 +117,8 @@ const ReviewsPage = () => {
       <Header />
 
       {/* HERO */}
-      <section className="border-b border-stone-200 bg-gradient-to-b from-stone-50 to-white">
-        <div className="mx-auto max-w-4xl px-6 pb-16 pt-20 sm:pt-28">
+      <section className="border-b border-stone-200 bg-gradient-to-b from-stone-50 to-white pt-[var(--site-header-h)]">
+        <div className="mx-auto max-w-4xl px-6 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}

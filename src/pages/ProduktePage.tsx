@@ -174,7 +174,7 @@ const ProduktePage = () => {
 
       <div className="min-h-screen bg-background text-foreground">
         <Header />
-        <main className="overflow-hidden pb-24 pt-28 md:pb-32 md:pt-40">
+        <main className="overflow-hidden pb-24 md:pb-32">
           <header className="mx-auto max-w-6xl px-5 text-center sm:px-8">
             <div className="raj-rise-sm inline-flex items-center gap-3 border border-border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
               RAJ Kollektion · 2026

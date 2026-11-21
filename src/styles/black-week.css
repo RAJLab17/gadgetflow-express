@@ -4,17 +4,15 @@
 .bw-announcement .bw-mobile{display:none}
 .black-week-active header{background:var(--bw-dark)}
 .black-week-active header .hdr-text{color:var(--bw-white)!important}
-.black-week-active .home-hero{padding-top:var(--bw-announcement-height)}
 .hh-text .bw-hero-eyebrow{color:var(--raj-gold);letter-spacing:0;font-weight:700}
 .bw-hero-offer{font-size:13px;line-height:1.4;color:var(--raj-ivory)}
 .bw-hero-button-note{font-size:12px;line-height:1.25}
 .hh-btn--matrix .bw-hero-button-note{color:var(--raj-gold)}
 .bw-product-label{display:table;max-width:100%;margin-bottom:8px;padding:3px 10px;border:1px solid var(--raj-gold-text);border-radius:999px;color:var(--raj-brown);font-size:12px;font-weight:600;text-transform:uppercase}
 .mx-options .bw-product-label{grid-column:1/-1;justify-self:start}
-.black-week-active .mx-purchase,.black-week-active .nx-purchase,.black-week-active .ap-purchase{padding-top:150px}
 .bw-home {
   padding: 64px 20px;
-  scroll-margin-top: 140px;
+  scroll-margin-top: var(--site-header-h);
   background: var(--bw-dark);
   color: var(--raj-ivory);
 }
@@ -87,7 +85,7 @@
 .bw-delivery { margin-top: 20px; text-align: center; text-wrap: balance; }
 .bw-delivery span { white-space: nowrap; }
 .bw-note,.bw-upsell{border:1px solid hsl(var(--border));border-radius:8px;padding:14px;font-size:13px;line-height:1.5;background:var(--raj-white);color:var(--raj-ink)}.bw-note a,.bw-link{display:inline-flex;min-height:44px;align-items:center;color:var(--raj-gold-text);text-decoration:underline}.bw-upsell{display:flex;align-items:center;gap:12px;justify-content:space-between}.bw-upsell span{flex:1}.bw-choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bw-choice{height:auto!important;min-height:110px;white-space:normal!important;display:flex!important;flex-direction:column;align-items:flex-start!important;justify-content:center!important;padding:14px!important;text-align:left;gap:5px!important;border-radius:8px!important;background:var(--raj-white)!important;color:var(--raj-ink)!important;border:1px solid hsl(var(--border))!important}.bw-choice[aria-pressed=true]{border:2px solid var(--raj-gold-text)!important}.bw-choice small{font-size:11px;line-height:1.4}.bw-choice del{font-size:12px;color:var(--raj-muted-light)}.bw-price-note{display:block;font-size:11px;font-weight:400;line-height:1.4;margin-top:6px}.bw-cart-discount{font-size:12px;color:var(--raj-gold);line-height:1.4;margin-top:4px}
-@media(max-width:767px){.bw-announcement .bw-desktop{display:none}.bw-announcement .bw-mobile{display:inline}.bw-upsell{flex-wrap:wrap}.black-week-active .mx-purchase,.black-week-active .nx-purchase,.black-week-active .ap-purchase{padding-top:140px}}
+@media(max-width:767px){.bw-announcement .bw-desktop{display:none}.bw-announcement .bw-mobile{display:inline}.bw-upsell{flex-wrap:wrap}}
 @media(max-width:767px){.black-week-active header .bw-announcement{font-size:13px}.bw-hero-offer{font-size:12px}}
 .bw-choice-grid>button{min-height:44px}
 
@@ -102,9 +100,4 @@
   .bw-set { grid-template-columns: 84px minmax(0, 1fr); gap: 12px; margin-top: 16px; padding: 14px; }
   .bw-set h3 { font-size: 19px; }
   .bw-set .bw-buy { grid-column: 2; }
-}
-
-/* The page already reserves the header height; only add the announcement once. */
-@media(min-width:768px){
-  .black-week-active .mx-purchase,.black-week-active .nx-purchase,.black-week-active .ap-purchase{padding-top:calc(var(--bw-announcement-height) + clamp(16px,2vw,28px))}
 }
