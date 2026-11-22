@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Nur Text: NEXUS-/MATRIX-Untertitel «Eine für dich, eine für deine Liebsten» überall; mobile Black-Week-Leiste «BLACK WEEK: MATRIX 49.– · NEXUS 79.–» mit Live-Preisen, bei 320/390px einzeilig und bei 1440px unverändert ausgeblendet. Browser und Build geprüft, nicht veröffentlicht.
+
 - [x] Display-only Shopify discount badges on product heads, single NEXUS selection, homepage offers/buttons/teasers and mobile bars; floor percentages, no badge below 5% or without comparison, no set/quantity percentages. 10 pricing tests and 32 live layouts passed at 320/390/1440px in both modes, including 120% font at 320px; prices/checkout unchanged, not published.
 
 - [x] Priority mobile repair: campaign header 100px, no page overflow at 320/360/390/412px with 100/120% fonts and both modes; readable hero/MATRIX text, buy bar only after original button exits above header, original model validation verified through bar. 64 layout and 131 header checks plus product/visibility tests passed; screenshot package prepared; not published.
