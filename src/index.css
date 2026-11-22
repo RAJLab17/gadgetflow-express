@@ -37,6 +37,8 @@
 
     /* RAJ design tokens for the new homepage sections */
     --bw-dark: #141210;
+    --discount-badge-background: #C9A86A;
+    --discount-badge-foreground: #141210;
     --bw-white: #ffffff;
     --bw-offer-stage: 37.895 37.255% 90%;
     --bw-product-contact-shadow: 0 18px 24px rgba(20, 18, 16, .18);

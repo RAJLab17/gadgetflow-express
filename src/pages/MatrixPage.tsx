@@ -1,3 +1,4 @@
+import { DiscountBadge } from "@/components/product/DiscountBadge";
 import {useBlackWeekCatalog,weekCartItem} from "@/hooks/useBlackWeekCatalog";
 import { useCartTotal } from "@/hooks/useCartTotal";
 import { PriceComparison } from "@/components/product/PriceComparison";
@@ -447,7 +448,7 @@ const MatrixPage = () => {
           <section className="mx-purchase">
             <MatrixGallery src={gallerySrc} finish={caseId} alt={galleryAlt} onFirstLoad={warmVariantImages}/>
             <div className="mx-options">
-              <div>{blackWeek && <p className="bw-product-label">Black Week · {chfShort(liveSingle).replace(/\.–$/, "")}<PriceComparison product={singleVariant} format={value=>chfShort(value).replace(/\.–$/, "")}/> + AirPods Case gratis</p>}<div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price">{chf(currentTotal)}{blackWeek&&freeCase&&<small className="bw-price-note">inkl. AirPods Case gratis</small>}{comparison !== null && (blackWeek ? weekQuantity === 1 : !airpodsSelected && !twoCasesSelected) && <small className="bw-price-note"><PriceComparison product={singleVariant}/></small>}</div></div>
+              <div>{blackWeek && <p className="bw-product-label">Black Week · {chfShort(liveSingle).replace(/\.–$/, "")}<PriceComparison product={singleVariant} format={value=>chfShort(value).replace(/\.–$/, "")}/> + AirPods Case gratis</p>}<div className="mx-heading"><div><h1>MATRIX</h1><p className="mx-subtitle">MagSafe Hülle aus echtem Carbon</p></div><div className="mx-price"><span className="discount-price">{chf(currentTotal)}{(blackWeek ? weekQuantity === 1 : !airpodsSelected && !twoCasesSelected)&&<DiscountBadge product={singleVariant}/>}</span>{blackWeek&&freeCase&&<small className="bw-price-note">inkl. AirPods Case gratis</small>}{comparison !== null && (blackWeek ? weekQuantity === 1 : !airpodsSelected && !twoCasesSelected) && <small className="bw-price-note"><PriceComparison product={singleVariant}/></small>}</div></div>
                 {verifiedMatrixReviews(productReviews).length > 0 && <Button asChild variant="link" className="mx-rating"><a href="#bewertungen"><StarRating readOnly size={14} value={Math.round(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length)}/><span>{(verifiedMatrixReviews(productReviews).reduce((s,r)=>s+r.rating,0)/verifiedMatrixReviews(productReviews).length).toFixed(1)} · {verifiedMatrixReviews(productReviews).length} Bewertungen</span></a></Button>}
               </div>
               <div className="mx-photos"><ProductCustomerPhotos productId="matrix" /></div>
@@ -461,7 +462,7 @@ const MatrixPage = () => {
               {confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Bestätigung schliessen" onClick={dismissOrder}><X size={16}/></Button><p>Bestellung eingegangen</p><p>{confirmed.summary} · {confirmed.total}</p></div>}
               {pending && !confirmed && <div className="mx-notice"><Button variant="ghost" size="icon" aria-label="Hinweis schliessen" onClick={dismissPending}><X size={16}/></Button><p>Checkout läuft</p></div>}
               <Button ref={mainBuyRef} className="mx-buy" onClick={handleBuy} disabled={isBuying||(blackWeek&&!weekVariant)||(!blackWeek&&modelId!==null&&currentTotal===null)}>{isBuying ? <Loader2 className="animate-spin" size={18}/> : `Jetzt kaufen · ${chf(currentTotal)}`}</Button>
-              {blackWeek&&<div className="bw-upsell"><span>NEXUS 3-in-1 dazu: {chf(nexus?.price.amount)}<PriceComparison product={nexus}/></span><Button variant="outline" disabled={!nexus||isBuying} onClick={async()=>{if(!nexus)return;setIsBuying(true);try{await useCartStore.getState().addOffer([weekCartItem(nexus)]);}catch{toast.error("NEXUS konnte nicht hinzugefügt werden.");}finally{setIsBuying(false);}}}>Hinzufügen</Button></div>}
+              {blackWeek&&<div className="bw-upsell"><span>NEXUS 3-in-1 dazu: <span className="discount-price">{chf(nexus?.price.amount)}<DiscountBadge product={nexus}/></span><PriceComparison product={nexus}/></span><Button variant="outline" disabled={!nexus||isBuying} onClick={async()=>{if(!nexus)return;setIsBuying(true);try{await useCartStore.getState().addOffer([weekCartItem(nexus)]);}catch{toast.error("NEXUS konnte nicht hinzugefügt werden.");}finally{setIsBuying(false);}}}>Hinzufügen</Button></div>}
               <div className="mx-payment"><span><LockKeyhole size={11}/> Sichere Zahlung</span>{['TWINT','Klarna','Apple Pay','Visa','Mastercard'].map(p=><b key={p}>{p}</b>)}</div>
               <div className="mx-trust">{[{Icon:Truck,text:'Gratis Versand, 2 bis 3 Tage'},{Icon:RotateCcw,text:'30 Tage gratis Rückgabe'},{Icon:MapPin,text:'Support aus der Schweiz'},{Icon:PencilRuler,text:'Gestaltet in der Schweiz'}].map(({Icon,text})=><div key={text}><Icon strokeWidth={1.5}/><span>{text}</span></div>)}</div>
             </div>
@@ -470,7 +471,7 @@ const MatrixPage = () => {
         </main>
         <Footer/>
         <MobileSelectionPreview gallerySelector=".mx-gallery-frame" revision={previewRevision} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} label={`${caseId === "cherry" ? "Cherry" : "Onyx"} · ${device.name}`} announcement={`${caseFinish.name} auf iPhone ${device.name}${modelId ? ` · ${model.name}` : ""}`} preloadImages={PREVIEW_IMAGES}/>
-        <MobileProductBuyBar mainBuyRef={mainBuyRef} name={`MATRIX · ${caseId === 'cherry' ? 'Cherry' : 'Onyx'}`} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`} price={currentTotal} busy={isBuying}/>
+        <MobileProductBuyBar mainBuyRef={mainBuyRef} name={`MATRIX · ${caseId === 'cherry' ? 'Cherry' : 'Onyx'}`} image={renderSizes.get(caseThumbSrc)?.thumb ?? caseThumbSrc} imageAlt={`MATRIX ${caseFinish.name} · ${model.name} · ${device.name}`} price={currentTotal} discountProduct={(blackWeek ? weekQuantity === 1 : !airpodsSelected && !twoCasesSelected)?singleVariant:undefined} busy={isBuying}/>
       </div>
     </>
   );

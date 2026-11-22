@@ -1,0 +1,25 @@
+.discount-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  margin-inline-start: 5px;
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: var(--discount-badge-background);
+  color: var(--discount-badge-foreground);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.discount-price { display: inline-flex; align-items: center; white-space: nowrap; }
+#root .mobile-product-buybar-price { font-size: 14px; white-space: nowrap; }
+#root .mobile-product-buybar-price:has(.discount-badge) { font-size: 12px; }
+#root .bw-choice .discount-badge { font-size: 12px; }
+#root .bw-upsell .discount-price, #root .bw-upsell .discount-badge { flex: none; }
+@media (max-width: 767px) {
+  #root .hh-btn-price:has(.discount-badge) { font-size: 11px; white-space: nowrap; }
+}

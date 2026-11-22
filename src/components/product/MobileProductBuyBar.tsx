@@ -1,4 +1,5 @@
 import { useEffect, useState, type RefObject } from "react";
+import { DiscountBadge } from "@/components/product/DiscountBadge";
 import { chf } from "@/lib/livePrice";
 import { Loader2, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,10 +14,11 @@ interface Props {
   price: number | null;
   busy: boolean;
   nexus?: boolean;
+  discountProduct?: Parameters<typeof DiscountBadge>[0]["product"];
 }
 
 /** Delegates the purchase to the actual page control, never a separate checkout. */
-export default function MobileProductBuyBar({ mainBuyRef, name, image, imageAlt, price, busy, nexus = false }: Props) {
+export default function MobileProductBuyBar({ mainBuyRef, name, image, imageAlt, price, busy, nexus = false, discountProduct }: Props) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
@@ -54,7 +56,7 @@ export default function MobileProductBuyBar({ mainBuyRef, name, image, imageAlt,
         <img src={image} alt={imageAlt} width={40} height={40} loading="lazy" decoding="async" className="h-10 w-10 shrink-0 rounded-lg object-contain" />
         <div className="min-w-0 flex-1 leading-tight">
           <p className="mobile-product-buybar-name font-semibold uppercase">{name}</p>
-          <p className="mt-1 text-sm font-semibold tabular-nums text-primary">{chf(price)}</p>
+          <p className="mobile-product-buybar-price mt-1 font-semibold tabular-nums text-primary"><span className="discount-price">{chf(price)}<DiscountBadge product={discountProduct}/></span></p>
         </div>
         <Button
           type="button"

@@ -1,3 +1,4 @@
+import { DiscountBadge } from "@/components/product/DiscountBadge";
 import { useEffect, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useBlackWeekCatalog } from '@/hooks/useBlackWeekCatalog';
@@ -44,7 +45,7 @@ function OfferCard({ selection, title, badge, product, detail }: {
       </div>
       <div className="bw-card-copy">
         <h3>{title}</h3>
-        <p className="bw-offer-price"><strong>{chf(product?.price.amount)}</strong><span><PriceComparison product={product} format={chfShort} /></span></p>
+        <p className="bw-offer-price"><strong className="discount-price">{chf(product?.price.amount)}<DiscountBadge product={product}/></strong><span><PriceComparison product={product} format={chfShort} /></span></p>
         <p className="bw-offer-detail">{detail}</p>
         <OfferLink selection={selection} />
       </div>

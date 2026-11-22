@@ -18,6 +18,15 @@ export function comparisonAmount(variant?: { price: { amount: string }; compareA
   return price !== null && comparison !== null && Number.isFinite(comparison) && comparison > price ? comparison : null;
 }
 
+/** Display-only percentage from the individual Shopify price, never a cart/set total. */
+export function discountPercent(variant?: Parameters<typeof comparisonAmount>[0]): number | null {
+  const price = amount(variant?.price);
+  const comparison = comparisonAmount(variant);
+  if (price === null || !Number.isFinite(price) || price < 0 || comparison === null) return null;
+  const percent = Math.floor((comparison - price) / comparison * 100);
+  return percent >= 5 ? percent : null;
+}
+
 export function regularPriceTotal(variants: Parameters<typeof comparisonAmount>[0][]) {
   const prices = variants.map(variant => comparisonAmount(variant) ?? amount(variant?.price));
   return prices.reduce<number | null>((sum, price) => sum === null || price === null ? null : sum + price, 0);

@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Display-only Shopify discount badges on product heads, single NEXUS selection, homepage offers/buttons/teasers and mobile bars; floor percentages, no badge below 5% or without comparison, no set/quantity percentages. 10 pricing tests and 32 live layouts passed at 320/390/1440px in both modes, including 120% font at 320px; prices/checkout unchanged, not published.
+
 - [x] Priority mobile repair: campaign header 100px, no page overflow at 320/360/390/412px with 100/120% fonts and both modes; readable hero/MATRIX text, buy bar only after original button exits above header, original model validation verified through bar. 64 layout and 131 header checks plus product/visibility tests passed; screenshot package prepared; not published.
 - [ ] Main purchase controls in every first screen: blocked by the requested unchanged gallery, content and selection order (at 320px/120%, button bottoms are home 1078, NEXUS 1060, MATRIX 1452, AirPods 1173px versus 568px viewport). Requires approval to move purchase controls or substantially compact/reorder the first section.
 

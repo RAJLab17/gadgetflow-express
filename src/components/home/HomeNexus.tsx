@@ -1,3 +1,4 @@
+import { DiscountBadge } from "@/components/product/DiscountBadge";
 import { PriceComparison } from "@/components/product/PriceComparison";
 import {useBlackWeekCatalog} from "@/hooks/useBlackWeekCatalog";
 import { chf, chfShort, amount, fillPrices } from '@/lib/livePrice';
@@ -19,7 +20,7 @@ export default function HomeNexus() {
           <h2 className="home-nexus-title">Drei Geräte.<br />Ein Platz.</h2>
           <p className="home-nexus-description">Lädt iPhone, Apple Watch und AirPods gleichzeitig. Qi2.2 mit bis zu 25 W, magnetisch ausgerichtet.</p>
           <div className="home-nexus-buy">
-            <p className="home-nexus-price">{chf(nexus?.price.amount)}<PriceComparison product={nexus}/></p>
+            <p className="home-nexus-price"><span className="discount-price">{chf(nexus?.price.amount)}<DiscountBadge product={nexus}/></span><PriceComparison product={nexus}/></p>
             <Button asChild className="home-nexus-button"><Link to="/nexus">Jetzt kaufen</Link></Button>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { DiscountBadge } from "@/components/product/DiscountBadge";
 import { useEffect, useRef, useState } from "react";
 import { PriceComparison } from "@/components/product/PriceComparison";
 import { chf, chfShort, comparisonAmount } from '@/lib/livePrice';
@@ -204,12 +205,12 @@ const HomeHero = () => {
         </p>
         <div className="hh-buttons">
           <Link to="/nexus" className="hh-btn hh-btn--nexus">
-            <span className="hh-btn-name">NEXUS{blackWeek && ` · ${nexusPrice}`}</span>
-            {blackWeek ? (nexusCompareAt && <small className="bw-hero-button-note">statt <del>{chfShort(nexusCompareAt)}</del></small>) : <span className="hh-btn-price">{nexusPrice}</span>}
+            <span className="hh-btn-name">NEXUS{blackWeek && <> · <span className="discount-price">{nexusPrice}<DiscountBadge product={nexus}/></span></>}</span>
+            {blackWeek ? (nexusCompareAt && <small className="bw-hero-button-note">statt <del>{chfShort(nexusCompareAt)}</del></small>) : <span className="hh-btn-price discount-price">{nexusPrice}<DiscountBadge product={nexus}/></span>}
           </Link>
           <Link to="/matrix" className="hh-btn hh-btn--matrix">
-            <span className="hh-btn-name">MATRIX{blackWeek && ` · ${matrixPrice}`}</span>
-            {blackWeek ? <small className="bw-hero-button-note"><PriceComparison product={matrix} format={chfShort}/> + Case gratis</small> : <span className="hh-btn-price">{matrixPrice}<PriceComparison product={matrix} format={chfShort}/></span>}
+            <span className="hh-btn-name">MATRIX{blackWeek && <> · <span className="discount-price">{matrixPrice}<DiscountBadge product={matrix}/></span></>}</span>
+            {blackWeek ? <small className="bw-hero-button-note"><PriceComparison product={matrix} format={chfShort}/> + Case gratis</small> : <span className="hh-btn-price"><span className="discount-price">{matrixPrice}<DiscountBadge product={matrix}/></span><PriceComparison product={matrix} format={chfShort}/></span>}
           </Link>
         </div>
         <div className="hh-scroll" aria-hidden="true" />
