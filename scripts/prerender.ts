@@ -108,6 +108,13 @@ export function renderRouteHtml(html: string, snap: RouteSnapshot): string {
   // Per-page fallback content for non-JS crawlers.
   const body: string[] = [];
   if (snap.h1) body.push(`<h1>${esc(snap.h1)}</h1>`);
+  // This value was hydrated from Shopify by the publication/request hook, not saved.
+  for (const raw of snap.jsonLd) {
+    const schema = JSON.parse(raw);
+    if (schema['@type'] === 'Product' && schema.offers?.price) {
+      body.push(`<p>CHF ${esc(String(schema.offers.price))}</p>`);
+    }
+  }
   let inList = false;
   for (const b of snap.blocks) {
     if (b.tag === "h1" && b.text === snap.h1) continue;

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import PremiumPageLayout from "@/components/PremiumPageLayout";
 import { breadcrumbJsonLd } from "@/lib/schemas";
+import { productOfferPricing } from '@/lib/productOffer';
+import { useBlackWeekCatalog } from '@/hooks/useBlackWeekCatalog';
 import {
   Accordion,
   AccordionContent,
@@ -82,7 +84,6 @@ const productJsonLd = {
     "3-in-1 Wireless Charger von RAJ, einer Schweizer Marke aus Weinfelden mit Support aus dem Thurgau. Qi2.2-Zertifizierung, laut Herstellerangabe bis zu 25W für iPhone und jeweils 5W für Apple Watch und AirPods, Verstellbereich 0–75°, faltbares Design.",
   offers: {
     "@type": "Offer",
-    price: "99.00",
     priceCurrency: "CHF",
     availability: "https://schema.org/InStock",
     url: "https://raj.ch/nexus",
@@ -262,13 +263,15 @@ const ComparisonTable = () => (
 // ————————————————————————————————————————————————
 
 const VergleichPage = () => {
+  const { nexus } = useBlackWeekCatalog();
+  const offerPricing = productOfferPricing(nexus);
   return (
     <>
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(productJsonLd)}</script>
+        {offerPricing && <script type="application/ld+json">{JSON.stringify({...productJsonLd, offers: {...productJsonLd.offers, ...offerPricing}})}</script>}
       </Helmet>
 
       <PremiumPageLayout

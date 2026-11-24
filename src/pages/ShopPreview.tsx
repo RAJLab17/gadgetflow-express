@@ -9,6 +9,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useQuickBuy } from "@/hooks/useQuickBuy";
 import { fetchProductVariantInfo, storefrontApiRequest, type ShopifyProduct } from "@/lib/shopify";
 import { PRODUCT_NEXUS_JSON_LD, FAQ_NEXUS_JSON_LD } from "@/lib/schemas";
+import { productOfferPricing } from '@/lib/productOffer';
+import { useBlackWeekCatalog } from '@/hooks/useBlackWeekCatalog';
 import PaymentIcons from "@/components/PaymentIcons";
 import LaunchSignupCountdown from "@/components/launch/LaunchSignupCountdown";
 import StickyVoranmeldenButton from "@/components/launch/StickyVoranmeldenButton";
@@ -48,6 +50,8 @@ const FOUNDER_TOTAL = 100;
 const FOUNDER_PRICE = "CHF 99";
 
 const ShopPreview = () => {
+  const { nexus } = useBlackWeekCatalog();
+  const offerPricing = productOfferPricing(nexus);
   const { quickBuy, isProcessing: buyNowProcessing } = useQuickBuy();
   const [product, setProduct] = useState<ShopifyProduct | null>(null);
   const [available, setAvailable] = useState(true);
@@ -119,7 +123,7 @@ const ShopPreview = () => {
           content="RAJ NEXUS — Qi2.2 zertifizierter 3-in-1 Wireless Charger. Lädt iPhone, Apple Watch und AirPods gleichzeitig. CHF 99 · Gratis Versand · 3 Jahre Garantie."
         />
         <link rel="canonical" href="https://raj.ch/nexus" />
-        <script type="application/ld+json">{JSON.stringify(PRODUCT_NEXUS_JSON_LD)}</script>
+        {offerPricing && <script type="application/ld+json">{JSON.stringify({...PRODUCT_NEXUS_JSON_LD, offers: {...PRODUCT_NEXUS_JSON_LD.offers, ...offerPricing}})}</script>}
         <script type="application/ld+json">{JSON.stringify(FAQ_NEXUS_JSON_LD)}</script>
       </Helmet>
 

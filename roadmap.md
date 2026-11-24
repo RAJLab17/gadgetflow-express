@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] SEO product pricing: removed stored NEXUS 89/99 and MATRIX/AirPods offer prices from crawler source templates; guarded runtime schemas (including shop/comparison copies), shared two-decimal CHF offers and StrikethroughPrice comparison/30 November validity. Publication hook fetches Shopify afresh and fails closed. Live pricing tests and Googlebot DOM at 1/6 seconds confirm 79.00/49.00/35.00; delayed-response guard and build OK; no publication or checkout changes.
+
 - [x] Nur Text: NEXUS-/MATRIX-Untertitel «Eine für dich, eine für deine Liebsten» überall; mobile Black-Week-Leiste «BLACK WEEK: MATRIX 49.– · NEXUS 79.–» mit Live-Preisen, bei 320/390px einzeilig und bei 1440px unverändert ausgeblendet. Browser und Build geprüft, nicht veröffentlicht.
 
 - [x] Display-only Shopify discount badges on product heads, single NEXUS selection, homepage offers/buttons/teasers and mobile bars; floor percentages, no badge below 5% or without comparison, no set/quantity percentages. 10 pricing tests and 32 live layouts passed at 320/390/1440px in both modes, including 120% font at 320px; prices/checkout unchanged, not published.

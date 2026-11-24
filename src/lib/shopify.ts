@@ -3,10 +3,7 @@ import { getOriginCartAttributes } from "@/lib/attribution";
 import { blackWeekDiscountCodes } from '@/lib/blackWeek';
 import { cartLineUpdates } from '@/lib/cartPricing';
 
-const SHOPIFY_API_VERSION = '2026-10';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = 'kcvjif-10.myshopify.com';
-const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = '647b7b3c3f87465056274c4546111d38';
+import { SHOPIFY_STOREFRONT_URL, SHOPIFY_STOREFRONT_TOKEN } from './storefrontConfig';
 
 export interface ShopifyProduct {
   node: {

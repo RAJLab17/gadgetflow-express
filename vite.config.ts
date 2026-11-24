@@ -2,6 +2,7 @@ import { defineConfig, type PluginOption } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { loadSnapshot, normalizeRoute, renderRouteHtml } from "./scripts/prerender";
+import { fetchSeoPrices, refreshSnapshotPrices } from './scripts/seo-product-pricing';
 import { componentTagger } from "lovable-tagger";
 // @ts-expect-error - .mjs script without type declarations
 import { generateSitemap } from "./scripts/generate-sitemap.mjs";
@@ -17,9 +18,9 @@ import ap1200 from "./src/assets/matrix/airpods-gallery/airpods-cherry-product-1
 const airpodsPreload = `<link rel="preload" as="image" href="${ap1200.url}" imagesrcset="${ap400.url} 400w, ${ap800.url} 800w, ${ap1200.url} 1200w" imagesizes="(max-width: 767px) 100vw, 460px" fetchpriority="high">`;
 // Visible purchase facts (button labels the snapshot capture skips), copied verbatim from the pages.
 const PRODUCT_FACTS: Record<string, string> = {
-  "/matrix": "<h2>Preis</h2><p>CHF 59.–</p><h3>Modell</h3><ul><li>iPhone 17 Pro</li><li>iPhone 17 Pro Max</li><li>iPhone 18 Pro</li><li>iPhone 18 Pro Max</li></ul><h3>Farbe der Hülle</h3><ul><li>Cherry Carbon</li><li>Onyx Carbon</li></ul><h3>Angebote</h3><ul><li>Nur die Hülle · CHF 59.–</li><li>Hülle + AirPods Case · CHF 79.–</li><li>2 Hüllen · CHF 99.–</li></ul>",
-  "/airpods-case": "<h2>Preis</h2><p>CHF 35.–</p><h3>Kompatibel</h3><ul><li>AirPods 4 &amp; 5</li></ul><h3>Farbe der Hülle</h3><ul><li>Cherry Carbon</li><li>Onyx Carbon</li></ul><h3>Angebote</h3><ul><li>Nur die Hülle · CHF 35.–</li><li>Hülle + MATRIX iPhone Hülle · CHF 79.–</li></ul>",
-  "/nexus": "<h2>Preis</h2><p>CHF 99.–</p><ul><li>Qi2.2 · 25 W</li><li>3 Jahre Garantie</li><li>MagSafe</li><li>Lieferung in 2–4 Werktagen</li><li>30 Tage Rückgabe</li></ul>",
+  "/matrix": "<h3>Modell</h3><ul><li>iPhone 17 Pro</li><li>iPhone 17 Pro Max</li><li>iPhone 18 Pro</li><li>iPhone 18 Pro Max</li></ul><h3>Farbe der Hülle</h3><ul><li>Cherry Carbon</li><li>Onyx Carbon</li></ul>",
+  "/airpods-case": "<h3>Kompatibel</h3><ul><li>AirPods 4 &amp; 5</li></ul><h3>Farbe der Hülle</h3><ul><li>Cherry Carbon</li><li>Onyx Carbon</li></ul>",
+  "/nexus": "<ul><li>Qi2.2 · 25 W</li><li>3 Jahre Garantie</li><li>MagSafe</li><li>Lieferung in 2–4 Werktagen</li><li>30 Tage Rückgabe</li></ul>",
 };
 const withFacts = (html: string, route: string) => PRODUCT_FACTS[route]
   ? html.replace(/(<noscript>\s*<div style="max-width:800px[^>]*>\s*<h1>[\s\S]*?<\/h1>)/, `$1${PRODUCT_FACTS[route]}`)
@@ -88,19 +89,22 @@ const heroPreloadPlugin = (): PluginOption => ({
 // Build: emits <route>/index.html and <route>.html for every snapshot route
 // and rewrites index.html with the "/" snapshot.
 const prerenderPlugin = (): PluginOption => {
-  const snapshot = loadSnapshot(__dirname);
+  let snapshot = loadSnapshot(__dirname);
   const VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
   const withShell = (html: string, route: string) =>
     withFacts(html, route).replace(VIEWPORT, VIEWPORT + pageBg(route) + (ROUTE_PRELOADS[route] ?? ""));
   return {
     name: "raj-prerender",
     enforce: "post",
+    async buildStart() {
+      snapshot = refreshSnapshotPrices(loadSnapshot(__dirname), await fetchSeoPrices());
+    },
     transformIndexHtml: {
       order: "post",
-      handler(html, ctx) {
+      async handler(html, ctx) {
         if (!ctx.server) return html;
         const route = normalizeRoute(ctx.originalUrl);
-        const snap = loadSnapshot(__dirname)[route];
+        const snap = refreshSnapshotPrices(loadSnapshot(__dirname), await fetchSeoPrices())[route];
         return withShell(snap ? renderRouteHtml(html, snap) : html, route);
       },
     },

@@ -48,6 +48,7 @@ import {
 } from "@/components/matrix/matrixCommerce";
 import { airpodsThumbs, matrixDefaultGalleryRender, renderSizes } from "@/assets/matrix/responsiveRenders";
 import MobileProductBuyBar from "@/components/product/MobileProductBuyBar";
+import { productOfferPricing } from '@/lib/productOffer';
 import MobileSelectionPreview from "@/components/product/MobileSelectionPreview";
 
 import MatrixGallery from '@/components/matrix/MatrixGallery';
@@ -380,6 +381,7 @@ const MatrixPage = () => {
     if (!DEVICE_FINISHES.find((f) => f.id === deviceId)?.gens.includes(next.gen)) setDeviceId("silver");
   };
 
+  const offerPricing = productOfferPricing(singleVariant ?? liveMatrix);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -395,7 +397,7 @@ const MatrixPage = () => {
       "@type": "Offer",
       url: "https://raj.ch/matrix",
       priceCurrency: "CHF",
-      price: liveMatrix ? Number(liveMatrix.price.amount) : undefined,
+      ...offerPricing,
       availability: "https://schema.org/InStock",
       hasMerchantReturnPolicy: {
         "@type": "MerchantReturnPolicy",
@@ -438,7 +440,7 @@ const MatrixPage = () => {
         <meta property="og:type" content="product" />
         <meta property="og:url" content="https://raj.ch/matrix" />
         {shareImageTags(shareImages.matrix)}
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        {offerPricing && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
         <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"FAQPage",mainEntity:MATRIX_FAQ.map(f=>({"@type":"Question",name:f.q,acceptedAnswer:{"@type":"Answer",text:fillPrices(f.a,{MATRIX:amount(liveMatrix?.price)})}}))})}</script>
       </Helmet>
 

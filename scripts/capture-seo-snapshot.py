@@ -24,6 +24,47 @@ import sys
 if len(sys.argv) > 1:
     paths = sys.argv[1:]  # explicit paths (may include non-sitemap duplicates)
 
+PRODUCT_ROUTES = {'/nexus', '/matrix', '/airpods-case'}
+PRICE_COPY_ROUTES = PRODUCT_ROUTES | {'/', '/shop', '/launch', '/prelaunch', '/produkte'}
+
+def price_free_snapshot(out):
+    """Source captures are templates, never a cache of Shopify prices.
+
+    The Vite publication hook fills Product offers from a fresh Shopify request.
+    Keep monetary copy out of static metadata/FAQ/noscript to avoid contradictions.
+    """
+    money = re.compile(r'(?:ab\s+)?CHF\s*\d+(?:[.,]\d+)?(?:\.?)?[.–—-]*(?:\s*statt\s*(?:CHF\s*)?\d+(?:[.,]\d+)?[.–—-]*)?')
+    def clean(value):
+        if isinstance(value, str):
+            return money.sub('aktuellem Preis im Shop', value)
+        if isinstance(value, list):
+            return [clean(v) for v in value]
+        if isinstance(value, dict):
+            return {k: clean(v) for k, v in value.items()}
+        return value
+    for route, snap in out.items():
+        for key in ('description', 'ogDescription', 'twitterDescription'):
+            if route in PRICE_COPY_ROUTES and snap.get(key):
+                # Do not retain a price sentence in the static fallback metadata.
+                snap[key] = re.sub(r'\s*(?:Jetzt\s+)?(?:ab\s+)?CHF\s*\d+(?:[.,]\d+)?[.–—-]*[,\s]*', ' ', snap[key]).strip()
+        if route in PRICE_COPY_ROUTES:
+            # Monetary paragraphs belong to live React, not the crawler template.
+            snap['blocks'] = [b for b in snap['blocks'] if not money.search(b['text']) and not b['text'].upper().startswith('BLACK WEEK')]
+        schemas = []
+        for raw in snap['jsonLd']:
+            schema = json.loads(raw)
+            if schema.get('@type') == 'Product':
+                offer = schema.get('offers', {})
+                product_url = schema.get('url') or (offer.get('url', '') if isinstance(offer, dict) else '')
+                if any(product_url.rstrip('/').endswith(p) for p in PRODUCT_ROUTES):
+                    for key in ('price', 'priceSpecification', 'priceValidUntil'):
+                        offer.pop(key, None)
+            if route in PRICE_COPY_ROUTES:
+                schema = clean(schema)
+            schemas.append(json.dumps(schema, ensure_ascii=False, separators=(',', ':')))
+        snap['jsonLd'] = schemas
+    return out
+
 EXTRACT = r"""(path) => {
   const m = (sel, attr='content') => document.head.querySelector(sel)?.getAttribute(attr) || null;
   const ld = [...document.head.querySelectorAll('script[type="application/ld+json"][data-rh]')]
@@ -90,12 +131,18 @@ async def main():
             except Exception:
                 pass
             await page.wait_for_timeout(800)
+            if path in PRODUCT_ROUTES:
+                # Never capture a half-loaded Product; fail instead of saving bad SEO.
+                await page.wait_for_function("""() => [...document.head.querySelectorAll('script[type="application/ld+json"][data-rh]')].some(s => {
+                  const schema = JSON.parse(s.textContent);
+                  return schema['@type'] === 'Product' && /^\\d+\\.\\d{2}$/.test(schema.offers?.price);
+                })""", timeout=30000)
             data = await page.evaluate(EXTRACT, path)
             out[path] = data
             print(path, "|", data["title"], "|", data["canonical"], "|", data["h1"])
             await page.close()
         await b.close()
-    OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
+    OUT.write_text(json.dumps(price_free_snapshot(out), ensure_ascii=False, indent=1) + "\n")
     print("wrote", len(out), "routes")
 
 asyncio.run(main())
